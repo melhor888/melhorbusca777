@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import RecipeDetail from "./pages/RecipeDetail";
 import SearchPage from "./pages/SearchPage";
 import Tips from "./pages/Tips";
+import TipDetail from "./pages/TipDetail";
 import Favorites from "./pages/Favorites";
 import BottomNav from "./components/BottomNav";
 import NotFound from "./pages/NotFound";
@@ -25,6 +26,7 @@ const App = () => (
             <Route path="/recipe/:id" element={<RecipeDetail />} />
             <Route path="/search" element={<SearchPage />} />
             <Route path="/tips" element={<Tips />} />
+            <Route path="/tip/:id" element={<TipDetail />} />
             <Route path="/favorites" element={<Favorites />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
