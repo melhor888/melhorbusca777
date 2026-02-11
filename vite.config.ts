@@ -24,8 +24,8 @@ export default defineConfig(({ mode }) => ({
         globPatterns: ["**/*.{js,css,html,ico,png,svg,jpg,jpeg,webp}"],
       },
       manifest: {
-        name: "DrinkSeco - Receitas de Drinks",
-        short_name: "DrinkSeco",
+        name: "Drinks Company",
+        short_name: "Drinks Company",
         description: "Descubra receitas de drinks e coquetéis incríveis",
         theme_color: "#0f1318",
         background_color: "#0f1318",
