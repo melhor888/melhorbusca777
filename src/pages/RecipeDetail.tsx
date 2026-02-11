@@ -1,4 +1,5 @@
 import { useParams, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 import { getDrinkById } from "@/data/drinks";
 import { getDrinkImage } from "@/data/drinkImages";
 import { useFavorites } from "@/hooks/useFavorites";
@@ -8,6 +9,10 @@ export default function RecipeDetail() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const { isFavorite, toggleFavorite } = useFavorites();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [id]);
 
   const drink = getDrinkById(id || "");
 
