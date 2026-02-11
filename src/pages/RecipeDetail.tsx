@@ -2,8 +2,9 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { getDrinkById } from "@/data/drinks";
 import { getDrinkImage } from "@/data/drinkImages";
+import { getChefTip } from "@/data/chefTips";
 import { useFavorites } from "@/hooks/useFavorites";
-import { ArrowLeft, Heart, Share2, Clock, ChefHat } from "lucide-react";
+import { ArrowLeft, Heart, Share2, Clock, ChefHat, Wine, Lightbulb } from "lucide-react";
 
 export default function RecipeDetail() {
   const { id } = useParams<{ id: string }>();
@@ -25,7 +26,7 @@ export default function RecipeDetail() {
   }
 
   const fav = isFavorite(drink.id);
-
+  const chefTip = getChefTip(drink.id);
   const handleShare = async () => {
     const text = `🍸 ${drink.name}\n\nIngredientes:\n${drink.ingredients.join("\n")}\n\nConfira no Drinks & Company!`;
     if (navigator.share) {
@@ -129,6 +130,42 @@ export default function RecipeDetail() {
             ))}
           </ol>
         </section>
+
+        {/* Chef Tip */}
+        {chefTip && (
+          <section className="glass-card rounded-2xl p-5 space-y-4">
+            <h2 className="text-lg font-display font-bold text-foreground flex items-center gap-2">
+              <ChefHat size={20} className="text-primary" />
+              Dica do Chef
+            </h2>
+
+            <div className="space-y-3">
+              <div className="flex items-start gap-3">
+                <Wine size={16} className="text-primary mt-0.5 flex-shrink-0" />
+                <div>
+                  <p className="text-xs font-semibold text-primary uppercase tracking-wider mb-1">Copo Ideal</p>
+                  <p className="text-secondary-foreground text-sm leading-relaxed">{chefTip.glass}</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <Share2 size={16} className="text-primary mt-0.5 flex-shrink-0" />
+                <div>
+                  <p className="text-xs font-semibold text-primary uppercase tracking-wider mb-1">Como Servir</p>
+                  <p className="text-secondary-foreground text-sm leading-relaxed">{chefTip.serve}</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <Lightbulb size={16} className="text-primary mt-0.5 flex-shrink-0" />
+                <div>
+                  <p className="text-xs font-semibold text-primary uppercase tracking-wider mb-1">Segredo do Bartender</p>
+                  <p className="text-secondary-foreground text-sm leading-relaxed">{chefTip.tip}</p>
+                </div>
+              </div>
+            </div>
+          </section>
+        )}
       </div>
     </div>
   );
