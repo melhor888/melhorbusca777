@@ -1,10 +1,11 @@
+import { useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { drinks } from "@/data/drinks";
 import { getDrinkImage } from "@/data/drinkImages";
 import { Play } from "lucide-react";
 
 export default function HeroBanner() {
-  const featured = drinks[0]; // Caipirinha as featured
+  const featured = useMemo(() => drinks[Math.floor(Math.random() * drinks.length)], []);
 
   const navigate = useNavigate();
 
