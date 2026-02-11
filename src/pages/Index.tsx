@@ -8,7 +8,7 @@ export default function Index() {
       <header className="fixed top-0 left-0 right-0 z-40 px-4 py-3 flex items-center justify-between bg-gradient-to-b from-background via-background/90 to-transparent">
         <h1 className="text-xl font-display font-bold">
           <span className="text-gradient-gold">Drinks</span>
-          <span className="text-muted-foreground"> & Co</span>
+          <span className="text-muted-foreground"> & Company</span>
         </h1>
       </header>
 

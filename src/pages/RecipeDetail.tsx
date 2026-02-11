@@ -22,7 +22,7 @@ export default function RecipeDetail() {
   const fav = isFavorite(drink.id);
 
   const handleShare = async () => {
-    const text = `🍸 ${drink.name}\n\nIngredientes:\n${drink.ingredients.join("\n")}\n\nConfira no Drinks & Co!`;
+    const text = `🍸 ${drink.name}\n\nIngredientes:\n${drink.ingredients.join("\n")}\n\nConfira no Drinks & Company!`;
     if (navigator.share) {
       await navigator.share({ title: drink.name, text });
     } else {
