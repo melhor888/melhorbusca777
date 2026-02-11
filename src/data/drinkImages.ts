@@ -142,6 +142,108 @@ const drinkImages: Record<string, string> = {
   "sake-bomb": jagerbomb,
   "surfer-rosa": seaBreeze,
   "bahia-breeze": seaBreeze,
+
+  // ===== VODKA EXTRAS =====
+  appletini: cosmopolitan,
+  "cape-codder": seaBreeze,
+  madras: sexOnBeach,
+  greyhound: screwdriver,
+  "salty-dog": screwdriver,
+  "vodka-collins": tomCollins,
+  "chi-chi": pinaColada,
+  vesper: martini,
+  "bay-breeze": seaBreeze,
+  "woo-woo": sexOnBeach,
+
+  // ===== RUM EXTRAS =====
+  "rum-runner": hurricane,
+  painkiller: pinaColada,
+  "planters-punch": maiTai,
+  "hemingway-daiquiri": daiquiri,
+  "jungle-bird": maiTai,
+  "navy-grog": zombie,
+  "ti-punch": caipirinha,
+  "corn-n-oil": darkNStormy,
+  caipirissima: caipirinha,
+  "hot-buttered-rum": irishCoffee,
+
+  // ===== GIN EXTRAS =====
+  "gin-rickey": ginTonic,
+  "clover-club": cosmopolitan,
+  "ramos-gin-fizz": ginFizz,
+  southside: ginFizz,
+  "gin-basil-smash": bramble,
+  "pegu-club": french75,
+  "white-lady": french75,
+  "monkey-gland": cosmopolitan,
+  "gin-gin-mule": moscowMule,
+  "negroni-sbagliato": negroni,
+
+  // ===== TEQUILA EXTRAS =====
+  "tommys-margarita": margarita,
+  "naked-and-famous": aviation,
+  "oaxaca-old-fashioned": oldFashioned,
+  matador: margarita,
+  "brave-bull": blackRussian,
+  vampiro: bloodyMary,
+  "juan-collins": tomCollins,
+  "mezcal-margarita": margarita,
+
+  // ===== WHISKY EXTRAS =====
+  "gold-rush": whiskySour,
+  "paper-plane": sidecar,
+  toronto: oldFashioned,
+  "vieux-carre": manhattan,
+  "brown-derby": whiskySour,
+  "blood-and-sand": manhattan,
+  "new-york-sour": whiskySour,
+  "whisky-smash": mintJulep,
+
+  // ===== CLÁSSICOS EXTRAS =====
+  "champagne-cocktail": french75,
+  "brandy-alexander": espressoMartini,
+  grasshopper: blueLagoon,
+  stinger: martini,
+  "jack-rose": cosmopolitan,
+  "angel-face": aviation,
+  "between-the-sheets": sidecar,
+  "hanky-panky": negroni,
+
+  // ===== TROPICAIS EXTRAS =====
+  "pornstar-martini": cosmopolitan,
+  "swimming-pool": blueLagoon,
+  "mango-tango": smoothieFrutas,
+  "tropical-storm": hurricane,
+  "jungle-juice": fruitPunch,
+  "tiki-torch": zombie,
+  "lava-flow": pinaColada,
+  "caribbean-sunset": tequilaSunrise,
+
+  // ===== NÃO ALCOÓLICOS EXTRAS =====
+  nojito: virginMojito,
+  cinderella: fruitPunch,
+  "safe-sex-on-beach": sexOnBeach,
+  "roy-rogers": shirleyTemple,
+  "italian-soda": limonadaTropical,
+  "cranberry-spritzer": seaBreeze,
+  "cucumber-cooler": ginTonic,
+  "mango-lassi": smoothieFrutas,
+
+  // ===== SHOTS EXTRAS =====
+  "mind-eraser": blackRussian,
+  "buttery-nipple": b52,
+  "washington-apple": kamikaze,
+  "green-tea-shot": kamikaze,
+  "surfer-on-acid": jagerbomb,
+
+  // ===== EXÓTICOS EXTRAS =====
+  "hugo-spritz": aperolSpritz,
+  carajillo: espressoMartini,
+  "mezcal-negroni": negroni,
+  canchanchara: caipirinha,
+  "paloma-italiana": aperolSpritz,
+  "espresso-romano": espressoMartini,
+  "moscow-mule-thai": moscowMule,
 };
 
 export function getDrinkImage(imageKey: string): string {
