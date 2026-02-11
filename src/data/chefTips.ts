@@ -524,6 +524,436 @@ export const chefTips: Record<string, ChefTip> = {
     serve: "Drink da era dourada da aviação comercial, quando voar era luxo. A cor lilás é única e inesquecível. Drink para conhecedores.",
     tip: "O crème de violette é raro mas essencial — sem ele, não é um Aviation verdadeiro. Use com moderação (5-10ml). Gin London Dry encorpado combina melhor. Cereja Luxardo maraschino (italiana, escura) é a decoração perfeita.",
   },
+
+  // ===== VODKA EXTRAS =====
+  "appletini": {
+    glass: "Taça Martini (Cocktail glass) gelada",
+    serve: "Drink icônico dos anos 2000, popularizado pela série Scrubs. Perfeito para festas temáticas e happy hours descontraídos.",
+    tip: "Use Sour Apple Pucker para a cor verde vibrante e o sabor ácido. Equilibre a doçura com um toque extra de limão. A fatia de maçã verde na borda é essencial para a apresentação.",
+  },
+  "cape-codder": {
+    glass: "Copo alto (Highball) de 350ml",
+    serve: "Drink praiano, batizado em homenagem a Cape Cod, Massachusetts. Simples, refrescante e perfeito para o verão.",
+    tip: "Use suco de cranberry 100% natural (não o coquetel adoçado). A diferença no sabor é brutal. Esprema limão fresco na hora e sirva bem gelado.",
+  },
+  "madras": {
+    glass: "Copo alto (Highball) de 350ml",
+    serve: "Versão mais frutada do Cape Codder. Perfeito para quem acha cranberry puro muito ácido. Drink leve e social.",
+    tip: "A proporção ideal é partes iguais de cranberry e laranja. Use suco de laranja espremido na hora. O nome vem da cidade de Madras (hoje Chennai), na Índia.",
+  },
+  "greyhound": {
+    glass: "Copo alto (Highball) de 350ml",
+    serve: "Drink elegante e amargo. Perfeito como aperitivo antes do almoço. O grapefruit rosa dá cor mais bonita.",
+    tip: "Use grapefruit rosa espremido na hora — mais doce que o branco. Se achar muito amargo, adicione 10ml de xarope simples. O Salty Dog é a versão com borda de sal.",
+  },
+  "salty-dog": {
+    glass: "Copo alto (Highball) de 350ml com borda de sal",
+    serve: "O Greyhound com borda de sal — a diferença é surpreendente. O sal realça a doçura do grapefruit e suaviza o amargor.",
+    tip: "Use sal grosso marinho na borda. A vodka pode ser substituída por gin para a versão original dos anos 1920. Grapefruit rosa é mais equilibrado que o branco.",
+  },
+  "vodka-collins": {
+    glass: "Copo Collins (alto e fino) de 350ml",
+    serve: "Versão vodka do clássico Tom Collins. Mais neutro, deixa o cítrico e a efervescência brilharem. Refrescante e leve.",
+    tip: "Limão espremido na hora é obrigatório. A água com gás deve ser bem gelada e adicionada por último. A cereja maraschino no fundo é tradição.",
+  },
+  "chi-chi": {
+    glass: "Copo Hurricane de 400ml",
+    serve: "A Piña Colada com vodka! Mais leve que a versão com rum. Perfeito para quem prefere vodka mas ama drinks tropicais.",
+    tip: "Use creme de coco (não leite de coco) para a textura cremosa. Abacaxi fresco batido é infinitamente melhor. Decore com guarda-chuva para o visual tropical completo.",
+  },
+  "vesper": {
+    glass: "Taça Martini (Cocktail glass) gelada no freezer",
+    serve: "O drink inventado por Ian Fleming para James Bond em Casino Royale (1953). 'Shaken, not stirred' é a frase mais famosa da coquetelaria.",
+    tip: "A receita original usa Kina Lillet (descontinuado) — substitua por Lillet Blanc. Bond pedia vodka Gordon's e gin, numa proporção incomum. O twist de limão é longo e fino.",
+  },
+  "bay-breeze": {
+    glass: "Copo alto (Highball) de 350ml",
+    serve: "Variação tropical do Sea Breeze. Troca o grapefruit por abacaxi, resultando em um drink mais doce e acessível.",
+    tip: "O cranberry dá a cor e a acidez, o abacaxi adiciona doçura tropical. Use sucos naturais. A fatia de abacaxi como decoração dá o toque final.",
+  },
+  "woo-woo": {
+    glass: "Copo alto (Highball) de 350ml",
+    serve: "Drink simples e frutado, popularíssimo nos anos 90. Doce, fácil de beber e perfeito para quem está começando no mundo dos drinks.",
+    tip: "Basicamente um Sex on the Beach sem suco de laranja. O licor de pêssego Archers é o mais usado. Sirva bem gelado — o calor estraga a experiência.",
+  },
+
+  // ===== RUM EXTRAS =====
+  "rum-runner": {
+    glass: "Copo Hurricane de 400ml",
+    serve: "Nasceu nos anos 50 no Holiday Isle Tiki Bar, nas Florida Keys. Drink de praia por excelência, perfeito para festas tropicais.",
+    tip: "O licor de banana (crème de banana) e o de amora (blackberry) são essenciais. Use dois tipos de rum para complexidade. Decore generosamente com frutas tropicais.",
+  },
+  "painkiller": {
+    glass: "Copo Hurricane de 400ml",
+    serve: "O drink oficial das Ilhas Virgens Britânicas. Cremoso, tropical e viciante. A noz-moscada ralada na hora é a assinatura.",
+    tip: "Pusser's Rum é o único rum 'oficial' para um Painkiller autêntico. O creme de coco cria a textura irresistível. Rale noz-moscada fresca por cima — nunca use a pré-moída.",
+  },
+  "planters-punch": {
+    glass: "Copo alto (Highball) de 350ml",
+    serve: "Clássico jamaicano com mais de 100 anos. A regra mnemônica: 'One of sour, two of sweet, three of strong, four of weak.'",
+    tip: "Rum jamaicano (Appleton Estate, Wray & Nephew) é obrigatório para autenticidade. Os bitters de Angostura amarram tudo. Sirva com muito gelo e decore com laranja e cereja.",
+  },
+  "hemingway-daiquiri": {
+    glass: "Taça Coupe gelada",
+    serve: "Criado para Hemingway no El Floridita em Havana. O escritor pedia 'sem açúcar e dose dupla'. Drink de literatos e aventureiros.",
+    tip: "Também chamado de Daiquiri No.1 ou Papa Doble. O maraschino adiciona complexidade sem açúcar. O grapefruit fresco é obrigatório. Hemingway supostamente bebia 12 desses por sessão!",
+  },
+  "jungle-bird": {
+    glass: "Copo Old Fashioned (Rocks glass) largo",
+    serve: "Criado em 1978 no Aviary Bar do Hilton, Kuala Lumpur. O Campari num drink tiki é surpreendente e brilhante. Drink de bartender.",
+    tip: "O Campari parece estranho em drink tropical, mas funciona magicamente — o amargor equilibra a doçura do abacaxi. Use rum jamaicano escuro para máximo sabor.",
+  },
+  "navy-grog": {
+    glass: "Caneca Tiki ou copo Collins de 350ml",
+    serve: "Inspirado no grog da Marinha Britânica. Drink Tiki complexo e potente — três tipos de rum criam profundidade incrível.",
+    tip: "O xarope de mel adiciona corpo e suavidade. Use rum branco, dourado e escuro de origens diferentes para máxima complexidade. Gelo picado fino é essencial para a textura.",
+  },
+  "ti-punch": {
+    glass: "Copo Old Fashioned (Rocks glass) pequeno de 180ml",
+    serve: "O drink nacional da Martinica e Guadalupe. Tradicionalmente servido SEM gelo — o calor das ilhas é o refrigerante. Drink de contemplação.",
+    tip: "Rhum agricole (destilado da cana fresca, não do melaço) é obrigatório. O disco de limão é espremido levemente — não macerado. Cada pessoa ajusta seu próprio drink à mesa (tradição antilhana).",
+  },
+  "corn-n-oil": {
+    glass: "Copo Old Fashioned (Rocks glass) de 250ml",
+    serve: "Drink de Barbados, batizado pela aparência oleosa do rum escuro flutuando. Simples, potente e cheio de personalidade caribenha.",
+    tip: "Falernum (xarope de rum com especiarias) é o ingrediente secreto. Mount Gay ou Doorly's rum são escolhas autênticas de Barbados. O rum é flutuado por último para aroma.",
+  },
+  "caipirissima": {
+    glass: "Copo Old Fashioned (Rocks glass) de 300ml",
+    serve: "A caipirinha feita com rum! Mais suave e adocicada que a versão com cachaça. Perfeita para quem acha cachaça forte demais.",
+    tip: "Use rum branco cubano (Havana Club) para autenticidade. A técnica de macerar o limão é idêntica à caipirinha. Gelo picado fino é obrigatório.",
+  },
+  "hot-buttered-rum": {
+    glass: "Caneca resistente ao calor de 250ml",
+    serve: "Drink quente colonial americano, perfeito para noites de inverno. A manteiga derretida cria uma textura aveludada inesquecível.",
+    tip: "A manteiga deve ser sem sal e de boa qualidade. Rum escuro envelhecido (Appleton 12, Diplomático) eleva o drink. Canela em pau dentro da caneca é mais elegante que em pó.",
+  },
+
+  // ===== GIN EXTRAS =====
+  "gin-rickey": {
+    glass: "Copo alto (Highball) de 350ml",
+    serve: "Drink de Washington D.C., criado em 1883 no Shoomaker's Bar. Extremamente refrescante e com zero açúcar. O drink favorito de Jay Gatsby.",
+    tip: "A beleza do Rickey é a simplicidade — gin, limão e água com gás, sem xarope. Use gin London Dry e limão espremido na hora. Adicione água com gás gelada e mexa UMA vez.",
+  },
+  "clover-club": {
+    glass: "Taça Coupe gelada",
+    serve: "Clássico pré-Proibição de Philadelphia. A espuma rosada de framboesa e clara de ovo é linda e delicada. Drink sofisticado para jantares elegantes.",
+    tip: "Xarope de framboesa caseiro (framboesas + açúcar + água) é muito superior ao industrial. O dry shake é obrigatório para a espuma. Framboesas frescas na decoração finalizam perfeitamente.",
+  },
+  "ramos-gin-fizz": {
+    glass: "Copo Collins (alto e fino) de 300ml, sem gelo",
+    serve: "O drink mais trabalhoso da coquetelaria clássica — mas vale cada segundo. A espuma cremosa é hipnotizante. Nasceu em New Orleans em 1888.",
+    tip: "No bar original, 12 bartenders se revezavam agitando por 12 minutos! Em casa, 1-2 minutos de agitação vigorosa bastam. A água de flor de laranjeira é o ingrediente secreto — apenas 3 gotas.",
+  },
+  "southside": {
+    glass: "Taça Coupe gelada",
+    serve: "O Mojito com gin! Drink de speakeasy que ganhou popularidade nos anos 2000. Elegante e herbáceo, perfeito como aperitivo.",
+    tip: "Macere a hortelã SUAVEMENTE — quer perfume, não amargor. Coe duas vezes (coqueteleira + peneira fina) para textura sedosa. Gin floral como Hendrick's funciona lindamente.",
+  },
+  "gin-basil-smash": {
+    glass: "Copo Old Fashioned (Rocks glass) com gelo",
+    serve: "Criado em 2008 por Jörg Meyer em Hamburgo. O drink moderno mais importante da última década. Fresco, herbáceo e viciante.",
+    tip: "Use MUITO manjericão — 8-10 folhas grandes. Macere com força para extrair óleos. O gin London Dry encorpado funciona melhor. O aroma de manjericão fresco na decoração é obrigatório.",
+  },
+  "pegu-club": {
+    glass: "Taça Coupe gelada",
+    serve: "Originário do Pegu Club em Rangoon, Myanmar (1920s). Drink colonial britânico que influenciou toda a coquetelaria moderna.",
+    tip: "Os dois tipos de bitters (Angostura + orange) são essenciais — criam complexidade. O Cointreau equilibra o gin. Audrey Saunders abriu um bar com este nome em NY em 2005.",
+  },
+  "white-lady": {
+    glass: "Taça Coupe gelada",
+    serve: "Clássico parisiense criado por Harry MacElhone no Harry's Bar em Paris (1920s). Elegante e equilibrado, perfeito para aperitivo.",
+    tip: "A clara de ovo é opcional mas cria uma textura sedosa. Sem clara, o drink é mais cítrico e direto. Gin London Dry com Cointreau é a combinação perfeita.",
+  },
+  "monkey-gland": {
+    glass: "Taça Coupe gelada",
+    serve: "Nome bizarro, drink delicioso! Criado por Harry MacElhone em Paris nos anos 1920. O absinto dá um toque anisado sutil e misterioso.",
+    tip: "Use POUCO absinto — 5ml é suficiente. O suco de laranja deve ser fresco. A grenadine caseira (romã) faz toda a diferença na cor e no sabor.",
+  },
+  "gin-gin-mule": {
+    glass: "Copo alto (Highball) de 350ml ou caneca de cobre",
+    serve: "Criado por Audrey Saunders no Pegu Club NYC. O melhor dos dois mundos: Moscow Mule + Mojito, mas com gin. Absolutamente refrescante.",
+    tip: "A hortelã macerada dá o toque extra que diferencia do Moscow Mule simples. Use ginger beer artesanal bem picante. O gin botânico combina perfeitamente com gengibre.",
+  },
+  "negroni-sbagliato": {
+    glass: "Copo Old Fashioned (Rocks glass) de 250ml",
+    serve: "O 'Negroni errado' — nasceu quando um bartender acidentalmente usou prosecco no lugar de gin. O erro mais delicioso da história! Viralizou no TikTok.",
+    tip: "Sbagliato significa 'errado' em italiano. A efervescência do prosecco torna o drink mais leve e acessível que o Negroni clássico. Proporções iguais são sagradas.",
+  },
+
+  // ===== TEQUILA EXTRAS =====
+  "tommys-margarita": {
+    glass: "Copo Old Fashioned (Rocks glass) de 250ml",
+    serve: "Criada por Julio Bermejo no Tommy's Mexican Restaurant em San Francisco. A versão minimalista e perfeita da Margarita. Sem Cointreau!",
+    tip: "O xarope de agave substitui o Cointreau e o açúcar — mais puro e mais mexicano. Use tequila 100% agave OBRIGATORIAMENTE. Esta é a Margarita favorita dos bartenders profissionais.",
+  },
+  "naked-and-famous": {
+    glass: "Taça Coupe gelada",
+    serve: "Criado por Joaquín Simó no Death & Co, NYC. Drink moderno com mezcal que ganhou status de clássico instantâneo. Para conhecedores.",
+    tip: "As proporções iguais (partes iguais de tudo) são absolutas — assim como no Last Word, que o inspirou. O mezcal defumado com Aperol e Chartreuse cria complexidade incrível.",
+  },
+  "oaxaca-old-fashioned": {
+    glass: "Copo Old Fashioned (Rocks glass) com cubo grande de gelo",
+    serve: "Criado por Phil Ward no Death & Co, NYC. A versão mexicana do Old Fashioned que redefiniu o uso de mezcal em coquetéis. Drink de contemplação.",
+    tip: "A mistura tequila + mezcal cria profundidade sem o defumado dominar. Xarope de agave é obrigatório (não xarope simples). A casca de laranja flamejada com o mezcal é experiência sensorial pura.",
+  },
+  "matador": {
+    glass: "Copo alto (Highball) de 350ml ou taça Coupe",
+    serve: "Drink tropical com tequila. O abacaxi é o protagonista. Leve, refrescante e perfeito para tardes de verão.",
+    tip: "Use abacaxi fresco espremido na hora — a diferença é absurda. Tequila blanco funciona melhor que reposado aqui. Pode ser servido frozen no liquidificador para versão pool party.",
+  },
+  "brave-bull": {
+    glass: "Copo Old Fashioned (Rocks glass) de 250ml",
+    serve: "O Black Russian mexicano — tequila no lugar da vodka. Forte, aromático e perfeito como digestivo. Drink de macho? Talvez, mas é delicioso.",
+    tip: "Tequila reposado combina melhor com Kahlúa que a blanco. Um cubo grande de gelo é ideal. O twist de limão é opcional mas adiciona frescor que equilibra a doçura.",
+  },
+  "vampiro": {
+    glass: "Copo alto (Highball) de 400ml",
+    serve: "A Bloody Mary mexicana! Mais complexo e picante que o original. Drink de brunch mexicano por excelência. Serve como cura para ressaca.",
+    tip: "O suco de laranja é o ingrediente surpresa que diferencia do Bloody Mary. Use tequila blanco e molho picante mexicano (Valentina ou Cholula). Sal de Tajín na borda é obrigatório.",
+  },
+  "juan-collins": {
+    glass: "Copo Collins (alto e fino) de 350ml",
+    serve: "A versão tequila do Tom Collins. Refrescante e fácil, perfeito para o dia a dia. O xarope de agave é o toque mexicano.",
+    tip: "Xarope de agave em vez de xarope simples é o que diferencia este drink. Tequila blanco de qualidade é essencial. Água com gás bem gelada e efervescente finaliza perfeitamente.",
+  },
+  "mezcal-margarita": {
+    glass: "Taça Margarita ou copo Old Fashioned com borda de sal",
+    serve: "Margarita defumada para os aventureiros. O mezcal adiciona profundidade e caráter que a tequila não consegue. Drink para conhecedores.",
+    tip: "Use mezcal joven (não reposado) para que o defumado não domine. Sal de maguey na borda é o toque autêntico oaxaquenho. Cointreau equilibra o defumado perfeitamente.",
+  },
+
+  // ===== WHISKY EXTRAS =====
+  "gold-rush": {
+    glass: "Copo Old Fashioned (Rocks glass) de 250ml",
+    serve: "Criado por T.J. Siegal no Milk & Honey, NYC. Um Whisky Sour com mel no lugar de açúcar. Simples, elegante e absolutamente perfeito.",
+    tip: "O xarope de mel deve ser feito com mel de boa qualidade (1:1 mel:água quente). Bourbon com pelo menos 45% de álcool funciona melhor. Sem clara de ovo — a simplicidade é a beleza.",
+  },
+  "paper-plane": {
+    glass: "Taça Coupe gelada",
+    serve: "Criado por Sam Ross no Milk & Honey, NYC. Drink moderno com proporções iguais que virou clássico instantâneo. Nomeado pela música do M.I.A.",
+    tip: "Amaro Nonino é insubstituível — não use Averna ou Fernet. As proporções iguais são absolutas. O Aperol adiciona amargor suave e cor laranja linda. Drink de bartender por excelência.",
+  },
+  "toronto": {
+    glass: "Copo Old Fashioned (Rocks glass) com cubo grande de gelo",
+    serve: "O Old Fashioned canadense com Fernet-Branca. Forte, amargo e sofisticado. Drink de bar escuro e conversas profundas.",
+    tip: "O Fernet-Branca é usado em quantidade mínima — é potente demais. Rye whisky canadense é o mais autêntico. A casca de laranja flamejada equilibra o amargor.",
+  },
+  "vieux-carre": {
+    glass: "Copo Old Fashioned (Rocks glass) com cubo grande de gelo",
+    serve: "O drink do French Quarter de New Orleans. Complexo, com whisky E conhaque juntos. Para apreciadores sérios de coquetelaria clássica.",
+    tip: "Bénédictine é o ingrediente que amarra tudo — herbal, mel, especiarias. Os dois tipos de bitters (Peychaud's + Angostura) são obrigatórios. Mexa com respeito — este drink tem história.",
+  },
+  "brown-derby": {
+    glass: "Taça Coupe gelada",
+    serve: "Nomeado em homenagem ao restaurante Brown Derby em Hollywood, frequentado por estrelas de cinema nos anos 1930. Drink de glamour.",
+    tip: "O grapefruit fresco é obrigatório — nada de suco de caixinha. O mel equilibra o amargor do grapefruit. Bourbon suave (Maker's Mark, Bulleit) funciona melhor.",
+  },
+  "blood-and-sand": {
+    glass: "Taça Coupe gelada",
+    serve: "Nomeado pelo filme de Rudolph Valentino (1922). O único clássico com scotch e suco de laranja. Drink exótico e cinematográfico.",
+    tip: "Cherry Heering é obrigatório — não use cherry brandy genérico. Use scotch blended suave (Famous Grouse, Monkey Shoulder). O suco de laranja deve ser espremido na hora. As proporções iguais são regra.",
+  },
+  "new-york-sour": {
+    glass: "Copo Old Fashioned (Rocks glass) de 250ml",
+    serve: "O Whisky Sour com um float de vinho tinto — visualmente deslumbrante. A camada roxa sobre a espuma dourada é inesquecível.",
+    tip: "Use vinho tinto seco e frutado (Malbec ou Shiraz). Flutue com colher de bar delicadamente sobre a espuma de clara. O contraste de sabores (ácido do sour + tânico do vinho) é genial.",
+  },
+  "whisky-smash": {
+    glass: "Copo Old Fashioned (Rocks glass) de 250ml",
+    serve: "O Mint Julep descomplicado. Menos formal, mais acessível. Perfeito para quem quer hortelã + whisky sem toda a cerimônia do Julep.",
+    tip: "Macere hortelã e limão juntos — os cítricos combinam perfeitamente com a hortelã. Bourbon de qualidade média funciona bem. Gelo picado é preferível a cubos grandes aqui.",
+  },
+
+  // ===== CLÁSSICOS EXTRAS =====
+  "champagne-cocktail": {
+    glass: "Flûte de champagne",
+    serve: "O drink de celebração mais elegante que existe. Perfeito para réveillon, casamentos e momentos especiais. O cubo de açúcar com bitters é pura magia.",
+    tip: "Use champagne brut de qualidade razoável (não precisa ser Dom Pérignon). O cubo de açúcar absorve os bitters e dissolve lentamente, mudando o sabor ao longo do tempo.",
+  },
+  "brandy-alexander": {
+    glass: "Taça Coupe gelada",
+    serve: "Drink de sobremesa clássico. Cremoso, doce e indulgente. Perfeito como after-dinner em noites frias. Era o drink favorito de John Lennon.",
+    tip: "Use conhaque VS ou VSOP — o chocolate do crème de cacao domina. A noz-moscada ralada na hora é OBRIGATÓRIA — define o drink. O creme deve ser fresco e denso.",
+  },
+  "grasshopper": {
+    glass: "Taça Coupe gelada",
+    serve: "Drink de sobremesa verde-menta. Popular nos anos 1950-60 nos EUA. Cremoso e refrescante, perfeito após jantar italiano ou francês.",
+    tip: "O verde vem do crème de menthe — use a versão verde, não a branca. O crème de cacao branco é essencial (o escuro mudaria a cor). A textura deve ser cremosa como milkshake.",
+  },
+  "stinger": {
+    glass: "Taça Coupe gelada ou copo Old Fashioned com gelo",
+    serve: "Drink digestivo clássico, popular entre a elite nova-iorquina nos anos 1950. James Bond bebe um Stinger em 'Diamonds Are Forever'.",
+    tip: "Crème de menthe BRANCO é obrigatório (não o verde) — mantém a cor elegante do conhaque. Proporção 2:1 (conhaque:menthe). Pode ser servido on the rocks no verão.",
+  },
+  "jack-rose": {
+    glass: "Taça Coupe gelada",
+    serve: "Drink pré-Proibição com apple brandy. O favorito de Hemingway em 'O Sol Também Se Levanta'. Rosa bonito graças à grenadine.",
+    tip: "Applejack americano ou calvados francês — ambos funcionam. A grenadine caseira (romã) é incomparavelmente melhor que a industrial. O suco de limão deve ser fresco.",
+  },
+  "angel-face": {
+    glass: "Taça Coupe gelada",
+    serve: "Drink elegante e frutado, listado no livro da IBA. O calvados dá notas de maçã que combinam perfeitamente com gin e damasco.",
+    tip: "Proporções iguais são regra — não altere. O apricot brandy de qualidade (Rothman & Winter) faz toda a diferença. Use gin London Dry encorpado para equilibrar a doçura.",
+  },
+  "between-the-sheets": {
+    glass: "Taça Coupe gelada",
+    serve: "Versão do Sidecar com rum adicionado. Mais complexo e potente. O nome sugestivo faz parte do charme. Drink de after-dinner.",
+    tip: "Conhaque + rum branco é uma combinação surpreendentemente harmoniosa. O Cointreau equilibra com cítrico. Limão fresco é obrigatório. Drink forte — sirva em porções menores.",
+  },
+  "hanky-panky": {
+    glass: "Taça Coupe gelada",
+    serve: "Criado por Ada Coleman, head bartender do Savoy Hotel em Londres (1903). Um dos poucos drinks clássicos criados por uma mulher. Histórico e delicioso.",
+    tip: "Fernet-Branca em quantidade mínima (5ml) — é um ingrediente de acabamento, não de base. O vermute tinto doce deve ser italiano premium (Carpano Antica). Mexa, nunca agite.",
+  },
+
+  // ===== TROPICAIS EXTRAS =====
+  "pornstar-martini": {
+    glass: "Taça Coupe gelada + shot de prosecco ao lado",
+    serve: "O drink mais vendido do mundo em 2023! Criado por Douglas Ankrah em Londres. O shot de prosecco ao lado é para alternar goles. Drink de festa elegante.",
+    tip: "Use polpa de maracujá FRESCO — corte ao meio e raspe. O Passoa (licor de maracujá) é o ingrediente clássico. A meia maracujá flutuando é a assinatura visual. O prosecco é bebido entre goles.",
+  },
+  "swimming-pool": {
+    glass: "Copo Hurricane de 400ml",
+    serve: "O drink mais azul que existe! Parece literalmente uma piscina no copo. Perfeito para pool parties e festas de verão. Instagram obrigatório.",
+    tip: "O Curaçao Blue é regado POR CIMA da base cremosa branca — cria o efeito piscina. Não misture! A base de coco e abacaxi fica branca, o azul fica por cima.",
+  },
+  "mango-tango": {
+    glass: "Copo Hurricane de 400ml",
+    serve: "Drink tropical frutado e cremoso. Perfeito com comida tailandesa e culinária asiática. O manga fresco faz toda a diferença.",
+    tip: "Use manga madura e doce (Palmer ou Tommy Atkins). Bata até ficar super cremoso. O toque de limão é essencial para equilibrar a doçura. Pode ser feito sem álcool substituindo rum por suco de laranja.",
+  },
+  "tropical-storm": {
+    glass: "Copo Hurricane de 450ml",
+    serve: "Versão turbinada do Hurricane com maracujá e manga. Drink de festa tropical com personalidade forte. Visual exuberante.",
+    tip: "Dois tipos de rum (branco e escuro) criam profundidade. Use polpas de frutas frescas, não sucos industrializados. A grenadine no fundo cria camada de cor espetacular.",
+  },
+  "jungle-juice": {
+    glass: "Jarra grande para servir ou copos de 400ml",
+    serve: "O drink de festa universitária americano! Feito em grandes quantidades para servir multidões. Forte mas com sabor frutado que disfarça o álcool.",
+    tip: "ATENÇÃO: apesar de parecer suco de frutas, é extremamente forte (3 destilados). Sirva com responsabilidade. Faça em jarra e deixe na geladeira por 1 hora antes.",
+  },
+  "tiki-torch": {
+    glass: "Caneca Tiki de cerâmica de 400ml+",
+    serve: "Drink Tiki elaborado com 3 tipos de rum. A experiência completa inclui caneca temática, decoração exótica e tocha ao fundo. Drink de aventura.",
+    tip: "O dash de absinto é o toque final que adiciona complexidade herbal. Use folha de abacaxi como decoração — corte em forma de chama para o visual 'torch'. Limite: um por pessoa.",
+  },
+  "lava-flow": {
+    glass: "Copo Hurricane de 400ml",
+    serve: "O drink mais fotogênico do Havaí! O morango vermelho escorrendo sobre a base branca de coco parece lava. Obrigatório nas praias de Maui.",
+    tip: "Bata a base branca (rum, coco, abacaxi) separadamente. Bata os morangos separadamente. Despeje a base no copo e adicione morango POR CIMA para o efeito lava escorrendo.",
+  },
+  "caribbean-sunset": {
+    glass: "Copo alto (Highball) transparente de 350ml",
+    serve: "Visual espetacular com gradiente de cores como um pôr do sol caribenho. Doce, tropical e irresistível. Drink de resort de praia.",
+    tip: "A grenadine é despejada pela lateral e afunda criando o degradê sunset. NÃO mexa! Deixe o convidado apreciar o visual antes de misturar. Rum de coco Malibu funciona perfeitamente.",
+  },
+
+  // ===== NÃO ALCOÓLICOS EXTRAS =====
+  "nojito": {
+    glass: "Copo alto (Highball) de 350ml",
+    serve: "Mojito de maracujá sem álcool. Toda a experiência tropical sem o rum. Perfeito para gestantes, motoristas e quem quer sabor sem álcool.",
+    tip: "O maracujá adiciona complexidade que compensa a ausência do rum. Macere hortelã suavemente. Água com gás bem gelada finaliza. Xarope de maracujá caseiro é infinitamente melhor.",
+  },
+  "cinderella": {
+    glass: "Copo alto (Highball) de 350ml",
+    serve: "O drink sem álcool para festas de gala. Elegante, equilibrado e com nome de princesa. Perfeito quando você quer um drink sofisticado sem álcool.",
+    tip: "Os três sucos (laranja, abacaxi, limão) criam equilíbrio perfeito. A grenadine dá cor rosa encantadora. Complete com ginger ale para efervescência. Decore como um drink real.",
+  },
+  "safe-sex-on-beach": {
+    glass: "Copo alto (Highball) de 350ml",
+    serve: "Toda a diversão do Sex on the Beach, zero álcool. O suco de pêssego substitui o licor perfeitamente. Ninguém vai perceber a diferença!",
+    tip: "Use néctar de pêssego de boa qualidade para substituir o licor. Cranberry natural + laranja fresco são essenciais. Decore igual ao original — a experiência visual importa mesmo sem álcool.",
+  },
+  "roy-rogers": {
+    glass: "Copo alto (Highball) de 350ml",
+    serve: "A versão masculina do Shirley Temple, batizada pelo cowboy das telas. Coca-cola + grenadine = nostalgia pura. Perfeito para crianças e adultos.",
+    tip: "Coca-cola mexicana (açúcar de cana) é superior. A grenadine caseira dá outra dimensão de sabor. Cereja maraschino é obrigatória. Para adultos, adicione uma bola de sorvete de baunilha!",
+  },
+  "italian-soda": {
+    glass: "Copo alto (Highball) de 400ml",
+    serve: "Popular em cafeterias italianas e americanas. Infinitas variações de sabor — framboesa, lavanda, baunilha, caramelo. Refrescante e personalizável.",
+    tip: "Use xaropes italianos de qualidade (Torani, Monin). A versão com creme de leite (Italian Cream Soda) é irresistível. Framboesa + água com gás é a combinação mais popular.",
+  },
+  "cranberry-spritzer": {
+    glass: "Copo alto (Highball) de 350ml ou taça de vinho",
+    serve: "Leve, refrescante e sofisticado. Parece vinho rosé espumante. Perfeito para eventos onde você quer algo elegante sem álcool.",
+    tip: "Use cranberry natural (não o adoçado). O limão fresco equilibra a acidez. Água com gás bem gelada e efervescente. Sirva em taça de vinho para aparência mais sofisticada.",
+  },
+  "cucumber-cooler": {
+    glass: "Copo alto (Highball) de 350ml",
+    serve: "O drink mais refrescante sem álcool. O pepino combinado com hortelã e limão é revigorante. Perfeito para spa days e detox.",
+    tip: "Macere o pepino suavemente para extrair sabor sem turvar demais. Hortelã fresca batida nas mãos antes de decorar. Pode adicionar aloe vera para versão 'spa deluxe'.",
+  },
+  "mango-lassi": {
+    glass: "Copo alto de 400ml ou mason jar",
+    serve: "Bebida tradicional indiana, perfeita com curry e comida apimentada. O iogurte acalma o paladar após pratos picantes. Nutritivo e delicioso.",
+    tip: "Use manga Alphonso (considerada a melhor do mundo) se encontrar. Iogurte integral e denso dá melhor textura. O cardamomo é sutil mas essencial — rale na hora. Pode ser servido gelado ou em temperatura ambiente.",
+  },
+
+  // ===== SHOTS EXTRAS =====
+  "mind-eraser": {
+    glass: "Copo Old Fashioned (Rocks glass) de 250ml com canudo",
+    serve: "Não é um shot tradicional — é bebido com canudo de uma vez! A experiência é beber as 3 camadas simultaneamente. Drink de festa americano.",
+    tip: "As camadas devem ficar separadas: Kahlúa (pesado) embaixo, vodka no meio, água com gás (leve) em cima. O canudo chega até o fundo — beba tudo de uma vez sem parar.",
+  },
+  "buttery-nipple": {
+    glass: "Shot glass de 30ml transparente (para ver as camadas)",
+    serve: "Shot doce e suave com apenas 2 ingredientes. Perfeito para quem não gosta de shots fortes. As 2 camadas são lindas no copo.",
+    tip: "O Butterscotch Schnapps é mais denso, vai embaixo. Flutue o Baileys com costas de colher. A ordem importa! Beba de uma vez para misturar os sabores.",
+  },
+  "washington-apple": {
+    glass: "Shot glass de 60ml ou taça martini pequena",
+    serve: "Shot sofisticado que pode ser servido como mini coquetel. O sabor de maçã verde com cranberry é irresistível. Favorito em festas americanas.",
+    tip: "Crown Royal canadense é o whisky clássico para este shot, mas qualquer bom whisky suave funciona. Sirva bem gelado — agite com gelo e coe. O cranberry dá a cor rosada linda.",
+  },
+  "green-tea-shot": {
+    glass: "Shot glass de 45ml",
+    serve: "Apesar do nome, NÃO tem chá verde! O apelido vem da cor e do sabor suave. O shot mais 'bebível' que existe — doce e suave.",
+    tip: "Jameson é o whisky clássico. O licor de pêssego + sour mix cria um sabor que realmente lembra chá verde. O splash de sprite no final adiciona efervescência sutil.",
+  },
+  "surfer-on-acid": {
+    glass: "Shot glass de 60ml",
+    serve: "Jäger + Malibu + abacaxi parece estranho, mas é surpreendentemente bom. Tropical com toque herbal. Drink de praia que virou shot cult.",
+    tip: "O Jägermeister deve estar gelado (direto do freezer). O suco de abacaxi suaviza o herbal do Jäger e o coco do Malibu amarra tudo. Agite com gelo para servir gelado.",
+  },
+
+  // ===== EXÓTICOS EXTRAS =====
+  "hugo-spritz": {
+    glass: "Taça de vinho grande (balão) com bastante gelo",
+    serve: "O rival do Aperol Spritz! Nasceu no Tirol do Sul (Itália/Áustria). Mais leve, floral e refrescante. O drink do verão europeu.",
+    tip: "Xarope de flor de sabugueiro (elderflower) é o ingrediente estrela — St-Germain é o mais famoso. Use prosecco DOC. A hortelã fresca é obrigatória. Mais leve e menos amargo que o Aperol Spritz.",
+  },
+  "carajillo": {
+    glass: "Copo Old Fashioned (Rocks glass) de 250ml ou copo de café",
+    serve: "Tradição espanhola e mexicana — café + licor. O Licor 43 (com 43 ingredientes!) é a escolha mais popular no México. Perfeito como after-dinner.",
+    tip: "O espresso DEVE ser fresco e quente. Licor 43 (Cuarenta y Tres) é a escolha clássica mexicana — notas de baunilha, cítricos e canela. Sirva com gelo para contraste de temperatura.",
+  },
+  "mezcal-negroni": {
+    glass: "Copo Old Fashioned (Rocks glass) de 250ml",
+    serve: "O Negroni defumado! O mezcal adiciona uma dimensão completamente nova ao clássico italiano. Drink para aventureiros e amantes de mezcal.",
+    tip: "Use mezcal joven (não reposado) para que o defumado não domine. As proporções 1:1:1 são mantidas. A casca de laranja flamejada combina perfeitamente com a fumaça do mezcal.",
+  },
+  "canchanchara": {
+    glass: "Copo de barro tradicional ou copo Old Fashioned",
+    serve: "O cocktail mais antigo de Cuba! Criado por guerrilheiros durante as guerras de independência. Mel + aguardente + limão = simplicidade guerrilheira.",
+    tip: "Tradicionalmente feito com aguardente de cana (não rum). O mel deve ser diluído com o suco de limão antes de adicionar o destilado. Sirva sem gelo (tradição) ou com 1 cubo.",
+  },
+  "paloma-italiana": {
+    glass: "Copo alto (Highball) de 350ml",
+    serve: "O drink mais simples do Campari — apenas 2 ingredientes! Criado em homenagem a Giuseppe Garibaldi. O suco de laranja 'fluffy' é a assinatura.",
+    tip: "O segredo é o suco de laranja FLUFFY — bata no liquidificador com ar para criar textura aerada. Campari gelado + laranja fluffy = combinação perfeita. Simples e genial.",
+  },
+  "espresso-romano": {
+    glass: "Taça Martini gelada",
+    serve: "Variação italiana do Espresso Martini com amaretto. Notas de amêndoa combinam perfeitamente com café. After-dinner sofisticado.",
+    tip: "Amaretto di Saronno é a escolha clássica. O espresso deve ser forte e fresco. A vodka é o 'motor' que equilibra a doçura. Agite vigorosamente para a crema perfeita.",
+  },
+  "moscow-mule-thai": {
+    glass: "Caneca de cobre (Moscow Mule mug)",
+    serve: "Moscow Mule com toque tailandês — lemongrass e manjericão asiático elevam o drink a outro nível. Perfeito com comida asiática.",
+    tip: "O xarope de lemongrass é fácil: ferva lemongrass com açúcar e água. O manjericão tailandês (diferente do italiano) tem notas de anis. Ginger beer artesanal bem picante é essencial.",
+  },
 };
 
 export function getChefTip(drinkId: string): ChefTip | undefined {
