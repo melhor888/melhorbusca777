@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 import { useXP } from "@/hooks/useXP";
 import { bartenderTips } from "@/data/bartenderTips";
 import { achievements, getAchievementById } from "@/data/achievements";
@@ -9,6 +10,10 @@ import { Trophy, Lock } from "lucide-react";
 export default function Tips() {
   const navigate = useNavigate();
   const { totalXP, achievements: unlockedAchievements, viewedRecipes } = useXP();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const availableTips = bartenderTips.filter((t) => t.requiredXP <= totalXP);
   const lockedTips = bartenderTips.filter((t) => t.requiredXP > totalXP);
