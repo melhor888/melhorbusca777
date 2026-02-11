@@ -33,19 +33,18 @@ export default defineConfig(({ mode }) => ({
         display: "standalone",
         orientation: "portrait",
         scope: "/",
-        start_url: "/",
+        start_url: "https://drinkseco.lovable.app/",
         icons: [
           {
-            src: "/pwa-192x192.png",
+            src: "/pwa-192x192.jpg",
             sizes: "192x192",
-            type: "image/png",
+            type: "image/jpeg",
             purpose: "any",
           },
           {
-            src: "/pwa-512x512.png",
+            src: "/pwa-512x512.jpg",
             sizes: "512x512",
-            type: "image/png",
-            purpose: "any",
+            type: "image/jpeg",
           },
           {
             src: "/pwa-512x512.jpg",
