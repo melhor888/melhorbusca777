@@ -10,6 +10,33 @@ import daiquiri from "@/assets/drink-daiquiri.jpg";
 import virginMojito from "@/assets/drink-virgin-mojito.jpg";
 import negroni from "@/assets/drink-negroni.jpg";
 import tequilaSunrise from "@/assets/drink-tequila-sunrise.jpg";
+import bloodyMary from "@/assets/drink-bloody-mary.jpg";
+import screwdriver from "@/assets/drink-screwdriver.jpg";
+import whiteRussian from "@/assets/drink-white-russian.jpg";
+import blackRussian from "@/assets/drink-black-russian.jpg";
+import cubaLibre from "@/assets/drink-cuba-libre.jpg";
+import maiTai from "@/assets/drink-mai-tai.jpg";
+import tomCollins from "@/assets/drink-tom-collins.jpg";
+import ginFizz from "@/assets/drink-gin-fizz.jpg";
+import paloma from "@/assets/drink-paloma.jpg";
+import whiskySour from "@/assets/drink-whisky-sour.jpg";
+import manhattan from "@/assets/drink-manhattan.jpg";
+import mintJulep from "@/assets/drink-mint-julep.jpg";
+import martini from "@/assets/drink-martini.jpg";
+import french75 from "@/assets/drink-french-75.jpg";
+import sexOnBeach from "@/assets/drink-sex-on-beach.jpg";
+import blueLagoon from "@/assets/drink-blue-lagoon.jpg";
+import shirleyTemple from "@/assets/drink-shirley-temple.jpg";
+import smoothieFrutas from "@/assets/drink-smoothie-frutas.jpg";
+import limonadaTropical from "@/assets/drink-limonada-tropical.jpg";
+import jagerbomb from "@/assets/drink-jagerbomb.jpg";
+import b52 from "@/assets/drink-b52.jpg";
+import kamikaze from "@/assets/drink-kamikaze.jpg";
+import lemonDrop from "@/assets/drink-lemon-drop.jpg";
+import aperolSpritz from "@/assets/drink-aperol-spritz.jpg";
+import piscoSour from "@/assets/drink-pisco-sour.jpg";
+import sangria from "@/assets/drink-sangria.jpg";
+import caipiroska from "@/assets/drink-caipiroska.jpg";
 
 const drinkImages: Record<string, string> = {
   "hero-mojito": heroMojito,
@@ -24,6 +51,33 @@ const drinkImages: Record<string, string> = {
   "virgin-mojito": virginMojito,
   negroni,
   "tequila-sunrise": tequilaSunrise,
+  "bloody-mary": bloodyMary,
+  screwdriver,
+  "white-russian": whiteRussian,
+  "black-russian": blackRussian,
+  "cuba-libre": cubaLibre,
+  "mai-tai": maiTai,
+  "tom-collins": tomCollins,
+  "gin-fizz": ginFizz,
+  paloma,
+  "whisky-sour": whiskySour,
+  manhattan,
+  "mint-julep": mintJulep,
+  martini,
+  "french-75": french75,
+  "sex-on-beach": sexOnBeach,
+  "blue-lagoon": blueLagoon,
+  "shirley-temple": shirleyTemple,
+  "smoothie-frutas": smoothieFrutas,
+  "limonada-tropical": limonadaTropical,
+  jagerbomb,
+  b52,
+  kamikaze,
+  "lemon-drop": lemonDrop,
+  "aperol-spritz": aperolSpritz,
+  "pisco-sour": piscoSour,
+  sangria,
+  caipiroska,
 };
 
 export function getDrinkImage(imageKey: string): string {
