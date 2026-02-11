@@ -37,6 +37,21 @@ import aperolSpritz from "@/assets/drink-aperol-spritz.jpg";
 import piscoSour from "@/assets/drink-pisco-sour.jpg";
 import sangria from "@/assets/drink-sangria.jpg";
 import caipiroska from "@/assets/drink-caipiroska.jpg";
+import espressoMartini from "@/assets/drink-espresso-martini.jpg";
+import seaBreeze from "@/assets/drink-sea-breeze.jpg";
+import zombie from "@/assets/drink-zombie.jpg";
+import darkNStormy from "@/assets/drink-dark-n-stormy.jpg";
+import bramble from "@/assets/drink-bramble.jpg";
+import irishCoffee from "@/assets/drink-irish-coffee.jpg";
+import hurricane from "@/assets/drink-hurricane.jpg";
+import sidecar from "@/assets/drink-sidecar.jpg";
+import aviation from "@/assets/drink-aviation.jpg";
+import penicillin from "@/assets/drink-penicillin.jpg";
+import longIsland from "@/assets/drink-long-island.jpg";
+import tequilaShot from "@/assets/drink-tequila-shot.jpg";
+import fruitPunch from "@/assets/drink-fruit-punch.jpg";
+import arnoldPalmer from "@/assets/drink-arnold-palmer.jpg";
+import michelada from "@/assets/drink-michelada.jpg";
 
 const drinkImages: Record<string, string> = {
   "hero-mojito": heroMojito,
@@ -78,6 +93,55 @@ const drinkImages: Record<string, string> = {
   "pisco-sour": piscoSour,
   sangria,
   caipiroska,
+  "espresso-martini": espressoMartini,
+  "sea-breeze": seaBreeze,
+  zombie,
+  "dark-n-stormy": darkNStormy,
+  bramble,
+  "irish-coffee": irishCoffee,
+  hurricane,
+  sidecar,
+  aviation,
+  penicillin,
+  "long-island": longIsland,
+  "tequila-shot": tequilaShot,
+  "fruit-punch": fruitPunch,
+  "arnold-palmer": arnoldPalmer,
+  michelada,
+  // Aliases for drinks reusing similar images
+  "harvey-wallbanger": screwdriver,
+  "vodka-martini": martini,
+  "rum-punch": maiTai,
+  "bahama-mama": pinaColada,
+  "singapore-sling": tomCollins,
+  gimlet: ginTonic,
+  "bees-knees": lemonDrop,
+  batanga: cubaLibre,
+  "mexican-mule": moscowMule,
+  "tequila-sour": whiskySour,
+  "el-diablo": darkNStormy,
+  cantarito: paloma,
+  "ranch-water": ginTonic,
+  "rusty-nail": oldFashioned,
+  "rob-roy": manhattan,
+  boulevardier: negroni,
+  godfather: blackRussian,
+  sazerac: oldFashioned,
+  americano: negroni,
+  "corpse-reviver": french75,
+  "last-word": aviation,
+  "pina-colada-sa": pinaColada,
+  "agua-fresca": limonadaTropical,
+  "cha-gelado": arnoldPalmer,
+  "suco-verde": smoothieFrutas,
+  "limonada-suica": smoothieFrutas,
+  "purple-rain": blueLagoon,
+  "absinthe-drip": aviation,
+  "irish-car-bomb": jagerbomb,
+  "fireball-shot": tequilaShot,
+  "sake-bomb": jagerbomb,
+  "surfer-rosa": seaBreeze,
+  "bahia-breeze": seaBreeze,
 };
 
 export function getDrinkImage(imageKey: string): string {
