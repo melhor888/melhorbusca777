@@ -36,20 +36,20 @@ export default defineConfig(({ mode }) => ({
         start_url: "https://drinkseco.lovable.app/",
         icons: [
           {
-            src: "/pwa-192x192.jpg",
+            src: "/pwa-192x192.png",
             sizes: "192x192",
-            type: "image/jpeg",
+            type: "image/png",
             purpose: "any",
           },
           {
-            src: "/pwa-512x512.jpg",
+            src: "/pwa-512x512.png",
             sizes: "512x512",
-            type: "image/jpeg",
+            type: "image/png",
           },
           {
-            src: "/pwa-512x512.jpg",
+            src: "/pwa-512x512.png",
             sizes: "512x512",
-            type: "image/jpeg",
+            type: "image/png",
             purpose: "maskable",
           },
         ],
