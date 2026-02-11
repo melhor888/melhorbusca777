@@ -1,5 +1,6 @@
 import HeroBanner from "@/components/HeroBanner";
 import CategoryRow from "@/components/CategoryRow";
+import XPBar from "@/components/XPBar";
 import { categories, getDrinksByCategory } from "@/data/drinks";
 
 export default function Index() {
@@ -10,6 +11,7 @@ export default function Index() {
           <span className="text-gradient-gold">Drinks</span>
           <span className="text-muted-foreground"> & Company</span>
         </h1>
+        <XPBar compact />
       </header>
 
       <HeroBanner />

@@ -1,19 +1,34 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { getDrinkById } from "@/data/drinks";
 import { getDrinkImage } from "@/data/drinkImages";
 import { getChefTip } from "@/data/chefTips";
 import { useFavorites } from "@/hooks/useFavorites";
+import { useXP } from "@/hooks/useXP";
+import XPToast from "@/components/XPToast";
 import { ArrowLeft, Heart, Share2, Clock, ChefHat, Wine, Lightbulb } from "lucide-react";
 
 export default function RecipeDetail() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const { isFavorite, toggleFavorite } = useFavorites();
+  const { addRecipeXP } = useXP();
+  const [showXP, setShowXP] = useState(false);
+  const [xpGained, setXpGained] = useState(0);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [id]);
+
+  useEffect(() => {
+    if (id) {
+      const gained = addRecipeXP(id);
+      if (gained > 0) {
+        setXpGained(gained);
+        setShowXP(true);
+      }
+    }
+  }, [id, addRecipeXP]);
 
   const drink = getDrinkById(id || "");
 
@@ -38,6 +53,7 @@ export default function RecipeDetail() {
 
   return (
     <div className="min-h-screen pb-8">
+      <XPToast xp={xpGained} show={showXP} onClose={() => setShowXP(false)} />
       {/* Hero */}
       <div className="relative h-[360px]">
         <img
