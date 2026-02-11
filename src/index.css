@@ -92,3 +92,7 @@
     background: linear-gradient(to right, hsl(220 20% 6%) 0%, transparent 10%, transparent 90%, hsl(220 20% 6%) 100%);
   }
 }
+
+#lovable-badge {
+  display: none !important;
+}
