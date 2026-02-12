@@ -1,11 +1,11 @@
-import { Wine, GraduationCap, Heart, Search } from "lucide-react";
+import { Wine, GraduationCap, Heart, BookOpen } from "lucide-react";
 import { useLocation, useNavigate } from "react-router-dom";
 import XPBar from "./XPBar";
 
 const navItems = [
   { path: "/", icon: Wine, label: "Receitas" },
-  { path: "/search", icon: Search, label: "Buscar" },
   { path: "/tips", icon: GraduationCap, label: "Escola" },
+  { path: "/dicas", icon: BookOpen, label: "Dicas" },
   { path: "/favorites", icon: Heart, label: "Favoritos" },
 ];
 
@@ -14,7 +14,7 @@ export default function BottomNav() {
   const navigate = useNavigate();
 
   // Hide on recipe detail and tip detail pages
-  if (location.pathname.startsWith("/recipe/") || location.pathname.startsWith("/tip/")) return null;
+  if (location.pathname.startsWith("/recipe/") || location.pathname.startsWith("/tip/") || location.pathname.startsWith("/artigo/")) return null;
 
   return (
     <nav className="fixed bottom-0 left-0 right-0 z-50 glass-card border-t border-border/50 pb-safe">
