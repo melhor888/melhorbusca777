@@ -9,6 +9,8 @@ import SearchPage from "./pages/SearchPage";
 import Tips from "./pages/Tips";
 import TipDetail from "./pages/TipDetail";
 import Favorites from "./pages/Favorites";
+import Dicas from "./pages/Dicas";
+import ArticleDetail from "./pages/ArticleDetail";
 import BottomNav from "./components/BottomNav";
 import NotFound from "./pages/NotFound";
 
@@ -28,6 +30,8 @@ const App = () => (
             <Route path="/tips" element={<Tips />} />
             <Route path="/tip/:id" element={<TipDetail />} />
             <Route path="/favorites" element={<Favorites />} />
+            <Route path="/dicas" element={<Dicas />} />
+            <Route path="/artigo/:id" element={<ArticleDetail />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <BottomNav />
