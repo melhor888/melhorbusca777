@@ -49,6 +49,11 @@ export default function ArticleDetail() {
       setCompletedModules(article.modules.map((_, i) => i));
       setXpAwarded(true);
 
+      // Add XP to total
+      const xpData = JSON.parse(localStorage.getItem("drinks-co-xp") || "{}");
+      xpData.totalXP = (xpData.totalXP || 0) + article.xpReward;
+      localStorage.setItem("drinks-co-xp", JSON.stringify(xpData));
+
       // Save to localStorage
       const readArticles = JSON.parse(localStorage.getItem("drinks-co-read-articles") || "[]") as string[];
       if (!readArticles.includes(article.id)) {

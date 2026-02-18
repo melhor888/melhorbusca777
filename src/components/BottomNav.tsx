@@ -14,7 +14,7 @@ export default function BottomNav() {
   const navigate = useNavigate();
 
   // Hide on recipe detail and tip detail pages
-  if (location.pathname.startsWith("/tip/") || location.pathname.startsWith("/artigo/")) return null;
+  if (location.pathname.startsWith("/tip/")) return null;
 
   return (
     <nav className="fixed bottom-0 left-0 right-0 z-50 glass-card border-t border-border/50 pb-safe">
