@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { Mail, MessageSquare } from "lucide-react";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import Footer from "@/components/Footer";
-import AdPlaceholder from "@/components/AdPlaceholder";
+
 import { useState } from "react";
 
 export default function Contato() {
@@ -22,7 +22,7 @@ export default function Contato() {
         <div className="px-4 pt-16 max-w-2xl mx-auto">
           <Breadcrumbs items={[{ label: "Contato" }]} />
           
-          <AdPlaceholder position="header" />
+          
 
           <h1 className="text-3xl font-display font-bold text-foreground mt-4 mb-6">Fale Conosco</h1>
 
@@ -46,7 +46,7 @@ export default function Contato() {
               </div>
             </div>
 
-            <AdPlaceholder position="in-content" />
+            
 
             <h2 className="text-xl font-display font-semibold text-foreground mt-8">Envie sua Mensagem</h2>
 
@@ -84,7 +84,7 @@ export default function Contato() {
             )}
           </div>
 
-          <AdPlaceholder position="footer" />
+          
         </div>
         <Footer />
       </div>

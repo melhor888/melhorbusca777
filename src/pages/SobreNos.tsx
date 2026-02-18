@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import Footer from "@/components/Footer";
-import AdPlaceholder from "@/components/AdPlaceholder";
+
 
 export default function SobreNos() {
   return (
@@ -20,7 +20,7 @@ export default function SobreNos() {
         <div className="px-4 pt-16 max-w-2xl mx-auto">
           <Breadcrumbs items={[{ label: "Sobre Nós" }]} />
           
-          <AdPlaceholder position="header" />
+          
 
           <h1 className="text-3xl font-display font-bold text-foreground mt-4 mb-6">Sobre a Drinks & Company</h1>
 
@@ -34,7 +34,7 @@ export default function SobreNos() {
             <h2 className="text-xl font-display font-semibold text-foreground mt-8">Conteúdo Educacional</h2>
             <p>Além das receitas, oferecemos artigos aprofundados sobre destilados, técnicas de mixologia, história dos coquetéis e dicas profissionais de bartenders experientes. Nosso sistema gamificado de aprendizagem com XP e conquistas torna o estudo da coquetelaria envolvente e divertido.</p>
 
-            <AdPlaceholder position="in-content" />
+            
 
             <h2 className="text-xl font-display font-semibold text-foreground mt-8">Nossa Equipe</h2>
             <p>Somos uma equipe de bartenders, sommeliers e entusiastas da gastronomia dedicados a criar o melhor conteúdo sobre coquetelaria em língua portuguesa. Trabalhamos com profissionais do setor para garantir que todas as receitas e técnicas sejam precisas e atualizadas.</p>
@@ -46,7 +46,7 @@ export default function SobreNos() {
             <p>A Drinks & Company incentiva o consumo responsável de bebidas alcoólicas. Nosso conteúdo é destinado exclusivamente a maiores de 18 anos. Beba com moderação e nunca dirija após consumir bebidas alcoólicas.</p>
           </section>
 
-          <AdPlaceholder position="footer" />
+          
         </div>
         <Footer />
       </div>
