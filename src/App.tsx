@@ -24,6 +24,7 @@ import CookieConsent from "./components/CookieConsent";
 import { WebsiteSchema, OrganizationSchema } from "./components/SchemaOrg";
 import NotFound from "./pages/NotFound";
 import Footer from "./components/Footer";
+import InstallPrompt from "./components/InstallPrompt";
 
 const queryClient = new QueryClient();
 
@@ -59,6 +60,7 @@ const App = () => (
           </div>
           <Footer />
           <CookieConsent />
+          <InstallPrompt />
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>
