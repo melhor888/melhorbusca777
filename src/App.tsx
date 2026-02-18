@@ -23,6 +23,7 @@ import BottomNav from "./components/BottomNav";
 import CookieConsent from "./components/CookieConsent";
 import { WebsiteSchema, OrganizationSchema } from "./components/SchemaOrg";
 import NotFound from "./pages/NotFound";
+import Footer from "./components/Footer";
 
 const queryClient = new QueryClient();
 
@@ -56,6 +57,7 @@ const App = () => (
             </Routes>
             <BottomNav />
           </div>
+          <Footer />
           <CookieConsent />
         </BrowserRouter>
       </TooltipProvider>
