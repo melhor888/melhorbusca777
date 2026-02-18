@@ -1,12 +1,12 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useRef } from "react";
 import { getDrinkById } from "@/data/drinks";
 import { getDrinkImage } from "@/data/drinkImages";
 import { getChefTip } from "@/data/chefTips";
 import { useFavorites } from "@/hooks/useFavorites";
 import { useXP } from "@/hooks/useXP";
 import XPToast from "@/components/XPToast";
-import { ArrowLeft, Heart, Share2, Clock, ChefHat, Wine, Lightbulb } from "lucide-react";
+import { ArrowLeft, Heart, Share2, Clock, ChefHat, Wine, Lightbulb, Zap } from "lucide-react";
 
 export default function RecipeDetail() {
   const { id } = useParams<{ id: string }>();
@@ -15,6 +15,8 @@ export default function RecipeDetail() {
   const { addRecipeXP } = useXP();
   const [showXP, setShowXP] = useState(false);
   const [xpGained, setXpGained] = useState(0);
+  const [xpMarked, setXpMarked] = useState(false);
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -22,11 +24,19 @@ export default function RecipeDetail() {
 
   useEffect(() => {
     if (id) {
-      const gained = addRecipeXP(id);
-      if (gained > 0) {
-        setXpGained(gained);
-        setShowXP(true);
-      }
+      // Random delay between 3-7 seconds
+      const delay = Math.floor(Math.random() * 4000) + 3000;
+      timerRef.current = setTimeout(() => {
+        const gained = addRecipeXP(id);
+        if (gained > 0) {
+          setXpGained(gained);
+          setShowXP(true);
+          setXpMarked(true);
+        }
+      }, delay);
+      return () => {
+        if (timerRef.current) clearTimeout(timerRef.current);
+      };
     }
   }, [id, addRecipeXP]);
 
@@ -52,7 +62,7 @@ export default function RecipeDetail() {
   };
 
   return (
-    <div className="min-h-screen pb-8">
+    <div className="min-h-screen pb-24">
       <XPToast xp={xpGained} show={showXP} onClose={() => setShowXP(false)} />
       {/* Hero */}
       <div className="relative h-[360px]">
@@ -62,6 +72,16 @@ export default function RecipeDetail() {
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
+
+        {/* XP Ganho badge */}
+        {xpMarked && (
+          <div className="absolute top-16 right-4 z-10 animate-fade-in">
+            <div className="flex items-center gap-1.5 bg-primary/90 text-primary-foreground rounded-full px-3 py-1.5 shadow-lg">
+              <Zap size={14} className="fill-primary-foreground" />
+              <span className="text-xs font-bold">XP Ganho</span>
+            </div>
+          </div>
+        )}
 
         {/* Top bar */}
         <div className="absolute top-0 left-0 right-0 flex justify-between items-center p-4 z-10">
