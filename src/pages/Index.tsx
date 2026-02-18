@@ -6,7 +6,7 @@ import HeroBanner from "@/components/HeroBanner";
 import CategoryRow from "@/components/CategoryRow";
 import XPBar from "@/components/XPBar";
 import DrinkCard from "@/components/DrinkCard";
-import AdPlaceholder from "@/components/AdPlaceholder";
+
 import Footer from "@/components/Footer";
 import { categories, getDrinksByCategory, searchDrinks } from "@/data/drinks";
 
@@ -43,7 +43,7 @@ export default function Index() {
           </div>
         </div>
 
-        <AdPlaceholder position="header" />
+        
 
         {query.length >= 2 ? (
           <div className="px-4">
@@ -64,14 +64,12 @@ export default function Index() {
             {categories.map((cat, i) => (
               <div key={cat}>
                 <CategoryRow title={cat} drinks={getDrinksByCategory(cat)} />
-                {i === 2 && <AdPlaceholder position="in-content" />}
-                {i === 5 && <AdPlaceholder position="native" />}
               </div>
             ))}
           </div>
         )}
 
-        <AdPlaceholder position="footer" />
+        
         <Footer />
       </div>
     </>
