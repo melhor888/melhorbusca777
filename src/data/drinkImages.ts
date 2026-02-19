@@ -1,3 +1,4 @@
+// Imports for existing images
 import heroMojito from "@/assets/hero-mojito.jpg";
 import caipirinha from "@/assets/drink-caipirinha.jpg";
 import margarita from "@/assets/drink-margarita.jpg";
@@ -64,8 +65,6 @@ import carajillo from "@/assets/drink-carajillo.jpg";
 import amarettoSour from "@/assets/drink-amaretto-sour.jpg";
 import frangelicoCoffee from "@/assets/drink-frangelico-coffee.jpg";
 import baileysIce from "@/assets/drink-baileys-ice.jpg";
-
-// ===== NEW UNIQUE IMAGES =====
 import harveyWallbanger from "@/assets/drink-harvey-wallbanger.jpg";
 import appletini from "@/assets/drink-appletini.jpg";
 import gimlet from "@/assets/drink-gimlet.jpg";
@@ -96,8 +95,6 @@ import watermelonVodka from "@/assets/drink-watermelon-vodka.jpg";
 import bananaDaiquiri from "@/assets/drink-banana-daiquiri.jpg";
 import goldRush from "@/assets/drink-gold-rush.jpg";
 import paperPlane from "@/assets/drink-paper-plane.jpg";
-
-// ===== BATCH 2 UNIQUE IMAGES =====
 import batanga from "@/assets/drink-batanga.jpg";
 import ranchWater from "@/assets/drink-ranch-water.jpg";
 import capeCodder from "@/assets/drink-cape-codder.jpg";
@@ -118,8 +115,6 @@ import wooWoo from "@/assets/drink-woo-woo.jpg";
 import cantarito from "@/assets/drink-cantarito.jpg";
 import vampiro from "@/assets/drink-vampiro.jpg";
 import newYorkSour from "@/assets/drink-new-york-sour.jpg";
-
-// ===== BATCH 3 UNIQUE IMAGES =====
 import bayBreeze from "@/assets/drink-bay-breeze.jpg";
 import matador from "@/assets/drink-matador.jpg";
 import toronto from "@/assets/drink-toronto.jpg";
@@ -130,8 +125,6 @@ import whiskySmash from "@/assets/drink-whisky-smash.jpg";
 import chiChi from "@/assets/drink-chi-chi.jpg";
 import vodkaCollins from "@/assets/drink-vodka-collins.jpg";
 import juanCollins from "@/assets/drink-juan-collins.jpg";
-
-// ===== BATCH 4 — NÃO ALCOÓLICOS =====
 import aguaFresca from "@/assets/drink-agua-fresca.jpg";
 import chaGelado from "@/assets/drink-cha-gelado.jpg";
 import limonadaSuica from "@/assets/drink-limonada-suica.jpg";
@@ -144,8 +137,6 @@ import italianSoda from "@/assets/drink-italian-soda.jpg";
 import sunsetLemonade from "@/assets/drink-sunset-lemonade.jpg";
 import cranberrySpritzer from "@/assets/drink-cranberry-spritzer.jpg";
 import cucumberCooler from "@/assets/drink-cucumber-cooler.jpg";
-
-// ===== BATCH 4 — SHOTS =====
 import irishCarBomb from "@/assets/drink-irish-car-bomb.jpg";
 import fireballShot from "@/assets/drink-fireball-shot.jpg";
 import sakeBomb from "@/assets/drink-sake-bomb.jpg";
@@ -157,24 +148,18 @@ import pornStarShot from "@/assets/drink-porn-star-shot.jpg";
 import jellyShot from "@/assets/drink-jelly-shot.jpg";
 import pickleback from "@/assets/drink-pickleback.jpg";
 import mindEraser from "@/assets/drink-mind-eraser.jpg";
-
-// ===== BATCH 4 — RUM =====
 import plantersPunch from "@/assets/drink-planters-punch.jpg";
 import navyGrog from "@/assets/drink-navy-grog.jpg";
 import tiPunch from "@/assets/drink-ti-punch.jpg";
 import cornNOil from "@/assets/drink-corn-n-oil.jpg";
 import caipirissima from "@/assets/drink-caipirissima.jpg";
 import spicedRumPunch from "@/assets/drink-spiced-rum-punch.jpg";
-
-// ===== BATCH 4 — TROPICAIS =====
 import mangoTango from "@/assets/drink-mango-tango.jpg";
 import tropicalStorm from "@/assets/drink-tropical-storm.jpg";
 import lavaFlow from "@/assets/drink-lava-flow.jpg";
 import caribbeanSunset from "@/assets/drink-caribbean-sunset.jpg";
 import jungleJuice from "@/assets/drink-jungle-juice.jpg";
 import tikiTorch from "@/assets/drink-tiki-torch.jpg";
-
-// ===== BATCH 4 — CAFÉ & LICORES =====
 import cafeMexicano from "@/assets/drink-cafe-mexicano.jpg";
 import grasshopperLicor from "@/assets/drink-grasshopper-licor.jpg";
 import disaronnoFizz from "@/assets/drink-disaronno-fizz.jpg";
@@ -182,11 +167,111 @@ import kahluaEspresso from "@/assets/drink-kahlua-espresso.jpg";
 import chambordRoyale from "@/assets/drink-chambord-royale.jpg";
 import baileysEspresso from "@/assets/drink-baileys-espresso.jpg";
 import tiramisuCocktail from "@/assets/drink-tiramisu-cocktail.jpg";
-
-// ===== BATCH 4 — EXÓTICOS =====
 import palomaItaliana from "@/assets/drink-paloma-italiana.jpg";
 import espressoRomano from "@/assets/drink-espresso-romano.jpg";
 import moscowMuleThai from "@/assets/drink-moscow-mule-thai.jpg";
+
+// ===== BATCH 5 — 100 NEW UNIQUE IMAGES =====
+import dirtyMartini from "@/assets/drink-dirty-martini.jpg";
+import fuzzyNavel from "@/assets/drink-fuzzy-navel.jpg";
+import electricLemonade from "@/assets/drink-electric-lemonade.jpg";
+import lycheeMartini from "@/assets/drink-lychee-martini.jpg";
+import vodkaGimlet from "@/assets/drink-vodka-gimlet.jpg";
+import johnDaly from "@/assets/drink-john-daly.jpg";
+import cucumberMule from "@/assets/drink-cucumber-mule.jpg";
+import frozenSexBeach from "@/assets/drink-frozen-sex-beach.jpg";
+import elPresidente from "@/assets/drink-el-presidente.jpg";
+import maryPickford from "@/assets/drink-mary-pickford.jpg";
+import threeDotsDash from "@/assets/drink-three-dots-dash.jpg";
+import saturn from "@/assets/drink-saturn.jpg";
+import cableCar from "@/assets/drink-cable-car.jpg";
+import queensParkSwizzle from "@/assets/drink-queens-park-swizzle.jpg";
+import twelveMileLimit from "@/assets/drink-twelve-mile-limit.jpg";
+import fogCutter from "@/assets/drink-fog-cutter.jpg";
+import martinez from "@/assets/drink-martinez.jpg";
+import pinkLady from "@/assets/drink-pink-lady.jpg";
+import jasmine from "@/assets/drink-jasmine.jpg";
+import casino from "@/assets/drink-casino.jpg";
+import tuxedo from "@/assets/drink-tuxedo.jpg";
+import bijou from "@/assets/drink-bijou.jpg";
+import bronx from "@/assets/drink-bronx.jpg";
+import armyNavy from "@/assets/drink-army-navy.jpg";
+import rosita from "@/assets/drink-rosita.jpg";
+import mexicanFiringSquad from "@/assets/drink-mexican-firing-squad.jpg";
+import tequilaMockingbird from "@/assets/drink-tequila-mockingbird.jpg";
+import palomaRosa from "@/assets/drink-paloma-rosa.jpg";
+import frozenMatador from "@/assets/drink-frozen-matador.jpg";
+import tequilaOldFashioned from "@/assets/drink-tequila-old-fashioned.jpg";
+import chimayo from "@/assets/drink-chimayo.jpg";
+import sangrita from "@/assets/drink-sangrita.jpg";
+import hotToddy from "@/assets/drink-hot-toddy.jpg";
+import wardEight from "@/assets/drink-ward-eight.jpg";
+import bobbyBurns from "@/assets/drink-bobby-burns.jpg";
+import tipperary from "@/assets/drink-tipperary.jpg";
+import lionsTail from "@/assets/drink-lions-tail.jpg";
+import algonquin from "@/assets/drink-algonquin.jpg";
+import bentonsOldFashioned from "@/assets/drink-bentons-old-fashioned.jpg";
+import cameronsKick from "@/assets/drink-camerons-kick.jpg";
+import bamboo from "@/assets/drink-bamboo.jpg";
+import adonis from "@/assets/drink-adonis.jpg";
+import trinidadSour from "@/assets/drink-trinidad-sour.jpg";
+import sufferingBastard from "@/assets/drink-suffering-bastard.jpg";
+import airmail from "@/assets/drink-airmail.jpg";
+import melonBall from "@/assets/drink-melon-ball.jpg";
+import blueHawaii from "@/assets/drink-blue-hawaii.jpg";
+import scorpionBowl from "@/assets/drink-scorpion-bowl.jpg";
+import testPilot from "@/assets/drink-test-pilot.jpg";
+import cobrasFang from "@/assets/drink-cobras-fang.jpg";
+import blackVelvet from "@/assets/drink-black-velvet.jpg";
+import oldCuban from "@/assets/drink-old-cuban.jpg";
+import seelbach from "@/assets/drink-seelbach.jpg";
+import diamondFizz from "@/assets/drink-diamond-fizz.jpg";
+import princeOfWales from "@/assets/drink-prince-of-wales.jpg";
+import champagneJulep from "@/assets/drink-champagne-julep.jpg";
+import espressoOldFashioned from "@/assets/drink-espresso-old-fashioned.jpg";
+import coffeeNegroni from "@/assets/drink-coffee-negroni.jpg";
+import afterEight from "@/assets/drink-after-eight.jpg";
+import mochaMartini from "@/assets/drink-mocha-martini.jpg";
+import midnightStinger from "@/assets/drink-midnight-stinger.jpg";
+import irishCreamCoffee from "@/assets/drink-irish-cream-coffee.jpg";
+import sambucaCoffee from "@/assets/drink-sambuca-coffee.jpg";
+import hazelnutEspresso from "@/assets/drink-hazelnut-espresso.jpg";
+import lavenderLemonade from "@/assets/drink-lavender-lemonade.jpg";
+import hibiscusCooler from "@/assets/drink-hibiscus-cooler.jpg";
+import grapefruitCooler from "@/assets/drink-grapefruit-cooler.jpg";
+import passionFruitSpritz from "@/assets/drink-passion-fruit-spritz.jpg";
+import virginBlueLagoon from "@/assets/drink-virgin-blue-lagoon.jpg";
+import virginMargarita from "@/assets/drink-virgin-margarita.jpg";
+import gingerBeerMocktail from "@/assets/drink-ginger-beer-mocktail.jpg";
+import virginPinaColada from "@/assets/drink-virgin-pina-colada.jpg";
+import peachBelliniSa from "@/assets/drink-peach-bellini-sa.jpg";
+import watermelonAguaFresca from "@/assets/drink-watermelon-agua-fresca.jpg";
+import raspberryLemonade from "@/assets/drink-raspberry-lemonade.jpg";
+import matchaLatte from "@/assets/drink-matcha-latte.jpg";
+import horchata from "@/assets/drink-horchata.jpg";
+import tamarindCooler from "@/assets/drink-tamarind-cooler.jpg";
+import chaiLatte from "@/assets/drink-chai-latte.jpg";
+import tequilaSlammer from "@/assets/drink-tequila-slammer.jpg";
+import cementMixer from "@/assets/drink-cement-mixer.jpg";
+import prairieFire from "@/assets/drink-prairie-fire.jpg";
+import chocolateCakeShot from "@/assets/drink-chocolate-cake-shot.jpg";
+import redheadedSlut from "@/assets/drink-redheaded-slut.jpg";
+import blowjobShot from "@/assets/drink-blowjob-shot.jpg";
+import melonBallShot from "@/assets/drink-melon-ball-shot.jpg";
+import pineappleUpsideDown from "@/assets/drink-pineapple-upside-down.jpg";
+import sakeMartini from "@/assets/drink-sake-martini.jpg";
+import sojuCocktail from "@/assets/drink-soju-cocktail.jpg";
+import shochuHighball from "@/assets/drink-shochu-highball.jpg";
+import arak from "@/assets/drink-arak.jpg";
+import rakijaSour from "@/assets/drink-rakija-sour.jpg";
+import aguardiente from "@/assets/drink-aguardiente.jpg";
+import feni from "@/assets/drink-feni.jpg";
+import baijiu from "@/assets/drink-baijiu.jpg";
+import raki from "@/assets/drink-raki.jpg";
+import japanesePenicillin from "@/assets/drink-japanese-penicillin.jpg";
+import ouzoLemonade from "@/assets/drink-ouzo-lemonade.jpg";
+import chartreuse from "@/assets/drink-chartreuse-swizzle.jpg";
+import saturnTiki from "@/assets/drink-saturn-tiki.jpg";
 
 const drinkImages: Record<string, string> = {
   "hero-mojito": heroMojito,
@@ -255,58 +340,50 @@ const drinkImages: Record<string, string> = {
   "amaretto-sour": amarettoSour,
   "frangelico-coffee": frangelicoCoffee,
   "baileys-ice": baileysIce,
-
-  // ===== UNIQUE GENERATED IMAGES =====
   "harvey-wallbanger": harveyWallbanger,
   "vodka-martini": martini,
   "rum-punch": rumPunch,
   "bahama-mama": bahamaMama,
   "singapore-sling": singaporeSling,
-  gimlet: gimlet,
+  gimlet,
   "bees-knees": beesKnees,
-  batanga: batanga,
+  batanga,
   "mexican-mule": mexicanMule,
   "tequila-sour": whiskySour,
   "el-diablo": elDiablo,
-  cantarito: cantarito,
+  cantarito,
   "ranch-water": ranchWater,
   "rusty-nail": rustyNail,
   "rob-roy": robRoy,
-  boulevardier: boulevardier,
-  godfather: godfather,
-  sazerac: sazerac,
-  americano: americano,
+  boulevardier,
+  godfather,
+  sazerac,
+  americano,
   "corpse-reviver": corpseReviver,
   "last-word": lastWord,
   "purple-rain": purpleRain,
-
-  // ===== VODKA EXTRAS =====
-  appletini: appletini,
+  appletini,
   "cape-codder": capeCodder,
-  madras: madras,
-  greyhound: greyhound,
+  madras,
+  greyhound,
   "salty-dog": saltyDog,
   "vodka-collins": vodkaCollins,
   "chi-chi": chiChi,
-  vesper: vesper,
+  vesper,
   "bay-breeze": bayBreeze,
   "woo-woo": wooWoo,
-
-  // ===== RUM EXTRAS =====
   "rum-runner": rumRunner,
-  painkiller: painkiller,
+  painkiller,
   "planters-punch": plantersPunch,
   "hemingway-daiquiri": hemingwayDaiquiri,
   "jungle-bird": jungleBird,
   "navy-grog": navyGrog,
   "ti-punch": tiPunch,
   "corn-n-oil": cornNOil,
-  caipirissima: caipirissima,
+  caipirissima,
   "hot-buttered-rum": hotButteredRum,
   "banana-daiquiri": bananaDaiquiri,
   "spiced-rum-punch": spicedRumPunch,
-
-  // ===== GIN EXTRAS =====
   "gin-rickey": ginTonic,
   "clover-club": cloverClub,
   "ramos-gin-fizz": ramosGinFizz,
@@ -317,38 +394,30 @@ const drinkImages: Record<string, string> = {
   "monkey-gland": cosmopolitan,
   "gin-gin-mule": mexicanMule,
   "negroni-sbagliato": negroniSbagliato,
-
-  // ===== TEQUILA EXTRAS =====
   "tommys-margarita": tommysMargarita,
   "naked-and-famous": aviation,
   "oaxaca-old-fashioned": oaxacaOldFashioned,
-  matador: matador,
+  matador,
   "brave-bull": godfather,
-  vampiro: vampiro,
+  vampiro,
   "juan-collins": juanCollins,
   "mezcal-margarita": spicyMargarita,
-
-  // ===== WHISKY EXTRAS =====
   "gold-rush": goldRush,
   "paper-plane": paperPlane,
-  toronto: toronto,
+  toronto,
   "vieux-carre": vieuxCarre,
   "brown-derby": brownDerby,
   "blood-and-sand": bloodAndSand,
   "new-york-sour": newYorkSour,
   "whisky-smash": whiskySmash,
-
-  // ===== CLÁSSICOS EXTRAS =====
   "champagne-cocktail": champagneCocktail,
   "brandy-alexander": espressoMartini,
-  grasshopper: grasshopper,
+  grasshopper,
   stinger: martini,
   "jack-rose": cloverClub,
   "angel-face": corpseReviver,
   "between-the-sheets": sidecar,
   "hanky-panky": negroni,
-
-  // ===== TROPICAIS EXTRAS =====
   "pornstar-martini": pornstarMartini,
   "swimming-pool": swimmingPool,
   "mango-tango": mangoTango,
@@ -357,10 +426,8 @@ const drinkImages: Record<string, string> = {
   "tiki-torch": tikiTorch,
   "lava-flow": lavaFlow,
   "caribbean-sunset": caribbeanSunset,
-
-  // ===== NÃO ALCOÓLICOS EXTRAS =====
-  nojito: nojito,
-  cinderella: cinderella,
+  nojito,
+  cinderella,
   "safe-sex-on-beach": sexOnBeach,
   "roy-rogers": royRogers,
   "italian-soda": italianSoda,
@@ -374,12 +441,10 @@ const drinkImages: Record<string, string> = {
   "tropical-punch-sa": tropicalPunch,
   "pina-colada-sa": pinaColada,
   "fruit-punch-sa": fruitPunch,
-
-  // ===== SHOTS EXTRAS =====
   "irish-car-bomb": irishCarBomb,
   "fireball-shot": fireballShot,
   "sake-bomb": sakeBomb,
-  pickleback: pickleback,
+  pickleback,
   "espresso-shot": espressoMartini,
   "mind-eraser": mindEraser,
   "buttery-nipple": butteryNipple,
@@ -388,8 +453,6 @@ const drinkImages: Record<string, string> = {
   "surfer-on-acid": surferOnAcid,
   "porn-star-shot": pornStarShot,
   "jelly-shot": jellyShot,
-
-  // ===== EXÓTICOS EXTRAS =====
   "hugo-spritz": hugoSpritz,
   "mezcal-negroni": boulevardier,
   canchanchara: caipirinha,
@@ -397,8 +460,6 @@ const drinkImages: Record<string, string> = {
   "espresso-romano": espressoRomano,
   "moscow-mule-thai": moscowMuleThai,
   "carajillo-espanhol": carajillo,
-
-  // ===== NOVAS RECEITAS =====
   "blue-cosmo": blueCosmo,
   "watermelon-vodka": watermelonVodka,
   "spicy-margarita": spicyMargarita,
@@ -415,7 +476,110 @@ const drinkImages: Record<string, string> = {
   "grasshopper-licor": grasshopperLicor,
   "disaronno-fizz": disaronnoFizz,
   "kahlua-espresso": kahluaEspresso,
+  "champagne-margarita": margarita,
   "chambord-royale": chambordRoyale,
+
+  // ===== BATCH 5 — 100 NEW DRINKS =====
+  "dirty-martini": dirtyMartini,
+  "vodka-gimlet": vodkaGimlet,
+  "fuzzy-navel": fuzzyNavel,
+  "electric-lemonade": electricLemonade,
+  "john-daly": johnDaly,
+  "lychee-martini": lycheeMartini,
+  "cucumber-mule": cucumberMule,
+  "frozen-sex-beach": frozenSexBeach,
+  "el-presidente": elPresidente,
+  "mary-pickford": maryPickford,
+  "three-dots-dash": threeDotsDash,
+  saturn,
+  "cable-car": cableCar,
+  "queens-park-swizzle": queensParkSwizzle,
+  "twelve-mile-limit": twelveMileLimit,
+  "fog-cutter": fogCutter,
+  martinez,
+  "pink-lady": pinkLady,
+  jasmine,
+  casino,
+  tuxedo,
+  bijou,
+  bronx,
+  "army-navy": armyNavy,
+  rosita,
+  "mexican-firing-squad": mexicanFiringSquad,
+  "tequila-mockingbird": tequilaMockingbird,
+  "paloma-rosa": palomaRosa,
+  "frozen-matador": frozenMatador,
+  "tequila-old-fashioned": tequilaOldFashioned,
+  chimayo,
+  sangrita,
+  "hot-toddy": hotToddy,
+  "ward-eight": wardEight,
+  "bobby-burns": bobbyBurns,
+  tipperary,
+  "lions-tail": lionsTail,
+  algonquin,
+  "bentons-old-fashioned": bentonsOldFashioned,
+  "camerons-kick": cameronsKick,
+  bamboo,
+  adonis,
+  "trinidad-sour": trinidadSour,
+  "suffering-bastard": sufferingBastard,
+  airmail,
+  "melon-ball": melonBall,
+  "blue-hawaii": blueHawaii,
+  "scorpion-bowl": scorpionBowl,
+  "test-pilot": testPilot,
+  "cobras-fang": cobrasFang,
+  "black-velvet": blackVelvet,
+  "old-cuban": oldCuban,
+  seelbach,
+  "diamond-fizz": diamondFizz,
+  "prince-of-wales": princeOfWales,
+  "champagne-julep": champagneJulep,
+  "espresso-old-fashioned": espressoOldFashioned,
+  "coffee-negroni": coffeeNegroni,
+  "after-eight": afterEight,
+  "mocha-martini": mochaMartini,
+  "midnight-stinger": midnightStinger,
+  "irish-cream-coffee": irishCreamCoffee,
+  "sambuca-coffee": sambucaCoffee,
+  "hazelnut-espresso": hazelnutEspresso,
+  "lavender-lemonade": lavenderLemonade,
+  "hibiscus-cooler": hibiscusCooler,
+  "grapefruit-cooler": grapefruitCooler,
+  "passion-fruit-spritz": passionFruitSpritz,
+  "virgin-blue-lagoon": virginBlueLagoon,
+  "virgin-margarita": virginMargarita,
+  "ginger-beer-mocktail": gingerBeerMocktail,
+  "virgin-pina-colada": virginPinaColada,
+  "peach-bellini-sa": peachBelliniSa,
+  "watermelon-agua-fresca": watermelonAguaFresca,
+  "raspberry-lemonade": raspberryLemonade,
+  "matcha-latte": matchaLatte,
+  horchata,
+  "tamarind-cooler": tamarindCooler,
+  "chai-latte": chaiLatte,
+  "tequila-slammer": tequilaSlammer,
+  "cement-mixer": cementMixer,
+  "prairie-fire": prairieFire,
+  "chocolate-cake-shot": chocolateCakeShot,
+  "redheaded-slut": redheadedSlut,
+  "blowjob-shot": blowjobShot,
+  "melon-ball-shot": melonBallShot,
+  "pineapple-upside-down": pineappleUpsideDown,
+  "sake-martini": sakeMartini,
+  "soju-cocktail": sojuCocktail,
+  "shochu-highball": shochuHighball,
+  arak,
+  "rakija-sour": rakijaSour,
+  aguardiente,
+  feni,
+  baijiu,
+  raki,
+  "japanese-penicillin": japanesePenicillin,
+  "ouzo-lemonade": ouzoLemonade,
+  "chartreuse-swizzle": chartreuse,
+  "saturn-tiki": saturnTiki,
 };
 
 export function getDrinkImage(imageKey: string): string {
