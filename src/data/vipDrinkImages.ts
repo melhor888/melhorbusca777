@@ -62,6 +62,43 @@ import vipWine60 from "@/assets/vip-wine-60.jpg";
 import vipWine61 from "@/assets/vip-wine-61.jpg";
 import vipWine62 from "@/assets/vip-wine-62.jpg";
 import vipWine63 from "@/assets/vip-wine-63.jpg";
+import vipWine64 from "@/assets/vip-wine-64.jpg";
+import vipWine65 from "@/assets/vip-wine-65.jpg";
+import vipWine66 from "@/assets/vip-wine-66.jpg";
+import vipWine67 from "@/assets/vip-wine-67.jpg";
+import vipWine68 from "@/assets/vip-wine-68.jpg";
+import vipWine69 from "@/assets/vip-wine-69.jpg";
+import vipWine70 from "@/assets/vip-wine-70.jpg";
+import vipWine71 from "@/assets/vip-wine-71.jpg";
+import vipWine72 from "@/assets/vip-wine-72.jpg";
+import vipWine73 from "@/assets/vip-wine-73.jpg";
+import vipWine74 from "@/assets/vip-wine-74.jpg";
+import vipWine75 from "@/assets/vip-wine-75.jpg";
+import vipWine76 from "@/assets/vip-wine-76.jpg";
+import vipWine77 from "@/assets/vip-wine-77.jpg";
+import vipWine78 from "@/assets/vip-wine-78.jpg";
+import vipWine79 from "@/assets/vip-wine-79.jpg";
+import vipWine80 from "@/assets/vip-wine-80.jpg";
+import vipWine81 from "@/assets/vip-wine-81.jpg";
+import vipWine82 from "@/assets/vip-wine-82.jpg";
+import vipWine83 from "@/assets/vip-wine-83.jpg";
+import vipWine84 from "@/assets/vip-wine-84.jpg";
+import vipWine85 from "@/assets/vip-wine-85.jpg";
+import vipWine86 from "@/assets/vip-wine-86.jpg";
+import vipWine87 from "@/assets/vip-wine-87.jpg";
+import vipWine88 from "@/assets/vip-wine-88.jpg";
+import vipWine89 from "@/assets/vip-wine-89.jpg";
+import vipWine90 from "@/assets/vip-wine-90.jpg";
+import vipWine91 from "@/assets/vip-wine-91.jpg";
+import vipWine92 from "@/assets/vip-wine-92.jpg";
+import vipWine93 from "@/assets/vip-wine-93.jpg";
+import vipWine94 from "@/assets/vip-wine-94.jpg";
+import vipWine95 from "@/assets/vip-wine-95.jpg";
+import vipWine96 from "@/assets/vip-wine-96.jpg";
+import vipWine97 from "@/assets/vip-wine-97.jpg";
+import vipWine98 from "@/assets/vip-wine-98.jpg";
+import vipWine99 from "@/assets/vip-wine-99.jpg";
+import vipWine100 from "@/assets/vip-wine-100.jpg";
 
 import vipBeer1 from "@/assets/vip-beer-1.jpg";
 import vipBeer2 from "@/assets/vip-beer-2.jpg";
@@ -297,7 +334,12 @@ const wineImages = [
   vipWine33, vipWine34, vipWine35, vipWine36, vipWine37, vipWine38, vipWine39, vipWine40,
   vipWine41, vipWine42, vipWine43, vipWine44, vipWine45, vipWine46, vipWine47, vipWine48,
   vipWine49, vipWine50, vipWine51, vipWine52, vipWine53, vipWine54, vipWine55, vipWine56,
-  vipWine57, vipWine58, vipWine59, vipWine60, vipWine61, vipWine62, vipWine63,
+  vipWine57, vipWine58, vipWine59, vipWine60, vipWine61, vipWine62, vipWine63, vipWine64,
+  vipWine65, vipWine66, vipWine67, vipWine68, vipWine69, vipWine70, vipWine71, vipWine72,
+  vipWine73, vipWine74, vipWine75, vipWine76, vipWine77, vipWine78, vipWine79, vipWine80,
+  vipWine81, vipWine82, vipWine83, vipWine84, vipWine85, vipWine86, vipWine87, vipWine88,
+  vipWine89, vipWine90, vipWine91, vipWine92, vipWine93, vipWine94, vipWine95, vipWine96,
+  vipWine97, vipWine98, vipWine99, vipWine100,
 ];
 const beerImages = [
   vipBeer1, vipBeer2, vipBeer3, vipBeer4, vipBeer5, vipBeer6, vipBeer7, vipBeer8,
