@@ -101,6 +101,7 @@ export default function Vip() {
   const [checking, setChecking] = useState(false);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     setUnlocked(isVipUnlocked());
   }, []);
 
