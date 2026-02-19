@@ -15,7 +15,7 @@ export default function Dicas() {
   const readArticles = JSON.parse(localStorage.getItem("drinks-co-read-articles") || "[]") as string[];
 
   return (
-    <div className="min-h-screen pb-24 pt-4 px-4">
+    <div className="min-h-screen pb-24 pt-4 px-4 lg:px-6 lg:max-w-4xl lg:mx-auto">
       <h1 className="text-2xl font-display font-bold text-foreground mb-1">
         Dicas & Artigos
       </h1>
