@@ -75,7 +75,7 @@ export default function CategoryRow({ title, drinks, categorySlug }: CategoryRow
           className="flex gap-3 overflow-x-auto scrollbar-hide px-4 snap-x snap-mandatory"
         >
           {drinks.map((drink) => (
-            <div key={drink.id} className="snap-start">
+            <div key={drink.id} className="snap-start flex-shrink-0 w-[160px] lg:w-[200px]">
               <DrinkCard drink={drink} />
             </div>
           ))}
