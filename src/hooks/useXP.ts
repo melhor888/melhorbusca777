@@ -98,6 +98,35 @@ export function useXP() {
     return xpGained;
   }, []);
 
+  const addArticleXP = useCallback((articleId: string, xpAmount: number): number => {
+    let xpGained = 0;
+    setData((prev) => {
+      // Check if article was already read using a separate list
+      const readArticles = JSON.parse(localStorage.getItem("drinks-co-read-articles") || "[]") as string[];
+      if (readArticles.includes(articleId)) return prev;
+
+      xpGained = xpAmount;
+      readArticles.push(articleId);
+      localStorage.setItem("drinks-co-read-articles", JSON.stringify(readArticles));
+
+      const newXP = prev.totalXP + xpAmount;
+      const newAchievements = [...prev.achievements];
+      if (readArticles.length >= 3 && !newAchievements.includes("scholar-3"))
+        newAchievements.push("scholar-3");
+      if (readArticles.length >= 5 && !newAchievements.includes("scholar-5"))
+        newAchievements.push("scholar-5");
+      if (readArticles.length >= 10 && !newAchievements.includes("scholar-10"))
+        newAchievements.push("scholar-10");
+
+      return {
+        ...prev,
+        totalXP: newXP,
+        achievements: newAchievements,
+      };
+    });
+    return xpGained;
+  }, []);
+
   const unlockTip = useCallback((tipId: string) => {
     setData((prev) => {
       if (prev.unlockedTips.includes(tipId)) return prev;
@@ -120,6 +149,7 @@ export function useXP() {
     level,
     progress,
     addRecipeXP,
+    addArticleXP,
     unlockTip,
     addAchievement,
   };
