@@ -119,6 +119,18 @@ import cantarito from "@/assets/drink-cantarito.jpg";
 import vampiro from "@/assets/drink-vampiro.jpg";
 import newYorkSour from "@/assets/drink-new-york-sour.jpg";
 
+// ===== BATCH 3 UNIQUE IMAGES =====
+import bayBreeze from "@/assets/drink-bay-breeze.jpg";
+import matador from "@/assets/drink-matador.jpg";
+import toronto from "@/assets/drink-toronto.jpg";
+import vieuxCarre from "@/assets/drink-vieux-carre.jpg";
+import brownDerby from "@/assets/drink-brown-derby.jpg";
+import bloodAndSand from "@/assets/drink-blood-and-sand.jpg";
+import whiskySmash from "@/assets/drink-whisky-smash.jpg";
+import chiChi from "@/assets/drink-chi-chi.jpg";
+import vodkaCollins from "@/assets/drink-vodka-collins.jpg";
+import juanCollins from "@/assets/drink-juan-collins.jpg";
+
 const drinkImages: Record<string, string> = {
   "hero-mojito": heroMojito,
   caipirinha,
@@ -228,10 +240,10 @@ const drinkImages: Record<string, string> = {
   madras: madras,
   greyhound: greyhound,
   "salty-dog": saltyDog,
-  "vodka-collins": tomCollins,
-  "chi-chi": pinaColada,
+  "vodka-collins": vodkaCollins,
+  "chi-chi": chiChi,
   vesper: vesper,
-  "bay-breeze": seaBreeze,
+  "bay-breeze": bayBreeze,
   "woo-woo": wooWoo,
 
   // ===== RUM EXTRAS =====
@@ -262,21 +274,21 @@ const drinkImages: Record<string, string> = {
   "tommys-margarita": tommysMargarita,
   "naked-and-famous": aviation,
   "oaxaca-old-fashioned": oaxacaOldFashioned,
-  matador: margarita,
+  matador: matador,
   "brave-bull": godfather,
   vampiro: vampiro,
-  "juan-collins": tomCollins,
+  "juan-collins": juanCollins,
   "mezcal-margarita": spicyMargarita,
 
   // ===== WHISKY EXTRAS =====
   "gold-rush": goldRush,
   "paper-plane": paperPlane,
-  toronto: oldFashioned,
-  "vieux-carre": manhattan,
-  "brown-derby": goldRush,
-  "blood-and-sand": robRoy,
+  toronto: toronto,
+  "vieux-carre": vieuxCarre,
+  "brown-derby": brownDerby,
+  "blood-and-sand": bloodAndSand,
   "new-york-sour": newYorkSour,
-  "whisky-smash": mintJulep,
+  "whisky-smash": whiskySmash,
 
   // ===== CLÁSSICOS EXTRAS =====
   "champagne-cocktail": champagneCocktail,
