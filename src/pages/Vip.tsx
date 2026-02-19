@@ -1,6 +1,7 @@
+import { useState, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
-import { Crown, Lock, Wine, Beer, Snowflake, Leaf } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { Crown, Lock, Wine, Beer, Snowflake, Leaf, KeyRound, Check, X } from "lucide-react";
+import { validateVipKey, isVipUnlocked, setVipUnlocked, getTodayDayName } from "@/utils/vipKeys";
 
 const vipCategories = [
   {
@@ -38,7 +39,33 @@ const vipCategories = [
 ];
 
 export default function Vip() {
-  const navigate = useNavigate();
+  const [unlocked, setUnlocked] = useState(false);
+  const [keyInput, setKeyInput] = useState("");
+  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
+  const [checking, setChecking] = useState(false);
+
+  useEffect(() => {
+    setUnlocked(isVipUnlocked());
+  }, []);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!keyInput.trim() || checking) return;
+
+    setChecking(true);
+    setStatus("idle");
+
+    const valid = await validateVipKey(keyInput);
+
+    if (valid) {
+      setVipUnlocked();
+      setUnlocked(true);
+      setStatus("success");
+    } else {
+      setStatus("error");
+    }
+    setChecking(false);
+  };
 
   return (
     <>
@@ -49,7 +76,7 @@ export default function Vip() {
 
       <main className="px-4 pt-6 pb-32 lg:pb-12">
         {/* Header */}
-        <div className="text-center mb-8">
+        <div className="text-center mb-6">
           <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-yellow-400 to-amber-600 shadow-lg mb-4">
             <Crown size={32} className="text-white" />
           </div>
@@ -57,9 +84,75 @@ export default function Vip() {
             Área <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-amber-600">VIP</span>
           </h1>
           <p className="text-muted-foreground text-sm mt-2 max-w-xs mx-auto">
-            Categorias exclusivas disponíveis apenas para membros VIP
+            Insira a chave do dia para desbloquear o conteúdo exclusivo
           </p>
         </div>
+
+        {/* Key Input Section */}
+        {!unlocked && (
+          <div className="max-w-sm mx-auto mb-8">
+            <div className="rounded-2xl border border-yellow-500/20 bg-card p-5">
+              <div className="flex items-center gap-2 mb-3">
+                <KeyRound size={18} className="text-yellow-500" />
+                <span className="text-sm font-semibold text-foreground">
+                  Chave de {getTodayDayName()}
+                </span>
+              </div>
+
+              <form onSubmit={handleSubmit} className="space-y-3">
+                <div className="relative">
+                  <input
+                    type="text"
+                    value={keyInput}
+                    onChange={(e) => {
+                      setKeyInput(e.target.value);
+                      if (status === "error") setStatus("idle");
+                    }}
+                    placeholder="Digite a chave VIP..."
+                    maxLength={50}
+                    className={`w-full px-4 py-3 rounded-xl bg-secondary text-foreground placeholder:text-muted-foreground text-sm focus:outline-none focus:ring-2 transition-all ${
+                      status === "error"
+                        ? "focus:ring-destructive/50 ring-2 ring-destructive/50"
+                        : "focus:ring-yellow-500/50"
+                    }`}
+                  />
+                  {status === "error" && (
+                    <X size={16} className="absolute right-3 top-1/2 -translate-y-1/2 text-destructive" />
+                  )}
+                </div>
+
+                {status === "error" && (
+                  <p className="text-destructive text-xs font-medium">
+                    Chave incorreta. Tente novamente.
+                  </p>
+                )}
+
+                <button
+                  type="submit"
+                  disabled={!keyInput.trim() || checking}
+                  className="w-full py-3 rounded-xl bg-gradient-to-r from-yellow-400 to-amber-600 text-white font-semibold text-sm transition-all hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {checking ? "Verificando..." : "Desbloquear"}
+                </button>
+              </form>
+            </div>
+          </div>
+        )}
+
+        {/* Unlocked banner */}
+        {unlocked && (
+          <div className="max-w-sm mx-auto mb-8">
+            <div className="rounded-2xl border border-green-500/30 bg-green-500/10 p-4 flex items-center gap-3">
+              <div className="w-8 h-8 rounded-full bg-green-500 flex items-center justify-center flex-shrink-0">
+                <Check size={16} className="text-white" />
+              </div>
+              <div>
+                <p className="text-sm font-semibold text-foreground">VIP desbloqueado!</p>
+                <p className="text-xs text-muted-foreground">Acesso liberado até meia-noite</p>
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* VIP Categories Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto">
@@ -68,15 +161,16 @@ export default function Vip() {
             return (
               <div
                 key={cat.id}
-                className="relative group rounded-2xl border border-border/50 bg-card overflow-hidden transition-all duration-300 hover:shadow-lg hover:border-primary/30"
+                className={`relative group rounded-2xl border border-border/50 bg-card overflow-hidden transition-all duration-300 hover:shadow-lg hover:border-primary/30 ${
+                  !unlocked ? "opacity-60" : ""
+                }`}
               >
-                {/* Lock overlay */}
-                <div className="absolute inset-0 bg-background/60 backdrop-blur-[2px] z-10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                  <div className="flex flex-col items-center gap-2">
-                    <Lock size={28} className="text-yellow-500" />
-                    <span className="text-xs font-semibold text-foreground">Exclusivo VIP</span>
+                {/* Lock overlay when not unlocked */}
+                {!unlocked && (
+                  <div className="absolute inset-0 bg-background/40 backdrop-blur-[2px] z-10 flex items-center justify-center">
+                    <Lock size={24} className="text-yellow-500/70" />
                   </div>
-                </div>
+                )}
 
                 {/* Card content */}
                 <div className={`h-2 bg-gradient-to-r ${cat.color}`} />
@@ -97,17 +191,6 @@ export default function Vip() {
               </div>
             );
           })}
-        </div>
-
-        {/* CTA */}
-        <div className="mt-8 text-center">
-          <div className="inline-flex flex-col items-center gap-3 p-6 rounded-2xl border border-yellow-500/20 bg-yellow-500/5">
-            <Crown size={24} className="text-yellow-500" />
-            <p className="text-sm font-medium text-foreground">Torne-se VIP para desbloquear</p>
-            <p className="text-xs text-muted-foreground max-w-xs">
-              Em breve você poderá acessar receitas exclusivas e conteúdo premium.
-            </p>
-          </div>
         </div>
       </main>
     </>
