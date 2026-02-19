@@ -41,39 +41,23 @@ export function getTodayDayName(): string {
 }
 
 export async function validateVipKey(inputKey: string): Promise<boolean> {
-  const dayIndex = getTodayDayIndex();
-  const expectedHash = dailyKeyHashes[dayIndex];
-  if (!expectedHash || expectedHash.startsWith("placeholder")) return false;
   const inputHash = await hashKey(inputKey);
-  return inputHash === expectedHash;
+  // Accept any valid daily key, not just today's
+  return Object.values(dailyKeyHashes).includes(inputHash);
 }
 
 const STORAGE_KEY = "vip_access";
 
-interface VipAccess {
-  date: string; // YYYY-MM-DD
-  unlocked: boolean;
-}
-
-function getTodayDateStr(): string {
-  const d = new Date();
-  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
-}
-
 export function isVipUnlocked(): boolean {
   try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if (!raw) return false;
-    const data: VipAccess = JSON.parse(raw);
-    return data.unlocked && data.date === getTodayDateStr();
+    return localStorage.getItem(STORAGE_KEY) === "true";
   } catch {
     return false;
   }
 }
 
 export function setVipUnlocked(): void {
-  const data: VipAccess = { date: getTodayDateStr(), unlocked: true };
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+  localStorage.setItem(STORAGE_KEY, "true");
 }
 
 // Utility: call this in browser console to generate hash for a key
