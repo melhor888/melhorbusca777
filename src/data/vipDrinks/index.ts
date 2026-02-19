@@ -3,6 +3,7 @@ export { vinhoSangrias } from "./vinhoSangrias";
 export { cervejaBeerCocktails } from "./cervejaBeerCocktails";
 export { frozenBlended } from "./frozenBlended";
 export { shotsShooters } from "./shotsShooters";
+export { tropicalTiki } from "./tropicalTiki";
 export { vipChefTips } from "./vipChefTips";
 
 import { VipDrink } from "./types";
@@ -10,10 +11,11 @@ import { vinhoSangrias } from "./vinhoSangrias";
 import { cervejaBeerCocktails } from "./cervejaBeerCocktails";
 import { frozenBlended } from "./frozenBlended";
 import { shotsShooters } from "./shotsShooters";
+import { tropicalTiki } from "./tropicalTiki";
 import { vipChefTips } from "./vipChefTips";
 
 export function getAllVipDrinks(): VipDrink[] {
-  return [...vinhoSangrias, ...cervejaBeerCocktails, ...frozenBlended, ...shotsShooters];
+  return [...vinhoSangrias, ...cervejaBeerCocktails, ...frozenBlended, ...shotsShooters, ...tropicalTiki];
 }
 
 export function getVipDrinksByCategory(category: string): VipDrink[] {
