@@ -98,6 +98,7 @@ import vipHeroCerveja from "@/assets/vip-hero-cerveja-beer.jpg";
 import vipHeroFrozen from "@/assets/vip-hero-frozen-blended.jpg";
 import vipHeroShots from "@/assets/vip-hero-shots-shooters.jpg";
 import vipHeroTiki from "@/assets/vip-hero-tropical-tiki.jpg";
+import vipHeroClassicos from "@/assets/vip-hero-classicos-reinventados.jpg";
 
 import vipShot1 from "@/assets/vip-shot-1.jpg";
 import vipShot2 from "@/assets/vip-shot-2.jpg";
@@ -151,6 +152,32 @@ import vipTiki23 from "@/assets/vip-tiki-23.jpg";
 import vipTiki24 from "@/assets/vip-tiki-24.jpg";
 import vipTiki25 from "@/assets/vip-tiki-25.jpg";
 
+import vipClassic1 from "@/assets/vip-classic-1.jpg";
+import vipClassic2 from "@/assets/vip-classic-2.jpg";
+import vipClassic3 from "@/assets/vip-classic-3.jpg";
+import vipClassic4 from "@/assets/vip-classic-4.jpg";
+import vipClassic5 from "@/assets/vip-classic-5.jpg";
+import vipClassic6 from "@/assets/vip-classic-6.jpg";
+import vipClassic7 from "@/assets/vip-classic-7.jpg";
+import vipClassic8 from "@/assets/vip-classic-8.jpg";
+import vipClassic9 from "@/assets/vip-classic-9.jpg";
+import vipClassic10 from "@/assets/vip-classic-10.jpg";
+import vipClassic11 from "@/assets/vip-classic-11.jpg";
+import vipClassic12 from "@/assets/vip-classic-12.jpg";
+import vipClassic13 from "@/assets/vip-classic-13.jpg";
+import vipClassic14 from "@/assets/vip-classic-14.jpg";
+import vipClassic15 from "@/assets/vip-classic-15.jpg";
+import vipClassic16 from "@/assets/vip-classic-16.jpg";
+import vipClassic17 from "@/assets/vip-classic-17.jpg";
+import vipClassic18 from "@/assets/vip-classic-18.jpg";
+import vipClassic19 from "@/assets/vip-classic-19.jpg";
+import vipClassic20 from "@/assets/vip-classic-20.jpg";
+import vipClassic21 from "@/assets/vip-classic-21.jpg";
+import vipClassic22 from "@/assets/vip-classic-22.jpg";
+import vipClassic23 from "@/assets/vip-classic-23.jpg";
+import vipClassic24 from "@/assets/vip-classic-24.jpg";
+import vipClassic25 from "@/assets/vip-classic-25.jpg";
+
 const wineImages = [
   vipWine1, vipWine2, vipWine3, vipWine4, vipWine5, vipWine6, vipWine7, vipWine8,
   vipWine9, vipWine10, vipWine11, vipWine12, vipWine13, vipWine14, vipWine15, vipWine16,
@@ -183,6 +210,12 @@ const tikiImages = [
   vipTiki17, vipTiki18, vipTiki19, vipTiki20, vipTiki21, vipTiki22, vipTiki23, vipTiki24,
   vipTiki25,
 ];
+const classicImages = [
+  vipClassic1, vipClassic2, vipClassic3, vipClassic4, vipClassic5, vipClassic6, vipClassic7, vipClassic8,
+  vipClassic9, vipClassic10, vipClassic11, vipClassic12, vipClassic13, vipClassic14, vipClassic15, vipClassic16,
+  vipClassic17, vipClassic18, vipClassic19, vipClassic20, vipClassic21, vipClassic22, vipClassic23, vipClassic24,
+  vipClassic25,
+];
 
 const categoryImagePools: Record<string, string[]> = {
   "Vinho & Sangrias": wineImages,
@@ -190,6 +223,7 @@ const categoryImagePools: Record<string, string[]> = {
   "Frozen & Blended": frozenImages,
   "Shots & Shooters": shotImages,
   "Tropical & Tiki": tikiImages,
+  "Clássicos Reinventados": classicImages,
 };
 
 const categoryHeroBanners: Record<string, string> = {
@@ -198,6 +232,7 @@ const categoryHeroBanners: Record<string, string> = {
   "frozen-blended": vipHeroFrozen,
   "shots-shooters": vipHeroShots,
   "tropical-tiki": vipHeroTiki,
+  "classicos-reinventados": vipHeroClassicos,
 };
 
 // Simple hash to get consistent image for each drink
