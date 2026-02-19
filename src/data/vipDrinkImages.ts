@@ -594,6 +594,82 @@ import vipClassic22 from "@/assets/vip-classic-22.jpg";
 import vipClassic23 from "@/assets/vip-classic-23.jpg";
 import vipClassic24 from "@/assets/vip-classic-24.jpg";
 import vipClassic25 from "@/assets/vip-classic-25.jpg";
+import vipClassic26 from "@/assets/vip-classico-26.jpg";
+import vipClassic27 from "@/assets/vip-classico-27.jpg";
+import vipClassic28 from "@/assets/vip-classico-28.jpg";
+import vipClassic29 from "@/assets/vip-classico-29.jpg";
+import vipClassic30 from "@/assets/vip-classico-30.jpg";
+import vipClassic31 from "@/assets/vip-classico-31.jpg";
+import vipClassic32 from "@/assets/vip-classico-32.jpg";
+import vipClassic33 from "@/assets/vip-classico-33.jpg";
+import vipClassic34 from "@/assets/vip-classico-34.jpg";
+import vipClassic35 from "@/assets/vip-classico-35.jpg";
+import vipClassic36 from "@/assets/vip-classico-36.jpg";
+import vipClassic37 from "@/assets/vip-classico-37.jpg";
+import vipClassic38 from "@/assets/vip-classico-38.jpg";
+import vipClassic39 from "@/assets/vip-classico-39.jpg";
+import vipClassic40 from "@/assets/vip-classico-40.jpg";
+import vipClassic41 from "@/assets/vip-classico-41.jpg";
+import vipClassic42 from "@/assets/vip-classico-42.jpg";
+import vipClassic43 from "@/assets/vip-classico-43.jpg";
+import vipClassic44 from "@/assets/vip-classico-44.jpg";
+import vipClassic45 from "@/assets/vip-classico-45.jpg";
+import vipClassic46 from "@/assets/vip-classico-46.jpg";
+import vipClassic47 from "@/assets/vip-classico-47.jpg";
+import vipClassic48 from "@/assets/vip-classico-48.jpg";
+import vipClassic49 from "@/assets/vip-classico-49.jpg";
+import vipClassic50 from "@/assets/vip-classico-50.jpg";
+import vipClassic51 from "@/assets/vip-classico-51.jpg";
+import vipClassic52 from "@/assets/vip-classico-52.jpg";
+import vipClassic53 from "@/assets/vip-classico-53.jpg";
+import vipClassic54 from "@/assets/vip-classico-54.jpg";
+import vipClassic55 from "@/assets/vip-classico-55.jpg";
+import vipClassic56 from "@/assets/vip-classico-56.jpg";
+import vipClassic57 from "@/assets/vip-classico-57.jpg";
+import vipClassic58 from "@/assets/vip-classico-58.jpg";
+import vipClassic59 from "@/assets/vip-classico-59.jpg";
+import vipClassic60 from "@/assets/vip-classico-60.jpg";
+import vipClassic61 from "@/assets/vip-classico-61.jpg";
+import vipClassic62 from "@/assets/vip-classico-62.jpg";
+import vipClassic63 from "@/assets/vip-classico-63.jpg";
+import vipClassic64 from "@/assets/vip-classico-64.jpg";
+import vipClassic65 from "@/assets/vip-classico-65.jpg";
+import vipClassic66 from "@/assets/vip-classico-66.jpg";
+import vipClassic67 from "@/assets/vip-classico-67.jpg";
+import vipClassic68 from "@/assets/vip-classico-68.jpg";
+import vipClassic69 from "@/assets/vip-classico-69.jpg";
+import vipClassic70 from "@/assets/vip-classico-70.jpg";
+import vipClassic71 from "@/assets/vip-classico-71.jpg";
+import vipClassic72 from "@/assets/vip-classico-72.jpg";
+import vipClassic73 from "@/assets/vip-classico-73.jpg";
+import vipClassic74 from "@/assets/vip-classico-74.jpg";
+import vipClassic75 from "@/assets/vip-classico-75.jpg";
+import vipClassic76 from "@/assets/vip-classico-76.jpg";
+import vipClassic77 from "@/assets/vip-classico-77.jpg";
+import vipClassic78 from "@/assets/vip-classico-78.jpg";
+import vipClassic79 from "@/assets/vip-classico-79.jpg";
+import vipClassic80 from "@/assets/vip-classico-80.jpg";
+import vipClassic81 from "@/assets/vip-classico-81.jpg";
+import vipClassic82 from "@/assets/vip-classico-82.jpg";
+import vipClassic83 from "@/assets/vip-classico-83.jpg";
+import vipClassic84 from "@/assets/vip-classico-84.jpg";
+import vipClassic85 from "@/assets/vip-classico-85.jpg";
+import vipClassic86 from "@/assets/vip-classico-86.jpg";
+import vipClassic87 from "@/assets/vip-classico-87.jpg";
+import vipClassic88 from "@/assets/vip-classico-88.jpg";
+import vipClassic89 from "@/assets/vip-classico-89.jpg";
+import vipClassic90 from "@/assets/vip-classico-90.jpg";
+import vipClassic91 from "@/assets/vip-classico-91.jpg";
+import vipClassic92 from "@/assets/vip-classico-92.jpg";
+import vipClassic93 from "@/assets/vip-classico-93.jpg";
+import vipClassic94 from "@/assets/vip-classico-94.jpg";
+import vipClassic95 from "@/assets/vip-classico-95.jpg";
+import vipClassic96 from "@/assets/vip-classico-96.jpg";
+import vipClassic97 from "@/assets/vip-classico-97.jpg";
+import vipClassic98 from "@/assets/vip-classico-98.jpg";
+import vipClassic99 from "@/assets/vip-classico-99.jpg";
+import vipClassic100 from "@/assets/vip-classico-100.jpg";
+
 
 import vipLowabv1 from "@/assets/vip-lowabv-1.jpg";
 import vipLowabv2 from "@/assets/vip-lowabv-2.jpg";
@@ -700,7 +776,16 @@ const classicImages = [
   vipClassic1, vipClassic2, vipClassic3, vipClassic4, vipClassic5, vipClassic6, vipClassic7, vipClassic8,
   vipClassic9, vipClassic10, vipClassic11, vipClassic12, vipClassic13, vipClassic14, vipClassic15, vipClassic16,
   vipClassic17, vipClassic18, vipClassic19, vipClassic20, vipClassic21, vipClassic22, vipClassic23, vipClassic24,
-  vipClassic25,
+  vipClassic25, vipClassic26, vipClassic27, vipClassic28, vipClassic29, vipClassic30, vipClassic31, vipClassic32,
+  vipClassic33, vipClassic34, vipClassic35, vipClassic36, vipClassic37, vipClassic38, vipClassic39, vipClassic40,
+  vipClassic41, vipClassic42, vipClassic43, vipClassic44, vipClassic45, vipClassic46, vipClassic47, vipClassic48,
+  vipClassic49, vipClassic50, vipClassic51, vipClassic52, vipClassic53, vipClassic54, vipClassic55, vipClassic56,
+  vipClassic57, vipClassic58, vipClassic59, vipClassic60, vipClassic61, vipClassic62, vipClassic63, vipClassic64,
+  vipClassic65, vipClassic66, vipClassic67, vipClassic68, vipClassic69, vipClassic70, vipClassic71, vipClassic72,
+  vipClassic73, vipClassic74, vipClassic75, vipClassic76, vipClassic77, vipClassic78, vipClassic79, vipClassic80,
+  vipClassic81, vipClassic82, vipClassic83, vipClassic84, vipClassic85, vipClassic86, vipClassic87, vipClassic88,
+  vipClassic89, vipClassic90, vipClassic91, vipClassic92, vipClassic93, vipClassic94, vipClassic95, vipClassic96,
+  vipClassic97, vipClassic98, vipClassic99, vipClassic100,
 ];
 const lowAbvImages = [
   vipLowabv1, vipLowabv2, vipLowabv3, vipLowabv4, vipLowabv5, vipLowabv6, vipLowabv7, vipLowabv8,
