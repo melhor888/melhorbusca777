@@ -468,6 +468,106 @@ import persianLimeRickey from "@/assets/drink-persian-lime-rickey.jpg";
 import amarettoStoneSour from "@/assets/drink-amaretto-stone-sour.jpg";
 import nashiPearCollins from "@/assets/drink-nashi-pear-collins.jpg";
 import mintCondition from "@/assets/drink-mint-condition.jpg";
+// ====== BATCH 4 imports ======
+import velvetHammer from "@/assets/drink-velvet-hammer.jpg";
+import hemingwaySpecial from "@/assets/drink-hemingway-special.jpg";
+import beesKnees from "@/assets/drink-bees-knees.jpg";
+import penicillin from "@/assets/drink-penicillin.jpg";
+import paperPlane from "@/assets/drink-paper-plane.jpg";
+import lastWord from "@/assets/drink-last-word.jpg";
+import jungleBird from "@/assets/drink-jungle-bird.jpg";
+import tipsyArnoldPalmer from "@/assets/drink-tipsy-arnold-palmer.jpg";
+import corpseReviver1 from "@/assets/drink-corpse-reviver-1.jpg";
+import improvedWhiskey from "@/assets/drink-improved-whiskey.jpg";
+import vieuxCarre from "@/assets/drink-vieux-carre.jpg";
+import goldRush from "@/assets/drink-gold-rush.jpg";
+import toronto from "@/assets/drink-toronto.jpg";
+import greenpoint from "@/assets/drink-greenpoint.jpg";
+import brownDerby from "@/assets/drink-brown-derby.jpg";
+import pendennisClub from "@/assets/drink-pendennis-club.jpg";
+import chrysanthemum from "@/assets/drink-chrysanthemum.jpg";
+import amarettoSour from "@/assets/drink-amaretto-sour.jpg";
+import rustyNail from "@/assets/drink-rusty-nail.jpg";
+import godfather from "@/assets/drink-godfather.jpg";
+import godmother from "@/assets/drink-godmother.jpg";
+import batidaCoco from "@/assets/drink-batida-coco.jpg";
+import batidaMaracuja from "@/assets/drink-batida-maracuja.jpg";
+import ramosGinFizz from "@/assets/drink-ramos-gin-fizz.jpg";
+import singaporeSling from "@/assets/drink-singapore-sling.jpg";
+import zombie from "@/assets/drink-zombie.jpg";
+import plantersPunch from "@/assets/drink-planters-punch.jpg";
+import painkiller from "@/assets/drink-painkiller.jpg";
+import navyGrog from "@/assets/drink-navy-grog.jpg";
+import sufferingBastardV2 from "@/assets/drink-suffering-bastard-v2.jpg";
+import ginGinMule from "@/assets/drink-gin-gin-mule.jpg";
+import southside from "@/assets/drink-southside.jpg";
+import beeStingV2 from "@/assets/drink-bee-sting-v2.jpg";
+import raspberryCosmo from "@/assets/drink-raspberry-cosmo.jpg";
+import mezcalMule from "@/assets/drink-mezcal-mule.jpg";
+import bourbonMilkPunch from "@/assets/drink-bourbon-milk-punch.jpg";
+import coquito from "@/assets/drink-coquito.jpg";
+import frozenStrawberryDaiquiri from "@/assets/drink-frozen-strawberry-daiquiri.jpg";
+import frozenPinaColada from "@/assets/drink-frozen-pina-colada.jpg";
+import frozenMangoDaiquiri from "@/assets/drink-frozen-mango-daiquiri.jpg";
+import frozenBlueLagoon from "@/assets/drink-frozen-blue-lagoon.jpg";
+import piscoSour from "@/assets/drink-pisco-sour.jpg";
+import chilcano from "@/assets/drink-chilcano.jpg";
+import froze from "@/assets/drink-froze.jpg";
+import hugoSpritz from "@/assets/drink-hugo-spritz.jpg";
+import limoncelloSpritz from "@/assets/drink-limoncello-spritz.jpg";
+import venetianSpritz from "@/assets/drink-venetian-spritz.jpg";
+import garibaldi from "@/assets/drink-garibaldi.jpg";
+import sbagliato from "@/assets/drink-sbagliato.jpg";
+import americano from "@/assets/drink-americano.jpg";
+import boulevardier from "@/assets/drink-boulevardier.jpg";
+import sazerac from "@/assets/drink-sazerac.jpg";
+import mintJulep from "@/assets/drink-mint-julep.jpg";
+import bramble from "@/assets/drink-bramble.jpg";
+import french75 from "@/assets/drink-french-75.jpg";
+import paloma from "@/assets/drink-paloma.jpg";
+import irishCoffee from "@/assets/drink-irish-coffee.jpg";
+import darkNStormy from "@/assets/drink-dark-n-stormy.jpg";
+import tiPunch from "@/assets/drink-ti-punch.jpg";
+import cornNOil from "@/assets/drink-corn-n-oil.jpg";
+import carajillo from "@/assets/drink-carajillo.jpg";
+import michelada from "@/assets/drink-michelada.jpg";
+import chelada from "@/assets/drink-chelada.jpg";
+import radler from "@/assets/drink-radler.jpg";
+import shandyGaff from "@/assets/drink-shandy-gaff.jpg";
+import blackRussian from "@/assets/drink-black-russian.jpg";
+import whiteRussian from "@/assets/drink-white-russian.jpg";
+import harveyWallbanger from "@/assets/drink-harvey-wallbanger.jpg";
+import grasshopper from "@/assets/drink-grasshopper.jpg";
+import midoriSour from "@/assets/drink-midori-sour.jpg";
+import gimlet from "@/assets/drink-gimlet.jpg";
+import tomCollins from "@/assets/drink-tom-collins.jpg";
+import johnCollins from "@/assets/drink-john-collins.jpg";
+import sidecar from "@/assets/drink-sidecar.jpg";
+import aviation from "@/assets/drink-aviation.jpg";
+import cloverClub from "@/assets/drink-clover-club.jpg";
+import bloodAndSand from "@/assets/drink-blood-and-sand.jpg";
+import robRoy from "@/assets/drink-rob-roy.jpg";
+import vesperMartini from "@/assets/drink-vesper-martini.jpg";
+import elDiablo from "@/assets/drink-el-diablo.jpg";
+import cantaritos from "@/assets/drink-cantaritos.jpg";
+import ranchWater from "@/assets/drink-ranch-water.jpg";
+import tommysMargarita from "@/assets/drink-tommys-margarita.jpg";
+import espressoRumPunch from "@/assets/drink-espresso-rum-punch.jpg";
+import spicedRumChocolate from "@/assets/drink-spiced-rum-chocolate.jpg";
+import ginLemon from "@/assets/drink-gin-lemon.jpg";
+import aperolFizz from "@/assets/drink-aperol-fizz.jpg";
+import virginMojito from "@/assets/drink-virgin-mojito.jpg";
+import shirleyTemple from "@/assets/drink-shirley-temple.jpg";
+import royRogers from "@/assets/drink-roy-rogers.jpg";
+import arnoldPalmer from "@/assets/drink-arnold-palmer.jpg";
+import cucumberCooler from "@/assets/drink-cucumber-cooler.jpg";
+import mangoLassi from "@/assets/drink-mango-lassi.jpg";
+import blueLemonade from "@/assets/drink-blue-lemonade.jpg";
+import elderflowerLemonade from "@/assets/drink-elderflower-lemonade.jpg";
+import strawberryLemonade from "@/assets/drink-strawberry-lemonade.jpg";
+import frozenMargarita from "@/assets/drink-frozen-margarita.jpg";
+import bananaDaiquiri from "@/assets/drink-banana-daiquiri.jpg";
+import maiTai from "@/assets/drink-mai-tai.jpg";
 
 const drinkImages: Record<string, string> = {
   "hero-mojito": heroMojito,
@@ -974,6 +1074,106 @@ const drinkImages: Record<string, string> = {
   "amaretto-stone-sour": amarettoStoneSour,
   "nashi-pear-collins": nashiPearCollins,
   "mint-condition": mintCondition,
+  // ====== BATCH 4 mappings ======
+  "velvet-hammer": velvetHammer,
+  "hemingway-special": hemingwaySpecial,
+  "bees-knees": beesKnees,
+  "penicillin": penicillin,
+  "paper-plane": paperPlane,
+  "last-word": lastWord,
+  "jungle-bird": jungleBird,
+  "tipsy-arnold-palmer": tipsyArnoldPalmer,
+  "corpse-reviver-1": corpseReviver1,
+  "improved-whiskey": improvedWhiskey,
+  "vieux-carre": vieuxCarre,
+  "gold-rush": goldRush,
+  "toronto": toronto,
+  "greenpoint": greenpoint,
+  "brown-derby": brownDerby,
+  "pendennis-club": pendennisClub,
+  "chrysanthemum": chrysanthemum,
+  "amaretto-sour": amarettoSour,
+  "rusty-nail": rustyNail,
+  "godfather": godfather,
+  "godmother": godmother,
+  "batida-coco": batidaCoco,
+  "batida-maracuja": batidaMaracuja,
+  "ramos-gin-fizz": ramosGinFizz,
+  "singapore-sling": singaporeSling,
+  "zombie": zombie,
+  "planters-punch": plantersPunch,
+  "painkiller": painkiller,
+  "navy-grog": navyGrog,
+  "suffering-bastard-v2": sufferingBastardV2,
+  "gin-gin-mule": ginGinMule,
+  "southside": southside,
+  "bee-sting-v2": beeStingV2,
+  "raspberry-cosmo": raspberryCosmo,
+  "mezcal-mule": mezcalMule,
+  "bourbon-milk-punch": bourbonMilkPunch,
+  "coquito": coquito,
+  "frozen-strawberry-daiquiri": frozenStrawberryDaiquiri,
+  "frozen-pina-colada": frozenPinaColada,
+  "frozen-mango-daiquiri": frozenMangoDaiquiri,
+  "frozen-blue-lagoon": frozenBlueLagoon,
+  "pisco-sour": piscoSour,
+  "chilcano": chilcano,
+  "froze": froze,
+  "hugo-spritz": hugoSpritz,
+  "limoncello-spritz": limoncelloSpritz,
+  "venetian-spritz": venetianSpritz,
+  "garibaldi": garibaldi,
+  "sbagliato": sbagliato,
+  "americano": americano,
+  "boulevardier": boulevardier,
+  "sazerac": sazerac,
+  "mint-julep": mintJulep,
+  "bramble": bramble,
+  "french-75": french75,
+  "paloma": paloma,
+  "irish-coffee": irishCoffee,
+  "dark-n-stormy": darkNStormy,
+  "ti-punch": tiPunch,
+  "corn-n-oil": cornNOil,
+  "carajillo": carajillo,
+  "michelada": michelada,
+  "chelada": chelada,
+  "radler": radler,
+  "shandy-gaff": shandyGaff,
+  "black-russian": blackRussian,
+  "white-russian": whiteRussian,
+  "harvey-wallbanger": harveyWallbanger,
+  "grasshopper": grasshopper,
+  "midori-sour": midoriSour,
+  "gimlet": gimlet,
+  "tom-collins": tomCollins,
+  "john-collins": johnCollins,
+  "sidecar": sidecar,
+  "aviation": aviation,
+  "clover-club": cloverClub,
+  "blood-and-sand": bloodAndSand,
+  "rob-roy": robRoy,
+  "vesper-martini": vesperMartini,
+  "el-diablo": elDiablo,
+  "cantaritos": cantaritos,
+  "ranch-water": ranchWater,
+  "tommys-margarita": tommysMargarita,
+  "espresso-rum-punch": espressoRumPunch,
+  "spiced-rum-chocolate": spicedRumChocolate,
+  "gin-lemon": ginLemon,
+  "aperol-fizz": aperolFizz,
+  "virgin-mojito": virginMojito,
+  "shirley-temple": shirleyTemple,
+  "roy-rogers": royRogers,
+  "arnold-palmer": arnoldPalmer,
+  "cucumber-cooler": cucumberCooler,
+  "mango-lassi": mangoLassi,
+  "blue-lemonade": blueLemonade,
+  "elderflower-lemonade": elderflowerLemonade,
+  "strawberry-lemonade": strawberryLemonade,
+  "frozen-margarita": frozenMargarita,
+  "banana-daiquiri": bananaDaiquiri,
+  "mai-tai": maiTai,
 };
 
 export function getDrinkImage(imageKey: string): string {
