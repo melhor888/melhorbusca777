@@ -7,7 +7,7 @@ import { useXP } from "@/hooks/useXP";
 export default function ArticleDetail() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
-  const { totalXP, addRecipeXP } = useXP();
+  const { totalXP, addArticleXP } = useXP();
   const [currentModule, setCurrentModule] = useState(0);
   const [completedModules, setCompletedModules] = useState<number[]>([]);
   const [xpAwarded, setXpAwarded] = useState(false);
@@ -44,21 +44,11 @@ export default function ArticleDetail() {
   };
 
   const handleFinishArticle = () => {
-    if (!xpAwarded) {
-      // Mark all modules as completed
+    if (!xpAwarded && !alreadyRead) {
       setCompletedModules(article.modules.map((_, i) => i));
-      setXpAwarded(true);
-
-      // Add XP to total
-      const xpData = JSON.parse(localStorage.getItem("drinks-co-xp") || "{}");
-      xpData.totalXP = (xpData.totalXP || 0) + article.xpReward;
-      localStorage.setItem("drinks-co-xp", JSON.stringify(xpData));
-
-      // Save to localStorage
-      const readArticles = JSON.parse(localStorage.getItem("drinks-co-read-articles") || "[]") as string[];
-      if (!readArticles.includes(article.id)) {
-        readArticles.push(article.id);
-        localStorage.setItem("drinks-co-read-articles", JSON.stringify(readArticles));
+      const gained = addArticleXP(article.id, article.xpReward);
+      if (gained > 0) {
+        setXpAwarded(true);
       }
     }
   };
