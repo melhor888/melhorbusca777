@@ -133,6 +133,74 @@ import vipBeer30 from "@/assets/vip-beer-30.jpg";
 import vipBeer31 from "@/assets/vip-beer-31.jpg";
 import vipBeer32 from "@/assets/vip-beer-32.jpg";
 import vipBeer33 from "@/assets/vip-beer-33.jpg";
+import vipBeer34 from "@/assets/vip-beer-34.jpg";
+import vipBeer35 from "@/assets/vip-beer-35.jpg";
+import vipBeer36 from "@/assets/vip-beer-36.jpg";
+import vipBeer37 from "@/assets/vip-beer-37.jpg";
+import vipBeer38 from "@/assets/vip-beer-38.jpg";
+import vipBeer39 from "@/assets/vip-beer-39.jpg";
+import vipBeer40 from "@/assets/vip-beer-40.jpg";
+import vipBeer41 from "@/assets/vip-beer-41.jpg";
+import vipBeer42 from "@/assets/vip-beer-42.jpg";
+import vipBeer43 from "@/assets/vip-beer-43.jpg";
+import vipBeer44 from "@/assets/vip-beer-44.jpg";
+import vipBeer45 from "@/assets/vip-beer-45.jpg";
+import vipBeer46 from "@/assets/vip-beer-46.jpg";
+import vipBeer47 from "@/assets/vip-beer-47.jpg";
+import vipBeer48 from "@/assets/vip-beer-48.jpg";
+import vipBeer49 from "@/assets/vip-beer-49.jpg";
+import vipBeer50 from "@/assets/vip-beer-50.jpg";
+import vipBeer51 from "@/assets/vip-beer-51.jpg";
+import vipBeer52 from "@/assets/vip-beer-52.jpg";
+import vipBeer53 from "@/assets/vip-beer-53.jpg";
+import vipBeer54 from "@/assets/vip-beer-54.jpg";
+import vipBeer55 from "@/assets/vip-beer-55.jpg";
+import vipBeer56 from "@/assets/vip-beer-56.jpg";
+import vipBeer57 from "@/assets/vip-beer-57.jpg";
+import vipBeer58 from "@/assets/vip-beer-58.jpg";
+import vipBeer59 from "@/assets/vip-beer-59.jpg";
+import vipBeer60 from "@/assets/vip-beer-60.jpg";
+import vipBeer61 from "@/assets/vip-beer-61.jpg";
+import vipBeer62 from "@/assets/vip-beer-62.jpg";
+import vipBeer63 from "@/assets/vip-beer-63.jpg";
+import vipBeer64 from "@/assets/vip-beer-64.jpg";
+import vipBeer65 from "@/assets/vip-beer-65.jpg";
+import vipBeer66 from "@/assets/vip-beer-66.jpg";
+import vipBeer67 from "@/assets/vip-beer-67.jpg";
+import vipBeer68 from "@/assets/vip-beer-68.jpg";
+import vipBeer69 from "@/assets/vip-beer-69.jpg";
+import vipBeer70 from "@/assets/vip-beer-70.jpg";
+import vipBeer71 from "@/assets/vip-beer-71.jpg";
+import vipBeer72 from "@/assets/vip-beer-72.jpg";
+import vipBeer73 from "@/assets/vip-beer-73.jpg";
+import vipBeer74 from "@/assets/vip-beer-74.jpg";
+import vipBeer75 from "@/assets/vip-beer-75.jpg";
+import vipBeer76 from "@/assets/vip-beer-76.jpg";
+import vipBeer77 from "@/assets/vip-beer-77.jpg";
+import vipBeer78 from "@/assets/vip-beer-78.jpg";
+import vipBeer79 from "@/assets/vip-beer-79.jpg";
+import vipBeer80 from "@/assets/vip-beer-80.jpg";
+import vipBeer81 from "@/assets/vip-beer-81.jpg";
+import vipBeer82 from "@/assets/vip-beer-82.jpg";
+import vipBeer83 from "@/assets/vip-beer-83.jpg";
+import vipBeer84 from "@/assets/vip-beer-84.jpg";
+import vipBeer85 from "@/assets/vip-beer-85.jpg";
+import vipBeer86 from "@/assets/vip-beer-86.jpg";
+import vipBeer87 from "@/assets/vip-beer-87.jpg";
+import vipBeer88 from "@/assets/vip-beer-88.jpg";
+import vipBeer89 from "@/assets/vip-beer-89.jpg";
+import vipBeer90 from "@/assets/vip-beer-90.jpg";
+import vipBeer91 from "@/assets/vip-beer-91.jpg";
+import vipBeer92 from "@/assets/vip-beer-92.jpg";
+import vipBeer93 from "@/assets/vip-beer-93.jpg";
+import vipBeer94 from "@/assets/vip-beer-94.jpg";
+import vipBeer95 from "@/assets/vip-beer-95.jpg";
+import vipBeer96 from "@/assets/vip-beer-96.jpg";
+import vipBeer97 from "@/assets/vip-beer-97.jpg";
+import vipBeer98 from "@/assets/vip-beer-98.jpg";
+import vipBeer99 from "@/assets/vip-beer-99.jpg";
+import vipBeer100 from "@/assets/vip-beer-100.jpg";
+
 
 import vipFrozen1 from "@/assets/vip-frozen-1.jpg";
 import vipFrozen2 from "@/assets/vip-frozen-2.jpg";
@@ -346,7 +414,15 @@ const beerImages = [
   vipBeer9, vipBeer10, vipBeer11, vipBeer12, vipBeer13, vipBeer14, vipBeer15, vipBeer16,
   vipBeer17, vipBeer18, vipBeer19, vipBeer20, vipBeer21, vipBeer22, vipBeer23, vipBeer24,
   vipBeer25, vipBeer26, vipBeer27, vipBeer28, vipBeer29, vipBeer30, vipBeer31, vipBeer32,
-  vipBeer33,
+  vipBeer33, vipBeer34, vipBeer35, vipBeer36, vipBeer37, vipBeer38, vipBeer39, vipBeer40,
+  vipBeer41, vipBeer42, vipBeer43, vipBeer44, vipBeer45, vipBeer46, vipBeer47, vipBeer48,
+  vipBeer49, vipBeer50, vipBeer51, vipBeer52, vipBeer53, vipBeer54, vipBeer55, vipBeer56,
+  vipBeer57, vipBeer58, vipBeer59, vipBeer60, vipBeer61, vipBeer62, vipBeer63, vipBeer64,
+  vipBeer65, vipBeer66, vipBeer67, vipBeer68, vipBeer69, vipBeer70, vipBeer71, vipBeer72,
+  vipBeer73, vipBeer74, vipBeer75, vipBeer76, vipBeer77, vipBeer78, vipBeer79, vipBeer80,
+  vipBeer81, vipBeer82, vipBeer83, vipBeer84, vipBeer85, vipBeer86, vipBeer87, vipBeer88,
+  vipBeer89, vipBeer90, vipBeer91, vipBeer92, vipBeer93, vipBeer94, vipBeer95, vipBeer96,
+  vipBeer97, vipBeer98, vipBeer99, vipBeer100,
 ];
 const frozenImages = [
   vipFrozen1, vipFrozen2, vipFrozen3, vipFrozen4, vipFrozen5, vipFrozen6, vipFrozen7, vipFrozen8,
