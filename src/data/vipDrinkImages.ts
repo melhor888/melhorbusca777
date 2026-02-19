@@ -96,6 +96,33 @@ import vipFrozen25 from "@/assets/vip-frozen-25.jpg";
 import vipHeroVinho from "@/assets/vip-hero-vinho-sangrias.jpg";
 import vipHeroCerveja from "@/assets/vip-hero-cerveja-beer.jpg";
 import vipHeroFrozen from "@/assets/vip-hero-frozen-blended.jpg";
+import vipHeroShots from "@/assets/vip-hero-shots-shooters.jpg";
+
+import vipShot1 from "@/assets/vip-shot-1.jpg";
+import vipShot2 from "@/assets/vip-shot-2.jpg";
+import vipShot3 from "@/assets/vip-shot-3.jpg";
+import vipShot4 from "@/assets/vip-shot-4.jpg";
+import vipShot5 from "@/assets/vip-shot-5.jpg";
+import vipShot6 from "@/assets/vip-shot-6.jpg";
+import vipShot7 from "@/assets/vip-shot-7.jpg";
+import vipShot8 from "@/assets/vip-shot-8.jpg";
+import vipShot9 from "@/assets/vip-shot-9.jpg";
+import vipShot10 from "@/assets/vip-shot-10.jpg";
+import vipShot11 from "@/assets/vip-shot-11.jpg";
+import vipShot12 from "@/assets/vip-shot-12.jpg";
+import vipShot13 from "@/assets/vip-shot-13.jpg";
+import vipShot14 from "@/assets/vip-shot-14.jpg";
+import vipShot15 from "@/assets/vip-shot-15.jpg";
+import vipShot16 from "@/assets/vip-shot-16.jpg";
+import vipShot17 from "@/assets/vip-shot-17.jpg";
+import vipShot18 from "@/assets/vip-shot-18.jpg";
+import vipShot19 from "@/assets/vip-shot-19.jpg";
+import vipShot20 from "@/assets/vip-shot-20.jpg";
+import vipShot21 from "@/assets/vip-shot-21.jpg";
+import vipShot22 from "@/assets/vip-shot-22.jpg";
+import vipShot23 from "@/assets/vip-shot-23.jpg";
+import vipShot24 from "@/assets/vip-shot-24.jpg";
+import vipShot25 from "@/assets/vip-shot-25.jpg";
 
 const wineImages = [
   vipWine1, vipWine2, vipWine3, vipWine4, vipWine5, vipWine6, vipWine7, vipWine8,
@@ -117,17 +144,25 @@ const frozenImages = [
   vipFrozen17, vipFrozen18, vipFrozen19, vipFrozen20, vipFrozen21, vipFrozen22, vipFrozen23, vipFrozen24,
   vipFrozen25,
 ];
+const shotImages = [
+  vipShot1, vipShot2, vipShot3, vipShot4, vipShot5, vipShot6, vipShot7, vipShot8,
+  vipShot9, vipShot10, vipShot11, vipShot12, vipShot13, vipShot14, vipShot15, vipShot16,
+  vipShot17, vipShot18, vipShot19, vipShot20, vipShot21, vipShot22, vipShot23, vipShot24,
+  vipShot25,
+];
 
 const categoryImagePools: Record<string, string[]> = {
   "Vinho & Sangrias": wineImages,
   "Cerveja & Beer Cocktails": beerImages,
   "Frozen & Blended": frozenImages,
+  "Shots & Shooters": shotImages,
 };
 
 const categoryHeroBanners: Record<string, string> = {
   "vinho-sangrias": vipHeroVinho,
   "cerveja-beer-cocktails": vipHeroCerveja,
   "frozen-blended": vipHeroFrozen,
+  "shots-shooters": vipHeroShots,
 };
 
 // Simple hash to get consistent image for each drink
