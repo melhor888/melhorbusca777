@@ -41,7 +41,7 @@ export default function HeroBanner() {
       <img
         src={getDrinkImage(featured.image)}
         alt={featured.name}
-        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${fading ? "opacity-0" : "opacity-100"}`}
+        className={`absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-500 ${fading ? "opacity-0" : "opacity-100"}`}
       />
       <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
       <div className={`absolute bottom-0 left-0 right-0 p-6 lg:p-12 lg:max-w-3xl transition-all duration-500 ${fading ? "opacity-0 translate-y-2" : "opacity-100 translate-y-0"}`}>
