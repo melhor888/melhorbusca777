@@ -492,6 +492,82 @@ import vipTiki22 from "@/assets/vip-tiki-22.jpg";
 import vipTiki23 from "@/assets/vip-tiki-23.jpg";
 import vipTiki24 from "@/assets/vip-tiki-24.jpg";
 import vipTiki25 from "@/assets/vip-tiki-25.jpg";
+import vipTiki26 from "@/assets/vip-tropical-26.jpg";
+import vipTiki27 from "@/assets/vip-tropical-27.jpg";
+import vipTiki28 from "@/assets/vip-tropical-28.jpg";
+import vipTiki29 from "@/assets/vip-tropical-29.jpg";
+import vipTiki30 from "@/assets/vip-tropical-30.jpg";
+import vipTiki31 from "@/assets/vip-tropical-31.jpg";
+import vipTiki32 from "@/assets/vip-tropical-32.jpg";
+import vipTiki33 from "@/assets/vip-tropical-33.jpg";
+import vipTiki34 from "@/assets/vip-tropical-34.jpg";
+import vipTiki35 from "@/assets/vip-tropical-35.jpg";
+import vipTiki36 from "@/assets/vip-tropical-36.jpg";
+import vipTiki37 from "@/assets/vip-tropical-37.jpg";
+import vipTiki38 from "@/assets/vip-tropical-38.jpg";
+import vipTiki39 from "@/assets/vip-tropical-39.jpg";
+import vipTiki40 from "@/assets/vip-tropical-40.jpg";
+import vipTiki41 from "@/assets/vip-tropical-41.jpg";
+import vipTiki42 from "@/assets/vip-tropical-42.jpg";
+import vipTiki43 from "@/assets/vip-tropical-43.jpg";
+import vipTiki44 from "@/assets/vip-tropical-44.jpg";
+import vipTiki45 from "@/assets/vip-tropical-45.jpg";
+import vipTiki46 from "@/assets/vip-tropical-46.jpg";
+import vipTiki47 from "@/assets/vip-tropical-47.jpg";
+import vipTiki48 from "@/assets/vip-tropical-48.jpg";
+import vipTiki49 from "@/assets/vip-tropical-49.jpg";
+import vipTiki50 from "@/assets/vip-tropical-50.jpg";
+import vipTiki51 from "@/assets/vip-tropical-51.jpg";
+import vipTiki52 from "@/assets/vip-tropical-52.jpg";
+import vipTiki53 from "@/assets/vip-tropical-53.jpg";
+import vipTiki54 from "@/assets/vip-tropical-54.jpg";
+import vipTiki55 from "@/assets/vip-tropical-55.jpg";
+import vipTiki56 from "@/assets/vip-tropical-56.jpg";
+import vipTiki57 from "@/assets/vip-tropical-57.jpg";
+import vipTiki58 from "@/assets/vip-tropical-58.jpg";
+import vipTiki59 from "@/assets/vip-tropical-59.jpg";
+import vipTiki60 from "@/assets/vip-tropical-60.jpg";
+import vipTiki61 from "@/assets/vip-tropical-61.jpg";
+import vipTiki62 from "@/assets/vip-tropical-62.jpg";
+import vipTiki63 from "@/assets/vip-tropical-63.jpg";
+import vipTiki64 from "@/assets/vip-tropical-64.jpg";
+import vipTiki65 from "@/assets/vip-tropical-65.jpg";
+import vipTiki66 from "@/assets/vip-tropical-66.jpg";
+import vipTiki67 from "@/assets/vip-tropical-67.jpg";
+import vipTiki68 from "@/assets/vip-tropical-68.jpg";
+import vipTiki69 from "@/assets/vip-tropical-69.jpg";
+import vipTiki70 from "@/assets/vip-tropical-70.jpg";
+import vipTiki71 from "@/assets/vip-tropical-71.jpg";
+import vipTiki72 from "@/assets/vip-tropical-72.jpg";
+import vipTiki73 from "@/assets/vip-tropical-73.jpg";
+import vipTiki74 from "@/assets/vip-tropical-74.jpg";
+import vipTiki75 from "@/assets/vip-tropical-75.jpg";
+import vipTiki76 from "@/assets/vip-tropical-76.jpg";
+import vipTiki77 from "@/assets/vip-tropical-77.jpg";
+import vipTiki78 from "@/assets/vip-tropical-78.jpg";
+import vipTiki79 from "@/assets/vip-tropical-79.jpg";
+import vipTiki80 from "@/assets/vip-tropical-80.jpg";
+import vipTiki81 from "@/assets/vip-tropical-81.jpg";
+import vipTiki82 from "@/assets/vip-tropical-82.jpg";
+import vipTiki83 from "@/assets/vip-tropical-83.jpg";
+import vipTiki84 from "@/assets/vip-tropical-84.jpg";
+import vipTiki85 from "@/assets/vip-tropical-85.jpg";
+import vipTiki86 from "@/assets/vip-tropical-86.jpg";
+import vipTiki87 from "@/assets/vip-tropical-87.jpg";
+import vipTiki88 from "@/assets/vip-tropical-88.jpg";
+import vipTiki89 from "@/assets/vip-tropical-89.jpg";
+import vipTiki90 from "@/assets/vip-tropical-90.jpg";
+import vipTiki91 from "@/assets/vip-tropical-91.jpg";
+import vipTiki92 from "@/assets/vip-tropical-92.jpg";
+import vipTiki93 from "@/assets/vip-tropical-93.jpg";
+import vipTiki94 from "@/assets/vip-tropical-94.jpg";
+import vipTiki95 from "@/assets/vip-tropical-95.jpg";
+import vipTiki96 from "@/assets/vip-tropical-96.jpg";
+import vipTiki97 from "@/assets/vip-tropical-97.jpg";
+import vipTiki98 from "@/assets/vip-tropical-98.jpg";
+import vipTiki99 from "@/assets/vip-tropical-99.jpg";
+import vipTiki100 from "@/assets/vip-tropical-100.jpg";
+
 
 import vipClassic1 from "@/assets/vip-classic-1.jpg";
 import vipClassic2 from "@/assets/vip-classic-2.jpg";
@@ -609,7 +685,16 @@ const tikiImages = [
   vipTiki1, vipTiki2, vipTiki3, vipTiki4, vipTiki5, vipTiki6, vipTiki7, vipTiki8,
   vipTiki9, vipTiki10, vipTiki11, vipTiki12, vipTiki13, vipTiki14, vipTiki15, vipTiki16,
   vipTiki17, vipTiki18, vipTiki19, vipTiki20, vipTiki21, vipTiki22, vipTiki23, vipTiki24,
-  vipTiki25,
+  vipTiki25, vipTiki26, vipTiki27, vipTiki28, vipTiki29, vipTiki30, vipTiki31, vipTiki32,
+  vipTiki33, vipTiki34, vipTiki35, vipTiki36, vipTiki37, vipTiki38, vipTiki39, vipTiki40,
+  vipTiki41, vipTiki42, vipTiki43, vipTiki44, vipTiki45, vipTiki46, vipTiki47, vipTiki48,
+  vipTiki49, vipTiki50, vipTiki51, vipTiki52, vipTiki53, vipTiki54, vipTiki55, vipTiki56,
+  vipTiki57, vipTiki58, vipTiki59, vipTiki60, vipTiki61, vipTiki62, vipTiki63, vipTiki64,
+  vipTiki65, vipTiki66, vipTiki67, vipTiki68, vipTiki69, vipTiki70, vipTiki71, vipTiki72,
+  vipTiki73, vipTiki74, vipTiki75, vipTiki76, vipTiki77, vipTiki78, vipTiki79, vipTiki80,
+  vipTiki81, vipTiki82, vipTiki83, vipTiki84, vipTiki85, vipTiki86, vipTiki87, vipTiki88,
+  vipTiki89, vipTiki90, vipTiki91, vipTiki92, vipTiki93, vipTiki94, vipTiki95, vipTiki96,
+  vipTiki97, vipTiki98, vipTiki99, vipTiki100,
 ];
 const classicImages = [
   vipClassic1, vipClassic2, vipClassic3, vipClassic4, vipClassic5, vipClassic6, vipClassic7, vipClassic8,
