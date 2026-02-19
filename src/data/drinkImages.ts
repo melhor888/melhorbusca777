@@ -172,6 +172,84 @@ import espressoRomano from "@/assets/drink-espresso-romano.jpg";
 import moscowMuleThai from "@/assets/drink-moscow-mule-thai.jpg";
 
 // ===== BATCH 5 — 100 NEW UNIQUE IMAGES =====
+// ===== BATCH 6 — 100 NEW UNIQUE IMAGES (non-duplicate imports only) =====
+import blackberryGinSour from "@/assets/drink-blackberry-gin-sour.jpg";
+import cucumberBasilGimlet from "@/assets/drink-cucumber-basil-gimlet.jpg";
+import grapefruitPaloma from "@/assets/drink-grapefruit-paloma.jpg";
+import cherryBourbonSour from "@/assets/drink-cherry-bourbon-sour.jpg";
+import rosemaryLemonDrop from "@/assets/drink-rosemary-lemon-drop.jpg";
+import spicedPearMartini from "@/assets/drink-spiced-pear-martini.jpg";
+import pomegranateSpritz from "@/assets/drink-pomegranate-spritz.jpg";
+import tamarindWhiskeySour from "@/assets/drink-tamarind-whiskey-sour.jpg";
+import coconutLimeCooler from "@/assets/drink-coconut-lime-cooler.jpg";
+import mangoChiliMargarita from "@/assets/drink-mango-chili-margarita.jpg";
+import honeyLavenderCollins from "@/assets/drink-honey-lavender-collins.jpg";
+import watermelonGinFizz from "@/assets/drink-watermelon-gin-fizz.jpg";
+import cardamomOldFashioned from "@/assets/drink-cardamom-old-fashioned.jpg";
+import lemongrassGinTonic from "@/assets/drink-lemongrass-gin-tonic.jpg";
+import plumWhiskeySmash from "@/assets/drink-plum-whiskey-smash.jpg";
+import apricotSour from "@/assets/drink-apricot-sour.jpg";
+import tikiRumRunner from "@/assets/drink-tiki-rum-runner.jpg";
+import rooibosGinFizz from "@/assets/drink-rooibos-gin-fizz.jpg";
+import coconutEspressoMartini from "@/assets/drink-coconut-espresso-martini.jpg";
+import figHoneyWhiskey from "@/assets/drink-fig-honey-whiskey.jpg";
+import vanillaRumPunch from "@/assets/drink-vanilla-rum-punch.jpg";
+import guavaRumCollins from "@/assets/drink-guava-rum-collins.jpg";
+import hibiscusGinFizz from "@/assets/drink-hibiscus-gin-fizz.jpg";
+import limeBasilVodka from "@/assets/drink-lime-basil-vodka.jpg";
+import sageDerby from "@/assets/drink-sage-derby.jpg";
+import tropicalTequilaSunrise from "@/assets/drink-tropical-tequila-sunrise.jpg";
+import frozenPaloma from "@/assets/drink-frozen-paloma.jpg";
+import elderflowerMartini from "@/assets/drink-elderflower-martini.jpg";
+import gingerLimeRickey from "@/assets/drink-ginger-lime-rickey.jpg";
+import pineappleMezcalMargarita from "@/assets/drink-pineapple-mezcal-margarita.jpg";
+import roseWaterLemonade from "@/assets/drink-rose-water-lemonade.jpg";
+import turmericGoldenMilk from "@/assets/drink-turmeric-golden-milk.jpg";
+import frozenAperolSpritz from "@/assets/drink-frozen-aperol-spritz.jpg";
+import japaneseHighball from "@/assets/drink-japanese-highball.jpg";
+import bananaFoster from "@/assets/drink-banana-foster.jpg";
+import matchaWhiskeySour from "@/assets/drink-matcha-whiskey-sour.jpg";
+import tequilaEspresso from "@/assets/drink-tequila-espresso.jpg";
+import ginAndJam from "@/assets/drink-gin-and-jam.jpg";
+import frozenMojito from "@/assets/drink-frozen-mojito.jpg";
+import mezcalSour from "@/assets/drink-mezcal-sour.jpg";
+import cucumberMelonSpritz from "@/assets/drink-cucumber-melon-spritz.jpg";
+import bourbonAppleCider from "@/assets/drink-bourbon-apple-cider.jpg";
+import blackberryBourbonLemonade from "@/assets/drink-blackberry-bourbon-lemonade.jpg";
+import smokedCherryOf from "@/assets/drink-smoked-cherry-of.jpg";
+import raspberryGinSmash from "@/assets/drink-raspberry-gin-smash.jpg";
+import pineappleExpress from "@/assets/drink-pineapple-express.jpg";
+import grilledPineappleMarg from "@/assets/drink-grilled-pineapple-marg.jpg";
+import sparklingRose from "@/assets/drink-sparkling-rose.jpg";
+import rumCoconutWater from "@/assets/drink-rum-coconut-water.jpg";
+import bourbonCreamSoda from "@/assets/drink-bourbon-cream-soda.jpg";
+import ginGarden from "@/assets/drink-gin-garden.jpg";
+import vodkaBasilLemonade from "@/assets/drink-vodka-basil-lemonade.jpg";
+import spicedRumFlip from "@/assets/drink-spiced-rum-flip.jpg";
+import champagneMango from "@/assets/drink-champagne-mango.jpg";
+import smokyMezcalMargarita from "@/assets/drink-smoky-mezcal-margarita.jpg";
+import citrusBourbonHighball from "@/assets/drink-citrus-bourbon-highball.jpg";
+import purpleRainFizz from "@/assets/drink-purple-rain-fizz.jpg";
+import mintGinSpritz from "@/assets/drink-mint-gin-spritz.jpg";
+import jalapenoPineappleMarg from "@/assets/drink-jalapeno-pineapple-marg.jpg";
+import rumAgricolePunch from "@/assets/drink-rum-agricole-punch.jpg";
+import passionfruitMartiniV2 from "@/assets/drink-passionfruit-martini-v2.jpg";
+import pearThymeCollins from "@/assets/drink-pear-thyme-collins.jpg";
+import appleGingerMule from "@/assets/drink-apple-ginger-mule.jpg";
+import berryChampagne from "@/assets/drink-berry-champagne.jpg";
+import frozenEspressoMartini from "@/assets/drink-frozen-espresso-martini.jpg";
+import melonProsecco from "@/assets/drink-melon-prosecco.jpg";
+import spicedOrangeMargarita from "@/assets/drink-spiced-orange-margarita.jpg";
+import blackWalnutOf from "@/assets/drink-black-walnut-of.jpg";
+import ginBlossom from "@/assets/drink-gin-blossom.jpg";
+import lemonThymeGt from "@/assets/drink-lemon-thyme-gt.jpg";
+import chocolateOrangeMartini from "@/assets/drink-chocolate-orange-martini.jpg";
+import frozenCosmo from "@/assets/drink-frozen-cosmo.jpg";
+import watermelonSpritz from "@/assets/drink-watermelon-spritz.jpg";
+import cacaoRumSour from "@/assets/drink-cacao-rum-sour.jpg";
+import frozenLimeDaiquiri from "@/assets/drink-frozen-lime-daiquiri.jpg";
+import bloodOrangeGinFizz from "@/assets/drink-blood-orange-gin-fizz.jpg";
+import mangoRumPunch from "@/assets/drink-mango-rum-punch.jpg";
 import dirtyMartini from "@/assets/drink-dirty-martini.jpg";
 import fuzzyNavel from "@/assets/drink-fuzzy-navel.jpg";
 import electricLemonade from "@/assets/drink-electric-lemonade.jpg";
@@ -1262,6 +1340,83 @@ const drinkImages: Record<string, string> = {
   "key-west-cooler": keyWestCooler,
   "peanut-butter-of": peanutButterOf,
   "thyme-lemonade": thymeLemonade,
+  "blackberry-gin-sour": blackberryGinSour,
+  "cucumber-basil-gimlet": cucumberBasilGimlet,
+  "grapefruit-paloma": grapefruitPaloma,
+  "cherry-bourbon-sour": cherryBourbonSour,
+  "rosemary-lemon-drop": rosemaryLemonDrop,
+  "spiced-pear-martini": spicedPearMartini,
+  "pomegranate-spritz": pomegranateSpritz,
+  "tamarind-whiskey-sour": tamarindWhiskeySour,
+  "coconut-lime-cooler": coconutLimeCooler,
+  "mango-chili-margarita": mangoChiliMargarita,
+  "honey-lavender-collins": honeyLavenderCollins,
+  "watermelon-gin-fizz": watermelonGinFizz,
+  "cardamom-old-fashioned": cardamomOldFashioned,
+  "lemongrass-gin-tonic": lemongrassGinTonic,
+  "plum-whiskey-smash": plumWhiskeySmash,
+  "apricot-sour": apricotSour,
+  "tiki-rum-runner": tikiRumRunner,
+  "rooibos-gin-fizz": rooibosGinFizz,
+  "coconut-espresso-martini": coconutEspressoMartini,
+  "fig-honey-whiskey": figHoneyWhiskey,
+  "vanilla-rum-punch": vanillaRumPunch,
+  "guava-rum-collins": guavaRumCollins,
+  "hibiscus-gin-fizz": hibiscusGinFizz,
+  "lime-basil-vodka": limeBasilVodka,
+  "sage-derby": sageDerby,
+  "tropical-tequila-sunrise": tropicalTequilaSunrise,
+  "frozen-paloma": frozenPaloma,
+  "elderflower-martini": elderflowerMartini,
+  "ginger-lime-rickey": gingerLimeRickey,
+  "pineapple-mezcal-margarita": pineappleMezcalMargarita,
+  "rose-water-lemonade": roseWaterLemonade,
+  "turmeric-golden-milk": turmericGoldenMilk,
+  "frozen-aperol-spritz": frozenAperolSpritz,
+  "japanese-highball": japaneseHighball,
+  "banana-foster": bananaFoster,
+  "matcha-whiskey-sour": matchaWhiskeySour,
+  "tequila-espresso": tequilaEspresso,
+  "gin-and-jam": ginAndJam,
+  "frozen-mojito": frozenMojito,
+  "mezcal-sour": mezcalSour,
+  "cucumber-melon-spritz": cucumberMelonSpritz,
+  "bourbon-apple-cider": bourbonAppleCider,
+  "blackberry-bourbon-lemonade": blackberryBourbonLemonade,
+  "smoked-cherry-of": smokedCherryOf,
+  "raspberry-gin-smash": raspberryGinSmash,
+  "pineapple-express": pineappleExpress,
+  "grilled-pineapple-marg": grilledPineappleMarg,
+  "sparkling-rose": sparklingRose,
+  "rum-coconut-water": rumCoconutWater,
+  "bourbon-cream-soda": bourbonCreamSoda,
+  "gin-garden": ginGarden,
+  "vodka-basil-lemonade": vodkaBasilLemonade,
+  "spiced-rum-flip": spicedRumFlip,
+  "champagne-mango": champagneMango,
+  "smoky-mezcal-margarita": smokyMezcalMargarita,
+  "citrus-bourbon-highball": citrusBourbonHighball,
+  "purple-rain-fizz": purpleRainFizz,
+  "mint-gin-spritz": mintGinSpritz,
+  "jalapeno-pineapple-marg": jalapenoPineappleMarg,
+  "rum-agricole-punch": rumAgricolePunch,
+  "passionfruit-martini-v2": passionfruitMartiniV2,
+  "pear-thyme-collins": pearThymeCollins,
+  "apple-ginger-mule": appleGingerMule,
+  "berry-champagne": berryChampagne,
+  "frozen-espresso-martini": frozenEspressoMartini,
+  "melon-prosecco": melonProsecco,
+  "spiced-orange-margarita": spicedOrangeMargarita,
+  "black-walnut-of": blackWalnutOf,
+  "gin-blossom": ginBlossom,
+  "lemon-thyme-gt": lemonThymeGt,
+  "chocolate-orange-martini": chocolateOrangeMartini,
+  "frozen-cosmo": frozenCosmo,
+  "watermelon-spritz": watermelonSpritz,
+  "cacao-rum-sour": cacaoRumSour,
+  "frozen-lime-daiquiri": frozenLimeDaiquiri,
+  "blood-orange-gin-fizz": bloodOrangeGinFizz,
+  "mango-rum-punch": mangoRumPunch,
 };
 
 export function getDrinkImage(imageKey: string): string {
