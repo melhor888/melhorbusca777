@@ -7,6 +7,31 @@ import vipWine5 from "@/assets/vip-wine-5.jpg";
 import vipWine6 from "@/assets/vip-wine-6.jpg";
 import vipWine7 from "@/assets/vip-wine-7.jpg";
 import vipWine8 from "@/assets/vip-wine-8.jpg";
+import vipWine9 from "@/assets/vip-wine-9.jpg";
+import vipWine10 from "@/assets/vip-wine-10.jpg";
+import vipWine11 from "@/assets/vip-wine-11.jpg";
+import vipWine12 from "@/assets/vip-wine-12.jpg";
+import vipWine13 from "@/assets/vip-wine-13.jpg";
+import vipWine14 from "@/assets/vip-wine-14.jpg";
+import vipWine15 from "@/assets/vip-wine-15.jpg";
+import vipWine16 from "@/assets/vip-wine-16.jpg";
+import vipWine17 from "@/assets/vip-wine-17.jpg";
+import vipWine18 from "@/assets/vip-wine-18.jpg";
+import vipWine19 from "@/assets/vip-wine-19.jpg";
+import vipWine20 from "@/assets/vip-wine-20.jpg";
+import vipWine21 from "@/assets/vip-wine-21.jpg";
+import vipWine22 from "@/assets/vip-wine-22.jpg";
+import vipWine23 from "@/assets/vip-wine-23.jpg";
+import vipWine24 from "@/assets/vip-wine-24.jpg";
+import vipWine25 from "@/assets/vip-wine-25.jpg";
+import vipWine26 from "@/assets/vip-wine-26.jpg";
+import vipWine27 from "@/assets/vip-wine-27.jpg";
+import vipWine28 from "@/assets/vip-wine-28.jpg";
+import vipWine29 from "@/assets/vip-wine-29.jpg";
+import vipWine30 from "@/assets/vip-wine-30.jpg";
+import vipWine31 from "@/assets/vip-wine-31.jpg";
+import vipWine32 from "@/assets/vip-wine-32.jpg";
+import vipWine33 from "@/assets/vip-wine-33.jpg";
 
 import vipBeer1 from "@/assets/vip-beer-1.jpg";
 import vipBeer2 from "@/assets/vip-beer-2.jpg";
@@ -45,7 +70,13 @@ import vipBeer33 from "@/assets/vip-beer-33.jpg";
 import vipHeroVinho from "@/assets/vip-hero-vinho-sangrias.jpg";
 import vipHeroCerveja from "@/assets/vip-hero-cerveja-beer.jpg";
 
-const wineImages = [vipWine1, vipWine2, vipWine3, vipWine4, vipWine5, vipWine6, vipWine7, vipWine8];
+const wineImages = [
+  vipWine1, vipWine2, vipWine3, vipWine4, vipWine5, vipWine6, vipWine7, vipWine8,
+  vipWine9, vipWine10, vipWine11, vipWine12, vipWine13, vipWine14, vipWine15, vipWine16,
+  vipWine17, vipWine18, vipWine19, vipWine20, vipWine21, vipWine22, vipWine23, vipWine24,
+  vipWine25, vipWine26, vipWine27, vipWine28, vipWine29, vipWine30, vipWine31, vipWine32,
+  vipWine33,
+];
 const beerImages = [
   vipBeer1, vipBeer2, vipBeer3, vipBeer4, vipBeer5, vipBeer6, vipBeer7, vipBeer8,
   vipBeer9, vipBeer10, vipBeer11, vipBeer12, vipBeer13, vipBeer14, vipBeer15, vipBeer16,
