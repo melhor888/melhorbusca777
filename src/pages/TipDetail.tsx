@@ -1,6 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { getTipById } from "@/data/bartenderTips";
+import { getTipImage } from "@/data/tipImages";
 import { ArrowLeft, Zap } from "lucide-react";
 
 export default function TipDetail() {
