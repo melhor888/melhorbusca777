@@ -277,6 +277,31 @@ import vipFrozen72 from "@/assets/vip-frozen-72.jpg";
 import vipFrozen73 from "@/assets/vip-frozen-73.jpg";
 import vipFrozen74 from "@/assets/vip-frozen-74.jpg";
 import vipFrozen75 from "@/assets/vip-frozen-75.jpg";
+import vipFrozen76 from "@/assets/vip-frozen-76.jpg";
+import vipFrozen77 from "@/assets/vip-frozen-77.jpg";
+import vipFrozen78 from "@/assets/vip-frozen-78.jpg";
+import vipFrozen79 from "@/assets/vip-frozen-79.jpg";
+import vipFrozen80 from "@/assets/vip-frozen-80.jpg";
+import vipFrozen81 from "@/assets/vip-frozen-81.jpg";
+import vipFrozen82 from "@/assets/vip-frozen-82.jpg";
+import vipFrozen83 from "@/assets/vip-frozen-83.jpg";
+import vipFrozen84 from "@/assets/vip-frozen-84.jpg";
+import vipFrozen85 from "@/assets/vip-frozen-85.jpg";
+import vipFrozen86 from "@/assets/vip-frozen-86.jpg";
+import vipFrozen87 from "@/assets/vip-frozen-87.jpg";
+import vipFrozen88 from "@/assets/vip-frozen-88.jpg";
+import vipFrozen89 from "@/assets/vip-frozen-89.jpg";
+import vipFrozen90 from "@/assets/vip-frozen-90.jpg";
+import vipFrozen91 from "@/assets/vip-frozen-91.jpg";
+import vipFrozen92 from "@/assets/vip-frozen-92.jpg";
+import vipFrozen93 from "@/assets/vip-frozen-93.jpg";
+import vipFrozen94 from "@/assets/vip-frozen-94.jpg";
+import vipFrozen95 from "@/assets/vip-frozen-95.jpg";
+import vipFrozen96 from "@/assets/vip-frozen-96.jpg";
+import vipFrozen97 from "@/assets/vip-frozen-97.jpg";
+import vipFrozen98 from "@/assets/vip-frozen-98.jpg";
+import vipFrozen99 from "@/assets/vip-frozen-99.jpg";
+import vipFrozen100 from "@/assets/vip-frozen-100.jpg";
 
 
 import vipHeroVinho from "@/assets/vip-hero-vinho-sangrias.jpg";
@@ -485,7 +510,10 @@ const frozenImages = [
   vipFrozen49, vipFrozen50, vipFrozen51, vipFrozen52, vipFrozen53, vipFrozen54, vipFrozen55, vipFrozen56,
   vipFrozen57, vipFrozen58, vipFrozen59, vipFrozen60, vipFrozen61, vipFrozen62, vipFrozen63, vipFrozen64,
   vipFrozen65, vipFrozen66, vipFrozen67, vipFrozen68, vipFrozen69, vipFrozen70, vipFrozen71, vipFrozen72,
-  vipFrozen73, vipFrozen74, vipFrozen75,
+  vipFrozen73, vipFrozen74, vipFrozen75, vipFrozen76, vipFrozen77, vipFrozen78, vipFrozen79, vipFrozen80,
+  vipFrozen81, vipFrozen82, vipFrozen83, vipFrozen84, vipFrozen85, vipFrozen86, vipFrozen87, vipFrozen88,
+  vipFrozen89, vipFrozen90, vipFrozen91, vipFrozen92, vipFrozen93, vipFrozen94, vipFrozen95, vipFrozen96,
+  vipFrozen97, vipFrozen98, vipFrozen99, vipFrozen100,
 ];
 const shotImages = [
   vipShot1, vipShot2, vipShot3, vipShot4, vipShot5, vipShot6, vipShot7, vipShot8,
