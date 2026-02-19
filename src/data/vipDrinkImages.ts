@@ -339,6 +339,81 @@ import vipCafe22 from "@/assets/vip-cafe-22.jpg";
 import vipCafe23 from "@/assets/vip-cafe-23.jpg";
 import vipCafe24 from "@/assets/vip-cafe-24.jpg";
 import vipCafe25 from "@/assets/vip-cafe-25.jpg";
+import vipCafe26 from "@/assets/vip-cafe-26.jpg";
+import vipCafe27 from "@/assets/vip-cafe-27.jpg";
+import vipCafe28 from "@/assets/vip-cafe-28.jpg";
+import vipCafe29 from "@/assets/vip-cafe-29.jpg";
+import vipCafe30 from "@/assets/vip-cafe-30.jpg";
+import vipCafe31 from "@/assets/vip-cafe-31.jpg";
+import vipCafe32 from "@/assets/vip-cafe-32.jpg";
+import vipCafe33 from "@/assets/vip-cafe-33.jpg";
+import vipCafe34 from "@/assets/vip-cafe-34.jpg";
+import vipCafe35 from "@/assets/vip-cafe-35.jpg";
+import vipCafe36 from "@/assets/vip-cafe-36.jpg";
+import vipCafe37 from "@/assets/vip-cafe-37.jpg";
+import vipCafe38 from "@/assets/vip-cafe-38.jpg";
+import vipCafe39 from "@/assets/vip-cafe-39.jpg";
+import vipCafe40 from "@/assets/vip-cafe-40.jpg";
+import vipCafe41 from "@/assets/vip-cafe-41.jpg";
+import vipCafe42 from "@/assets/vip-cafe-42.jpg";
+import vipCafe43 from "@/assets/vip-cafe-43.jpg";
+import vipCafe44 from "@/assets/vip-cafe-44.jpg";
+import vipCafe45 from "@/assets/vip-cafe-45.jpg";
+import vipCafe46 from "@/assets/vip-cafe-46.jpg";
+import vipCafe47 from "@/assets/vip-cafe-47.jpg";
+import vipCafe48 from "@/assets/vip-cafe-48.jpg";
+import vipCafe49 from "@/assets/vip-cafe-49.jpg";
+import vipCafe50 from "@/assets/vip-cafe-50.jpg";
+import vipCafe51 from "@/assets/vip-cafe-51.jpg";
+import vipCafe52 from "@/assets/vip-cafe-52.jpg";
+import vipCafe53 from "@/assets/vip-cafe-53.jpg";
+import vipCafe54 from "@/assets/vip-cafe-54.jpg";
+import vipCafe55 from "@/assets/vip-cafe-55.jpg";
+import vipCafe56 from "@/assets/vip-cafe-56.jpg";
+import vipCafe57 from "@/assets/vip-cafe-57.jpg";
+import vipCafe58 from "@/assets/vip-cafe-58.jpg";
+import vipCafe59 from "@/assets/vip-cafe-59.jpg";
+import vipCafe60 from "@/assets/vip-cafe-60.jpg";
+import vipCafe61 from "@/assets/vip-cafe-61.jpg";
+import vipCafe62 from "@/assets/vip-cafe-62.jpg";
+import vipCafe63 from "@/assets/vip-cafe-63.jpg";
+import vipCafe64 from "@/assets/vip-cafe-64.jpg";
+import vipCafe65 from "@/assets/vip-cafe-65.jpg";
+import vipCafe66 from "@/assets/vip-cafe-66.jpg";
+import vipCafe67 from "@/assets/vip-cafe-67.jpg";
+import vipCafe68 from "@/assets/vip-cafe-68.jpg";
+import vipCafe69 from "@/assets/vip-cafe-69.jpg";
+import vipCafe70 from "@/assets/vip-cafe-70.jpg";
+import vipCafe71 from "@/assets/vip-cafe-71.jpg";
+import vipCafe72 from "@/assets/vip-cafe-72.jpg";
+import vipCafe73 from "@/assets/vip-cafe-73.jpg";
+import vipCafe74 from "@/assets/vip-cafe-74.jpg";
+import vipCafe75 from "@/assets/vip-cafe-75.jpg";
+import vipCafe76 from "@/assets/vip-cafe-76.jpg";
+import vipCafe77 from "@/assets/vip-cafe-77.jpg";
+import vipCafe78 from "@/assets/vip-cafe-78.jpg";
+import vipCafe79 from "@/assets/vip-cafe-79.jpg";
+import vipCafe80 from "@/assets/vip-cafe-80.jpg";
+import vipCafe81 from "@/assets/vip-cafe-81.jpg";
+import vipCafe82 from "@/assets/vip-cafe-82.jpg";
+import vipCafe83 from "@/assets/vip-cafe-83.jpg";
+import vipCafe84 from "@/assets/vip-cafe-84.jpg";
+import vipCafe85 from "@/assets/vip-cafe-85.jpg";
+import vipCafe86 from "@/assets/vip-cafe-86.jpg";
+import vipCafe87 from "@/assets/vip-cafe-87.jpg";
+import vipCafe88 from "@/assets/vip-cafe-88.jpg";
+import vipCafe89 from "@/assets/vip-cafe-89.jpg";
+import vipCafe90 from "@/assets/vip-cafe-90.jpg";
+import vipCafe91 from "@/assets/vip-cafe-91.jpg";
+import vipCafe92 from "@/assets/vip-cafe-92.jpg";
+import vipCafe93 from "@/assets/vip-cafe-93.jpg";
+import vipCafe94 from "@/assets/vip-cafe-94.jpg";
+import vipCafe95 from "@/assets/vip-cafe-95.jpg";
+import vipCafe96 from "@/assets/vip-cafe-96.jpg";
+import vipCafe97 from "@/assets/vip-cafe-97.jpg";
+import vipCafe98 from "@/assets/vip-cafe-98.jpg";
+import vipCafe99 from "@/assets/vip-cafe-99.jpg";
+import vipCafe100 from "@/assets/vip-cafe-100.jpg";
 
 import vipAutor1 from "@/assets/vip-autor-1.jpg";
 import vipAutor2 from "@/assets/vip-autor-2.jpg";
@@ -972,7 +1047,16 @@ const cafeImages = [
   vipCafe1, vipCafe2, vipCafe3, vipCafe4, vipCafe5, vipCafe6, vipCafe7, vipCafe8,
   vipCafe9, vipCafe10, vipCafe11, vipCafe12, vipCafe13, vipCafe14, vipCafe15, vipCafe16,
   vipCafe17, vipCafe18, vipCafe19, vipCafe20, vipCafe21, vipCafe22, vipCafe23, vipCafe24,
-  vipCafe25,
+  vipCafe25, vipCafe26, vipCafe27, vipCafe28, vipCafe29, vipCafe30, vipCafe31, vipCafe32,
+  vipCafe33, vipCafe34, vipCafe35, vipCafe36, vipCafe37, vipCafe38, vipCafe39, vipCafe40,
+  vipCafe41, vipCafe42, vipCafe43, vipCafe44, vipCafe45, vipCafe46, vipCafe47, vipCafe48,
+  vipCafe49, vipCafe50, vipCafe51, vipCafe52, vipCafe53, vipCafe54, vipCafe55, vipCafe56,
+  vipCafe57, vipCafe58, vipCafe59, vipCafe60, vipCafe61, vipCafe62, vipCafe63, vipCafe64,
+  vipCafe65, vipCafe66, vipCafe67, vipCafe68, vipCafe69, vipCafe70, vipCafe71, vipCafe72,
+  vipCafe73, vipCafe74, vipCafe75, vipCafe76, vipCafe77, vipCafe78, vipCafe79, vipCafe80,
+  vipCafe81, vipCafe82, vipCafe83, vipCafe84, vipCafe85, vipCafe86, vipCafe87, vipCafe88,
+  vipCafe89, vipCafe90, vipCafe91, vipCafe92, vipCafe93, vipCafe94, vipCafe95, vipCafe96,
+  vipCafe97, vipCafe98, vipCafe99, vipCafe100,
 ];
 
 const categoryImagePools: Record<string, string[]> = {
