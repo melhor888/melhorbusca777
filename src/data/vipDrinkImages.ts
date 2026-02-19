@@ -276,6 +276,12 @@ const lowAbvImages = [
   vipLowabv17, vipLowabv18, vipLowabv19, vipLowabv20, vipLowabv21, vipLowabv22, vipLowabv23, vipLowabv24,
   vipLowabv25,
 ];
+const autorImages = [
+  vipAutor1, vipAutor2, vipAutor3, vipAutor4, vipAutor5, vipAutor6, vipAutor7, vipAutor8,
+  vipAutor9, vipAutor10, vipAutor11, vipAutor12, vipAutor13, vipAutor14, vipAutor15, vipAutor16,
+  vipAutor17, vipAutor18, vipAutor19, vipAutor20, vipAutor21, vipAutor22, vipAutor23, vipAutor24,
+  vipAutor25,
+];
 
 const categoryImagePools: Record<string, string[]> = {
   "Vinho & Sangrias": wineImages,
