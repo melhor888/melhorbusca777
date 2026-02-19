@@ -52,6 +52,18 @@ import tequilaShot from "@/assets/drink-tequila-shot.jpg";
 import fruitPunch from "@/assets/drink-fruit-punch.jpg";
 import arnoldPalmer from "@/assets/drink-arnold-palmer.jpg";
 import michelada from "@/assets/drink-michelada.jpg";
+import mimosa from "@/assets/drink-mimosa.jpg";
+import bellini from "@/assets/drink-bellini.jpg";
+import kirRoyal from "@/assets/drink-kir-royal.jpg";
+import rossini from "@/assets/drink-rossini.jpg";
+import frenchMartini from "@/assets/drink-french-martini.jpg";
+import spritzVeneziano from "@/assets/drink-spritz-veneziano.jpg";
+import limoncelloSpritz from "@/assets/drink-limoncello-spritz.jpg";
+import affogato from "@/assets/drink-affogato.jpg";
+import carajillo from "@/assets/drink-carajillo.jpg";
+import amarettoSour from "@/assets/drink-amaretto-sour.jpg";
+import frangelicoCoffee from "@/assets/drink-frangelico-coffee.jpg";
+import baileysIce from "@/assets/drink-baileys-ice.jpg";
 
 const drinkImages: Record<string, string> = {
   "hero-mojito": heroMojito,
@@ -108,6 +120,18 @@ const drinkImages: Record<string, string> = {
   "fruit-punch": fruitPunch,
   "arnold-palmer": arnoldPalmer,
   michelada,
+  mimosa,
+  bellini,
+  "kir-royal": kirRoyal,
+  rossini,
+  "french-martini": frenchMartini,
+  "spritz-veneziano": spritzVeneziano,
+  "limoncello-spritz": limoncelloSpritz,
+  affogato,
+  carajillo,
+  "amaretto-sour": amarettoSour,
+  "frangelico-coffee": frangelicoCoffee,
+  "baileys-ice": baileysIce,
   // Aliases for drinks reusing similar images
   "harvey-wallbanger": screwdriver,
   "vodka-martini": martini,
@@ -238,7 +262,7 @@ const drinkImages: Record<string, string> = {
 
   // ===== EXÓTICOS EXTRAS =====
   "hugo-spritz": aperolSpritz,
-  carajillo: espressoMartini,
+  // carajillo now has its own image above
   "mezcal-negroni": negroni,
   canchanchara: caipirinha,
   "paloma-italiana": aperolSpritz,
