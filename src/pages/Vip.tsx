@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { Crown, Lock, Wine, Beer, Snowflake, Leaf, KeyRound, Check, X, Flame, GlassWater, IceCream, Trophy, Globe, CupSoda, Martini } from "lucide-react";
 import { validateVipKey, isVipUnlocked, setVipUnlocked } from "@/utils/vipKeys";
+import { getVipDrinksByCategory } from "@/data/vipDrinks";
 
 const vipCategories = [
   {
@@ -10,7 +12,6 @@ const vipCategories = [
     icon: Wine,
     description: "Sangrias, vinhos quentes, spritzers de vinho e muito mais",
     color: "from-rose-500 to-red-700",
-    count: "Em breve",
   },
   {
     id: "cerveja-beer-cocktails",
@@ -18,7 +19,6 @@ const vipCategories = [
     icon: Beer,
     description: "Micheladas, Shandys, Radlers, Beer Margaritas",
     color: "from-amber-400 to-yellow-600",
-    count: "Em breve",
   },
   {
     id: "frozen-blended",
@@ -26,7 +26,6 @@ const vipCategories = [
     icon: Snowflake,
     description: "Frozen margaritas, frosés, slushies e drinks gelados",
     color: "from-cyan-400 to-blue-600",
-    count: "Em breve",
   },
   {
     id: "low-abv-wellness",
@@ -34,7 +33,6 @@ const vipCategories = [
     icon: Leaf,
     description: "Drinks leves, spritzes, kombuchas alcoólicas e mais",
     color: "from-emerald-400 to-green-600",
-    count: "Em breve",
   },
   {
     id: "drinks-autor",
@@ -42,7 +40,6 @@ const vipCategories = [
     icon: Martini,
     description: "Criações exclusivas e autorais de bartenders famosos",
     color: "from-violet-500 to-purple-700",
-    count: "Em breve",
   },
   {
     id: "sazonais-festivos",
@@ -50,7 +47,6 @@ const vipCategories = [
     icon: Crown,
     description: "Natal, Ano Novo, Carnaval, São João, Halloween",
     color: "from-red-400 to-pink-600",
-    count: "Em breve",
   },
   {
     id: "sobremesa-doces",
@@ -58,7 +54,6 @@ const vipCategories = [
     icon: IceCream,
     description: "Chocolate, caramelo, sorvete, licores cremosos",
     color: "from-pink-400 to-fuchsia-600",
-    count: "Em breve",
   },
   {
     id: "picantes-defumados",
@@ -66,7 +61,6 @@ const vipCategories = [
     icon: Flame,
     description: "Mezcal, jalapeño, chili, técnicas de defumação",
     color: "from-orange-500 to-red-600",
-    count: "Em breve",
   },
   {
     id: "cha-infusoes",
@@ -74,7 +68,6 @@ const vipCategories = [
     icon: CupSoda,
     description: "Chá gelado alcoólico, infusões de ervas, matcha cocktails",
     color: "from-lime-400 to-green-600",
-    count: "Em breve",
   },
   {
     id: "veganos-plant-based",
@@ -82,7 +75,6 @@ const vipCategories = [
     icon: Leaf,
     description: "Sem derivados animais, leites vegetais, aquafaba",
     color: "from-teal-400 to-emerald-600",
-    count: "Em breve",
   },
   {
     id: "masterclass",
@@ -90,7 +82,6 @@ const vipCategories = [
     icon: Trophy,
     description: "Técnicas avançadas: esferificação, clarificação, fat-wash",
     color: "from-yellow-500 to-amber-700",
-    count: "Em breve",
   },
   {
     id: "volta-ao-mundo",
@@ -98,11 +89,11 @@ const vipCategories = [
     icon: Globe,
     description: "Drinks típicos de cada país: Japão, Peru, Cuba, Itália...",
     color: "from-sky-400 to-indigo-600",
-    count: "Em breve",
   },
 ];
 
 export default function Vip() {
+  const navigate = useNavigate();
   const [unlocked, setUnlocked] = useState(false);
   const [keyInput, setKeyInput] = useState("");
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
@@ -222,12 +213,17 @@ export default function Vip() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto">
           {vipCategories.map((cat) => {
             const Icon = cat.icon;
+            const drinkCount = getVipDrinksByCategory(cat.name).length;
+            const hasRecipes = drinkCount > 0;
+            const isClickable = unlocked && hasRecipes;
             return (
-              <div
+              <button
                 key={cat.id}
-                className={`relative group rounded-2xl border border-border/50 bg-card overflow-hidden transition-all duration-300 hover:shadow-lg hover:border-primary/30 ${
+                onClick={() => isClickable && navigate(`/vip/categoria/${cat.id}`)}
+                disabled={!isClickable}
+                className={`relative group rounded-2xl border border-border/50 bg-card overflow-hidden transition-all duration-300 hover:shadow-lg hover:border-primary/30 text-left ${
                   !unlocked ? "opacity-60" : ""
-                }`}
+                } ${isClickable ? "cursor-pointer" : "cursor-default"}`}
               >
                 {/* Lock overlay when not unlocked */}
                 {!unlocked && (
@@ -247,12 +243,12 @@ export default function Vip() {
                       <h3 className="font-display font-bold text-foreground text-sm">{cat.name}</h3>
                       <p className="text-muted-foreground text-xs mt-1 line-clamp-2">{cat.description}</p>
                       <span className="inline-block mt-2 text-[10px] font-semibold uppercase tracking-wider text-yellow-500 bg-yellow-500/10 px-2 py-0.5 rounded-full">
-                        {cat.count}
+                        {hasRecipes ? `${drinkCount} receitas` : "Em breve"}
                       </span>
                     </div>
                   </div>
                 </div>
-              </div>
+              </button>
             );
           })}
         </div>

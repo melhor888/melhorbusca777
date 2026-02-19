@@ -26,6 +26,8 @@ import Dashboard from "./pages/Dashboard";
 import Ingredients from "./pages/Ingredients";
 import Collections from "./pages/Collections";
 import Vip from "./pages/Vip";
+import VipCategoryPage from "./pages/VipCategoryPage";
+import VipRecipeDetail from "./pages/VipRecipeDetail";
 import BottomNav from "./components/BottomNav";
 import DesktopSidebar from "./components/DesktopSidebar";
 import CookieConsent from "./components/CookieConsent";
@@ -71,6 +73,8 @@ const App = () => (
               <Route path="/ingredientes" element={<Ingredients />} />
               <Route path="/colecoes" element={<Collections />} />
               <Route path="/vip" element={<Vip />} />
+              <Route path="/vip/categoria/:slug" element={<VipCategoryPage />} />
+              <Route path="/vip/recipe/:id" element={<VipRecipeDetail />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
             <BottomNav />
