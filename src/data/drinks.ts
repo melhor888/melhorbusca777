@@ -876,6 +876,114 @@ export const drinks: Drink[] = [
     ingredients: ["30ml de Chambord", "120ml de champagne brut", "Framboesa fresca"],
     steps: ["Despeje Chambord na flûte.", "Complete com champagne gelado.", "Decore com framboesa."],
     difficulty: "Fácil", time: "2 min" },
+
+  // ============ NOVAS RECEITAS — VODKA ============
+  { id: "blue-cosmo", name: "Blue Cosmopolitan", category: "Vodka", image: "cosmopolitan",
+    ingredients: ["40ml de vodka cítrica", "15ml de Curaçao Blue", "30ml de suco de cranberry branco", "10ml de suco de limão"],
+    steps: ["Agite todos os ingredientes com gelo.", "Coe para taça martini gelada.", "Decore com twist de laranja."],
+    difficulty: "Médio", time: "5 min" },
+  { id: "watermelon-vodka", name: "Watermelon Vodka", category: "Vodka", image: "cosmopolitan",
+    ingredients: ["50ml de vodka", "100ml de suco de melancia fresco", "15ml de suco de limão", "10ml de xarope simples", "Hortelã"],
+    steps: ["Bata melancia no liquidificador e coe.", "Agite vodka, suco de melancia, limão e xarope com gelo.", "Coe para copo alto com gelo.", "Decore com hortelã e fatia de melancia."],
+    difficulty: "Fácil", time: "5 min" },
+
+  // ============ NOVAS RECEITAS — RUM ============
+  { id: "banana-daiquiri", name: "Banana Daiquiri", category: "Rum / Bacardi", image: "daiquiri",
+    ingredients: ["60ml de rum branco", "1 banana madura", "15ml de licor de banana", "25ml de suco de limão", "15ml de xarope simples", "Gelo"],
+    steps: ["Bata todos os ingredientes no liquidificador com gelo.", "Sirva em taça coupe ou copo hurricane.", "Decore com rodela de banana."],
+    difficulty: "Fácil", time: "5 min" },
+  { id: "spiced-rum-punch", name: "Spiced Rum Punch", category: "Rum / Bacardi", image: "mai-tai",
+    ingredients: ["60ml de rum especiado (Captain Morgan)", "90ml de suco de abacaxi", "30ml de suco de laranja", "15ml de grenadine", "Dash de canela", "Gelo"],
+    steps: ["Misture todos os ingredientes em copo alto com gelo.", "Mexa bem.", "Polvilhe canela por cima.", "Decore com fatia de laranja e canela em pau."],
+    difficulty: "Fácil", time: "3 min" },
+
+  // ============ NOVAS RECEITAS — GIN ============
+  { id: "elderflower-gin", name: "Elderflower Gin Fizz", category: "Gin", image: "gin-fizz",
+    ingredients: ["50ml de gin", "25ml de St-Germain (licor de sabugueiro)", "20ml de suco de limão", "10ml de xarope simples", "Água com gás", "Fatia de pepino"],
+    steps: ["Agite gin, St-Germain, limão e xarope com gelo.", "Coe para copo alto com gelo.", "Complete com água com gás.", "Decore com fatia de pepino."],
+    difficulty: "Fácil", time: "4 min" },
+  { id: "pink-gin-tonic", name: "Pink Gin Tônica", category: "Gin", image: "gin-tonic",
+    ingredients: ["50ml de gin rosa (Pink Gin)", "150ml de água tônica", "Morangos fatiados", "Pimenta rosa", "Gelo"],
+    steps: ["Preencha taça balão com gelo.", "Adicione gin rosa.", "Complete com tônica pela lateral.", "Decore com morangos e pimenta rosa."],
+    difficulty: "Fácil", time: "3 min" },
+
+  // ============ NOVAS RECEITAS — TEQUILA ============
+  { id: "spicy-margarita", name: "Spicy Margarita", category: "Tequila", image: "margarita",
+    ingredients: ["50ml de tequila blanco", "25ml de Cointreau", "25ml de suco de limão", "2-3 fatias de jalapeño", "Sal e tajín para borda"],
+    steps: ["Macere jalapeño na coqueteleira.", "Adicione tequila, Cointreau e limão com gelo.", "Agite vigorosamente.", "Coe para copo com borda de sal e tajín.", "Decore com rodela de jalapeño."],
+    difficulty: "Médio", time: "5 min" },
+  { id: "mezcal-paloma", name: "Mezcal Paloma", category: "Tequila", image: "paloma",
+    ingredients: ["50ml de mezcal", "120ml de soda de grapefruit", "15ml de suco de limão", "Sal para borda", "Gelo"],
+    steps: ["Borda de sal no copo.", "Preencha com gelo.", "Adicione mezcal e limão.", "Complete com soda de grapefruit.", "Decore com fatia de grapefruit."],
+    difficulty: "Fácil", time: "3 min" },
+
+  // ============ NOVAS RECEITAS — WHISKY ============
+  { id: "whisky-ginger", name: "Whisky Ginger", category: "Whisky", image: "penicillin",
+    ingredients: ["50ml de bourbon", "120ml de ginger ale", "15ml de suco de limão", "Rodela de limão", "Gelo"],
+    steps: ["Preencha copo alto com gelo.", "Adicione bourbon e suco de limão.", "Complete com ginger ale.", "Mexa suavemente.", "Decore com rodela de limão."],
+    difficulty: "Fácil", time: "2 min" },
+  { id: "kentucky-mule", name: "Kentucky Mule", category: "Whisky", image: "moscow-mule",
+    ingredients: ["50ml de bourbon", "15ml de suco de limão fresco", "120ml de ginger beer", "Rodela de limão", "Gelo"],
+    steps: ["Preencha caneca de cobre com gelo.", "Adicione bourbon e suco de limão.", "Complete com ginger beer.", "Decore com rodela de limão e hortelã."],
+    difficulty: "Fácil", time: "3 min" },
+
+  // ============ NOVAS RECEITAS — NÃO ALCOÓLICOS ============
+  { id: "sunset-lemonade", name: "Limonada Sunset", category: "Não Alcoólicos", image: "limonada-tropical",
+    ingredients: ["2 limões espremidos", "30ml de xarope de morango", "15ml de grenadine", "Água com gás", "Gelo", "Morangos fatiados"],
+    steps: ["Preencha copo alto com gelo.", "Adicione suco de limão e xarope de morango.", "Complete com água com gás.", "Despeje grenadine pela lateral para efeito sunset.", "Decore com morangos."],
+    difficulty: "Fácil", time: "3 min" },
+  { id: "tropical-punch-sa", name: "Tropical Punch Premium", category: "Não Alcoólicos", image: "fruit-punch",
+    ingredients: ["100ml de suco de maracujá", "60ml de suco de manga", "60ml de suco de abacaxi", "15ml de xarope de gengibre", "Água com gás", "Hortelã"],
+    steps: ["Misture todos os sucos em copo alto.", "Adicione xarope de gengibre.", "Complete com água com gás.", "Decore com hortelã e frutas frescas."],
+    difficulty: "Fácil", time: "3 min" },
+
+  // ============ NOVAS RECEITAS — EXÓTICOS ============
+  { id: "hugo-spritz", name: "Hugo Spritz", category: "Exóticos e Internacionais", image: "aperol-spritz",
+    ingredients: ["90ml de prosecco", "30ml de St-Germain (licor de sabugueiro)", "30ml de água com gás", "Folhas de hortelã", "Fatia de limão", "Gelo"],
+    steps: ["Preencha taça de vinho com gelo.", "Adicione prosecco e St-Germain.", "Complete com água com gás.", "Decore com hortelã e fatia de limão."],
+    difficulty: "Fácil", time: "2 min" },
+  { id: "carajillo-espanhol", name: "Carajillo", category: "Exóticos e Internacionais", image: "carajillo",
+    ingredients: ["45ml de Licor 43", "60ml de espresso forte", "Gelo"],
+    steps: ["Preencha copo old fashioned com gelo.", "Despeje o Licor 43.", "Adicione espresso por cima.", "Mexa suavemente e sirva."],
+    difficulty: "Fácil", time: "3 min" },
+  { id: "mezcal-negroni", name: "Mezcal Negroni", category: "Exóticos e Internacionais", image: "negroni",
+    ingredients: ["30ml de mezcal", "30ml de Campari", "30ml de vermute tinto doce", "Casca de laranja", "Gelo"],
+    steps: ["Coloque gelo em copo old fashioned.", "Adicione mezcal, Campari e vermute.", "Mexa por 20-30 segundos.", "Esprema casca de laranja sobre o drink."],
+    difficulty: "Fácil", time: "3 min" },
+  { id: "moscow-mule-thai", name: "Moscow Mule Thai", category: "Exóticos e Internacionais", image: "moscow-mule",
+    ingredients: ["50ml de vodka", "15ml de suco de limão", "120ml de ginger beer", "2cm de capim-limão", "Folhas de manjericão tailandês"],
+    steps: ["Macere capim-limão suavemente na caneca.", "Adicione gelo, vodka e suco de limão.", "Complete com ginger beer.", "Decore com manjericão e rodela de limão."],
+    difficulty: "Fácil", time: "3 min" },
+
+  // ============ NOVAS RECEITAS — CHAMPAGNE & ESPUMANTES ============
+  { id: "death-in-afternoon", name: "Death in the Afternoon", category: "Champagne & Espumantes", image: "french-75",
+    ingredients: ["30ml de absinto", "120ml de champagne brut gelado"],
+    steps: ["Despeje absinto na flûte.", "Complete lentamente com champagne gelado.", "O drink fica leitoso/opalescente.", "Sirva sem decoração — a simplicidade é a beleza."],
+    difficulty: "Fácil", time: "2 min" },
+  { id: "elderflower-spritz", name: "Elderflower Spritz", category: "Champagne & Espumantes", image: "limoncello-spritz",
+    ingredients: ["30ml de St-Germain", "90ml de prosecco", "30ml de água com gás", "Fatia de limão", "Gelo"],
+    steps: ["Preencha taça de vinho com gelo.", "Adicione St-Germain.", "Complete com prosecco e água com gás.", "Decore com fatia de limão."],
+    difficulty: "Fácil", time: "2 min" },
+
+  // ============ NOVAS RECEITAS — CAFÉ & LICORES ============
+  { id: "baileys-espresso", name: "Baileys Espresso Martini", category: "Café & Licores", image: "espresso-martini",
+    ingredients: ["30ml de Baileys Irish Cream", "30ml de vodka", "30ml de espresso fresco", "15ml de Kahlúa", "3 grãos de café"],
+    steps: ["Agite Baileys, vodka, espresso e Kahlúa com gelo.", "Coe para taça martini gelada.", "Decore com 3 grãos de café."],
+    difficulty: "Médio", time: "4 min" },
+  { id: "tiramisu-cocktail", name: "Tiramisù Cocktail", category: "Café & Licores", image: "espresso-martini",
+    ingredients: ["30ml de Kahlúa", "30ml de Baileys", "15ml de vodka", "30ml de espresso fresco", "Cacau em pó", "Biscoito champagne"],
+    steps: ["Agite Kahlúa, Baileys, vodka e espresso com gelo.", "Coe para taça coupe gelada.", "Polvilhe cacau em pó por cima.", "Decore com biscoito champagne na borda."],
+    difficulty: "Médio", time: "5 min" },
+
+  // ============ NOVAS RECEITAS — SHOTS ============
+  { id: "porn-star-shot", name: "Porn Star Shot", category: "Shots e Rápidos", image: "tequila-shot",
+    ingredients: ["30ml de vodka de baunilha", "15ml de licor de maracujá", "15ml de prosecco"],
+    steps: ["Agite vodka e licor de maracujá com gelo.", "Coe para shot glass.", "Complete com prosecco.", "Beba de uma vez."],
+    difficulty: "Fácil", time: "2 min" },
+  { id: "jelly-shot", name: "Jelly Shot de Morango", category: "Shots e Rápidos", image: "kamikaze",
+    ingredients: ["100ml de vodka", "100ml de suco de morango", "1 pacote de gelatina de morango", "50ml de água quente"],
+    steps: ["Dissolva gelatina na água quente.", "Adicione vodka e suco de morango.", "Despeje em copinhos de shot.", "Refrigere por 3-4 horas.", "Desenforme e sirva."],
+    difficulty: "Fácil", time: "10 min + 3h" },
 ];
 export const tips = [
   { id: "tip-1", title: "O Gelo Perfeito", content: "Use gelo cristalino para drinks premium. Congele água filtrada em recipientes isolados para evitar bolhas de ar. Gelo maior derrete mais devagar e dilui menos o drink." },

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { useNavigate, useSearchParams, Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { Search, SlidersHorizontal, X } from "lucide-react";
@@ -7,6 +7,22 @@ import CategoryRow from "@/components/CategoryRow";
 import XPBar from "@/components/XPBar";
 import DrinkCard from "@/components/DrinkCard";
 import { categories, getDrinksByCategory, searchDrinks, drinks as allDrinks } from "@/data/drinks";
+
+function getDailySeed(): number {
+  const d = new Date();
+  return d.getFullYear() * 10000 + (d.getMonth() + 1) * 100 + d.getDate();
+}
+
+function seededShuffle<T>(arr: T[], seed: number): T[] {
+  const copy = [...arr];
+  let s = seed;
+  for (let i = copy.length - 1; i > 0; i--) {
+    s = (s * 1103515245 + 12345) & 0x7fffffff;
+    const j = s % (i + 1);
+    [copy[i], copy[j]] = [copy[j], copy[i]];
+  }
+  return copy;
+}
 
 function slugify(text: string): string {
   return text
@@ -144,15 +160,19 @@ export default function Index() {
           </div>
         ) : (
           <div className="space-y-2">
-            {categories.map((cat) => (
-              <div key={cat}>
-                <CategoryRow
-                  title={cat}
-                  drinks={getDrinksByCategory(cat)}
-                  categorySlug={slugify(cat)}
-                />
-              </div>
-            ))}
+            {categories.map((cat) => {
+              const catDrinks = getDrinksByCategory(cat);
+              const shuffled = seededShuffle(catDrinks, getDailySeed() + cat.charCodeAt(0));
+              return (
+                <div key={cat}>
+                  <CategoryRow
+                    title={cat}
+                    drinks={shuffled}
+                    categorySlug={slugify(cat)}
+                  />
+                </div>
+              );
+            })}
           </div>
         )}
       </div>
