@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
-import { Crown, Lock, Wine, Beer, Snowflake, Leaf, KeyRound, Check, X } from "lucide-react";
+import { Crown, Lock, Wine, Beer, Snowflake, Leaf, KeyRound, Check, X, Flame, GlassWater, IceCream, Trophy, Globe, CupSoda, Martini } from "lucide-react";
 import { validateVipKey, isVipUnlocked, setVipUnlocked } from "@/utils/vipKeys";
 
 const vipCategories = [
@@ -34,6 +34,70 @@ const vipCategories = [
     icon: Leaf,
     description: "Drinks leves, spritzes, kombuchas alcoólicas e mais",
     color: "from-emerald-400 to-green-600",
+    count: "Em breve",
+  },
+  {
+    id: "drinks-autor",
+    name: "Drinks de Autor",
+    icon: Martini,
+    description: "Criações exclusivas e autorais de bartenders famosos",
+    color: "from-violet-500 to-purple-700",
+    count: "Em breve",
+  },
+  {
+    id: "sazonais-festivos",
+    name: "Sazonais & Festivos",
+    icon: Crown,
+    description: "Natal, Ano Novo, Carnaval, São João, Halloween",
+    color: "from-red-400 to-pink-600",
+    count: "Em breve",
+  },
+  {
+    id: "sobremesa-doces",
+    name: "Sobremesa & Doces",
+    icon: IceCream,
+    description: "Chocolate, caramelo, sorvete, licores cremosos",
+    color: "from-pink-400 to-fuchsia-600",
+    count: "Em breve",
+  },
+  {
+    id: "picantes-defumados",
+    name: "Picantes & Defumados",
+    icon: Flame,
+    description: "Mezcal, jalapeño, chili, técnicas de defumação",
+    color: "from-orange-500 to-red-600",
+    count: "Em breve",
+  },
+  {
+    id: "cha-infusoes",
+    name: "Chá & Infusões",
+    icon: CupSoda,
+    description: "Chá gelado alcoólico, infusões de ervas, matcha cocktails",
+    color: "from-lime-400 to-green-600",
+    count: "Em breve",
+  },
+  {
+    id: "veganos-plant-based",
+    name: "Veganos & Plant-Based",
+    icon: Leaf,
+    description: "Sem derivados animais, leites vegetais, aquafaba",
+    color: "from-teal-400 to-emerald-600",
+    count: "Em breve",
+  },
+  {
+    id: "masterclass",
+    name: "Masterclass Cocktails",
+    icon: Trophy,
+    description: "Técnicas avançadas: esferificação, clarificação, fat-wash",
+    color: "from-yellow-500 to-amber-700",
+    count: "Em breve",
+  },
+  {
+    id: "volta-ao-mundo",
+    name: "Volta ao Mundo",
+    icon: Globe,
+    description: "Drinks típicos de cada país: Japão, Peru, Cuba, Itália...",
+    color: "from-sky-400 to-indigo-600",
     count: "Em breve",
   },
 ];
