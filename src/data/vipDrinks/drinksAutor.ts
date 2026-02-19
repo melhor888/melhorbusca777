@@ -585,10 +585,10 @@ export const drinksAutor: VipDrink[] = [
     description: "Pendennis Club (Louisville, Kentucky, 1880s). Mesmo clube que pode ter inventado o Old Fashioned. Apricot brandy (de Kuyper ou Rothman & Winter) adiciona fruta sutil. Peychaud's dá nota anisada. Harmoniza com Derby Day e Kentucky cuisine."
   },
   {
-    id: "east-india-cocktail",
+    id: "east-india-cocktail-autor",
     name: "East India Cocktail",
     category: "Drinks de Autor",
-    image: "east-india-cocktail",
+    image: "east-india-cocktail-autor",
     ingredients: ["60ml de cognac", "15ml de curaçao", "15ml de suco de abacaxi", "Dash de Angostura", "Dash de Maraschino"],
     steps: ["Agite todos com gelo.", "Coe para taça coupé gelada.", "Decore com twist de limão.", "Cognac + tropical.", "Era colonial em um copo."],
     difficulty: "Fácil",
@@ -596,10 +596,10 @@ export const drinksAutor: VipDrink[] = [
     description: "Era vitoriana, rotas comerciais da East India Company. Cognac era o destilado dos oficiais britânicos. Abacaxi era fruta de luxo trazida das colônias. Cocktail que conta a história do Império. Harmoniza com curry e comida indiana."
   },
   {
-    id: "corpse-reviver-blue",
+    id: "corpse-reviver-blue-autor",
     name: "Corpse Reviver Blue Blazer",
     category: "Drinks de Autor",
-    image: "corpse-reviver-blue",
+    image: "corpse-reviver-blue-autor",
     ingredients: ["22ml de gin", "22ml de blue curaçao", "22ml de Lillet Blanc", "22ml de suco de limão", "Rinse de absinto"],
     steps: ["Rinse taça com absinto.", "Agite gin, curaçao, Lillet e limão.", "Coe para taça coupé.", "Azul elétrico espetacular.", "Variação visual do Corpse Reviver No.2."],
     difficulty: "Médio",
@@ -915,10 +915,10 @@ export const drinksAutor: VipDrink[] = [
     description: "Evolução do Southside com pepino. Popular nos bares do East Side de Manhattan. Pepino + hortelã + gin = frescor máximo. A dupla coagem é essencial (remove pedaços de pepino). Template para 'garden cocktails'. Harmoniza com saladas e comida leve."
   },
   {
-    id: "improved-whiskey-cocktail",
+    id: "improved-whiskey-cocktail-autor",
     name: "Improved Whiskey Cocktail",
     category: "Drinks de Autor",
-    image: "improved-whiskey-cocktail",
+    image: "improved-whiskey-cocktail-autor",
     ingredients: ["60ml de rye whiskey", "5ml de Maraschino", "5ml de xarope simples", "2 dashes de Angostura", "Dash de absinto", "Twist de limão"],
     steps: ["Rinse copo rocks com absinto.", "Adicione whiskey, Maraschino, xarope e bitters.", "Mexa com gelo.", "Coe para o copo.", "Decore com twist de limão."],
     difficulty: "Fácil",
@@ -935,5 +935,170 @@ export const drinksAutor: VipDrink[] = [
     difficulty: "Fácil",
     time: "4 min",
     description: "Esquecido por décadas, ressuscitado pelo cocktail revival. Split-base bourbon + sherry é sofisticado. O abacaxi faz ponte entre os dois destilados. Highball style mantém leveza. Demonstra como cocktails 'esquecidos' podem ser redescobertos. Harmoniza com tapas e frutos do mar."
+  },
+  {
+    id: "corn-n-oil-autor",
+    name: "Corn 'n' Oil",
+    category: "Drinks de Autor",
+    image: "corn-n-oil-autor",
+    ingredients: ["60ml de rum Barbados (Mount Gay)", "15ml de Velvet Falernum", "15ml de suco de lima", "2 dashes de Angostura", "Rodela de lima"],
+    steps: ["Adicione todos ao copo rocks com gelo.", "Mexa suavemente.", "Decore com lima.", "Drink nacional de Barbados.", "Falernum é a alma."],
+    difficulty: "Fácil",
+    time: "3 min",
+    description: "Barbados, tradição local. 'Corn' era gíria para rum, 'oil' para falernum. Velvet Falernum (licor de especiarias caribenho) é insubstituível. Mount Gay é o rum mais antigo do mundo (1703). Drink de praia barbadense. Harmoniza com flying fish e cou-cou."
+  },
+  {
+    id: "zombie-don-beach",
+    name: "Zombie (Don the Beachcomber)",
+    category: "Drinks de Autor",
+    image: "zombie-don-beach",
+    ingredients: ["45ml de rum jamaicano", "45ml de rum porto-riquenho", "30ml de rum 151 (float)", "22ml de suco de lima", "15ml de Velvet Falernum", "15ml de grenadine", "Dash de Angostura", "Dash de absinto"],
+    steps: ["Agite tudo (exceto 151) com gelo.", "Despeje para copo tiki.", "Float de rum 151.", "Decore com hortelã e cereja.", "LIMITE DE 2 POR PESSOA (regra original)."],
+    difficulty: "Avançado",
+    time: "7 min",
+    description: "Don the Beachcomber (Ernest Gantt), Hollywood, 1934. Tão forte que havia limite de 2 por pessoa. Receita secreta por décadas — usava códigos (Don's Mix, Don's Spice). Jeff 'Beachbum' Berry decifrou nos anos 2000. O cocktail tiki definitivo. Harmoniza com luau e BBQ havaiano."
+  },
+  {
+    id: "tom-collins-autor",
+    name: "Tom Collins (Original)",
+    category: "Drinks de Autor",
+    image: "tom-collins-autor",
+    ingredients: ["60ml de Old Tom gin", "30ml de suco de limão", "15ml de xarope simples", "Soda", "Cereja e laranja"],
+    steps: ["Agite gin, limão e xarope com gelo.", "Coe para copo Collins com gelo.", "Complete com soda.", "Decore com cereja e laranja.", "Nomeou o copo Collins!"],
+    difficulty: "Fácil",
+    time: "4 min",
+    description: "John Collins, Limmer's Hotel (London, 1820s). Originalmente com genever holandês. 'Tom' Collins usa Old Tom gin. O 'Great Tom Collins Hoax' de 1874 (NYC) — pessoas perguntavam 'Have you seen Tom Collins?' como brincadeira viral. Nomeou o copo Collins. Harmoniza com comida leve de verão."
+  },
+  {
+    id: "casino-cocktail-autor",
+    name: "Casino Cocktail",
+    category: "Drinks de Autor",
+    image: "casino-cocktail-autor",
+    ingredients: ["45ml de Old Tom gin", "10ml de Maraschino", "10ml de suco de limão", "2 dashes de orange bitters", "Cereja Luxardo"],
+    steps: ["Agite todos com gelo.", "Coe para taça coupé gelada.", "Decore com cereja Luxardo.", "Elegância pré-Proibição.", "Bitters de laranja são essenciais."],
+    difficulty: "Fácil",
+    time: "4 min",
+    description: "Pré-Proibição, do Savoy Cocktail Book. Old Tom gin (mais doce) era padrão na era. Orange bitters eram tão comuns quanto Angostura. A Maraschino dá corpo. Cocktail dos casinos e clubes privados. Harmoniza com canapés e aperitivos elegantes."
+  },
+  {
+    id: "el-presidente-autor",
+    name: "El Presidente",
+    category: "Drinks de Autor",
+    image: "el-presidente-autor",
+    ingredients: ["45ml de rum branco cubano", "22ml de dry vermouth (ou blanc)", "10ml de curaçao", "Barspoon de grenadine", "Twist de laranja"],
+    steps: ["Adicione todos ao mixing glass com gelo.", "Mexa por 30 segundos.", "Coe para taça coupé gelada.", "Decore com twist de laranja.", "Elegância cubana pré-revolução."],
+    difficulty: "Fácil",
+    time: "4 min",
+    description: "Havana, Cuba, anos 1920s. Nomeado pelo presidente cubano Gerardo Machado (ou Mario García Menocal). Manhattan cubano — rum em vez de whiskey. Blanc vermouth (Dolin) funciona melhor que dry. O curaçao dá dourado. Harmoniza com charutos cubanos e tapas."
+  },
+  {
+    id: "bijou-cocktail-autor",
+    name: "Bijou",
+    category: "Drinks de Autor",
+    image: "bijou-cocktail-autor",
+    ingredients: ["30ml de gin", "30ml de sweet vermouth", "30ml de Green Chartreuse", "Dash de orange bitters", "Cereja Luxardo"],
+    steps: ["Adicione todos ao mixing glass com gelo.", "Mexa por 30 segundos.", "Coe para taça coupé gelada.", "Decore com cereja.", "Bijou = joia (diamante + rubi + esmeralda)."],
+    difficulty: "Médio",
+    time: "5 min",
+    description: "Harry Johnson, 1882. 'Bijou' = joia. Gin = diamante, vermouth = rubi, Chartreuse = esmeralda. Proporções iguais como o Negroni. Green Chartreuse (130 ervas, feito por monges) domina. Cocktail dos bartenders sofisticados. Harmoniza com queijos e charcutaria francesa."
+  },
+  {
+    id: "bobby-burns-autor",
+    name: "Bobby Burns",
+    category: "Drinks de Autor",
+    image: "bobby-burns-autor",
+    ingredients: ["45ml de blended scotch", "45ml de sweet vermouth", "Barspoon de Bénédictine", "Twist de limão"],
+    steps: ["Adicione todos ao mixing glass com gelo.", "Mexa por 30 segundos.", "Coe para taça coupé gelada.", "Decore com twist de limão.", "Rob Roy com Bénédictine."],
+    difficulty: "Fácil",
+    time: "4 min",
+    description: "Nomeado pelo poeta nacional escocês Robert Burns (1759-1796). Rob Roy (Manhattan escocês) enriquecido com Bénédictine. Bebido no Burns Night (25 de janeiro). A micro-dose de Bénédictine transforma completamente o drink. Harmoniza com haggis e comida escocesa."
+  },
+  {
+    id: "last-call-autor",
+    name: "Last Call",
+    category: "Drinks de Autor",
+    image: "last-call-autor",
+    ingredients: ["45ml de mezcal", "22ml de Yellow Chartreuse", "22ml de Aperol", "22ml de suco de lima"],
+    steps: ["Agite todos com gelo.", "Coe para taça coupé gelada.", "Sem decoração.", "Variação do Last Word com mezcal.", "Yellow Chartreuse = mais suave."],
+    difficulty: "Fácil",
+    time: "4 min",
+    description: "Evolução moderna do template Last Word. Yellow Chartreuse (43%) é mais doce e suave que Green (55%). Mezcal + Chartreuse é combinação viciante. 'Last Call' é o anúncio do último pedido no bar. Harmoniza com tacos de carnitas."
+  },
+  {
+    id: "trident-cocktail-autor",
+    name: "Trident",
+    category: "Drinks de Autor",
+    image: "trident-cocktail-autor",
+    ingredients: ["30ml de aquavit", "30ml de Cynar", "30ml de fino sherry", "2 dashes de peach bitters", "Twist de limão"],
+    steps: ["Adicione todos ao mixing glass com gelo.", "Mexa por 30 segundos.", "Coe para taça coupé gelada.", "Decore com twist de limão.", "Escandinavo + mediterrâneo."],
+    difficulty: "Médio",
+    time: "5 min",
+    description: "Robert Hess, 2002. Três ingredientes 'fora do radar': aquavit (escandinavo), Cynar (amaro de alcachofra italiano), fino sherry (espanhol). Nenhum ingrediente 'óbvio'. Demonstra criatividade extrema. Harmoniza com frutos do mar e tapas."
+  },
+  {
+    id: "black-manhattan-autor",
+    name: "Black Manhattan",
+    category: "Drinks de Autor",
+    image: "black-manhattan-autor",
+    ingredients: ["60ml de rye whiskey", "30ml de Averna (amaro siciliano)", "2 dashes de Angostura", "Dash de orange bitters", "Cereja Luxardo"],
+    steps: ["Adicione todos ao mixing glass com gelo.", "Mexa por 30 segundos.", "Coe para copo rocks com gelo grande.", "Decore com cereja Luxardo.", "Manhattan mais intenso e herbal."],
+    difficulty: "Fácil",
+    time: "4 min",
+    description: "Todd Smith, Bourbon & Branch (San Francisco, 2005). Substitui sweet vermouth por Averna (amaro siciliano). Mais escuro, mais amargo, mais complexo. O 'dark side' do Manhattan. Averna é mais acessível que outros amari. Harmoniza com steak e chocolate amargo."
+  },
+  {
+    id: "lion-tail-autor",
+    name: "Lion's Tail",
+    category: "Drinks de Autor",
+    image: "lion-tail-autor",
+    ingredients: ["60ml de bourbon", "15ml de pimento dram (allspice)", "15ml de suco de lima", "10ml de xarope simples", "Dash de Angostura"],
+    steps: ["Agite todos com gelo.", "Coe para taça coupé gelada.", "Decore com rodela de lima.", "Allspice dram = especiarias caribenhas.", "Bourbon + Jamaica = fusão."],
+    difficulty: "Fácil",
+    time: "4 min",
+    description: "Cafe Royal Cocktail Book (1937). Pimento dram (licor de allspice jamaicano) é o ingrediente secreto — cravo + noz-moscada + canela em um licor. Esquecido por décadas até St. Elizabeth's relançar. O drink para quem ama Old Fashioned mas quer algo diferente. Harmoniza com jerk chicken."
+  },
+  {
+    id: "jungle-julep-autor",
+    name: "Jungle Julep",
+    category: "Drinks de Autor",
+    image: "jungle-julep-autor",
+    ingredients: ["45ml de rum jamaicano", "15ml de Green Chartreuse", "10ml de xarope de Demerara", "8 folhas de hortelã", "Gelo crushed"],
+    steps: ["Macere hortelã com xarope.", "Adicione rum e Chartreuse.", "Encha com gelo crushed.", "Swizzle até o copo gear.", "Decore com hortelã exuberante."],
+    difficulty: "Médio",
+    time: "5 min",
+    description: "Fusão moderna de Mint Julep + tiki. Rum jamaicano funky substitui bourbon. Green Chartreuse adiciona complexidade herbal. Demerara dá profundidade. O copo geando (frost) é icônico. Template para 'tropical juleps'. Harmoniza com comida caribenha."
+  },
+  {
+    id: "paper-tiger-autor",
+    name: "Paper Tiger",
+    category: "Drinks de Autor",
+    image: "paper-tiger-autor",
+    ingredients: ["30ml de tequila reposado", "30ml de Aperol", "30ml de suco de lima", "15ml de xarope de agave", "Dash de Angostura"],
+    steps: ["Agite todos com gelo.", "Coe para copo rocks com gelo.", "Decore com rodela de grapefruit.", "Tequila + Aperol = verão.", "Agridoce equilibrado."],
+    difficulty: "Fácil",
+    time: "4 min",
+    description: "Criação moderna inspirada no Paper Plane. Tequila reposado substitui bourbon, agave substitui Amaro Nonino. Mais acessível que o original. Aperol dá amargor suave. Harmoniza com ceviche e tacos de peixe."
+  },
+  {
+    id: "smoky-coky-autor",
+    name: "Smoky Coky",
+    category: "Drinks de Autor",
+    image: "smoky-coky-autor",
+    ingredients: ["45ml de mezcal espadín", "15ml de Cynar", "15ml de sweet vermouth", "Dash de mole bitters", "Twist de laranja"],
+    steps: ["Adicione todos ao mixing glass com gelo.", "Mexa por 30 segundos.", "Coe para copo rocks com gelo grande.", "Express twist de laranja.", "Fumaça + alcachofra + chocolate."],
+    difficulty: "Médio",
+    time: "5 min",
+    description: "Criação moderna do cocktail revival. Mezcal + Cynar (amaro de alcachofra) é combinação surpreendente. Mole bitters (chocolate + pimenta) faz ponte com a culinária oaxaqueña. Manhattan com DNA mexicano. Harmoniza com mole negro e tlayudas."
+  },
+  {
+    id: "kingston-negroni-autor",
+    name: "Kingston Negroni",
+    category: "Drinks de Autor",
+    image: "kingston-negroni-autor",
+    ingredients: ["30ml de rum jamaicano (Smith & Cross)", "30ml de Campari", "30ml de sweet vermouth", "Twist de laranja"],
+    steps: ["Adicione todos ao mixing glass com gelo.", "Mexa por 30 segundos.", "Coe para copo rocks com gelo grande.", "Express twist de laranja.", "Jamaica encontra Itália."],
+    difficulty: "Fácil",
+    time: "4 min",
+    description: "Joaquín Simó, Death & Co. Kingston = capital da Jamaica. Smith & Cross (rum jamaicano funky, 57%) dá intensidade que gin não tem. O funk jamaicano amplifica o Campari. Uma das melhores variações do Negroni. Harmoniza com jerk, curry e comida caribenha."
   },
 ];
