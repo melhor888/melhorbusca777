@@ -1,5 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState, useCallback, useRef } from "react";
+import { Helmet } from "react-helmet-async";
 import { getDrinkById, drinks as allDrinks } from "@/data/drinks";
 import { getDrinkImage } from "@/data/drinkImages";
 import { getChefTip } from "@/data/chefTips";
@@ -7,12 +8,14 @@ import { useFavorites } from "@/hooks/useFavorites";
 import { useXP } from "@/hooks/useXP";
 import XPToast from "@/components/XPToast";
 import SimilarDrinks from "@/components/SimilarDrinks";
-import { ArrowLeft, Heart, Share2, Clock, ChefHat, Wine, Lightbulb, Zap } from "lucide-react";
+import { ArrowLeft, Heart, Share2, Clock, ChefHat, Wine, Lightbulb, Zap, ShoppingCart } from "lucide-react";
+import { useShoppingList } from "@/hooks/useShoppingList";
 
 export default function RecipeDetail() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const { isFavorite, toggleFavorite } = useFavorites();
+  const { isInList, toggleDrink } = useShoppingList();
   const { addRecipeXP } = useXP();
   const [showXP, setShowXP] = useState(false);
   const [xpGained, setXpGained] = useState(0);
@@ -52,6 +55,7 @@ export default function RecipeDetail() {
   }
 
   const fav = isFavorite(drink.id);
+  const inCart = isInList(drink.id);
   const chefTip = getChefTip(drink.id);
   const handleShare = async () => {
     const text = `🍸 ${drink.name}\n\nIngredientes:\n${drink.ingredients.join("\n")}\n\nConfira no Drinks & Company!`;
@@ -62,8 +66,28 @@ export default function RecipeDetail() {
     }
   };
 
+  const BASE_URL = "https://drinkseco.lovable.app";
+  const ogImage = `${BASE_URL}${getDrinkImage(drink.image)}`;
+  const ogUrl = `${BASE_URL}/recipe/${drink.id}`;
+  const ogDescription = `Aprenda a fazer ${drink.name}: ${drink.ingredients.slice(0, 3).join(", ")}. Receita completa no Drinks & Company.`;
+
   return (
     <div className="min-h-screen pb-24">
+      <Helmet>
+        <title>{drink.name} - Receita de Drink | Drinks & Company</title>
+        <meta name="description" content={ogDescription} />
+        <link rel="canonical" href={ogUrl} />
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content={`${drink.name} - Drinks & Company`} />
+        <meta property="og:description" content={ogDescription} />
+        <meta property="og:image" content={ogImage} />
+        <meta property="og:url" content={ogUrl} />
+        <meta property="og:site_name" content="Drinks & Company" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={`${drink.name} - Drinks & Company`} />
+        <meta name="twitter:description" content={ogDescription} />
+        <meta name="twitter:image" content={ogImage} />
+      </Helmet>
       <XPToast xp={xpGained} show={showXP} onClose={() => setShowXP(false)} />
       {/* Hero */}
       <div className="relative h-[360px] lg:h-[480px]">
@@ -93,6 +117,15 @@ export default function RecipeDetail() {
             <ArrowLeft size={20} className="text-foreground" />
           </button>
           <div className="flex gap-2">
+            <button
+              onClick={() => toggleDrink(drink.id)}
+              className="w-10 h-10 rounded-full glass-card flex items-center justify-center"
+            >
+              <ShoppingCart
+                size={20}
+                className={inCart ? "text-green-400 fill-green-400/20" : "text-foreground"}
+              />
+            </button>
             <button
               onClick={() => toggleFavorite(drink.id)}
               className="w-10 h-10 rounded-full glass-card flex items-center justify-center"

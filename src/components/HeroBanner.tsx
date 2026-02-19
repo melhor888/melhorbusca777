@@ -4,10 +4,18 @@ import { drinks } from "@/data/drinks";
 import { getDrinkImage } from "@/data/drinkImages";
 import { Play } from "lucide-react";
 
-function shuffleArray<T>(arr: T[]): T[] {
+// Deterministic daily seed — same drinks all day, changes at midnight
+function getDailySeed(): number {
+  const now = new Date();
+  return now.getFullYear() * 10000 + (now.getMonth() + 1) * 100 + now.getDate();
+}
+
+function seededShuffle<T>(arr: T[], seed: number): T[] {
   const shuffled = [...arr];
+  let s = seed;
   for (let i = shuffled.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
+    s = (s * 16807 + 0) % 2147483647; // LCG
+    const j = s % (i + 1);
     [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
   }
   return shuffled;
@@ -16,7 +24,7 @@ function shuffleArray<T>(arr: T[]): T[] {
 const INTERVAL = 5000;
 
 export default function HeroBanner() {
-  const queue = useMemo(() => shuffleArray(drinks).slice(0, 8), []);
+  const queue = useMemo(() => seededShuffle(drinks, getDailySeed()).slice(0, 8), []);
   const [index, setIndex] = useState(0);
   const [fading, setFading] = useState(false);
 

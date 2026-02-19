@@ -1,12 +1,14 @@
 import { useState } from "react";
-import { Wine, GraduationCap, Heart, BookOpen, Info, Mail, Search } from "lucide-react";
+import { Wine, GraduationCap, Heart, BookOpen, Info, Mail, ShoppingCart, Search } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import XPBar from "./XPBar";
+import { useShoppingList } from "@/hooks/useShoppingList";
 
 const mainNav = [
   { path: "/", icon: Wine, label: "Receitas" },
   { path: "/tips", icon: GraduationCap, label: "Escola" },
   { path: "/dicas", icon: BookOpen, label: "Dicas" },
+  { path: "/lista-compras", icon: ShoppingCart, label: "Lista de Compras" },
   { path: "/favorites", icon: Heart, label: "Favoritos" },
 ];
 
@@ -19,6 +21,7 @@ export default function DesktopSidebar() {
   const location = useLocation();
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState("");
+  const { drinkIds } = useShoppingList();
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -64,11 +67,12 @@ export default function DesktopSidebar() {
         </p>
         {mainNav.map(({ path, icon: Icon, label }) => {
           const active = location.pathname === path;
+          const showBadge = path === "/lista-compras" && drinkIds.length > 0;
           return (
             <Link
               key={path}
               to={path}
-              className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 ${
+              className={`relative flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 ${
                 active
                   ? "text-primary bg-primary/10 shadow-sm"
                   : "text-muted-foreground hover:text-foreground hover:bg-secondary"
@@ -76,6 +80,11 @@ export default function DesktopSidebar() {
             >
               <Icon size={20} strokeWidth={active ? 2.5 : 1.5} />
               {label}
+              {showBadge && (
+                <span className="ml-auto w-5 h-5 rounded-full bg-primary text-primary-foreground text-[10px] font-bold flex items-center justify-center">
+                  {drinkIds.length}
+                </span>
+              )}
             </Link>
           );
         })}
