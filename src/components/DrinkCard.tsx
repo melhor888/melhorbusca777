@@ -8,6 +8,12 @@ interface DrinkCardProps {
   size?: "small" | "large";
 }
 
+const difficultyColor: Record<string, string> = {
+  "Fácil": "text-green-400",
+  "Médio": "text-yellow-400",
+  "Avançado": "text-red-400",
+};
+
 export default function DrinkCard({ drink, size = "small" }: DrinkCardProps) {
   const navigate = useNavigate();
   const isLarge = size === "large";
@@ -39,7 +45,7 @@ export default function DrinkCard({ drink, size = "small" }: DrinkCardProps) {
             <Clock size={10} />
             {drink.time}
           </span>
-          <span className="flex items-center gap-1 text-muted-foreground text-[10px]">
+          <span className={`flex items-center gap-1 text-[10px] font-semibold ${difficultyColor[drink.difficulty] || "text-muted-foreground"}`}>
             <ChefHat size={10} />
             {drink.difficulty}
           </span>

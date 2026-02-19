@@ -122,7 +122,10 @@ export default function RecipeDetail() {
             <span className="flex items-center gap-1">
               <Clock size={14} /> {drink.time}
             </span>
-            <span className="flex items-center gap-1">
+            <span className={`flex items-center gap-1 font-semibold ${
+              drink.difficulty === "Fácil" ? "text-green-400" : 
+              drink.difficulty === "Médio" ? "text-yellow-400" : "text-red-400"
+            }`}>
               <ChefHat size={14} /> {drink.difficulty}
             </span>
           </div>
