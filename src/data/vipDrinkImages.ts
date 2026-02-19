@@ -101,6 +101,33 @@ import vipHeroTiki from "@/assets/vip-hero-tropical-tiki.jpg";
 import vipHeroClassicos from "@/assets/vip-hero-classicos-reinventados.jpg";
 import vipHeroLowAbv from "@/assets/vip-hero-low-abv.jpg";
 import vipHeroAutor from "@/assets/vip-hero-drinks-autor.jpg";
+import vipHeroCafe from "@/assets/vip-hero-cafe-dessert.jpg";
+
+import vipCafe1 from "@/assets/vip-cafe-1.jpg";
+import vipCafe2 from "@/assets/vip-cafe-2.jpg";
+import vipCafe3 from "@/assets/vip-cafe-3.jpg";
+import vipCafe4 from "@/assets/vip-cafe-4.jpg";
+import vipCafe5 from "@/assets/vip-cafe-5.jpg";
+import vipCafe6 from "@/assets/vip-cafe-6.jpg";
+import vipCafe7 from "@/assets/vip-cafe-7.jpg";
+import vipCafe8 from "@/assets/vip-cafe-8.jpg";
+import vipCafe9 from "@/assets/vip-cafe-9.jpg";
+import vipCafe10 from "@/assets/vip-cafe-10.jpg";
+import vipCafe11 from "@/assets/vip-cafe-11.jpg";
+import vipCafe12 from "@/assets/vip-cafe-12.jpg";
+import vipCafe13 from "@/assets/vip-cafe-13.jpg";
+import vipCafe14 from "@/assets/vip-cafe-14.jpg";
+import vipCafe15 from "@/assets/vip-cafe-15.jpg";
+import vipCafe16 from "@/assets/vip-cafe-16.jpg";
+import vipCafe17 from "@/assets/vip-cafe-17.jpg";
+import vipCafe18 from "@/assets/vip-cafe-18.jpg";
+import vipCafe19 from "@/assets/vip-cafe-19.jpg";
+import vipCafe20 from "@/assets/vip-cafe-20.jpg";
+import vipCafe21 from "@/assets/vip-cafe-21.jpg";
+import vipCafe22 from "@/assets/vip-cafe-22.jpg";
+import vipCafe23 from "@/assets/vip-cafe-23.jpg";
+import vipCafe24 from "@/assets/vip-cafe-24.jpg";
+import vipCafe25 from "@/assets/vip-cafe-25.jpg";
 
 import vipAutor1 from "@/assets/vip-autor-1.jpg";
 import vipAutor2 from "@/assets/vip-autor-2.jpg";
@@ -282,6 +309,12 @@ const autorImages = [
   vipAutor17, vipAutor18, vipAutor19, vipAutor20, vipAutor21, vipAutor22, vipAutor23, vipAutor24,
   vipAutor25,
 ];
+const cafeImages = [
+  vipCafe1, vipCafe2, vipCafe3, vipCafe4, vipCafe5, vipCafe6, vipCafe7, vipCafe8,
+  vipCafe9, vipCafe10, vipCafe11, vipCafe12, vipCafe13, vipCafe14, vipCafe15, vipCafe16,
+  vipCafe17, vipCafe18, vipCafe19, vipCafe20, vipCafe21, vipCafe22, vipCafe23, vipCafe24,
+  vipCafe25,
+];
 
 const categoryImagePools: Record<string, string[]> = {
   "Vinho & Sangrias": wineImages,
@@ -292,6 +325,7 @@ const categoryImagePools: Record<string, string[]> = {
   "Clássicos Reinventados": classicImages,
   "Low ABV & Wellness": lowAbvImages,
   "Drinks de Autor": autorImages,
+  "Café & Dessert Cocktails": cafeImages,
 };
 
 const categoryHeroBanners: Record<string, string> = {
@@ -303,6 +337,7 @@ const categoryHeroBanners: Record<string, string> = {
   "classicos-reinventados": vipHeroClassicos,
   "low-abv-wellness": vipHeroLowAbv,
   "drinks-autor": vipHeroAutor,
+  "cafe-dessert-cocktails": vipHeroCafe,
 };
 
 // Simple hash to get consistent image for each drink
