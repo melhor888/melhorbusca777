@@ -21,6 +21,10 @@ import PoliticaCookies from "./pages/PoliticaCookies";
 import AvisoLegal from "./pages/AvisoLegal";
 import SitemapPage from "./pages/SitemapPage";
 import ShoppingList from "./pages/ShoppingList";
+import Quiz from "./pages/Quiz";
+import Dashboard from "./pages/Dashboard";
+import Ingredients from "./pages/Ingredients";
+import Collections from "./pages/Collections";
 import BottomNav from "./components/BottomNav";
 import DesktopSidebar from "./components/DesktopSidebar";
 import CookieConsent from "./components/CookieConsent";
@@ -60,6 +64,10 @@ const App = () => (
               <Route path="/aviso-legal" element={<AvisoLegal />} />
               <Route path="/sitemap" element={<SitemapPage />} />
               <Route path="/lista-compras" element={<ShoppingList />} />
+              <Route path="/quiz" element={<Quiz />} />
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/ingredientes" element={<Ingredients />} />
+              <Route path="/colecoes" element={<Collections />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
             <BottomNav />
