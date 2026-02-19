@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Wine, Heart, HelpCircle, BarChart3, MoreHorizontal, GraduationCap, BookOpen, ShoppingCart, Package, Layers, X } from "lucide-react";
+import { Wine, Heart, HelpCircle, BarChart3, MoreHorizontal, GraduationCap, BookOpen, ShoppingCart, Package, Layers, X, Crown } from "lucide-react";
 import { useLocation, useNavigate } from "react-router-dom";
 import XPBar from "./XPBar";
 import { useShoppingList } from "@/hooks/useShoppingList";
@@ -17,6 +17,7 @@ const moreItems = [
   { path: "/tips", icon: GraduationCap, label: "Escola" },
   { path: "/dicas", icon: BookOpen, label: "Dicas" },
   { path: "/lista-compras", icon: ShoppingCart, label: "Lista de Compras" },
+  { path: "/vip", icon: Crown, label: "VIP" },
 ];
 
 export default function BottomNav() {
