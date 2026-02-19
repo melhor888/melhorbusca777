@@ -33,8 +33,9 @@ export default function VipCategoryPage() {
   const [unlocked, setUnlocked] = useState(false);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     setUnlocked(isVipUnlocked());
-  }, []);
+  }, [slug]);
 
   const categoryName = categoryNames[slug || ""] || "";
   const drinks = categoryName ? getVipDrinksByCategory(categoryName) : [];

@@ -18,8 +18,9 @@ export default function VipRecipeDetail() {
   const [unlocked, setUnlocked] = useState(false);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     setUnlocked(isVipUnlocked());
-  }, []);
+  }, [id]);
 
   const drink = getVipDrinkById(id || "");
   const chefTip = drink ? getVipChefTip(drink.id) : null;
