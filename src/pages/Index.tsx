@@ -166,7 +166,7 @@ export default function Index() {
           <div className="space-y-2">
             {categories.map((cat) => {
               const catDrinks = getDrinksByCategory(cat);
-              const shuffled = seededShuffle(catDrinks, getDailySeed() + cat.charCodeAt(0));
+              const shuffled = [...catDrinks].sort(() => Math.random() - 0.5);
               return (
                 <div key={cat}>
                   <CategoryRow
