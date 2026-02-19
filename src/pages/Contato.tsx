@@ -2,7 +2,6 @@ import { Helmet } from "react-helmet-async";
 import { Mail, MessageSquare } from "lucide-react";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import Footer from "@/components/Footer";
-
 import { useState } from "react";
 
 export default function Contato() {
@@ -11,18 +10,16 @@ export default function Contato() {
   return (
     <>
       <Helmet>
-        <title>Contato - Drinks & Company | Fale Conosco</title>
-        <meta name="description" content="Entre em contato com a Drinks & Company. Envie sugestões, dúvidas ou parcerias. Estamos prontos para atender você." />
+        <title>Contato - Cachaça Quest | Fale Conosco</title>
+        <meta name="description" content="Entre em contato com a Cachaça Quest. Envie sugestões, dúvidas ou parcerias. Estamos prontos para atender você." />
         <link rel="canonical" href="https://drinkseco.lovable.app/contato" />
-        <meta property="og:title" content="Contato - Drinks & Company" />
+        <meta property="og:title" content="Contato - Cachaça Quest" />
         <meta property="og:description" content="Fale conosco. Envie sugestões, dúvidas ou parcerias." />
         <meta property="og:url" content="https://drinkseco.lovable.app/contato" />
       </Helmet>
       <div className="min-h-screen pb-20">
         <div className="px-4 pt-16 max-w-2xl mx-auto">
           <Breadcrumbs items={[{ label: "Contato" }]} />
-          
-          
 
           <h1 className="text-3xl font-display font-bold text-foreground mt-4 mb-6">Fale Conosco</h1>
 
@@ -34,19 +31,17 @@ export default function Contato() {
                 <Mail size={20} className="text-primary" />
                 <div>
                   <p className="text-sm font-medium text-foreground">E-mail</p>
-                  <p className="text-sm text-muted-foreground">contato@drinkscompany.com.br</p>
+                  <p className="text-sm text-muted-foreground">contato@cachacaquest.com.br</p>
                 </div>
               </div>
               <div className="flex items-center gap-3 p-4 rounded-xl bg-secondary">
                 <MessageSquare size={20} className="text-primary" />
                 <div>
                   <p className="text-sm font-medium text-foreground">Redes Sociais</p>
-                  <p className="text-sm text-muted-foreground">@drinkscompany em todas as plataformas</p>
+                  <p className="text-sm text-muted-foreground">@cachacaquest em todas as plataformas</p>
                 </div>
               </div>
             </div>
-
-            
 
             <h2 className="text-xl font-display font-semibold text-foreground mt-8">Envie sua Mensagem</h2>
 
@@ -83,8 +78,6 @@ export default function Contato() {
               </form>
             )}
           </div>
-
-          
         </div>
         <Footer />
       </div>
