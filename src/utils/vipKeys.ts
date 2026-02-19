@@ -13,13 +13,13 @@ async function hashKey(key: string): Promise<string> {
 // Pre-hashed daily keys (SHA-256 of the actual keys)
 // To update keys: hash them using the hashKey function and replace below
 const dailyKeyHashes: Record<number, string> = {
-  0: "placeholder_sunday",    // Domingo
-  1: "placeholder_monday",    // Segunda
-  2: "placeholder_tuesday",   // Terça
-  3: "placeholder_wednesday", // Quarta
-  4: "placeholder_thursday",  // Quinta
-  5: "placeholder_friday",    // Sexta
-  6: "placeholder_saturday",  // Sábado
+  0: "a283d2e0b06b2b710413eb3e244cc74c8deb4dc1978b1cba9fdaa39deaa6bf40", // Domingo
+  1: "8e919b009593da69d90c2d386bf9891657a3316db62b77a689131dc5d7410543", // Segunda
+  2: "0c784bd606679012a9ff69e71576c6234866c9650045a79448da4cb7f51e034b", // Terça
+  3: "5378aa596a080c9d4fce3217d60e9cc149fb76f0187692b0c5172b88a7c8ce78", // Quarta
+  4: "fc337acb7746342c455b76eb4aa95b3f2e2ffae4ecbbfe434d87341341e9e207", // Quinta
+  5: "ce99c9ec7b57ae92446ceb7c9d1ea4286133b932c736466da580f12b2bc967ba", // Sexta
+  6: "62ba7c412b589289e7c975ef687ee9107c29d84ac943058b2e6a4cad2ff15a92", // Sábado
 };
 
 const DAY_NAMES = [
