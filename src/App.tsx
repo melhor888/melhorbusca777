@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import Index from "./pages/Index";
+import CategoryPage from "./pages/CategoryPage";
 import RecipeDetail from "./pages/RecipeDetail";
 import SearchPage from "./pages/SearchPage";
 import Tips from "./pages/Tips";
@@ -42,6 +43,7 @@ const App = () => (
           <div className="max-w-lg mx-auto lg:max-w-none lg:ml-60 relative">
             <Routes>
               <Route path="/" element={<Index />} />
+              <Route path="/categoria/:slug" element={<CategoryPage />} />
               <Route path="/recipe/:id" element={<RecipeDetail />} />
               <Route path="/search" element={<SearchPage />} />
               <Route path="/tips" element={<Tips />} />

@@ -1,5 +1,6 @@
-import { Wine, GraduationCap, Heart, BookOpen, Info, Mail } from "lucide-react";
-import { Link, useLocation } from "react-router-dom";
+import { useState } from "react";
+import { Wine, GraduationCap, Heart, BookOpen, Info, Mail, Search } from "lucide-react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import XPBar from "./XPBar";
 
 const mainNav = [
@@ -16,6 +17,16 @@ const secondaryNav = [
 
 export default function DesktopSidebar() {
   const location = useLocation();
+  const navigate = useNavigate();
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchQuery.trim().length >= 2) {
+      navigate(`/?q=${encodeURIComponent(searchQuery.trim())}`);
+      setSearchQuery("");
+    }
+  };
 
   return (
     <aside className="hidden lg:flex flex-col fixed left-0 top-0 bottom-0 w-60 z-50 glass-card border-r border-border/50">
@@ -27,8 +38,22 @@ export default function DesktopSidebar() {
         </span>
       </Link>
 
+      {/* Search */}
+      <form onSubmit={handleSearch} className="px-3 py-3 border-b border-border/50">
+        <div className="relative">
+          <Search size={14} className="absolute left-2.5 top-1/2 -translate-y-1/2 text-muted-foreground" />
+          <input
+            type="text"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            placeholder="Buscar drinks..."
+            className="w-full pl-8 pr-3 py-2 rounded-lg bg-secondary text-foreground placeholder:text-muted-foreground text-xs focus:outline-none focus:ring-1 focus:ring-primary/50"
+          />
+        </div>
+      </form>
+
       {/* XP Bar */}
-      <div className="px-4 py-4 border-b border-border/50">
+      <div className="px-4 py-3 border-b border-border/50">
         <XPBar compact />
       </div>
 
