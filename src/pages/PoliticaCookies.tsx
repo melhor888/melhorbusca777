@@ -6,8 +6,8 @@ export default function PoliticaCookies() {
   return (
     <>
       <Helmet>
-        <title>Política de Cookies - Drinks & Company</title>
-        <meta name="description" content="Política de Cookies da Drinks & Company. Saiba quais cookies utilizamos e como gerenciá-los." />
+        <title>Política de Cookies - Cachaça Quest</title>
+        <meta name="description" content="Política de Cookies da Cachaça Quest. Saiba quais cookies utilizamos e como gerenciá-los." />
         <link rel="canonical" href="https://drinkseco.lovable.app/cookies" />
       </Helmet>
       <div className="min-h-screen pb-20">
@@ -86,7 +86,7 @@ export default function PoliticaCookies() {
 
             <section>
               <h2 className="text-lg font-display font-semibold text-foreground mb-2">7. Contato</h2>
-              <p>Dúvidas sobre cookies: <strong>privacidade@drinkscompany.com.br</strong></p>
+              <p>Dúvidas sobre cookies: <strong>privacidade@cachacaquest.com.br</strong></p>
             </section>
           </div>
         </div>
