@@ -100,6 +100,33 @@ import vipHeroShots from "@/assets/vip-hero-shots-shooters.jpg";
 import vipHeroTiki from "@/assets/vip-hero-tropical-tiki.jpg";
 import vipHeroClassicos from "@/assets/vip-hero-classicos-reinventados.jpg";
 import vipHeroLowAbv from "@/assets/vip-hero-low-abv.jpg";
+import vipHeroAutor from "@/assets/vip-hero-drinks-autor.jpg";
+
+import vipAutor1 from "@/assets/vip-autor-1.jpg";
+import vipAutor2 from "@/assets/vip-autor-2.jpg";
+import vipAutor3 from "@/assets/vip-autor-3.jpg";
+import vipAutor4 from "@/assets/vip-autor-4.jpg";
+import vipAutor5 from "@/assets/vip-autor-5.jpg";
+import vipAutor6 from "@/assets/vip-autor-6.jpg";
+import vipAutor7 from "@/assets/vip-autor-7.jpg";
+import vipAutor8 from "@/assets/vip-autor-8.jpg";
+import vipAutor9 from "@/assets/vip-autor-9.jpg";
+import vipAutor10 from "@/assets/vip-autor-10.jpg";
+import vipAutor11 from "@/assets/vip-autor-11.jpg";
+import vipAutor12 from "@/assets/vip-autor-12.jpg";
+import vipAutor13 from "@/assets/vip-autor-13.jpg";
+import vipAutor14 from "@/assets/vip-autor-14.jpg";
+import vipAutor15 from "@/assets/vip-autor-15.jpg";
+import vipAutor16 from "@/assets/vip-autor-16.jpg";
+import vipAutor17 from "@/assets/vip-autor-17.jpg";
+import vipAutor18 from "@/assets/vip-autor-18.jpg";
+import vipAutor19 from "@/assets/vip-autor-19.jpg";
+import vipAutor20 from "@/assets/vip-autor-20.jpg";
+import vipAutor21 from "@/assets/vip-autor-21.jpg";
+import vipAutor22 from "@/assets/vip-autor-22.jpg";
+import vipAutor23 from "@/assets/vip-autor-23.jpg";
+import vipAutor24 from "@/assets/vip-autor-24.jpg";
+import vipAutor25 from "@/assets/vip-autor-25.jpg";
 
 import vipShot1 from "@/assets/vip-shot-1.jpg";
 import vipShot2 from "@/assets/vip-shot-2.jpg";
@@ -258,6 +285,7 @@ const categoryImagePools: Record<string, string[]> = {
   "Tropical & Tiki": tikiImages,
   "Clássicos Reinventados": classicImages,
   "Low ABV & Wellness": lowAbvImages,
+  "Drinks de Autor": autorImages,
 };
 
 const categoryHeroBanners: Record<string, string> = {
@@ -268,6 +296,7 @@ const categoryHeroBanners: Record<string, string> = {
   "tropical-tiki": vipHeroTiki,
   "classicos-reinventados": vipHeroClassicos,
   "low-abv-wellness": vipHeroLowAbv,
+  "drinks-autor": vipHeroAutor,
 };
 
 // Simple hash to get consistent image for each drink
