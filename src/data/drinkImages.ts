@@ -268,6 +268,27 @@ const drinkImages: Record<string, string> = {
   "paloma-italiana": aperolSpritz,
   "espresso-romano": espressoMartini,
   "moscow-mule-thai": moscowMule,
+
+  // ===== NOVAS RECEITAS =====
+  "blue-cosmo": cosmopolitan,
+  "watermelon-vodka": cosmopolitan,
+  "banana-daiquiri": daiquiri,
+  "spiced-rum-punch": maiTai,
+  "elderflower-gin": ginFizz,
+  "pink-gin-tonic": ginTonic,
+  "spicy-margarita": margarita,
+  "mezcal-paloma": paloma,
+  "whisky-ginger": penicillin,
+  "kentucky-mule": moscowMule,
+  "sunset-lemonade": limonadaTropical,
+  "tropical-punch-sa": fruitPunch,
+  "carajillo-espanhol": carajillo,
+  "death-in-afternoon": french75,
+  "elderflower-spritz": limoncelloSpritz,
+  "baileys-espresso": espressoMartini,
+  "tiramisu-cocktail": espressoMartini,
+  "porn-star-shot": tequilaShot,
+  "jelly-shot": kamikaze,
 };
 
 export function getDrinkImage(imageKey: string): string {

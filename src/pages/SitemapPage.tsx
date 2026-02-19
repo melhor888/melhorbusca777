@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { drinks, categories } from "@/data/drinks";
 import { articles } from "@/data/articles";
 import Breadcrumbs from "@/components/Breadcrumbs";
-import Footer from "@/components/Footer";
 
 export default function SitemapPage() {
   return (
@@ -69,7 +68,6 @@ export default function SitemapPage() {
             </section>
           </div>
         </div>
-        <Footer />
       </div>
     </>
   );

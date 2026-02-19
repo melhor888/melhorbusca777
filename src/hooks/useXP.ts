@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
+import { achievements } from "@/data/achievements";
 
 const STORAGE_KEY = "drinks-co-xp";
 
@@ -54,6 +55,27 @@ export function getLevelProgress(xp: number): number {
   return Math.min(100, ((xp - level.minXP) / range) * 100);
 }
 
+function checkXPAchievements(newXP: number, currentAchievements: string[]): string[] {
+  const updated = [...currentAchievements];
+  const xpAchievements = achievements.filter((a) => a.requiredXP !== undefined);
+  for (const ach of xpAchievements) {
+    if (newXP >= ach.requiredXP! && !updated.includes(ach.id)) {
+      updated.push(ach.id);
+    }
+  }
+  return updated;
+}
+
+function checkExplorerAchievements(viewedCount: number, currentAchievements: string[]): string[] {
+  const updated = [...currentAchievements];
+  const thresholds = [1, 5, 10, 15, 25, 35, 50, 75, 100, 120, 140, 150, 170, 180];
+  for (const t of thresholds) {
+    const id = `explorer-${t}`;
+    if (viewedCount >= t && !updated.includes(id)) updated.push(id);
+  }
+  return updated;
+}
+
 export function useXP() {
   const [data, setData] = useState<XPData>(() => {
     try {
@@ -76,18 +98,9 @@ export function useXP() {
       const newXP = prev.totalXP + XP_PER_RECIPE;
       const newViewed = [...prev.viewedRecipes, recipeId];
 
-      // Check achievements
-      const newAchievements = [...prev.achievements];
-      if (newViewed.length >= 5 && !newAchievements.includes("explorer-5"))
-        newAchievements.push("explorer-5");
-      if (newViewed.length >= 10 && !newAchievements.includes("explorer-10"))
-        newAchievements.push("explorer-10");
-      if (newViewed.length >= 25 && !newAchievements.includes("explorer-25"))
-        newAchievements.push("explorer-25");
-      if (newViewed.length >= 50 && !newAchievements.includes("explorer-50"))
-        newAchievements.push("explorer-50");
+      let newAchievements = checkExplorerAchievements(newViewed.length, prev.achievements);
+      newAchievements = checkXPAchievements(newXP, newAchievements);
 
-      // Check category-based achievements
       return {
         ...prev,
         totalXP: newXP,
@@ -101,7 +114,6 @@ export function useXP() {
   const addArticleXP = useCallback((articleId: string, xpAmount: number): number => {
     let xpGained = 0;
     setData((prev) => {
-      // Check if article was already read using a separate list
       const readArticles = JSON.parse(localStorage.getItem("drinks-co-read-articles") || "[]") as string[];
       if (readArticles.includes(articleId)) return prev;
 
@@ -110,7 +122,7 @@ export function useXP() {
       localStorage.setItem("drinks-co-read-articles", JSON.stringify(readArticles));
 
       const newXP = prev.totalXP + xpAmount;
-      const newAchievements = [...prev.achievements];
+      let newAchievements = checkXPAchievements(newXP, prev.achievements);
       if (readArticles.length >= 3 && !newAchievements.includes("scholar-3"))
         newAchievements.push("scholar-3");
       if (readArticles.length >= 5 && !newAchievements.includes("scholar-5"))

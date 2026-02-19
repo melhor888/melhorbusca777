@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://drinkseco.lovable.app/</loc><changefreq>daily</changefreq><priority>1.0</priority></url>
+  <url><loc>https://drinkseco.lovable.app/tips</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://drinkseco.lovable.app/dicas</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://drinkseco.lovable.app/favorites</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://drinkseco.lovable.app/sobre</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://drinkseco.lovable.app/contato</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://drinkseco.lovable.app/privacidade</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://drinkseco.lovable.app/termos</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://drinkseco.lovable.app/cookies</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://drinkseco.lovable.app/aviso-legal</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://drinkseco.lovable.app/sitemap</loc><changefreq>monthly</changefreq><priority>0.3</priority></url>
+
+  <!-- Categorias -->
+  <url><loc>https://drinkseco.lovable.app/categoria/vodka</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/categoria/rum-bacardi</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/categoria/gin</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/categoria/tequila</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/categoria/whisky</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/categoria/coqueteis-classicos</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/categoria/drinks-tropicais</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/categoria/champagne-espumantes</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/categoria/cafe-licores</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/categoria/nao-alcoolicos</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/categoria/shots-e-rapidos</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/categoria/exoticos-e-internacionais</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+
+  <!-- Receitas - Vodka -->
+  <url><loc>https://drinkseco.lovable.app/recipe/moscow-mule</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/bloody-mary</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/cosmopolitan</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/screwdriver</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/white-russian</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/black-russian</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/espresso-martini</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/sea-breeze</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/harvey-wallbanger</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/vodka-martini</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/appletini</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/cape-codder</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/madras</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/greyhound</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/salty-dog</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/vodka-collins</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/chi-chi</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/vesper</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/bay-breeze</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/woo-woo</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Receitas - Rum -->
+  <url><loc>https://drinkseco.lovable.app/recipe/mojito</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/daiquiri</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/pina-colada</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/cuba-libre</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/mai-tai</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/dark-n-stormy</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/zombie</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/hurricane</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/rum-punch</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/bahama-mama</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/rum-runner</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/painkiller</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/planters-punch</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/hemingway-daiquiri</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/jungle-bird</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/navy-grog</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/ti-punch</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/corn-n-oil</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/caipirissima</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/hot-buttered-rum</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Receitas - Gin -->
+  <url><loc>https://drinkseco.lovable.app/recipe/gin-tonic</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/negroni</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/tom-collins</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/gin-fizz</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/bramble</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/aviation</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/gimlet</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/singapore-sling</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/bees-knees</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/last-word</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/gin-rickey</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/clover-club</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/ramos-gin-fizz</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/southside</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/gin-basil-smash</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/pegu-club</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/white-lady</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/monkey-gland</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/gin-gin-mule</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/negroni-sbagliato</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Receitas - Tequila -->
+  <url><loc>https://drinkseco.lovable.app/recipe/margarita</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/tequila-sunrise</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/paloma</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/batanga</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/mexican-mule</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/el-diablo</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/cantarito</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/tequila-sour</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/ranch-water</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/tequila-shot</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/tommys-margarita</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/naked-and-famous</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/oaxaca-old-fashioned</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/matador</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/brave-bull</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/vampiro</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/juan-collins</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/mezcal-margarita</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Receitas - Whisky -->
+  <url><loc>https://drinkseco.lovable.app/recipe/old-fashioned</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/whisky-sour</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/manhattan</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/mint-julep</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/irish-coffee</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/penicillin</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/rusty-nail</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/rob-roy</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/boulevardier</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/godfather</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/gold-rush</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/paper-plane</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/toronto</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/vieux-carre</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/brown-derby</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/blood-and-sand</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/new-york-sour</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/whisky-smash</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Receitas - Clássicos -->
+  <url><loc>https://drinkseco.lovable.app/recipe/martini</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/caipirinha</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/french-75</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/sidecar</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/sazerac</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/americano</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/long-island</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/corpse-reviver</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/champagne-cocktail</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/brandy-alexander</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/grasshopper</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/stinger</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/jack-rose</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/angel-face</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/between-the-sheets</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/hanky-panky</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Receitas - Tropicais -->
+  <url><loc>https://drinkseco.lovable.app/recipe/sex-on-beach</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/blue-lagoon</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/caipiroska-tropical</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/purple-rain</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/pornstar-martini</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/swimming-pool</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/mango-tango</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/tropical-storm</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/jungle-juice</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/tiki-torch</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/lava-flow</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/caribbean-sunset</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Receitas - Não Alcoólicos -->
+  <url><loc>https://drinkseco.lovable.app/recipe/virgin-mojito</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/shirley-temple</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/limonada-tropical</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/smoothie-frutas</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/arnold-palmer</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/nojito</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/cinderella</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/safe-sex-on-beach</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/roy-rogers</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/italian-soda</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/cranberry-spritzer</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/cucumber-cooler</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/mango-lassi</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Receitas - Champagne & Espumantes -->
+  <url><loc>https://drinkseco.lovable.app/recipe/aperol-spritz</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/mimosa</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/bellini</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/kir-royal</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/recipe/rossini</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Artigos -->
+  <url><loc>https://drinkseco.lovable.app/artigo/guia-destilados</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/artigo/equilibrio-sabores</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/artigo/historia-proibicao</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/artigo/copos-essenciais</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/artigo/tecnicas-avancadas-bar</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/artigo/cultura-bar-mundial</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/artigo/gelo-agua-temperatura</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/artigo/erros-comuns-bartender</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/artigo/drinks-por-estacao</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/artigo/bitters-essenciais</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/artigo/montar-bar-profissional</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/artigo/drinks-instagramaveis</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://drinkseco.lovable.app/artigo/mocktails-premium</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+</urlset>
