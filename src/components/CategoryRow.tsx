@@ -1,14 +1,16 @@
 import { useRef, useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Drink } from "@/data/drinks";
 import DrinkCard from "./DrinkCard";
 
 interface CategoryRowProps {
   title: string;
   drinks: Drink[];
+  categorySlug?: string;
 }
 
-export default function CategoryRow({ title, drinks }: CategoryRowProps) {
+export default function CategoryRow({ title, drinks, categorySlug }: CategoryRowProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
@@ -42,7 +44,17 @@ export default function CategoryRow({ title, drinks }: CategoryRowProps) {
         <h2 className="text-lg font-display font-bold text-foreground">
           {title}
         </h2>
-        <span className="text-xs text-muted-foreground">{drinks.length} drinks</span>
+        <div className="flex items-center gap-3">
+          <span className="text-xs text-muted-foreground">{drinks.length} drinks</span>
+          {categorySlug && (
+            <Link
+              to={`/categoria/${categorySlug}`}
+              className="text-xs text-primary font-semibold hover:underline"
+            >
+              Ver todos →
+            </Link>
+          )}
+        </div>
       </div>
 
       <div className="relative">

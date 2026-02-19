@@ -1,11 +1,12 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState, useCallback, useRef } from "react";
-import { getDrinkById } from "@/data/drinks";
+import { getDrinkById, drinks as allDrinks } from "@/data/drinks";
 import { getDrinkImage } from "@/data/drinkImages";
 import { getChefTip } from "@/data/chefTips";
 import { useFavorites } from "@/hooks/useFavorites";
 import { useXP } from "@/hooks/useXP";
 import XPToast from "@/components/XPToast";
+import SimilarDrinks from "@/components/SimilarDrinks";
 import { ArrowLeft, Heart, Share2, Clock, ChefHat, Wine, Lightbulb, Zap } from "lucide-react";
 
 export default function RecipeDetail() {
@@ -205,6 +206,9 @@ export default function RecipeDetail() {
             </div>
           </section>
         )}
+
+        {/* Similar Drinks */}
+        <SimilarDrinks currentDrink={drink} allDrinks={allDrinks} />
       </div>
     </div>
   );

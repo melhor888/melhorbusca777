@@ -21,7 +21,7 @@ export default function DrinkCard({ drink, size = "small" }: DrinkCardProps) {
   return (
     <button
       onClick={() => navigate(`/recipe/${drink.id}`)}
-      className={`relative flex-shrink-0 rounded-lg overflow-hidden group cursor-pointer ${
+      className={`relative flex-shrink-0 rounded-lg overflow-hidden group cursor-pointer transition-transform duration-300 hover:scale-[1.03] active:scale-[0.97] ${
         isLarge ? "w-[280px] h-[380px]" : "w-[160px] lg:w-full h-[220px] lg:h-[280px]"
       }`}
     >
