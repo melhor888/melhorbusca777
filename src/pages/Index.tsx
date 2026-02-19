@@ -6,6 +6,8 @@ import HeroBanner from "@/components/HeroBanner";
 import CategoryRow from "@/components/CategoryRow";
 import XPBar from "@/components/XPBar";
 import DrinkCard from "@/components/DrinkCard";
+import ThemeToggle from "@/components/ThemeToggle";
+import NotificationToggle from "@/components/NotificationToggle";
 import { categories, getDrinksByCategory, searchDrinks, drinks as allDrinks } from "@/data/drinks";
 
 function getDailySeed(): number {
@@ -65,7 +67,9 @@ export default function Index() {
         <link rel="canonical" href="https://drinkseco.lovable.app/" />
       </Helmet>
       <div className="min-h-screen pb-20">
-        <header className="fixed top-0 left-0 right-0 z-40 px-4 py-3 flex items-center justify-end bg-gradient-to-b from-background via-background/90 to-transparent lg:hidden">
+        <header className="fixed top-0 left-0 right-0 z-40 px-4 py-3 flex items-center justify-end gap-2 bg-gradient-to-b from-background via-background/90 to-transparent lg:hidden">
+          <NotificationToggle />
+          <ThemeToggle />
           <XPBar compact />
         </header>
 

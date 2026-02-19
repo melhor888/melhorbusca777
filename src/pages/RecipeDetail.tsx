@@ -8,7 +8,8 @@ import { useFavorites } from "@/hooks/useFavorites";
 import { useXP } from "@/hooks/useXP";
 import XPToast from "@/components/XPToast";
 import SimilarDrinks from "@/components/SimilarDrinks";
-import { ArrowLeft, Heart, Share2, Clock, ChefHat, Wine, Lightbulb, Zap, ShoppingCart } from "lucide-react";
+import ShareCard from "@/components/ShareCard";
+import { ArrowLeft, Heart, Share2, Clock, ChefHat, Wine, Lightbulb, Zap, ShoppingCart, Image } from "lucide-react";
 import { useShoppingList } from "@/hooks/useShoppingList";
 
 export default function RecipeDetail() {
@@ -20,6 +21,7 @@ export default function RecipeDetail() {
   const [showXP, setShowXP] = useState(false);
   const [xpGained, setXpGained] = useState(0);
   const [xpMarked, setXpMarked] = useState(false);
+  const [showShareCard, setShowShareCard] = useState(false);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
@@ -141,8 +143,16 @@ export default function RecipeDetail() {
             >
               <Share2 size={20} className="text-foreground" />
             </button>
+            <button
+              onClick={() => setShowShareCard(true)}
+              className="w-10 h-10 rounded-full glass-card flex items-center justify-center"
+            >
+              <Image size={20} className="text-foreground" />
+            </button>
           </div>
         </div>
+
+        {showShareCard && <ShareCard drink={drink} onClose={() => setShowShareCard(false)} />}
 
         {/* Title */}
         <div className="absolute bottom-0 left-0 right-0 p-6">

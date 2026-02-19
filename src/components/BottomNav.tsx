@@ -1,12 +1,12 @@
-import { Wine, GraduationCap, Heart, BookOpen, ShoppingCart } from "lucide-react";
+import { Wine, GraduationCap, Heart, HelpCircle, BarChart3 } from "lucide-react";
 import { useLocation, useNavigate } from "react-router-dom";
 import XPBar from "./XPBar";
 import { useShoppingList } from "@/hooks/useShoppingList";
 
 const navItems = [
   { path: "/", icon: Wine, label: "Receitas" },
-  { path: "/tips", icon: GraduationCap, label: "Escola" },
-  { path: "/lista-compras", icon: ShoppingCart, label: "Compras" },
+  { path: "/quiz", icon: HelpCircle, label: "Quiz" },
+  { path: "/dashboard", icon: BarChart3, label: "Stats" },
   { path: "/favorites", icon: Heart, label: "Favoritos" },
 ];
 

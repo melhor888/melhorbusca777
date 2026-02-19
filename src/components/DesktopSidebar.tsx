@@ -1,13 +1,18 @@
 import { useState } from "react";
-import { Wine, GraduationCap, Heart, BookOpen, Info, Mail, ShoppingCart, Search } from "lucide-react";
+import { Wine, GraduationCap, Heart, BookOpen, Info, Mail, ShoppingCart, Search, HelpCircle, BarChart3, Package, Layers } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import XPBar from "./XPBar";
+import ThemeToggle from "./ThemeToggle";
 import { useShoppingList } from "@/hooks/useShoppingList";
 
 const mainNav = [
   { path: "/", icon: Wine, label: "Receitas" },
+  { path: "/quiz", icon: HelpCircle, label: "Quiz" },
+  { path: "/ingredientes", icon: Package, label: "Ingredientes" },
+  { path: "/colecoes", icon: Layers, label: "Coleções" },
   { path: "/tips", icon: GraduationCap, label: "Escola" },
   { path: "/dicas", icon: BookOpen, label: "Dicas" },
+  { path: "/dashboard", icon: BarChart3, label: "Dashboard" },
   { path: "/lista-compras", icon: ShoppingCart, label: "Lista de Compras" },
   { path: "/favorites", icon: Heart, label: "Favoritos" },
 ];
@@ -55,9 +60,10 @@ export default function DesktopSidebar() {
         </div>
       </form>
 
-      {/* XP Bar */}
-      <div className="px-4 py-3 border-b border-border/50">
-        <XPBar compact />
+      {/* XP Bar + Theme */}
+      <div className="px-4 py-3 border-b border-border/50 flex items-center gap-2">
+        <div className="flex-1"><XPBar compact /></div>
+        <ThemeToggle />
       </div>
 
       {/* Main Navigation */}
