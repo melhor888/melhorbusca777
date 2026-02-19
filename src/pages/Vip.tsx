@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { Crown, Lock, Wine, Beer, Snowflake, Leaf, KeyRound, Check, X, Flame, GlassWater, IceCream, Trophy, Globe, CupSoda, Martini } from "lucide-react";
+import { Crown, Lock, Wine, Beer, Snowflake, Leaf, KeyRound, Check, X, Flame, GlassWater, IceCream, Trophy, Globe, CupSoda, Martini, ArrowRight, Sparkles } from "lucide-react";
 import { validateVipKey, isVipUnlocked, setVipUnlocked } from "@/utils/vipKeys";
 import { getVipDrinksByCategory } from "@/data/vipDrinks";
+import vipHeroBanner from "@/assets/vip-hero-banner.jpg";
 
 const vipCategories = [
   {
@@ -129,18 +130,40 @@ export default function Vip() {
         <meta name="description" content="Categorias exclusivas para membros VIP do Cachaça Quest." />
       </Helmet>
 
-      <main className="px-4 pt-6 pb-32 lg:pb-12">
-        {/* Header */}
-        <div className="text-center mb-6">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-yellow-400 to-amber-600 shadow-lg mb-4">
-            <Crown size={32} className="text-white" />
+      <main className="px-4 pt-0 pb-32 lg:pb-12">
+        {/* Hero Banner Netflix Style */}
+        <div className="relative -mx-4 mb-8 overflow-hidden rounded-b-3xl">
+          <img
+            src={vipHeroBanner}
+            alt="VIP Cocktails"
+            className="w-full h-[280px] lg:h-[340px] object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background/80 to-transparent" />
+          <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-8">
+            <div className="flex items-center gap-2 mb-2">
+              <Crown size={20} className="text-yellow-500" />
+              <span className="text-[10px] font-bold uppercase tracking-widest text-yellow-500">
+                Exclusivo
+              </span>
+            </div>
+            <h1 className="font-display text-3xl lg:text-4xl font-bold text-foreground leading-tight">
+              Seja <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-amber-500">VIP</span>
+            </h1>
+            <p className="text-muted-foreground text-sm mt-2 max-w-sm">
+              Descubra novos sabores com <strong className="text-foreground">1.200+ receitas exclusivas</strong>, dicas de bartenders e categorias premium.
+            </p>
+            {!unlocked && (
+              <Link
+                to="/queroservip"
+                className="inline-flex items-center gap-2 mt-4 px-6 py-3 rounded-xl bg-gradient-to-r from-yellow-400 to-amber-600 text-white font-bold text-sm shadow-lg shadow-yellow-500/30 hover:shadow-xl transition-all hover:scale-[1.03] active:scale-[0.97]"
+              >
+                <Sparkles size={16} />
+                Quero ser VIP
+                <ArrowRight size={16} />
+              </Link>
+            )}
           </div>
-          <h1 className="font-display text-2xl font-bold text-foreground">
-            Área <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-amber-600">VIP</span>
-          </h1>
-          <p className="text-muted-foreground text-sm mt-2 max-w-xs mx-auto">
-            Insira a chave de acesso para desbloquear o conteúdo exclusivo
-          </p>
         </div>
 
         {/* Key Input Section */}
