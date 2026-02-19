@@ -20,7 +20,7 @@ import PoliticaCookies from "./pages/PoliticaCookies";
 import AvisoLegal from "./pages/AvisoLegal";
 import SitemapPage from "./pages/SitemapPage";
 import BottomNav from "./components/BottomNav";
-import DesktopNav from "./components/DesktopNav";
+import DesktopSidebar from "./components/DesktopSidebar";
 import CookieConsent from "./components/CookieConsent";
 import { WebsiteSchema, OrganizationSchema } from "./components/SchemaOrg";
 import NotFound from "./pages/NotFound";
@@ -38,8 +38,8 @@ const App = () => (
         <WebsiteSchema />
         <OrganizationSchema />
         <BrowserRouter>
-          <DesktopNav />
-          <div className="max-w-lg lg:max-w-7xl mx-auto relative lg:pt-16">
+          <DesktopSidebar />
+          <div className="max-w-lg mx-auto lg:max-w-none lg:ml-60 relative">
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/recipe/:id" element={<RecipeDetail />} />
@@ -59,8 +59,8 @@ const App = () => (
               <Route path="*" element={<NotFound />} />
             </Routes>
             <BottomNav />
+            <Footer />
           </div>
-          <Footer />
           <CookieConsent />
           <InstallPrompt />
         </BrowserRouter>
