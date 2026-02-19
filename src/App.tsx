@@ -25,6 +25,7 @@ import Quiz from "./pages/Quiz";
 import Dashboard from "./pages/Dashboard";
 import Ingredients from "./pages/Ingredients";
 import Collections from "./pages/Collections";
+import Vip from "./pages/Vip";
 import BottomNav from "./components/BottomNav";
 import DesktopSidebar from "./components/DesktopSidebar";
 import CookieConsent from "./components/CookieConsent";
@@ -69,6 +70,7 @@ const App = () => (
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/ingredientes" element={<Ingredients />} />
               <Route path="/colecoes" element={<Collections />} />
+              <Route path="/vip" element={<Vip />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
             <BottomNav />

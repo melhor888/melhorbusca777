@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Wine, GraduationCap, Heart, BookOpen, Info, Mail, ShoppingCart, Search, HelpCircle, BarChart3, Package, Layers } from "lucide-react";
+import { Wine, GraduationCap, Heart, BookOpen, Info, Mail, ShoppingCart, Search, HelpCircle, BarChart3, Package, Layers, Crown } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import XPBar from "./XPBar";
 import ThemeToggle from "./ThemeToggle";
@@ -15,6 +15,7 @@ const mainNav = [
   { path: "/dashboard", icon: BarChart3, label: "Dashboard" },
   { path: "/lista-compras", icon: ShoppingCart, label: "Lista de Compras" },
   { path: "/favorites", icon: Heart, label: "Favoritos" },
+  { path: "/vip", icon: Crown, label: "VIP", isVip: true },
 ];
 
 const secondaryNav = [
@@ -71,21 +72,31 @@ export default function DesktopSidebar() {
         <p className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider px-3 mb-2">
           Menu
         </p>
-        {mainNav.map(({ path, icon: Icon, label }) => {
+        {mainNav.map(({ path, icon: Icon, label, ...rest }) => {
           const active = location.pathname === path;
           const showBadge = path === "/lista-compras" && drinkIds.length > 0;
+          const isVip = (rest as any).isVip;
           return (
             <Link
               key={path}
               to={path}
               className={`relative flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 ${
-                active
-                  ? "text-primary bg-primary/10 shadow-sm"
-                  : "text-muted-foreground hover:text-foreground hover:bg-secondary"
+                isVip
+                  ? active
+                    ? "text-yellow-500 bg-yellow-500/10 shadow-sm"
+                    : "text-yellow-500/70 hover:text-yellow-500 hover:bg-yellow-500/10"
+                  : active
+                    ? "text-primary bg-primary/10 shadow-sm"
+                    : "text-muted-foreground hover:text-foreground hover:bg-secondary"
               }`}
             >
               <Icon size={20} strokeWidth={active ? 2.5 : 1.5} />
               {label}
+              {isVip && (
+                <span className="ml-auto text-[9px] font-bold uppercase tracking-wider text-yellow-500 bg-yellow-500/10 px-1.5 py-0.5 rounded">
+                  ★
+                </span>
+              )}
               {showBadge && (
                 <span className="ml-auto w-5 h-5 rounded-full bg-primary text-primary-foreground text-[10px] font-bold flex items-center justify-center">
                   {drinkIds.length}
