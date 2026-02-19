@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { Crown, Lock, Wine, Beer, Snowflake, Leaf, KeyRound, Check, X } from "lucide-react";
-import { validateVipKey, isVipUnlocked, setVipUnlocked, getTodayDayName } from "@/utils/vipKeys";
+import { validateVipKey, isVipUnlocked, setVipUnlocked } from "@/utils/vipKeys";
 
 const vipCategories = [
   {
@@ -84,7 +84,7 @@ export default function Vip() {
             Área <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-amber-600">VIP</span>
           </h1>
           <p className="text-muted-foreground text-sm mt-2 max-w-xs mx-auto">
-            Insira a chave do dia para desbloquear o conteúdo exclusivo
+            Insira a chave de acesso para desbloquear o conteúdo exclusivo
           </p>
         </div>
 
@@ -93,10 +93,10 @@ export default function Vip() {
           <div className="max-w-sm mx-auto mb-8">
             <div className="rounded-2xl border border-yellow-500/20 bg-card p-5">
               <div className="flex items-center gap-2 mb-3">
-                <KeyRound size={18} className="text-yellow-500" />
-                <span className="text-sm font-semibold text-foreground">
-                  Chave de {getTodayDayName()}
-                </span>
+              <KeyRound size={18} className="text-yellow-500" />
+              <span className="text-sm font-semibold text-foreground">
+                Chave de Acesso VIP
+              </span>
               </div>
 
               <form onSubmit={handleSubmit} className="space-y-3">
@@ -148,7 +148,7 @@ export default function Vip() {
               </div>
               <div>
                 <p className="text-sm font-semibold text-foreground">VIP desbloqueado!</p>
-                <p className="text-xs text-muted-foreground">Acesso liberado até meia-noite</p>
+                <p className="text-xs text-muted-foreground">Acesso permanente liberado</p>
               </div>
             </div>
           </div>
