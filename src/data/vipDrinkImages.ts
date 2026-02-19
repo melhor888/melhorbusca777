@@ -365,6 +365,81 @@ import vipAutor22 from "@/assets/vip-autor-22.jpg";
 import vipAutor23 from "@/assets/vip-autor-23.jpg";
 import vipAutor24 from "@/assets/vip-autor-24.jpg";
 import vipAutor25 from "@/assets/vip-autor-25.jpg";
+import vipAutor26 from "@/assets/vip-autor-26.jpg";
+import vipAutor27 from "@/assets/vip-autor-27.jpg";
+import vipAutor28 from "@/assets/vip-autor-28.jpg";
+import vipAutor29 from "@/assets/vip-autor-29.jpg";
+import vipAutor30 from "@/assets/vip-autor-30.jpg";
+import vipAutor31 from "@/assets/vip-autor-31.jpg";
+import vipAutor32 from "@/assets/vip-autor-32.jpg";
+import vipAutor33 from "@/assets/vip-autor-33.jpg";
+import vipAutor34 from "@/assets/vip-autor-34.jpg";
+import vipAutor35 from "@/assets/vip-autor-35.jpg";
+import vipAutor36 from "@/assets/vip-autor-36.jpg";
+import vipAutor37 from "@/assets/vip-autor-37.jpg";
+import vipAutor38 from "@/assets/vip-autor-38.jpg";
+import vipAutor39 from "@/assets/vip-autor-39.jpg";
+import vipAutor40 from "@/assets/vip-autor-40.jpg";
+import vipAutor41 from "@/assets/vip-autor-41.jpg";
+import vipAutor42 from "@/assets/vip-autor-42.jpg";
+import vipAutor43 from "@/assets/vip-autor-43.jpg";
+import vipAutor44 from "@/assets/vip-autor-44.jpg";
+import vipAutor45 from "@/assets/vip-autor-45.jpg";
+import vipAutor46 from "@/assets/vip-autor-46.jpg";
+import vipAutor47 from "@/assets/vip-autor-47.jpg";
+import vipAutor48 from "@/assets/vip-autor-48.jpg";
+import vipAutor49 from "@/assets/vip-autor-49.jpg";
+import vipAutor50 from "@/assets/vip-autor-50.jpg";
+import vipAutor51 from "@/assets/vip-autor-51.jpg";
+import vipAutor52 from "@/assets/vip-autor-52.jpg";
+import vipAutor53 from "@/assets/vip-autor-53.jpg";
+import vipAutor54 from "@/assets/vip-autor-54.jpg";
+import vipAutor55 from "@/assets/vip-autor-55.jpg";
+import vipAutor56 from "@/assets/vip-autor-56.jpg";
+import vipAutor57 from "@/assets/vip-autor-57.jpg";
+import vipAutor58 from "@/assets/vip-autor-58.jpg";
+import vipAutor59 from "@/assets/vip-autor-59.jpg";
+import vipAutor60 from "@/assets/vip-autor-60.jpg";
+import vipAutor61 from "@/assets/vip-autor-61.jpg";
+import vipAutor62 from "@/assets/vip-autor-62.jpg";
+import vipAutor63 from "@/assets/vip-autor-63.jpg";
+import vipAutor64 from "@/assets/vip-autor-64.jpg";
+import vipAutor65 from "@/assets/vip-autor-65.jpg";
+import vipAutor66 from "@/assets/vip-autor-66.jpg";
+import vipAutor67 from "@/assets/vip-autor-67.jpg";
+import vipAutor68 from "@/assets/vip-autor-68.jpg";
+import vipAutor69 from "@/assets/vip-autor-69.jpg";
+import vipAutor70 from "@/assets/vip-autor-70.jpg";
+import vipAutor71 from "@/assets/vip-autor-71.jpg";
+import vipAutor72 from "@/assets/vip-autor-72.jpg";
+import vipAutor73 from "@/assets/vip-autor-73.jpg";
+import vipAutor74 from "@/assets/vip-autor-74.jpg";
+import vipAutor75 from "@/assets/vip-autor-75.jpg";
+import vipAutor76 from "@/assets/vip-autor-76.jpg";
+import vipAutor77 from "@/assets/vip-autor-77.jpg";
+import vipAutor78 from "@/assets/vip-autor-78.jpg";
+import vipAutor79 from "@/assets/vip-autor-79.jpg";
+import vipAutor80 from "@/assets/vip-autor-80.jpg";
+import vipAutor81 from "@/assets/vip-autor-81.jpg";
+import vipAutor82 from "@/assets/vip-autor-82.jpg";
+import vipAutor83 from "@/assets/vip-autor-83.jpg";
+import vipAutor84 from "@/assets/vip-autor-84.jpg";
+import vipAutor85 from "@/assets/vip-autor-85.jpg";
+import vipAutor86 from "@/assets/vip-autor-86.jpg";
+import vipAutor87 from "@/assets/vip-autor-87.jpg";
+import vipAutor88 from "@/assets/vip-autor-88.jpg";
+import vipAutor89 from "@/assets/vip-autor-89.jpg";
+import vipAutor90 from "@/assets/vip-autor-90.jpg";
+import vipAutor91 from "@/assets/vip-autor-91.jpg";
+import vipAutor92 from "@/assets/vip-autor-92.jpg";
+import vipAutor93 from "@/assets/vip-autor-93.jpg";
+import vipAutor94 from "@/assets/vip-autor-94.jpg";
+import vipAutor95 from "@/assets/vip-autor-95.jpg";
+import vipAutor96 from "@/assets/vip-autor-96.jpg";
+import vipAutor97 from "@/assets/vip-autor-97.jpg";
+import vipAutor98 from "@/assets/vip-autor-98.jpg";
+import vipAutor99 from "@/assets/vip-autor-99.jpg";
+import vipAutor100 from "@/assets/vip-autor-100.jpg";
 
 import vipShot1 from "@/assets/vip-shot-1.jpg";
 import vipShot2 from "@/assets/vip-shot-2.jpg";
@@ -882,7 +957,16 @@ const autorImages = [
   vipAutor1, vipAutor2, vipAutor3, vipAutor4, vipAutor5, vipAutor6, vipAutor7, vipAutor8,
   vipAutor9, vipAutor10, vipAutor11, vipAutor12, vipAutor13, vipAutor14, vipAutor15, vipAutor16,
   vipAutor17, vipAutor18, vipAutor19, vipAutor20, vipAutor21, vipAutor22, vipAutor23, vipAutor24,
-  vipAutor25,
+  vipAutor25, vipAutor26, vipAutor27, vipAutor28, vipAutor29, vipAutor30, vipAutor31, vipAutor32,
+  vipAutor33, vipAutor34, vipAutor35, vipAutor36, vipAutor37, vipAutor38, vipAutor39, vipAutor40,
+  vipAutor41, vipAutor42, vipAutor43, vipAutor44, vipAutor45, vipAutor46, vipAutor47, vipAutor48,
+  vipAutor49, vipAutor50, vipAutor51, vipAutor52, vipAutor53, vipAutor54, vipAutor55, vipAutor56,
+  vipAutor57, vipAutor58, vipAutor59, vipAutor60, vipAutor61, vipAutor62, vipAutor63, vipAutor64,
+  vipAutor65, vipAutor66, vipAutor67, vipAutor68, vipAutor69, vipAutor70, vipAutor71, vipAutor72,
+  vipAutor73, vipAutor74, vipAutor75, vipAutor76, vipAutor77, vipAutor78, vipAutor79, vipAutor80,
+  vipAutor81, vipAutor82, vipAutor83, vipAutor84, vipAutor85, vipAutor86, vipAutor87, vipAutor88,
+  vipAutor89, vipAutor90, vipAutor91, vipAutor92, vipAutor93, vipAutor94, vipAutor95, vipAutor96,
+  vipAutor97, vipAutor98, vipAutor99, vipAutor100,
 ];
 const cafeImages = [
   vipCafe1, vipCafe2, vipCafe3, vipCafe4, vipCafe5, vipCafe6, vipCafe7, vipCafe8,
