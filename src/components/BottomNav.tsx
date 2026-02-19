@@ -17,7 +17,7 @@ export default function BottomNav() {
   if (location.pathname.startsWith("/tip/")) return null;
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 z-50 glass-card border-t border-border/50 pb-safe">
+    <nav className="fixed bottom-0 left-0 right-0 z-50 glass-card border-t border-border/50 pb-safe lg:hidden">
       <div className="flex justify-around items-center h-16 max-w-lg mx-auto">
         {navItems.map(({ path, icon: Icon, label }) => {
           const active = location.pathname === path;

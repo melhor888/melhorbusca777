@@ -10,18 +10,18 @@ export default function HeroBanner() {
   const navigate = useNavigate();
 
   return (
-    <div className="relative h-[420px] w-full mb-6">
+    <div className="relative h-[420px] lg:h-[500px] w-full mb-6">
       <img
         src={getDrinkImage(featured.image)}
         alt={featured.name}
         className="absolute inset-0 w-full h-full object-cover"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
-      <div className="absolute bottom-0 left-0 right-0 p-6">
+      <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-12 lg:max-w-3xl">
         <span className="text-primary text-xs font-semibold tracking-widest uppercase">
           Destaque
         </span>
-        <h1 className="text-4xl font-display font-bold text-foreground mt-1">
+        <h1 className="text-4xl lg:text-5xl font-display font-bold text-foreground mt-1">
           {featured.name}
         </h1>
         <p className="text-sm text-muted-foreground mt-2 line-clamp-2">

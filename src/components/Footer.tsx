@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 export default function Footer() {
   return (
     <footer className="mt-12 border-t border-border/50 bg-card/50">
-      <div className="max-w-2xl mx-auto px-4 py-8">
-        <div className="grid grid-cols-2 gap-6 mb-8">
+      <div className="max-w-7xl mx-auto px-4 lg:px-6 py-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           <div>
             <h3 className="text-xs font-semibold text-foreground uppercase tracking-wider mb-3">Navegação</h3>
             <ul className="space-y-2 text-xs">

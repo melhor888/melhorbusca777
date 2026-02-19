@@ -7,7 +7,7 @@ import CategoryRow from "@/components/CategoryRow";
 import XPBar from "@/components/XPBar";
 import DrinkCard from "@/components/DrinkCard";
 
-import Footer from "@/components/Footer";
+
 import { categories, getDrinksByCategory, searchDrinks } from "@/data/drinks";
 
 export default function Index() {
@@ -23,14 +23,14 @@ export default function Index() {
         <link rel="canonical" href="https://drinkseco.lovable.app/" />
       </Helmet>
       <div className="min-h-screen pb-20">
-        <header className="fixed top-0 left-0 right-0 z-40 px-4 py-3 flex items-center justify-end bg-gradient-to-b from-background via-background/90 to-transparent">
+        <header className="fixed top-0 left-0 right-0 z-40 px-4 py-3 flex items-center justify-end bg-gradient-to-b from-background via-background/90 to-transparent lg:hidden">
           <XPBar compact />
         </header>
 
         <HeroBanner />
 
         {/* Search bar below hero */}
-        <div className="px-4 mb-4 -mt-2">
+        <div className="px-4 lg:px-6 mb-4 -mt-2 lg:max-w-xl lg:mx-auto">
           <div className="relative">
             <Search size={18} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
             <input
@@ -46,9 +46,9 @@ export default function Index() {
         
 
         {query.length >= 2 ? (
-          <div className="px-4">
+          <div className="px-4 lg:px-6">
             {results.length > 0 ? (
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 lg:gap-4">
                 {results.map((drink) => (
                   <DrinkCard key={drink.id} drink={drink} />
                 ))}
@@ -70,7 +70,7 @@ export default function Index() {
         )}
 
         
-        <Footer />
+        
       </div>
     </>
   );

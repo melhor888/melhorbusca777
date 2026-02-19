@@ -16,7 +16,7 @@ export default function DrinkCard({ drink, size = "small" }: DrinkCardProps) {
     <button
       onClick={() => navigate(`/recipe/${drink.id}`)}
       className={`relative flex-shrink-0 rounded-lg overflow-hidden group cursor-pointer ${
-        isLarge ? "w-[280px] h-[380px]" : "w-[160px] h-[220px]"
+        isLarge ? "w-[280px] h-[380px]" : "w-[160px] lg:w-full h-[220px] lg:h-[280px]"
       }`}
     >
       <img

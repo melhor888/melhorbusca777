@@ -65,7 +65,7 @@ export default function RecipeDetail() {
     <div className="min-h-screen pb-24">
       <XPToast xp={xpGained} show={showXP} onClose={() => setShowXP(false)} />
       {/* Hero */}
-      <div className="relative h-[360px]">
+      <div className="relative h-[360px] lg:h-[480px]">
         <img
           src={getDrinkImage(drink.image)}
           alt={drink.name}
@@ -130,7 +130,7 @@ export default function RecipeDetail() {
       </div>
 
       {/* Content */}
-      <div className="px-6 mt-6 space-y-8">
+      <div className="px-6 mt-6 space-y-8 lg:max-w-3xl lg:mx-auto">
         {/* Ingredients */}
         <section>
           <h2 className="text-lg font-display font-bold text-foreground mb-4">
