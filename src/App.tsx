@@ -33,6 +33,7 @@ import NotFound from "./pages/NotFound";
 import Footer from "./components/Footer";
 import InstallPrompt from "./components/InstallPrompt";
 
+// Cache bust v2
 const queryClient = new QueryClient();
 
 const App = () => (
