@@ -1,13 +1,15 @@
 export type { VipDrink, VipChefTip } from "./types";
 export { vinhoSangrias } from "./vinhoSangrias";
+export { cervejaBeerCocktails } from "./cervejaBeerCocktails";
 export { vipChefTips } from "./vipChefTips";
 
 import { VipDrink } from "./types";
 import { vinhoSangrias } from "./vinhoSangrias";
+import { cervejaBeerCocktails } from "./cervejaBeerCocktails";
 import { vipChefTips } from "./vipChefTips";
 
 export function getAllVipDrinks(): VipDrink[] {
-  return [...vinhoSangrias];
+  return [...vinhoSangrias, ...cervejaBeerCocktails];
 }
 
 export function getVipDrinksByCategory(category: string): VipDrink[] {
