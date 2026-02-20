@@ -1173,6 +1173,34 @@ const teaImages: string[] = [
   vipTea16, vipTea17, vipTea18, vipTea19, vipTea20,
 ];
 
+import vipVegan1 from "@/assets/vip-vegan-1.jpg";
+import vipVegan2 from "@/assets/vip-vegan-2.jpg";
+import vipVegan3 from "@/assets/vip-vegan-3.jpg";
+import vipVegan4 from "@/assets/vip-vegan-4.jpg";
+import vipVegan5 from "@/assets/vip-vegan-5.jpg";
+import vipVegan6 from "@/assets/vip-vegan-6.jpg";
+import vipVegan7 from "@/assets/vip-vegan-7.jpg";
+import vipVegan8 from "@/assets/vip-vegan-8.jpg";
+import vipVegan9 from "@/assets/vip-vegan-9.jpg";
+import vipVegan10 from "@/assets/vip-vegan-10.jpg";
+import vipVegan11 from "@/assets/vip-vegan-11.jpg";
+import vipVegan12 from "@/assets/vip-vegan-12.jpg";
+import vipVegan13 from "@/assets/vip-vegan-13.jpg";
+import vipVegan14 from "@/assets/vip-vegan-14.jpg";
+import vipVegan15 from "@/assets/vip-vegan-15.jpg";
+import vipVegan16 from "@/assets/vip-vegan-16.jpg";
+import vipVegan17 from "@/assets/vip-vegan-17.jpg";
+import vipVegan18 from "@/assets/vip-vegan-18.jpg";
+import vipVegan19 from "@/assets/vip-vegan-19.jpg";
+import vipVegan20 from "@/assets/vip-vegan-20.jpg";
+
+const veganImages: string[] = [
+  vipVegan1, vipVegan2, vipVegan3, vipVegan4, vipVegan5,
+  vipVegan6, vipVegan7, vipVegan8, vipVegan9, vipVegan10,
+  vipVegan11, vipVegan12, vipVegan13, vipVegan14, vipVegan15,
+  vipVegan16, vipVegan17, vipVegan18, vipVegan19, vipVegan20,
+];
+
 const categoryImagePools: Record<string, string[]> = {
   "Vinho & Sangrias": wineImages,
   "Cerveja & Beer Cocktails": beerImages,
@@ -1187,6 +1215,7 @@ const categoryImagePools: Record<string, string[]> = {
   "Sobremesa & Doces": dessertImages,
   "Picantes & Defumados": spicyImages,
   "Chá & Infusões": teaImages,
+  "Veganos & Plant-Based": veganImages,
 };
 
 const categoryHeroBanners: Record<string, string> = {
@@ -1203,6 +1232,7 @@ const categoryHeroBanners: Record<string, string> = {
   "sobremesa-doces": vipDessert1,
   "picantes-defumados": vipSpicy1,
   "cha-infusoes": vipTea1,
+  "veganos-plant-based": vipVegan1,
 };
 
 // Simple hash to get consistent image for each drink
