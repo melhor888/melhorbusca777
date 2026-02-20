@@ -1,7 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import { MessageCircle } from "lucide-react";
 import Breadcrumbs from "@/components/Breadcrumbs";
-import Footer from "@/components/Footer";
 
 export default function Contato() {
   const whatsappNumber = "5527995055993";
@@ -40,7 +39,7 @@ export default function Contato() {
             <p className="text-sm text-muted-foreground text-center">Nosso número: (27) 99505-5993</p>
           </div>
         </div>
-        <Footer />
+        
       </div>
     </>
   );
