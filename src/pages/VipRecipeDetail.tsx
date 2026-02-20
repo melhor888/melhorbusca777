@@ -73,8 +73,9 @@ export default function VipRecipeDetail() {
             <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
             <div className="absolute top-0 left-0 right-0 flex justify-between items-center p-4 z-10">
               <button
-                onClick={() => navigate(-1)}
-                className="w-10 h-10 rounded-full bg-background/60 backdrop-blur flex items-center justify-center"
+                onClick={(e) => { e.stopPropagation(); e.preventDefault(); navigate(-1); }}
+                className="w-10 h-10 rounded-full bg-background/60 backdrop-blur flex items-center justify-center cursor-pointer z-30"
+                aria-label="Voltar"
               >
                 <ArrowLeft size={20} className="text-foreground" />
               </button>

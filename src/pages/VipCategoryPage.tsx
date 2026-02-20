@@ -80,8 +80,9 @@ export default function VipCategoryPage() {
           <div className="relative">
             <VipHeroBanner drinks={drinks} count={8} />
             <button
-              onClick={() => navigate("/vip")}
-              className="absolute top-4 left-4 z-20 w-9 h-9 rounded-full bg-background/60 backdrop-blur flex items-center justify-center"
+              onClick={(e) => { e.stopPropagation(); e.preventDefault(); navigate("/vip"); }}
+              className="absolute top-4 left-4 z-30 w-9 h-9 rounded-full bg-background/60 backdrop-blur flex items-center justify-center cursor-pointer"
+              aria-label="Voltar"
             >
               <ArrowLeft size={16} className="text-foreground" />
             </button>
