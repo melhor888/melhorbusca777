@@ -78,7 +78,7 @@ export default function VipCategoryPage() {
             <img
               src={heroImage}
               alt={categoryName}
-              className="w-full h-[200px] lg:h-[280px] object-cover"
+              className="w-full h-[280px] lg:h-[400px] object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
             <div className="absolute bottom-0 left-0 right-0 p-4 lg:p-6">

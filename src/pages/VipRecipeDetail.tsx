@@ -1,10 +1,12 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { ArrowLeft, Crown, Clock, ChefHat, Wine, Lightbulb, Lock } from "lucide-react";
+import { ArrowLeft, Crown, Clock, ChefHat, Wine, Lightbulb, Lock, ShoppingCart, Heart, Share2 } from "lucide-react";
 import { getVipDrinkById, getVipChefTip } from "@/data/vipDrinks";
 import { isVipUnlocked } from "@/utils/vipKeys";
 import { useEffect, useState } from "react";
 import { getVipDrinkImage } from "@/data/vipDrinkImages";
+import { useShoppingList } from "@/hooks/useShoppingList";
+import { useFavorites } from "@/hooks/useFavorites";
 
 const difficultyColor: Record<string, string> = {
   "Fácil": "text-green-400",
@@ -16,6 +18,8 @@ export default function VipRecipeDetail() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const [unlocked, setUnlocked] = useState(false);
+  const { isInList, toggleDrink } = useShoppingList();
+  const { isFavorite, toggleFavorite } = useFavorites();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -62,19 +66,39 @@ export default function VipRecipeDetail() {
             <img
               src={drinkImage}
               alt={drink.name}
-              className="w-full h-[300px] lg:h-[400px] object-cover"
+              className="w-full h-[360px] lg:h-[500px] object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
-            <button
-              onClick={() => navigate(-1)}
-              className="absolute top-4 left-4 w-10 h-10 rounded-full bg-background/60 backdrop-blur flex items-center justify-center z-10"
-            >
-              <ArrowLeft size={20} className="text-foreground" />
-            </button>
-            <div className="absolute top-4 right-4 z-10">
-              <div className="flex items-center gap-1 bg-yellow-500/20 backdrop-blur px-2 py-1 rounded-full">
-                <Crown size={12} className="text-yellow-500" />
-                <span className="text-[10px] font-bold text-yellow-500">VIP</span>
+            <div className="absolute top-0 left-0 right-0 flex justify-between items-center p-4 z-10">
+              <button
+                onClick={() => navigate(-1)}
+                className="w-10 h-10 rounded-full bg-background/60 backdrop-blur flex items-center justify-center"
+              >
+                <ArrowLeft size={20} className="text-foreground" />
+              </button>
+              <div className="flex gap-2">
+                <button
+                  onClick={() => toggleDrink(drink.id)}
+                  className="w-10 h-10 rounded-full bg-background/60 backdrop-blur flex items-center justify-center"
+                >
+                  <ShoppingCart
+                    size={20}
+                    className={isInList(drink.id) ? "text-green-400 fill-green-400/20" : "text-foreground"}
+                  />
+                </button>
+                <button
+                  onClick={() => toggleFavorite(drink.id)}
+                  className="w-10 h-10 rounded-full bg-background/60 backdrop-blur flex items-center justify-center"
+                >
+                  <Heart
+                    size={20}
+                    className={isFavorite(drink.id) ? "text-accent fill-accent" : "text-foreground"}
+                  />
+                </button>
+                <div className="flex items-center gap-1 bg-yellow-500/20 backdrop-blur px-2 py-1 rounded-full self-center">
+                  <Crown size={12} className="text-yellow-500" />
+                  <span className="text-[10px] font-bold text-yellow-500">VIP</span>
+                </div>
               </div>
             </div>
             <div className="absolute bottom-0 left-0 right-0 p-4 lg:p-6">
