@@ -39,7 +39,7 @@ export default function ShoppingList() {
   }, [selectedDrinks]);
 
   const copyList = () => {
-    const text = `🛒 Lista de Compras - Cachaça Quest\n\n${consolidatedIngredients
+    const text = `🛒 Lista de Compras - Drink Quest\n\n${consolidatedIngredients
       .map((i) => `• ${i.name}${i.count > 1 ? ` (x${i.count})` : ""}`)
       .join("\n")}`;
     navigator.clipboard.writeText(text);
@@ -49,7 +49,7 @@ export default function ShoppingList() {
   return (
     <>
       <Helmet>
-        <title>Lista de Compras | Cachaça Quest</title>
+        <title>Lista de Compras | Drink Quest</title>
         <meta name="description" content="Monte sua lista de compras com os ingredientes dos drinks selecionados." />
       </Helmet>
       <div className="min-h-screen pb-24">

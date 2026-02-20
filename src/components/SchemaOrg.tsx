@@ -2,7 +2,7 @@ export function WebsiteSchema() {
   const data = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: "Cachaça Quest",
+    name: "Drink Quest",
     url: "https://drinkseco.lovable.app",
     description: "Receitas de drinks e coquetéis profissionais, dicas de bartenders e guias completos sobre coquetelaria.",
     potentialAction: {
@@ -18,12 +18,12 @@ export function OrganizationSchema() {
   const data = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: "Cachaça Quest",
+    name: "Drink Quest",
     url: "https://drinkseco.lovable.app",
     logo: "https://drinkseco.lovable.app/pwa-512x512.png",
     contactPoint: {
       "@type": "ContactPoint",
-      email: "contato@cachacaquest.com.br",
+      email: "contato@drinkquest.com.br",
       contactType: "customer service",
       availableLanguage: "Portuguese",
     },

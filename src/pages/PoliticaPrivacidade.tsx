@@ -6,8 +6,8 @@ export default function PoliticaPrivacidade() {
   return (
     <>
       <Helmet>
-        <title>Política de Privacidade - Cachaça Quest</title>
-        <meta name="description" content="Política de Privacidade da Cachaça Quest. Saiba como coletamos, usamos e protegemos seus dados pessoais conforme LGPD e GDPR." />
+        <title>Política de Privacidade - Drink Quest</title>
+        <meta name="description" content="Política de Privacidade da Drink Quest. Saiba como coletamos, usamos e protegemos seus dados pessoais conforme LGPD e GDPR." />
         <link rel="canonical" href="https://drinkseco.lovable.app/privacidade" />
       </Helmet>
       <div className="min-h-screen pb-20">
@@ -19,7 +19,7 @@ export default function PoliticaPrivacidade() {
           <div className="space-y-6 text-secondary-foreground leading-relaxed text-sm">
             <section>
               <h2 className="text-lg font-display font-semibold text-foreground mb-2">1. Introdução</h2>
-              <p>A Cachaça Quest ("nós", "nosso" ou "site") valoriza a privacidade dos seus usuários. Esta Política de Privacidade descreve como coletamos, usamos, armazenamos, compartilhamos e protegemos suas informações pessoais quando você utiliza nosso site e serviços, em conformidade com a Lei Geral de Proteção de Dados (LGPD – Lei nº 13.709/2018) e o Regulamento Geral sobre a Proteção de Dados da União Europeia (GDPR – Regulamento UE 2016/679).</p>
+              <p>A Drink Quest ("nós", "nosso" ou "site") valoriza a privacidade dos seus usuários. Esta Política de Privacidade descreve como coletamos, usamos, armazenamos, compartilhamos e protegemos suas informações pessoais quando você utiliza nosso site e serviços, em conformidade com a Lei Geral de Proteção de Dados (LGPD – Lei nº 13.709/2018) e o Regulamento Geral sobre a Proteção de Dados da União Europeia (GDPR – Regulamento UE 2016/679).</p>
             </section>
 
             <section>
@@ -102,7 +102,7 @@ export default function PoliticaPrivacidade() {
                 <li>Oposição ao tratamento baseado em interesse legítimo</li>
                 <li>Direito ao esquecimento (exclusão total dos dados)</li>
               </ul>
-              <p className="mt-2">Para exercer qualquer desses direitos, entre em contato pelo e-mail: <strong>privacidade@cachacaquest.com.br</strong></p>
+              <p className="mt-2">Para exercer qualquer desses direitos, entre em contato pelo e-mail: <strong>privacidade@drinkquest.com.br</strong></p>
             </section>
 
             <section>
@@ -134,7 +134,7 @@ export default function PoliticaPrivacidade() {
               <h2 className="text-lg font-display font-semibold text-foreground mb-2">14. Contato e Encarregado de Dados (DPO)</h2>
               <p>Para questões sobre esta política ou sobre seus dados pessoais:</p>
               <ul className="list-none space-y-1 ml-2 mt-2">
-                <li><strong>E-mail:</strong> privacidade@cachacaquest.com.br</li>
+                <li><strong>E-mail:</strong> privacidade@drinkquest.com.br</li>
                 <li><strong>Formulário:</strong> <a href="/contato" className="text-primary underline">Página de Contato</a></li>
               </ul>
               <p className="mt-2">Caso considere que o tratamento de dados viola seus direitos, você pode apresentar reclamação à Autoridade Nacional de Proteção de Dados (ANPD) no Brasil ou à autoridade competente na União Europeia.</p>

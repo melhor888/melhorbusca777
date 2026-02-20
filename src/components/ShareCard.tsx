@@ -12,7 +12,7 @@ export default function ShareCard({ drink, onClose }: ShareCardProps) {
   const cardRef = useRef<HTMLDivElement>(null);
   const [copying, setCopying] = useState(false);
 
-  const shareText = `🍸 ${drink.name}\n\n📋 Ingredientes:\n${drink.ingredients.map((i) => `• ${i}`).join("\n")}\n\n📝 Preparo:\n${drink.steps.map((s, i) => `${i + 1}. ${s}`).join("\n")}\n\n🔗 Veja mais no Cachaça Quest!\nhttps://drinkseco.lovable.app/recipe/${drink.id}`;
+  const shareText = `🍸 ${drink.name}\n\n📋 Ingredientes:\n${drink.ingredients.map((i) => `• ${i}`).join("\n")}\n\n📝 Preparo:\n${drink.steps.map((s, i) => `${i + 1}. ${s}`).join("\n")}\n\n🔗 Veja mais no Drink Quest!\nhttps://drinkseco.lovable.app/recipe/${drink.id}`;
 
   const shareWhatsApp = () => {
     window.open(`https://wa.me/?text=${encodeURIComponent(shareText)}`, "_blank");
@@ -38,7 +38,7 @@ export default function ShareCard({ drink, onClose }: ShareCardProps) {
         useCORS: true,
       });
       const link = document.createElement("a");
-      link.download = `${drink.id}-cachaca-quest.png`;
+      link.download = `${drink.id}-drink-quest.png`;
       link.href = canvas.toDataURL("image/png");
       link.click();
     } catch {
@@ -61,14 +61,14 @@ export default function ShareCard({ drink, onClose }: ShareCardProps) {
             <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent" />
           </div>
           <div className="p-5 -mt-8 relative">
-            <span className="text-xs font-semibold tracking-widest uppercase" style={{ color: "hsl(38, 90%, 55%)" }}>
+            <span className="text-xs font-semibold tracking-widest uppercase" style={{ color: "hsl(200, 80%, 55%)" }}>
               {drink.category}
             </span>
             <h3 className="text-2xl font-bold text-foreground mt-1">{drink.name}</h3>
             <div className="mt-3 space-y-1">
               {drink.ingredients.slice(0, 5).map((ing, i) => (
                 <p key={i} className="text-xs text-muted-foreground flex items-start gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full mt-1 flex-shrink-0" style={{ background: "hsl(38, 90%, 55%)" }} />
+                  <span className="w-1.5 h-1.5 rounded-full mt-1 flex-shrink-0" style={{ background: "hsl(200, 80%, 55%)" }} />
                   {ing}
                 </p>
               ))}
@@ -77,7 +77,7 @@ export default function ShareCard({ drink, onClose }: ShareCardProps) {
               )}
             </div>
             <div className="mt-4 pt-3 border-t border-border/50 flex items-center justify-between">
-              <span className="text-[10px] text-muted-foreground">🍸 Cachaça Quest</span>
+              <span className="text-[10px] text-muted-foreground">🍸 Drink Quest</span>
               <span className="text-[10px] text-muted-foreground">{drink.difficulty} · {drink.time}</span>
             </div>
           </div>

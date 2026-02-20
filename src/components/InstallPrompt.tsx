@@ -70,7 +70,7 @@ export default function InstallPrompt() {
           </div>
           <div className="flex-1">
             <h3 className="font-display font-bold text-foreground text-sm">
-              Instalar Drinks & Company
+              Instalar Drink Quest
             </h3>
             <p className="text-xs text-muted-foreground mt-1">
               {isIOS

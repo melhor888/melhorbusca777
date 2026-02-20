@@ -83,14 +83,14 @@ const vipCategories = [
   { name: "Masterclass", icon: Trophy, color: "from-yellow-500 to-amber-700" },
 ];
 
-const WHATSAPP_URL = "https://wa.me/5527995055993?text=Ol%C3%A1!%20Quero%20ser%20VIP%20no%20Cacha%C3%A7a%20Quest!";
+const WHATSAPP_URL = "https://wa.me/5527995055993?text=Ol%C3%A1!%20Quero%20ser%20VIP%20no%20Drink%20Quest!";
 
 export default function QueroSerVip() {
   return (
     <>
       <Helmet>
-        <title>Quero Ser VIP | Cachaça Quest</title>
-        <meta name="description" content="Desbloqueie 1.200+ receitas exclusivas, dicas do chef e categorias premium. Torne-se VIP no Cachaça Quest." />
+        <title>Quero Ser VIP | Drink Quest</title>
+        <meta name="description" content="Desbloqueie 1.200+ receitas exclusivas, dicas do chef e categorias premium. Torne-se VIP no Drink Quest." />
       </Helmet>
 
       <main className="pb-32 lg:pb-12">

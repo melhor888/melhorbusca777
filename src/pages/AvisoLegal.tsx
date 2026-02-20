@@ -6,8 +6,8 @@ export default function AvisoLegal() {
   return (
     <>
       <Helmet>
-        <title>Aviso Legal (Disclaimer) - Cachaça Quest</title>
-        <meta name="description" content="Aviso Legal da Cachaça Quest. Informações sobre responsabilidade, conteúdo e limitações do site." />
+        <title>Aviso Legal (Disclaimer) - Drink Quest</title>
+        <meta name="description" content="Aviso Legal da Drink Quest. Informações sobre responsabilidade, conteúdo e limitações do site." />
         <link rel="canonical" href="https://drinkseco.lovable.app/aviso-legal" />
       </Helmet>
       <div className="min-h-screen pb-20">
@@ -18,17 +18,17 @@ export default function AvisoLegal() {
           <div className="space-y-6 text-secondary-foreground leading-relaxed text-sm">
             <section>
               <h2 className="text-lg font-display font-semibold text-foreground mb-2">1. Natureza do Conteúdo</h2>
-              <p>O conteúdo disponibilizado na Cachaça Quest, incluindo receitas de drinks, artigos e dicas, tem caráter exclusivamente informativo e educacional. As informações não substituem orientação profissional especializada.</p>
+              <p>O conteúdo disponibilizado na Drink Quest, incluindo receitas de drinks, artigos e dicas, tem caráter exclusivamente informativo e educacional. As informações não substituem orientação profissional especializada.</p>
             </section>
 
             <section>
               <h2 className="text-lg font-display font-semibold text-foreground mb-2">2. Consumo Responsável</h2>
-              <p>A Cachaça Quest promove o consumo responsável de bebidas alcoólicas. O conteúdo deste site é destinado exclusivamente a maiores de 18 anos. Beba com moderação. Se beber, não dirija. O álcool pode causar dependência. Gestantes e lactantes não devem consumir bebidas alcoólicas.</p>
+              <p>A Drink Quest promove o consumo responsável de bebidas alcoólicas. O conteúdo deste site é destinado exclusivamente a maiores de 18 anos. Beba com moderação. Se beber, não dirija. O álcool pode causar dependência. Gestantes e lactantes não devem consumir bebidas alcoólicas.</p>
             </section>
 
             <section>
               <h2 className="text-lg font-display font-semibold text-foreground mb-2">3. Isenção de Responsabilidade</h2>
-              <p>A Cachaça Quest não se responsabiliza por:</p>
+              <p>A Drink Quest não se responsabiliza por:</p>
               <ul className="list-disc list-inside space-y-1 ml-2 mt-2">
                 <li>Resultados obtidos ao reproduzir as receitas</li>
                 <li>Reações alérgicas ou adversas a qualquer ingrediente</li>
@@ -61,7 +61,7 @@ export default function AvisoLegal() {
 
             <section>
               <h2 className="text-lg font-display font-semibold text-foreground mb-2">8. Contato</h2>
-              <p>Para questões legais: <strong>contato@cachacaquest.com.br</strong></p>
+              <p>Para questões legais: <strong>contato@drinkquest.com.br</strong></p>
             </section>
           </div>
         </div>

@@ -69,7 +69,7 @@ export default function Ingredients() {
   return (
     <div className="min-h-screen pb-24">
       <Helmet>
-        <title>O que tenho em casa? | Cachaça Quest</title>
+        <title>O que tenho em casa? | Drink Quest</title>
       </Helmet>
 
       {/* Header */}

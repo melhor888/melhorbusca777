@@ -62,7 +62,7 @@ export default function Index() {
   return (
     <>
       <Helmet>
-        <title>Cachaça Quest - Receitas de Drinks e Coquetéis Profissionais</title>
+        <title>Drink Quest - Receitas de Drinks e Coquetéis Profissionais</title>
         <meta name="description" content="Descubra receitas autênticas de drinks e coquetéis profissionais. Aprenda técnicas de bartenders, mixologia e faça os melhores cocktails em casa." />
         <link rel="canonical" href="https://drinkseco.lovable.app/" />
       </Helmet>

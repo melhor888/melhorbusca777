@@ -40,7 +40,7 @@ export default function CategoryPage() {
   return (
     <>
       <Helmet>
-        <title>{category} - Receitas de Drinks | Cachaça Quest</title>
+        <title>{category} - Receitas de Drinks | Drink Quest</title>
         <meta
           name="description"
           content={`Descubra ${drinks.length} receitas de drinks na categoria ${category}. Aprenda a preparar coquetéis profissionais em casa.`}

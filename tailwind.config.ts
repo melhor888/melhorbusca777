@@ -53,8 +53,8 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        gold: "hsl(var(--gold))",
-        "gold-light": "hsl(var(--gold-light))",
+        sky: "hsl(var(--sky))",
+        "sky-light": "hsl(var(--sky-light))",
         copper: "hsl(var(--copper))",
         wine: "hsl(var(--wine))",
         sidebar: {
