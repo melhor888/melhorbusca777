@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet-async";
 import { categories, getDrinksByCategory } from "@/data/drinks";
 import DrinkCard from "@/components/DrinkCard";
 import { ArrowLeft } from "lucide-react";
+import { useEffect } from "react";
 
 function slugify(text: string): string {
   return text
@@ -23,6 +24,10 @@ export default function CategoryPage() {
   const { slug } = useParams<{ slug: string }>();
   const category = getCategoryFromSlug(slug || "");
   const drinks = category ? getDrinksByCategory(category) : [];
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [slug]);
 
   if (!category) {
     return (

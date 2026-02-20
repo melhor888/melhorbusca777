@@ -3,7 +3,9 @@ import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { ArrowLeft, Trash2, Copy, ShoppingCart, X } from "lucide-react";
 import { getDrinkById } from "@/data/drinks";
+import { getVipDrinkById } from "@/data/vipDrinks";
 import { getDrinkImage } from "@/data/drinkImages";
+import { getVipDrinkImage } from "@/data/vipDrinkImages";
 import { useShoppingList } from "@/hooks/useShoppingList";
 import { toast } from "sonner";
 
@@ -12,7 +14,13 @@ export default function ShoppingList() {
   const { drinkIds, toggleDrink, clearList } = useShoppingList();
 
   const selectedDrinks = useMemo(
-    () => drinkIds.map((id) => getDrinkById(id)).filter(Boolean),
+    () => drinkIds.map((id) => {
+      const regular = getDrinkById(id);
+      if (regular) return { ...regular, isVip: false };
+      const vip = getVipDrinkById(id);
+      if (vip) return { ...vip, isVip: true };
+      return null;
+    }).filter(Boolean),
     [drinkIds]
   );
 
@@ -89,7 +97,9 @@ export default function ShoppingList() {
                 {selectedDrinks.map((drink) => drink && (
                   <div key={drink.id} className="relative flex-shrink-0 w-20">
                     <img
-                      src={getDrinkImage(drink.image)}
+                      src={drink.isVip 
+                        ? (getVipDrinkImage(drink.id, drink.category) || "/placeholder.svg")
+                        : getDrinkImage((drink as any).image || "")}
                       alt={drink.name}
                       className="w-20 h-20 rounded-xl object-cover"
                     />
