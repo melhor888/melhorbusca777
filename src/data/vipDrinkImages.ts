@@ -16,7 +16,7 @@ const vipImageNumbers: Record<string, number[]> = {
   seasonal: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
   dessert: [19, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20],
   spicy: [4, 12, 1, 2, 3, 5, 6, 7, 8, 9, 10, 11, 13, 14, 15, 16, 17, 18, 19, 20],
-  tea: [6, 11, 1, 2, 3, 4, 5, 7, 8, 9, 10, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+  tea: Array.from({ length: 50 }, (_, i) => i + 1),
   vegan: Array.from({ length: 50 }, (_, i) => i + 1),
   masterclass: Array.from({ length: 50 }, (_, i) => i + 1),
   volta: Array.from({ length: 50 }, (_, i) => i + 1),
