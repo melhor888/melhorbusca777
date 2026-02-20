@@ -1145,6 +1145,34 @@ const spicyImages: string[] = [
   vipSpicy16, vipSpicy17, vipSpicy18, vipSpicy19, vipSpicy20,
 ];
 
+import vipTea1 from "@/assets/vip-tea-1.jpg";
+import vipTea2 from "@/assets/vip-tea-2.jpg";
+import vipTea3 from "@/assets/vip-tea-3.jpg";
+import vipTea4 from "@/assets/vip-tea-4.jpg";
+import vipTea5 from "@/assets/vip-tea-5.jpg";
+import vipTea6 from "@/assets/vip-tea-6.jpg";
+import vipTea7 from "@/assets/vip-tea-7.jpg";
+import vipTea8 from "@/assets/vip-tea-8.jpg";
+import vipTea9 from "@/assets/vip-tea-9.jpg";
+import vipTea10 from "@/assets/vip-tea-10.jpg";
+import vipTea11 from "@/assets/vip-tea-11.jpg";
+import vipTea12 from "@/assets/vip-tea-12.jpg";
+import vipTea13 from "@/assets/vip-tea-13.jpg";
+import vipTea14 from "@/assets/vip-tea-14.jpg";
+import vipTea15 from "@/assets/vip-tea-15.jpg";
+import vipTea16 from "@/assets/vip-tea-16.jpg";
+import vipTea17 from "@/assets/vip-tea-17.jpg";
+import vipTea18 from "@/assets/vip-tea-18.jpg";
+import vipTea19 from "@/assets/vip-tea-19.jpg";
+import vipTea20 from "@/assets/vip-tea-20.jpg";
+
+const teaImages: string[] = [
+  vipTea1, vipTea2, vipTea3, vipTea4, vipTea5,
+  vipTea6, vipTea7, vipTea8, vipTea9, vipTea10,
+  vipTea11, vipTea12, vipTea13, vipTea14, vipTea15,
+  vipTea16, vipTea17, vipTea18, vipTea19, vipTea20,
+];
+
 const categoryImagePools: Record<string, string[]> = {
   "Vinho & Sangrias": wineImages,
   "Cerveja & Beer Cocktails": beerImages,
@@ -1158,6 +1186,7 @@ const categoryImagePools: Record<string, string[]> = {
   "Sazonais & Festivos": seasonalImages,
   "Sobremesa & Doces": dessertImages,
   "Picantes & Defumados": spicyImages,
+  "Chá & Infusões": teaImages,
 };
 
 const categoryHeroBanners: Record<string, string> = {
@@ -1173,6 +1202,7 @@ const categoryHeroBanners: Record<string, string> = {
   "sazonais-festivos": vipSeasonal1,
   "sobremesa-doces": vipDessert1,
   "picantes-defumados": vipSpicy1,
+  "cha-infusoes": vipTea1,
 };
 
 // Simple hash to get consistent image for each drink
