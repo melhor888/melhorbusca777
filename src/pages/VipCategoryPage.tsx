@@ -73,8 +73,8 @@ export default function VipCategoryPage() {
         <meta name="description" content={`${drinks.length} receitas VIP exclusivas de ${categoryName}.`} />
       </Helmet>
       <div className="min-h-screen pb-24">
-        {/* Hero Banner - Netflix-style carousel for Vinho & Sangrias */}
-        {(slug === "vinho-sangrias" || slug === "cerveja-beer-cocktails") && drinks.length > 0 && (
+        {/* Netflix-style Hero Banner carousel for all categories */}
+        {drinks.length > 0 && (
           <div className="relative">
             <VipHeroBanner drinks={drinks} count={8} />
             <button
@@ -91,56 +91,6 @@ export default function VipCategoryPage() {
                 <Crown size={16} className="text-yellow-500" />
               </div>
               <p className="text-xs text-muted-foreground">{drinks.length} receitas VIP exclusivas</p>
-            </div>
-          </div>
-        )}
-
-        {/* Static Hero Banner for other categories */}
-        {slug !== "vinho-sangrias" && slug !== "cerveja-beer-cocktails" && heroImage && (
-          <div className="relative -mx-0 mb-6 overflow-hidden">
-            <img
-              src={heroImage}
-              alt={categoryName}
-              className="w-full h-[280px] lg:h-[400px] object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
-            <div className="absolute bottom-0 left-0 right-0 p-4 lg:p-6">
-              <button
-                onClick={() => navigate("/vip")}
-                className="w-8 h-8 rounded-full bg-background/60 backdrop-blur flex items-center justify-center mb-3"
-              >
-                <ArrowLeft size={16} className="text-foreground" />
-              </button>
-              <div className="flex items-center gap-2">
-                <h1 className="text-2xl lg:text-3xl font-display font-bold text-foreground">
-                  {categoryName}
-                </h1>
-                <Crown size={18} className="text-yellow-500" />
-              </div>
-              <p className="text-sm text-muted-foreground">{drinks.length} receitas VIP exclusivas</p>
-            </div>
-          </div>
-        )}
-
-        {/* Fallback header if no hero */}
-        {slug !== "vinho-sangrias" && slug !== "cerveja-beer-cocktails" && !heroImage && (
-          <div className="pt-4 px-4 lg:px-6 mb-6">
-            <div className="flex items-center gap-3">
-              <button
-                onClick={() => navigate("/vip")}
-                className="w-10 h-10 rounded-full glass-card flex items-center justify-center"
-              >
-                <ArrowLeft size={20} className="text-foreground" />
-              </button>
-              <div>
-                <div className="flex items-center gap-2">
-                  <h1 className="text-2xl lg:text-3xl font-display font-bold text-foreground">
-                    {categoryName}
-                  </h1>
-                  <Crown size={18} className="text-yellow-500" />
-                </div>
-                <p className="text-sm text-muted-foreground">{drinks.length} receitas VIP exclusivas</p>
-              </div>
             </div>
           </div>
         )}
