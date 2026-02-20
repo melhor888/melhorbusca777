@@ -8,11 +8,11 @@ export default function SobreNos() {
   return (
     <>
       <Helmet>
-        <title>Sobre Nós - Cachaça Quest | Receitas de Drinks e Coquetéis</title>
-        <meta name="description" content="Conheça a Cachaça Quest: somos apaixonados por coquetelaria e compartilhamos receitas profissionais, dicas de bartenders e guias completos sobre o universo dos drinks." />
+        <title>Sobre Nós - Drink Quest | Receitas de Drinks e Coquetéis</title>
+        <meta name="description" content="Conheça a Drink Quest: somos apaixonados por coquetelaria e compartilhamos receitas profissionais, dicas de bartenders e guias completos sobre o universo dos drinks." />
         <link rel="canonical" href="https://drinkseco.lovable.app/sobre" />
-        <meta property="og:title" content="Sobre Nós - Cachaça Quest" />
-        <meta property="og:description" content="Conheça a Cachaça Quest: receitas profissionais, dicas de bartenders e guias completos." />
+        <meta property="og:title" content="Sobre Nós - Drink Quest" />
+        <meta property="og:description" content="Conheça a Drink Quest: receitas profissionais, dicas de bartenders e guias completos." />
         <meta property="og:url" content="https://drinkseco.lovable.app/sobre" />
         <meta property="og:type" content="website" />
       </Helmet>
@@ -20,11 +20,11 @@ export default function SobreNos() {
         <div className="px-4 pt-16 max-w-2xl mx-auto">
           <Breadcrumbs items={[{ label: "Sobre Nós" }]} />
 
-          <h1 className="text-3xl font-display font-bold text-foreground mt-4 mb-6">Sobre a Cachaça Quest</h1>
+          <h1 className="text-3xl font-display font-bold text-foreground mt-4 mb-6">Sobre a Drink Quest</h1>
 
           <section className="space-y-4 text-secondary-foreground leading-relaxed">
             <h2 className="text-xl font-display font-semibold text-foreground">Nossa Missão</h2>
-            <p>A Cachaça Quest nasceu da paixão pela arte da coquetelaria. Nosso objetivo é democratizar o conhecimento sobre drinks e coquetéis, oferecendo receitas autênticas, técnicas profissionais e conteúdo educacional de qualidade para entusiastas e profissionais do setor.</p>
+            <p>A Drink Quest nasceu da paixão pela arte da coquetelaria. Nosso objetivo é democratizar o conhecimento sobre drinks e coquetéis, oferecendo receitas autênticas, técnicas profissionais e conteúdo educacional de qualidade para entusiastas e profissionais do setor.</p>
             
             <h2 className="text-xl font-display font-semibold text-foreground mt-8">O Que Oferecemos</h2>
             <p>Nossa plataforma reúne centenas de receitas de drinks cuidadosamente selecionadas e testadas, desde clássicos atemporais como o Old Fashioned e o Negroni até criações contemporâneas. Cada receita inclui ingredientes detalhados, modo de preparo passo a passo, dicas de apresentação e sugestões de harmonização.</p>
@@ -36,10 +36,10 @@ export default function SobreNos() {
             <p>Somos uma equipe de bartenders, sommeliers e entusiastas da gastronomia dedicados a criar o melhor conteúdo sobre coquetelaria em língua portuguesa. Trabalhamos com profissionais do setor para garantir que todas as receitas e técnicas sejam precisas e atualizadas.</p>
 
             <h2 className="text-xl font-display font-semibold text-foreground mt-8">Compromisso com a Qualidade</h2>
-            <p>Todo o conteúdo publicado na Cachaça Quest passa por revisão editorial rigorosa. Nossas receitas são testadas múltiplas vezes antes de serem publicadas, garantindo que você obtenha resultados excelentes ao reproduzi-las em casa.</p>
+            <p>Todo o conteúdo publicado na Drink Quest passa por revisão editorial rigorosa. Nossas receitas são testadas múltiplas vezes antes de serem publicadas, garantindo que você obtenha resultados excelentes ao reproduzi-las em casa.</p>
 
             <h2 className="text-xl font-display font-semibold text-foreground mt-8">Consumo Responsável</h2>
-            <p>A Cachaça Quest incentiva o consumo responsável de bebidas alcoólicas. Nosso conteúdo é destinado exclusivamente a maiores de 18 anos. Beba com moderação e nunca dirija após consumir bebidas alcoólicas.</p>
+            <p>A Drink Quest incentiva o consumo responsável de bebidas alcoólicas. Nosso conteúdo é destinado exclusivamente a maiores de 18 anos. Beba com moderação e nunca dirija após consumir bebidas alcoólicas.</p>
           </section>
         </div>
         <Footer />

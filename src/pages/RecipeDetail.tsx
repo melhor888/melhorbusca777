@@ -60,7 +60,7 @@ export default function RecipeDetail() {
   const inCart = isInList(drink.id);
   const chefTip = getChefTip(drink.id);
   const handleShare = async () => {
-    const text = `🍸 ${drink.name}\n\nIngredientes:\n${drink.ingredients.join("\n")}\n\nConfira no Cachaça Quest!`;
+    const text = `🍸 ${drink.name}\n\nIngredientes:\n${drink.ingredients.join("\n")}\n\nConfira no Drink Quest!`;
     if (navigator.share) {
       await navigator.share({ title: drink.name, text });
     } else {
@@ -71,22 +71,22 @@ export default function RecipeDetail() {
   const BASE_URL = "https://drinkseco.lovable.app";
   const ogImage = `${BASE_URL}${getDrinkImage(drink.image)}`;
   const ogUrl = `${BASE_URL}/recipe/${drink.id}`;
-  const ogDescription = `Aprenda a fazer ${drink.name}: ${drink.ingredients.slice(0, 3).join(", ")}. Receita completa no Cachaça Quest.`;
+  const ogDescription = `Aprenda a fazer ${drink.name}: ${drink.ingredients.slice(0, 3).join(", ")}. Receita completa no Drink Quest.`;
 
   return (
     <div className="min-h-screen pb-24">
       <Helmet>
-        <title>{drink.name} - Receita de Drink | Cachaça Quest</title>
+        <title>{drink.name} - Receita de Drink | Drink Quest</title>
         <meta name="description" content={ogDescription} />
         <link rel="canonical" href={ogUrl} />
         <meta property="og:type" content="article" />
-        <meta property="og:title" content={`${drink.name} - Cachaça Quest`} />
+        <meta property="og:title" content={`${drink.name} - Drink Quest`} />
         <meta property="og:description" content={ogDescription} />
         <meta property="og:image" content={ogImage} />
         <meta property="og:url" content={ogUrl} />
-        <meta property="og:site_name" content="Cachaça Quest" />
+        <meta property="og:site_name" content="Drink Quest" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={`${drink.name} - Cachaça Quest`} />
+        <meta name="twitter:title" content={`${drink.name} - Drink Quest`} />
         <meta name="twitter:description" content={ogDescription} />
         <meta name="twitter:image" content={ogImage} />
       </Helmet>

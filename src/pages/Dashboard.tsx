@@ -29,7 +29,7 @@ export default function Dashboard() {
   return (
     <div className="min-h-screen pb-24">
       <Helmet>
-        <title>Dashboard do Bartender | Cachaça Quest</title>
+        <title>Dashboard do Bartender | Drink Quest</title>
       </Helmet>
 
       {/* Header */}

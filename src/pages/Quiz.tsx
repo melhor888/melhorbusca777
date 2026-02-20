@@ -140,7 +140,7 @@ export default function Quiz() {
   return (
     <div className="min-h-screen pb-24">
       <Helmet>
-        <title>Quiz - Qual drink combina com você? | Cachaça Quest</title>
+        <title>Quiz - Qual drink combina com você? | Drink Quest</title>
       </Helmet>
       <XPToast xp={XP_QUIZ} show={showXP} onClose={() => setShowXP(false)} />
 

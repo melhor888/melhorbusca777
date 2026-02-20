@@ -41,7 +41,7 @@ export default function Footer() {
             Beba com responsabilidade. Conteúdo destinado a maiores de 18 anos.
           </p>
           <p className="text-[10px] text-muted-foreground">
-            © {new Date().getFullYear()} Cachaça Quest. Todos os direitos reservados.
+            © {new Date().getFullYear()} Drink Quest. Todos os direitos reservados.
           </p>
         </div>
       </div>

@@ -25,8 +25,8 @@ export default defineConfig(({ mode }) => ({
         maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
       },
       manifest: {
-        name: "Cachaça Quest",
-        short_name: "Cachaça Quest",
+        name: "Drink Quest",
+        short_name: "Drink Quest",
         description: "Descubra receitas de drinks e coquetéis incríveis",
         theme_color: "#0f1318",
         background_color: "#0f1318",

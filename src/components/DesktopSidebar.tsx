@@ -41,9 +41,9 @@ export default function DesktopSidebar() {
     <aside className="hidden lg:flex flex-col fixed left-0 top-0 bottom-0 w-60 z-50 glass-card border-r border-border/50">
       {/* Logo */}
       <Link to="/" className="flex items-center gap-2 px-5 py-5 border-b border-border/50">
-        <img src="/pwa-192x192.png" alt="Cachaça Quest" className="w-8 h-8 rounded-lg flex-shrink-0" />
+        <img src="/pwa-192x192.png" alt="Drink Quest" className="w-8 h-8 rounded-lg flex-shrink-0" />
         <span className="font-display font-bold text-lg text-foreground">
-          Cachaça <span className="text-primary">Quest</span>
+          Drink <span className="text-primary">Quest</span>
         </span>
       </Link>
 
@@ -133,7 +133,7 @@ export default function DesktopSidebar() {
       {/* Footer */}
       <div className="px-4 py-4 border-t border-border/50">
         <p className="text-[10px] text-muted-foreground text-center">
-          © {new Date().getFullYear()} Cachaça Quest
+          © {new Date().getFullYear()} Drink Quest
         </p>
       </div>
     </aside>

@@ -127,8 +127,8 @@ export default function Vip() {
   return (
     <>
       <Helmet>
-        <title>Área VIP | Cachaça Quest</title>
-        <meta name="description" content="Categorias exclusivas para membros VIP do Cachaça Quest." />
+        <title>Área VIP | Drink Quest</title>
+        <meta name="description" content="Categorias exclusivas para membros VIP do Drink Quest." />
       </Helmet>
 
       <VipTrialBanner />

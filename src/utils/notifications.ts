@@ -41,7 +41,7 @@ export function sendWelcomeNotification() {
   if (Notification.permission !== "granted") return;
 
   try {
-    new Notification("🎉 Bem-vindo ao Cachaça Quest!", {
+    new Notification("🎉 Bem-vindo ao Drink Quest!", {
       body: "Você receberá sugestões de drinks incríveis ao longo do dia. Saúde! 🥂",
       icon: "/pwa-192x192.png",
       badge: "/pwa-192x192.png",
