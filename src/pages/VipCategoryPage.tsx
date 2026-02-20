@@ -5,6 +5,7 @@ import { getVipDrinksByCategory } from "@/data/vipDrinks";
 import { isVipUnlocked } from "@/utils/vipKeys";
 import { useEffect, useState } from "react";
 import { getVipDrinkImage, getVipCategoryHero } from "@/data/vipDrinkImages";
+import VipHeroBanner from "@/components/VipHeroBanner";
 
 const difficultyColor: Record<string, string> = {
   "Fácil": "text-green-400",
@@ -72,8 +73,30 @@ export default function VipCategoryPage() {
         <meta name="description" content={`${drinks.length} receitas VIP exclusivas de ${categoryName}.`} />
       </Helmet>
       <div className="min-h-screen pb-24">
-        {/* Hero Banner */}
-        {heroImage && (
+        {/* Hero Banner - Netflix-style carousel for Vinho & Sangrias */}
+        {slug === "vinho-sangrias" && drinks.length > 0 && (
+          <div className="relative">
+            <VipHeroBanner drinks={drinks} count={8} />
+            <button
+              onClick={() => navigate("/vip")}
+              className="absolute top-4 left-4 z-20 w-9 h-9 rounded-full bg-background/60 backdrop-blur flex items-center justify-center"
+            >
+              <ArrowLeft size={16} className="text-foreground" />
+            </button>
+            <div className="px-4 lg:px-6 -mt-2 mb-4">
+              <div className="flex items-center gap-2">
+                <h1 className="text-xl lg:text-2xl font-display font-bold text-foreground">
+                  {categoryName}
+                </h1>
+                <Crown size={16} className="text-yellow-500" />
+              </div>
+              <p className="text-xs text-muted-foreground">{drinks.length} receitas VIP exclusivas</p>
+            </div>
+          </div>
+        )}
+
+        {/* Static Hero Banner for other categories */}
+        {slug !== "vinho-sangrias" && heroImage && (
           <div className="relative -mx-0 mb-6 overflow-hidden">
             <img
               src={heroImage}
@@ -100,7 +123,7 @@ export default function VipCategoryPage() {
         )}
 
         {/* Fallback header if no hero */}
-        {!heroImage && (
+        {slug !== "vinho-sangrias" && !heroImage && (
           <div className="pt-4 px-4 lg:px-6 mb-6">
             <div className="flex items-center gap-3">
               <button
