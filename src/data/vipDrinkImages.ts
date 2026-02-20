@@ -68,6 +68,7 @@ const categoryHeroBanners: Record<string, string> = {
 // Dedicated images for specific drinks (overrides hash-based assignment)
 const dedicatedImages: Record<string, string> = {
   "beer-boulevardier": "/images/vip-beer-90.jpg",
+  "beer-bloody-mary": "/images/vip-beer-91.jpg",
 };
 
 // Simple hash to get consistent image for each drink
