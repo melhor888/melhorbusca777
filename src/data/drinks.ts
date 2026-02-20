@@ -318,6 +318,10 @@ export const drinks: Drink[] = [
     ingredients: ["40ml de vodka", "20ml de Curaçao Blue", "60ml de suco de cranberry", "30ml de suco de abacaxi", "Splash de grenadine", "Gelo"],
     steps: ["Preencha copo alto com gelo.", "Adicione vodka e Curaçao Blue.", "Despeje suco de cranberry e abacaxi.", "Adicione splash de grenadine.", "Mexa suavemente e decore."],
     difficulty: "Fácil", time: "3 min" },
+  { id: "caipirinha-tradicional", name: "Caipirinha Tradicional", category: "Drinks Tropicais", image: "caipirinha-tradicional",
+    ingredients: ["60ml de cachaça", "1 limão cortado em pedaços", "2 colheres de açúcar", "Gelo picado"],
+    steps: ["Corte o limão em pedaços e coloque no copo.", "Adicione o açúcar.", "Macere bem para extrair o suco do limão.", "Adicione a cachaça e o gelo picado.", "Mexa bem e sirva."],
+    difficulty: "Fácil", time: "3 min" },
 
   // ============ NÃO ALCOÓLICOS (10) ============
   { id: "virgin-mojito", name: "Mojito Sem Álcool", category: "Não Alcoólicos", image: "virgin-mojito",
