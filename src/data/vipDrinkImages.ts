@@ -98,6 +98,21 @@ const dedicatedImages: Record<string, string> = {
   "caipiroska-arco-iris": "/images/vip-seasonal-55.jpg",
   "winter-spice-old-fashioned": "/images/vip-seasonal-56.jpg",
   "midnight-kiss": "/images/vip-seasonal-57.jpg",
+  "ponche-natalino-brasileiro": "/images/vip-seasonal-58.jpg",
+  "eggnog-classico": "/images/vip-seasonal-59.jpg",
+  "glogg-de-natal": "/images/vip-seasonal-60.jpg",
+  "candy-cane-martini": "/images/vip-seasonal-61.jpg",
+  "hot-buttered-rum": "/images/vip-seasonal-62.jpg",
+  "christmas-punch": "/images/vip-seasonal-63.jpg",
+  "spiced-cranberry-mule": "/images/vip-seasonal-64.jpg",
+  "gingerbread-martini": "/images/vip-seasonal-65.jpg",
+  "mulled-cider-bourbon": "/images/vip-seasonal-66.jpg",
+  "peppermint-white-russian": "/images/vip-seasonal-67.jpg",
+  "champagne-cranberry-sparkler": "/images/vip-seasonal-68.jpg",
+  "coquito-porto-riquenho-natal": "/images/vip-seasonal-69.jpg",
+  "poinsettia-cocktail": "/images/vip-seasonal-70.jpg",
+  "champagne-cocktail-classico-reveillon": "/images/vip-seasonal-71.jpg",
+  "gold-rush-ano-novo": "/images/vip-seasonal-72.jpg",
 };
 
 // Simple hash to get consistent image for each drink
