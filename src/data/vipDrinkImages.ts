@@ -46,6 +46,7 @@ const spicyImages = getImagePool('spicy');
 const teaImages = getImagePool('tea');
 const veganImages = getImagePool('vegan');
 const masterclassImages = getImagePool('masterclass');
+const voltaImages = getImagePool('volta');
 
 const categoryImagePools: Record<string, string[]> = {
   "Vinho & Sangrias": wineImages,
@@ -63,6 +64,7 @@ const categoryImagePools: Record<string, string[]> = {
   "Chá & Infusões": teaImages,
   "Veganos & Plant-Based": veganImages,
   "Masterclass Cocktails": masterclassImages,
+  "Volta ao Mundo": voltaImages,
 };
 
 const categoryHeroBanners: Record<string, string> = {
@@ -81,6 +83,7 @@ const categoryHeroBanners: Record<string, string> = {
   "cha-infusoes": teaImages[0] || '',
   "veganos-plant-based": veganImages[0] || '',
   "masterclass-cocktails": masterclassImages[0] || '',
+  "volta-ao-mundo": voltaImages[0] || '',
 };
 
 // Simple hash to get consistent image for each drink
