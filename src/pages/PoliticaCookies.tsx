@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import Breadcrumbs from "@/components/Breadcrumbs";
-import Footer from "@/components/Footer";
+
 
 export default function PoliticaCookies() {
   return (
@@ -90,7 +90,7 @@ export default function PoliticaCookies() {
             </section>
           </div>
         </div>
-        <Footer />
+        
       </div>
     </>
   );
