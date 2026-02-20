@@ -2,7 +2,7 @@ import { drinks } from "@/data/drinks";
 
 const NOTIFICATION_KEY = "cq-notif-enabled";
 const LAST_NOTIF_KEY = "cq-last-notif";
-const INTERVAL_MS = 3 * 60 * 60 * 1000; // ~3 hours (5x/day spread across waking hours)
+const INTERVAL_MS = 3 * 60 * 60 * 1000; // ~3 hours (5x/day)
 
 function getRandomDrink() {
   const idx = Math.floor(Math.random() * drinks.length);
@@ -37,6 +37,36 @@ function shouldSendNotification(): boolean {
   return Date.now() - parseInt(last, 10) > INTERVAL_MS;
 }
 
+export function sendWelcomeNotification() {
+  if (Notification.permission !== "granted") return;
+
+  try {
+    new Notification("🎉 Bem-vindo ao Cachaça Quest!", {
+      body: "Você receberá sugestões de drinks incríveis ao longo do dia. Saúde! 🥂",
+      icon: "/pwa-192x192.png",
+      badge: "/pwa-192x192.png",
+      tag: "welcome",
+    } as NotificationOptions);
+  } catch {
+    // Silent fail
+  }
+
+  // Send a random recipe right after welcome
+  setTimeout(() => {
+    const drink = getRandomDrink();
+    try {
+      new Notification(`🍸 Novo Drink Adicionado: ${drink.name}`, {
+        body: `${drink.category} · ${drink.difficulty} · ${drink.time}\n${drink.ingredients.slice(0, 3).join(", ")}`,
+        icon: "/pwa-192x192.png",
+        badge: "/pwa-192x192.png",
+        tag: "welcome-drink",
+      } as NotificationOptions);
+    } catch {
+      // Silent fail
+    }
+  }, 3000);
+}
+
 export function sendDrinkNotification() {
   if (!isNotificationsEnabled()) return;
   if (Notification.permission !== "granted") return;
@@ -48,34 +78,21 @@ export function sendDrinkNotification() {
   const emojis = ["🍸", "🥃", "🍹", "🥂", "☕"];
   const emoji = emojis[Math.floor(Math.random() * emojis.length)];
 
-  const titles = [
-    `${emoji} Drink do Momento: ${drink.name}`,
-    `${emoji} Que tal um ${drink.name}?`,
-    `${emoji} Hora de experimentar: ${drink.name}`,
-    `${emoji} Receita do dia: ${drink.name}`,
-    `${emoji} Descubra o ${drink.name}!`,
-  ];
-
-  const title = titles[Math.floor(Math.random() * titles.length)];
-  const body = `${drink.category} · ${drink.difficulty} · ${drink.time}\n${drink.ingredients.slice(0, 3).join(", ")}`;
-
   try {
-    new Notification(title, {
-      body,
+    new Notification(`${emoji} Novo Drink Adicionado: ${drink.name}`, {
+      body: `${drink.category} · ${drink.difficulty} · ${drink.time}\n${drink.ingredients.slice(0, 3).join(", ")}`,
       icon: "/pwa-192x192.png",
       badge: "/pwa-192x192.png",
       tag: "drink-of-day",
     } as NotificationOptions);
   } catch {
-    // Silent fail for unsupported contexts
+    // Silent fail
   }
 }
 
 export function startNotificationScheduler() {
   if (!isNotificationsEnabled()) return;
-  // Send one now if due
   sendDrinkNotification();
-  // Check every 30 minutes
   setInterval(() => {
     sendDrinkNotification();
   }, 30 * 60 * 1000);

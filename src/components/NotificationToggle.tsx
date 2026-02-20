@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Bell, BellOff } from "lucide-react";
-import { isNotificationsEnabled, requestNotificationPermission, disableNotifications, startNotificationScheduler } from "@/utils/notifications";
+import { isNotificationsEnabled, requestNotificationPermission, disableNotifications, startNotificationScheduler, sendWelcomeNotification } from "@/utils/notifications";
 
 export default function NotificationToggle() {
   const [enabled, setEnabled] = useState(isNotificationsEnabled());
@@ -13,6 +13,7 @@ export default function NotificationToggle() {
       const granted = await requestNotificationPermission();
       if (granted) {
         setEnabled(true);
+        sendWelcomeNotification();
         startNotificationScheduler();
       }
     }
