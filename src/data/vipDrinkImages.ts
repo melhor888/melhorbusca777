@@ -4,7 +4,7 @@
 // Known VIP image files per category prefix and their number ranges
 const vipImageNumbers: Record<string, number[]> = {
   wine: Array.from({ length: 91 }, (_, i) => i + 1),
-  beer: Array.from({ length: 50 }, (_, i) => i + 1),
+  beer: Array.from({ length: 89 }, (_, i) => i + 1),
   frozen: Array.from({ length: 50 }, (_, i) => i + 1),
   shot: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 38, 44, 50, 53, 64, 84, 88],
   tiki: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 25],
