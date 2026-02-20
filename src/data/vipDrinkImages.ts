@@ -96,6 +96,7 @@ const dedicatedImages: Record<string, string> = {
   "french-75-reveillon": "/images/vip-seasonal-53.jpg",
   "caipirinha-de-carnaval": "/images/vip-seasonal-54.jpg",
   "caipiroska-arco-iris": "/images/vip-seasonal-55.jpg",
+  "winter-spice-old-fashioned": "/images/vip-seasonal-56.jpg",
 };
 
 // Simple hash to get consistent image for each drink
