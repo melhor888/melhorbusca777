@@ -139,6 +139,28 @@ export function useXP() {
     return xpGained;
   }, []);
 
+  const addTipXP = useCallback((tipId: string, xpAmount: number = 5): number => {
+    let xpGained = 0;
+    setData((prev) => {
+      const readTips = JSON.parse(localStorage.getItem("drinks-co-read-tips") || "[]") as string[];
+      if (readTips.includes(tipId)) return prev;
+
+      xpGained = xpAmount;
+      readTips.push(tipId);
+      localStorage.setItem("drinks-co-read-tips", JSON.stringify(readTips));
+
+      const newXP = prev.totalXP + xpAmount;
+      const newAchievements = checkXPAchievements(newXP, prev.achievements);
+
+      return {
+        ...prev,
+        totalXP: newXP,
+        achievements: newAchievements,
+      };
+    });
+    return xpGained;
+  }, []);
+
   const unlockTip = useCallback((tipId: string) => {
     setData((prev) => {
       if (prev.unlockedTips.includes(tipId)) return prev;
@@ -162,6 +184,7 @@ export function useXP() {
     progress,
     addRecipeXP,
     addArticleXP,
+    addTipXP,
     unlockTip,
     addAchievement,
   };
