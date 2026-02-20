@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import Breadcrumbs from "@/components/Breadcrumbs";
-import Footer from "@/components/Footer";
+
 
 export default function AvisoLegal() {
   return (
@@ -65,7 +65,7 @@ export default function AvisoLegal() {
             </section>
           </div>
         </div>
-        <Footer />
+        
       </div>
     </>
   );

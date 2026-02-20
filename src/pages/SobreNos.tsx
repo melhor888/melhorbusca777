@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Breadcrumbs from "@/components/Breadcrumbs";
-import Footer from "@/components/Footer";
+
 
 
 export default function SobreNos() {
@@ -42,7 +42,7 @@ export default function SobreNos() {
             <p>A Drink Quest incentiva o consumo responsável de bebidas alcoólicas. Nosso conteúdo é destinado exclusivamente a maiores de 18 anos. Beba com moderação e nunca dirija após consumir bebidas alcoólicas.</p>
           </section>
         </div>
-        <Footer />
+        
       </div>
     </>
   );
