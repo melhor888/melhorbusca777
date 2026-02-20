@@ -1247,33 +1247,6 @@ const categoryImagePools: Record<string, string[]> = {
   "Masterclass Cocktails": masterclassImages,
 };
 
-import vipMasterclass1 from "@/assets/vip-masterclass-1.jpg";
-import vipMasterclass2 from "@/assets/vip-masterclass-2.jpg";
-import vipMasterclass3 from "@/assets/vip-masterclass-3.jpg";
-import vipMasterclass4 from "@/assets/vip-masterclass-4.jpg";
-import vipMasterclass5 from "@/assets/vip-masterclass-5.jpg";
-import vipMasterclass6 from "@/assets/vip-masterclass-6.jpg";
-import vipMasterclass7 from "@/assets/vip-masterclass-7.jpg";
-import vipMasterclass8 from "@/assets/vip-masterclass-8.jpg";
-import vipMasterclass9 from "@/assets/vip-masterclass-9.jpg";
-import vipMasterclass10 from "@/assets/vip-masterclass-10.jpg";
-import vipMasterclass11 from "@/assets/vip-masterclass-11.jpg";
-import vipMasterclass12 from "@/assets/vip-masterclass-12.jpg";
-import vipMasterclass13 from "@/assets/vip-masterclass-13.jpg";
-import vipMasterclass14 from "@/assets/vip-masterclass-14.jpg";
-import vipMasterclass15 from "@/assets/vip-masterclass-15.jpg";
-import vipMasterclass16 from "@/assets/vip-masterclass-16.jpg";
-import vipMasterclass17 from "@/assets/vip-masterclass-17.jpg";
-import vipMasterclass18 from "@/assets/vip-masterclass-18.jpg";
-import vipMasterclass19 from "@/assets/vip-masterclass-19.jpg";
-import vipMasterclass20 from "@/assets/vip-masterclass-20.jpg";
-
-const masterclassImages: string[] = [
-  vipMasterclass1, vipMasterclass2, vipMasterclass3, vipMasterclass4, vipMasterclass5,
-  vipMasterclass6, vipMasterclass7, vipMasterclass8, vipMasterclass9, vipMasterclass10,
-  vipMasterclass11, vipMasterclass12, vipMasterclass13, vipMasterclass14, vipMasterclass15,
-  vipMasterclass16, vipMasterclass17, vipMasterclass18, vipMasterclass19, vipMasterclass20,
-];
 
 const categoryHeroBanners: Record<string, string> = {
   "vinho-sangrias": vipHeroVinho,
