@@ -94,6 +94,7 @@ const dedicatedImages: Record<string, string> = {
   "tom-and-jerry-cocktail": "/images/vip-seasonal-51.jpg",
   "rum-punch-carnaval": "/images/vip-seasonal-52.jpg",
   "french-75-reveillon": "/images/vip-seasonal-53.jpg",
+  "caipirinha-de-carnaval": "/images/vip-seasonal-54.jpg",
 };
 
 // Simple hash to get consistent image for each drink
