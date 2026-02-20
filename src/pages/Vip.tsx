@@ -3,6 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { Crown, Lock, Wine, Beer, Snowflake, Leaf, KeyRound, Check, X, Flame, GlassWater, IceCream, Trophy, Globe, CupSoda, Martini, ArrowRight, Sparkles } from "lucide-react";
 import { validateVipKey, isVipUnlocked, setVipUnlocked } from "@/utils/vipKeys";
+import VipTrialBanner from "@/components/VipTrialBanner";
 import { getVipDrinksByCategory } from "@/data/vipDrinks";
 const vipHeroBanner = "/images/vip-hero-banner.jpg";
 
@@ -131,6 +132,7 @@ export default function Vip() {
         <meta name="description" content="Categorias exclusivas para membros VIP do Cachaça Quest." />
       </Helmet>
 
+      <VipTrialBanner />
       <main className="px-4 pt-0 pb-32 lg:pb-12">
         {/* Hero Banner Netflix Style */}
         <div className="relative -mx-4 mb-8 overflow-hidden rounded-b-3xl">

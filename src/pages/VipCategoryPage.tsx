@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet-async";
 import { ArrowLeft, Crown, Clock, ChefHat, Lock } from "lucide-react";
 import { getVipDrinksByCategory } from "@/data/vipDrinks";
 import { isVipUnlocked } from "@/utils/vipKeys";
+import VipTrialBanner from "@/components/VipTrialBanner";
 import { useEffect, useState } from "react";
 import { getVipDrinkImage, getVipCategoryHero } from "@/data/vipDrinkImages";
 import VipHeroBanner from "@/components/VipHeroBanner";
@@ -68,6 +69,7 @@ export default function VipCategoryPage() {
 
   return (
     <>
+      <VipTrialBanner />
       <Helmet>
         <title>{categoryName} VIP | Cachaça Quest</title>
         <meta name="description" content={`${drinks.length} receitas VIP exclusivas de ${categoryName}.`} />
