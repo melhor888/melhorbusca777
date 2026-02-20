@@ -170,10 +170,10 @@ export const chaInfusoes: VipDrink[] = [
 
   // ===== CHÁ PRETO & FERMENTADO (16-35) =====
   {
-    id: "earl-grey-martini",
+    id: "earl-grey-martini-tea",
     name: "Earl Grey Martini",
     category: "Chá & Infusões",
-    image: "earl-grey-martini",
+    image: "earl-grey-martini-tea",
     ingredients: ["60ml de gin infusionado com Earl Grey", "15ml de xarope de lavanda", "15ml de suco de limão", "Casca de limão"],
     steps: ["Infusione gin com Earl Grey 2h.", "Coe o gin perfumado.", "Agite com lavanda e limão.", "Coe para martini gelada.", "Decore com casca de limão."],
     difficulty: "Médio",
