@@ -47,10 +47,52 @@ export async function validateVipKey(inputKey: string): Promise<boolean> {
 }
 
 const STORAGE_KEY = "vip_access";
+const TRIAL_KEY = "vip_trial_start";
+const TRIAL_DURATION_MS = 10 * 60 * 1000; // 10 minutes
+
+function initTrialIfNew(): void {
+  try {
+    if (!localStorage.getItem(TRIAL_KEY) && localStorage.getItem(STORAGE_KEY) !== "true") {
+      localStorage.setItem(TRIAL_KEY, Date.now().toString());
+    }
+  } catch {}
+}
+
+function isTrialActive(): boolean {
+  try {
+    const trialStart = localStorage.getItem(TRIAL_KEY);
+    if (!trialStart) return false;
+    const elapsed = Date.now() - parseInt(trialStart, 10);
+    return elapsed < TRIAL_DURATION_MS;
+  } catch {
+    return false;
+  }
+}
+
+export function getTrialRemainingMs(): number {
+  try {
+    const trialStart = localStorage.getItem(TRIAL_KEY);
+    if (!trialStart) return 0;
+    const remaining = TRIAL_DURATION_MS - (Date.now() - parseInt(trialStart, 10));
+    return Math.max(0, remaining);
+  } catch {
+    return 0;
+  }
+}
 
 export function isVipUnlocked(): boolean {
   try {
-    return localStorage.getItem(STORAGE_KEY) === "true";
+    if (localStorage.getItem(STORAGE_KEY) === "true") return true;
+    initTrialIfNew();
+    return isTrialActive();
+  } catch {
+    return false;
+  }
+}
+
+export function isVipTrial(): boolean {
+  try {
+    return localStorage.getItem(STORAGE_KEY) !== "true" && isTrialActive();
   } catch {
     return false;
   }
