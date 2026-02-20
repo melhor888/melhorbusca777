@@ -73,6 +73,22 @@ const dedicatedImages: Record<string, string> = {
   "brass-monkey": "/images/vip-beer-93.jpg",
   "dark-and-stormy-beer": "/images/vip-beer-94.jpg",
   "sangria-de-kombucha": "/images/vip-wine-92.jpg",
+  // Drinks de Autor - imagens dedicadas
+  "penicillin-autor": "/images/vip-autor-51.jpg",
+  "paper-plane-autor": "/images/vip-autor-52.jpg",
+  "last-word-autor": "/images/vip-autor-53.jpg",
+  "naked-famous-autor": "/images/vip-autor-54.jpg",
+  "bentons-old-fashioned": "/images/vip-autor-55.jpg",
+  "trinidad-sour-autor": "/images/vip-autor-56.jpg",
+  "division-bell-autor": "/images/vip-autor-57.jpg",
+  "jungle-bird-autor": "/images/vip-autor-58.jpg",
+  "gold-rush-autor": "/images/vip-autor-59.jpg",
+  "tipperary-autor": "/images/vip-autor-60.jpg",
+  "suffering-bastard-autor": "/images/vip-autor-61.jpg",
+  "chartreuse-swizzle-autor": "/images/vip-autor-62.jpg",
+  "bees-knees-autor": "/images/vip-autor-63.jpg",
+  "tommys-margarita-autor": "/images/vip-autor-64.jpg",
+  "pornstar-martini-autor": "/images/vip-autor-65.jpg",
 };
 
 // Simple hash to get consistent image for each drink
