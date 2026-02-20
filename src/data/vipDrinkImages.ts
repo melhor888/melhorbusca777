@@ -71,6 +71,7 @@ const dedicatedImages: Record<string, string> = {
   "beer-bloody-mary": "/images/vip-beer-91.jpg",
   "cerveza-preparada": "/images/vip-beer-92.jpg",
   "brass-monkey": "/images/vip-beer-93.jpg",
+  "dark-and-stormy-beer": "/images/vip-beer-94.jpg",
 };
 
 // Simple hash to get consistent image for each drink
