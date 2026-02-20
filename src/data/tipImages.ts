@@ -1,29 +1,22 @@
-import tipTecnica from "@/assets/tip-tecnica.jpg";
-import tipApresentacao from "@/assets/tip-apresentacao.jpg";
-import tipHarmonizacao from "@/assets/tip-harmonizacao.jpg";
-import tipHistoria from "@/assets/tip-historia.jpg";
-import tipHomeBar from "@/assets/tip-home-bar.jpg";
-import tipTropical from "@/assets/tip-tropical.jpg";
-import tipCafeSpirits from "@/assets/tip-cafe-spirits.jpg";
-import tipMolecular from "@/assets/tip-molecular.jpg";
+// Optimized: No imports - images served from public/images/
 
 export const tipCategoryImages: Record<string, string> = {
-  tecnica: tipTecnica,
-  apresentacao: tipApresentacao,
-  harmonizacao: tipHarmonizacao,
-  historia: tipHistoria,
+  tecnica: "/images/tip-tecnica.jpg",
+  apresentacao: "/images/tip-apresentacao.jpg",
+  harmonizacao: "/images/tip-harmonizacao.jpg",
+  historia: "/images/tip-historia.jpg",
 };
 
 export const tipThemeImages: Record<string, string> = {
-  "home-bar": tipHomeBar,
-  tropical: tipTropical,
-  cafe: tipCafeSpirits,
-  molecular: tipMolecular,
+  "home-bar": "/images/tip-home-bar.jpg",
+  tropical: "/images/tip-tropical.jpg",
+  cafe: "/images/tip-cafe-spirits.jpg",
+  molecular: "/images/tip-molecular.jpg",
 };
 
 export function getTipImage(category: string, themeTag?: string): string {
   if (themeTag && tipThemeImages[themeTag]) {
     return tipThemeImages[themeTag];
   }
-  return tipCategoryImages[category] || tipTecnica;
+  return tipCategoryImages[category] || "/images/tip-tecnica.jpg";
 }

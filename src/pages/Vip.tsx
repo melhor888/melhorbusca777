@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet-async";
 import { Crown, Lock, Wine, Beer, Snowflake, Leaf, KeyRound, Check, X, Flame, GlassWater, IceCream, Trophy, Globe, CupSoda, Martini, ArrowRight, Sparkles } from "lucide-react";
 import { validateVipKey, isVipUnlocked, setVipUnlocked } from "@/utils/vipKeys";
 import { getVipDrinksByCategory } from "@/data/vipDrinks";
-import vipHeroBanner from "@/assets/vip-hero-banner.jpg";
+const vipHeroBanner = "/images/vip-hero-banner.jpg";
 
 const vipCategories = [
   {
