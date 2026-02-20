@@ -6,6 +6,7 @@ import { drinks } from "@/data/drinks";
 import { getDrinkImage } from "@/data/drinkImages";
 import { useXP } from "@/hooks/useXP";
 import XPToast from "@/components/XPToast";
+import QuizHeroBanner from "@/components/QuizHeroBanner";
 
 const XP_QUIZ = 25;
 
@@ -150,6 +151,9 @@ export default function Quiz() {
         </button>
         <h1 className="font-display font-bold text-foreground text-lg">Quiz de Drinks</h1>
       </div>
+
+      {/* Hero Banner Netflix-style */}
+      <QuizHeroBanner />
 
       {!results ? (
         <div className="px-6 pt-8 max-w-lg mx-auto">
