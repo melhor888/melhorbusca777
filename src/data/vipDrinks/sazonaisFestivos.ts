@@ -1,0 +1,1123 @@
+import { VipDrink } from "./types";
+
+export const sazonaisFestivos: VipDrink[] = [
+  // ===== NATAL (1-15) =====
+  {
+    id: "ponche-natalino-brasileiro",
+    name: "Ponche Natalino Brasileiro",
+    category: "Sazonais & Festivos",
+    image: "ponche-natalino-brasileiro",
+    ingredients: ["500ml de suco de abacaxi", "200ml de vodka", "100ml de licor de cereja", "50ml de grenadine", "Cerejas em calda", "Gelo", "Espumante para completar"],
+    steps: ["Misture suco de abacaxi, vodka e licor em uma jarra.", "Adicione grenadine e gelo.", "Complete com espumante.", "Decore com cerejas.", "Sirva em taças decoradas."],
+    difficulty: "Fácil",
+    time: "10 min",
+    description: "Tradição das ceias brasileiras, o ponche natalino é servido em jarras grandes para toda a família. Popular desde os anos 70, é presença obrigatória no Natal tropical. Harmoniza com panetone e frutas secas."
+  },
+  {
+    id: "eggnog-classico",
+    name: "Eggnog Clássico",
+    category: "Sazonais & Festivos",
+    image: "eggnog-classico",
+    ingredients: ["4 gemas", "100g de açúcar", "300ml de leite integral", "200ml de creme de leite fresco", "100ml de bourbon", "50ml de rum escuro", "Noz-moscada ralada", "Canela em pó"],
+    steps: ["Bata as gemas com açúcar até dobrar de volume.", "Aqueça leite e creme sem ferver.", "Tempere as gemas com o leite quente aos poucos.", "Adicione bourbon e rum.", "Refrigere por 4 horas.", "Sirva com noz-moscada ralada."],
+    difficulty: "Médio",
+    time: "20 min + 4h geladeira",
+    description: "O Eggnog tem raízes no século XVII na Inglaterra. Tornou-se símbolo do Natal americano no século XIX. Servido em festas de fim de ano, é rico, cremoso e reconfortante. Harmoniza com biscoitos de gengibre e torta de nozes."
+  },
+  {
+    id: "glogg-de-natal",
+    name: "Glögg de Natal",
+    category: "Sazonais & Festivos",
+    image: "glogg-de-natal",
+    ingredients: ["750ml de vinho tinto encorpado", "100ml de vodka", "50ml de brandy", "5 cravos", "3 cardamomos", "2 paus de canela", "Casca de laranja", "50g de amêndoas", "50g de passas", "80g de açúcar"],
+    steps: ["Aqueça o vinho com especiarias em fogo baixo.", "Adicione açúcar e mexa até dissolver.", "Junte vodka e brandy (sem ferver).", "Coloque amêndoas e passas nas canecas.", "Despeje o glögg quente por cima.", "Sirva fumegante."],
+    difficulty: "Médio",
+    time: "25 min",
+    description: "Bebida natalina escandinava, o Glögg é servido nos mercados de Natal da Suécia, Finlândia e Noruega. As amêndoas e passas no fundo da caneca são tradição. Harmoniza com pepparkakor (biscoitos suecos)."
+  },
+  {
+    id: "candy-cane-martini",
+    name: "Candy Cane Martini",
+    category: "Sazonais & Festivos",
+    image: "candy-cane-martini",
+    ingredients: ["60ml de vodka", "30ml de licor de cacau branco", "30ml de crème de menthe", "15ml de xarope simples", "Bastão de candy cane triturado para borda", "Candy cane inteiro para decoração"],
+    steps: ["Umedeça a borda da taça e passe no candy cane triturado.", "Agite vodka, licor, crème de menthe e xarope com gelo.", "Coe para a taça decorada.", "Decore com um candy cane inteiro.", "Sirva imediatamente."],
+    difficulty: "Fácil",
+    time: "5 min",
+    description: "Drink icônico das festas de Natal americanas, o Candy Cane Martini combina o frescor da menta com a doçura do cacau branco. Visual natalino perfeito com a borda de bastão de açúcar. Harmoniza com brownies de chocolate."
+  },
+  {
+    id: "hot-buttered-rum",
+    name: "Hot Buttered Rum",
+    category: "Sazonais & Festivos",
+    image: "hot-buttered-rum",
+    ingredients: ["60ml de rum escuro", "1 colher de manteiga sem sal", "1 colher de açúcar mascavo", "1 pitada de canela", "1 pitada de noz-moscada", "1 cravo", "200ml de água quente", "Pau de canela para decoração"],
+    steps: ["Coloque manteiga, açúcar e especiarias na caneca.", "Adicione o rum.", "Despeje água quente e mexa até dissolver.", "Decore com pau de canela.", "Sirva fumegante."],
+    difficulty: "Fácil",
+    time: "5 min",
+    description: "Receita colonial americana do século XVII, o Hot Buttered Rum era servido nas tavernas da Nova Inglaterra durante invernos rigorosos. A manteiga derretida cria uma textura aveludada única. Harmoniza com torta de maçã."
+  },
+  {
+    id: "christmas-punch",
+    name: "Christmas Punch",
+    category: "Sazonais & Festivos",
+    image: "christmas-punch",
+    ingredients: ["500ml de suco de cranberry", "250ml de suco de laranja", "200ml de vodka", "100ml de triple sec", "100ml de xarope de grenadine", "Cranberries frescas", "Fatias de laranja", "Alecrim fresco", "Espumante"],
+    steps: ["Misture sucos, vodka, triple sec e grenadine em poncheira.", "Adicione cranberries e fatias de laranja.", "Refrigere por 1 hora.", "Adicione espumante na hora de servir.", "Decore com ramos de alecrim."],
+    difficulty: "Fácil",
+    time: "10 min + 1h geladeira",
+    description: "O Christmas Punch é tradição nas festas americanas e britânicas. A cor vermelha vibrante do cranberry é sinônimo de Natal. Servido em poncheiras elegantes para grupos grandes. Harmoniza com peru assado e tender."
+  },
+  {
+    id: "spiced-cranberry-mule",
+    name: "Spiced Cranberry Mule",
+    category: "Sazonais & Festivos",
+    image: "spiced-cranberry-mule",
+    ingredients: ["60ml de vodka", "30ml de suco de cranberry", "15ml de xarope de gengibre", "15ml de suco de limão", "Ginger beer", "Cranberries frescas", "Ramo de alecrim"],
+    steps: ["Coloque vodka, suco de cranberry, xarope e limão na caneca de cobre.", "Adicione gelo.", "Complete com ginger beer.", "Decore com cranberries e alecrim.", "Mexa delicadamente."],
+    difficulty: "Fácil",
+    time: "5 min",
+    description: "Versão natalina do Moscow Mule, com cranberry e especiarias que evocam o espírito festivo. A caneca de cobre gelada e o aroma do alecrim criam uma experiência multissensorial. Harmoniza com castanhas assadas."
+  },
+  {
+    id: "gingerbread-martini",
+    name: "Gingerbread Martini",
+    category: "Sazonais & Festivos",
+    image: "gingerbread-martini",
+    ingredients: ["60ml de vodka", "30ml de Baileys", "15ml de licor de caramelo", "15ml de xarope de gengibre", "Biscoito de gengibre para decoração", "Canela em pó"],
+    steps: ["Agite todos os líquidos com gelo.", "Coe para taça martini gelada.", "Polvilhe canela por cima.", "Decore com biscoito de gengibre na borda.", "Sirva imediatamente."],
+    difficulty: "Fácil",
+    time: "5 min",
+    description: "Inspirado nos biscoitos gingerbread natalinos, este martini é puro conforto em forma de drink. Popular em cocktail bars durante dezembro. O biscoito na borda é a assinatura visual. Harmoniza com pudim de Natal."
+  },
+  {
+    id: "mulled-cider-bourbon",
+    name: "Mulled Cider com Bourbon",
+    category: "Sazonais & Festivos",
+    image: "mulled-cider-bourbon",
+    ingredients: ["300ml de sidra de maçã", "60ml de bourbon", "2 paus de canela", "3 cravos", "1 anis-estrelado", "Casca de laranja", "1 colher de mel"],
+    steps: ["Aqueça a sidra com especiarias em fogo baixo por 10 minutos.", "Retire do fogo e adicione bourbon e mel.", "Coe para caneca.", "Decore com pau de canela e casca de laranja.", "Sirva quente."],
+    difficulty: "Fácil",
+    time: "15 min",
+    description: "Bebida tradicional do outono e inverno americano, a sidra quente com bourbon é servida em fazendas de maçã, feiras de outono e festas natalinas. O aroma das especiarias aquece o ambiente. Harmoniza com torta de abóbora."
+  },
+  {
+    id: "peppermint-white-russian",
+    name: "Peppermint White Russian",
+    category: "Sazonais & Festivos",
+    image: "peppermint-white-russian",
+    ingredients: ["45ml de vodka", "30ml de Kahlúa", "15ml de crème de menthe", "45ml de creme de leite fresco", "Candy cane triturado", "Chantilly"],
+    steps: ["Coloque gelo em copo rocks.", "Adicione vodka, Kahlúa e crème de menthe.", "Despeje o creme por cima suavemente.", "Finalize com chantilly.", "Polvilhe candy cane triturado."],
+    difficulty: "Fácil",
+    time: "5 min",
+    description: "Versão natalina do clássico White Russian, com o frescor da menta que remete às festas de dezembro. O candy cane triturado adiciona textura e visual festivo. Harmoniza com cookies de chocolate."
+  },
+  {
+    id: "champagne-cranberry-sparkler",
+    name: "Champagne Cranberry Sparkler",
+    category: "Sazonais & Festivos",
+    image: "champagne-cranberry-sparkler",
+    ingredients: ["120ml de champagne ou espumante brut", "30ml de licor de cranberry", "15ml de xarope de açúcar", "Cranberries frescas congeladas", "Ramo de alecrim"],
+    steps: ["Coloque cranberries congeladas na taça flute.", "Adicione licor e xarope.", "Complete com champagne gelado.", "Decore com ramo de alecrim.", "Sirva imediatamente."],
+    difficulty: "Fácil",
+    time: "3 min",
+    description: "Elegante e sofisticado, este sparkler é perfeito para brindes natalinos. As cranberries congeladas funcionam como gelo e decoração. O alecrim lembra uma mini árvore de Natal. Harmoniza com canapés e foie gras."
+  },
+  {
+    id: "coquito-porto-riquenho",
+    name: "Coquito Porto-Riquenho",
+    category: "Sazonais & Festivos",
+    image: "coquito-porto-riquenho",
+    ingredients: ["400ml de leite de coco", "400ml de leite condensado", "200ml de rum branco", "100ml de creme de coco", "1 colher de chá de canela", "1 colher de chá de baunilha", "Noz-moscada"],
+    steps: ["Bata todos os ingredientes no liquidificador.", "Refrigere por pelo menos 4 horas.", "Agite antes de servir.", "Sirva em copos pequenos com canela polvilhada.", "Decore com noz-moscada ralada."],
+    difficulty: "Fácil",
+    time: "10 min + 4h geladeira",
+    description: "O Coquito é o eggnog caribenho, tradição do Natal porto-riquenho. Feito com coco e rum, é mais tropical que o eggnog tradicional. Cada família tem sua receita secreta. Harmoniza com arroz-doce e turrones."
+  },
+  {
+    id: "tom-and-jerry-cocktail",
+    name: "Tom & Jerry Cocktail",
+    category: "Sazonais & Festivos",
+    image: "tom-and-jerry-cocktail",
+    ingredients: ["1 ovo separado", "30g de açúcar", "45ml de brandy", "30ml de rum escuro", "200ml de leite quente", "Noz-moscada", "Canela em pó"],
+    steps: ["Bata a clara em neve firme.", "Bata a gema com açúcar até clarear.", "Incorpore a clara na gema.", "Coloque a mistura na caneca.", "Adicione brandy e rum.", "Despeje leite quente mexendo.", "Polvilhe noz-moscada."],
+    difficulty: "Avançado",
+    time: "15 min",
+    description: "Criado no século XIX pelo bartender Jerry Thomas (pai da coquetelaria moderna), o Tom & Jerry era O drink natalino da era vitoriana. A massa batida cria uma textura única de mousse quente. Harmoniza com mince pies."
+  },
+  {
+    id: "poinsettia-cocktail",
+    name: "Poinsettia Cocktail",
+    category: "Sazonais & Festivos",
+    image: "poinsettia-cocktail",
+    ingredients: ["120ml de champagne brut", "30ml de licor de cranberry", "30ml de suco de cranberry", "Twist de laranja", "Cranberries para decoração"],
+    steps: ["Adicione licor e suco de cranberry na taça flute.", "Complete com champagne gelado.", "Decore com cranberries e twist de laranja.", "Sirva imediatamente."],
+    difficulty: "Fácil",
+    time: "3 min",
+    description: "Batizado em homenagem à flor-de-natal (poinsettia), este cocktail tem a cor vermelha vibrante que simboliza as festas. Elegante e simples, é perfeito para recepções. Harmoniza com salmão defumado."
+  },
+  {
+    id: "winter-spice-old-fashioned",
+    name: "Winter Spice Old Fashioned",
+    category: "Sazonais & Festivos",
+    image: "winter-spice-old-fashioned",
+    ingredients: ["60ml de bourbon", "15ml de xarope de canela", "2 dashes de Angostura bitters", "1 dash de orange bitters", "Casca de laranja", "Anis-estrelado", "Pau de canela"],
+    steps: ["Misture bourbon, xarope e bitters no copo mixing.", "Adicione gelo e mexa por 30 segundos.", "Coe para copo rocks com gelo grande.", "Decore com casca de laranja, anis e canela.", "Sirva."],
+    difficulty: "Médio",
+    time: "5 min",
+    description: "Versão invernal do clássico Old Fashioned, com canela e especiarias que trazem calor e conforto. O anis-estrelado como decoração é a assinatura visual. Perfeito para noites frias de dezembro. Harmoniza com chocolate amargo."
+  },
+
+  // ===== ANO NOVO (16-25) =====
+  {
+    id: "champagne-cocktail-classico",
+    name: "Champagne Cocktail Clássico",
+    category: "Sazonais & Festivos",
+    image: "champagne-cocktail-classico",
+    ingredients: ["150ml de champagne brut", "1 cubo de açúcar", "2 dashes de Angostura bitters", "15ml de cognac", "Twist de limão siciliano"],
+    steps: ["Coloque o cubo de açúcar na taça flute.", "Adicione os bitters sobre o açúcar.", "Despeje o cognac.", "Complete com champagne gelado.", "Decore com twist de limão."],
+    difficulty: "Fácil",
+    time: "3 min",
+    description: "O mais antigo cocktail com champagne, datado de 1862. Servido em bailes de Ano Novo e celebrações de gala, é elegância pura. O açúcar se dissolve lentamente criando bolhas extras. Harmoniza com ostras e caviar."
+  },
+  {
+    id: "midnight-kiss",
+    name: "Midnight Kiss",
+    category: "Sazonais & Festivos",
+    image: "midnight-kiss",
+    ingredients: ["120ml de espumante rosé", "30ml de licor de framboesa (Chambord)", "15ml de vodka", "Framboesas frescas", "Glitter comestível dourado"],
+    steps: ["Adicione vodka e licor na taça flute.", "Complete com espumante rosé.", "Adicione framboesas.", "Polvilhe glitter comestível.", "Sirva à meia-noite."],
+    difficulty: "Fácil",
+    time: "3 min",
+    description: "Criado para ser bebido exatamente à meia-noite do Ano Novo, o Midnight Kiss é romântico e festivo. O glitter dourado simboliza os fogos de artifício. O rosé traz sofisticação. Harmoniza com morangos cobertos com chocolate."
+  },
+  {
+    id: "french-75-reveillon",
+    name: "French 75 de Réveillon",
+    category: "Sazonais & Festivos",
+    image: "french-75-reveillon",
+    ingredients: ["30ml de gin", "15ml de suco de limão siciliano", "15ml de xarope simples", "90ml de champagne brut", "Twist de limão", "Cereja ao maraschino"],
+    steps: ["Agite gin, limão e xarope com gelo.", "Coe para taça flute gelada.", "Complete com champagne.", "Decore com twist e cereja.", "Sirva como primeiro brinde do ano."],
+    difficulty: "Médio",
+    time: "5 min",
+    description: "Criado em 1915 no Harry's New York Bar em Paris, o French 75 recebeu o nome de um canhão francês pela potência. É o drink perfeito para o primeiro brinde do Ano Novo. Harmoniza com blinis com salmão defumado."
+  },
+  {
+    id: "gold-rush-ano-novo",
+    name: "Gold Rush de Ano Novo",
+    category: "Sazonais & Festivos",
+    image: "gold-rush-ano-novo",
+    ingredients: ["60ml de bourbon", "30ml de xarope de mel com ouro comestível", "22ml de suco de limão siciliano", "Folha de ouro comestível", "Mel para borda"],
+    steps: ["Passe mel na borda do copo e aplique glitter dourado.", "Agite bourbon, xarope de mel e limão com gelo.", "Coe para o copo preparado com gelo.", "Decore com folha de ouro.", "Sirva."],
+    difficulty: "Médio",
+    time: "5 min",
+    description: "Versão luxuosa do Gold Rush para celebrar a virada, com ouro comestível simbolizando prosperidade. O mel traz suavidade ao bourbon. Visual deslumbrante para fotos do Réveillon. Harmoniza com trufas e queijos nobres."
+  },
+  {
+    id: "new-years-sangria-dourada",
+    name: "Sangria Dourada de Ano Novo",
+    category: "Sazonais & Festivos",
+    image: "new-years-sangria-dourada",
+    ingredients: ["750ml de espumante brut", "200ml de suco de pêssego", "100ml de brandy", "50ml de licor de elderflower", "Pêssegos fatiados", "Uvas verdes e roxas", "Carambolas fatiadas"],
+    steps: ["Misture brandy, licor e suco em jarra.", "Adicione frutas fatiadas.", "Refrigere por 1 hora.", "Complete com espumante na hora de servir.", "Sirva em taças com frutas."],
+    difficulty: "Fácil",
+    time: "10 min + 1h geladeira",
+    description: "Sangria festiva com cores douradas que simbolizam riqueza e prosperidade para o novo ano. As carambolas fatiadas em formato de estrela são a assinatura visual. Harmoniza com finger foods e canapés."
+  },
+  {
+    id: "prosecco-elderflower-sparkle",
+    name: "Prosecco Elderflower Sparkle",
+    category: "Sazonais & Festivos",
+    image: "prosecco-elderflower-sparkle",
+    ingredients: ["120ml de prosecco", "30ml de licor de elderflower (St-Germain)", "15ml de suco de limão siciliano", "Água com gás", "Flores comestíveis"],
+    steps: ["Adicione elderflower e limão na taça.", "Complete com prosecco.", "Finalize com um splash de água com gás.", "Decore com flores comestíveis.", "Sirva gelado."],
+    difficulty: "Fácil",
+    time: "3 min",
+    description: "Leve, floral e efervescente, este sparkle é perfeito para brindar o Ano Novo com elegância sem peso. As flores comestíveis criam um visual Instagram-worthy. Harmoniza com macarons e petits fours."
+  },
+  {
+    id: "fireworks-cocktail",
+    name: "Fireworks Cocktail",
+    category: "Sazonais & Festivos",
+    image: "fireworks-cocktail",
+    ingredients: ["45ml de vodka cítrica", "30ml de blue curaçao", "15ml de grenadine", "60ml de suco de limão", "Espumante", "Pop rocks comestíveis", "Glitter comestível"],
+    steps: ["Agite vodka, curaçao e limão com gelo.", "Adicione grenadine no fundo do copo.", "Coe a mistura azul por cima (cria camadas).", "Complete com espumante.", "Adicione pop rocks e glitter.", "A bebida 'explode' na boca como fogos."],
+    difficulty: "Médio",
+    time: "5 min",
+    description: "Drink sensorial que simula fogos de artifício: as camadas de cores (vermelho, azul, dourado) e os pop rocks que estalam na boca criam uma experiência única para a virada. Harmoniza com frutas cristalizadas."
+  },
+  {
+    id: "kir-royale-festivo",
+    name: "Kir Royale Festivo",
+    category: "Sazonais & Festivos",
+    image: "kir-royale-festivo",
+    ingredients: ["120ml de champagne brut", "20ml de crème de cassis", "15ml de licor de framboesa", "Framboesas frescas", "Folha de hortelã"],
+    steps: ["Adicione cassis e licor de framboesa na taça.", "Complete com champagne gelado.", "Decore com framboesas e hortelã.", "Sirva imediatamente."],
+    difficulty: "Fácil",
+    time: "3 min",
+    description: "Versão festiva do clássico Kir Royale, com camada extra de framboesa para maior complexidade. Criado na Borgonha francesa, é sinônimo de celebração e luxo. Harmoniza com patê de fígado e brioche."
+  },
+  {
+    id: "sparkling-pomegranate-punch",
+    name: "Sparkling Pomegranate Punch",
+    category: "Sazonais & Festivos",
+    image: "sparkling-pomegranate-punch",
+    ingredients: ["500ml de suco de romã", "250ml de vodka", "100ml de triple sec", "50ml de suco de limão", "Sementes de romã", "Espumante brut", "Alecrim"],
+    steps: ["Misture suco de romã, vodka, triple sec e limão.", "Adicione sementes de romã.", "Refrigere por 2 horas.", "Complete com espumante na hora de servir.", "Decore com ramos de alecrim."],
+    difficulty: "Fácil",
+    time: "10 min + 2h geladeira",
+    description: "A romã simboliza fertilidade e prosperidade em muitas culturas, tornando este punch perfeito para Ano Novo. A cor rubi profunda é deslumbrante sob as luzes festivas. Harmoniza com nozes e frutas secas."
+  },
+  {
+    id: "bellini-de-reveillon",
+    name: "Bellini de Réveillon",
+    category: "Sazonais & Festivos",
+    image: "bellini-de-reveillon",
+    ingredients: ["120ml de prosecco", "60ml de purê de pêssego branco", "15ml de licor de pêssego", "Glitter comestível dourado", "Fatia de pêssego"],
+    steps: ["Adicione purê e licor de pêssego na taça.", "Complete com prosecco gelado.", "Mexa delicadamente.", "Polvilhe glitter dourado.", "Decore com fatia de pêssego."],
+    difficulty: "Fácil",
+    time: "3 min",
+    description: "Versão glamourosa do Bellini veneziano para o Réveillon. O glitter dourado adiciona magia e luxo. Criado no Harry's Bar de Veneza, agora brilha nas festas de virada mundo afora. Harmoniza com prosciutto e melão."
+  },
+
+  // ===== CARNAVAL (26-40) =====
+  {
+    id: "caipirinha-de-carnaval",
+    name: "Caipirinha de Carnaval",
+    category: "Sazonais & Festivos",
+    image: "caipirinha-de-carnaval",
+    ingredients: ["60ml de cachaça", "1 limão cortado", "2 colheres de açúcar", "Purê de maracujá", "Glitter comestível colorido", "Gelo"],
+    steps: ["Macere limão com açúcar.", "Adicione cachaça e purê de maracujá.", "Complete com gelo.", "Polvilhe glitter comestível.", "Sirva com canudo colorido."],
+    difficulty: "Fácil",
+    time: "5 min",
+    description: "A caipirinha já é o drink do Brasil, mas no Carnaval ganha roupagem especial com maracujá e glitter. Servida nos blocos de rua, camarotes e festas. O maracujá adiciona tropicalidade. Harmoniza com petiscos de rua."
+  },
+  {
+    id: "batida-de-coco-carnaval",
+    name: "Batida de Coco Carnaval",
+    category: "Sazonais & Festivos",
+    image: "batida-de-coco-carnaval",
+    ingredients: ["60ml de cachaça", "100ml de leite de coco", "50ml de leite condensado", "Gelo", "Coco ralado para borda", "Cereja para decoração"],
+    steps: ["Bata cachaça, leite de coco e leite condensado com gelo.", "Passe mel na borda do copo e aplique coco ralado.", "Despeje a batida.", "Decore com cereja.", "Sirva gelada."],
+    difficulty: "Fácil",
+    time: "5 min",
+    description: "Clássica dos bares de praia e blocos de Carnaval, a batida de coco é doce, cremosa e perigosamente fácil de beber. Tradição carioca que se espalhou pelo mundo. Harmoniza com acarajé e petiscos baianos."
+  },
+  {
+    id: "hurricane-mardi-gras",
+    name: "Hurricane Mardi Gras",
+    category: "Sazonais & Festivos",
+    image: "hurricane-mardi-gras",
+    ingredients: ["60ml de rum escuro", "60ml de rum branco", "60ml de suco de maracujá", "30ml de suco de laranja", "15ml de grenadine", "15ml de suco de limão", "Fatia de laranja", "Cereja"],
+    steps: ["Agite todos os ingredientes com gelo.", "Coe para copo hurricane com gelo fresco.", "Decore com laranja e cereja.", "Sirva com canudo.", "Beba devagar — é mais forte do que parece!"],
+    difficulty: "Médio",
+    time: "5 min",
+    description: "Nascido no Pat O'Brien's Bar em Nova Orleans nos anos 1940, o Hurricane é O drink do Mardi Gras. Servido em copos enormes em formato de furacão, é tão forte quanto festivo. Harmoniza com cajun food e po'boys."
+  },
+  {
+    id: "sangria-tropical-carnaval",
+    name: "Sangria Tropical de Carnaval",
+    category: "Sazonais & Festivos",
+    image: "sangria-tropical-carnaval",
+    ingredients: ["750ml de vinho rosé", "100ml de cachaça", "50ml de licor de maracujá", "Manga em cubos", "Abacaxi em cubos", "Maracujá cortado", "200ml de água com gás", "Hortelã"],
+    steps: ["Corte as frutas tropicais e coloque na jarra.", "Adicione vinho rosé, cachaça e licor.", "Refrigere por 2 horas.", "Adicione água com gás e gelo.", "Decore com hortelã."],
+    difficulty: "Fácil",
+    time: "10 min + 2h geladeira",
+    description: "Sangria com alma brasileira para o Carnaval: rosé, frutas tropicais e cachaça. A combinação de manga, abacaxi e maracujá é pura festa. Servida em jarras coloridas. Harmoniza com churrasco e espetinhos."
+  },
+  {
+    id: "frozen-acai-daiquiri",
+    name: "Frozen Açaí Daiquiri",
+    category: "Sazonais & Festivos",
+    image: "frozen-acai-daiquiri",
+    ingredients: ["60ml de rum branco", "100g de polpa de açaí", "30ml de xarope simples", "22ml de suco de limão", "1 xícara de gelo", "Banana (opcional)", "Granola para decoração"],
+    steps: ["Bata rum, açaí, xarope, limão e gelo no liquidificador.", "Adicione banana se desejar mais cremosidade.", "Despeje em copo alto.", "Polvilhe granola por cima.", "Sirva com canudo grosso."],
+    difficulty: "Fácil",
+    time: "5 min",
+    description: "O açaí é paixão nacional brasileira, e este daiquiri frozen combina a energia do açaí com rum caribenho. Perfeito para curtir blocos de Carnaval sob o sol. A granola é o toque brasileiro. Harmoniza com tapioca."
+  },
+  {
+    id: "samba-sour",
+    name: "Samba Sour",
+    category: "Sazonais & Festivos",
+    image: "samba-sour",
+    ingredients: ["60ml de cachaça envelhecida", "30ml de suco de limão", "22ml de xarope de açúcar demerara", "1 clara de ovo", "3 dashes de Angostura", "Casca de limão"],
+    steps: ["Faça dry shake com cachaça, limão, xarope e clara.", "Adicione gelo e agite novamente.", "Coe para copo rocks.", "Adicione Angostura em gotas sobre a espuma.", "Desenhe um padrão com palito."],
+    difficulty: "Médio",
+    time: "5 min",
+    description: "Versão brasileira do Whiskey Sour, usando cachaça envelhecida. O nome homenageia o samba, ritmo do Carnaval. A espuma da clara cria a tela para arte em Angostura. Harmoniza com pastéis e coxinhas."
+  },
+  {
+    id: "mojito-tropical-carnaval",
+    name: "Mojito Tropical de Carnaval",
+    category: "Sazonais & Festivos",
+    image: "mojito-tropical-carnaval",
+    ingredients: ["60ml de rum branco", "30ml de suco de limão", "20ml de xarope simples", "8 folhas de hortelã", "Polpa de maracujá", "Água com gás", "Gelo"],
+    steps: ["Macere hortelã com xarope no copo.", "Adicione limão e rum.", "Complete com gelo e polpa de maracujá.", "Finalize com água com gás.", "Decore com hortelã e meio maracujá."],
+    difficulty: "Fácil",
+    time: "5 min",
+    description: "O mojito cubano ganha maracujá brasileiro para o Carnaval. A acidez do maracujá com a frescura da hortelã é combinação perfeita para o calor da folia. Harmoniza com empanadas e ceviche."
+  },
+  {
+    id: "tequila-sunrise-carnaval",
+    name: "Tequila Sunrise de Carnaval",
+    category: "Sazonais & Festivos",
+    image: "tequila-sunrise-carnaval",
+    ingredients: ["60ml de tequila", "120ml de suco de laranja", "15ml de grenadine", "15ml de blue curaçao", "Fatia de laranja", "Cereja"],
+    steps: ["Coloque gelo no copo alto.", "Adicione tequila e suco de laranja.", "Despeje grenadine (vai ao fundo).", "Adicione blue curaçao por cima.", "Decore com laranja e cereja — cores do arco-íris!"],
+    difficulty: "Fácil",
+    time: "5 min",
+    description: "Versão carnavalesca do Tequila Sunrise com blue curaçao criando um degradê de cores que vai do vermelho ao azul, passando pelo laranja. Festivo e Instagram-worthy. Harmoniza com nachos e guacamole."
+  },
+  {
+    id: "pina-colada-confetti",
+    name: "Piña Colada Confetti",
+    category: "Sazonais & Festivos",
+    image: "pina-colada-confetti",
+    ingredients: ["60ml de rum branco", "90ml de suco de abacaxi", "60ml de creme de coco", "1 xícara de gelo", "Confetes comestíveis", "Fatia de abacaxi"],
+    steps: ["Bata rum, suco, creme de coco e gelo no liquidificador.", "Despeje em copo hurricane ou copo alto.", "Polvilhe confetes comestíveis.", "Decore com fatia de abacaxi.", "Sirva com canudo colorido."],
+    difficulty: "Fácil",
+    time: "5 min",
+    description: "A Piña Colada porto-riquenha ganha confetes comestíveis para a festa de Carnaval. Cremosa, tropical e divertida. Os confetes flutuam criando um visual festivo único. Harmoniza com espetinhos de camarão."
+  },
+  {
+    id: "caipiroska-arco-iris",
+    name: "Caipiroska Arco-Íris",
+    category: "Sazonais & Festivos",
+    image: "caipiroska-arco-iris",
+    ingredients: ["60ml de vodka", "Morango", "Kiwi", "Manga", "Açúcar", "Gelo", "Blue curaçao"],
+    steps: ["Macere morango com açúcar no fundo.", "Adicione gelo e vodka.", "Coloque manga batida como segunda camada.", "Adicione kiwi batido como terceira.", "Finalize com um float de blue curaçao."],
+    difficulty: "Avançado",
+    time: "10 min",
+    description: "Caipiroska multicolorida com camadas de frutas que formam um arco-íris no copo. Visual espetacular que celebra a diversidade do Carnaval brasileiro. Cada gole é uma fruta diferente. Harmoniza com churros."
+  },
+  {
+    id: "abacaxi-com-hortela-smash",
+    name: "Abacaxi com Hortelã Smash",
+    category: "Sazonais & Festivos",
+    image: "abacaxi-com-hortela-smash",
+    ingredients: ["60ml de cachaça", "4 pedaços de abacaxi fresco", "8 folhas de hortelã", "15ml de xarope simples", "Gelo picado", "Hortelã para decoração"],
+    steps: ["Macere abacaxi e hortelã com xarope.", "Adicione cachaça.", "Complete com gelo picado.", "Mexa vigorosamente.", "Decore com hortelã e cubo de abacaxi."],
+    difficulty: "Fácil",
+    time: "5 min",
+    description: "Refrescante e tropical, este smash é perfeito para o calor do Carnaval. O abacaxi fresco macerado libera sucos que se unem à frescura da hortelã. Drink de rua por excelência. Harmoniza com queijo coalho grelhado."
+  },
+  {
+    id: "mango-chili-margarita-carnaval",
+    name: "Mango Chili Margarita de Carnaval",
+    category: "Sazonais & Festivos",
+    image: "mango-chili-margarita-carnaval",
+    ingredients: ["60ml de tequila", "45ml de polpa de manga", "22ml de suco de limão", "15ml de triple sec", "Pimenta dedo-de-moça", "Sal com chili para borda"],
+    steps: ["Prepare borda com sal e chili.", "Macere 2 fatias de pimenta na coqueteleira.", "Adicione tequila, manga, limão e triple sec.", "Agite com gelo.", "Coe para copo com borda preparada."],
+    difficulty: "Médio",
+    time: "5 min",
+    description: "A margarita ganha manga e pimenta brasileira para o Carnaval. O contraste doce-picante é viciante. A borda com chili adiciona calor a cada gole. Harmoniza com tacos e ceviche de manga."
+  },
+  {
+    id: "blue-lagoon-eletrico",
+    name: "Blue Lagoon Elétrico",
+    category: "Sazonais & Festivos",
+    image: "blue-lagoon-eletrico",
+    ingredients: ["45ml de vodka", "30ml de blue curaçao", "120ml de limonada", "15ml de xarope simples", "Tônica", "LED comestível ou glow stick (opcional)", "Gelo"],
+    steps: ["Coloque gelo no copo alto.", "Adicione vodka e blue curaçao.", "Complete com limonada.", "Finalize com um splash de tônica.", "Adicione glow stick para efeito neon."],
+    difficulty: "Fácil",
+    time: "5 min",
+    description: "O Blue Lagoon ganha efeito elétrico para os blocos noturnos de Carnaval. A cor azul vibrante brilha sob luz negra. A tônica adiciona fluorescência natural (quinina brilha sob UV). Harmoniza com petiscos leves."
+  },
+  {
+    id: "rum-punch-carnaval",
+    name: "Rum Punch de Carnaval",
+    category: "Sazonais & Festivos",
+    image: "rum-punch-carnaval",
+    ingredients: ["60ml de rum escuro", "30ml de rum de coco", "90ml de suco de abacaxi", "60ml de suco de laranja", "30ml de grenadine", "Frutas tropicais", "Noz-moscada"],
+    steps: ["Misture todos os rums e sucos em copo hurricane.", "Adicione grenadine por último.", "Coloque gelo.", "Decore com frutas tropicais.", "Polvilhe noz-moscada."],
+    difficulty: "Fácil",
+    time: "5 min",
+    description: "Punch caribenho que é a bebida oficial de muitos carnavais das ilhas do Caribe. A regra é 'one of sour, two of sweet, three of strong, four of weak'. Harmoniza com jerk chicken e arroz com feijão."
+  },
+  {
+    id: "espumante-com-acerola",
+    name: "Espumante com Acerola",
+    category: "Sazonais & Festivos",
+    image: "espumante-com-acerola",
+    ingredients: ["120ml de espumante brut", "30ml de polpa de acerola", "15ml de licor de laranja", "Acerolas frescas", "Hortelã"],
+    steps: ["Adicione polpa de acerola e licor na taça.", "Complete com espumante gelado.", "Decore com acerolas e hortelã.", "Sirva imediatamente."],
+    difficulty: "Fácil",
+    time: "3 min",
+    description: "Combinação brasileiríssima de espumante com acerola, perfeita para o Carnaval nos camarotes VIP. A acerola é rica em vitamina C — ideal para a maratona carnavalesca. Harmoniza com frutas tropicais e petiscos."
+  },
+
+  // ===== SÃO JOÃO / FESTA JUNINA (41-50) =====
+  {
+    id: "quentao-tradicional",
+    name: "Quentão Tradicional",
+    category: "Sazonais & Festivos",
+    image: "quentao-tradicional",
+    ingredients: ["500ml de cachaça", "300ml de água", "200g de açúcar", "Casca de 1 laranja", "Casca de 1 limão", "3 paus de canela", "5 cravos", "3 fatias de gengibre"],
+    steps: ["Aqueça água com açúcar e especiarias.", "Ferva por 5 minutos.", "Adicione a cachaça (fora do fogo).", "Volte ao fogo baixo por 3 minutos (sem ferver).", "Sirva quente em canecas."],
+    difficulty: "Fácil",
+    time: "15 min",
+    description: "O quentão é a alma das festas juninas brasileiras. Servido em canecas de barro ao redor da fogueira, seu aroma de canela e gengibre perfuma o arraial inteiro. Harmoniza com canjica, paçoca e pé-de-moleque."
+  },
+  {
+    id: "vinho-quente-junino",
+    name: "Vinho Quente Junino",
+    category: "Sazonais & Festivos",
+    image: "vinho-quente-junino",
+    ingredients: ["750ml de vinho tinto suave", "200g de açúcar", "3 paus de canela", "5 cravos", "Casca de laranja", "1 maçã fatiada", "Gengibre fresco"],
+    steps: ["Coloque vinho, açúcar e especiarias em panela.", "Aqueça em fogo baixo (nunca ferva).", "Adicione maçã e gengibre.", "Deixe por 10 minutos infusionando.", "Coe e sirva quente."],
+    difficulty: "Fácil",
+    time: "15 min",
+    description: "Alternativa ao quentão para quem prefere vinho, o vinho quente é tradição nas festas juninas do Sul e Sudeste do Brasil. A maçã adiciona doçura natural. Harmoniza com pipoca, curau e bolo de milho."
+  },
+  {
+    id: "licor-de-amendoim",
+    name: "Licor de Amendoim Junino",
+    category: "Sazonais & Festivos",
+    image: "licor-de-amendoim",
+    ingredients: ["200g de amendoim torrado", "400ml de cachaça", "1 lata de leite condensado", "200ml de leite", "Canela em pó", "Amendoim triturado para decoração"],
+    steps: ["Bata amendoim, leite e leite condensado no liquidificador.", "Coe em peneira fina.", "Adicione a cachaça.", "Refrigere por 24 horas.", "Sirva gelado em copinhos com canela."],
+    difficulty: "Médio",
+    time: "15 min + 24h geladeira",
+    description: "Licor artesanal típico das festas juninas, com sabor de paçoca líquida. Cada família do Nordeste tem sua receita secreta. Servido em copinhos de dose nas barraquinhas. Harmoniza com paçoca, pé-de-moleque e cocada."
+  },
+  {
+    id: "batida-de-milho-verde",
+    name: "Batida de Milho Verde",
+    category: "Sazonais & Festivos",
+    image: "batida-de-milho-verde",
+    ingredients: ["60ml de cachaça", "200ml de milho verde cozido", "100ml de leite condensado", "50ml de leite de coco", "Gelo", "Canela em pó"],
+    steps: ["Bata milho cozido, leite condensado e leite de coco.", "Coe para remover os pedaços maiores.", "Adicione cachaça e gelo.", "Bata novamente.", "Sirva com canela polvilhada."],
+    difficulty: "Médio",
+    time: "10 min",
+    description: "O milho é o ingrediente rei das festas juninas, e esta batida transforma o curau em drink. Cremosa e com sabor de roça, é festa junina líquida. Harmoniza com bolo de milho, pamonha e canjica."
+  },
+  {
+    id: "caipirinha-de-gengibre-e-canela",
+    name: "Caipirinha de Gengibre e Canela",
+    category: "Sazonais & Festivos",
+    image: "caipirinha-de-gengibre-e-canela",
+    ingredients: ["60ml de cachaça", "3 fatias de gengibre fresco", "1 limão", "2 colheres de açúcar demerara", "1 pau de canela", "Gelo"],
+    steps: ["Macere gengibre, limão e açúcar.", "Adicione cachaça.", "Coloque gelo e pau de canela.", "Mexa bem.", "Sirva com canela no copo."],
+    difficulty: "Fácil",
+    time: "5 min",
+    description: "Caipirinha com as especiarias do quentão, servida gelada. Perfeita para as festas juninas de cidades quentes onde quentão é impraticável. O gengibre dá ardência e a canela, aroma. Harmoniza com espetinho de carne."
+  },
+  {
+    id: "ponche-junino-sem-alcool",
+    name: "Ponche Junino (Sem Álcool)",
+    category: "Sazonais & Festivos",
+    image: "ponche-junino-sem-alcool",
+    ingredients: ["500ml de suco de uva integral", "300ml de suco de maçã", "2 paus de canela", "5 cravos", "Casca de laranja", "Gengibre fatiado", "Maçãs fatiadas"],
+    steps: ["Aqueça sucos com especiarias em fogo baixo.", "Adicione maçãs fatiadas.", "Deixe infusionar por 10 minutos.", "Sirva quente em canecas.", "Decore com pau de canela."],
+    difficulty: "Fácil",
+    time: "15 min",
+    description: "Versão sem álcool do quentão para crianças e abstêmios nas festas juninas. O suco de uva integral dá corpo e cor semelhantes ao vinho quente. Harmoniza com todos os doces juninos."
+  },
+  {
+    id: "cachaca-com-mel-e-limao",
+    name: "Cachaça com Mel e Limão Junina",
+    category: "Sazonais & Festivos",
+    image: "cachaca-com-mel-e-limao",
+    ingredients: ["60ml de cachaça artesanal", "30ml de mel de abelha", "22ml de suco de limão", "Gengibre fresco ralado", "Gelo ou quente"],
+    steps: ["Dissolva mel em um pouco de água morna.", "Adicione cachaça e limão.", "Acrescente gengibre ralado.", "Sirva quente no inverno ou com gelo no verão.", "Decore com rodela de limão."],
+    difficulty: "Fácil",
+    time: "5 min",
+    description: "Receita de interior, passada de geração em geração nas fazendas do Brasil. O mel de abelha artesanal com cachaça de alambique é combinação ancestral. Servida ao redor da fogueira. Harmoniza com queijo coalho."
+  },
+  {
+    id: "drink-pe-de-moleque",
+    name: "Drink Pé-de-Moleque",
+    category: "Sazonais & Festivos",
+    image: "drink-pe-de-moleque",
+    ingredients: ["60ml de cachaça envelhecida", "30ml de licor de amendoim (Frangelico)", "15ml de xarope de rapadura", "Amendoim triturado para borda", "Rapadura ralada", "Gelo"],
+    steps: ["Passe mel na borda e aplique amendoim triturado.", "Agite cachaça, Frangelico e xarope com gelo.", "Coe para copo rocks.", "Rale rapadura por cima.", "Sirva."],
+    difficulty: "Médio",
+    time: "5 min",
+    description: "Homenagem ao doce mais icônico das festas juninas, transformado em cocktail. O Frangelico traz notas de avelã que simulam o amendoim, e a rapadura dá o toque de açúcar caramelizado. Harmoniza com paçoca e cocada."
+  },
+  {
+    id: "licor-de-jabuticaba-junino",
+    name: "Licor de Jabuticaba Junino",
+    category: "Sazonais & Festivos",
+    image: "licor-de-jabuticaba-junino",
+    ingredients: ["500g de jabuticaba", "500ml de cachaça", "300g de açúcar", "200ml de água", "Cravo e canela"],
+    steps: ["Macere jabuticabas com cachaça por 7 dias.", "Faça calda com açúcar e água.", "Coe a infusão.", "Misture com a calda fria.", "Engarrafe e deixe maturar 15 dias."],
+    difficulty: "Avançado",
+    time: "30 min + 22 dias maturação",
+    description: "Licor artesanal de jabuticaba, fruta genuinamente brasileira. Produzido nas fazendas de Minas Gerais e servido nas festas juninas como digestivo. A maturação de 22 dias é essencial. Harmoniza com queijo minas e goiabada."
+  },
+  {
+    id: "cafe-com-cachaca-na-fogueira",
+    name: "Café com Cachaça na Fogueira",
+    category: "Sazonais & Festivos",
+    image: "cafe-com-cachaca-na-fogueira",
+    ingredients: ["200ml de café coado forte", "60ml de cachaça envelhecida", "1 colher de açúcar mascavo", "Canela em pau", "Cravo", "Chantilly (opcional)"],
+    steps: ["Prepare café forte e quente.", "Adicione açúcar e especiarias.", "Despeje a cachaça.", "Mexa com pau de canela.", "Finalize com chantilly se desejar."],
+    difficulty: "Fácil",
+    time: "5 min",
+    description: "Combinação clássica do interior do Brasil: café forte com cachaça envelhecida ao redor da fogueira de São João. O açúcar mascavo adiciona notas de caramelo. Harmoniza com bolo de fubá e broa de milho."
+  },
+
+  // ===== HALLOWEEN (51-60) =====
+  {
+    id: "zombie-cocktail",
+    name: "Zombie Cocktail",
+    category: "Sazonais & Festivos",
+    image: "zombie-cocktail",
+    ingredients: ["30ml de rum branco", "30ml de rum dourado", "30ml de rum escuro", "30ml de suco de abacaxi", "15ml de suco de limão", "15ml de suco de papaya", "15ml de grenadine", "Overproof rum para flambar"],
+    steps: ["Agite todos os rums e sucos com gelo.", "Coe para copo tiki ou collins.", "Adicione gelo picado.", "Flambe overproof rum e despeje por cima.", "Decore com hortelã e cereja."],
+    difficulty: "Avançado",
+    time: "10 min",
+    description: "Criado por Donn Beach em 1934, o Zombie era tão forte que havia limite de dois por pessoa. Com três tipos de rum, é o drink perfeito para Halloween. O nome 'zumbi' veio do efeito nos clientes. Harmoniza com finger foods assustadores."
+  },
+  {
+    id: "black-widow-martini",
+    name: "Black Widow Martini",
+    category: "Sazonais & Festivos",
+    image: "black-widow-martini",
+    ingredients: ["60ml de vodka", "30ml de licor de amora", "15ml de crème de cassis", "Suco de meio limão", "Corante preto comestível", "Teia de açúcar para decoração"],
+    steps: ["Agite vodka, licor, cassis e limão com gelo.", "Adicione 1 gota de corante preto.", "Coe para taça martini.", "Crie uma teia de açúcar e apoie sobre a taça.", "Sirva com efeito dramático."],
+    difficulty: "Avançado",
+    time: "10 min",
+    description: "Martini sombrio inspirado na viúva-negra, perfeito para festas de Halloween sofisticadas. A cor negra é conseguida com corante ativado por carvão vegetal. A teia de açúcar é pura arte bartender. Harmoniza com brownies escuros."
+  },
+  {
+    id: "vampires-kiss",
+    name: "Vampire's Kiss",
+    category: "Sazonais & Festivos",
+    image: "vampires-kiss",
+    ingredients: ["45ml de vodka", "30ml de licor de framboesa", "15ml de crème de cassis", "30ml de suco de cranberry", "Xarope de morango (para 'sangue')", "Gelo seco (para fumaça)"],
+    steps: ["Pinte o interior do copo com xarope (efeito sangue escorrendo).", "Agite vodka, licor, cassis e cranberry com gelo.", "Coe para o copo preparado.", "Adicione um pedaço de gelo seco.", "Sirva com a fumaça saindo do copo."],
+    difficulty: "Médio",
+    time: "5 min",
+    description: "Drink teatral para Halloween com efeito de sangue escorrendo e fumaça de gelo seco. O sabor é na verdade delicioso — frutas vermelhas e vodka. O visual é que assusta. Harmoniza com cupcakes decorados de Halloween."
+  },
+  {
+    id: "witchs-brew-punch",
+    name: "Witch's Brew Punch",
+    category: "Sazonais & Festivos",
+    image: "witchs-brew-punch",
+    ingredients: ["500ml de suco de maçã verde", "200ml de vodka", "100ml de Midori (licor de melão)", "100ml de suco de limão", "Gelo seco", "Gummy worms (minhocas de gelatina)", "Corante verde"],
+    steps: ["Misture suco, vodka, Midori e limão na poncheira.", "Adicione corante verde para intensificar.", "Coloque gummy worms.", "Adicione gelo seco na hora dos convidados.", "A poção fumega e borbulha!"],
+    difficulty: "Fácil",
+    time: "10 min",
+    description: "Ponche verde fumegante que parece poção de bruxa. O gelo seco cria bolhas e fumaça espetaculares. As minhocas de gelatina flutuam de forma assustadora. Hit de toda festa de Halloween. Harmoniza com doces temáticos."
+  },
+  {
+    id: "poison-apple-cocktail",
+    name: "Poison Apple Cocktail",
+    category: "Sazonais & Festivos",
+    image: "poison-apple-cocktail",
+    ingredients: ["60ml de vodka de maçã verde", "30ml de licor de maçã (Sour Apple Pucker)", "15ml de grenadine", "Suco de maçã", "Maçã fatiada", "Caramelo líquido"],
+    steps: ["Regue o interior do copo com caramelo.", "Agite vodka, licor, grenadine e suco de maçã.", "Coe para o copo.", "Decore com fatia de maçã vermelha.", "O caramelo cria 'veias' dramáticas."],
+    difficulty: "Médio",
+    time: "5 min",
+    description: "Inspirado na maçã envenenada da Branca de Neve, este cocktail tem visual assustador mas sabor irresistível. O caramelo escorrendo pelo copo simula veneno. Sucesso em festas de Halloween. Harmoniza com maçãs caramelizadas."
+  },
+  {
+    id: "frankenstein-shots",
+    name: "Frankenstein Shots",
+    category: "Sazonais & Festivos",
+    image: "frankenstein-shots",
+    ingredients: ["30ml de Midori", "15ml de Jägermeister", "15ml de creme de leite", "Corante verde", "Chocolate para decoração (olhos)"],
+    steps: ["Derreta chocolate e desenhe olhos no copo de shot.", "Deixe secar.", "Misture Midori e Jägermeister.", "Despeje no copo.", "Finalize com creme flutuando."],
+    difficulty: "Médio",
+    time: "10 min",
+    description: "Shots verdes com 'olhos' de chocolate que imitam o monstro de Frankenstein. Divertidos e deliciosos, são hit das festas de Halloween. O contraste do Jäger com Midori surpreende. Harmoniza com doces de Halloween."
+  },
+  {
+    id: "bloody-brain-shot",
+    name: "Bloody Brain Shot",
+    category: "Sazonais & Festivos",
+    image: "bloody-brain-shot",
+    ingredients: ["30ml de licor de pêssego", "15ml de Baileys", "Gotas de grenadine"],
+    steps: ["Despeje o licor de pêssego no copo de shot.", "Adicione Baileys lentamente (coagula formando 'cérebro').", "Pingueje grenadine que desce em 'veias'.", "Sirva sem mexer.", "O visual é assustador — o sabor, delicioso."],
+    difficulty: "Fácil",
+    time: "3 min",
+    description: "Shot clássico de Halloween onde o Baileys coagula com a acidez do licor, formando textura de cérebro. A grenadine escorre como sangue. Visual nojento, sabor incrível. Harmoniza com finger foods de Halloween."
+  },
+  {
+    id: "ghost-white-margarita",
+    name: "Ghost White Margarita",
+    category: "Sazonais & Festivos",
+    image: "ghost-white-margarita",
+    ingredients: ["60ml de tequila silver", "30ml de triple sec", "30ml de suco de limão", "15ml de leite de coco", "Sal branco para borda", "Coco ralado"],
+    steps: ["Prepare borda com sal e coco ralado.", "Agite tequila, triple sec, limão e leite de coco.", "Coe para copo com borda preparada.", "A cor branca leitosa é fantasmagórica.", "Sirva gelado."],
+    difficulty: "Fácil",
+    time: "5 min",
+    description: "Margarita branca como um fantasma, com leite de coco que cria a opacidade espectral. A borda de coco e sal é a assinatura. Perfeita para festas de Halloween elegantes. Harmoniza com nachos com guacamole branca."
+  },
+  {
+    id: "pumpkin-spice-espresso-martini",
+    name: "Pumpkin Spice Espresso Martini",
+    category: "Sazonais & Festivos",
+    image: "pumpkin-spice-espresso-martini",
+    ingredients: ["45ml de vodka", "30ml de Kahlúa", "30ml de espresso forte", "15ml de xarope de abóbora", "Pitada de pumpkin spice", "Grãos de café"],
+    steps: ["Agite vodka, Kahlúa, espresso e xarope vigorosamente.", "Coe para taça martini gelada.", "Polvilhe pumpkin spice.", "Decore com 3 grãos de café.", "Sirva imediatamente."],
+    difficulty: "Médio",
+    time: "5 min",
+    description: "O Pumpkin Spice Latte encontra o Espresso Martini neste crossover de outono e Halloween. A abóbora e as especiarias criam um perfil de sabor acolhedor. Perfeito para outubro. Harmoniza com torta de abóbora."
+  },
+  {
+    id: "cauldron-bubble-cocktail",
+    name: "Cauldron Bubble Cocktail",
+    category: "Sazonais & Festivos",
+    image: "cauldron-bubble-cocktail",
+    ingredients: ["45ml de rum escuro", "30ml de licor de maçã", "60ml de sidra de maçã", "15ml de xarope de canela", "Gelo seco", "Maçã fatiada"],
+    steps: ["Misture rum, licor, sidra e xarope.", "Despeje em copo (ou caldeirão miniatura).", "Adicione gelo seco na hora de servir.", "A bebida borbulha como caldeirão de bruxa.", "Decore com maçã."],
+    difficulty: "Fácil",
+    time: "5 min",
+    description: "Servido em mini caldeirões, este drink borbulha com gelo seco criando efeito de poção mágica. O sabor de maçã e canela é outonal e reconfortante. Visual espetacular para festas temáticas. Harmoniza com doces de Halloween."
+  },
+
+  // ===== PÁSCOA (61-68) =====
+  {
+    id: "chocolate-easter-martini",
+    name: "Chocolate Easter Martini",
+    category: "Sazonais & Festivos",
+    image: "chocolate-easter-martini",
+    ingredients: ["45ml de vodka", "30ml de licor de cacau escuro", "30ml de Baileys", "15ml de creme de leite", "Ovo de chocolate miniatura", "Cacau em pó"],
+    steps: ["Agite vodka, cacau, Baileys e creme com gelo.", "Coe para taça martini gelada.", "Polvilhe cacau.", "Apoie ovo de chocolate na borda.", "Sirva como drink de Páscoa."],
+    difficulty: "Fácil",
+    time: "5 min",
+    description: "A Páscoa em forma de martini: chocolate, cremosidade e um ovo de chocolate miniatura como decoração. Indulgente e festivo, é perfeito para o brunch de Páscoa. Harmoniza com colomba pascal e ovos de Páscoa."
+  },
+  {
+    id: "peach-blossom-spring",
+    name: "Peach Blossom Spring Cocktail",
+    category: "Sazonais & Festivos",
+    image: "peach-blossom-spring",
+    ingredients: ["45ml de gin", "30ml de licor de pêssego", "15ml de suco de limão siciliano", "15ml de xarope de elderflower", "Espumante rosé", "Flores comestíveis"],
+    steps: ["Agite gin, licor, limão e elderflower.", "Coe para taça coupe.", "Complete com espumante rosé.", "Decore com flores comestíveis.", "Sirva como drink de primavera."],
+    difficulty: "Médio",
+    time: "5 min",
+    description: "Cocktail floral e delicado que celebra a primavera e a Páscoa. O pêssego e elderflower evocam flores desabrochando. As flores comestíveis são o toque final. Harmoniza com saladas frescas e tartes de frutas."
+  },
+  {
+    id: "cadbury-cream-shot",
+    name: "Cadbury Cream Egg Shot",
+    category: "Sazonais & Festivos",
+    image: "cadbury-cream-shot",
+    ingredients: ["30ml de licor de chocolate", "15ml de Advocaat (licor de ovo)", "15ml de creme de leite", "Chocolate derretido para borda", "Confeitos coloridos"],
+    steps: ["Decore a borda do copo com chocolate derretido e confeitos.", "Agite licor, Advocaat e creme.", "Coe para o copo decorado.", "O resultado é um 'ovo de Páscoa líquido'.", "Sirva gelado."],
+    difficulty: "Fácil",
+    time: "5 min",
+    description: "Shot que replica o sabor do icônico ovo de chocolate Cadbury Cream Egg. O Advocaat dá a cor e cremosidade do 'recheio' do ovo. Hit da Páscoa na Inglaterra e EUA. Harmoniza com brownies e hot cross buns."
+  },
+  {
+    id: "lavender-lemon-fizz-pascoa",
+    name: "Lavender Lemon Fizz de Páscoa",
+    category: "Sazonais & Festivos",
+    image: "lavender-lemon-fizz-pascoa",
+    ingredients: ["45ml de gin", "22ml de suco de limão siciliano", "20ml de xarope de lavanda", "Clara de ovo", "Água com gás", "Ramo de lavanda"],
+    steps: ["Dry shake gin, limão, xarope e clara.", "Adicione gelo e agite novamente.", "Coe para copo alto.", "Complete com água com gás.", "Decore com ramo de lavanda."],
+    difficulty: "Médio",
+    time: "5 min",
+    description: "A lavanda é flor da primavera e combina perfeitamente com a Páscoa. Este fizz é floral, leve e com espuma sedosa da clara. A cor lilás é encantadora. Harmoniza com macarons e ovos de Páscoa artesanais."
+  },
+  {
+    id: "carrot-cake-cocktail",
+    name: "Carrot Cake Cocktail",
+    category: "Sazonais & Festivos",
+    image: "carrot-cake-cocktail",
+    ingredients: ["45ml de rum especiado", "30ml de licor de baunilha", "60ml de suco de cenoura", "15ml de xarope de canela", "Creme de leite", "Canela e noz-moscada"],
+    steps: ["Agite rum, licor, suco de cenoura e xarope.", "Coe para copo rocks com gelo.", "Flutuação de creme.", "Polvilhe canela e noz-moscada.", "Sirva — sabor de bolo de cenoura líquido!"],
+    difficulty: "Médio",
+    time: "5 min",
+    description: "Bolo de cenoura em forma de cocktail, perfeito para a Páscoa (coelhos adoram cenoura!). O suco de cenoura natural com rum especiado cria um perfil de sabor surpreendente. Harmoniza com bolo de cenoura real."
+  },
+  {
+    id: "hot-cross-bun-cocktail",
+    name: "Hot Cross Bun Cocktail",
+    category: "Sazonais & Festivos",
+    image: "hot-cross-bun-cocktail",
+    ingredients: ["60ml de rum especiado", "15ml de licor de laranja", "30ml de suco de laranja", "15ml de xarope de especiarias (canela, noz-moscada, cravo)", "Passas embebidas em rum", "Casca de laranja"],
+    steps: ["Agite rum, licor, suco e xarope com gelo.", "Coe para copo rocks.", "Decore com passas embebidas.", "Adicione casca de laranja.", "As especiarias replicam o sabor do pão."],
+    difficulty: "Médio",
+    time: "5 min",
+    description: "Inspirado no pão doce tradicional da Sexta-Feira Santa britânica (Hot Cross Buns), com especiarias, frutas secas e laranja. O rum especiado é a base perfeita. Harmoniza com hot cross buns reais."
+  },
+  {
+    id: "mimosa-de-maracuja-pascoa",
+    name: "Mimosa de Maracujá de Páscoa",
+    category: "Sazonais & Festivos",
+    image: "mimosa-de-maracuja-pascoa",
+    ingredients: ["120ml de espumante brut", "60ml de suco de maracujá", "15ml de licor de pêssego", "Sementes de maracujá", "Hortelã"],
+    steps: ["Adicione suco de maracujá e licor na taça flute.", "Complete com espumante gelado.", "Adicione sementes de maracujá.", "Decore com hortelã.", "Sirva no brunch de Páscoa."],
+    difficulty: "Fácil",
+    time: "3 min",
+    description: "Mimosa tropical perfeita para o brunch de Páscoa. O maracujá adiciona acidez e exotismo ao clássico brunch cocktail. As sementes flutuantes são visualmente lindas. Harmoniza com ovos benedict e tortas."
+  },
+  {
+    id: "bailey-egg-cream-cocktail",
+    name: "Bailey's Egg Cream Cocktail",
+    category: "Sazonais & Festivos",
+    image: "bailey-egg-cream-cocktail",
+    ingredients: ["60ml de Baileys", "30ml de vodka de baunilha", "30ml de creme de leite", "15ml de xarope de chocolate", "Mini ovos de chocolate", "Chantilly"],
+    steps: ["Agite Baileys, vodka e creme com gelo.", "Coe para taça.", "Regue com xarope de chocolate.", "Finalize com chantilly.", "Decore com mini ovos."],
+    difficulty: "Fácil",
+    time: "5 min",
+    description: "Cocktail indulgente de Páscoa que combina Baileys com chocolate e baunilha. Os mini ovos de chocolate são a decoração perfeita para a temporada. Cremoso e reconfortante. Harmoniza com pavlova de frutas."
+  },
+
+  // ===== DIA DOS NAMORADOS (69-78) =====
+  {
+    id: "love-potion-cocktail",
+    name: "Love Potion Cocktail",
+    category: "Sazonais & Festivos",
+    image: "love-potion-cocktail",
+    ingredients: ["45ml de vodka", "30ml de licor de framboesa (Chambord)", "30ml de suco de cranberry", "15ml de suco de limão", "Espumante rosé", "Framboesas em formato de coração"],
+    steps: ["Agite vodka, Chambord, cranberry e limão.", "Coe para taça coupe.", "Complete com espumante rosé.", "Decore com framboesas.", "Sirva com amor."],
+    difficulty: "Fácil",
+    time: "5 min",
+    description: "Poção do amor em forma de cocktail: a cor rosa vibrante, o sabor de frutas vermelhas e as bolhas do espumante criam uma experiência romântica. Perfeito para jantares a dois. Harmoniza com morangos com chocolate."
+  },
+  {
+    id: "strawberry-champagne-valentines",
+    name: "Strawberry Champagne Valentine",
+    category: "Sazonais & Festivos",
+    image: "strawberry-champagne-valentines",
+    ingredients: ["120ml de champagne rosé", "3 morangos", "15ml de licor de morango", "15ml de xarope de rosas", "Pétalas de rosa comestíveis"],
+    steps: ["Macere 2 morangos levemente na taça.", "Adicione licor e xarope.", "Complete com champagne rosé.", "Decore com morango inteiro e pétalas.", "Sirva com carinho."],
+    difficulty: "Fácil",
+    time: "3 min",
+    description: "Champagne rosé com morangos frescos e pétalas de rosa: mais romântico impossível. O xarope de rosas adiciona sofisticação floral. Visual deslumbrante para o Dia dos Namorados. Harmoniza com trufas e bombons."
+  },
+  {
+    id: "passion-fruit-sour-romantico",
+    name: "Passion Fruit Sour Romântico",
+    category: "Sazonais & Festivos",
+    image: "passion-fruit-sour-romantico",
+    ingredients: ["60ml de vodka", "45ml de polpa de maracujá", "22ml de suco de limão", "15ml de xarope de baunilha", "1 clara de ovo", "Meio maracujá"],
+    steps: ["Dry shake todos os ingredientes.", "Adicione gelo e agite vigorosamente.", "Coe para taça coupe.", "Decore com meio maracujá.", "Sirva com declaração de amor."],
+    difficulty: "Médio",
+    time: "5 min",
+    description: "O maracujá é a fruta da paixão — nome perfeito para o Dia dos Namorados. A espuma da clara cria textura sedosa, e a baunilha adiciona sensualidade. Harmoniza com sobremesas de chocolate."
+  },
+  {
+    id: "chocolate-covered-strawberry-martini",
+    name: "Chocolate Covered Strawberry Martini",
+    category: "Sazonais & Festivos",
+    image: "chocolate-covered-strawberry-martini",
+    ingredients: ["45ml de vodka", "30ml de licor de cacau", "30ml de licor de morango", "15ml de creme de leite", "Morango coberto com chocolate", "Calda de chocolate"],
+    steps: ["Decore a taça com calda de chocolate.", "Agite vodka, licores e creme com gelo.", "Coe para taça.", "Decore com morango coberto de chocolate.", "Sirva — puro romance."],
+    difficulty: "Médio",
+    time: "5 min",
+    description: "Morango coberto com chocolate transformado em martini. O clássico presente do Dia dos Namorados agora é bebível. O contraste doce-achocolatado é irresistível. Harmoniza com fondue de chocolate."
+  },
+  {
+    id: "rose-gin-fizz-valentines",
+    name: "Rose Gin Fizz Valentine's",
+    category: "Sazonais & Festivos",
+    image: "rose-gin-fizz-valentines",
+    ingredients: ["45ml de gin", "22ml de suco de limão siciliano", "20ml de xarope de rosas", "15ml de licor de lichia", "Clara de ovo", "Água com gás", "Pétalas de rosa"],
+    steps: ["Dry shake gin, limão, xarope, lichia e clara.", "Adicione gelo e agite.", "Coe para copo alto.", "Complete com água com gás.", "Decore com pétalas de rosa."],
+    difficulty: "Médio",
+    time: "5 min",
+    description: "Gin fizz floral com rosas e lichia, combinação romântica que encanta todos os sentidos. A espuma rosada e as pétalas flutuantes criam magia visual. Harmoniza com macaron de rosas e chocolate branco."
+  },
+  {
+    id: "red-velvet-cocktail",
+    name: "Red Velvet Cocktail",
+    category: "Sazonais & Festivos",
+    image: "red-velvet-cocktail",
+    ingredients: ["45ml de vodka", "30ml de licor de cacau", "30ml de Baileys", "15ml de grenadine", "Creme chantilly", "Raspas de chocolate", "Corante vermelho"],
+    steps: ["Agite vodka, cacau, Baileys e grenadine com gelo.", "Adicione 1 gota de corante vermelho.", "Coe para taça.", "Finalize com chantilly.", "Decore com raspas de chocolate."],
+    difficulty: "Fácil",
+    time: "5 min",
+    description: "Inspirado no bolo Red Velvet, este cocktail combina chocolate, baunilha e a icônica cor vermelha. Cremoso e indulgente, é o drink perfeito para o jantar do Dia dos Namorados. Harmoniza com bolo Red Velvet."
+  },
+  {
+    id: "aphrodite-elixir",
+    name: "Aphrodite Elixir",
+    category: "Sazonais & Festivos",
+    image: "aphrodite-elixir",
+    ingredients: ["45ml de gin", "30ml de licor de elderflower", "15ml de suco de romã", "15ml de suco de limão siciliano", "Água de rosas", "Sementes de romã", "Espumante"],
+    steps: ["Agite gin, elderflower, romã e limão.", "Coe para taça coupe.", "Adicione 2 gotas de água de rosas.", "Complete com espumante.", "Decore com sementes de romã."],
+    difficulty: "Médio",
+    time: "5 min",
+    description: "Batizado em homenagem à deusa grega do amor, com romã (símbolo de fertilidade) e rosas (símbolo de amor). Floral, frutado e efervescente. Harmoniza com sobremesas leves e queijos macios."
+  },
+  {
+    id: "cupids-arrow-shot",
+    name: "Cupid's Arrow Shot",
+    category: "Sazonais & Festivos",
+    image: "cupids-arrow-shot",
+    ingredients: ["20ml de vodka de morango", "20ml de licor de pêssego", "10ml de grenadine", "Chantilly", "Sprinkles vermelhos em forma de coração"],
+    steps: ["Despeje grenadine no fundo do copo de shot.", "Adicione licor de pêssego lentamente.", "Finalize com vodka de morango.", "Coloque chantilly no topo.", "Polvilhe sprinkles de coração."],
+    difficulty: "Fácil",
+    time: "3 min",
+    description: "Shot em camadas vermelha e rosa com sprinkles de coração — feito para ser compartilhado a dois no Dia dos Namorados. Doce e fácil de beber. O chantilly é a 'nuvem' do Cupido. Harmoniza com bombons."
+  },
+  {
+    id: "velvet-kiss-cocktail",
+    name: "Velvet Kiss Cocktail",
+    category: "Sazonais & Festivos",
+    image: "velvet-kiss-cocktail",
+    ingredients: ["45ml de gin", "30ml de licor de framboesa", "30ml de suco de abacaxi", "15ml de creme de leite fresco", "Framboesas", "Ouro comestível"],
+    steps: ["Agite gin, licor, suco e creme com gelo.", "Coe para taça coupe.", "Decore com framboesas.", "Polvilhe ouro comestível.", "Sirva como beijo aveludado."],
+    difficulty: "Médio",
+    time: "5 min",
+    description: "Cocktail aveludado com textura sedosa do creme e framboesa. O ouro comestível adiciona luxo. Suave e sofisticado como um beijo. Harmoniza com sorvete de baunilha e frutas vermelhas."
+  },
+  {
+    id: "lovers-espresso-martini",
+    name: "Lover's Espresso Martini",
+    category: "Sazonais & Festivos",
+    image: "lovers-espresso-martini",
+    ingredients: ["45ml de vodka de baunilha", "30ml de Kahlúa", "30ml de espresso", "15ml de licor de framboesa", "Grãos de café cobertos de chocolate", "Pétalas de rosa secas"],
+    steps: ["Agite vodka, Kahlúa, espresso e licor.", "Coe para taça martini.", "Decore com grãos de café e pétalas.", "Sirva como drink de date night."],
+    difficulty: "Médio",
+    time: "5 min",
+    description: "Espresso Martini com toque de framboesa para um date night perfeito. O café energiza enquanto o Chambord adiciona romance. Pétalas de rosa secas são o toque final. Harmoniza com tiramisu."
+  },
+
+  // ===== VERÃO (79-88) =====
+  {
+    id: "watermelon-sugar-highball",
+    name: "Watermelon Sugar Highball",
+    category: "Sazonais & Festivos",
+    image: "watermelon-sugar-highball",
+    ingredients: ["60ml de vodka", "100ml de suco de melancia fresco", "15ml de suco de limão", "15ml de xarope simples", "Água com gás", "Fatia de melancia", "Sal em flocos"],
+    steps: ["Agite vodka, suco de melancia, limão e xarope.", "Coe para copo alto com gelo.", "Complete com água com gás.", "Decore com fatia de melancia.", "Finalize com flocos de sal."],
+    difficulty: "Fácil",
+    time: "5 min",
+    description: "Drink de verão por excelência, com melancia fresca que é 92% água — hidratação com estilo. O sal em flocos potencializa a doçura natural. Perfeito para pool parties e praias. Harmoniza com saladas frescas e frutos do mar."
+  },
+  {
+    id: "coconut-mojito-de-verao",
+    name: "Coconut Mojito de Verão",
+    category: "Sazonais & Festivos",
+    image: "coconut-mojito-de-verao",
+    ingredients: ["60ml de rum de coco", "30ml de suco de limão", "20ml de xarope simples", "8 folhas de hortelã", "Água de coco", "Leite de coco", "Coco em lascas"],
+    steps: ["Macere hortelã com xarope.", "Adicione rum e limão.", "Complete com água de coco e gelo.", "Adicione um splash de leite de coco.", "Decore com lascas de coco e hortelã."],
+    difficulty: "Fácil",
+    time: "5 min",
+    description: "Mojito tropical com coco triplo (rum, água e leite de coco) para o verão. A água de coco hidrata enquanto o rum diverte. Sabor de praia paradisíaca em cada gole. Harmoniza com ceviche e peixe grelhado."
+  },
+  {
+    id: "aperol-spritz-de-verao",
+    name: "Aperol Spritz de Verão",
+    category: "Sazonais & Festivos",
+    image: "aperol-spritz-de-verao",
+    ingredients: ["60ml de Aperol", "90ml de prosecco", "30ml de água com gás", "Fatia de laranja", "Azeitona verde", "Gelo"],
+    steps: ["Coloque gelo em taça de vinho grande.", "Adicione prosecco primeiro.", "Despeje o Aperol.", "Complete com água com gás.", "Decore com laranja e azeitona."],
+    difficulty: "Fácil",
+    time: "3 min",
+    description: "O Aperol Spritz se tornou O drink de verão nos últimos anos, nascido em Veneza e conquistando o mundo. A cor laranja vibrante é sinônimo de pôr-do-sol italiano. Harmoniza com antipasti, bruschettas e petiscos mediterrâneos."
+  },
+  {
+    id: "frozen-rose-frose",
+    name: "Frosé (Frozen Rosé)",
+    category: "Sazonais & Festivos",
+    image: "frozen-rose-frose",
+    ingredients: ["750ml de vinho rosé seco", "100ml de xarope simples", "60ml de suco de limão", "200g de morangos congelados", "Gelo"],
+    steps: ["Congele o rosé em forma por 6 horas (não sólido).", "Bata o rosé granulado com morangos, xarope e limão.", "A textura deve ser de slushie.", "Sirva em taça sem haste.", "Beba rápido — derrete!"],
+    difficulty: "Médio",
+    time: "10 min + 6h freezer",
+    description: "O Frosé explodiu em 2016 e nunca mais saiu de moda. Rosé congelado em textura de slushie é o drink mais Instagram do verão. Refrescante, rosado e fotogênico. Harmoniza com saladas, tartes e frutos do mar leves."
+  },
+  {
+    id: "mango-tango-daiquiri",
+    name: "Mango Tango Daiquiri",
+    category: "Sazonais & Festivos",
+    image: "mango-tango-daiquiri",
+    ingredients: ["60ml de rum branco", "100ml de polpa de manga", "22ml de suco de limão", "15ml de licor de pêssego", "15ml de xarope simples", "Gelo", "Fatia de manga"],
+    steps: ["Bata todos os ingredientes com gelo.", "Despeje em copo hurricane.", "Decore com fatia de manga.", "Sirva com canudo.", "Dance um tango tropical."],
+    difficulty: "Fácil",
+    time: "5 min",
+    description: "Daiquiri de manga vibrante para dias quentes de verão. A manga é a fruta tropical por excelência, e com rum cria um duo caribenho irresistível. Perfeito para festas na piscina. Harmoniza com tacos de peixe."
+  },
+  {
+    id: "sangria-branca-verao",
+    name: "Sangria Branca de Verão",
+    category: "Sazonais & Festivos",
+    image: "sangria-branca-verao",
+    ingredients: ["750ml de vinho branco seco", "100ml de licor de pêssego", "50ml de vodka", "2 pêssegos fatiados", "1 maçã verde fatiada", "Uvas verdes", "Hortelã", "300ml de água com gás"],
+    steps: ["Corte as frutas e coloque na jarra.", "Adicione vinho, licor e vodka.", "Refrigere por 3 horas.", "Adicione água com gás e hortelã.", "Sirva com muito gelo."],
+    difficulty: "Fácil",
+    time: "10 min + 3h geladeira",
+    description: "Sangria branca leve e refrescante, perfeita para tardes quentes de verão. O vinho branco seco não pesa, e os pêssegos dão doçura natural. Servida em jarras transparentes mostrando as frutas. Harmoniza com frutos do mar e queijos."
+  },
+  {
+    id: "pineapple-basil-smash",
+    name: "Pineapple Basil Smash de Verão",
+    category: "Sazonais & Festivos",
+    image: "pineapple-basil-smash",
+    ingredients: ["60ml de gin", "45ml de suco de abacaxi fresco", "22ml de suco de limão", "15ml de xarope simples", "6 folhas de manjericão", "Gelo"],
+    steps: ["Macere manjericão na coqueteleira.", "Adicione gin, abacaxi, limão e xarope.", "Agite com gelo.", "Coe duplo para copo rocks.", "Decore com folha de manjericão."],
+    difficulty: "Médio",
+    time: "5 min",
+    description: "O manjericão e abacaxi criam uma combinação herbácea-tropical surpreendente. Refrescante e aromático, é o drink que surpreende em churrascos de verão. Harmoniza com bruschetta, carpaccio e saladas."
+  },
+  {
+    id: "tequila-paloma-verao",
+    name: "Paloma de Verão",
+    category: "Sazonais & Festivos",
+    image: "tequila-paloma-verao",
+    ingredients: ["60ml de tequila reposado", "90ml de suco de grapefruit rosa", "15ml de suco de limão", "15ml de xarope de agave", "Água com gás", "Sal para borda", "Fatia de grapefruit"],
+    steps: ["Prepare borda com sal.", "Adicione tequila, grapefruit, limão e agave.", "Complete com gelo.", "Finalize com água com gás.", "Decore com fatia de grapefruit."],
+    difficulty: "Fácil",
+    time: "5 min",
+    description: "A Paloma é mais popular que a Margarita no México e ganha força mundial a cada verão. O grapefruit rosa é refrescante e levemente amargo. Perfeito para tardes ao ar livre. Harmoniza com tacos al pastor e guacamole."
+  },
+  {
+    id: "limoncello-spritz-verao",
+    name: "Limoncello Spritz de Verão",
+    category: "Sazonais & Festivos",
+    image: "limoncello-spritz-verao",
+    ingredients: ["60ml de limoncello", "90ml de prosecco", "30ml de água com gás", "Ramo de alecrim", "Fatia de limão siciliano", "Gelo"],
+    steps: ["Coloque gelo em taça de vinho.", "Adicione limoncello.", "Complete com prosecco.", "Finalize com água com gás.", "Decore com alecrim e limão."],
+    difficulty: "Fácil",
+    time: "3 min",
+    description: "Direto da Costa Amalfitana, o Limoncello Spritz é verão italiano em uma taça. O limoncello caseiro feito com limões sicilianos é incomparável. Leve, cítrico e refrescante. Harmoniza com frutos do mar grelhados e massas leves."
+  },
+  {
+    id: "acai-berry-vodka-crush",
+    name: "Açaí Berry Vodka Crush",
+    category: "Sazonais & Festivos",
+    image: "acai-berry-vodka-crush",
+    ingredients: ["60ml de vodka", "60ml de polpa de açaí", "30ml de licor de framboesa", "15ml de suco de limão", "15ml de xarope simples", "Gelo picado", "Frutas vermelhas"],
+    steps: ["Bata vodka, açaí, licor, limão e xarope com gelo.", "Despeje em copo alto.", "Decore com frutas vermelhas.", "Sirva com canudo.", "Energia e refrescância para o verão."],
+    difficulty: "Fácil",
+    time: "5 min",
+    description: "Açaí encontra vodka neste crush energizante perfeito para o verão brasileiro. As frutas vermelhas adicionam complexidade ao açaí. Drink de praia premium. Harmoniza com açaí na tigela e petiscos leves."
+  },
+
+  // ===== INVERNO (89-95) =====
+  {
+    id: "irish-coffee-invernal",
+    name: "Irish Coffee Invernal",
+    category: "Sazonais & Festivos",
+    image: "irish-coffee-invernal",
+    ingredients: ["45ml de whiskey irlandês", "200ml de café forte quente", "1 colher de açúcar mascavo", "Creme de leite fresco batido", "Noz-moscada"],
+    steps: ["Aqueça a caneca com água quente.", "Adicione açúcar e café quente, mexa.", "Despeje whiskey.", "Flutue creme batido por cima (não misture).", "Polvilhe noz-moscada."],
+    difficulty: "Fácil",
+    time: "5 min",
+    description: "Criado em 1943 por Joe Sheridan no aeroporto de Foynes, Irlanda, para aquecer viajantes. O segredo é beber o café quente através do creme frio. Ritual de inverno por excelência. Harmoniza com tortas e biscoitos amanteigados."
+  },
+  {
+    id: "hot-toddy-classico",
+    name: "Hot Toddy Clássico",
+    category: "Sazonais & Festivos",
+    image: "hot-toddy-classico",
+    ingredients: ["60ml de whiskey (bourbon ou scotch)", "200ml de água quente", "1 colher de mel", "15ml de suco de limão", "1 pau de canela", "3 cravos", "Fatia de limão"],
+    steps: ["Aqueça a caneca.", "Adicione mel e suco de limão.", "Despeje o whiskey.", "Complete com água quente.", "Adicione canela, cravos e limão."],
+    difficulty: "Fácil",
+    time: "5 min",
+    description: "O Hot Toddy é o remédio universal para noites frias desde o século XVIII na Escócia. Mel e limão acalmam, whiskey aquece. Simples e reconfortante. Harmoniza com sopas, queijos e pães artesanais."
+  },
+  {
+    id: "chocolate-quente-spiked",
+    name: "Chocolate Quente Spiked",
+    category: "Sazonais & Festivos",
+    image: "chocolate-quente-spiked",
+    ingredients: ["250ml de leite integral", "30g de chocolate amargo", "45ml de Baileys", "15ml de Kahlúa", "Chantilly", "Marshmallows", "Cacau em pó"],
+    steps: ["Aqueça leite e derreta chocolate mexendo.", "Retire do fogo.", "Adicione Baileys e Kahlúa.", "Despeje na caneca.", "Finalize com chantilly e marshmallows."],
+    difficulty: "Fácil",
+    time: "10 min",
+    description: "Chocolate quente adulto com Baileys e Kahlúa, o abraço líquido perfeito para noites de inverno. O chocolate amargo equilibra a doçura dos licores. Harmoniza com churros, cookies e bolos."
+  },
+  {
+    id: "apple-cinnamon-bourbon-smash",
+    name: "Apple Cinnamon Bourbon Smash",
+    category: "Sazonais & Festivos",
+    image: "apple-cinnamon-bourbon-smash",
+    ingredients: ["60ml de bourbon", "45ml de sidra de maçã", "15ml de xarope de canela", "15ml de suco de limão", "Fatia de maçã", "Pau de canela"],
+    steps: ["Agite bourbon, sidra, xarope e limão com gelo.", "Coe para copo rocks com gelo.", "Decore com fatia de maçã e canela.", "Sirva como drink de outono/inverno."],
+    difficulty: "Fácil",
+    time: "5 min",
+    description: "Bourbon com maçã e canela é a combinação perfeita para os meses frios. A sidra de maçã adiciona doçura natural e acidez. Drink de cabana e lareira. Harmoniza com torta de maçã e queijos curados."
+  },
+  {
+    id: "chai-latte-cocktail",
+    name: "Chai Latte Cocktail",
+    category: "Sazonais & Festivos",
+    image: "chai-latte-cocktail",
+    ingredients: ["45ml de rum especiado", "30ml de licor de baunilha", "150ml de chá chai concentrado", "30ml de leite vaporizado", "Canela em pó", "Anis-estrelado"],
+    steps: ["Prepare chá chai forte e deixe esfriar levemente.", "Adicione rum e licor.", "Finalize com leite vaporizado.", "Polvilhe canela.", "Decore com anis-estrelado."],
+    difficulty: "Médio",
+    time: "10 min",
+    description: "Chai Latte com rum especiado: as especiarias do chai (cardamomo, canela, gengibre) harmonizam naturalmente com o rum. Quente e reconfortante para tardes de inverno. Harmoniza com cookies de especiarias e scones."
+  },
+  {
+    id: "vin-brule-italiano",
+    name: "Vin Brûlé Italiano",
+    category: "Sazonais & Festivos",
+    image: "vin-brule-italiano",
+    ingredients: ["750ml de vinho tinto encorpado", "100g de açúcar", "Casca de 1 laranja", "Casca de 1 limão", "3 paus de canela", "5 cravos", "2 anis-estrelado", "1 pitada de noz-moscada"],
+    steps: ["Coloque vinho e açúcar em panela.", "Adicione todas as especiarias e cascas.", "Aqueça em fogo baixo por 15 minutos.", "Nunca deixe ferver.", "Coe e sirva em canecas quentes."],
+    difficulty: "Fácil",
+    time: "20 min",
+    description: "Versão italiana do vinho quente, servido nos mercados de Natal do norte da Itália (Trentino-Alto Adige). Mais especiado e intenso que o glühwein alemão. Harmoniza com panettone, castanhas assadas e queijos alpinos."
+  },
+  {
+    id: "salted-caramel-whiskey-sour",
+    name: "Salted Caramel Whiskey Sour",
+    category: "Sazonais & Festivos",
+    image: "salted-caramel-whiskey-sour",
+    ingredients: ["60ml de bourbon", "22ml de suco de limão", "20ml de xarope de caramelo salgado", "1 clara de ovo", "Caramelo líquido", "Flor de sal"],
+    steps: ["Dry shake bourbon, limão, xarope e clara.", "Adicione gelo e agite novamente.", "Coe para copo rocks.", "Regue com fio de caramelo.", "Finalize com flor de sal."],
+    difficulty: "Médio",
+    time: "5 min",
+    description: "Whiskey Sour com caramelo salgado: a combinação doce-salgada é viciante e perfeita para noites frias. A espuma da clara contrasta com o fio de caramelo. Drink de inverno premium. Harmoniza com crème brûlée e chocolate."
+  },
+
+  // ===== DATAS ESPECIAIS (96-100) =====
+  {
+    id: "mimosa-dia-das-maes",
+    name: "Mimosa Especial Dia das Mães",
+    category: "Sazonais & Festivos",
+    image: "mimosa-dia-das-maes",
+    ingredients: ["120ml de espumante brut", "45ml de suco de laranja fresco", "15ml de licor de pêssego", "Morango inteiro", "Flores comestíveis"],
+    steps: ["Adicione licor de pêssego na taça flute.", "Despeje suco de laranja.", "Complete com espumante gelado.", "Decore com morango e flores.", "Sirva com amor no brunch."],
+    difficulty: "Fácil",
+    time: "3 min",
+    description: "Mimosa especial para o brunch do Dia das Mães, com toque de pêssego e flores comestíveis que homenageiam a beleza materna. Elegante e acessível. Harmoniza com waffles, croissants e frutas frescas."
+  },
+  {
+    id: "cerveja-amanteigada-halloween",
+    name: "Cerveja Amanteigada (Butterbeer)",
+    category: "Sazonais & Festivos",
+    image: "cerveja-amanteigada-halloween",
+    ingredients: ["300ml de cream soda", "30ml de xarope de butterscotch", "15ml de rum de coco", "30ml de creme de leite batido", "Caramelo líquido", "Canela em pó"],
+    steps: ["Misture cream soda com xarope de butterscotch.", "Adicione rum.", "Despeje em caneca de vidro.", "Flutue creme batido por cima.", "Regue com caramelo e canela."],
+    difficulty: "Fácil",
+    time: "5 min",
+    description: "Inspirado no mundo mágico de Harry Potter, a Butterbeer virou hit real em festas de Halloween e eventos geek. A cream soda com butterscotch cria o sabor nostálgico. Harmoniza com doces, caramelos e pipoca."
+  },
+  {
+    id: "thanksgiving-cranberry-bourbon",
+    name: "Thanksgiving Cranberry Bourbon",
+    category: "Sazonais & Festivos",
+    image: "thanksgiving-cranberry-bourbon",
+    ingredients: ["60ml de bourbon", "45ml de suco de cranberry", "15ml de xarope de maple", "15ml de suco de limão", "Cranberries frescas", "Ramo de tomilho"],
+    steps: ["Agite bourbon, cranberry, maple e limão com gelo.", "Coe para copo rocks.", "Decore com cranberries e tomilho.", "Sirva como drink de Ação de Graças."],
+    difficulty: "Fácil",
+    time: "5 min",
+    description: "O cranberry é o sabor de Thanksgiving, e o maple syrup adiciona a doçura americana. Bourbon é o destilado patriótico por excelência. Juntos, são a essência da celebração. Harmoniza com peru, purê e torta de abóbora."
+  },
+  {
+    id: "spark-independence-day",
+    name: "Independence Day Sparkler",
+    category: "Sazonais & Festivos",
+    image: "spark-independence-day",
+    ingredients: ["30ml de grenadine", "45ml de vodka com blue curaçao", "Limonada", "Chantilly branco", "Sprinkles azuis e vermelhos"],
+    steps: ["Despeje grenadine no fundo (camada vermelha).", "Adicione gelo.", "Misture vodka com blue curaçao e despeje (camada azul).", "Complete com limonada (camada branca).", "Finalize com chantilly e sprinkles."],
+    difficulty: "Médio",
+    time: "5 min",
+    description: "Drink em três camadas (vermelho, branco e azul) para celebrar datas patrióticas. Cada camada tem sabor diferente criando um degradê festivo. Visual perfeito para festas temáticas. Harmoniza com churrasco americano e apple pie."
+  },
+  {
+    id: "midnight-new-year-sparkler",
+    name: "Midnight Sparkler de Réveillon",
+    category: "Sazonais & Festivos",
+    image: "midnight-new-year-sparkler",
+    ingredients: ["120ml de champagne brut", "15ml de vodka de baunilha", "15ml de licor de maçã verde", "Maçã verde fatiada em estrela", "Glitter comestível prateado", "Sparkler comestível"],
+    steps: ["Adicione vodka e licor na taça flute.", "Complete com champagne.", "Adicione glitter comestível.", "Corte maçã verde em formato de estrela.", "Acenda sparkler na hora da contagem regressiva!"],
+    difficulty: "Fácil",
+    time: "3 min",
+    description: "O drink definitivo para a contagem regressiva do Ano Novo: com sparkler (vela de fogos) comestível que acende à meia-noite. O glitter prateado brilha à luz dos fogos de artifício. Harmoniza com petiscos premium e frutas."
+  },
+];

@@ -1059,6 +1059,35 @@ const cafeImages = [
   vipCafe97, vipCafe98, vipCafe99, vipCafe100,
 ];
 
+// Seasonal & Festive images
+import vipSeasonal1 from "@/assets/vip-seasonal-1.jpg";
+import vipSeasonal2 from "@/assets/vip-seasonal-2.jpg";
+import vipSeasonal3 from "@/assets/vip-seasonal-3.jpg";
+import vipSeasonal4 from "@/assets/vip-seasonal-4.jpg";
+import vipSeasonal5 from "@/assets/vip-seasonal-5.jpg";
+import vipSeasonal6 from "@/assets/vip-seasonal-6.jpg";
+import vipSeasonal7 from "@/assets/vip-seasonal-7.jpg";
+import vipSeasonal8 from "@/assets/vip-seasonal-8.jpg";
+import vipSeasonal9 from "@/assets/vip-seasonal-9.jpg";
+import vipSeasonal10 from "@/assets/vip-seasonal-10.jpg";
+import vipSeasonal11 from "@/assets/vip-seasonal-11.jpg";
+import vipSeasonal12 from "@/assets/vip-seasonal-12.jpg";
+import vipSeasonal13 from "@/assets/vip-seasonal-13.jpg";
+import vipSeasonal14 from "@/assets/vip-seasonal-14.jpg";
+import vipSeasonal15 from "@/assets/vip-seasonal-15.jpg";
+import vipSeasonal16 from "@/assets/vip-seasonal-16.jpg";
+import vipSeasonal17 from "@/assets/vip-seasonal-17.jpg";
+import vipSeasonal18 from "@/assets/vip-seasonal-18.jpg";
+import vipSeasonal19 from "@/assets/vip-seasonal-19.jpg";
+import vipSeasonal20 from "@/assets/vip-seasonal-20.jpg";
+
+const seasonalImages: string[] = [
+  vipSeasonal1, vipSeasonal2, vipSeasonal3, vipSeasonal4, vipSeasonal5,
+  vipSeasonal6, vipSeasonal7, vipSeasonal8, vipSeasonal9, vipSeasonal10,
+  vipSeasonal11, vipSeasonal12, vipSeasonal13, vipSeasonal14, vipSeasonal15,
+  vipSeasonal16, vipSeasonal17, vipSeasonal18, vipSeasonal19, vipSeasonal20,
+];
+
 const categoryImagePools: Record<string, string[]> = {
   "Vinho & Sangrias": wineImages,
   "Cerveja & Beer Cocktails": beerImages,
@@ -1069,6 +1098,7 @@ const categoryImagePools: Record<string, string[]> = {
   "Low ABV & Wellness": lowAbvImages,
   "Drinks de Autor": autorImages,
   "Café & Dessert Cocktails": cafeImages,
+  "Sazonais & Festivos": seasonalImages,
 };
 
 const categoryHeroBanners: Record<string, string> = {
@@ -1081,6 +1111,7 @@ const categoryHeroBanners: Record<string, string> = {
   "low-abv-wellness": vipHeroLowAbv,
   "drinks-autor": vipHeroAutor,
   "cafe-dessert-cocktails": vipHeroCafe,
+  "sazonais-festivos": vipSeasonal1,
 };
 
 // Simple hash to get consistent image for each drink
