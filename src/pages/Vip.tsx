@@ -90,7 +90,7 @@ const vipCategories = [
     name: "Volta ao Mundo",
     icon: Globe,
     description: "Drinks típicos de cada país: Japão, Peru, Cuba, Itália...",
-    color: "from-sky-400 to-indigo-600",
+    color: "from-cyan-400 to-blue-600",
   },
 ];
 

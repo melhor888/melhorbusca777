@@ -79,7 +79,7 @@ const vipCategories = [
   { name: "Drinks de Autor", icon: Martini, color: "from-violet-500 to-purple-700" },
   { name: "Picantes & Defumados", icon: Flame, color: "from-orange-500 to-red-600" },
   { name: "Sobremesa & Doces", icon: IceCream, color: "from-pink-400 to-fuchsia-600" },
-  { name: "Volta ao Mundo", icon: Globe, color: "from-sky-400 to-indigo-600" },
+  { name: "Volta ao Mundo", icon: Globe, color: "from-cyan-400 to-blue-600" },
   { name: "Masterclass", icon: Trophy, color: "from-yellow-500 to-amber-700" },
 ];
 
