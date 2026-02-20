@@ -38,7 +38,7 @@ export default function VipTrialBanner() {
         <strong>{minutes}:{seconds.toString().padStart(2, "0")}</strong>
       </span>
       <Link
-        to="/quero-ser-vip"
+        to="/queroservip"
         className="ml-2 bg-black text-amber-400 px-3 py-1 rounded-full text-xs font-bold hover:bg-black/80 transition-colors inline-flex items-center gap-1"
       >
         <Crown className="w-3 h-3" />
