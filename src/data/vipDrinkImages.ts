@@ -113,6 +113,7 @@ const dedicatedImages: Record<string, string> = {
   "poinsettia-cocktail": "/images/vip-seasonal-70.jpg",
   "champagne-cocktail-classico-reveillon": "/images/vip-seasonal-71.jpg",
   "gold-rush-ano-novo": "/images/vip-seasonal-72.jpg",
+  "watermelon-sugar-highball": "/images/vip-seasonal-73.jpg",
 };
 
 // Simple hash to get consistent image for each drink
