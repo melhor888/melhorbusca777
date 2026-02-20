@@ -74,7 +74,7 @@ export default function VipCategoryPage() {
       </Helmet>
       <div className="min-h-screen pb-24">
         {/* Hero Banner - Netflix-style carousel for Vinho & Sangrias */}
-        {slug === "vinho-sangrias" && drinks.length > 0 && (
+        {(slug === "vinho-sangrias" || slug === "cerveja-beer-cocktails") && drinks.length > 0 && (
           <div className="relative">
             <VipHeroBanner drinks={drinks} count={8} />
             <button
@@ -96,7 +96,7 @@ export default function VipCategoryPage() {
         )}
 
         {/* Static Hero Banner for other categories */}
-        {slug !== "vinho-sangrias" && heroImage && (
+        {slug !== "vinho-sangrias" && slug !== "cerveja-beer-cocktails" && heroImage && (
           <div className="relative -mx-0 mb-6 overflow-hidden">
             <img
               src={heroImage}
@@ -123,7 +123,7 @@ export default function VipCategoryPage() {
         )}
 
         {/* Fallback header if no hero */}
-        {slug !== "vinho-sangrias" && !heroImage && (
+        {slug !== "vinho-sangrias" && slug !== "cerveja-beer-cocktails" && !heroImage && (
           <div className="pt-4 px-4 lg:px-6 mb-6">
             <div className="flex items-center gap-3">
               <button
