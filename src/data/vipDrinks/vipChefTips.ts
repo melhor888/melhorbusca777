@@ -1154,7 +1154,7 @@ export const vipChefTips: Record<string, VipChefTip> = {
   "bancha-tequila-sunrise": { glass: "Copo alto (400ml)", serve: "Efeito sunrise com chá.", tip: "Bancha: colheita tardia, menos cafeína." },
   "green-tea-caipirinha": { glass: "Copo rocks (300ml)", serve: "Folha de chá verde.", tip: "Fusão Liberdade (SP). Cachaça artesanal." },
   "matcha-colada": { glass: "Copo alto (400ml)", serve: "Coco tostado.", tip: "Cor verde hipnotizante. Leite de coco integral." },
-  "earl-grey-martini": { glass: "Taça martini gelada (200ml)", serve: "Casca de limão.", tip: "Earl Grey MarTEAni de Audrey Saunders. Infusione 2h." },
+  "earl-grey-martini-tea": { glass: "Taça martini gelada (200ml)", serve: "Casca de limão.", tip: "Earl Grey MarTEAni de Audrey Saunders. Infusione 2h." },
   "chai-old-fashioned": { glass: "Copo rocks (300ml)", serve: "Canela + anis-estrelado.", tip: "Chai masala: cada wallah tem receita secreta." },
   "english-breakfast-bloody-mary": { glass: "Copo alto (400ml)", serve: "Bacon + aipo.", tip: "Infusione vodka com English Breakfast 3h." },
   "darjeeling-champagne-cocktail": { glass: "Taça flute (180ml)", serve: "Aroma muscatel.", tip: "Darjeeling first flush: champagne dos chás." },
