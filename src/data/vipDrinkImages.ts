@@ -10,7 +10,7 @@ const vipImageNumbers: Record<string, number[]> = {
   tiki: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 25],
   classico: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 37, 71, 89],
   classic: [18],
-  lowabv: Array.from({ length: 50 }, (_, i) => i + 1),
+  lowabv: Array.from({ length: 100 }, (_, i) => i + 1),
   autor: Array.from({ length: 50 }, (_, i) => i + 1),
   cafe: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 34, 39],
   seasonal: Array.from({ length: 50 }, (_, i) => i + 1),
