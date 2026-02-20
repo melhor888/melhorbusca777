@@ -69,10 +69,10 @@ export const sobremesaDoces: VipDrink[] = [
     description: "Inspirado no famoso bombom After Eight (Nestlé, 1962). A combinação menta-chocolate é atemporal. Perfeito como after-dinner drink. Harmoniza com trufas de menta e sorvete de chocolate."
   },
   {
-    id: "chocolate-orange-negroni",
+    id: "chocolate-orange-negroni-dessert",
     name: "Chocolate Orange Negroni",
     category: "Sobremesa & Doces",
-    image: "chocolate-orange-negroni",
+    image: "chocolate-orange-negroni-dessert",
     ingredients: ["30ml de gin", "30ml de Campari", "30ml de vermouth rosso", "15ml de licor de cacau", "Casca de laranja caramelizada"],
     steps: ["Combine todos no mixing glass com gelo.", "Mexa por 30 segundos.", "Coe para rocks com gelo grande.", "Flambe a casca de laranja.", "Decore com raspas de chocolate."],
     difficulty: "Médio",
@@ -203,10 +203,10 @@ export const sobremesaDoces: VipDrink[] = [
     description: "Butterscotch: manteiga e açúcar mascavo caramelizados — uma das confeitarias mais antigas da Inglaterra. O bourbon com notas de baunilha harmoniza naturalmente. Harmoniza com pudim de pão e queijos."
   },
   {
-    id: "creme-brulee-cocktail",
+    id: "creme-brulee-cocktail-dessert",
     name: "Crème Brûlée Cocktail",
     category: "Sobremesa & Doces",
-    image: "creme-brulee-cocktail",
+    image: "creme-brulee-cocktail-dessert",
     ingredients: ["45ml de vodka de baunilha", "30ml de Baileys", "30ml de creme de leite", "15ml de xarope de caramelo", "Açúcar demerara", "Maçarico"],
     steps: ["Agite vodka, Baileys e creme com gelo.", "Coe para taça coupé.", "Polvilhe açúcar demerara na espuma.", "Maçarique o açúcar até caramelizar.", "Sirva com crosta dourada."],
     difficulty: "Avançado",
@@ -214,10 +214,10 @@ export const sobremesaDoces: VipDrink[] = [
     description: "A sobremesa francesa mais famosa em forma de cocktail. O maçarico cria a crosta craquelante icônica sobre a espuma. Inventada nos anos 1690 na corte francesa. Harmoniza com madeleines e champagne."
   },
   {
-    id: "toffee-apple-cocktail",
+    id: "toffee-apple-cocktail-dessert",
     name: "Toffee Apple Cocktail",
     category: "Sobremesa & Doces",
-    image: "toffee-apple-cocktail",
+    image: "toffee-apple-cocktail-dessert",
     ingredients: ["45ml de vodka de maçã", "30ml de licor de toffee", "100ml de suco de maçã", "15ml de xarope de canela", "Fatia de maçã caramelizada"],
     steps: ["Agite todos com gelo.", "Coe para copo alto com gelo.", "Decore com maçã caramelizada.", "Adicione canela em pau.", "Drizzle de caramelo."],
     difficulty: "Fácil",
@@ -247,10 +247,10 @@ export const sobremesaDoces: VipDrink[] = [
     description: "Honeycomb (favo de mel caramelizado crocante) é tendência na confeitaria moderna. O mel natural traz complexidade floral ao bourbon. O favo decorativo é comestível. Harmoniza com queijos e frutas."
   },
   {
-    id: "caramel-popcorn-cocktail",
+    id: "caramel-popcorn-cocktail-dessert",
     name: "Caramel Popcorn Cocktail",
     category: "Sobremesa & Doces",
-    image: "caramel-popcorn-cocktail",
+    image: "caramel-popcorn-cocktail-dessert",
     ingredients: ["45ml de bourbon infusionado com pipoca", "30ml de licor de caramelo", "15ml de xarope de baunilha", "Pipoca caramelizada para decoração", "Flor de sal"],
     steps: ["Infusione bourbon com pipoca por 2h.", "Coe e agite com licor e xarope.", "Sirva em rocks com gelo grande.", "Decore com pipoca caramelizada.", "Finalize com flor de sal."],
     difficulty: "Avançado",
@@ -291,10 +291,10 @@ export const sobremesaDoces: VipDrink[] = [
     description: "Panna Cotta (creme cozido) é a sobremesa piemontesa mais elegante. A baunilha é inegociável. O coulis de framboesa cria contraste visual e gustativo. Harmoniza com frutas frescas e biscoitos."
   },
   {
-    id: "churros-cocktail",
+    id: "churros-cocktail-dessert",
     name: "Churros Cocktail",
     category: "Sobremesa & Doces",
-    image: "churros-cocktail",
+    image: "churros-cocktail-dessert",
     ingredients: ["45ml de rum especiado", "30ml de licor de canela (Fireball)", "30ml de Baileys", "15ml de calda de chocolate", "Açúcar e canela para borda", "Mini churro"],
     steps: ["Faça borda com açúcar e canela.", "Agite rum, licor e Baileys com gelo.", "Coe para o copo decorado.", "Drizzle de chocolate.", "Decore com mini churro."],
     difficulty: "Médio",
@@ -337,10 +337,10 @@ export const sobremesaDoces: VipDrink[] = [
     description: "Cheesecake de morango é a sobremesa americana por excelência, nascida em Nova York. A textura cremosa do drink simula o filling. Graham cracker na borda é a base. Harmoniza com cheesecake real."
   },
   {
-    id: "lemon-meringue-cocktail",
+    id: "lemon-meringue-cocktail-dessert",
     name: "Lemon Meringue Cocktail",
     category: "Sobremesa & Doces",
-    image: "lemon-meringue-cocktail",
+    image: "lemon-meringue-cocktail-dessert",
     ingredients: ["45ml de limoncello", "30ml de vodka", "30ml de suco de limão siciliano", "15ml de xarope simples", "1 clara de ovo", "Merengue maçaricado"],
     steps: ["Dry shake sem gelo primeiro.", "Adicione gelo e agite novamente.", "Coe para taça coupé.", "Coloque merengue no topo.", "Maçarique o merengue."],
     difficulty: "Avançado",
@@ -370,10 +370,10 @@ export const sobremesaDoces: VipDrink[] = [
     description: "Key Lime Pie: sobremesa icônica da Flórida, especificamente das Florida Keys. O limão key é menor e mais aromático. Drink rápido para festas. Harmoniza com frutos do mar e ceviche."
   },
   {
-    id: "mango-lassi-cocktail",
+    id: "mango-lassi-cocktail-dessert",
     name: "Mango Lassi Cocktail",
     category: "Sobremesa & Doces",
-    image: "mango-lassi-cocktail",
+    image: "mango-lassi-cocktail-dessert",
     ingredients: ["45ml de rum branco", "100ml de iogurte natural", "60ml de polpa de manga", "15ml de xarope de cardamomo", "Pistache triturado"],
     steps: ["Bata rum, iogurte e manga no blender.", "Adicione cardamomo e gelo.", "Bata até ficar cremoso.", "Sirva em copo alto.", "Decore com pistache e manga."],
     difficulty: "Fácil",
@@ -381,10 +381,10 @@ export const sobremesaDoces: VipDrink[] = [
     description: "Lassi: bebida milenar indiana à base de iogurte. A manga Alphonso é a rainha das mangas. Cardamomo é a especiaria sagrada. Rum branco não compete com os sabores. Harmoniza com curry e naan."
   },
   {
-    id: "pavlova-cocktail",
+    id: "pavlova-cocktail-dessert",
     name: "Pavlova Cocktail",
     category: "Sobremesa & Doces",
-    image: "pavlova-cocktail",
+    image: "pavlova-cocktail-dessert",
     ingredients: ["45ml de vodka", "30ml de licor de maracujá", "30ml de creme de leite", "15ml de xarope de baunilha", "Frutas vermelhas", "Merengue"],
     steps: ["Agite vodka, licor e creme com gelo.", "Coe para taça coupé.", "Cubra com creme chantilly.", "Decore com frutas vermelhas.", "Coloque mini merengue."],
     difficulty: "Médio",
@@ -425,10 +425,10 @@ export const sobremesaDoces: VipDrink[] = [
     description: "Baked Alaska: sorvete coberto de merengue flambado, criado em 1867 no Delmonico's, NYC. O contraste gelado-quente é mágico. O merengue maçaricado é show. Harmoniza com champagne rosé."
   },
   {
-    id: "coconut-cream-pie-cocktail",
+    id: "coconut-cream-pie-cocktail-dessert",
     name: "Coconut Cream Pie Cocktail",
     category: "Sobremesa & Doces",
-    image: "coconut-cream-pie-cocktail",
+    image: "coconut-cream-pie-cocktail-dessert",
     ingredients: ["45ml de rum de coco", "30ml de creme de coco", "30ml de leite de coco", "15ml de licor de baunilha", "Coco ralado tostado"],
     steps: ["Agite todos com gelo vigorosamente.", "Coe para taça coupé.", "Cubra com chantilly de coco.", "Polvilhe coco tostado.", "Decore com lascas de coco."],
     difficulty: "Fácil",
@@ -480,10 +480,10 @@ export const sobremesaDoces: VipDrink[] = [
     description: "Trifle: sobremesa inglesa em camadas desde o século XVI. Originalmente feita com sherry, creme e biscoitos. As camadas são o segredo visual. Harmoniza com chá Earl Grey e scones."
   },
   {
-    id: "mango-sticky-rice-cocktail",
+    id: "mango-sticky-rice-cocktail-dessert",
     name: "Mango Sticky Rice Cocktail",
     category: "Sobremesa & Doces",
-    image: "mango-sticky-rice-cocktail",
+    image: "mango-sticky-rice-cocktail-dessert",
     ingredients: ["45ml de rum de coco", "60ml de leite de coco", "30ml de purê de manga", "15ml de xarope de palmeira", "Manga fresca", "Coco tostado"],
     steps: ["Agite rum, leite de coco e manga.", "Coe para copo largo.", "Decore com cubos de manga.", "Polvilhe coco tostado.", "Drizzle de leite de coco."],
     difficulty: "Fácil",
@@ -502,10 +502,10 @@ export const sobremesaDoces: VipDrink[] = [
     description: "Schwarzwälder Kirschtorte: bolo alemão da Floresta Negra com cereja, chocolate e kirsch. O kirsch é insubstituível. O creme e o chocolate criam as camadas do bolo. Harmoniza com café alemão."
   },
   {
-    id: "baklava-cocktail",
+    id: "baklava-cocktail-dessert",
     name: "Baklava Cocktail",
     category: "Sobremesa & Doces",
-    image: "baklava-cocktail",
+    image: "baklava-cocktail-dessert",
     ingredients: ["45ml de vodka", "30ml de licor de mel", "15ml de xarope de rosa", "15ml de suco de limão", "Pistache triturado", "Mel e nozes"],
     steps: ["Agite vodka, licor de mel e rosa com gelo.", "Coe para taça coupé.", "Drizzle de mel.", "Polvilhe pistache triturado.", "Decore com fio de mel."],
     difficulty: "Médio",
@@ -526,10 +526,10 @@ export const sobremesaDoces: VipDrink[] = [
 
   // ===== CREMOSOS & MILK-BASED (51-65) =====
   {
-    id: "tres-leches-cocktail",
+    id: "tres-leches-cocktail-dessert",
     name: "Tres Leches Cocktail",
     category: "Sobremesa & Doces",
-    image: "tres-leches-cocktail",
+    image: "tres-leches-cocktail-dessert",
     ingredients: ["45ml de rum branco", "30ml de leite condensado", "30ml de creme de leite", "30ml de leite evaporado", "Canela em pó", "Chantilly"],
     steps: ["Agite rum e os três leites com gelo.", "Coe para rocks.", "Cubra com chantilly.", "Polvilhe canela generosamente.", "Decore com canela em pau."],
     difficulty: "Fácil",
@@ -603,10 +603,10 @@ export const sobremesaDoces: VipDrink[] = [
     description: "Masala Chai: chá indiano com especiarias — cardamomo, canela, gengibre e cravo. O leite condensado substitui o açúcar e adiciona cremosidade. Rum especiado amplifica as especiarias. Harmoniza com samosas e naan."
   },
   {
-    id: "vietnamese-coffee-cocktail",
+    id: "vietnamese-coffee-cocktail-dessert",
     name: "Vietnamese Coffee Cocktail",
     category: "Sobremesa & Doces",
-    image: "vietnamese-coffee-cocktail",
+    image: "vietnamese-coffee-cocktail-dessert",
     ingredients: ["45ml de vodka", "60ml de café vietnamita forte", "30ml de leite condensado", "Gelo", "Leite condensado extra"],
     steps: ["Prepare café vietnamita no filtro phin.", "Adicione leite condensado no fundo do copo.", "Despeje café e vodka sobre gelo.", "Mexa para criar camadas.", "Sirva com canudo."],
     difficulty: "Médio",
@@ -625,10 +625,10 @@ export const sobremesaDoces: VipDrink[] = [
     description: "Rompope: eggnog mexicano criado por freiras do convento de Santa Clara, Puebla (século XVII). Feito com gemas, leite, baunilha e rum. Tradição natalina mexicana. Harmoniza com roscón de reyes."
   },
   {
-    id: "golden-milk-cocktail",
+    id: "golden-milk-cocktail-dessert",
     name: "Golden Milk Cocktail",
     category: "Sobremesa & Doces",
-    image: "golden-milk-cocktail",
+    image: "golden-milk-cocktail-dessert",
     ingredients: ["45ml de bourbon", "150ml de leite de coco", "1 colher de chá de cúrcuma", "15ml de mel", "Pimenta-do-reino", "Canela"],
     steps: ["Aqueça leite de coco com cúrcuma.", "Adicione bourbon e mel.", "Mexa até combinar.", "Polvilhe pimenta e canela.", "Sirva quente ou gelado."],
     difficulty: "Fácil",
@@ -928,10 +928,10 @@ export const sobremesaDoces: VipDrink[] = [
     description: "Fat-washing com waffle: a massa amanteigada transfere sabor irresistível ao bourbon. Tendência nos brunch bars de Brooklyn. Maple syrup puro completa. Harmoniza com brunch de fim de semana."
   },
   {
-    id: "cinnamon-roll-cocktail",
+    id: "cinnamon-roll-cocktail-dessert",
     name: "Cinnamon Roll Cocktail",
     category: "Sobremesa & Doces",
-    image: "cinnamon-roll-cocktail",
+    image: "cinnamon-roll-cocktail-dessert",
     ingredients: ["45ml de rum especiado", "30ml de licor de canela", "30ml de Baileys", "15ml de xarope de baunilha", "Canela", "Cream cheese frosting"],
     steps: ["Agite rum, licor e Baileys com gelo.", "Coe para rocks.", "Cubra com cream cheese frosting.", "Drizzle de canela.", "Decore com canela em pau."],
     difficulty: "Fácil",
@@ -939,10 +939,10 @@ export const sobremesaDoces: VipDrink[] = [
     description: "Cinnamon Roll: pão doce sueco (kanelbulle) que conquistou a América. Cinnabon abriu em 1985 em Seattle. O aroma de canela é irresistível. Cream cheese frosting é essencial. Harmoniza com café."
   },
   {
-    id: "peanut-butter-cup-cocktail",
+    id: "peanut-butter-cup-cocktail-dessert",
     name: "Peanut Butter Cup Cocktail",
     category: "Sobremesa & Doces",
-    image: "peanut-butter-cup-cocktail",
+    image: "peanut-butter-cup-cocktail-dessert",
     ingredients: ["45ml de vodka", "30ml de licor de chocolate", "15ml de xarope de amendoim", "30ml de creme de leite", "Amendoim triturado", "Calda de chocolate"],
     steps: ["Faça borda com chocolate e amendoim.", "Agite todos com gelo.", "Coe para o copo decorado.", "Drizzle de chocolate.", "Polvilhe amendoim."],
     difficulty: "Médio",
