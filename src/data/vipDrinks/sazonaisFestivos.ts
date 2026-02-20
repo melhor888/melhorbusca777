@@ -124,10 +124,10 @@ export const sazonaisFestivos: VipDrink[] = [
     description: "Elegante e sofisticado, este sparkler é perfeito para brindes natalinos. As cranberries congeladas funcionam como gelo e decoração. O alecrim lembra uma mini árvore de Natal. Harmoniza com canapés e foie gras."
   },
   {
-    id: "coquito-porto-riquenho",
+    id: "coquito-porto-riquenho-natal",
     name: "Coquito Porto-Riquenho",
     category: "Sazonais & Festivos",
-    image: "coquito-porto-riquenho",
+    image: "coquito-porto-riquenho-natal",
     ingredients: ["400ml de leite de coco", "400ml de leite condensado", "200ml de rum branco", "100ml de creme de coco", "1 colher de chá de canela", "1 colher de chá de baunilha", "Noz-moscada"],
     steps: ["Bata todos os ingredientes no liquidificador.", "Refrigere por pelo menos 4 horas.", "Agite antes de servir.", "Sirva em copos pequenos com canela polvilhada.", "Decore com noz-moscada ralada."],
     difficulty: "Fácil",
@@ -170,10 +170,10 @@ export const sazonaisFestivos: VipDrink[] = [
 
   // ===== ANO NOVO (16-25) =====
   {
-    id: "champagne-cocktail-classico",
+    id: "champagne-cocktail-classico-reveillon",
     name: "Champagne Cocktail Clássico",
     category: "Sazonais & Festivos",
-    image: "champagne-cocktail-classico",
+    image: "champagne-cocktail-classico-reveillon",
     ingredients: ["150ml de champagne brut", "1 cubo de açúcar", "2 dashes de Angostura bitters", "15ml de cognac", "Twist de limão siciliano"],
     steps: ["Coloque o cubo de açúcar na taça flute.", "Adicione os bitters sobre o açúcar.", "Despeje o cognac.", "Complete com champagne gelado.", "Decore com twist de limão."],
     difficulty: "Fácil",
@@ -1031,10 +1031,10 @@ export const sazonaisFestivos: VipDrink[] = [
     description: "Bourbon com maçã e canela é a combinação perfeita para os meses frios. A sidra de maçã adiciona doçura natural e acidez. Drink de cabana e lareira. Harmoniza com torta de maçã e queijos curados."
   },
   {
-    id: "chai-latte-cocktail",
+    id: "chai-latte-cocktail-inverno",
     name: "Chai Latte Cocktail",
     category: "Sazonais & Festivos",
-    image: "chai-latte-cocktail",
+    image: "chai-latte-cocktail-inverno",
     ingredients: ["45ml de rum especiado", "30ml de licor de baunilha", "150ml de chá chai concentrado", "30ml de leite vaporizado", "Canela em pó", "Anis-estrelado"],
     steps: ["Prepare chá chai forte e deixe esfriar levemente.", "Adicione rum e licor.", "Finalize com leite vaporizado.", "Polvilhe canela.", "Decore com anis-estrelado."],
     difficulty: "Médio",

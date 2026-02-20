@@ -9,6 +9,7 @@ export { lowAbvWellness } from "./lowAbvWellness";
 export { drinksAutor } from "./drinksAutor";
 export { cafeDessertCocktails } from "./cafeDessertCocktails";
 export { sazonaisFestivos } from "./sazonaisFestivos";
+export { sobremesaDoces } from "./sobremesaDoces";
 export { vipChefTips } from "./vipChefTips";
 
 import { VipDrink } from "./types";
@@ -22,10 +23,11 @@ import { lowAbvWellness } from "./lowAbvWellness";
 import { drinksAutor } from "./drinksAutor";
 import { cafeDessertCocktails } from "./cafeDessertCocktails";
 import { sazonaisFestivos } from "./sazonaisFestivos";
+import { sobremesaDoces } from "./sobremesaDoces";
 import { vipChefTips } from "./vipChefTips";
 
 export function getAllVipDrinks(): VipDrink[] {
-  return [...vinhoSangrias, ...cervejaBeerCocktails, ...frozenBlended, ...shotsShooters, ...tropicalTiki, ...classicosReinventados, ...lowAbvWellness, ...drinksAutor, ...cafeDessertCocktails, ...sazonaisFestivos];
+  return [...vinhoSangrias, ...cervejaBeerCocktails, ...frozenBlended, ...shotsShooters, ...tropicalTiki, ...classicosReinventados, ...lowAbvWellness, ...drinksAutor, ...cafeDessertCocktails, ...sazonaisFestivos, ...sobremesaDoces];
 }
 
 export function getVipDrinksByCategory(category: string): VipDrink[] {
