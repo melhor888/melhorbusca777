@@ -1,89 +1,68 @@
 // VIP Drink Images - Optimized: served from public/images/ as static files
-// Uses import.meta.glob only to discover which VIP images exist in src/assets at build time,
-// but images are served from public/images/ to avoid bundling hundreds of files
+// No imports or import.meta.glob - all paths are constructed directly
 
-const allVipImages = import.meta.glob<string>(
-  '/src/assets/vip-*.jpg',
-  { eager: true, import: 'default' }
-);
+// Known VIP image files per category prefix and their number ranges
+const vipImageNumbers: Record<string, number[]> = {
+  wine: Array.from({ length: 20 }, (_, i) => i + 1),
+  beer: [3, 7, 40, 55, 91, 1, 2, 4, 5, 6, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+  frozen: [26, 61, 89, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+  shot: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 38, 44, 50, 53, 64, 84, 88],
+  tiki: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 25],
+  classico: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 37, 71, 89],
+  classic: [18],
+  lowabv: [34, 43, 70, 77, 92, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+  autor: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 76],
+  cafe: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 34, 39],
+  seasonal: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+  dessert: [19, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20],
+  spicy: [4, 12, 1, 2, 3, 5, 6, 7, 8, 9, 10, 11, 13, 14, 15, 16, 17, 18, 19, 20],
+  tea: [6, 11, 1, 2, 3, 4, 5, 7, 8, 9, 10, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+  vegan: [3, 9, 15, 17, 1, 2, 4, 5, 6, 7, 8, 10, 11, 12, 13, 14, 16, 18, 19, 20],
+  masterclass: [9, 11, 13, 1, 2, 3, 4, 5, 6, 7, 8, 10, 12, 14, 15, 16, 17, 18, 19, 20],
+  volta: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+};
 
-// Helper to filter images by prefix and sort numerically
-function getImagePool(prefix: string): string[] {
-  return Object.entries(allVipImages)
-    .filter(([path]) => {
-      const filename = path.split('/').pop() || '';
-      return filename.startsWith(`vip-${prefix}-`) && !filename.startsWith('vip-hero-');
-    })
-    .sort(([a], [b]) => {
-      const numA = parseInt(a.match(/(\d+)\.jpg$/)?.[1] || '0');
-      const numB = parseInt(b.match(/(\d+)\.jpg$/)?.[1] || '0');
-      return numA - numB;
-    })
-    .map(([, url]) => url);
+function buildImagePool(prefix: string): string[] {
+  const numbers = vipImageNumbers[prefix] || [];
+  return numbers.map(n => `/images/vip-${prefix}-${n}.jpg`);
 }
-
-// Helper to get a specific hero image
-function getHeroImage(name: string): string {
-  const entry = Object.entries(allVipImages).find(([path]) =>
-    path.includes(`/vip-hero-${name}`)
-  );
-  return entry ? entry[1] : '';
-}
-
-// Build category image pools
-const wineImages = getImagePool('wine');
-const beerImages = getImagePool('beer');
-const frozenImages = getImagePool('frozen');
-const shotImages = getImagePool('shot');
-const tikiImages = getImagePool('tiki');
-const classicImages = getImagePool('classic').concat(getImagePool('classico'));
-const lowAbvImages = getImagePool('lowabv');
-const autorImages = getImagePool('autor');
-const cafeImages = getImagePool('cafe');
-const seasonalImages = getImagePool('seasonal');
-const dessertImages = getImagePool('dessert');
-const spicyImages = getImagePool('spicy');
-const teaImages = getImagePool('tea');
-const veganImages = getImagePool('vegan');
-const masterclassImages = getImagePool('masterclass');
-const voltaImages = getImagePool('volta');
 
 const categoryImagePools: Record<string, string[]> = {
-  "Vinho & Sangrias": wineImages,
-  "Cerveja & Beer Cocktails": beerImages,
-  "Frozen & Blended": frozenImages,
-  "Shots & Shooters": shotImages,
-  "Tropical & Tiki": tikiImages,
-  "Clássicos Reinventados": classicImages,
-  "Low ABV & Wellness": lowAbvImages,
-  "Drinks de Autor": autorImages,
-  "Café & Dessert Cocktails": cafeImages,
-  "Sazonais & Festivos": seasonalImages,
-  "Sobremesa & Doces": dessertImages,
-  "Picantes & Defumados": spicyImages,
-  "Chá & Infusões": teaImages,
-  "Veganos & Plant-Based": veganImages,
-  "Masterclass Cocktails": masterclassImages,
-  "Volta ao Mundo": voltaImages,
+  "Vinho & Sangrias": buildImagePool('wine'),
+  "Cerveja & Beer Cocktails": buildImagePool('beer'),
+  "Frozen & Blended": buildImagePool('frozen'),
+  "Shots & Shooters": buildImagePool('shot'),
+  "Tropical & Tiki": buildImagePool('tiki'),
+  "Clássicos Reinventados": [...buildImagePool('classic'), ...buildImagePool('classico')],
+  "Low ABV & Wellness": buildImagePool('lowabv'),
+  "Drinks de Autor": buildImagePool('autor'),
+  "Café & Dessert Cocktails": buildImagePool('cafe'),
+  "Sazonais & Festivos": buildImagePool('seasonal'),
+  "Sobremesa & Doces": buildImagePool('dessert'),
+  "Picantes & Defumados": buildImagePool('spicy'),
+  "Chá & Infusões": buildImagePool('tea'),
+  "Veganos & Plant-Based": buildImagePool('vegan'),
+  "Masterclass Cocktails": buildImagePool('masterclass'),
+  "Volta ao Mundo": buildImagePool('volta'),
 };
 
 const categoryHeroBanners: Record<string, string> = {
-  "vinho-sangrias": getHeroImage('vinho-sangrias'),
-  "cerveja-beer-cocktails": getHeroImage('cerveja-beer'),
-  "frozen-blended": getHeroImage('frozen-blended'),
-  "shots-shooters": getHeroImage('shots-shooters'),
-  "tropical-tiki": getHeroImage('tropical-tiki'),
-  "classicos-reinventados": getHeroImage('classicos-reinventados'),
-  "low-abv-wellness": getHeroImage('low-abv'),
-  "drinks-autor": getHeroImage('drinks-autor'),
-  "cafe-dessert-cocktails": getHeroImage('cafe-dessert'),
-  "sazonais-festivos": seasonalImages[0] || '',
-  "sobremesa-doces": dessertImages[0] || '',
-  "picantes-defumados": spicyImages[0] || '',
-  "cha-infusoes": teaImages[0] || '',
-  "veganos-plant-based": veganImages[0] || '',
-  "masterclass-cocktails": masterclassImages[0] || '',
-  "volta-ao-mundo": voltaImages[0] || '',
+  "vinho-sangrias": "/images/vip-hero-vinho-sangrias.jpg",
+  "cerveja-beer-cocktails": "/images/vip-hero-cerveja-beer.jpg",
+  "frozen-blended": "/images/vip-hero-frozen-blended.jpg",
+  "shots-shooters": "/images/vip-hero-shots-shooters.jpg",
+  "tropical-tiki": "/images/vip-hero-tropical-tiki.jpg",
+  "classicos-reinventados": "/images/vip-hero-classicos-reinventados.jpg",
+  "low-abv-wellness": "/images/vip-hero-low-abv.jpg",
+  "drinks-autor": "/images/vip-hero-drinks-autor.jpg",
+  "cafe-dessert-cocktails": "/images/vip-hero-cafe-dessert.jpg",
+  "sazonais-festivos": categoryImagePools["Sazonais & Festivos"]?.[0] || '',
+  "sobremesa-doces": categoryImagePools["Sobremesa & Doces"]?.[0] || '',
+  "picantes-defumados": categoryImagePools["Picantes & Defumados"]?.[0] || '',
+  "cha-infusoes": categoryImagePools["Chá & Infusões"]?.[0] || '',
+  "veganos-plant-based": categoryImagePools["Veganos & Plant-Based"]?.[0] || '',
+  "masterclass-cocktails": categoryImagePools["Masterclass Cocktails"]?.[0] || '',
+  "volta-ao-mundo": categoryImagePools["Volta ao Mundo"]?.[0] || '',
 };
 
 // Simple hash to get consistent image for each drink
