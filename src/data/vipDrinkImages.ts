@@ -1,5 +1,6 @@
-// VIP Drink Images - Optimized with import.meta.glob
-// This replaces 300+ individual imports with a single glob pattern
+// VIP Drink Images - Optimized: served from public/images/ as static files
+// Uses import.meta.glob only to discover which VIP images exist in src/assets at build time,
+// but images are served from public/images/ to avoid bundling hundreds of files
 
 const allVipImages = import.meta.glob<string>(
   '/src/assets/vip-*.jpg',
@@ -11,7 +12,6 @@ function getImagePool(prefix: string): string[] {
   return Object.entries(allVipImages)
     .filter(([path]) => {
       const filename = path.split('/').pop() || '';
-      // Match vip-{prefix}-{number}.jpg but NOT vip-hero-{prefix}
       return filename.startsWith(`vip-${prefix}-`) && !filename.startsWith('vip-hero-');
     })
     .sort(([a], [b]) => {

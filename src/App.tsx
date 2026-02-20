@@ -36,6 +36,7 @@ import { WebsiteSchema, OrganizationSchema } from "./components/SchemaOrg";
 import NotFound from "./pages/NotFound";
 import Footer from "./components/Footer";
 import InstallPrompt from "./components/InstallPrompt";
+import { ScrollToTop } from "./components/ScrollToTop";
 
 // Cache bust v2
 const queryClient = new QueryClient();
@@ -49,6 +50,7 @@ const App = () => (
         <WebsiteSchema />
         <OrganizationSchema />
         <BrowserRouter>
+          <ScrollToTop />
           <DesktopSidebar />
           <div className="max-w-lg mx-auto lg:max-w-none lg:ml-60 relative">
             <Routes>
