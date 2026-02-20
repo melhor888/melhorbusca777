@@ -13,7 +13,7 @@ const vipImageNumbers: Record<string, number[]> = {
   lowabv: [34, 43, 70, 77, 92, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
   autor: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 76],
   cafe: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 34, 39],
-  seasonal: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+  seasonal: Array.from({ length: 50 }, (_, i) => i + 1),
   dessert: Array.from({ length: 50 }, (_, i) => i + 1),
   spicy: Array.from({ length: 50 }, (_, i) => i + 1),
   tea: Array.from({ length: 50 }, (_, i) => i + 1),
