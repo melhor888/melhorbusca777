@@ -1,20 +1,21 @@
 import { Helmet } from "react-helmet-async";
-import { Mail, MessageSquare } from "lucide-react";
+import { MessageCircle } from "lucide-react";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import Footer from "@/components/Footer";
-import { useState } from "react";
 
 export default function Contato() {
-  const [sent, setSent] = useState(false);
+  const whatsappNumber = "5527995055993";
+  const whatsappMessage = encodeURIComponent("Olá! Vim pelo Cachaça Quest e gostaria de tirar uma dúvida.");
+  const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
 
   return (
     <>
       <Helmet>
         <title>Contato - Cachaça Quest | Fale Conosco</title>
-        <meta name="description" content="Entre em contato com a Cachaça Quest. Envie sugestões, dúvidas ou parcerias. Estamos prontos para atender você." />
+        <meta name="description" content="Entre em contato com a Cachaça Quest pelo WhatsApp. Tire suas dúvidas rapidamente." />
         <link rel="canonical" href="https://drinkseco.lovable.app/contato" />
         <meta property="og:title" content="Contato - Cachaça Quest" />
-        <meta property="og:description" content="Fale conosco. Envie sugestões, dúvidas ou parcerias." />
+        <meta property="og:description" content="Fale conosco pelo WhatsApp. Tire suas dúvidas rapidamente." />
         <meta property="og:url" content="https://drinkseco.lovable.app/contato" />
       </Helmet>
       <div className="min-h-screen pb-20">
@@ -24,59 +25,19 @@ export default function Contato() {
           <h1 className="text-3xl font-display font-bold text-foreground mt-4 mb-6">Fale Conosco</h1>
 
           <div className="space-y-6 text-secondary-foreground leading-relaxed">
-            <p>Tem alguma dúvida, sugestão de receita ou interesse em parceria? Adoramos ouvir nossos leitores! Entre em contato conosco através dos canais abaixo ou preencha o formulário.</p>
+            <p>Tem alguma dúvida, sugestão de receita ou interesse em parceria? Fale diretamente com a gente pelo WhatsApp! Respondemos o mais rápido possível.</p>
 
-            <div className="grid gap-4">
-              <div className="flex items-center gap-3 p-4 rounded-xl bg-secondary">
-                <Mail size={20} className="text-primary" />
-                <div>
-                  <p className="text-sm font-medium text-foreground">E-mail</p>
-                  <p className="text-sm text-muted-foreground">contato@cachacaquest.com.br</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-3 p-4 rounded-xl bg-secondary">
-                <MessageSquare size={20} className="text-primary" />
-                <div>
-                  <p className="text-sm font-medium text-foreground">Redes Sociais</p>
-                  <p className="text-sm text-muted-foreground">@cachacaquest em todas as plataformas</p>
-                </div>
-              </div>
-            </div>
+            <a
+              href={whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-3 w-full py-4 rounded-xl bg-[hsl(142,70%,45%)] text-white font-semibold text-base hover:opacity-90 transition-opacity"
+            >
+              <MessageCircle size={22} />
+              Falar pelo WhatsApp
+            </a>
 
-            <h2 className="text-xl font-display font-semibold text-foreground mt-8">Envie sua Mensagem</h2>
-
-            {sent ? (
-              <div className="p-6 rounded-xl bg-primary/10 border border-primary/30 text-center">
-                <p className="text-foreground font-medium">Mensagem enviada com sucesso!</p>
-                <p className="text-sm text-muted-foreground mt-2">Responderemos em até 48 horas úteis.</p>
-              </div>
-            ) : (
-              <form onSubmit={(e) => { e.preventDefault(); setSent(true); }} className="space-y-4">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-foreground mb-1">Nome</label>
-                  <input id="name" required type="text" className="w-full px-4 py-3 rounded-xl bg-secondary text-foreground placeholder:text-muted-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/50" placeholder="Seu nome" />
-                </div>
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-foreground mb-1">E-mail</label>
-                  <input id="email" required type="email" className="w-full px-4 py-3 rounded-xl bg-secondary text-foreground placeholder:text-muted-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/50" placeholder="seu@email.com" />
-                </div>
-                <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-foreground mb-1">Assunto</label>
-                  <select id="subject" className="w-full px-4 py-3 rounded-xl bg-secondary text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/50">
-                    <option>Dúvida sobre receita</option>
-                    <option>Sugestão de conteúdo</option>
-                    <option>Parceria comercial</option>
-                    <option>Reportar problema</option>
-                    <option>Outro</option>
-                  </select>
-                </div>
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-foreground mb-1">Mensagem</label>
-                  <textarea id="message" required rows={5} className="w-full px-4 py-3 rounded-xl bg-secondary text-foreground placeholder:text-muted-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 resize-none" placeholder="Escreva sua mensagem..." />
-                </div>
-                <button type="submit" className="w-full py-3 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 transition-opacity">Enviar Mensagem</button>
-              </form>
-            )}
+            <p className="text-sm text-muted-foreground text-center">Nosso número: (27) 99505-5993</p>
           </div>
         </div>
         <Footer />
