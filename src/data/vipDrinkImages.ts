@@ -91,6 +91,7 @@ const dedicatedImages: Record<string, string> = {
   "pornstar-martini-autor": "/images/vip-autor-65.jpg",
   "frozen-baileys-oreo": "/images/vip-frozen-51.jpg",
   "frozen-tiki-zombie": "/images/vip-frozen-52.jpg",
+  "tom-and-jerry-cocktail": "/images/vip-seasonal-51.jpg",
 };
 
 // Simple hash to get consistent image for each drink
