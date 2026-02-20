@@ -23,7 +23,6 @@ export default function VipRecipeDetail() {
   const { isFavorite, toggleFavorite } = useFavorites();
 
   useEffect(() => {
-    window.scrollTo(0, 0);
     setUnlocked(isVipUnlocked());
   }, [id]);
 

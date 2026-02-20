@@ -35,7 +35,6 @@ export default function VipCategoryPage() {
   const [unlocked, setUnlocked] = useState(false);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
     setUnlocked(isVipUnlocked());
   }, [slug]);
 
