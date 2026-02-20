@@ -1,16 +1,35 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getTipById } from "@/data/bartenderTips";
 import { getTipImage } from "@/data/tipImages";
 import { ArrowLeft, Zap } from "lucide-react";
+import { useXP } from "@/hooks/useXP";
+import XPToast from "@/components/XPToast";
+
+const XP_PER_TIP = 5;
 
 export default function TipDetail() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
+  const { addTipXP } = useXP();
+  const [showXP, setShowXP] = useState(false);
+  const [xpGained, setXpGained] = useState(0);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [id]);
+
+  useEffect(() => {
+    if (!id) return;
+    const timer = setTimeout(() => {
+      const gained = addTipXP(id, XP_PER_TIP);
+      if (gained > 0) {
+        setXpGained(gained);
+        setShowXP(true);
+      }
+    }, 3000);
+    return () => clearTimeout(timer);
+  }, [id, addTipXP]);
 
   const tip = getTipById(id || "");
 
@@ -31,6 +50,7 @@ export default function TipDetail() {
 
   return (
     <div className="min-h-screen pb-24">
+      <XPToast xp={xpGained} show={showXP} onClose={() => setShowXP(false)} />
       {/* Header */}
       <div className="glass-card border-b border-border/50 px-4 py-4">
         <div className="flex items-center gap-3">
