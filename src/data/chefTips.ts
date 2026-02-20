@@ -1632,6 +1632,11 @@ export const chefTips: Record<string, ChefTip> = {
   "cranberry-champagne": { glass: "Taça de champagne (flauta)", serve: "Champagne com cranberry. Festivo e natalino.", tip: "Suco de cranberry + champagne + twist de laranja. Cranberries cristalizadas como decoração elegante." },
   "tequila-mint-julep": { glass: "Copo de prata ou copo Old Fashioned com crushed ice", serve: "Mint Julep com tequila. Fusão México-Kentucky.", tip: "Tequila reposado + hortelã + agave + crushed ice. A tequila traz notas agavadas ao clássico." },
   "passion-fruit-gin-fizz": { glass: "Copo alto (Highball) com gelo", serve: "Fizz de gin com maracujá. Tropical e borbulhante.", tip: "Polpa de maracujá + gin + limão + soda. Sementes na decoração são visuais e crocantes." },
+  "caipirinha-tradicional": {
+    glass: "Copo old fashioned (rocks) baixo",
+    serve: "Servir imediatamente após macerar, com gelo picado bem fino para diluição controlada",
+    tip: "Macere o limão com cuidado para não amargar — pressione apenas a polpa, nunca a parte branca da casca. Use cachaça de qualidade artesanal e açúcar cristal para textura autêntica."
+  },
 };
 
 export function getChefTip(drinkId: string): ChefTip | undefined {
