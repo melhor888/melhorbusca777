@@ -65,6 +65,11 @@ const categoryHeroBanners: Record<string, string> = {
   "volta-ao-mundo": categoryImagePools["Volta ao Mundo"]?.[0] || '',
 };
 
+// Dedicated images for specific drinks (overrides hash-based assignment)
+const dedicatedImages: Record<string, string> = {
+  "beer-boulevardier": "/images/vip-beer-90.jpg",
+};
+
 // Simple hash to get consistent image for each drink
 function hashCode(str: string): number {
   let hash = 0;
@@ -77,6 +82,7 @@ function hashCode(str: string): number {
 }
 
 export function getVipDrinkImage(drinkId: string, category: string): string {
+  if (dedicatedImages[drinkId]) return dedicatedImages[drinkId];
   const pool = categoryImagePools[category];
   if (!pool || pool.length === 0) return "";
   return pool[hashCode(drinkId) % pool.length];
