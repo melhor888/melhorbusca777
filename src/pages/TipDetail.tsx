@@ -74,13 +74,20 @@ export default function TipDetail() {
 
       {/* Hero card */}
       <div className="px-4 mt-4">
-        <div className="glass-card rounded-2xl p-5 text-center space-y-2">
-          <div className="text-5xl">{tip.icon}</div>
-          <h2 className="text-xl font-display font-bold text-foreground">{tip.title}</h2>
-          <p className="text-sm text-muted-foreground">{tip.subtitle}</p>
-          <div className="flex items-center justify-center gap-1 text-primary">
-            <Zap size={14} className="fill-primary" />
-            <span className="text-xs font-bold">Desbloqueado com {tip.requiredXP} XP</span>
+        <div className="glass-card rounded-2xl overflow-hidden">
+          <img
+            src={getTipImage(tip.id, tip.category, tip.themeTag)}
+            alt={tip.title}
+            className="w-full h-40 object-cover"
+          />
+          <div className="p-5 text-center space-y-2">
+            <div className="text-5xl">{tip.icon}</div>
+            <h2 className="text-xl font-display font-bold text-foreground">{tip.title}</h2>
+            <p className="text-sm text-muted-foreground">{tip.subtitle}</p>
+            <div className="flex items-center justify-center gap-1 text-primary">
+              <Zap size={14} className="fill-primary" />
+              <span className="text-xs font-bold">Desbloqueado com {tip.requiredXP} XP</span>
+            </div>
           </div>
         </div>
       </div>

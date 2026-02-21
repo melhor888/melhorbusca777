@@ -23,7 +23,7 @@ const categoryLabels: Record<string, string> = {
 };
 
 export default function TipCard({ tip, unlocked, onClick }: TipCardProps) {
-  const image = getTipImage(tip.category, tip.themeTag);
+  const image = getTipImage(tip.id, tip.category, tip.themeTag);
 
   return (
     <button
