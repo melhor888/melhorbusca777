@@ -13,76 +13,13 @@ import heroMasterclassTecnicas from "@/assets/vip/hero-masterclass-tecnicas.jpg"
 import heroHarmonizacaoSake from "@/assets/vip/hero-harmonizacao-sake.jpg";
 import heroCardapiosCompletos from "@/assets/vip/hero-cardapios-completos.jpg";
 
-// Dish images for Receitas Secretas do Chef
+// Dish images for category cards (Receitas Secretas & Masterclass use getVipDrinkImage fallback now)
 import imgTeppanyaki from "@/assets/dishes/teppanyaki.jpg";
 import imgSashimiMisto from "@/assets/dishes/sashimi-misto.jpg";
-import imgSushiMisto from "@/assets/dishes/sushi-misto.jpg";
-import imgUnadon from "@/assets/dishes/unadon.jpg";
-import imgSukiyaki from "@/assets/dishes/sukiyaki.jpg";
-import imgRamenTonkotsu from "@/assets/dishes/ramen-tonkotsu.jpg";
-import imgTempura from "@/assets/dishes/tempura-mista.jpg";
 import imgSobaFria from "@/assets/dishes/soba-fria.jpg";
-import imgMatchaCheesecake from "@/assets/dishes/matcha-cheesecake.jpg";
 import imgChirashi from "@/assets/dishes/chirashi.jpg";
-
-// Dish images for Masterclass de Técnicas
 import imgKaraage from "@/assets/dishes/karaage.jpg";
-import imgMissoshiru from "@/assets/dishes/missoshiru.jpg";
-import imgNigiriSalmao from "@/assets/dishes/nigiri-salmao.jpg";
 import imgOnigiri from "@/assets/dishes/onigiri.jpg";
-import imgYakitori from "@/assets/dishes/yakitori.jpg";
-import imgNimonoKabocha from "@/assets/dishes/nimono-kabocha.jpg";
-import imgTamagoyaki from "@/assets/dishes/tamagoyaki.jpg";
-import imgNatto from "@/assets/dishes/natto.jpg";
-import imgSunomono from "@/assets/dishes/sunomono.jpg";
-import imgEdamame from "@/assets/dishes/edamame.jpg";
-
-// Dish images for Harmonização Sake & Drinks
-import imgGyoza from "@/assets/dishes/gyoza.jpg";
-import imgShabuShabu from "@/assets/dishes/shabu-shabu.jpg";
-import imgMatchaParfait from "@/assets/dishes/matcha-parfait.jpg";
-import imgMochi from "@/assets/dishes/mochi.jpg";
-import imgOkonomiyaki from "@/assets/dishes/okonomiyaki.jpg";
-import imgTakoyaki from "@/assets/dishes/takoyaki.jpg";
-
-const receitasSecretasImages: Record<string, string> = {
-  "wagyu-a5-teppanyaki": imgTeppanyaki,
-  "kaiseki-sakizuke": imgSashimiMisto,
-  "omakase-sushi-supreme": imgSushiMisto,
-  "fugu-sashimi-tessa": imgChirashi,
-  "unagi-kabayaki-artesanal": imgUnadon,
-  "sukiyaki-imperial": imgSukiyaki,
-  "ramen-tonkotsu-48h": imgRamenTonkotsu,
-  "tempura-edomae": imgTempura,
-  "soba-teuchi": imgSobaFria,
-  "matcha-kaiseki-dessert": imgMatchaCheesecake,
-};
-
-const masterclassTecnicasImages: Record<string, string> = {
-  "mt-afiar-facas-japonesas": imgKaraage,
-  "mt-dashi-perfeito": imgMissoshiru,
-  "mt-corte-sashimi": imgSashimiMisto,
-  "mt-tecnica-tempura": imgTempura,
-  "mt-arroz-shari": imgNigiriSalmao,
-  "mt-katsuramuki": imgSunomono,
-  "mt-nimono-tecnica": imgNimonoKabocha,
-  "mt-yakimono-grelhados": imgYakitori,
-  "mt-fermentacao-japonesa": imgNatto,
-  "mt-arte-bento": imgOnigiri,
-};
-
-const harmonizacaoSakeImages: Record<string, string> = {
-  "hs-junmai-daiginjo": imgSashimiMisto,
-  "hs-nigori-yakitori": imgYakitori,
-  "hs-shochu-izakaya": imgGyoza,
-  "hs-whisky-japones": imgTeppanyaki,
-  "hs-umeshu-sobremesa": imgMochi,
-  "hs-sparkling-sake-tempura": imgTempura,
-  "hs-sake-quente-nabe": imgShabuShabu,
-  "hs-cocktail-matcha-gin": imgEdamame,
-  "hs-awamori-okinawa": imgOkonomiyaki,
-  "hs-sake-queijo": imgTakoyaki,
-};
 
 // Dish images for Cardápios Completos
 import imgDashimakiTamago from "@/assets/dishes/dashimaki-tamago.jpg";
@@ -267,7 +204,7 @@ export default function VipCategoryPage() {
           ) : (
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 lg:gap-4">
               {drinks.map((drink, i) => {
-                const image = receitasSecretasImages[drink.id] || masterclassTecnicasImages[drink.id] || harmonizacaoSakeImages[drink.id] || cardapiosCompletosImages[drink.id] || getVipDrinkImage(drink.id, drink.category);
+                const image = cardapiosCompletosImages[drink.id] || getVipDrinkImage(drink.id, drink.category);
                 return (
                   <button
                     key={drink.id}
