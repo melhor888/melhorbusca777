@@ -8,6 +8,7 @@ import { useFavorites } from "@/hooks/useFavorites";
 import { useXP } from "@/hooks/useXP";
 import XPToast from "@/components/XPToast";
 import SimilarDrinks from "@/components/SimilarDrinks";
+import AdBanner from "@/components/AdBanner";
 import ShareCard from "@/components/ShareCard";
 import { ArrowLeft, Heart, Share2, Clock, ChefHat, UtensilsCrossed, Lightbulb, Zap, ShoppingCart, Image } from "lucide-react";
 import { useShoppingList } from "@/hooks/useShoppingList";
@@ -226,6 +227,7 @@ export default function RecipeDetail() {
             </div>
           </section>
         )}
+        <AdBanner slot="recipe-bottom" className="mt-4" />
 
         <SimilarDrinks currentDrink={dish} allDrinks={allDishes} />
       </div>
