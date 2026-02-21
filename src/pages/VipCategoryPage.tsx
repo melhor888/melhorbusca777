@@ -25,6 +25,18 @@ import imgSobaFria from "@/assets/dishes/soba-fria.jpg";
 import imgMatchaCheesecake from "@/assets/dishes/matcha-cheesecake.jpg";
 import imgChirashi from "@/assets/dishes/chirashi.jpg";
 
+// Dish images for Masterclass de Técnicas
+import imgKaraage from "@/assets/dishes/karaage.jpg";
+import imgMissoshiru from "@/assets/dishes/missoshiru.jpg";
+import imgNigiriSalmao from "@/assets/dishes/nigiri-salmao.jpg";
+import imgOnigiri from "@/assets/dishes/onigiri.jpg";
+import imgYakitori from "@/assets/dishes/yakitori.jpg";
+import imgNimonoKabocha from "@/assets/dishes/nimono-kabocha.jpg";
+import imgTamagoyaki from "@/assets/dishes/tamagoyaki.jpg";
+import imgNatto from "@/assets/dishes/natto.jpg";
+import imgSunomono from "@/assets/dishes/sunomono.jpg";
+import imgEdamame from "@/assets/dishes/edamame.jpg";
+
 const receitasSecretasImages: Record<string, string> = {
   "wagyu-a5-teppanyaki": imgTeppanyaki,
   "kaiseki-sakizuke": imgSashimiMisto,
@@ -36,6 +48,19 @@ const receitasSecretasImages: Record<string, string> = {
   "tempura-edomae": imgTempura,
   "soba-teuchi": imgSobaFria,
   "matcha-kaiseki-dessert": imgMatchaCheesecake,
+};
+
+const masterclassTecnicasImages: Record<string, string> = {
+  "mt-afiar-facas-japonesas": imgKaraage,
+  "mt-dashi-perfeito": imgMissoshiru,
+  "mt-corte-sashimi": imgSashimiMisto,
+  "mt-tecnica-tempura": imgTempura,
+  "mt-arroz-shari": imgNigiriSalmao,
+  "mt-katsuramuki": imgSunomono,
+  "mt-nimono-tecnica": imgNimonoKabocha,
+  "mt-yakimono-grelhados": imgYakitori,
+  "mt-fermentacao-japonesa": imgNatto,
+  "mt-arte-bento": imgOnigiri,
 };
 
 const difficultyColor: Record<string, string> = {
@@ -198,7 +223,7 @@ export default function VipCategoryPage() {
           ) : (
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 lg:gap-4">
               {drinks.map((drink, i) => {
-                const image = receitasSecretasImages[drink.id] || getVipDrinkImage(drink.id, drink.category);
+                const image = receitasSecretasImages[drink.id] || masterclassTecnicasImages[drink.id] || getVipDrinkImage(drink.id, drink.category);
                 return (
                   <button
                     key={drink.id}
