@@ -84,6 +84,29 @@ const harmonizacaoSakeImages: Record<string, string> = {
   "hs-sake-queijo": imgTakoyaki,
 };
 
+// Dish images for Cardápios Completos
+import imgDashimakiTamago from "@/assets/dishes/dashimaki-tamago.jpg";
+import imgKareRaisu from "@/assets/dishes/kare-raisu.jpg";
+import imgDango from "@/assets/dishes/dango.jpg";
+import imgOzoni from "@/assets/dishes/ozoni.jpg";
+import imgKatsudon from "@/assets/dishes/katsudon.jpg";
+import imgRamenMiso from "@/assets/dishes/ramen-miso.jpg";
+import imgUdonKitsune from "@/assets/dishes/udon-kitsune.jpg";
+import imgOhitashi from "@/assets/dishes/ohitashi.jpg";
+
+const cardapiosCompletosImages: Record<string, string> = {
+  "cc-jantar-kaiseki": imgChirashi,
+  "cc-festa-izakaya": imgKaraage,
+  "cc-hanami-party": imgDango,
+  "cc-reveillon-japones": imgOzoni,
+  "cc-bento-premium": imgOnigiri,
+  "cc-menu-ramen": imgRamenMiso,
+  "cc-churrasco-yakiniku": imgTeppanyaki,
+  "cc-cafe-da-manha-ryokan": imgDashimakiTamago,
+  "cc-menu-soba": imgSobaFria,
+  "cc-menu-udon": imgUdonKitsune,
+};
+
 const difficultyColor: Record<string, string> = {
   "Fácil": "text-green-400",
   "Médio": "text-yellow-400",
@@ -244,7 +267,7 @@ export default function VipCategoryPage() {
           ) : (
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 lg:gap-4">
               {drinks.map((drink, i) => {
-                const image = receitasSecretasImages[drink.id] || masterclassTecnicasImages[drink.id] || harmonizacaoSakeImages[drink.id] || getVipDrinkImage(drink.id, drink.category);
+                const image = receitasSecretasImages[drink.id] || masterclassTecnicasImages[drink.id] || harmonizacaoSakeImages[drink.id] || cardapiosCompletosImages[drink.id] || getVipDrinkImage(drink.id, drink.category);
                 return (
                   <button
                     key={drink.id}
