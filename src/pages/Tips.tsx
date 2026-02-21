@@ -1,23 +1,48 @@
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-import { useXP } from "@/hooks/useXP";
+import { useXP, getLevel, LEVELS } from "@/hooks/useXP";
 import { bartenderTips } from "@/data/bartenderTips";
 import { achievements, getAchievementById } from "@/data/achievements";
 import XPBar from "@/components/XPBar";
 import TipCard from "@/components/TipCard";
-import { Trophy, Lock } from "lucide-react";
+import { Trophy, Lock, Shield } from "lucide-react";
+
+function getTipRequiredLevel(index: number): number {
+  // First 3 tips: free (level 1, XP only)
+  if (index < 3) return 1;
+  // Rest: level increases progressively
+  // Tips 4-6 = lvl 2, 7-9 = lvl 3, 10-13 = lvl 4, 14-17 = lvl 5, 18-21 = lvl 6, 22+ = lvl 7
+  const lvl = Math.min(7, Math.floor((index - 3) / 3) + 2);
+  return lvl;
+}
 
 export default function Tips() {
   const navigate = useNavigate();
   const { totalXP, achievements: unlockedAchievements, viewedRecipes } = useXP();
+  const currentLevel = getLevel(totalXP);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const availableTips = bartenderTips.filter((t) => t.requiredXP <= totalXP);
-  const lockedTips = bartenderTips.filter((t) => t.requiredXP > totalXP);
-  const nextTip = lockedTips[0];
+  const tipsWithLevel = bartenderTips.map((tip, index) => ({
+    ...tip,
+    requiredLevel: tip.requiredLevel ?? getTipRequiredLevel(index),
+  }));
+
+  const availableTips = tipsWithLevel.filter((t, i) => {
+    if (i < 3) return t.requiredXP <= totalXP; // first 3 by XP
+    return currentLevel.level >= t.requiredLevel;
+  });
+
+  const lockedTips = tipsWithLevel.filter((t, i) => {
+    if (i < 3) return t.requiredXP > totalXP;
+    return currentLevel.level < t.requiredLevel;
+  });
+
+  const nextLocked = lockedTips[0];
+  const nextLevelNeeded = nextLocked?.requiredLevel ?? 0;
+  const nextLevelInfo = LEVELS.find(l => l.level === nextLevelNeeded);
 
   return (
     <div className="min-h-screen pb-24 pt-4 px-4 lg:px-6 lg:max-w-4xl lg:mx-auto">
@@ -31,8 +56,9 @@ export default function Tips() {
       {/* Stats */}
       <div className="grid grid-cols-3 gap-2 mt-4">
         <div className="glass-card rounded-xl p-3 text-center">
-          <p className="text-lg font-bold text-foreground">{viewedRecipes.length}</p>
-          <p className="text-[10px] text-muted-foreground">Receitas Vistas</p>
+          <p className="text-lg font-bold text-foreground">{currentLevel.level}</p>
+          <p className="text-[10px] text-muted-foreground">Nível Atual</p>
+          <p className="text-[9px] text-primary font-semibold">{currentLevel.title}</p>
         </div>
         <div className="glass-card rounded-xl p-3 text-center">
           <p className="text-lg font-bold text-primary">{availableTips.length}</p>
@@ -45,11 +71,19 @@ export default function Tips() {
       </div>
 
       {/* Next unlock hint */}
-      {nextTip && (
+      {nextLocked && (
         <div className="mt-4 glass-card rounded-xl p-3 border-primary/20 flex items-center gap-3">
-          <Lock size={16} className="text-muted-foreground flex-shrink-0" />
+          <Shield size={16} className="text-primary flex-shrink-0" />
           <p className="text-xs text-muted-foreground">
-            Próxima dica em <span className="text-primary font-bold">{nextTip.requiredXP - totalXP} XP</span> — continue visualizando receitas!
+            Próxima dica requer{" "}
+            {nextLocked.requiredLevel <= 1 ? (
+              <span className="text-primary font-bold">{nextLocked.requiredXP - totalXP} XP</span>
+            ) : (
+              <span className="text-primary font-bold">
+                Nível {nextLocked.requiredLevel} ({nextLevelInfo?.title})
+                {nextLevelInfo ? ` — ${nextLevelInfo.minXP} XP` : ""}
+              </span>
+            )}
           </p>
         </div>
       )}
@@ -83,7 +117,7 @@ export default function Tips() {
       {availableTips.length > 0 && (
         <section className="mt-6">
           <h2 className="text-sm font-display font-bold text-foreground mb-3">
-            📖 Dicas Desbloqueadas
+            📖 Dicas Desbloqueadas ({availableTips.length})
           </h2>
           <div className="space-y-3">
             {availableTips.map((tip, i) => (
@@ -95,6 +129,7 @@ export default function Tips() {
                 <TipCard
                   tip={tip}
                   unlocked={true}
+                  tipLevel={tip.requiredLevel}
                   onClick={() => navigate(`/tip/${tip.id}`)}
                 />
               </div>
@@ -107,7 +142,7 @@ export default function Tips() {
       {lockedTips.length > 0 && (
         <section className="mt-6">
           <h2 className="text-sm font-display font-bold text-foreground mb-3">
-            🔒 A Desbloquear
+            🔒 A Desbloquear ({lockedTips.length})
           </h2>
           <div className="space-y-3">
             {lockedTips.map((tip) => (
@@ -115,6 +150,7 @@ export default function Tips() {
                 key={tip.id}
                 tip={tip}
                 unlocked={false}
+                tipLevel={tip.requiredLevel}
                 onClick={() => {}}
               />
             ))}

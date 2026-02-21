@@ -4,6 +4,7 @@ export interface JapaneseTip {
   subtitle: string;
   category: "tecnica" | "apresentacao" | "harmonizacao" | "historia";
   requiredXP: number;
+  requiredLevel?: number;
   icon: string;
   themeTag?: string;
   content: JapaneseTipSection[];
@@ -36,6 +37,7 @@ export const bartenderTips: JapaneseTip[] = [
     subtitle: "A base de toda a culinária japonesa começa pelo arroz",
     category: "tecnica",
     requiredXP: 0,
+    requiredLevel: 1,
     icon: "🍚",
     content: [
       { text: "O arroz é o coração da culinária japonesa. Um arroz mal feito arruina qualquer prato, desde sushi até um simples onigiri." },
