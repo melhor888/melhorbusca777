@@ -44,6 +44,10 @@ const categoryImagePools: Record<string, string[]> = {
   "Veganos & Plant-Based": buildImagePool('vegan'),
   "Masterclass Cocktails": buildImagePool('masterclass'),
   "Volta ao Mundo": buildImagePool('volta'),
+  "Receitas Secretas do Chef": buildImagePool('masterclass'),
+  "Masterclass de Técnicas": buildImagePool('masterclass'),
+  "Harmonização Sake & Drinks": buildImagePool('wine'),
+  "Cardápios Completos": buildImagePool('seasonal'),
 };
 
 const categoryHeroBanners: Record<string, string> = {
@@ -63,6 +67,10 @@ const categoryHeroBanners: Record<string, string> = {
   "veganos-plant-based": categoryImagePools["Veganos & Plant-Based"]?.[0] || '',
   "masterclass-cocktails": categoryImagePools["Masterclass Cocktails"]?.[0] || '',
   "volta-ao-mundo": categoryImagePools["Volta ao Mundo"]?.[0] || '',
+  "receitas-secretas": categoryImagePools["Receitas Secretas do Chef"]?.[0] || '',
+  "masterclass-tecnicas": categoryImagePools["Masterclass de Técnicas"]?.[0] || '',
+  "harmonizacao-sake": categoryImagePools["Harmonização Sake & Drinks"]?.[0] || '',
+  "cardapios-completos": categoryImagePools["Cardápios Completos"]?.[0] || '',
 };
 
 // Dedicated images for specific drinks (overrides hash-based assignment)

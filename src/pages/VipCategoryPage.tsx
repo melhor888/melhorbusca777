@@ -28,6 +28,10 @@ const categoryNames: Record<string, string> = {
   "veganos-plant-based": "Veganos & Plant-Based",
   "masterclass": "Masterclass Cocktails",
   "volta-ao-mundo": "Volta ao Mundo",
+  "receitas-secretas": "Receitas Secretas do Chef",
+  "masterclass-tecnicas": "Masterclass de Técnicas",
+  "harmonizacao-sake": "Harmonização Sake & Drinks",
+  "cardapios-completos": "Cardápios Completos",
 };
 
 export default function VipCategoryPage() {
