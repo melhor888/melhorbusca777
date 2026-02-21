@@ -18,6 +18,10 @@ export const categories = [
   "Entradas",
   "Sopas",
   "Sobremesas Japonesas",
+  "Molhos & Temperos",
+  "Donburi & Arroz",
+  "Acompanhamentos",
+  "Izakaya & Petiscos",
 ];
 
 export const dishes: Dish[] = [
@@ -333,6 +337,250 @@ export const dishes: Dish[] = [
     steps: ["Misture warabi-ko, açúcar e água.", "Cozinhe em fogo baixo mexendo constantemente.", "Quando ficar translúcido e elástico, retire.", "Despeje em forma untada com kinako.", "Corte em pedaços e role em kinako.", "Sirva com kuromitsu."],
     difficulty: "Médio", time: "25 min",
     description: "Mochi gelado com cobertura de kinako, textura gelatinosa e macia. Sobremesa refrescante de verão." },
+
+  // ============ MOLHOS & TEMPEROS ============
+  { id: "ponzu", name: "Molho Ponzu", category: "Molhos & Temperos", image: "ponzu",
+    ingredients: ["100ml de shoyu", "50ml de suco de yuzu ou limão", "30ml de mirin", "30ml de vinagre de arroz", "Kombu (5cm)", "Katsuobushi (punhado)"],
+    steps: ["Combine shoyu, suco de yuzu, mirin e vinagre.", "Adicione kombu e katsuobushi.", "Deixe infusionar por 24 horas na geladeira.", "Coe e descarte os sólidos.", "Transfira para um frasco limpo.", "Conserve refrigerado por até 1 mês."],
+    difficulty: "Fácil", time: "10 min + 24h infusão",
+    description: "Molho cítrico à base de shoyu e yuzu. Perfeito para shabu-shabu, sashimi e saladas." },
+
+  { id: "molho-teriyaki", name: "Molho Teriyaki", category: "Molhos & Temperos", image: "molho-teriyaki",
+    ingredients: ["100ml de shoyu", "80ml de mirin", "50ml de sakê", "2 colheres de açúcar", "1 colher de amido (opcional)"],
+    steps: ["Combine shoyu, mirin, sakê e açúcar numa panela.", "Leve a fogo médio até ferver.", "Reduza o fogo e cozinhe por 10 min.", "Se quiser mais espesso, dissolva amido em água e adicione.", "Mexa até engrossar.", "Deixe esfriar e armazene em frasco."],
+    difficulty: "Fácil", time: "15 min",
+    description: "Glaceado doce-salgado brilhante que dá nome à técnica teriyaki. Ideal para frango, salmão e legumes." },
+
+  { id: "tare-yakitori", name: "Tare de Yakitori", category: "Molhos & Temperos", image: "tare-yakitori",
+    ingredients: ["150ml de shoyu", "100ml de mirin", "50ml de sakê", "3 colheres de açúcar", "Ossos de frango (opcional)"],
+    steps: ["Se usar ossos, grelhe-os antes para caramelizar.", "Combine shoyu, mirin, sakê e açúcar.", "Adicione os ossos grelhados.", "Cozinhe em fogo baixo por 30 min.", "Coe e reduza até consistência de xarope.", "Use para pincelar espetinhos."],
+    difficulty: "Fácil", time: "40 min",
+    description: "Molho caramelizado dos yakitoris. Nas melhores casas, o tare é envelhecido por anos, ganhando complexidade." },
+
+  { id: "molho-tonkatsu", name: "Molho Tonkatsu", category: "Molhos & Temperos", image: "molho-tonkatsu",
+    ingredients: ["4 colheres de ketchup", "2 colheres de molho inglês", "1 colher de shoyu", "1 colher de açúcar", "1/2 colher de mostarda"],
+    steps: ["Misture todos os ingredientes.", "Aqueça em fogo baixo por 2 minutos.", "Mexa até homogeneizar.", "Ajuste doçura a gosto.", "Deixe esfriar.", "Sirva com tonkatsu, korokke ou fritos."],
+    difficulty: "Fácil", time: "5 min",
+    description: "Molho agridoce espesso, essencial para acompanhar tonkatsu e outros empanados japoneses." },
+
+  { id: "gomadare", name: "Gomadare (Molho de Gergelim)", category: "Molhos & Temperos", image: "gomadare",
+    ingredients: ["4 colheres de pasta de gergelim (nerigoma)", "2 colheres de shoyu", "2 colheres de vinagre de arroz", "1 colher de açúcar", "1 colher de mirin", "Dashi (2 colheres)"],
+    steps: ["Misture a pasta de gergelim com dashi até suavizar.", "Adicione shoyu, vinagre, açúcar e mirin.", "Mexa até ficar cremoso e homogêneo.", "Ajuste a consistência com mais dashi se necessário.", "Transfira para um recipiente.", "Sirva com shabu-shabu, saladas ou macarrão frio."],
+    difficulty: "Fácil", time: "5 min",
+    description: "Molho cremoso de gergelim, companheiro clássico do shabu-shabu e do cold udon." },
+
+  { id: "wafu-dressing", name: "Wafu Dressing", category: "Molhos & Temperos", image: "wafu-dressing",
+    ingredients: ["3 colheres de shoyu", "2 colheres de vinagre de arroz", "1 colher de mirin", "1 colher de óleo de gergelim", "1/2 cebola ralada", "Gergelim torrado"],
+    steps: ["Rale a cebola finamente.", "Misture shoyu, vinagre, mirin e óleo de gergelim.", "Adicione a cebola ralada.", "Bata ou mexa bem.", "Deixe descansar 10 min para os sabores se integrarem.", "Sirva sobre saladas frescas."],
+    difficulty: "Fácil", time: "10 min",
+    description: "Vinagrete japonês com cebola e gergelim. Transforma qualquer salada numa experiência japonesa." },
+
+  { id: "nikiri-shoyu", name: "Nikiri Shoyu", category: "Molhos & Temperos", image: "nikiri-shoyu",
+    ingredients: ["100ml de shoyu", "30ml de mirin", "20ml de sakê", "Kombu (pedaço pequeno)"],
+    steps: ["Aqueça mirin e sakê para evaporar o álcool.", "Adicione o shoyu e kombu.", "Aqueça em fogo baixo sem ferver.", "Retire do fogo após 5 minutos.", "Coe e deixe esfriar.", "Use com pincel para pincelar sushi (não mergulhar)."],
+    difficulty: "Fácil", time: "10 min",
+    description: "Shoyu refinado usado por sushimen para pincelar nigiri. A diferença entre sushi comum e omakase." },
+
+  { id: "molho-gyoza", name: "Molho para Gyoza", category: "Molhos & Temperos", image: "molho-gyoza",
+    ingredients: ["3 colheres de shoyu", "1 colher de vinagre de arroz", "1/2 colher de óleo de gergelim", "Rayu (óleo de pimenta) a gosto", "Alho picado (opcional)"],
+    steps: ["Misture shoyu e vinagre de arroz.", "Adicione óleo de gergelim.", "Pingue rayu a gosto.", "Adicione alho picado se desejar.", "Mexa bem.", "Sirva em pratinhos individuais para mergulhar gyoza."],
+    difficulty: "Fácil", time: "3 min",
+    description: "Trio clássico de shoyu, vinagre e rayu — simples mas perfeito para gyoza." },
+
+  { id: "yuzu-kosho", name: "Yuzu Koshō", category: "Molhos & Temperos", image: "yuzu-kosho",
+    ingredients: ["Casca de 5 yuzu (ou limão siciliano)", "100g de pimenta verde fresca", "30g de sal"],
+    steps: ["Rale as cascas de yuzu (só a parte colorida).", "Pique as pimentas verdes finamente.", "Combine yuzu, pimenta e sal.", "Processe até formar uma pasta.", "Transfira para frasco esterilizado.", "Maturar na geladeira por 1 semana antes de usar."],
+    difficulty: "Médio", time: "20 min + 7 dias",
+    description: "Pasta picante de yuzu e pimenta verde. Condimento premium que eleva qualquer prato — use com moderação." },
+
+  { id: "furikake", name: "Furikake Caseiro", category: "Molhos & Temperos", image: "furikake",
+    ingredients: ["2 folhas de nori", "2 colheres de gergelim torrado", "1 colher de katsuobushi", "1/2 colher de sal", "1/2 colher de açúcar", "Shichimi togarashi (opcional)"],
+    steps: ["Toste as folhas de nori na chama até crocantes.", "Triture o nori em pedaços pequenos.", "Torre o gergelim em frigideira seca.", "Misture nori, gergelim, katsuobushi, sal e açúcar.", "Adicione shichimi se quiser picante.", "Armazene em recipiente hermético."],
+    difficulty: "Fácil", time: "10 min",
+    description: "Tempero seco para polvilhar sobre arroz. Cada família japonesa tem sua receita secreta de furikake." },
+
+  { id: "rayu", name: "Rayu (Óleo de Pimenta)", category: "Molhos & Temperos", image: "rayu",
+    ingredients: ["200ml de óleo de gergelim", "3 colheres de flocos de pimenta vermelha", "2 dentes de alho fatiados", "1 pedaço de gengibre", "1 estrela de anis", "1 colher de gergelim torrado"],
+    steps: ["Aqueça o óleo com alho, gengibre e anis em fogo baixo.", "Quando o alho dourar, retire os sólidos.", "Deixe o óleo esfriar até ~150°C.", "Despeje sobre os flocos de pimenta.", "Mexa e deixe infusionar.", "Adicione gergelim e armazene em frasco."],
+    difficulty: "Fácil", time: "15 min",
+    description: "Óleo aromático de pimenta e gergelim. Indispensável no ramen, gyoza e qualquer prato que precisa de calor." },
+
+  { id: "shichimi-togarashi", name: "Shichimi Togarashi", category: "Molhos & Temperos", image: "shichimi-togarashi",
+    ingredients: ["3 colheres de pimenta vermelha moída", "1 colher de casca de tangerina seca", "1 colher de gergelim", "1/2 colher de sansho (pimenta japonesa)", "1/2 colher de semente de papoula", "1/2 colher de nori triturado", "1/2 colher de gengibre em pó"],
+    steps: ["Triture a pimenta vermelha ao grau desejado.", "Rale a casca de tangerina seca.", "Misture todos os 7 ingredientes.", "Ajuste as proporções ao seu gosto.", "Armazene em recipiente hermético.", "Use sobre udon, soba, yakitori e ramen."],
+    difficulty: "Fácil", time: "10 min",
+    description: "Blend de 7 especiarias japonesas criado no séc. XVII em Tóquio. Cada loja tem sua fórmula secreta." },
+
+  // ============ DONBURI & ARROZ ============
+  { id: "unadon", name: "Unadon (Unagi Don)", category: "Donburi & Arroz", image: "unadon",
+    ingredients: ["1 filé de unagi (enguia)", "Arroz japonês", "Tare de unagi (shoyu, mirin, açúcar, sakê)", "Sansho em pó", "Nori picado"],
+    steps: ["Cozinhe o arroz japonês.", "Prepare o tare: shoyu, mirin, açúcar e sakê reduzidos.", "Grelhe o unagi pincelando tare várias vezes.", "Coloque arroz na tigela.", "Posicione o unagi grelhado por cima.", "Finalize com sansho e nori."],
+    difficulty: "Avançado", time: "40 min",
+    description: "Enguia grelhada com tare sobre arroz. Prato de força consumido no dia mais quente do verão japonês." },
+
+  { id: "tendon", name: "Tendon", category: "Donburi & Arroz", image: "tendon",
+    ingredients: ["Camarões grandes", "Berinjela", "Batata-doce", "Shiso", "Massa de tempurá", "Arroz japonês", "Tentsuyu (dashi, shoyu, mirin)"],
+    steps: ["Prepare o tentsuyu concentrado.", "Frite tempurás variados.", "Coloque arroz na tigela.", "Mergulhe brevemente cada tempurá no tentsuyu.", "Arrume sobre o arroz.", "Regue com mais tentsuyu."],
+    difficulty: "Médio", time: "35 min",
+    description: "Tempurá sobre arroz com molho tentsuyu. A combinação de crocância e molho é viciante." },
+
+  { id: "chirashi", name: "Chirashi Sushi", category: "Donburi & Arroz", image: "chirashi",
+    ingredients: ["Arroz de sushi temperado", "Salmão fresco", "Atum fresco", "Camarão cozido", "Ikura (ovas de salmão)", "Tamagoyaki", "Pepino", "Nori picado"],
+    steps: ["Prepare o arroz de sushi temperado.", "Corte os peixes em fatias.", "Coloque o arroz na tigela.", "Distribua os peixes e frutos do mar por cima.", "Adicione tamagoyaki, pepino e ikura.", "Decore com nori e gergelim."],
+    difficulty: "Médio", time: "40 min",
+    description: "Sushi 'espalhado' — todos os ingredientes sobre arroz. Popular em celebrações como Hinamatsuri." },
+
+  { id: "omurice", name: "Omurice", category: "Donburi & Arroz", image: "omurice",
+    ingredients: ["Arroz japonês", "Frango picado", "Cebola", "Ketchup", "3 ovos", "Manteiga", "Salsa"],
+    steps: ["Refogue cebola e frango picados.", "Adicione arroz cozido e ketchup.", "Mexa bem até o arroz ficar vermelho.", "Bata os ovos e faça um omelete macio.", "Coloque o arroz no prato.", "Cubra com o omelete e regue com ketchup."],
+    difficulty: "Médio", time: "25 min",
+    description: "Arroz com ketchup coberto por omelete cremoso. Comfort food japonês inspirado na culinária ocidental." },
+
+  { id: "chahan", name: "Chahan (Arroz Frito)", category: "Donburi & Arroz", image: "chahan",
+    ingredients: ["Arroz japonês (do dia anterior)", "2 ovos", "Chashu ou presunto picado", "Cebolinha", "Shoyu", "Sal e pimenta", "Óleo de gergelim"],
+    steps: ["Aqueça wok ou frigideira em fogo alto.", "Adicione óleo e ovos batidos, mexa rapidamente.", "Adicione o arroz frio e mexa vigorosamente.", "Junte chashu picado.", "Tempere com shoyu e sal.", "Finalize com cebolinha e óleo de gergelim."],
+    difficulty: "Fácil", time: "15 min",
+    description: "Arroz frito japonês — simples, rápido e delicioso. O segredo é o fogo alto e arroz do dia anterior." },
+
+  { id: "ochazuke", name: "Ochazuke", category: "Donburi & Arroz", image: "ochazuke",
+    ingredients: ["Arroz japonês", "Chá verde quente ou dashi", "Salmão grelhado desfiado", "Umeboshi", "Nori picado", "Wasabi", "Gergelim", "Arare (bolinhas de arroz)"],
+    steps: ["Coloque arroz na tigela.", "Adicione os toppings: salmão, umeboshi, nori.", "Polvilhe gergelim e arare.", "Despeje chá verde quente ou dashi por cima.", "Adicione um pouco de wasabi.", "Coma imediatamente enquanto quente."],
+    difficulty: "Fácil", time: "10 min",
+    description: "Arroz com chá verde — o comfort food definitivo japonês. Perfeito para quando está doente ou com ressaca." },
+
+  { id: "tamago-kake-gohan", name: "Tamago Kake Gohan (TKG)", category: "Donburi & Arroz", image: "tamago-kake-gohan",
+    ingredients: ["Arroz japonês quente", "1 ovo cru fresco", "Shoyu", "Furikake (opcional)", "Cebolinha (opcional)"],
+    steps: ["Sirva arroz bem quente na tigela.", "Quebre o ovo cru sobre o arroz.", "Adicione shoyu a gosto.", "Mexa vigorosamente até cremoso.", "Polvilhe furikake ou cebolinha.", "Coma imediatamente."],
+    difficulty: "Fácil", time: "5 min",
+    description: "Café da manhã japonês mais simples: ovo cru no arroz quente. Parece básico, é transformador." },
+
+  { id: "hayashi-rice", name: "Hayashi Rice", category: "Donburi & Arroz", image: "hayashi-rice",
+    ingredients: ["300g de carne bovina fatiada", "1 cebola grande", "Cogumelos", "Molho demi-glace", "Vinho tinto", "Manteiga", "Arroz japonês", "Salsa"],
+    steps: ["Refogue cebola em manteiga até caramelizar.", "Adicione carne e sele rapidamente.", "Junte cogumelos e cozinhe.", "Adicione vinho tinto e reduza.", "Misture o molho demi-glace e cozinhe por 20 min.", "Sirva ao lado do arroz."],
+    difficulty: "Médio", time: "40 min",
+    description: "Ensopado de carne com molho demi-glace sobre arroz. Yoshoku (culinária ocidental japonesa) no seu melhor." },
+
+  { id: "kare-raisu", name: "Curry Japonês (Kare Raisu)", category: "Donburi & Arroz", image: "kare-raisu",
+    ingredients: ["Carne bovina ou frango", "Batata", "Cenoura", "Cebola", "Roux de curry japonês", "Arroz japonês", "Fukujinzuke (conserva vermelha)"],
+    steps: ["Corte carne e vegetais em pedaços.", "Refogue cebola até dourar.", "Adicione carne e sele.", "Junte batata, cenoura e água.", "Cozinhe até os vegetais ficarem macios.", "Desligue o fogo, adicione o roux e mexa até dissolver. Sirva com arroz."],
+    difficulty: "Fácil", time: "45 min",
+    description: "O prato mais popular do Japão. Curry japonês é mais suave e doce que o indiano — crianças adoram." },
+
+  // ============ ACOMPANHAMENTOS ============
+  { id: "tamagoyaki", name: "Tamagoyaki", category: "Acompanhamentos", image: "tamagoyaki",
+    ingredients: ["4 ovos", "2 colheres de dashi", "1 colher de mirin", "1 colher de açúcar", "1/2 colher de shoyu", "Óleo"],
+    steps: ["Misture ovos, dashi, mirin, açúcar e shoyu.", "Aqueça frigideira retangular (tamagoyaki-ki).", "Unte com óleo.", "Despeje uma camada fina de ovo e enrole.", "Repita: nova camada, enrolar sobre a anterior.", "Continue até acabar a mistura. Modele e corte."],
+    difficulty: "Médio", time: "15 min",
+    description: "Omelete enrolada em camadas, ligeiramente doce. Presente em todo bento box e sushi-ya." },
+
+  { id: "tsukemono", name: "Tsukemono (Conservas)", category: "Acompanhamentos", image: "tsukemono",
+    ingredients: ["Pepino japonês", "Daikon", "Nabo", "Cenoura", "Sal", "Vinagre de arroz", "Kombu"],
+    steps: ["Corte os vegetais em fatias finas ou palitos.", "Misture com sal e deixe 30 min.", "Esprema o excesso de água.", "Tempere com vinagre e kombu.", "Refrigere por pelo menos 2 horas.", "Sirva como acompanhamento."],
+    difficulty: "Fácil", time: "15 min + 2h descanso",
+    description: "Conservas japonesas — presentes em toda refeição. Cada região tem suas especialidades." },
+
+  { id: "kinpira-gobo", name: "Kinpira Gobō", category: "Acompanhamentos", image: "kinpira-gobo",
+    ingredients: ["1 raiz de gobō (bardana)", "1 cenoura", "Shoyu", "Mirin", "Açúcar", "Óleo de gergelim", "Gergelim torrado", "Shichimi togarashi"],
+    steps: ["Corte gobō e cenoura em tiras finas (julienne).", "Deixe o gobō de molho em água com vinagre.", "Salteie em óleo de gergelim em fogo alto.", "Adicione shoyu, mirin e açúcar.", "Cozinhe até o líquido evaporar.", "Finalize com gergelim e shichimi."],
+    difficulty: "Fácil", time: "20 min",
+    description: "Raiz de bardana e cenoura refogadas. Prato caseiro japonês por excelência — crocante e saboroso." },
+
+  { id: "hijiki-nimono", name: "Hijiki Nimono", category: "Acompanhamentos", image: "hijiki-nimono",
+    ingredients: ["30g de hijiki seco", "1/2 cenoura", "Aburaage (tofu frito)", "Edamame", "Dashi", "Shoyu", "Mirin", "Açúcar"],
+    steps: ["Hidrate o hijiki por 30 minutos.", "Corte cenoura e aburaage em tiras.", "Refogue hijiki e cenoura.", "Adicione dashi, shoyu, mirin e açúcar.", "Cozinhe em fogo baixo por 15 min.", "Junte edamame e sirva."],
+    difficulty: "Fácil", time: "45 min",
+    description: "Alga hijiki cozida com legumes. Rico em ferro e cálcio — um clássico da alimentação saudável japonesa." },
+
+  { id: "nasu-dengaku", name: "Nasu Dengaku", category: "Acompanhamentos", image: "nasu-dengaku",
+    ingredients: ["2 berinjelas japonesas", "3 colheres de missô branco", "2 colheres de mirin", "1 colher de açúcar", "1 colher de sakê", "Gergelim", "Óleo"],
+    steps: ["Corte as berinjelas ao meio no comprido.", "Faça cortes em grade na polpa.", "Frite ou grelhe até dourar e amolecer.", "Misture missô, mirin, açúcar e sakê.", "Espalhe a pasta de missô sobre as berinjelas.", "Gratine e polvilhe gergelim."],
+    difficulty: "Fácil", time: "20 min",
+    description: "Berinjela grelhada com glace de missô doce. Simples e sofisticado ao mesmo tempo." },
+
+  { id: "nikujaga", name: "Nikujaga", category: "Acompanhamentos", image: "nikujaga",
+    ingredients: ["300g de carne bovina fatiada", "3 batatas", "1 cebola", "1 cenoura", "Shirataki (macarrão konjac)", "Dashi", "Shoyu", "Mirin", "Açúcar"],
+    steps: ["Corte batatas, cenoura e cebola.", "Refogue a carne rapidamente.", "Adicione cebola e refogue.", "Junte batata, cenoura e shirataki.", "Adicione dashi, shoyu, mirin e açúcar.", "Cozinhe em fogo baixo por 20 min até tudo ficar macio."],
+    difficulty: "Fácil", time: "35 min",
+    description: "Ensopado de carne e batata — o 'comfort food da mamãe japonesa'. Todo japonês tem saudade do nikujaga da mãe." },
+
+  { id: "chawanmushi", name: "Chawanmushi", category: "Acompanhamentos", image: "chawanmushi",
+    ingredients: ["3 ovos", "400ml de dashi frio", "1 colher de shoyu claro", "1 colher de mirin", "Camarão", "Cogumelo shiitake", "Kamaboko", "Mitsuba"],
+    steps: ["Misture ovos, dashi, shoyu e mirin sem fazer espuma.", "Coe a mistura.", "Distribua camarão, shiitake e kamaboko nos copos.", "Despeje a mistura de ovo.", "Cozinhe no vapor por 15 min em fogo baixo.", "Decore com mitsuba e sirva."],
+    difficulty: "Médio", time: "30 min",
+    description: "Flan salgado japonês cozido no vapor. Textura sedosa que derrete na boca." },
+
+  { id: "korokke", name: "Korokke", category: "Acompanhamentos", image: "korokke",
+    ingredients: ["3 batatas grandes", "150g de carne moída", "1 cebola picada", "Sal e pimenta", "Farinha de trigo", "Ovos batidos", "Panko"],
+    steps: ["Cozinhe as batatas e amasse.", "Refogue carne e cebola, tempere.", "Misture com o purê de batata.", "Modele em formato oval.", "Passe na farinha, ovo e panko.", "Frite a 170°C até dourar."],
+    difficulty: "Médio", time: "40 min",
+    description: "Croquete japonês derivado do francês. Encontrado em todo konbini e padaria japonesa." },
+
+  { id: "natto", name: "Nattō", category: "Acompanhamentos", image: "natto",
+    ingredients: ["1 pacote de nattō (soja fermentada)", "Shoyu (sachê incluso)", "Karashi (mostarda japonesa)", "Cebolinha picada", "Arroz japonês quente"],
+    steps: ["Abra o pacote de nattō.", "Adicione shoyu e karashi.", "Mexa vigorosamente por 30 segundos até formar fios.", "Quanto mais mexer, mais saboroso fica.", "Sirva sobre arroz quente.", "Adicione cebolinha por cima."],
+    difficulty: "Fácil", time: "3 min",
+    description: "Soja fermentada com textura pegajosa. Amado ou odiado — é o superalimento do café da manhã japonês." },
+
+  { id: "hiyayakko", name: "Hiyayakko (Tofu Gelado)", category: "Acompanhamentos", image: "hiyayakko",
+    ingredients: ["1 bloco de tofu sedoso", "Gengibre ralado", "Katsuobushi", "Cebolinha picada", "Shoyu", "Nori picado"],
+    steps: ["Retire o tofu da embalagem com cuidado.", "Coloque em um prato frio.", "Rale gengibre fresco por cima.", "Adicione cebolinha e katsuobushi.", "Polvilhe nori.", "Regue com shoyu na hora de comer."],
+    difficulty: "Fácil", time: "5 min",
+    description: "Tofu gelado com toppings simples — o acompanhamento mais refrescante do verão japonês." },
+
+  { id: "ohitashi", name: "Ohitashi de Espinafre", category: "Acompanhamentos", image: "ohitashi",
+    ingredients: ["1 maço de espinafre", "Dashi", "Shoyu", "Mirin", "Katsuobushi", "Gergelim"],
+    steps: ["Ferva água com sal.", "Cozinhe o espinafre por 30 segundos.", "Transfira para água gelada.", "Esprema bem e corte em pedaços de 3cm.", "Misture dashi, shoyu e mirin para o molho.", "Coloque o espinafre no molho e cubra com katsuobushi."],
+    difficulty: "Fácil", time: "10 min",
+    description: "Espinafre escalfado com dashi e katsuobushi. Simplicidade e elegância japonesa." },
+
+  { id: "nimono-kabocha", name: "Nimono de Kabocha", category: "Acompanhamentos", image: "nimono-kabocha",
+    ingredients: ["1/4 de kabocha (abóbora japonesa)", "200ml de dashi", "2 colheres de shoyu", "2 colheres de mirin", "1 colher de açúcar"],
+    steps: ["Corte a kabocha em pedaços de 3cm.", "Coloque na panela com a casca para baixo.", "Adicione dashi, shoyu, mirin e açúcar.", "Cubra com otoshibuta (tampa flutuante).", "Cozinhe em fogo baixo por 15-20 min.", "A kabocha está pronta quando macia mas não desmanchando."],
+    difficulty: "Fácil", time: "25 min",
+    description: "Abóbora japonesa cozida em dashi doce. Textura aveludada e sabor reconfortante." },
+
+  // ============ IZAKAYA & PETISCOS ============
+  { id: "kushikatsu", name: "Kushikatsu", category: "Izakaya & Petiscos", image: "kushikatsu",
+    ingredients: ["Carne bovina", "Camarão", "Cebola", "Aspargo", "Queijo", "Farinha", "Ovo", "Panko fino", "Molho kushikatsu"],
+    steps: ["Corte ingredientes em pedaços de 2-3cm.", "Espete em palitos de bambu.", "Passe na farinha, ovo e panko fino.", "Frite em óleo a 180°C por 2-3 min.", "Escorra e sirva imediatamente.", "Mergulhe no molho uma única vez (regra de Osaka!)."],
+    difficulty: "Médio", time: "30 min",
+    description: "Espetinhos fritos de Osaka. Regra sagrada: NUNCA mergulhe duas vezes no molho compartilhado!" },
+
+  { id: "motsu-nikomi", name: "Motsu Nikomi", category: "Izakaya & Petiscos", image: "motsu-nikomi",
+    ingredients: ["500g de motsu (miúdos bovinos)", "Daikon", "Cenoura", "Konnyaku", "Missô", "Gengibre", "Cebolinha", "Shichimi togarashi"],
+    steps: ["Limpe bem o motsu e ferva 2 vezes para remover impurezas.", "Corte vegetais em pedaços.", "Cozinhe motsu e vegetais em dashi por 1 hora.", "Adicione missô e gengibre.", "Cozinhe mais 30 min em fogo baixo.", "Sirva com cebolinha e shichimi."],
+    difficulty: "Médio", time: "2 horas",
+    description: "Ensopado de miúdos em missô — prato rústico de izakaya que aquece a alma no inverno." },
+
+  { id: "tebasaki", name: "Tebasaki", category: "Izakaya & Petiscos", image: "tebasaki",
+    ingredients: ["1kg de asinhas de frango", "Shoyu", "Mirin", "Açúcar", "Alho ralado", "Gengibre", "Pimenta preta", "Gergelim"],
+    steps: ["Tempere as asas com sal e pimenta.", "Frite em óleo a 170°C até dourar.", "Frite novamente a 180°C para crocância extra.", "Prepare o molho: shoyu, mirin, açúcar, alho.", "Misture as asas fritas no molho.", "Polvilhe gergelim e pimenta."],
+    difficulty: "Fácil", time: "30 min",
+    description: "Asinhas de frango estilo Nagoya — fritas duas vezes e glaceadas. Perfeitas com cerveja gelada." },
+
+  { id: "tataki-maguro", name: "Tataki de Atum", category: "Izakaya & Petiscos", image: "tataki-maguro",
+    ingredients: ["300g de atum fresco (bloco)", "Shoyu", "Suco de limão ou ponzu", "Gengibre ralado", "Alho fatiado", "Cebolinha", "Gergelim", "Shiso"],
+    steps: ["Sele o atum em frigideira muito quente por 30s cada lado.", "Transfira para água gelada para parar o cozimento.", "Seque e fatie em fatias de 5mm.", "Disponha as fatias no prato.", "Regue com ponzu ou shoyu com limão.", "Cubra com alho, gengibre, cebolinha e gergelim."],
+    difficulty: "Fácil", time: "15 min",
+    description: "Atum selado por fora e cru por dentro. Técnica tataki realça o sabor sem cozinhar completamente." },
+
+  { id: "mentaiko", name: "Mentaiko", category: "Izakaya & Petiscos", image: "mentaiko",
+    ingredients: ["Ovas de bacalhau (tarako)", "Pimenta vermelha em pó", "Sakê", "Mirin", "Dashi", "Arroz japonês", "Nori"],
+    steps: ["Tempere as ovas com pimenta, sakê, mirin e dashi.", "Marine por 24-48 horas na geladeira.", "Retire da marinada.", "Grelhe levemente (opcional) ou sirva cru.", "Coloque sobre arroz quente.", "Envolva com nori e coma."],
+    difficulty: "Médio", time: "15 min + 24h marinada",
+    description: "Ovas de bacalhau picantes de Fukuoka. Sabor intenso do mar que explode na boca." },
+
+  { id: "yaki-onigiri", name: "Yaki Onigiri", category: "Izakaya & Petiscos", image: "yaki-onigiri",
+    ingredients: ["Arroz japonês", "Shoyu", "Mirin", "Óleo de gergelim", "Missô (opcional)"],
+    steps: ["Molde onigiri triangulares bem compactos.", "Misture shoyu com mirin para o glaze.", "Aqueça frigideira ou grelha.", "Grelhe o onigiri sem mexer por 3 min cada lado.", "Pincele com glaze de shoyu.", "Grelhe mais 1 min de cada lado até caramelizar."],
+    difficulty: "Fácil", time: "20 min",
+    description: "Onigiri grelhado com crosta de shoyu caramelizado. Sabor defumado irresistível." },
+
+  { id: "dashimaki-tamago", name: "Dashimaki Tamago", category: "Izakaya & Petiscos", image: "dashimaki-tamago",
+    ingredients: ["4 ovos", "80ml de dashi", "1 colher de shoyu claro", "1 colher de mirin", "Daikon ralado", "Óleo"],
+    steps: ["Misture ovos, dashi, shoyu e mirin sem fazer espuma.", "Coe a mistura.", "Aqueça a frigideira retangular com óleo.", "Despeje camada fina e enrole quando semicozido.", "Empurre para o lado e adicione nova camada.", "Repita até acabar. O interior deve ficar úmido e macio."],
+    difficulty: "Avançado", time: "15 min",
+    description: "Versão de izakaya do tamagoyaki, com mais dashi — tão macio que quase desmancha. Teste de habilidade do chef." },
 ];
 
 export function getDishById(id: string): Dish | undefined {
