@@ -182,6 +182,21 @@ export default function Vip() {
                       <span className="inline-block mt-2 text-[10px] font-semibold uppercase tracking-wider text-yellow-500 bg-yellow-500/10 px-2 py-0.5 rounded-full">
                         {hasRecipes ? `${drinkCount} receitas` : "Em breve"}
                       </span>
+                      {unlocked ? (
+                        hasRecipes && (
+                          <span className="inline-flex items-center gap-1 mt-2 ml-2 text-[10px] font-semibold text-primary">
+                            Ver Categoria <ArrowRight size={10} />
+                          </span>
+                        )
+                      ) : (
+                        <Link
+                          to="/queroservip"
+                          onClick={(e) => e.stopPropagation()}
+                          className="inline-flex items-center gap-1 mt-2 ml-2 text-[10px] font-semibold text-yellow-500 hover:text-yellow-400 z-20 relative"
+                        >
+                          Quero ser VIP <ArrowRight size={10} />
+                        </Link>
+                      )}
                     </div>
                   </div>
                 </div>
