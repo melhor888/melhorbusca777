@@ -56,13 +56,13 @@ export default function BottomNav() {
                       active ? "bg-primary/10 text-primary" : "text-muted-foreground hover:bg-secondary"
                     }`}
                   >
-                    <Icon size={22} strokeWidth={active ? 2.5 : 1.5} className={path === "/vip" ? "text-accent" : ""} />
+                    <Icon size={22} strokeWidth={active ? 2.5 : 1.5} className={path === "/vip" ? "text-yellow-500" : ""} />
                     {showBadge && (
                       <span className="absolute top-2 right-2 w-4 h-4 rounded-full bg-primary text-primary-foreground text-[9px] font-bold flex items-center justify-center">
                         {drinkIds.length}
                       </span>
                     )}
-                    <span className={`text-[10px] font-medium leading-tight text-center ${path === "/vip" ? "text-accent" : ""}`}>{label}</span>
+                    <span className={`text-[10px] font-medium leading-tight text-center ${path === "/vip" ? "text-yellow-500" : ""}`}>{label}</span>
                   </button>
                 );
               })}
