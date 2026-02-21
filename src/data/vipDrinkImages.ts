@@ -22,7 +22,7 @@ const vipImageNumbers: Record<string, number[]> = {
   volta: Array.from({ length: 104 }, (_, i) => i + 1),
   sake: Array.from({ length: 10 }, (_, i) => i + 1),
   cardapio: Array.from({ length: 10 }, (_, i) => i + 1),
-  secretas: Array.from({ length: 10 }, (_, i) => i + 1),
+  secretas: Array.from({ length: 14 }, (_, i) => i + 1),
   tecnicas: Array.from({ length: 10 }, (_, i) => i + 1),
 };
 
@@ -717,10 +717,10 @@ const dedicatedImages: Record<string, string> = {
   "ramen-tonkotsu-48h": "/images/vip-secretas-3.jpg",
   "tempura-edomae": "/images/vip-secretas-7.jpg",
   "soba-teuchi": "/images/vip-secretas-4.jpg",
-  "shabu-shabu-premium": "/images/vip-secretas-3.jpg",
-  "tonkatsu-perfeito": "/images/vip-secretas-4.jpg",
-  "gyukatsu-wagyu": "/images/vip-secretas-1.jpg",
-  "chirashi-zushi-edomae": "/images/vip-secretas-2.jpg",
+  "shabu-shabu-premium": "/images/vip-secretas-11.jpg",
+  "tonkatsu-perfeito": "/images/vip-secretas-14.jpg",
+  "gyukatsu-wagyu": "/images/vip-secretas-12.jpg",
+  "chirashi-zushi-edomae": "/images/vip-secretas-13.jpg",
   "katsudon": "/images/vip-secretas-9.jpg",
 };
 
