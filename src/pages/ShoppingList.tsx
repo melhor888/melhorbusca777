@@ -77,9 +77,9 @@ export default function ShoppingList() {
         {drinkIds.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-24 px-6 text-center">
             <ShoppingCart size={48} className="text-muted-foreground/30 mb-4" />
-            <h2 className="font-display font-bold text-foreground text-lg">Nenhum drink selecionado</h2>
+            <h2 className="font-display font-bold text-foreground text-lg">Nenhuma receita selecionada</h2>
             <p className="text-sm text-muted-foreground mt-2 max-w-xs">
-              Abra uma receita e toque no ícone 🛒 para adicionar drinks à sua lista de compras.
+              Abra uma receita e toque no ícone 🛒 para adicionar ingredientes à sua lista de compras.
             </p>
             <button
               onClick={() => navigate("/")}
