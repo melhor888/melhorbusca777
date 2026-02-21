@@ -37,6 +37,14 @@ import imgNatto from "@/assets/dishes/natto.jpg";
 import imgSunomono from "@/assets/dishes/sunomono.jpg";
 import imgEdamame from "@/assets/dishes/edamame.jpg";
 
+// Dish images for Harmonização Sake & Drinks
+import imgGyoza from "@/assets/dishes/gyoza.jpg";
+import imgShabuShabu from "@/assets/dishes/shabu-shabu.jpg";
+import imgMatchaParfait from "@/assets/dishes/matcha-parfait.jpg";
+import imgMochi from "@/assets/dishes/mochi.jpg";
+import imgOkonomiyaki from "@/assets/dishes/okonomiyaki.jpg";
+import imgTakoyaki from "@/assets/dishes/takoyaki.jpg";
+
 const receitasSecretasImages: Record<string, string> = {
   "wagyu-a5-teppanyaki": imgTeppanyaki,
   "kaiseki-sakizuke": imgSashimiMisto,
@@ -61,6 +69,19 @@ const masterclassTecnicasImages: Record<string, string> = {
   "mt-yakimono-grelhados": imgYakitori,
   "mt-fermentacao-japonesa": imgNatto,
   "mt-arte-bento": imgOnigiri,
+};
+
+const harmonizacaoSakeImages: Record<string, string> = {
+  "hs-junmai-daiginjo": imgSashimiMisto,
+  "hs-nigori-yakitori": imgYakitori,
+  "hs-shochu-izakaya": imgGyoza,
+  "hs-whisky-japones": imgTeppanyaki,
+  "hs-umeshu-sobremesa": imgMochi,
+  "hs-sparkling-sake-tempura": imgTempura,
+  "hs-sake-quente-nabe": imgShabuShabu,
+  "hs-cocktail-matcha-gin": imgEdamame,
+  "hs-awamori-okinawa": imgOkonomiyaki,
+  "hs-sake-queijo": imgTakoyaki,
 };
 
 const difficultyColor: Record<string, string> = {
@@ -223,7 +244,7 @@ export default function VipCategoryPage() {
           ) : (
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 lg:gap-4">
               {drinks.map((drink, i) => {
-                const image = receitasSecretasImages[drink.id] || masterclassTecnicasImages[drink.id] || getVipDrinkImage(drink.id, drink.category);
+                const image = receitasSecretasImages[drink.id] || masterclassTecnicasImages[drink.id] || harmonizacaoSakeImages[drink.id] || getVipDrinkImage(drink.id, drink.category);
                 return (
                   <button
                     key={drink.id}
