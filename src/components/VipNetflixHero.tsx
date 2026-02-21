@@ -1,7 +1,7 @@
-import { useState, useEffect, useCallback, useMemo } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-import { Crown, Play, ChevronLeft, ChevronRight, Sparkles } from "lucide-react";
-import { getVipCategoryHero } from "@/data/vipDrinkImages";
+import { Crown, Play, ChevronLeft, ChevronRight } from "lucide-react";
+import { getDishImage } from "@/data/dishImages";
 
 interface Slide {
   id: string;
@@ -17,112 +17,40 @@ const INTERVAL = 7000;
 
 const slides: Slide[] = [
   {
-    id: "vinho-sangrias",
-    title: "Vinho & Sangrias",
-    subtitle: "Sangrias, spritzers e vinhos quentes",
-    description: "Sangrias clássicas e modernas, vinhos quentes especiados, spritzers refrescantes e criações com vinho tinto, branco e rosé.",
-    image: getVipCategoryHero("vinho-sangrias") || "/images/vip-wine-1.jpg",
+    id: "receitas-secretas",
+    title: "Receitas Secretas do Chef",
+    subtitle: "Exclusivo VIP",
+    description: "Wagyu A5, Fugu, Kaiseki, Omakase — receitas que só chefs com anos de experiência dominam. Aprenda os segredos dos mestres itamae.",
+    image: getDishImage("sashimi-misto"),
     cta: "Ver Categoria",
-    ctaLink: "/vip/categoria/vinho-sangrias",
+    ctaLink: "/vip/categoria/receitas-secretas",
   },
   {
-    id: "cerveja-beer-cocktails",
-    title: "Cerveja & Beer Cocktails",
-    subtitle: "Micheladas, Shandys e Radlers",
-    description: "Micheladas picantes, Shandys refrescantes, Radlers cítricos e Beer Margaritas que vão mudar sua visão sobre cerveja.",
-    image: getVipCategoryHero("cerveja-beer-cocktails") || "/images/vip-beer-1.jpg",
+    id: "masterclass-tecnicas",
+    title: "Masterclass de Técnicas",
+    subtitle: "Domine a Arte",
+    description: "Afiar facas japonesas, corte perfeito de sashimi, dashi fundamental, arte do tempurá — técnicas de nível profissional.",
+    image: getDishImage("tempura-mista"),
     cta: "Ver Categoria",
-    ctaLink: "/vip/categoria/cerveja-beer-cocktails",
+    ctaLink: "/vip/categoria/masterclass-tecnicas",
   },
   {
-    id: "frozen-blended",
-    title: "Frozen & Blended",
-    subtitle: "Drinks gelados e cremosos",
-    description: "Frozen margaritas, frosés, slushies alcoólicos e drinks blended que são perfeitos para dias quentes.",
-    image: getVipCategoryHero("frozen-blended") || "/images/vip-frozen-1.jpg",
+    id: "harmonizacao-sake",
+    title: "Harmonização Sake & Drinks",
+    subtitle: "Sabores Perfeitos",
+    description: "Guia completo de harmonização: sakê, shochu, whisky japonês e chás especiais com cada tipo de prato da culinária japonesa.",
+    image: getDishImage("sukiyaki"),
     cta: "Ver Categoria",
-    ctaLink: "/vip/categoria/frozen-blended",
+    ctaLink: "/vip/categoria/harmonizacao-sake",
   },
   {
-    id: "low-abv-wellness",
-    title: "Low ABV & Wellness",
-    subtitle: "Drinks leves e saudáveis",
-    description: "Spritzes, kombuchas alcoólicas e cocktails com baixo teor alcoólico para quem busca equilíbrio e sabor.",
-    image: getVipCategoryHero("low-abv-wellness") || "/images/vip-lowabv-1.jpg",
+    id: "cardapios-completos",
+    title: "Cardápios Completos",
+    subtitle: "Menus Exclusivos",
+    description: "Menus completos para ocasiões especiais: Kaiseki, noite de Izakaya, Hanami sob cerejeiras e Réveillon Japonês.",
+    image: getDishImage("sushi-misto"),
     cta: "Ver Categoria",
-    ctaLink: "/vip/categoria/low-abv-wellness",
-  },
-  {
-    id: "drinks-autor",
-    title: "Drinks de Autor",
-    subtitle: "Criações exclusivas de bartenders",
-    description: "Receitas assinadas por bartenders renomados do mundo todo. Ingredientes inesperados e combinações que surpreendem.",
-    image: getVipCategoryHero("drinks-autor") || "/images/vip-autor-1.jpg",
-    cta: "Ver Categoria",
-    ctaLink: "/vip/categoria/drinks-autor",
-  },
-  {
-    id: "classicos-reinventados",
-    title: "Clássicos Reinventados",
-    subtitle: "Os favoritos, repaginados",
-    description: "Old Fashioned com baunilha, Negroni defumado, Daiquiri molecular. Técnicas modernas em receitas eternas.",
-    image: getVipCategoryHero("classicos-reinventados") || "/images/vip-classico-1.jpg",
-    cta: "Ver Categoria",
-    ctaLink: "/vip/categoria/classicos-reinventados",
-  },
-  {
-    id: "sazonais-festivos",
-    title: "Sazonais & Festivos",
-    subtitle: "Natal, Carnaval, São João",
-    description: "Drinks temáticos para cada época do ano — festas, feriados e celebrações especiais com receitas únicas.",
-    image: getVipCategoryHero("sazonais-festivos") || "/images/vip-seasonal-1.jpg",
-    cta: "Ver Categoria",
-    ctaLink: "/vip/categoria/sazonais-festivos",
-  },
-  {
-    id: "sobremesa-doces",
-    title: "Sobremesa & Doces",
-    subtitle: "Chocolate, caramelo e licores",
-    description: "Cocktails de sobremesa com chocolate, caramelo, sorvete e licores cremosos que substituem a sobremesa.",
-    image: getVipCategoryHero("sobremesa-doces") || "/images/vip-dessert-1.jpg",
-    cta: "Ver Categoria",
-    ctaLink: "/vip/categoria/sobremesa-doces",
-  },
-  {
-    id: "picantes-defumados",
-    title: "Picantes & Defumados",
-    subtitle: "Mezcal, jalapeño e chili",
-    description: "Drinks com mezcal, pimenta, técnicas de defumação e sabores intensos para paladares aventureiros.",
-    image: getVipCategoryHero("picantes-defumados") || "/images/vip-spicy-1.jpg",
-    cta: "Ver Categoria",
-    ctaLink: "/vip/categoria/picantes-defumados",
-  },
-  {
-    id: "cha-infusoes",
-    title: "Chá & Infusões",
-    subtitle: "Chá gelado alcoólico e matcha",
-    description: "Chás gelados alcoólicos, infusões de ervas aromáticas e matcha cocktails sofisticados.",
-    image: getVipCategoryHero("cha-infusoes") || "/images/vip-tea-1.jpg",
-    cta: "Ver Categoria",
-    ctaLink: "/vip/categoria/cha-infusoes",
-  },
-  {
-    id: "masterclass",
-    title: "Masterclass Cocktails",
-    subtitle: "Técnicas de nível profissional",
-    description: "Esferificação, fat-wash, clarificação a leite. Domine as técnicas dos melhores bares do mundo.",
-    image: getVipCategoryHero("masterclass-cocktails") || "/images/vip-masterclass-1.jpg",
-    cta: "Ver Categoria",
-    ctaLink: "/vip/categoria/masterclass",
-  },
-  {
-    id: "volta-ao-mundo",
-    title: "Volta ao Mundo",
-    subtitle: "Drinks típicos de cada país",
-    description: "Viaje pelos sabores do Japão, Peru, Cuba, Itália e dezenas de outros países através dos seus cocktails tradicionais.",
-    image: getVipCategoryHero("volta-ao-mundo") || "/images/vip-volta-1.jpg",
-    cta: "Ver Categoria",
-    ctaLink: "/vip/categoria/volta-ao-mundo",
+    ctaLink: "/vip/categoria/cardapios-completos",
   },
 ];
 
@@ -158,7 +86,6 @@ export default function VipNetflixHero() {
     return () => clearInterval(id);
   }, [advance]);
 
-  // Progress bar width
   const [progress, setProgress] = useState(0);
   useEffect(() => {
     setProgress(0);
@@ -174,7 +101,6 @@ export default function VipNetflixHero() {
 
   return (
     <div className="relative -mx-4 mb-8 overflow-hidden rounded-b-3xl group">
-      {/* Background image */}
       <div className="relative h-[380px] lg:h-[460px] w-full">
         <img
           src={slide.image}
@@ -184,11 +110,9 @@ export default function VipNetflixHero() {
           }`}
         />
 
-        {/* Gradients */}
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/40 to-transparent" />
 
-        {/* Content */}
         <div
           className={`absolute bottom-0 left-0 right-0 p-6 lg:p-10 lg:max-w-xl transition-all duration-500 ${
             fading ? "opacity-0 translate-y-3" : "opacity-100 translate-y-0"
@@ -220,7 +144,6 @@ export default function VipNetflixHero() {
           </div>
         </div>
 
-        {/* Nav arrows */}
         <button
           onClick={prev}
           className="absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-background/60 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity hover:bg-background/80"
@@ -234,7 +157,6 @@ export default function VipNetflixHero() {
           <ChevronRight size={20} className="text-foreground" />
         </button>
 
-        {/* Dots + progress */}
         <div className="absolute bottom-3 right-4 flex items-center gap-2">
           {slides.map((_, i) => (
             <button
