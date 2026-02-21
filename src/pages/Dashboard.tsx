@@ -114,12 +114,20 @@ export default function Dashboard() {
 
         {/* Achievements */}
         <div className="glass-card rounded-2xl p-5">
-          <h3 className="font-display font-bold text-foreground mb-4 flex items-center gap-2">
-            <Star size={18} className="text-primary" />
-            Conquistas ({unlockedCount}/{totalAchievements})
-          </h3>
+          <div className="flex items-center justify-between mb-4">
+            <h3 className="font-display font-bold text-foreground flex items-center gap-2">
+              <Star size={18} className="text-primary" />
+              Conquistas ({unlockedCount}/{totalAchievements})
+            </h3>
+            <button
+              onClick={() => navigate("/conquistas")}
+              className="text-xs text-primary font-semibold hover:underline"
+            >
+              Ver todas →
+            </button>
+          </div>
           <div className="grid grid-cols-4 sm:grid-cols-6 gap-3">
-            {allAchievements.slice(0, 30).map((ach) => {
+            {allAchievements.slice(0, 18).map((ach) => {
               const unlocked = xpData.achievements.includes(ach.id);
               return (
                 <div
@@ -137,11 +145,13 @@ export default function Dashboard() {
               );
             })}
           </div>
-          {allAchievements.length > 30 && (
-            <p className="text-xs text-muted-foreground text-center mt-3">
-              +{allAchievements.length - 30} conquistas disponíveis
-            </p>
-          )}
+          <button
+            onClick={() => navigate("/conquistas")}
+            className="w-full mt-4 py-2.5 rounded-xl bg-primary/10 text-primary text-sm font-semibold hover:bg-primary/20 transition-colors flex items-center justify-center gap-2"
+          >
+            <Trophy size={16} />
+            Ver todas as {totalAchievements} conquistas
+          </button>
         </div>
       </div>
     </div>
