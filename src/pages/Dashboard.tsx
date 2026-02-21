@@ -3,8 +3,8 @@ import { Helmet } from "react-helmet-async";
 import { ArrowLeft, Trophy, Eye, Heart, Star, BookOpen, Zap, Target } from "lucide-react";
 import { useXP, getLevel, getLevelProgress, LEVELS } from "@/hooks/useXP";
 import { useFavorites } from "@/hooks/useFavorites";
-import { achievements as allAchievements, getAchievementById } from "@/data/achievements";
-import { drinks, categories, getDrinksByCategory } from "@/data/drinks";
+import { achievements as allAchievements } from "@/data/achievements";
+import { dishes, categories } from "@/data/dishes";
 
 export default function Dashboard() {
   const navigate = useNavigate();
@@ -15,21 +15,30 @@ export default function Dashboard() {
 
   // Stats by category
   const categoryStats = categories.map((cat) => {
-    const catDrinks = getDrinksByCategory(cat);
-    const viewed = catDrinks.filter((d) => xpData.viewedRecipes.includes(d.id)).length;
-    return { name: cat, total: catDrinks.length, viewed };
+    const catDishes = dishes.filter((d) => d.category === cat);
+    const viewed = catDishes.filter((d) => xpData.viewedRecipes.includes(d.id)).length;
+    return { name: cat, total: catDishes.length, viewed };
   });
 
   const totalViewed = xpData.viewedRecipes.length;
-  const totalDrinks = drinks.length;
+  const totalDishes = dishes.length;
   const unlockedCount = xpData.achievements.length;
   const totalAchievements = allAchievements.length;
   const readArticles = JSON.parse(localStorage.getItem("drinks-co-read-articles") || "[]") as string[];
 
+  const levelEmojis: Record<string, string> = {
+    "Aprendiz": "🍙",
+    "Sushiman": "🍣",
+    "Chef Japonês": "🍜",
+    "Mestre Itamae": "🔪",
+    "Lenda da Cozinha": "🏯",
+  };
+
   return (
     <div className="min-h-screen pb-24">
       <Helmet>
-        <title>Dashboard do Bartender | Drink Quest</title>
+        <title>Dashboard do Chef | Japan Food</title>
+        <meta name="description" content="Acompanhe seu progresso na culinária japonesa: XP, nível, conquistas e receitas exploradas." />
       </Helmet>
 
       {/* Header */}
@@ -37,14 +46,14 @@ export default function Dashboard() {
         <button onClick={() => navigate(-1)} className="w-9 h-9 rounded-full bg-secondary flex items-center justify-center">
           <ArrowLeft size={18} className="text-foreground" />
         </button>
-        <h1 className="font-display font-bold text-foreground text-lg">Dashboard do Bartender</h1>
+        <h1 className="font-display font-bold text-foreground text-lg">Dashboard do Chef 🏯</h1>
       </div>
 
       <div className="px-4 pt-6 max-w-2xl mx-auto space-y-6">
         {/* Level Card */}
         <div className="glass-card rounded-2xl p-6 text-center">
           <div className="w-20 h-20 mx-auto rounded-full bg-primary/20 flex items-center justify-center mb-3">
-            <span className="text-3xl">🍸</span>
+            <span className="text-3xl">{levelEmojis[level.title] || "🍱"}</span>
           </div>
           <h2 className="font-display font-bold text-xl text-foreground">{level.title}</h2>
           <p className="text-primary text-sm font-semibold">Nível {level.level}</p>
@@ -62,8 +71,8 @@ export default function Dashboard() {
         {/* Quick Stats */}
         <div className="grid grid-cols-2 gap-3">
           {[
-            { icon: Eye, label: "Receitas Vistas", value: totalViewed, sub: `de ${totalDrinks}` },
-            { icon: Heart, label: "Favoritos", value: favorites.length, sub: "drinks salvos" },
+            { icon: Eye, label: "Receitas Vistas", value: totalViewed, sub: `de ${totalDishes} pratos` },
+            { icon: Heart, label: "Favoritos", value: favorites.length, sub: "pratos salvos" },
             { icon: Trophy, label: "Conquistas", value: unlockedCount, sub: `de ${totalAchievements}` },
             { icon: BookOpen, label: "Artigos Lidos", value: readArticles.length, sub: "completos" },
           ].map(({ icon: Icon, label, value, sub }) => (

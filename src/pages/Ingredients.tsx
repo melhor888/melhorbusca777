@@ -1,20 +1,19 @@
 import { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { ArrowLeft, Search, X, Wine, Check } from "lucide-react";
-import { drinks } from "@/data/drinks";
-import { getDrinkImage } from "@/data/drinkImages";
+import { ArrowLeft, Search, X, Check } from "lucide-react";
+import { dishes } from "@/data/dishes";
+import { getDishImage } from "@/data/dishImages";
 
-// Extract unique ingredients
+// Extract unique ingredients from dishes
 function extractAllIngredients(): string[] {
   const set = new Set<string>();
-  for (const d of drinks) {
+  for (const d of dishes) {
     for (const ing of d.ingredients) {
-      // Normalize: remove quantities, keep ingredient name
       const name = ing
         .replace(/^\d+[\w/]*\s*(de\s+)?/i, "")
         .replace(/^\d+[-–]\d+\s*/i, "")
-        .replace(/^(dash(es)?|colher(es)?|fatia|rodela|ramo|talo|folha(s)?|pitada)\s+(de\s+)?/i, "")
+        .replace(/^(colher(es)?|xícara(s)?|fatia|rodela|ramo|talo|folha(s)?|pitada|unidade(s)?)\s+(de\s+)?/i, "")
         .trim();
       if (name.length > 1) set.add(name);
     }
@@ -24,13 +23,12 @@ function extractAllIngredients(): string[] {
 
 const allIngredients = extractAllIngredients();
 
-// Common ingredients for quick toggles
 const popularIngredients = [
-  "vodka", "rum branco", "gin", "tequila", "whisky",
-  "suco de limão", "suco de laranja", "açúcar", "gelo",
-  "água com gás", "hortelã", "licor de café", "Cointreau",
-  "vermute", "Campari", "suco de cranberry", "ginger beer",
-  "creme de leite", "suco de abacaxi", "grenadine", "tônica"
+  "arroz japonês", "salmão fresco", "atum fresco", "nori", "shoyu",
+  "wasabi", "gengibre", "tofu", "missô", "dashi",
+  "mirin", "sakê culinário", "panko", "udon", "soba",
+  "cebolinha", "gergelim", "óleo de gergelim", "vinagre de arroz",
+  "cogumelos shiitake", "alga wakame", "camarão"
 ];
 
 export default function Ingredients() {
@@ -51,15 +49,15 @@ export default function Ingredients() {
     );
   };
 
-  const matchedDrinks = useMemo(() => {
+  const matchedDishes = useMemo(() => {
     if (selected.length === 0) return [];
-    return drinks
-      .map((drink) => {
-        const matchCount = drink.ingredients.filter((di) =>
+    return dishes
+      .map((dish) => {
+        const matchCount = dish.ingredients.filter((di) =>
           selected.some((s) => di.toLowerCase().includes(s.toLowerCase()))
         ).length;
-        const matchPct = matchCount / drink.ingredients.length;
-        return { drink, matchCount, matchPct };
+        const matchPct = matchCount / dish.ingredients.length;
+        return { dish, matchCount, matchPct };
       })
       .filter((m) => m.matchCount >= 1)
       .sort((a, b) => b.matchPct - a.matchPct || b.matchCount - a.matchCount)
@@ -69,7 +67,8 @@ export default function Ingredients() {
   return (
     <div className="min-h-screen pb-24">
       <Helmet>
-        <title>O que tenho em casa? | Drink Quest</title>
+        <title>O que tenho em casa? — Ingredientes Japoneses | Japan Food</title>
+        <meta name="description" content="Selecione os ingredientes japoneses que você tem em casa e descubra quais pratos pode preparar." />
       </Helmet>
 
       {/* Header */}
@@ -77,7 +76,7 @@ export default function Ingredients() {
         <button onClick={() => navigate(-1)} className="w-9 h-9 rounded-full bg-secondary flex items-center justify-center">
           <ArrowLeft size={18} className="text-foreground" />
         </button>
-        <h1 className="font-display font-bold text-foreground text-lg">O que tenho em casa?</h1>
+        <h1 className="font-display font-bold text-foreground text-lg">O que tenho em casa? 🥢</h1>
       </div>
 
       <div className="px-4 pt-6 max-w-lg mx-auto space-y-6">
@@ -88,7 +87,7 @@ export default function Ingredients() {
             type="text"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            placeholder="Buscar ingrediente..."
+            placeholder="Buscar ingrediente japonês..."
             className="w-full pl-9 pr-9 py-3 rounded-xl bg-secondary text-foreground placeholder:text-muted-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/50"
           />
           {search && (
@@ -122,7 +121,7 @@ export default function Ingredients() {
         {/* Ingredients grid */}
         <div>
           <p className="text-xs text-muted-foreground uppercase tracking-wider font-semibold mb-3">
-            {search ? "Resultados" : "Ingredientes populares"}
+            {search ? "Resultados" : "🍱 Ingredientes populares da culinária japonesa"}
           </p>
           <div className="flex flex-wrap gap-2">
             {filteredIngredients.map((ing) => {
@@ -149,25 +148,25 @@ export default function Ingredients() {
         {selected.length > 0 && (
           <div>
             <p className="text-xs text-muted-foreground uppercase tracking-wider font-semibold mb-3">
-              {matchedDrinks.length > 0
-                ? `${matchedDrinks.length} drinks encontrados`
-                : "Nenhum drink encontrado"}
+              {matchedDishes.length > 0
+                ? `🍣 ${matchedDishes.length} pratos encontrados`
+                : "Nenhum prato encontrado com esses ingredientes"}
             </p>
             <div className="space-y-2">
-              {matchedDrinks.map(({ drink, matchPct }) => (
+              {matchedDishes.map(({ dish, matchPct }) => (
                 <button
-                  key={drink.id}
-                  onClick={() => navigate(`/recipe/${drink.id}`)}
+                  key={dish.id}
+                  onClick={() => navigate(`/recipe/${dish.id}`)}
                   className="w-full flex items-center gap-3 p-3 rounded-xl bg-card hover:bg-card/80 border border-border/50 transition-all"
                 >
                   <img
-                    src={getDrinkImage(drink.image)}
-                    alt={drink.name}
+                    src={getDishImage(dish.image)}
+                    alt={dish.name}
                     className="w-14 h-14 rounded-lg object-cover flex-shrink-0"
                   />
                   <div className="flex-1 text-left">
-                    <h3 className="font-display font-bold text-foreground text-sm">{drink.name}</h3>
-                    <p className="text-[11px] text-muted-foreground">{drink.category}</p>
+                    <h3 className="font-display font-bold text-foreground text-sm">{dish.name}</h3>
+                    <p className="text-[11px] text-muted-foreground">{dish.category}</p>
                   </div>
                   <div className="text-right">
                     <span className={`text-xs font-bold ${
