@@ -13,6 +13,31 @@ import heroMasterclassTecnicas from "@/assets/vip/hero-masterclass-tecnicas.jpg"
 import heroHarmonizacaoSake from "@/assets/vip/hero-harmonizacao-sake.jpg";
 import heroCardapiosCompletos from "@/assets/vip/hero-cardapios-completos.jpg";
 
+// Dish images for Receitas Secretas do Chef
+import imgTeppanyaki from "@/assets/dishes/teppanyaki.jpg";
+import imgSashimiMisto from "@/assets/dishes/sashimi-misto.jpg";
+import imgSushiMisto from "@/assets/dishes/sushi-misto.jpg";
+import imgUnadon from "@/assets/dishes/unadon.jpg";
+import imgSukiyaki from "@/assets/dishes/sukiyaki.jpg";
+import imgRamenTonkotsu from "@/assets/dishes/ramen-tonkotsu.jpg";
+import imgTempura from "@/assets/dishes/tempura-mista.jpg";
+import imgSobaFria from "@/assets/dishes/soba-fria.jpg";
+import imgMatchaCheesecake from "@/assets/dishes/matcha-cheesecake.jpg";
+import imgChirashi from "@/assets/dishes/chirashi.jpg";
+
+const receitasSecretasImages: Record<string, string> = {
+  "wagyu-a5-teppanyaki": imgTeppanyaki,
+  "kaiseki-sakizuke": imgSashimiMisto,
+  "omakase-sushi-supreme": imgSushiMisto,
+  "fugu-sashimi-tessa": imgChirashi,
+  "unagi-kabayaki-artesanal": imgUnadon,
+  "sukiyaki-imperial": imgSukiyaki,
+  "ramen-tonkotsu-48h": imgRamenTonkotsu,
+  "tempura-edomae": imgTempura,
+  "soba-teuchi": imgSobaFria,
+  "matcha-kaiseki-dessert": imgMatchaCheesecake,
+};
+
 const difficultyColor: Record<string, string> = {
   "Fácil": "text-green-400",
   "Médio": "text-yellow-400",
@@ -173,7 +198,7 @@ export default function VipCategoryPage() {
           ) : (
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 lg:gap-4">
               {drinks.map((drink, i) => {
-                const image = getVipDrinkImage(drink.id, drink.category);
+                const image = receitasSecretasImages[drink.id] || getVipDrinkImage(drink.id, drink.category);
                 return (
                   <button
                     key={drink.id}
