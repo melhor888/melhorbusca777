@@ -268,5 +268,115 @@ export const harmonizacaoSake: VipDrink[] = [
     difficulty: "Fácil",
     time: "15 min",
     description: "A harmonização sake-queijo é uma revolução recente no Japão — Hokkaido produz queijos artesanais de classe mundial que combinam surpreendentemente com sakê. Em Tóquio, bares como o GEM by Moto especializaram-se nesta combinação, provando que sake vai muito além do sushi."
+  },
+  {
+    id: "hs-sake-sushi-omakase",
+    name: "Sake & Sushi Omakase Pairing",
+    category: "Harmonização Sake & Drinks",
+    image: "",
+    ingredients: ["3 sakes diferentes (Junmai, Ginjo, Daiginjo)", "Nigiri variado: salmão, atum, hamachi, uni", "Gari caseiro", "Wasabi fresco", "Molho nikiri"],
+    steps: ["Comece com Junmai + shiromi (peixes brancos) — sabores delicados combinam.", "Ginjo + salmão e hamachi — o frutado do sake complementa a gordura.", "Daiginjo + uni e otoro — os mais ricos merecem o melhor sake.", "Entre cada troca de sake, coma gari para limpar o paladar.", "Nunca misture wasabi no shoyu — coloque diretamente no nigiri.", "A temperatura do sake deve subir conforme a intensidade dos peixes.", "Finalize com tamago e um gole do último sake.", "A harmonização perfeita eleva ambos — sake e sushi — a outro nível."],
+    difficulty: "Médio",
+    time: "15 min",
+    description: "O pairing de sake com sushi omakase segue uma progressão do leve ao intenso. Em sushi-ya premium de Tóquio como Sukiyabashi Jiro, o itamae escolhe o sake para cada peça."
+  },
+  {
+    id: "hs-sake-tempurá-seasonal",
+    name: "Sake Frio com Tempurá Sazonal",
+    category: "Harmonização Sake & Drinks",
+    image: "",
+    ingredients: ["1 garrafa de Junmai Ginjo gelado", "Tempurá de vegetais sazonais: shiso, renkon, kabocha, shishito", "Tempurá de camarão", "Tentsuyu", "Daikon ralado", "Ochoko ou taça de vinho"],
+    steps: ["Resfrie o Junmai Ginjo a 8°C — perfeitamente gelado.", "A tempurá deve ser servida no momento da fritura.", "Comece com tempurá de vegetais — mais delicados.", "Um gole de sake entre cada peça limpa a oleosidade.", "Shiso tempurá + sake = combinação aromática perfeita.", "Camarão por último — o sabor mais forte.", "O sake gelado refresca enquanto a tempurá aquece.", "Esta combinação é clássica nos restaurantes de tempurá de Kanda, Tóquio."],
+    difficulty: "Fácil",
+    time: "10 min",
+    description: "Sake gelado com tempurá crocante é uma das harmonizações mais clássicas do Japão. A efervescência natural do Ginjo e sua acidez limpam o paladar da gordura do batter perfeitamente."
+  },
+  {
+    id: "hs-highball-karaage",
+    name: "Lemon Sour com Karaage",
+    category: "Harmonização Sake & Drinks",
+    image: "",
+    ingredients: ["45ml de shochu de trigo ou vodca", "Suco de 1 limão fresco", "Água com gás gelada", "Gelo", "Karaage (frango frito japonês)", "Maionese japonesa (Kewpie)", "Limão fatiado para servir"],
+    steps: ["O lemon sour é o drink mais popular dos izakayas modernos.", "Encha o copo com gelo. Adicione shochu.", "Esprema o limão fresco diretamente no copo.", "Complete com água com gás gelada.", "Sirva junto com karaage quente recém-frito.", "A acidez do limão corta a gordura do frango frito perfeitamente.", "Karaage com maionese Kewpie + lemon sour = combo imbatível.", "Repita quantas vezes necessário — é viciante."],
+    difficulty: "Fácil",
+    time: "5 min",
+    description: "Lemon Sour (レモンサワー) é o drink que dominou os izakayas do Japão. Simples, refrescante e perfeito com karaage. Em cadeias como Torikizoku, é o pedido mais popular."
+  },
+  {
+    id: "hs-sake-ramen",
+    name: "Sake Quente com Ramen de Inverno",
+    category: "Harmonização Sake & Drinks",
+    image: "",
+    ingredients: ["1 garrafa de Junmai Sake", "Tokkuri e ochoko", "Ramen miso ou tonkotsu", "Gyoza grelhados", "Chashu fatiado extra"],
+    steps: ["Aqueça o sake a 45°C (jokan) — ideal para pratos gordurosos.", "Peça o ramen e gyoza simultaneamente.", "Comece bebendo sake quente com gyoza como entrada.", "O sake quente abre o apetite e aquece o corpo.", "Quando o ramen chegar, alterne goles entre macarrão e sake.", "O caldo rico do tonkotsu é equilibrado pela limpeza do sake.", "Com ramen miso, o sake amplifica o sabor do fermentado.", "Finalize bebendo o último sake com o caldo restante do ramen."],
+    difficulty: "Fácil",
+    time: "10 min",
+    description: "Sake quente com ramen é o ritual de inverno nos yokocho de Shinjuku e Yurakucho. Nas noites geladas de Tóquio, esta combinação aquece corpo e alma."
+  },
+  {
+    id: "hs-yuzu-cocktail-sashimi",
+    name: "Yuzu Cocktail com Sashimi Premium",
+    category: "Harmonização Sake & Drinks",
+    image: "",
+    ingredients: ["45ml de shochu de arroz", "30ml de suco de yuzu fresco", "15ml de xarope simples", "Água com gás", "Gelo", "Sashimi misto premium: otoro, salmon belly, shima-aji"],
+    steps: ["Combine shochu, yuzu e xarope em copo com gelo.", "Complete com um splash de água com gás.", "A acidez do yuzu é mais complexa que limão — floral e cítrica.", "Comece com shima-aji (peixe mais delicado).", "O cocktail de yuzu limpa o paladar entre peças.", "Otoro (atum gordo) é equilibrado pela acidez cítrica.", "A cada peça de sashimi, um gole do cocktail.", "A combinação yuzu + peixe cru é a essência do sabor japonês."],
+    difficulty: "Fácil",
+    time: "5 min",
+    description: "O yuzu é o cítrico mais precioso do Japão — aromático, complexo e versátil. Combinado com shochu em cocktail, harmoniza perfeitamente com sashimi premium."
+  },
+  {
+    id: "hs-beer-japonesa-izakaya",
+    name: "Cerveja Japonesa com Petiscos Izakaya",
+    category: "Harmonização Sake & Drinks",
+    image: "",
+    ingredients: ["Cerveja japonesa gelada (Asahi, Sapporo ou Kirin)", "Edamame com flor de sal", "Takoyaki (bolinhos de polvo)", "Kushikatsu (espetos fritos)", "Copos de cerveja gelados"],
+    steps: ["Gele os copos no freezer por 15 minutos.", "Sirva a cerveja inclinando o copo a 45° — espuma de 2 dedos.", "O primeiro gole com edamame é tradição — o sal realça a cerveja.", "Takoyaki quente + cerveja gelada = contraste perfeito de temperatura.", "Kushikatsu frito: a carbonatação limpa a fritura.", "Em grupo, o costume é 'toriaezu nama!' (primeiro, uma cerveja!).", "A cerveja é a entrada de qualquer refeição no izakaya.", "Só depois migre para sake, shochu ou highball."],
+    difficulty: "Fácil",
+    time: "5 min",
+    description: "No Japão, a cerveja é sempre o primeiro pedido do izakaya — 'Toriaezu nama!' (Primeiro, um chopp!). As cervejas japonesas são lagers leves e secas, perfeitas com petiscos fritos e salgados."
+  },
+  {
+    id: "hs-sake-yakiniku",
+    name: "Sake & Shochu com Yakiniku",
+    category: "Harmonização Sake & Drinks",
+    image: "",
+    ingredients: ["Junmai Sake e Shochu de batata-doce", "Carnes variadas para yakiniku: kalbi, harami, tan (língua)", "Tare yakiniku (molho)", "Sal com limão", "Kimchi", "Arroz branco"],
+    steps: ["Yakiniku pede bebidas versáteis — alterne entre sake e shochu.", "Tan (língua) grelhada: comece com sake frio — limpo e preciso.", "Kalbi (costela): shochu on the rocks — aguenta a gordura.", "Harami (diafragma): sake em temperatura ambiente — corpo médio.", "O kimchi entre as carnes funciona como palate cleanser.", "Shochu com água (mizuwari) para sessões longas de yakiniku.", "Sake morno (nurukan) funciona bem com carnes mais gordurosas.", "O segredo: nunca deixar o copo vazio — é costume servir o vizinho."],
+    difficulty: "Fácil",
+    time: "10 min",
+    description: "Yakiniku (churrasco japonês) é uma refeição social que pede bebidas variadas. Em Osaka, capital do yakiniku no Japão, a tradição é alternar sake, shochu e cerveja ao longo da refeição."
+  },
+  {
+    id: "hs-plum-wine-cheese",
+    name: "Umeshu Envelhecido com Wagashi",
+    category: "Harmonização Sake & Drinks",
+    image: "",
+    ingredients: ["Umeshu envelhecido 3+ anos", "Yokan (gelatina de feijão azuki)", "Nerikiri (wagashi moldado)", "Dango mitarashi", "Copo rocks ou guinomi", "Gelo cristalino grande"],
+    steps: ["Umeshu envelhecido tem mais complexidade — notas de caramelo e especiarias.", "Sirva em copo rocks com um cubo grande de gelo cristalino.", "Yokan denso e doce: o umeshu corta a doçura com sua acidez.", "Nerikiri delicado: saboreie o design antes de comer.", "Um gole de umeshu entre cada wagashi revela novos sabores.", "Dango mitarashi: o glaze de shoyu + umeshu agridoce = harmonização única.", "Esta é a versão japonesa do 'dessert wine pairing'.", "Finalize comendo a ameixa do umeshu — concentra todo o sabor."],
+    difficulty: "Fácil",
+    time: "10 min",
+    description: "Umeshu envelhecido com wagashi é a harmonização de sobremesa japonesa por excelência. Em casas de chá de Kyoto, esta combinação substitui o café com doces da tradição ocidental."
+  },
+  {
+    id: "hs-sake-oden",
+    name: "Sake Morno com Oden de Inverno",
+    category: "Harmonização Sake & Drinks",
+    image: "",
+    ingredients: ["1 garrafa de Junmai Sake (morno)", "Oden variado: daikon, chikuwa, konnyaku, tamago, ganmodoki", "Karashi (mostarda japonesa)", "Tokkuri e ochoko", "Panela de barro com caldo dashi"],
+    steps: ["Prepare o oden: cozinhe daikon, ovos e outros ingredientes em dashi por horas.", "Aqueça o sake a 40-45°C — nurukan a jokan.", "Cada item do oden tem sabor e textura diferentes.", "Daikon absorve todo o dashi — macio e saboroso com sake morno.", "Ovo cozido lentamente: a gema cremosa combina com sake.", "Chikuwa e ganmodoki: texturas que pedem sake de corpo médio.", "Karashi (mostarda) entre as peças adiciona picância que o sake suaviza.", "Oden + sake morno é a combinação clássica dos yatai (barracas) de inverno."],
+    difficulty: "Fácil",
+    time: "10 min",
+    description: "Oden com sake morno é a imagem quintessencial do inverno japonês. Nas barracas de rua e konbini (lojas de conveniência), esta combinação aquece milhões de japoneses todas as noites frias."
+  },
+  {
+    id: "hs-cocktail-shiso-gin",
+    name: "Shiso Gin Fizz com Edamame Trufa",
+    category: "Harmonização Sake & Drinks",
+    image: "",
+    ingredients: ["45ml de gin japonês (Roku)", "5 folhas de shiso fresco", "20ml de suco de limão", "15ml de xarope simples", "Água com gás", "Clara de ovo (opcional)", "Edamame com óleo de trufa e flor de sal"],
+    steps: ["Macere levemente 3 folhas de shiso na coqueteleira.", "Adicione gin, limão, xarope e clara de ovo.", "Dry shake (sem gelo) por 15 segundos para emulsificar.", "Adicione gelo e agite vigorosamente.", "Coe para copo highball com gelo fresco.", "Complete com água com gás.", "Decore com 2 folhas de shiso inteiras.", "Harmonize com edamame trufado — luxo simples e perfeito."],
+    difficulty: "Médio",
+    time: "5 min",
+    description: "O shiso (perilla) é uma erva aromática japonesa com notas de menta e manjericão. Combinado com gin japonês Roku (que já contém botânicos de shiso), cria um cocktail autenticamente japonês."
   }
 ];
