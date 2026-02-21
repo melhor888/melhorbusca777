@@ -37,6 +37,7 @@ import NotFound from "./pages/NotFound";
 import Footer from "./components/Footer";
 import InstallPrompt from "./components/InstallPrompt";
 import { ScrollToTop } from "./components/ScrollToTop";
+import { XPProvider } from "./hooks/useXP";
 
 // Cache bust v2
 const queryClient = new QueryClient();
@@ -49,6 +50,7 @@ const App = () => (
         <Sonner />
         <WebsiteSchema />
         <OrganizationSchema />
+        <XPProvider>
         <BrowserRouter>
           <ScrollToTop />
           <DesktopSidebar />
@@ -87,6 +89,7 @@ const App = () => (
           <CookieConsent />
           <InstallPrompt />
         </BrowserRouter>
+        </XPProvider>
       </TooltipProvider>
     </QueryClientProvider>
   </HelmetProvider>

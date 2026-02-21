@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
 import { achievements } from "@/data/achievements";
 
 const STORAGE_KEY = "drinks-co-xp";
@@ -37,11 +37,11 @@ export interface Level {
 export const LEVELS: Level[] = [
   { level: 1, title: "Iniciante", minXP: 0, maxXP: 50 },
   { level: 2, title: "Aprendiz", minXP: 50, maxXP: 100 },
-  { level: 3, title: "Bartender Jr.", minXP: 100, maxXP: 200 },
-  { level: 4, title: "Mixologista", minXP: 200, maxXP: 350 },
-  { level: 5, title: "Bartender Pro", minXP: 350, maxXP: 500 },
-  { level: 6, title: "Mestre dos Drinks", minXP: 500, maxXP: 750 },
-  { level: 7, title: "Lenda do Bar", minXP: 750, maxXP: Infinity },
+  { level: 3, title: "Cozinheiro Jr.", minXP: 100, maxXP: 200 },
+  { level: 4, title: "Sushiman", minXP: 200, maxXP: 350 },
+  { level: 5, title: "Chef Japonês", minXP: 350, maxXP: 500 },
+  { level: 6, title: "Mestre Itamae", minXP: 500, maxXP: 750 },
+  { level: 7, title: "Lenda da Cozinha", minXP: 750, maxXP: Infinity },
 ];
 
 export function getLevel(xp: number): Level {
@@ -76,7 +76,24 @@ function checkExplorerAchievements(viewedCount: number, currentAchievements: str
   return updated;
 }
 
-export function useXP() {
+interface XPContextValue {
+  totalXP: number;
+  viewedRecipes: string[];
+  unlockedTips: string[];
+  achievements: string[];
+  weeklyChallenge: XPData["weeklyChallenge"];
+  level: Level;
+  progress: number;
+  addRecipeXP: (recipeId: string) => number;
+  addArticleXP: (articleId: string, xpAmount: number) => number;
+  addTipXP: (tipId: string, xpAmount?: number) => number;
+  unlockTip: (tipId: string) => void;
+  addAchievement: (achievementId: string) => void;
+}
+
+const XPContext = createContext<XPContextValue | null>(null);
+
+export function XPProvider({ children }: { children: ReactNode }) {
   const [data, setData] = useState<XPData>(() => {
     try {
       const stored = localStorage.getItem(STORAGE_KEY);
@@ -97,16 +114,9 @@ export function useXP() {
       xpGained = XP_PER_RECIPE;
       const newXP = prev.totalXP + XP_PER_RECIPE;
       const newViewed = [...prev.viewedRecipes, recipeId];
-
       let newAchievements = checkExplorerAchievements(newViewed.length, prev.achievements);
       newAchievements = checkXPAchievements(newXP, newAchievements);
-
-      return {
-        ...prev,
-        totalXP: newXP,
-        viewedRecipes: newViewed,
-        achievements: newAchievements,
-      };
+      return { ...prev, totalXP: newXP, viewedRecipes: newViewed, achievements: newAchievements };
     });
     return xpGained;
   }, []);
@@ -116,25 +126,15 @@ export function useXP() {
     setData((prev) => {
       const readArticles = JSON.parse(localStorage.getItem("drinks-co-read-articles") || "[]") as string[];
       if (readArticles.includes(articleId)) return prev;
-
       xpGained = xpAmount;
       readArticles.push(articleId);
       localStorage.setItem("drinks-co-read-articles", JSON.stringify(readArticles));
-
       const newXP = prev.totalXP + xpAmount;
       let newAchievements = checkXPAchievements(newXP, prev.achievements);
-      if (readArticles.length >= 3 && !newAchievements.includes("scholar-3"))
-        newAchievements.push("scholar-3");
-      if (readArticles.length >= 5 && !newAchievements.includes("scholar-5"))
-        newAchievements.push("scholar-5");
-      if (readArticles.length >= 10 && !newAchievements.includes("scholar-10"))
-        newAchievements.push("scholar-10");
-
-      return {
-        ...prev,
-        totalXP: newXP,
-        achievements: newAchievements,
-      };
+      if (readArticles.length >= 3 && !newAchievements.includes("scholar-3")) newAchievements.push("scholar-3");
+      if (readArticles.length >= 5 && !newAchievements.includes("scholar-5")) newAchievements.push("scholar-5");
+      if (readArticles.length >= 10 && !newAchievements.includes("scholar-10")) newAchievements.push("scholar-10");
+      return { ...prev, totalXP: newXP, achievements: newAchievements };
     });
     return xpGained;
   }, []);
@@ -144,19 +144,12 @@ export function useXP() {
     setData((prev) => {
       const readTips = JSON.parse(localStorage.getItem("drinks-co-read-tips") || "[]") as string[];
       if (readTips.includes(tipId)) return prev;
-
       xpGained = xpAmount;
       readTips.push(tipId);
       localStorage.setItem("drinks-co-read-tips", JSON.stringify(readTips));
-
       const newXP = prev.totalXP + xpAmount;
       const newAchievements = checkXPAchievements(newXP, prev.achievements);
-
-      return {
-        ...prev,
-        totalXP: newXP,
-        achievements: newAchievements,
-      };
+      return { ...prev, totalXP: newXP, achievements: newAchievements };
     });
     return xpGained;
   }, []);
@@ -178,14 +171,24 @@ export function useXP() {
   const level = getLevel(data.totalXP);
   const progress = getLevelProgress(data.totalXP);
 
-  return {
-    ...data,
-    level,
-    progress,
-    addRecipeXP,
-    addArticleXP,
-    addTipXP,
-    unlockTip,
-    addAchievement,
-  };
+  return (
+    <XPContext.Provider value={{
+      ...data,
+      level,
+      progress,
+      addRecipeXP,
+      addArticleXP,
+      addTipXP,
+      unlockTip,
+      addAchievement,
+    }}>
+      {children}
+    </XPContext.Provider>
+  );
+}
+
+export function useXP() {
+  const ctx = useContext(XPContext);
+  if (!ctx) throw new Error("useXP must be used within XPProvider");
+  return ctx;
 }
