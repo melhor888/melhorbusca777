@@ -5,9 +5,13 @@ import { getVipDrinksByCategory } from "@/data/vipDrinks";
 import { isVipUnlocked } from "@/utils/vipKeys";
 import VipTrialBanner from "@/components/VipTrialBanner";
 import { useEffect, useState, useMemo } from "react";
-import { getVipDrinkImage, getVipCategoryHero } from "@/data/vipDrinkImages";
-import VipHeroBanner from "@/components/VipHeroBanner";
+import { getVipDrinkImage } from "@/data/vipDrinkImages";
 import { Input } from "@/components/ui/input";
+
+import heroReceitasSecretas from "@/assets/vip/hero-receitas-secretas.jpg";
+import heroMasterclassTecnicas from "@/assets/vip/hero-masterclass-tecnicas.jpg";
+import heroHarmonizacaoSake from "@/assets/vip/hero-harmonizacao-sake.jpg";
+import heroCardapiosCompletos from "@/assets/vip/hero-cardapios-completos.jpg";
 
 const difficultyColor: Record<string, string> = {
   "Fácil": "text-green-400",
@@ -16,22 +20,24 @@ const difficultyColor: Record<string, string> = {
 };
 
 const categoryNames: Record<string, string> = {
-  "vinho-sangrias": "Vinho & Sangrias",
-  "cerveja-beer-cocktails": "Cerveja & Beer Cocktails",
-  "frozen-blended": "Frozen & Blended",
-  "low-abv-wellness": "Low ABV & Wellness",
-  "drinks-autor": "Drinks de Autor",
-  "sazonais-festivos": "Sazonais & Festivos",
-  "sobremesa-doces": "Sobremesa & Doces",
-  "picantes-defumados": "Picantes & Defumados",
-  "cha-infusoes": "Chá & Infusões",
-  "veganos-plant-based": "Veganos & Plant-Based",
-  "masterclass": "Masterclass Cocktails",
-  "volta-ao-mundo": "Volta ao Mundo",
   "receitas-secretas": "Receitas Secretas do Chef",
   "masterclass-tecnicas": "Masterclass de Técnicas",
   "harmonizacao-sake": "Harmonização Sake & Drinks",
   "cardapios-completos": "Cardápios Completos",
+};
+
+const categoryHeroImages: Record<string, string> = {
+  "receitas-secretas": heroReceitasSecretas,
+  "masterclass-tecnicas": heroMasterclassTecnicas,
+  "harmonizacao-sake": heroHarmonizacaoSake,
+  "cardapios-completos": heroCardapiosCompletos,
+};
+
+const categorySubtitles: Record<string, string> = {
+  "receitas-secretas": "Wagyu A5, Fugu, Kaiseki, Omakase — receitas que só chefs dominam",
+  "masterclass-tecnicas": "Afiar facas, corte sashimi, dashi perfeito, arte do tempurá",
+  "harmonizacao-sake": "Guia de harmonização: sakê, shochu, whisky japonês com cada prato",
+  "cardapios-completos": "Menus completos: Kaiseki, Izakaya, Hanami, Réveillon Japonês",
 };
 
 export default function VipCategoryPage() {
@@ -50,7 +56,8 @@ export default function VipCategoryPage() {
 
   const categoryName = categoryNames[slug || ""] || "";
   const allDrinks = categoryName ? getVipDrinksByCategory(categoryName) : [];
-  const heroImage = getVipCategoryHero(slug || "");
+  const heroImage = categoryHeroImages[slug || ""];
+  const subtitle = categorySubtitles[slug || ""] || "";
 
   const drinks = useMemo(() => {
     if (!searchQuery.trim()) return allDrinks;
@@ -93,38 +100,57 @@ export default function VipCategoryPage() {
         <meta name="description" content={`${drinks.length} receitas VIP exclusivas de ${categoryName}.`} />
       </Helmet>
       <div className="min-h-screen pb-24">
-        {allDrinks.length > 0 && (
-          <div className="relative">
-            <VipHeroBanner drinks={allDrinks} count={8} />
-            <button
-              onClick={(e) => { e.stopPropagation(); e.preventDefault(); navigate("/vip"); }}
-              className="absolute top-4 left-4 z-30 w-9 h-9 rounded-full bg-background/60 backdrop-blur flex items-center justify-center cursor-pointer"
-              aria-label="Voltar"
-            >
-              <ArrowLeft size={16} className="text-foreground" />
-            </button>
-            <div className="px-4 lg:px-6 -mt-2 mb-2">
-              <div className="flex items-center gap-2">
-                <h1 className="text-xl lg:text-2xl font-display font-bold text-foreground">
-                  {categoryName}
-                </h1>
-                <Crown size={16} className="text-yellow-500" />
-              </div>
-              <p className="text-xs text-muted-foreground">{allDrinks.length} receitas VIP exclusivas</p>
+        {/* Hero Banner */}
+        <div className="relative h-[320px] lg:h-[420px] w-full overflow-hidden">
+          {heroImage && (
+            <img
+              src={heroImage}
+              alt={categoryName}
+              className="absolute inset-0 w-full h-full object-cover object-center"
+            />
+          )}
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-black/30" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-transparent to-transparent" />
+
+          {/* Back button */}
+          <button
+            onClick={(e) => { e.stopPropagation(); e.preventDefault(); navigate("/vip"); }}
+            className="absolute top-4 left-4 z-30 w-9 h-9 rounded-full bg-background/60 backdrop-blur flex items-center justify-center cursor-pointer"
+            aria-label="Voltar"
+          >
+            <ArrowLeft size={16} className="text-foreground" />
+          </button>
+
+          {/* Hero content */}
+          <div className="absolute bottom-0 left-0 right-0 p-5 lg:p-10 lg:max-w-2xl">
+            <div className="flex items-center gap-2 mb-2">
+              <Crown size={14} className="text-yellow-500" />
+              <span className="text-yellow-500 text-xs font-semibold tracking-widest uppercase">
+                VIP · Exclusivo
+              </span>
             </div>
+            <h1 className="text-2xl lg:text-4xl font-display font-bold text-foreground leading-tight">
+              {categoryName}
+            </h1>
+            <p className="text-sm text-muted-foreground mt-2 max-w-md">
+              {subtitle}
+            </p>
+            <p className="text-xs text-yellow-500/80 mt-2 font-semibold">
+              {allDrinks.length} receitas exclusivas
+            </p>
           </div>
-        )}
+        </div>
 
         {/* Search bar */}
-        <div className="px-4 lg:px-6 mb-4">
-          <div className="relative max-w-md">
+        <div className="px-4 lg:px-6 py-4 sticky top-0 z-20 bg-background/80 backdrop-blur-lg border-b border-border/30">
+          <div className="relative max-w-md mx-auto">
             <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
             <Input
               type="text"
-              placeholder="Buscar nesta categoria..."
+              placeholder={`Buscar em ${categoryName}...`}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-9 pr-9 h-9 bg-background/80 backdrop-blur border-yellow-500/30 focus-visible:ring-yellow-500/50 text-sm"
+              className="pl-9 pr-9 h-10 bg-card border-yellow-500/30 focus-visible:ring-yellow-500/50 text-sm rounded-full"
             />
             {searchQuery && (
               <button
@@ -138,8 +164,8 @@ export default function VipCategoryPage() {
           </div>
         </div>
 
-        {/* Drink Grid */}
-        <div className="px-4 lg:px-6">
+        {/* Recipe Grid */}
+        <div className="px-4 lg:px-6 mt-4">
           {drinks.length === 0 && searchQuery ? (
             <p className="text-muted-foreground text-sm text-center py-8">
               Nenhuma receita encontrada para "{searchQuery}"
