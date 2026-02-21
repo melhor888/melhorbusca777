@@ -21,6 +21,7 @@ const vipImageNumbers: Record<string, number[]> = {
   masterclass: Array.from({ length: 50 }, (_, i) => i + 1),
   volta: Array.from({ length: 104 }, (_, i) => i + 1),
   sake: Array.from({ length: 10 }, (_, i) => i + 1),
+  cardapio: Array.from({ length: 10 }, (_, i) => i + 1),
 };
 
 function buildImagePool(prefix: string): string[] {
@@ -48,7 +49,7 @@ const categoryImagePools: Record<string, string[]> = {
   "Receitas Secretas do Chef": buildImagePool('masterclass'),
   "Masterclass de Técnicas": buildImagePool('masterclass'),
   "Harmonização Sake & Drinks": buildImagePool('sake'),
-  "Cardápios Completos": buildImagePool('seasonal'),
+  "Cardápios Completos": buildImagePool('cardapio'),
 };
 
 const categoryHeroBanners: Record<string, string> = {
@@ -677,6 +678,17 @@ const dedicatedImages: Record<string, string> = {
   "amsterdam-canal-cocktail-vm": "/images/vip-volta-102.jpg",
   "petra-cocktail-jordania-vm": "/images/vip-volta-103.jpg",
   "mumbai-chai-old-fashioned-vm": "/images/vip-volta-104.jpg",
+  // Cardápios Completos dedicated images
+  "cc-jantar-kaiseki": "/images/vip-cardapio-1.jpg",
+  "cc-festa-izakaya": "/images/vip-cardapio-2.jpg",
+  "cc-hanami-party": "/images/vip-cardapio-3.jpg",
+  "cc-reveillon-japones": "/images/vip-cardapio-4.jpg",
+  "cc-bento-premium": "/images/vip-cardapio-5.jpg",
+  "cc-menu-ramen": "/images/vip-cardapio-6.jpg",
+  "cc-churrasco-yakiniku": "/images/vip-cardapio-7.jpg",
+  "cc-cafe-da-manha-ryokan": "/images/vip-cardapio-8.jpg",
+  "cc-menu-soba": "/images/vip-cardapio-9.jpg",
+  "cc-menu-udon": "/images/vip-cardapio-10.jpg",
 };
 
 // Simple hash to get consistent image for each drink
