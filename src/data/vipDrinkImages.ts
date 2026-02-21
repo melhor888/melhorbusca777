@@ -22,6 +22,8 @@ const vipImageNumbers: Record<string, number[]> = {
   volta: Array.from({ length: 104 }, (_, i) => i + 1),
   sake: Array.from({ length: 10 }, (_, i) => i + 1),
   cardapio: Array.from({ length: 10 }, (_, i) => i + 1),
+  secretas: Array.from({ length: 10 }, (_, i) => i + 1),
+  tecnicas: Array.from({ length: 10 }, (_, i) => i + 1),
 };
 
 function buildImagePool(prefix: string): string[] {
@@ -46,8 +48,8 @@ const categoryImagePools: Record<string, string[]> = {
   "Veganos & Plant-Based": buildImagePool('vegan'),
   "Masterclass Cocktails": buildImagePool('masterclass'),
   "Volta ao Mundo": buildImagePool('volta'),
-  "Receitas Secretas do Chef": buildImagePool('masterclass'),
-  "Masterclass de Técnicas": buildImagePool('masterclass'),
+  "Receitas Secretas do Chef": buildImagePool('secretas'),
+  "Masterclass de Técnicas": buildImagePool('tecnicas'),
   "Harmonização Sake & Drinks": buildImagePool('sake'),
   "Cardápios Completos": buildImagePool('cardapio'),
 };
@@ -689,6 +691,37 @@ const dedicatedImages: Record<string, string> = {
   "cc-cafe-da-manha-ryokan": "/images/vip-cardapio-8.jpg",
   "cc-menu-soba": "/images/vip-cardapio-9.jpg",
   "cc-menu-udon": "/images/vip-cardapio-10.jpg",
+  // Masterclass de Técnicas dedicated images
+  "mt-afiar-facas-japonesas": "/images/vip-tecnicas-2.jpg",
+  "mt-dashi-perfeito": "/images/vip-tecnicas-4.jpg",
+  "mt-corte-sashimi": "/images/vip-tecnicas-2.jpg",
+  "mt-tecnica-tempura": "/images/vip-tecnicas-6.jpg",
+  "mt-arroz-shari": "/images/vip-tecnicas-10.jpg",
+  "mt-katsuramuki": "/images/vip-tecnicas-7.jpg",
+  "mt-yakimono-grelhados": "/images/vip-tecnicas-9.jpg",
+  "mt-arte-bento": "/images/vip-tecnicas-8.jpg",
+  "mt-tecnica-sushi-nigiri": "/images/vip-tecnicas-1.jpg",
+  "mt-wok-chahan": "/images/vip-tecnicas-3.jpg",
+  "mt-desossar-peixe-sanmai-oroshi": "/images/vip-tecnicas-7.jpg",
+  "mt-apresentacao-moritsuke": "/images/vip-tecnicas-8.jpg",
+  "mt-tecnica-yakimono-peixes": "/images/vip-tecnicas-9.jpg",
+  "mt-fermentacao-japonesa": "/images/vip-tecnicas-4.jpg",
+  "mt-nimono-tecnica": "/images/vip-tecnicas-5.jpg",
+  // Receitas Secretas do Chef dedicated images
+  "wagyu-a5-teppanyaki": "/images/vip-secretas-1.jpg",
+  "kaiseki-sakizuke": "/images/vip-secretas-8.jpg",
+  "omakase-sushi-supreme": "/images/vip-secretas-10.jpg",
+  "fugu-sashimi-tessa": "/images/vip-secretas-2.jpg",
+  "unagi-kabayaki-artesanal": "/images/vip-secretas-6.jpg",
+  "sukiyaki-imperial": "/images/vip-secretas-5.jpg",
+  "ramen-tonkotsu-48h": "/images/vip-secretas-3.jpg",
+  "tempura-edomae": "/images/vip-secretas-7.jpg",
+  "soba-teuchi": "/images/vip-secretas-4.jpg",
+  "shabu-shabu-premium": "/images/vip-secretas-3.jpg",
+  "tonkatsu-perfeito": "/images/vip-secretas-4.jpg",
+  "gyukatsu-wagyu": "/images/vip-secretas-1.jpg",
+  "chirashi-zushi-edomae": "/images/vip-secretas-2.jpg",
+  "katsudon": "/images/vip-secretas-9.jpg",
 };
 
 // Simple hash to get consistent image for each drink
