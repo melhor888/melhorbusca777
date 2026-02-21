@@ -260,6 +260,214 @@ export const chefTips: Record<string, ChefTip> = {
     serve: "Sirva gelado com bastante kinako e kuromitsu ao lado para drizzle.",
     tip: "Mexa constantemente durante o cozimento para não grudar. Quando a massa ficar translúcida, está pronto.",
   },
+
+  // ============ DONBURI & ARROZ ============
+  "unadon": {
+    glass: "Caixa lacada jubako ou tigela donburi",
+    serve: "Sirva com tampa — ao abrir, o aroma do tare deve surpreender. Polvilhe sansho.",
+    tip: "O tare deve ser pincelado 3-4 vezes durante a grelha. Cada camada carameliza sobre a anterior.",
+  },
+  "tendon": {
+    glass: "Tigela donburi grande",
+    serve: "O tentsuyu deve ser concentrado — pouco molho, muito sabor. Não encharque o arroz.",
+    tip: "Mergulhe o tempurá rapidamente no tentsuyu antes de colocar no arroz — a crocância parcial é proposital.",
+  },
+  "chirashi": {
+    glass: "Tigela rasa e larga de cerâmica ou madeira lacada",
+    serve: "Distribua os peixes de forma bonita e colorida. É um prato visual.",
+    tip: "Use arroz de sushi a 36°C (temperatura corporal). Varie cores: rosa (salmão), vermelho (atum), branco (lula), laranja (ikura).",
+  },
+  "omurice": {
+    glass: "Prato oval de cerâmica branca",
+    serve: "Corte o omelete no topo e deixe abrir sobre o arroz — o efeito visual é mágico.",
+    tip: "O segredo é o omelete baveuse (cremoso por dentro). Use manteiga generosa e fogo alto por poucos segundos.",
+  },
+  "chahan": {
+    glass: "Prato grande ou tigela",
+    serve: "Sirva imediatamente — o chahan perde textura ao esfriar.",
+    tip: "Use arroz do dia anterior (frio e seco). Fogo altíssimo e wok grande — cada grão deve ser individual.",
+  },
+  "ochazuke": {
+    glass: "Tigela de cerâmica com tampa",
+    serve: "Despeje o chá verde quente na frente do comensal para frescor máximo.",
+    tip: "Use hojicha ou sencha de qualidade. O arroz pode ser do dia anterior — o chá reidrata tudo.",
+  },
+  "tamago-kake-gohan": {
+    glass: "Tigela de cerâmica pequena",
+    serve: "O arroz DEVE estar fervendo — é ele que 'cozinha' o ovo cru. Shoyu de qualidade é essencial.",
+    tip: "Separe a gema, misture a clara no arroz primeiro, depois adicione a gema inteira por cima. Textura superior.",
+  },
+  "hayashi-rice": {
+    glass: "Prato fundo largo com o arroz ao lado",
+    serve: "Monte como curry: arroz de um lado, molho do outro. Não misture.",
+    tip: "Caramelize as cebolas por 30+ minutos para dar corpo e doçura natural ao molho.",
+  },
+  "kare-raisu": {
+    glass: "Prato fundo largo ou tigela rasa",
+    serve: "Arroz de um lado, curry do outro. Fukujinzuke (conserva vermelha) é obrigatório.",
+    tip: "Adicione chocolate amargo e café ao curry para profundidade. É o segredo das melhores casas de curry.",
+  },
+
+  // ============ ACOMPANHAMENTOS ============
+  "tamagoyaki": {
+    glass: "Tábua de madeira ou prato de cerâmica",
+    serve: "Corte em fatias de 2cm e sirva em temperatura ambiente no bento ou como acompanhamento.",
+    tip: "A frigideira retangular (tamagoyaki-ki) é essencial. Controle a temperatura — muito quente queima, muito fria não enrola.",
+  },
+  "tsukemono": {
+    glass: "Pratinhos pequenos de cerâmica (kobachi)",
+    serve: "Sirva em pequenas porções como acompanhamento. 3-4 tipos diferentes é o ideal.",
+    tip: "O tempo de marinada muda tudo: 30 min = leve e crocante, 24h = intenso e macio.",
+  },
+  "kinpira-gobo": {
+    glass: "Pratinho pequeno de cerâmica",
+    serve: "Sirva em temperatura ambiente como acompanhamento de bento ou refeição.",
+    tip: "Corte o gobō em sasagaki (raspas com a faca) para textura perfeita. Deixe em água com vinagre para não escurecer.",
+  },
+  "hijiki-nimono": {
+    glass: "Pratinho pequeno de cerâmica (kobachi)",
+    serve: "Sirva em temperatura ambiente. Melhora com o tempo — prepare na véspera.",
+    tip: "Hidrate o hijiki em água morna, não quente. O sabor se intensifica quando descansa overnight.",
+  },
+  "nasu-dengaku": {
+    glass: "Prato de cerâmica rústica",
+    serve: "Sirva quente, direto do forno ou grelha. A pasta de missô deve estar brilhante.",
+    tip: "Faça cortes em grade profundos na polpa — permite que o óleo penetre e cozinhe uniformemente.",
+  },
+  "nikujaga": {
+    glass: "Tigela funda de cerâmica",
+    serve: "Sirva morno — não fervendo. Os sabores se integram melhor em temperatura moderada.",
+    tip: "Não mexa demais — as batatas devem manter a forma. O segredo é o otoshibuta (tampa flutuante).",
+  },
+  "chawanmushi": {
+    glass: "Xícara de cerâmica com tampa (chawan)",
+    serve: "Sirva quente no inverno, gelado no verão (chilled chawanmushi). A tampa preserva o calor.",
+    tip: "Coe a mistura de ovo para remover bolhas. Vapor em fogo BAIXO — bolhas no custard = textura ruim.",
+  },
+  "korokke": {
+    glass: "Prato com papel absorvente e repolho fatiado",
+    serve: "Sirva quente com molho tonkatsu e repolho fatiado fino — como o tonkatsu.",
+    tip: "O purê deve estar seco. Purê úmido = korokke que estoura na fritura. Resfrie bem antes de empanar.",
+  },
+  "natto": {
+    glass: "Tigela pequena com compartimento para condimentos",
+    serve: "Misture vigorosamente com hashi até ficar bem pegajoso — quanto mais mexer, mais saboroso.",
+    tip: "Adicione um ovo cru e cebolinha para suavizar o sabor. Iniciantes: comece com natto hikiwari (triturado).",
+  },
+  "hiyayakko": {
+    glass: "Prato raso com gelo decorativo",
+    serve: "Sirva gelado no verão. O tofu deve estar direto da geladeira.",
+    tip: "Use tofu sedoso de qualidade premium — neste prato simples, a qualidade do tofu faz toda a diferença.",
+  },
+  "ohitashi": {
+    glass: "Pratinho pequeno de cerâmica (kobachi)",
+    serve: "Sirva frio ou em temperatura ambiente. Monte em formato cilíndrico para elegância.",
+    tip: "Cozinhe o espinafre por NO MÁXIMO 30 segundos. Choque térmico imediato em água gelada preserva a cor.",
+  },
+  "nimono-kabocha": {
+    glass: "Tigela pequena de cerâmica (kobachi)",
+    serve: "Sirva morno com um pouco do caldo. A casca verde contrasta com a polpa alaranjada.",
+    tip: "Chanfre os cantos da kabocha (mentori) para evitar que desmontem. Cozinhe com casca para baixo.",
+  },
+
+  // ============ IZAKAYA & PETISCOS ============
+  "kushikatsu": {
+    glass: "Grade de metal ou prato com papel absorvente",
+    serve: "Mergulhe no molho UMA VEZ — regra sagrada de Osaka. Nunca double dip!",
+    tip: "Use panko extrafino para crocância delicada. A fritura rápida a 180°C mantém o interior suculento.",
+  },
+  "motsu-nikomi": {
+    glass: "Panela de barro (donabe) individual",
+    serve: "Sirva fervendo com shichimi togarashi e cerveja gelada. Prato de inverno perfeito.",
+    tip: "Lave o motsu 3 vezes em água fervente para remover odor. A paciência no pré-preparo define o resultado.",
+  },
+  "tebasaki": {
+    glass: "Prato ou bandeja com papel absorvente",
+    serve: "Sirva quente com cerveja gelada. Coma com as mãos — é izakaya!",
+    tip: "Dupla fritura é o segredo de Nagoya: 170°C primeiro, depois 180°C para crocância extra.",
+  },
+  "tataki-maguro": {
+    glass: "Prato de cerâmica alongado",
+    serve: "Fatie fino e arrume em leque. O centro DEVE estar cru — é tataki, não bife.",
+    tip: "Sele por máximo 15 segundos cada lado em frigideira fumegante. Choque em gelo imediatamente.",
+  },
+  "mentaiko": {
+    glass: "Pratinho de cerâmica sobre folha de shiso",
+    serve: "Sirva cru sobre arroz quente ou levemente grelhado. O calor do arroz aquece as ovas.",
+    tip: "Marine por 48h para sabor ideal. A pimenta deve ser equilibrada — picante mas sem mascarar o sabor do mar.",
+  },
+  "yaki-onigiri": {
+    glass: "Prato de cerâmica rústica ou bandeja de madeira",
+    serve: "Sirva quente da grelha. A crosta de shoyu caramelizado deve estar crocante.",
+    tip: "Compacte bem o onigiri antes de grelhar. NÃO mexa — deixe a crosta formar por 3-4 minutos sem tocar.",
+  },
+  "dashimaki-tamago": {
+    glass: "Prato de cerâmica com daikon ralado ao lado",
+    serve: "Sirva quente com daikon oroshi (daikon ralado) e shoyu. O interior deve ser úmido.",
+    tip: "Use proporção generosa de dashi (quase 1:1 com ovo). A técnica exige prática — enrole devagar.",
+  },
+
+  // ============ MOLHOS & TEMPEROS ============
+  "ponzu": {
+    glass: "Frasco de vidro ou potinho de cerâmica",
+    serve: "Use como molho de mergulho para shabu-shabu, tataki ou sashimi. Nunca cozinhe o ponzu.",
+    tip: "Infusione por 24h mínimo. Use yuzu verdadeiro se possível — limão funciona mas o sabor é diferente.",
+  },
+  "molho-teriyaki": {
+    glass: "Frasco ou panela pequena para pincelar",
+    serve: "Pincele sobre o alimento nos últimos minutos de cozimento. O brilho (teri) é a assinatura.",
+    tip: "Reduza em fogo baixo até a consistência de xarope. Se engrossar demais, adicione um pouco de água.",
+  },
+  "tare-yakitori": {
+    glass: "Potinho fundo para mergulhar os espetos",
+    serve: "Mergulhe ou pincele nos espetos durante a grelha. Nos melhores lugares, o tare envelhece por anos.",
+    tip: "Adicione ossos de frango grelhados ao tare para mais umami. A cada uso, o tare fica mais complexo.",
+  },
+  "molho-tonkatsu": {
+    glass: "Potinho de cerâmica para servir ao lado",
+    serve: "Regue sobre o tonkatsu cortado ou sirva ao lado para mergulhar.",
+    tip: "Ajuste a proporção ketchup/molho inglês ao seu gosto. Mais molho inglês = mais picante.",
+  },
+  "gomadare": {
+    glass: "Potinho individual de cerâmica",
+    serve: "Sirva ao lado do shabu-shabu, cold udon ou salada. Consistência deve ser cremosa.",
+    tip: "Torre o gergelim fresco antes de moer para máximo aroma. Nerigoma comprado é bom, caseiro é incrível.",
+  },
+  "wafu-dressing": {
+    glass: "Jarra pequena para regar saladas",
+    serve: "Regue sobre saladas de folhas verdes, tofu ou legumes grelhados.",
+    tip: "A cebola ralada crua dá pungência — se preferir mais suave, marine a cebola em vinagre por 10 min.",
+  },
+  "nikiri-shoyu": {
+    glass: "Potinho com pincel (hake) para sushi",
+    serve: "Pincele sobre o nigiri — o cliente NÃO deve precisar mergulhar no shoyu.",
+    tip: "Aqueça sem ferver para evaporar o álcool do mirin. Este detalhe separa o sushi comum do omakase.",
+  },
+  "molho-gyoza": {
+    glass: "Pratinho individual para cada comensal",
+    serve: "Misture na hora — cada pessoa ajusta a proporção de rayu ao gosto.",
+    tip: "A proporção clássica é 3:1:pingo (shoyu:vinagre:rayu). Alho cru picado é opcional mas delicioso.",
+  },
+  "yuzu-kosho": {
+    glass: "Potinho minúsculo — use com moderação",
+    serve: "Uma pontinha de hashi é suficiente. Use com yakitori, sashimi, nabe ou grelhados.",
+    tip: "Maturar por 1 semana mínimo. A fermentação natural suaviza a picância e integra os sabores.",
+  },
+  "furikake": {
+    glass: "Potinho com tampa perfurada para polvilhar",
+    serve: "Polvilhe sobre arroz quente, onigiri ou como topping de saladas.",
+    tip: "Torre o nori e o gergelim frescos para máximo aroma. Armazene hermeticamente — absorve umidade rápido.",
+  },
+  "rayu": {
+    glass: "Frasco de vidro com conta-gotas ou colher",
+    serve: "Pingue sobre ramen, gyoza, mapo tofu ou qualquer prato que precise de calor.",
+    tip: "A temperatura do óleo ao despejar sobre a pimenta é crucial: 150°C extrai sabor sem queimar.",
+  },
+  "shichimi-togarashi": {
+    glass: "Potinho de madeira ou cerâmica com tampa",
+    serve: "Polvilhe sobre udon, soba, yakitori e ramen. Uma pitada basta.",
+    tip: "Faça sua própria mistura ajustando o nível de sansho (pimenta japonesa). O frescor do sansho é único.",
+  },
 };
 
 export function getChefTip(id: string): ChefTip | undefined {
