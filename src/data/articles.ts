@@ -40,11 +40,9 @@ export const articles: Article[] = [
     modules: [
       {
         title: "Por que o arroz japonês é diferente?",
-        content: `O arroz japonês (uruchimai) é da variedade japônica — grãos curtos e redondos que ficam pegajosos e brilhantes quando cozidos. É fundamentalmente diferente do arroz de grão longo (indica) usado no Brasil e Ásia continental.
+        content: `O arroz japonês (uruchimai) é da variedade japônica — grãos curtos e redondos que ficam pegajosos e brilhantes quando cozidos. É fundamentalmente diferente do arroz de grão longo (indica) usado no Brasil.
 
-A pegajosidade é desejável: permite que o arroz se mantenha unido para sushi, onigiri e donburi. Mas não é o mesmo que arroz glutinoso (mochigome), usado para mochi e wagashi.
-
-As principais variedades são: Koshihikari (a mais premium e perfumada, cultivada em Niigata), Akitakomachi (suave e versátil), Sasanishiki (tradicional, menos pegajoso) e Hitomebore (popular e equilibrado). A diferença entre um arroz premium e um comum é tão grande quanto entre um azeite extra-virgem e óleo de soja.`,
+A pegajosidade é desejável: permite que o arroz se mantenha unido para sushi, onigiri e donburi. As principais variedades são: Koshihikari (a mais premium, cultivada em Niigata), Akitakomachi (suave e versátil), Sasanishiki (tradicional, menos pegajoso) e Hitomebore (popular e equilibrado).`,
       },
       {
         title: "O preparo perfeito",
@@ -52,7 +50,7 @@ As principais variedades são: Koshihikari (a mais premium e perfumada, cultivad
 
 Proporção de água: 1:1.1 (arroz:água). Deixe de molho 30 minutos antes de cozinhar. Cozinhe em panela com tampa pesada ou rice cooker (suihanki). Após desligar, descanse 10 minutos SEM abrir a tampa.
 
-Para arroz de sushi (shari): misture vinagre de arroz (3 col.), açúcar (1 col.) e sal (1/2 col.) enquanto o arroz está quente. Use movimentos de corte com shamoji (espátula de arroz), nunca amassar. Ao mesmo tempo, abane para esfriar e dar brilho.`,
+Para arroz de sushi (shari): misture vinagre de arroz (3 col.), açúcar (1 col.) e sal (1/2 col.) enquanto o arroz está quente. Use movimentos de corte com shamoji, nunca amassar. Ao mesmo tempo, abane para esfriar e dar brilho.`,
         highlight: true,
       },
     ],
@@ -68,22 +66,20 @@ Para arroz de sushi (shari): misture vinagre de arroz (3 col.), açúcar (1 col.
     modules: [
       {
         title: "Período Jomon até Nara (10.000 a.C. — 794 d.C.)",
-        content: `A culinária japonesa começou com a caça, pesca e coleta. O arroz chegou ao Japão por volta de 300 a.C., vindo da China, e rapidamente se tornou o alimento central.
+        content: `A culinária japonesa começou com caça, pesca e coleta. O arroz chegou ao Japão por volta de 300 a.C., vindo da China, e rapidamente se tornou o alimento central.
 
-No período Nara, o Budismo influenciou profundamente a alimentação — o consumo de carne foi proibido por mais de 1.000 anos. Isso forçou os japoneses a desenvolver técnicas sofisticadas para vegetais, tofu, algas e peixes, criando a base da culinária que conhecemos hoje.
-
-O shoyu e o missô começaram a se desenvolver nesta época, inspirados em processos de fermentação chineses.`,
+No período Nara, o Budismo influenciou profundamente a alimentação — o consumo de carne foi proibido por mais de 1.000 anos. Isso forçou os japoneses a desenvolver técnicas sofisticadas para vegetais, tofu, algas e peixes.`,
       },
       {
         title: "Washoku: Patrimônio da UNESCO",
-        content: `Em 2013, a UNESCO reconheceu o Washoku (culinária tradicional japonesa) como Patrimônio Cultural Imaterial da Humanidade. Os critérios incluem:
+        content: `Em 2013, a UNESCO reconheceu o Washoku (culinária tradicional japonesa) como Patrimônio Cultural Imaterial da Humanidade.
 
 • Respeito pela natureza e ingredientes sazonais
 • Equilíbrio nutricional e apresentação visual
 • Conexão com festividades e eventos sociais
 • A filosofia de ichigo ichie (cada encontro é único)
 
-Washoku é mais que comida — é uma expressão da relação dos japoneses com a natureza, as estações e a comunidade. Cada refeição tradicional segue o princípio "ichijū sansai" (一汁三菜): uma sopa e três acompanhamentos, mais arroz e tsukemono.`,
+Cada refeição tradicional segue o princípio "ichijū sansai" (一汁三菜): uma sopa e três acompanhamentos, mais arroz e tsukemono.`,
         highlight: true,
       },
     ],
@@ -99,35 +95,135 @@ Washoku é mais que comida — é uma expressão da relação dos japoneses com 
     modules: [
       {
         title: "Os peixes essenciais",
-        content: `Maguro (Atum): O rei do sushi. Akami (lombo magro) é mais acessível, chutoro (médio gordo) é o mais equilibrado, otoro (barriga ultra gordurosa) é o mais cobiçado e caro. Atum é o peixe mais consumido em sushi no Japão.
+        content: `Maguro (Atum): O rei do sushi. Akami (lombo magro) é mais acessível, chutoro (médio gordo) é o mais equilibrado, otoro (barriga ultra gordurosa) é o mais cobiçado.
 
-Sake (Salmão): Na verdade, salmão em sushi é relativamente recente — os noruegueses introduziram no Japão nos anos 80! Hoje é o mais popular mundialmente. Deve ser sashimi-grade (congelado a -20°C por 7 dias para eliminar parasitas).
+Sake (Salmão): Salmão em sushi é relativamente recente — os noruegueses introduziram no Japão nos anos 80! Deve ser sashimi-grade (congelado a -20°C por 7 dias para eliminar parasitas).
 
-Hirame (Linguado): Textura firme e sabor delicado. Engawa (a barbatana) é uma iguaria — gordurosa e deliciosa. Prato de inverno por excelência.
+Hirame (Linguado): Textura firme e sabor delicado. Engawa (a barbatana) é uma iguaria gordurosa.
 
-Hamachi (Olho-de-boi jovem): Gorduroso e rico. Perfeito para iniciantes em sushi por sua textura amanteigada. Buri (adulto) é ainda mais intenso e sazonal de inverno.`,
+Hamachi (Olho-de-boi jovem): Gorduroso e rico. Perfeito para iniciantes em sushi por sua textura amanteigada.`,
         highlight: true,
       },
     ],
   },
   {
-    id: "cultura-izakaya",
-    title: "Cultura Izakaya: O Bar Japonês",
-    subtitle: "Onde comida, bebida e amizade se encontram",
+    id: "significado-pratos",
+    title: "O Significado dos Pratos Japoneses",
+    subtitle: "Cada prato carrega história, simbolismo e tradição",
     category: "cultura",
-    icon: "🏮",
+    icon: "🎎",
+    xpReward: 20,
+    readTime: "12 min",
+    modules: [
+      {
+        title: "Simbolismo na comida japonesa",
+        content: `Na cultura japonesa, a comida não é apenas nutrição — cada prato carrega significados profundos.
+
+Soba no Ano Novo (Toshikoshi Soba): Comida obrigatória na virada do ano. Os macarrões longos simbolizam longevidade. Cortá-los facilmente representa deixar para trás os problemas do ano anterior.
+
+Sekihan (Arroz com Feijão Vermelho): Servido em celebrações e marcos importantes. A cor vermelha afasta maus espíritos na tradição xintoísta.
+
+Tai (Pargo): Presente em casamentos e celebrações. O nome "tai" soa como "medetai" (auspicioso). Um pargo inteiro grelhado é o centro de festas.`,
+      },
+      {
+        title: "Comida e estações do ano",
+        content: `Shun (旬) — ingredientes no auge da temporada — é um conceito central.
+
+Primavera: Sakura mochi, bambu jovem (takenoko), peixes de rio
+Verão: Soba fria, unagi (enguia) para energia, kakigōri (raspadinha)
+Outono: Cogumelos matsutake, castanhas, sanma (sauro grelhado)
+Inverno: Nabe (hot pot), oden, mikan (tangerina japonesa)
+
+Restaurantes kaiseki mudam o cardápio inteiro a cada estação. A louça também muda para refletir a temporada.`,
+        highlight: true,
+      },
+    ],
+  },
+  {
+    id: "festivais-gastronomicos",
+    title: "Festivais Gastronômicos do Japão",
+    subtitle: "Matsuri e a comida de festival",
+    category: "cultura",
+    icon: "🎆",
     xpReward: 15,
     readTime: "10 min",
     modules: [
       {
-        title: "O que é um Izakaya?",
-        content: `Izakaya é o pub/bar informal japonês — o lugar onde os japoneses relaxam após o trabalho, comem petiscos e bebem. O nome vem de "i" (ficar) + "sakaya" (loja de sakê) = lugar para ficar e beber sakê.
+        title: "A comida nos matsuri",
+        content: `Os matsuri (festivais) japoneses são indissociáveis da comida. As barraquinhas de yatai são a alma gastronômica dos festivais.
 
-O cardápio típico inclui: edamame, karaage (frango frito), yakitori (espetinhos), sashimi, gyoza, agedashi tofu, takoyaki e muito mais. A filosofia é "nomi-hodai" (beba à vontade) com "tabe-hodai" (coma à vontade).
+Pratos clássicos de festival:
+• Takoyaki — bolinhas de polvo, o rei dos matsuri
+• Yakisoba — macarrão frito na chapa gigante
+• Ikayaki — lula grelhada inteira no palito
+• Yakitori — espetinhos de frango grelhado
+• Kakigōri — raspadinha com xarope colorido
+• Wata-ame — algodão doce
+• Choco Banana — banana coberta de chocolate
+• Ramune — refrigerante com bolinha de vidro
 
-O "otōshi" (aperitivo compulsório) é servido automaticamente — funciona como taxa de couvert e geralmente é um pequeno prato de pickles, edamame ou tofu. É cultural e não negociável.
+Os matsuri mais famosos incluem Gion Matsuri (Kyoto, julho), Tenjin Matsuri (Osaka, julho) e Nebuta Matsuri (Aomori, agosto).`,
+        highlight: true,
+      },
+    ],
+  },
+  {
+    id: "influencia-japonesa-mundo",
+    title: "Influência da Culinária Japonesa no Mundo",
+    subtitle: "Como o Japão transformou a gastronomia global",
+    category: "cultura",
+    icon: "🌍",
+    xpReward: 20,
+    readTime: "14 min",
+    modules: [
+      {
+        title: "A conquista global",
+        content: `A culinária japonesa é hoje uma das mais influentes do mundo. O conceito de umami, identificado pelo químico Kikunae Ikeda em 1908, revolucionou a compreensão do sabor globalmente.
 
-Nas izakayas, o primeiro pedido é sempre a bebida: "toriaezu biiru!" (primeiro, cerveja!) é a frase mais ouvida. Depois vêm os pedidos de comida, que são compartilhados pela mesa.`,
+O sushi se espalhou pelo mundo nos anos 80-90. O California Roll, criado nos EUA, adaptou o sushi ao paladar ocidental. Hoje, há mais restaurantes de sushi fora do Japão do que dentro.
+
+O ramen se tornou fenômeno global nos anos 2010. Cidades como Nova York, Londres e São Paulo têm cenas vibrantes de ramen artesanal.`,
+      },
+      {
+        title: "Técnicas que mudaram a gastronomia",
+        content: `Omakase (お任せ): "Deixo nas suas mãos" — o chef decide o menu. Adotado por restaurantes de alta gastronomia no mundo todo.
+
+Teppanyaki: Culinária na chapa diante do cliente. Benihana levou o conceito aos EUA nos anos 60 e criou uma indústria.
+
+Fermentação: Miso, koji e shio-koji são agora ingredientes essenciais em restaurantes de vanguarda. Chefs como René Redzepi (Noma) abraçaram técnicas japonesas de fermentação.
+
+Matcha: De cerimônia do chá a ingrediente global — lattes, sorvetes, bolos e até chocolate.`,
+        highlight: true,
+      },
+    ],
+  },
+  {
+    id: "tradicoes-culinarias",
+    title: "Tradições Culinárias Japonesas",
+    subtitle: "Rituais, costumes e celebrações à mesa",
+    category: "cultura",
+    icon: "🏡",
+    xpReward: 20,
+    readTime: "13 min",
+    modules: [
+      {
+        title: "Rituais à mesa",
+        content: `A mesa japonesa é cercada de rituais que expressam gratidão e respeito.
+
+Itadakimasu e Gochisousama: Antes e depois de cada refeição, respectivamente. Não são orações religiosas, mas expressões de gratidão a todos envolvidos — do agricultor ao cozinheiro.
+
+Kampai: O brinde japonês antes de beber. Todos devem participar. Beber antes do kampai é considerado rude.
+
+Oshibori: A toalha quente (ou fria no verão) oferecida antes da refeição para limpar as mãos. Usar no rosto é aceitável em izakayas casuais, mas não em restaurantes formais.`,
+        highlight: true,
+      },
+      {
+        title: "Celebrações sazonais",
+        content: `Osechi Ryori (Ano Novo): Caixas empilhadas (jubako) com pratos simbólicos. Cada item tem significado: kazunoko (ovas de arenque = fertilidade), kuromame (feijão preto = saúde), datemaki (omelete enrolada = conhecimento).
+
+Setsubun (3 de fevereiro): Jogam-se grãos de soja para afastar demônios. Come-se ehomaki (futomaki) inteiro, sem cortar, olhando na direção auspiciosa do ano.
+
+Hinamatsuri (3 de março): Festival das meninas. Come-se chirashi-zushi (sushi espalhado), hina-arare (biscoitinhos de arroz coloridos) e bebe-se amazake.`,
       },
     ],
   },
