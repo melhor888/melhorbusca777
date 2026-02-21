@@ -22,7 +22,7 @@ export default function Tips() {
   return (
     <div className="min-h-screen pb-24 pt-4 px-4 lg:px-6 lg:max-w-4xl lg:mx-auto">
       <h1 className="text-2xl font-display font-bold text-foreground mb-4">
-        Escola do Bartender
+        Escola Japonesa
       </h1>
 
       {/* XP Bar */}

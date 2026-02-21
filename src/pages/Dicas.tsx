@@ -12,15 +12,15 @@ export default function Dicas() {
     window.scrollTo(0, 0);
   }, []);
 
-  const readArticles = JSON.parse(localStorage.getItem("drinks-co-read-articles") || "[]") as string[];
+  const readArticles = JSON.parse(localStorage.getItem("nihon-read-articles") || "[]") as string[];
 
   return (
     <div className="min-h-screen pb-24 pt-4 px-4 lg:px-6 lg:max-w-4xl lg:mx-auto">
       <h1 className="text-2xl font-display font-bold text-foreground mb-1">
-        Dicas & Artigos
+        Cultura & Artigos
       </h1>
       <p className="text-sm text-muted-foreground mb-6">
-        Leia artigos completos, aprenda segredos e ganhe XP
+        Aprenda sobre a cultura gastronômica japonesa e ganhe XP
       </p>
 
       {/* Stats */}

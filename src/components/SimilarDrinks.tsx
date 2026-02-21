@@ -1,10 +1,10 @@
 import { useNavigate } from "react-router-dom";
-import { Drink } from "@/data/drinks";
+import { Dish } from "@/data/dishes";
 import DrinkCard from "./DrinkCard";
 
 interface SimilarDrinksProps {
-  currentDrink: Drink;
-  allDrinks: Drink[];
+  currentDrink: Dish;
+  allDrinks: Dish[];
 }
 
 export default function SimilarDrinks({ currentDrink, allDrinks }: SimilarDrinksProps) {
@@ -22,7 +22,7 @@ export default function SimilarDrinks({ currentDrink, allDrinks }: SimilarDrinks
   return (
     <section className="mt-8">
       <h2 className="text-lg font-display font-bold text-foreground mb-4">
-        Drinks Similares
+        Pratos Similares
       </h2>
       <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
         {similar.map((drink, i) => (

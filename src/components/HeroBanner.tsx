@@ -1,10 +1,9 @@
 import { useMemo, useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-import { drinks } from "@/data/drinks";
-import { getDrinkImage } from "@/data/drinkImages";
+import { dishes } from "@/data/dishes";
+import { getDishImage } from "@/data/dishImages";
 import { Play } from "lucide-react";
 
-// Deterministic daily seed — same drinks all day, changes at midnight
 function getDailySeed(): number {
   const now = new Date();
   return now.getFullYear() * 10000 + (now.getMonth() + 1) * 100 + now.getDate();
@@ -14,7 +13,7 @@ function seededShuffle<T>(arr: T[], seed: number): T[] {
   const shuffled = [...arr];
   let s = seed;
   for (let i = shuffled.length - 1; i > 0; i--) {
-    s = (s * 16807 + 0) % 2147483647; // LCG
+    s = (s * 16807 + 0) % 2147483647;
     const j = s % (i + 1);
     [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
   }
@@ -24,7 +23,7 @@ function seededShuffle<T>(arr: T[], seed: number): T[] {
 const INTERVAL = 5000;
 
 export default function HeroBanner() {
-  const queue = useMemo(() => seededShuffle(drinks, getDailySeed()).slice(0, 8), []);
+  const queue = useMemo(() => seededShuffle(dishes, getDailySeed()).slice(0, 8), []);
   const [index, setIndex] = useState(0);
   const [fading, setFading] = useState(false);
 
@@ -47,14 +46,14 @@ export default function HeroBanner() {
   return (
     <div className="relative h-[340px] lg:h-[400px] w-full mb-6 overflow-hidden">
       <img
-        src={getDrinkImage(featured.image)}
+        src={getDishImage(featured.image)}
         alt={featured.name}
         className={`absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-500 ${fading ? "opacity-0" : "opacity-100"}`}
       />
       <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
       <div className={`absolute bottom-0 left-0 right-0 p-6 lg:p-12 lg:max-w-3xl transition-all duration-500 ${fading ? "opacity-0 translate-y-2" : "opacity-100 translate-y-0"}`}>
         <span className="text-primary text-xs font-semibold tracking-widest uppercase">
-          Destaque
+          Destaque do Dia
         </span>
         <h1 className="text-4xl lg:text-5xl font-display font-bold text-foreground mt-1">
           {featured.name}
@@ -70,7 +69,6 @@ export default function HeroBanner() {
           Ver Receita
         </button>
       </div>
-      {/* Dots */}
       <div className="absolute bottom-3 right-4 flex gap-1.5">
         {queue.map((_, i) => (
           <button

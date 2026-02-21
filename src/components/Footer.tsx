@@ -9,8 +9,8 @@ export default function Footer() {
             <h3 className="text-xs font-semibold text-foreground uppercase tracking-wider mb-3">Navegação</h3>
             <ul className="space-y-2 text-xs">
               <li><Link to="/" className="text-muted-foreground hover:text-primary transition-colors">Receitas</Link></li>
-              <li><Link to="/tips" className="text-muted-foreground hover:text-primary transition-colors">Escola</Link></li>
-              <li><Link to="/dicas" className="text-muted-foreground hover:text-primary transition-colors">Dicas</Link></li>
+              <li><Link to="/tips" className="text-muted-foreground hover:text-primary transition-colors">Escola Japonesa</Link></li>
+              <li><Link to="/dicas" className="text-muted-foreground hover:text-primary transition-colors">Cultura</Link></li>
               <li><Link to="/favorites" className="text-muted-foreground hover:text-primary transition-colors">Favoritos</Link></li>
             </ul>
           </div>
@@ -38,10 +38,7 @@ export default function Footer() {
             Este site não é afiliado ao Google. A monetização é feita através da plataforma Google AdSense, conforme as políticas da plataforma.
           </p>
           <p className="text-[10px] text-muted-foreground">
-            Beba com responsabilidade. Conteúdo destinado a maiores de 18 anos.
-          </p>
-          <p className="text-[10px] text-muted-foreground">
-            © {new Date().getFullYear()} Drink Quest. Todos os direitos reservados.
+            © {new Date().getFullYear()} Nihon Food. Todos os direitos reservados.
           </p>
         </div>
       </div>

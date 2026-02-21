@@ -62,7 +62,7 @@ export default function TipDetail() {
           </button>
           <div className="flex-1">
             <p className={`text-xs font-semibold uppercase tracking-wider ${categoryColors[tip.category]}`}>
-              Dica do Bartender
+              Escola Japonesa
             </p>
             <h1 className="text-lg font-display font-bold text-foreground truncate">
               {tip.title}

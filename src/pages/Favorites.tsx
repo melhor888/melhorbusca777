@@ -1,11 +1,11 @@
 import { useFavorites } from "@/hooks/useFavorites";
-import { drinks } from "@/data/drinks";
+import { dishes } from "@/data/dishes";
 import DrinkCard from "@/components/DrinkCard";
 import { Heart } from "lucide-react";
 
 export default function Favorites() {
   const { favorites } = useFavorites();
-  const favDrinks = drinks.filter((d) => favorites.includes(d.id));
+  const favDishes = dishes.filter((d) => favorites.includes(d.id));
 
   return (
     <div className="min-h-screen pb-20 pt-4 px-4 lg:px-6">
@@ -13,10 +13,10 @@ export default function Favorites() {
         Favoritos
       </h1>
 
-      {favDrinks.length > 0 ? (
+      {favDishes.length > 0 ? (
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 lg:gap-4">
-          {favDrinks.map((drink) => (
-            <DrinkCard key={drink.id} drink={drink} />
+          {favDishes.map((dish) => (
+            <DrinkCard key={dish.id} drink={dish} />
           ))}
         </div>
       ) : (
