@@ -21,7 +21,7 @@ const vipImageNumbers: Record<string, number[]> = {
   masterclass: Array.from({ length: 50 }, (_, i) => i + 1),
   volta: Array.from({ length: 104 }, (_, i) => i + 1),
   sake: Array.from({ length: 20 }, (_, i) => i + 1),
-  cardapio: Array.from({ length: 10 }, (_, i) => i + 1),
+  cardapio: Array.from({ length: 20 }, (_, i) => i + 1),
   secretas: Array.from({ length: 14 }, (_, i) => i + 1),
   tecnicas: Array.from({ length: 21 }, (_, i) => i + 1),
 };
@@ -690,7 +690,7 @@ const dedicatedImages: Record<string, string> = {
   "amsterdam-canal-cocktail-vm": "/images/vip-volta-102.jpg",
   "petra-cocktail-jordania-vm": "/images/vip-volta-103.jpg",
   "mumbai-chai-old-fashioned-vm": "/images/vip-volta-104.jpg",
-  // Cardápios Completos dedicated images
+  // Cardápios Completos dedicated images (20 receitas, 20 imagens únicas)
   "cc-jantar-kaiseki": "/images/vip-cardapio-1.jpg",
   "cc-festa-izakaya": "/images/vip-cardapio-2.jpg",
   "cc-hanami-party": "/images/vip-cardapio-3.jpg",
@@ -701,6 +701,16 @@ const dedicatedImages: Record<string, string> = {
   "cc-cafe-da-manha-ryokan": "/images/vip-cardapio-8.jpg",
   "cc-menu-soba": "/images/vip-cardapio-9.jpg",
   "cc-menu-udon": "/images/vip-cardapio-10.jpg",
+  "cc-menu-tempura": "/images/vip-cardapio-11.jpg",
+  "cc-menu-donburi": "/images/vip-cardapio-12.jpg",
+  "cc-menu-kaiseki-verao": "/images/vip-cardapio-13.jpg",
+  "cc-brunch-japones": "/images/vip-cardapio-14.jpg",
+  "cc-menu-teppanyaki": "/images/vip-cardapio-15.jpg",
+  "cc-menu-sukiyaki": "/images/vip-cardapio-16.jpg",
+  "cc-menu-sushi-caseiro": "/images/vip-cardapio-17.jpg",
+  "cc-menu-osechi-moderno": "/images/vip-cardapio-18.jpg",
+  "cc-piquenique-hanami-moderno": "/images/vip-cardapio-19.jpg",
+  "cc-menu-curry-japones": "/images/vip-cardapio-20.jpg",
   // Masterclass de Técnicas dedicated images
   "mt-afiar-facas-japonesas": "/images/vip-tecnicas-2.jpg",
   "mt-dashi-perfeito": "/images/vip-tecnicas-4.jpg",
