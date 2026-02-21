@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { Crown, Lock, Wine, Beer, Snowflake, Leaf, KeyRound, Check, X, Flame, GlassWater, IceCream, Trophy, Globe, CupSoda, Martini, ArrowRight, Sparkles } from "lucide-react";
+import { Crown, Lock, Wine, Beer, Snowflake, Leaf, KeyRound, Check, X, Flame, GlassWater, IceCream, Trophy, Globe, CupSoda, Martini, ArrowRight, Sparkles, ChefHat, GraduationCap, UtensilsCrossed, BookOpen } from "lucide-react";
 import { validateVipKey, isVipUnlocked, setVipUnlocked } from "@/utils/vipKeys";
 import VipTrialBanner from "@/components/VipTrialBanner";
 import VipNetflixHero from "@/components/VipNetflixHero";
@@ -91,6 +91,34 @@ const vipCategories = [
     icon: Globe,
     description: "Drinks típicos de cada país: Japão, Peru, Cuba, Itália...",
     color: "from-cyan-400 to-blue-600",
+  },
+  {
+    id: "receitas-secretas",
+    name: "Receitas Secretas do Chef",
+    icon: ChefHat,
+    description: "Wagyu A5, Fugu, Kaiseki, Omakase — receitas que só chefs dominam",
+    color: "from-red-600 to-rose-800",
+  },
+  {
+    id: "masterclass-tecnicas",
+    name: "Masterclass de Técnicas",
+    icon: GraduationCap,
+    description: "Afiar facas, corte sashimi, dashi perfeito, arte do tempurá",
+    color: "from-indigo-500 to-blue-800",
+  },
+  {
+    id: "harmonizacao-sake",
+    name: "Harmonização Sake & Drinks",
+    icon: Wine,
+    description: "Guia de harmonização: sakê, shochu, whisky japonês com cada prato",
+    color: "from-purple-500 to-violet-800",
+  },
+  {
+    id: "cardapios-completos",
+    name: "Cardápios Completos",
+    icon: BookOpen,
+    description: "Menus completos: Kaiseki, Izakaya, Hanami, Réveillon Japonês",
+    color: "from-amber-500 to-orange-700",
   },
 ];
 
