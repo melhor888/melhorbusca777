@@ -1,7 +1,7 @@
 import { useMemo, useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-import { drinks } from "@/data/drinks";
-import { getDrinkImage } from "@/data/drinkImages";
+import { dishes } from "@/data/dishes";
+import { getDishImage } from "@/data/dishImages";
 import { Play, ChevronLeft, ChevronRight } from "lucide-react";
 
 function randomShuffle<T>(arr: T[]): T[] {
@@ -16,7 +16,7 @@ function randomShuffle<T>(arr: T[]): T[] {
 const INTERVAL = 6000;
 
 export default function QuizHeroBanner() {
-  const queue = useMemo(() => randomShuffle(drinks).slice(0, 10), []);
+  const queue = useMemo(() => randomShuffle(dishes).slice(0, 10), []);
   const [index, setIndex] = useState(0);
   const [fading, setFading] = useState(false);
   const navigate = useNavigate();
@@ -70,7 +70,7 @@ export default function QuizHeroBanner() {
     <div className="relative -mx-4 mb-6 overflow-hidden rounded-b-3xl group">
       <div className="relative h-[340px] lg:h-[420px] w-full">
         <img
-          src={getDrinkImage(featured.image)}
+          src={getDishImage(featured.image)}
           alt={featured.name}
           className={`absolute inset-0 w-full h-full object-cover object-center transition-all duration-500 ${
             fading ? "opacity-0 scale-105" : "opacity-100 scale-100"
