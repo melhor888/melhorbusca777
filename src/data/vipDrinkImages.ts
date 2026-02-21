@@ -20,6 +20,7 @@ const vipImageNumbers: Record<string, number[]> = {
   vegan: Array.from({ length: 50 }, (_, i) => i + 1),
   masterclass: Array.from({ length: 50 }, (_, i) => i + 1),
   volta: Array.from({ length: 104 }, (_, i) => i + 1),
+  sake: Array.from({ length: 10 }, (_, i) => i + 1),
 };
 
 function buildImagePool(prefix: string): string[] {
@@ -46,7 +47,7 @@ const categoryImagePools: Record<string, string[]> = {
   "Volta ao Mundo": buildImagePool('volta'),
   "Receitas Secretas do Chef": buildImagePool('masterclass'),
   "Masterclass de Técnicas": buildImagePool('masterclass'),
-  "Harmonização Sake & Drinks": buildImagePool('wine'),
+  "Harmonização Sake & Drinks": buildImagePool('sake'),
   "Cardápios Completos": buildImagePool('seasonal'),
 };
 
@@ -75,6 +76,17 @@ const categoryHeroBanners: Record<string, string> = {
 
 // Dedicated images for specific drinks (overrides hash-based assignment)
 const dedicatedImages: Record<string, string> = {
+  // Harmonização Sake & Drinks - imagens dedicadas
+  "hs-junmai-daiginjo": "/images/vip-sake-1.jpg",
+  "hs-nigori": "/images/vip-sake-2.jpg",
+  "hs-shochu": "/images/vip-sake-3.jpg",
+  "hs-whisky": "/images/vip-sake-4.jpg",
+  "hs-umeshu": "/images/vip-sake-5.jpg",
+  "hs-sparkling": "/images/vip-sake-6.jpg",
+  "hs-atsukan": "/images/vip-sake-7.jpg",
+  "hs-matcha-gin": "/images/vip-sake-8.jpg",
+  "hs-awamori": "/images/vip-sake-9.jpg",
+  "hs-sake-queijo": "/images/vip-sake-10.jpg",
   "beer-boulevardier": "/images/vip-beer-90.jpg",
   "beer-bloody-mary": "/images/vip-beer-91.jpg",
   "cerveza-preparada": "/images/vip-beer-92.jpg",
