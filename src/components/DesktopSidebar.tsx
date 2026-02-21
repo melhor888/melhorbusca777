@@ -42,7 +42,7 @@ export default function DesktopSidebar() {
       <Link to="/" className="flex items-center gap-2 px-5 py-5 border-b border-border/50">
         <span className="text-2xl">🍣</span>
         <span className="font-display font-bold text-lg text-foreground">
-          Receitas <span className="text-primary">XP</span>
+          Receitas Japonesas<span className="text-primary">XP</span>
         </span>
       </Link>
 
