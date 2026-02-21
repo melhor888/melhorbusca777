@@ -8,9 +8,9 @@ export default function SitemapPage() {
   return (
     <>
       <Helmet>
-        <title>Sitemap - Drinks & Company | Mapa do Site</title>
-        <meta name="description" content="Mapa completo do site Drinks & Company. Encontre todas as receitas, artigos, dicas e páginas do site." />
-        <link rel="canonical" href="https://drinkseco.lovable.app/sitemap" />
+        <title>Sitemap - Nihon Food | Mapa do Site</title>
+        <meta name="description" content="Mapa completo do site Nihon Food. Encontre todas as receitas, artigos, dicas e páginas do site." />
+        <link rel="canonical" href="https://japanfood.lovable.app/sitemap" />
       </Helmet>
       <div className="min-h-screen pb-20">
         <div className="px-4 pt-16 max-w-2xl mx-auto">

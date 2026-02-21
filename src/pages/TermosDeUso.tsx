@@ -1,40 +1,39 @@
 import { Helmet } from "react-helmet-async";
 import Breadcrumbs from "@/components/Breadcrumbs";
 
-
 export default function TermosDeUso() {
   return (
     <>
       <Helmet>
-        <title>Termos de Uso - Drink Quest</title>
-        <meta name="description" content="Termos de Uso da Drink Quest. Condições de utilização do site, direitos e responsabilidades dos usuários." />
-        <link rel="canonical" href="https://drinkseco.lovable.app/termos" />
+        <title>Termos de Uso - Nihon Food</title>
+        <meta name="description" content="Termos de Uso da Nihon Food. Condições de utilização do site, direitos e responsabilidades dos usuários." />
+        <link rel="canonical" href="https://japanfood.lovable.app/termos" />
       </Helmet>
       <div className="min-h-screen pb-20">
         <div className="px-4 pt-16 max-w-2xl mx-auto">
           <Breadcrumbs items={[{ label: "Termos de Uso" }]} />
           <h1 className="text-3xl font-display font-bold text-foreground mt-4 mb-6">Termos de Uso</h1>
-          <p className="text-xs text-muted-foreground mb-6">Última atualização: 17 de fevereiro de 2026</p>
+          <p className="text-xs text-muted-foreground mb-6">Última atualização: 21 de fevereiro de 2026</p>
 
           <div className="space-y-6 text-secondary-foreground leading-relaxed text-sm">
             <section>
               <h2 className="text-lg font-display font-semibold text-foreground mb-2">1. Aceitação dos Termos</h2>
-              <p>Ao acessar e utilizar o site Drink Quest ("Site"), você concorda com estes Termos de Uso. Se não concordar com qualquer parte destes termos, não utilize o Site. O uso continuado após alterações constitui aceitação das modificações.</p>
+              <p>Ao acessar e utilizar o site Nihon Food ("Site"), você concorda com estes Termos de Uso. Se não concordar com qualquer parte destes termos, não utilize o Site. O uso continuado após alterações constitui aceitação das modificações.</p>
             </section>
 
             <section>
               <h2 className="text-lg font-display font-semibold text-foreground mb-2">2. Descrição do Serviço</h2>
-              <p>A Drink Quest é uma plataforma online que oferece receitas de drinks e coquetéis, artigos educacionais sobre coquetelaria, dicas de bartenders profissionais e conteúdo relacionado ao universo de bebidas. O conteúdo é disponibilizado gratuitamente e monetizado através de publicidade.</p>
+              <p>A Nihon Food é uma plataforma online que oferece receitas de comida japonesa, artigos educacionais sobre culinária e cultura japonesa, dicas de chefs profissionais e conteúdo relacionado ao universo da gastronomia do Japão. O conteúdo é disponibilizado gratuitamente e monetizado através de publicidade.</p>
             </section>
 
             <section>
-              <h2 className="text-lg font-display font-semibold text-foreground mb-2">3. Restrição de Idade</h2>
-              <p>O acesso ao Site é restrito a maiores de 18 anos. Ao utilizar o Site, você declara ter pelo menos 18 anos de idade. Não nos responsabilizamos pelo acesso de menores de idade ao conteúdo.</p>
+              <h2 className="text-lg font-display font-semibold text-foreground mb-2">3. Uso Adequado</h2>
+              <p>O Site é destinado a todas as idades. Algumas receitas podem conter ingredientes que requerem supervisão de adultos durante o preparo (uso de facas, fogão, óleo quente, etc.).</p>
             </section>
 
             <section>
               <h2 className="text-lg font-display font-semibold text-foreground mb-2">4. Propriedade Intelectual</h2>
-              <p>Todo o conteúdo do Site, incluindo textos, receitas, imagens, logotipos, design, código-fonte e materiais audiovisuais são protegidos por direitos autorais e pertencem à Drink Quest ou são utilizados com autorização. É proibida a reprodução, distribuição ou uso comercial sem autorização expressa.</p>
+              <p>Todo o conteúdo do Site, incluindo textos, receitas, imagens, logotipos, design, código-fonte e materiais audiovisuais são protegidos por direitos autorais e pertencem à Nihon Food ou são utilizados com autorização. É proibida a reprodução, distribuição ou uso comercial sem autorização expressa.</p>
             </section>
 
             <section>
@@ -65,13 +64,13 @@ export default function TermosDeUso() {
             </section>
 
             <section>
-              <h2 className="text-lg font-display font-semibold text-foreground mb-2">8. Consumo Responsável</h2>
-              <p>O conteúdo do Site é informativo e educacional. A Drink Quest incentiva o consumo responsável de bebidas alcoólicas. Não nos responsabilizamos pelo uso indevido das informações ou receitas disponibilizadas. Nunca dirija após consumir bebidas alcoólicas.</p>
+              <h2 className="text-lg font-display font-semibold text-foreground mb-2">8. Alergias e Segurança Alimentar</h2>
+              <p>O conteúdo do Site é informativo e educacional. A Nihon Food não se responsabiliza por reações alérgicas ou adversas a qualquer ingrediente. Sempre verifique os ingredientes antes de preparar qualquer receita, especialmente se você possui alergias ou intolerâncias alimentares.</p>
             </section>
 
             <section>
               <h2 className="text-lg font-display font-semibold text-foreground mb-2">9. Isenção de Responsabilidade</h2>
-              <p>As receitas e informações são fornecidas "como estão", sem garantias de qualquer tipo. A Drink Quest não se responsabiliza por resultados obtidos ao seguir as receitas, reações alérgicas, ou qualquer dano decorrente do uso das informações do Site.</p>
+              <p>As receitas e informações são fornecidas "como estão", sem garantias de qualquer tipo. A Nihon Food não se responsabiliza por resultados obtidos ao seguir as receitas, reações alérgicas, ou qualquer dano decorrente do uso das informações do Site.</p>
             </section>
 
             <section>
@@ -91,11 +90,10 @@ export default function TermosDeUso() {
 
             <section>
               <h2 className="text-lg font-display font-semibold text-foreground mb-2">13. Contato</h2>
-              <p>Dúvidas sobre estes Termos podem ser enviadas para: <strong>contato@drinkquest.com.br</strong></p>
+              <p>Dúvidas sobre estes Termos podem ser enviadas para: <strong>contato@nihonfood.com.br</strong></p>
             </section>
           </div>
         </div>
-        
       </div>
     </>
   );

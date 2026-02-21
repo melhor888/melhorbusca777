@@ -1,25 +1,24 @@
 import { Helmet } from "react-helmet-async";
 import Breadcrumbs from "@/components/Breadcrumbs";
 
-
 export default function PoliticaPrivacidade() {
   return (
     <>
       <Helmet>
-        <title>Política de Privacidade - Drink Quest</title>
-        <meta name="description" content="Política de Privacidade da Drink Quest. Saiba como coletamos, usamos e protegemos seus dados pessoais conforme LGPD e GDPR." />
-        <link rel="canonical" href="https://drinkseco.lovable.app/privacidade" />
+        <title>Política de Privacidade - Nihon Food</title>
+        <meta name="description" content="Política de Privacidade da Nihon Food. Saiba como coletamos, usamos e protegemos seus dados pessoais conforme LGPD e GDPR." />
+        <link rel="canonical" href="https://japanfood.lovable.app/privacidade" />
       </Helmet>
       <div className="min-h-screen pb-20">
         <div className="px-4 pt-16 max-w-2xl mx-auto">
           <Breadcrumbs items={[{ label: "Política de Privacidade" }]} />
           <h1 className="text-3xl font-display font-bold text-foreground mt-4 mb-6">Política de Privacidade</h1>
-          <p className="text-xs text-muted-foreground mb-6">Última atualização: 17 de fevereiro de 2026</p>
+          <p className="text-xs text-muted-foreground mb-6">Última atualização: 21 de fevereiro de 2026</p>
 
           <div className="space-y-6 text-secondary-foreground leading-relaxed text-sm">
             <section>
               <h2 className="text-lg font-display font-semibold text-foreground mb-2">1. Introdução</h2>
-              <p>A Drink Quest ("nós", "nosso" ou "site") valoriza a privacidade dos seus usuários. Esta Política de Privacidade descreve como coletamos, usamos, armazenamos, compartilhamos e protegemos suas informações pessoais quando você utiliza nosso site e serviços, em conformidade com a Lei Geral de Proteção de Dados (LGPD – Lei nº 13.709/2018) e o Regulamento Geral sobre a Proteção de Dados da União Europeia (GDPR – Regulamento UE 2016/679).</p>
+              <p>A Nihon Food ("nós", "nosso" ou "site") valoriza a privacidade dos seus usuários. Esta Política de Privacidade descreve como coletamos, usamos, armazenamos, compartilhamos e protegemos suas informações pessoais quando você utiliza nosso site e serviços, em conformidade com a Lei Geral de Proteção de Dados (LGPD – Lei nº 13.709/2018) e o Regulamento Geral sobre a Proteção de Dados da União Europeia (GDPR – Regulamento UE 2016/679).</p>
             </section>
 
             <section>
@@ -102,7 +101,7 @@ export default function PoliticaPrivacidade() {
                 <li>Oposição ao tratamento baseado em interesse legítimo</li>
                 <li>Direito ao esquecimento (exclusão total dos dados)</li>
               </ul>
-              <p className="mt-2">Para exercer qualquer desses direitos, entre em contato pelo e-mail: <strong>privacidade@drinkquest.com.br</strong></p>
+              <p className="mt-2">Para exercer qualquer desses direitos, entre em contato pelo e-mail: <strong>privacidade@nihonfood.com.br</strong></p>
             </section>
 
             <section>
@@ -122,7 +121,7 @@ export default function PoliticaPrivacidade() {
 
             <section>
               <h2 className="text-lg font-display font-semibold text-foreground mb-2">12. Menores de Idade</h2>
-              <p>Nosso site e conteúdo são destinados exclusivamente a maiores de 18 anos. Não coletamos intencionalmente dados de menores de idade. Se tomarmos conhecimento de que coletamos dados de um menor, eles serão imediatamente excluídos.</p>
+              <p>Nosso site é destinado a todas as idades. Não coletamos intencionalmente dados de menores de 13 anos sem consentimento dos pais ou responsáveis. Se tomarmos conhecimento de que coletamos dados de um menor sem consentimento adequado, eles serão imediatamente excluídos.</p>
             </section>
 
             <section>
@@ -134,14 +133,13 @@ export default function PoliticaPrivacidade() {
               <h2 className="text-lg font-display font-semibold text-foreground mb-2">14. Contato e Encarregado de Dados (DPO)</h2>
               <p>Para questões sobre esta política ou sobre seus dados pessoais:</p>
               <ul className="list-none space-y-1 ml-2 mt-2">
-                <li><strong>E-mail:</strong> privacidade@drinkquest.com.br</li>
+                <li><strong>E-mail:</strong> privacidade@nihonfood.com.br</li>
                 <li><strong>Formulário:</strong> <a href="/contato" className="text-primary underline">Página de Contato</a></li>
               </ul>
               <p className="mt-2">Caso considere que o tratamento de dados viola seus direitos, você pode apresentar reclamação à Autoridade Nacional de Proteção de Dados (ANPD) no Brasil ou à autoridade competente na União Europeia.</p>
             </section>
           </div>
         </div>
-        
       </div>
     </>
   );

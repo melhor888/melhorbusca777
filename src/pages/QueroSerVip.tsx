@@ -89,8 +89,8 @@ export default function QueroSerVip() {
   return (
     <>
       <Helmet>
-        <title>Quero Ser VIP | Drink Quest</title>
-        <meta name="description" content="Desbloqueie 1.200+ receitas exclusivas, dicas do chef e categorias premium. Torne-se VIP no Drink Quest." />
+        <title>Quero Ser VIP | Nihon Food</title>
+        <meta name="description" content="Desbloqueie receitas exclusivas, dicas do chef e categorias premium. Torne-se VIP no Nihon Food." />
       </Helmet>
 
       <main className="pb-32 lg:pb-12">

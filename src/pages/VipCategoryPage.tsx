@@ -89,7 +89,7 @@ export default function VipCategoryPage() {
     <>
       <VipTrialBanner />
       <Helmet>
-        <title>{categoryName} VIP | Drink Quest</title>
+        <title>{categoryName} VIP | Nihon Food</title>
         <meta name="description" content={`${drinks.length} receitas VIP exclusivas de ${categoryName}.`} />
       </Helmet>
       <div className="min-h-screen pb-24">

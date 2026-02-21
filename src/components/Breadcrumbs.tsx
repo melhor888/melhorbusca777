@@ -15,12 +15,12 @@ export default function Breadcrumbs({ items }: BreadcrumbsProps) {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Início", item: "https://drinkseco.lovable.app/" },
+      { "@type": "ListItem", position: 1, name: "Início", item: "https://japanfood.lovable.app/" },
       ...items.map((item, i) => ({
         "@type": "ListItem",
         position: i + 2,
         name: item.label,
-        ...(item.href ? { item: `https://drinkseco.lovable.app${item.href}` } : {}),
+        ...(item.href ? { item: `https://japanfood.lovable.app${item.href}` } : {}),
       })),
     ],
   };

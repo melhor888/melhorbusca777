@@ -41,8 +41,8 @@ export function sendWelcomeNotification() {
   if (Notification.permission !== "granted") return;
 
   try {
-    new Notification("🎉 Bem-vindo ao Drink Quest!", {
-      body: "Você receberá sugestões de drinks incríveis ao longo do dia. Saúde! 🥂",
+    new Notification("🎉 Bem-vindo ao Nihon Food!", {
+      body: "Você receberá sugestões de receitas japonesas incríveis ao longo do dia. Itadakimasu! 🍣",
       icon: "/pwa-192x192.png",
       badge: "/pwa-192x192.png",
       tag: "welcome",
@@ -55,11 +55,11 @@ export function sendWelcomeNotification() {
   setTimeout(() => {
     const drink = getRandomDrink();
     try {
-      new Notification(`🍸 Novo Drink Adicionado: ${drink.name}`, {
+      new Notification(`🍣 Nova Receita: ${drink.name}`, {
         body: `${drink.category} · ${drink.difficulty} · ${drink.time}\n${drink.ingredients.slice(0, 3).join(", ")}`,
         icon: "/pwa-192x192.png",
         badge: "/pwa-192x192.png",
-        tag: "welcome-drink",
+        tag: "welcome-recipe",
       } as NotificationOptions);
     } catch {
       // Silent fail
@@ -75,15 +75,15 @@ export function sendDrinkNotification() {
   const drink = getRandomDrink();
   localStorage.setItem(LAST_NOTIF_KEY, Date.now().toString());
 
-  const emojis = ["🍸", "🥃", "🍹", "🥂", "☕"];
+  const emojis = ["🍣", "🍜", "🍱", "🍙", "🍤"];
   const emoji = emojis[Math.floor(Math.random() * emojis.length)];
 
   try {
-    new Notification(`${emoji} Novo Drink Adicionado: ${drink.name}`, {
+    new Notification(`${emoji} Nova Receita: ${drink.name}`, {
       body: `${drink.category} · ${drink.difficulty} · ${drink.time}\n${drink.ingredients.slice(0, 3).join(", ")}`,
       icon: "/pwa-192x192.png",
       badge: "/pwa-192x192.png",
-      tag: "drink-of-day",
+      tag: "recipe-of-day",
     } as NotificationOptions);
   } catch {
     // Silent fail
