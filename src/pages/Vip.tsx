@@ -204,6 +204,19 @@ export default function Vip() {
             );
           })}
         </div>
+
+        {/* CTA Quero Ser VIP — aparece quando trial expirou e não é VIP permanente */}
+        {!unlocked && (
+          <div className="max-w-2xl mx-auto mt-8">
+            <Link
+              to="/queroservip"
+              className="flex items-center justify-center gap-2 w-full py-4 rounded-2xl bg-gradient-to-r from-yellow-400 to-amber-600 text-white font-bold text-base transition-all hover:shadow-xl hover:scale-[1.02] active:scale-[0.98]"
+            >
+              <Crown size={20} />
+              Quero Ser VIP
+            </Link>
+          </div>
+        )}
       </main>
     </>
   );
