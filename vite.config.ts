@@ -25,8 +25,8 @@ export default defineConfig(({ mode }) => ({
         maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
       },
       manifest: {
-        name: "Nihon Food",
-        short_name: "Nihon Food",
+        name: "Receitas Japonesas XP",
+        short_name: "Receitas XP",
         description: "Descubra receitas autênticas da culinária japonesa",
         theme_color: "#0f1318",
         background_color: "#0f1318",

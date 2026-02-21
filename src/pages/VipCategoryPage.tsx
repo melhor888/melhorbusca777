@@ -190,7 +190,7 @@ export default function VipCategoryPage() {
     <>
       <VipTrialBanner />
       <Helmet>
-        <title>{categoryName} VIP | Nihon Food</title>
+        <title>{categoryName} VIP | Receitas Japonesas XP</title>
         <meta name="description" content={`${drinks.length} receitas VIP exclusivas de ${categoryName}.`} />
       </Helmet>
       <div className="min-h-screen pb-24">

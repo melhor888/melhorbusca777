@@ -57,7 +57,7 @@ export default function VipRecipeDetail() {
     <>
       <VipTrialBanner />
       <Helmet>
-        <title>{drink.name} - Receita VIP | Nihon Food</title>
+        <title>{drink.name} - Receita VIP | Receitas Japonesas XP</title>
         <meta name="description" content={drink.description.slice(0, 155)} />
       </Helmet>
       <div className="min-h-screen pb-24">

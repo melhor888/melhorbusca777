@@ -42,7 +42,7 @@ export default function DesktopSidebar() {
       <Link to="/" className="flex items-center gap-2 px-5 py-5 border-b border-border/50">
         <span className="text-2xl">🍣</span>
         <span className="font-display font-bold text-lg text-foreground">
-          Nihon <span className="text-primary">Food</span>
+          Receitas <span className="text-primary">XP</span>
         </span>
       </Link>
 
@@ -128,7 +128,7 @@ export default function DesktopSidebar() {
 
       <div className="px-4 py-4 border-t border-border/50">
         <p className="text-[10px] text-muted-foreground text-center">
-          © {new Date().getFullYear()} Nihon Food
+          © {new Date().getFullYear()} Receitas Japonesas XP
         </p>
       </div>
     </aside>

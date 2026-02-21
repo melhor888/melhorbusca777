@@ -38,7 +38,7 @@ export default function Dicas() {
   return (
     <>
       <Helmet>
-        <title>Dicas & Artigos | Nihon Food</title>
+        <title>Dicas & Artigos | Receitas Japonesas XP</title>
         <meta name="description" content="Aprenda sobre culinária japonesa com artigos completos sobre técnicas, ingredientes, cultura e mais." />
       </Helmet>
       <div className="min-h-screen pb-24 pt-4 px-4 lg:px-6 lg:max-w-4xl lg:mx-auto">

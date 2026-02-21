@@ -5,8 +5,8 @@ export default function AvisoLegal() {
   return (
     <>
       <Helmet>
-        <title>Aviso Legal (Disclaimer) - Nihon Food</title>
-        <meta name="description" content="Aviso Legal da Nihon Food. Informações sobre responsabilidade, conteúdo e limitações do site." />
+        <title>Aviso Legal (Disclaimer) - Receitas Japonesas XP</title>
+        <meta name="description" content="Aviso Legal do Receitas Japonesas XP. Informações sobre responsabilidade, conteúdo e limitações do site." />
         <link rel="canonical" href="https://japanfood.lovable.app/aviso-legal" />
       </Helmet>
       <div className="min-h-screen pb-20">
@@ -17,17 +17,17 @@ export default function AvisoLegal() {
           <div className="space-y-6 text-secondary-foreground leading-relaxed text-sm">
             <section>
               <h2 className="text-lg font-display font-semibold text-foreground mb-2">1. Natureza do Conteúdo</h2>
-              <p>O conteúdo disponibilizado na Nihon Food, incluindo receitas de comida japonesa, artigos e dicas, tem caráter exclusivamente informativo e educacional. As informações não substituem orientação profissional especializada.</p>
+              <p>O conteúdo disponibilizado no Receitas Japonesas XP, incluindo receitas de comida japonesa, artigos e dicas, tem caráter exclusivamente informativo e educacional. As informações não substituem orientação profissional especializada.</p>
             </section>
 
             <section>
               <h2 className="text-lg font-display font-semibold text-foreground mb-2">2. Segurança Alimentar</h2>
-              <p>A Nihon Food recomenda atenção especial ao preparar receitas que envolvam peixe cru, fritura em alta temperatura, fermentação e uso de facas afiadas. Sempre utilize ingredientes frescos e de procedência confiável. Consulte um profissional de saúde em caso de alergias ou restrições alimentares.</p>
+              <p>O Receitas Japonesas XP recomenda atenção especial ao preparar receitas que envolvam peixe cru, fritura em alta temperatura, fermentação e uso de facas afiadas. Sempre utilize ingredientes frescos e de procedência confiável. Consulte um profissional de saúde em caso de alergias ou restrições alimentares.</p>
             </section>
 
             <section>
               <h2 className="text-lg font-display font-semibold text-foreground mb-2">3. Isenção de Responsabilidade</h2>
-              <p>A Nihon Food não se responsabiliza por:</p>
+              <p>O Receitas Japonesas XP não se responsabiliza por:</p>
               <ul className="list-disc list-inside space-y-1 ml-2 mt-2">
                 <li>Resultados obtidos ao reproduzir as receitas</li>
                 <li>Reações alérgicas ou adversas a qualquer ingrediente</li>
@@ -60,7 +60,7 @@ export default function AvisoLegal() {
 
             <section>
               <h2 className="text-lg font-display font-semibold text-foreground mb-2">8. Contato</h2>
-              <p>Para questões legais: <strong>contato@nihonfood.com.br</strong></p>
+              <p>Para questões legais: <strong>contato@receitasjaponesasxp.com.br</strong></p>
             </section>
           </div>
         </div>

@@ -66,7 +66,7 @@ export function sendWelcomeNotification() {
   if (Notification.permission !== "granted") return;
 
   try {
-    new Notification("🎉 Bem-vindo ao Nihon Food!", {
+    new Notification("🎉 Bem-vindo ao Receitas Japonesas XP!", {
       body: "Você receberá 5 sugestões diárias de receitas japonesas. Itadakimasu! 🍣",
       icon: "/pwa-192x192.png",
       badge: "/pwa-192x192.png",

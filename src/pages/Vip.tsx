@@ -71,8 +71,8 @@ export default function Vip() {
   return (
     <>
       <Helmet>
-        <title>Área VIP | Nihon Food</title>
-        <meta name="description" content="Categorias exclusivas para membros VIP do Nihon Food." />
+        <title>Área VIP | Receitas Japonesas XP</title>
+        <meta name="description" content="Categorias exclusivas para membros VIP do Receitas Japonesas XP." />
       </Helmet>
 
       <VipTrialBanner />

@@ -8,8 +8,8 @@ export default function SitemapPage() {
   return (
     <>
       <Helmet>
-        <title>Sitemap - Nihon Food | Mapa do Site</title>
-        <meta name="description" content="Mapa completo do site Nihon Food. Encontre todas as receitas, artigos, dicas e páginas do site." />
+        <title>Sitemap - Receitas Japonesas XP | Mapa do Site</title>
+        <meta name="description" content="Mapa completo do site Receitas Japonesas XP. Encontre todas as receitas, artigos, dicas e páginas do site." />
         <link rel="canonical" href="https://japanfood.lovable.app/sitemap" />
       </Helmet>
       <div className="min-h-screen pb-20">

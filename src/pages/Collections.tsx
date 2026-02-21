@@ -100,7 +100,7 @@ export default function Collections() {
   return (
     <div className="min-h-screen pb-24">
       <Helmet>
-        <title>Coleções Temáticas | Nihon Food</title>
+        <title>Coleções Temáticas | Receitas Japonesas XP</title>
         <meta name="description" content="Coleções temáticas de receitas japonesas: sushi, ramen, donburi, street food e mais." />
       </Helmet>
 

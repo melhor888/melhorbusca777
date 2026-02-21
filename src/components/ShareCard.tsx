@@ -12,7 +12,7 @@ export default function ShareCard({ drink, onClose }: ShareCardProps) {
   const cardRef = useRef<HTMLDivElement>(null);
   const [copying, setCopying] = useState(false);
 
-  const shareText = `🍣 ${drink.name}\n\n📋 Ingredientes:\n${drink.ingredients.map((i) => `• ${i}`).join("\n")}\n\n📝 Preparo:\n${drink.steps.map((s, i) => `${i + 1}. ${s}`).join("\n")}\n\n🔗 Veja mais no Nihon Food!\nhttps://japanfood.lovable.app/recipe/${drink.id}`;
+  const shareText = `🍣 ${drink.name}\n\n📋 Ingredientes:\n${drink.ingredients.map((i) => `• ${i}`).join("\n")}\n\n📝 Preparo:\n${drink.steps.map((s, i) => `${i + 1}. ${s}`).join("\n")}\n\n🔗 Veja mais no Receitas Japonesas XP!\nhttps://japanfood.lovable.app/recipe/${drink.id}`;
 
   const shareWhatsApp = () => {
     window.open(`https://wa.me/?text=${encodeURIComponent(shareText)}`, "_blank");
@@ -38,7 +38,7 @@ export default function ShareCard({ drink, onClose }: ShareCardProps) {
         useCORS: true,
       });
       const link = document.createElement("a");
-      link.download = `${drink.id}-nihon-food.png`;
+      link.download = `${drink.id}-receitas-japonesas-xp.png`;
       link.href = canvas.toDataURL("image/png");
       link.click();
     } catch {
@@ -77,7 +77,7 @@ export default function ShareCard({ drink, onClose }: ShareCardProps) {
               )}
             </div>
             <div className="mt-4 pt-3 border-t border-border/50 flex items-center justify-between">
-              <span className="text-[10px] text-muted-foreground">🍣 Nihon Food</span>
+              <span className="text-[10px] text-muted-foreground">🍣 Receitas Japonesas XP</span>
               <span className="text-[10px] text-muted-foreground">{drink.difficulty} · {drink.time}</span>
             </div>
           </div>

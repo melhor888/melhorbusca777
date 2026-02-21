@@ -4,16 +4,16 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 
 export default function Contato() {
   const whatsappNumber = "5527995055993";
-  const whatsappMessage = encodeURIComponent("Olá! Vim pelo Nihon Food e gostaria de tirar uma dúvida.");
+  const whatsappMessage = encodeURIComponent("Olá! Vim pelo Receitas Japonesas XP e gostaria de tirar uma dúvida.");
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
 
   return (
     <>
       <Helmet>
-        <title>Contato - Nihon Food | Fale Conosco</title>
-        <meta name="description" content="Entre em contato com a Nihon Food pelo WhatsApp. Tire suas dúvidas rapidamente." />
+        <title>Contato - Receitas Japonesas XP | Fale Conosco</title>
+        <meta name="description" content="Entre em contato com o Receitas Japonesas XP pelo WhatsApp. Tire suas dúvidas rapidamente." />
         <link rel="canonical" href="https://japanfood.lovable.app/contato" />
-        <meta property="og:title" content="Contato - Nihon Food" />
+        <meta property="og:title" content="Contato - Receitas Japonesas XP" />
         <meta property="og:description" content="Fale conosco pelo WhatsApp. Tire suas dúvidas rapidamente." />
         <meta property="og:url" content="https://japanfood.lovable.app/contato" />
       </Helmet>
