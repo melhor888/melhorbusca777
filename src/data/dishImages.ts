@@ -49,8 +49,53 @@ import anmitsu from "@/assets/dishes/anmitsu.jpg";
 import matchaCheesecake from "@/assets/dishes/matcha-cheesecake.jpg";
 import matchaParfait from "@/assets/dishes/matcha-parfait.jpg";
 import warabiMochi from "@/assets/dishes/warabi-mochi.jpg";
+// Molhos & Temperos
+import ponzu from "@/assets/dishes/ponzu.jpg";
+import molhoTeriyaki from "@/assets/dishes/molho-teriyaki.jpg";
+import tareYakitori from "@/assets/dishes/tare-yakitori.jpg";
+import molhoTonkatsu from "@/assets/dishes/molho-tonkatsu.jpg";
+import gomadare from "@/assets/dishes/gomadare.jpg";
+import wafuDressing from "@/assets/dishes/wafu-dressing.jpg";
+import nikiriShoyu from "@/assets/dishes/nikiri-shoyu.jpg";
+import molhoGyoza from "@/assets/dishes/molho-gyoza.jpg";
+import yuzuKosho from "@/assets/dishes/yuzu-kosho.jpg";
+import furikake from "@/assets/dishes/furikake.jpg";
+import rayu from "@/assets/dishes/rayu.jpg";
+import shichimiTogarashi from "@/assets/dishes/shichimi-togarashi.jpg";
+// Donburi & Arroz
+import unadon from "@/assets/dishes/unadon.jpg";
+import tendon from "@/assets/dishes/tendon.jpg";
+import chirashi from "@/assets/dishes/chirashi.jpg";
+import omurice from "@/assets/dishes/omurice.jpg";
+import chahan from "@/assets/dishes/chahan.jpg";
+import ochazuke from "@/assets/dishes/ochazuke.jpg";
+import tamagoKakeGohan from "@/assets/dishes/tamago-kake-gohan.jpg";
+import hayashiRice from "@/assets/dishes/hayashi-rice.jpg";
+import kareRaisu from "@/assets/dishes/kare-raisu.jpg";
+// Acompanhamentos
+import tamagoyaki from "@/assets/dishes/tamagoyaki.jpg";
+import tsukemono from "@/assets/dishes/tsukemono.jpg";
+import kinpiraGobo from "@/assets/dishes/kinpira-gobo.jpg";
+import hijikiNimono from "@/assets/dishes/hijiki-nimono.jpg";
+import nasuDengaku from "@/assets/dishes/nasu-dengaku.jpg";
+import nikujaga from "@/assets/dishes/nikujaga.jpg";
+import chawanmushi from "@/assets/dishes/chawanmushi.jpg";
+import korokke from "@/assets/dishes/korokke.jpg";
+import natto from "@/assets/dishes/natto.jpg";
+import hiyayakko from "@/assets/dishes/hiyayakko.jpg";
+import ohitashi from "@/assets/dishes/ohitashi.jpg";
+import nimonoKabocha from "@/assets/dishes/nimono-kabocha.jpg";
+// Izakaya & Petiscos
+import kushikatsu from "@/assets/dishes/kushikatsu.jpg";
+import motsuNikomi from "@/assets/dishes/motsu-nikomi.jpg";
+import tebasaki from "@/assets/dishes/tebasaki.jpg";
+import tatakiMaguro from "@/assets/dishes/tataki-maguro.jpg";
+import mentaiko from "@/assets/dishes/mentaiko.jpg";
+import yakiOnigiri from "@/assets/dishes/yaki-onigiri.jpg";
+import dashimakiTamago from "@/assets/dishes/dashimaki-tamago.jpg";
 
 const dishImages: Record<string, string> = {
+  // Pratos Tradicionais
   "sushi-misto": sushiMisto,
   "sashimi-misto": sashimiMisto,
   "nigiri-salmao": nigiriSalmao,
@@ -60,6 +105,7 @@ const dishImages: Record<string, string> = {
   "futomaki": futomaki,
   "nigiri-atum": nigiriAtum,
   "temaki-skin": temakiSkin,
+  // Massas
   "ramen-tonkotsu": ramenTonkotsu,
   "ramen-shoyu": ramenShoyu,
   "ramen-miso": ramenMiso,
@@ -68,6 +114,7 @@ const dishImages: Record<string, string> = {
   "yakisoba": yakisoba,
   "soba-fria": sobaFria,
   "soba-quente": sobaQuente,
+  // Pratos Quentes
   "yakitori": yakitori,
   "karaage": karaage,
   "tempura-mista": tempuraMista,
@@ -78,12 +125,14 @@ const dishImages: Record<string, string> = {
   "sukiyaki": sukiyaki,
   "shabu-shabu": shabuShabu,
   "teppanyaki": teppanyaki,
+  // Street Food
   "takoyaki": takoyaki,
   "okonomiyaki": okonomiyaki,
   "onigiri": onigiri,
   "taiyaki": taiyaki,
   "dango": dango,
   "yakiimo": yakiimo,
+  // Entradas
   "gyoza": gyoza,
   "edamame": edamame,
   "sunomono": sunomono,
@@ -91,12 +140,14 @@ const dishImages: Record<string, string> = {
   "missoshiro-entrada": missoshiro,
   "harumaki": harumaki,
   "agedashi-tofu": agedashiTofu,
+  // Sopas
   "missoshiru": missoshiru,
   "tonjiru": tonjiru,
   "ramen-tradicional": ramenTradicional,
   "ramen-tradicional-sopa": ramenTradicional,
   "lamen-artesanal": lamenArtesanal,
   "ozoni": ozoni,
+  // Sobremesas
   "mochi": mochi,
   "dorayaki": dorayaki,
   "manju": manju,
@@ -104,6 +155,50 @@ const dishImages: Record<string, string> = {
   "matcha-cheesecake": matchaCheesecake,
   "matcha-parfait": matchaParfait,
   "warabi-mochi": warabiMochi,
+  // Molhos & Temperos
+  "ponzu": ponzu,
+  "molho-teriyaki": molhoTeriyaki,
+  "tare-yakitori": tareYakitori,
+  "molho-tonkatsu": molhoTonkatsu,
+  "gomadare": gomadare,
+  "wafu-dressing": wafuDressing,
+  "nikiri-shoyu": nikiriShoyu,
+  "molho-gyoza": molhoGyoza,
+  "yuzu-kosho": yuzuKosho,
+  "furikake": furikake,
+  "rayu": rayu,
+  "shichimi-togarashi": shichimiTogarashi,
+  // Donburi & Arroz
+  "unadon": unadon,
+  "tendon": tendon,
+  "chirashi": chirashi,
+  "omurice": omurice,
+  "chahan": chahan,
+  "ochazuke": ochazuke,
+  "tamago-kake-gohan": tamagoKakeGohan,
+  "hayashi-rice": hayashiRice,
+  "kare-raisu": kareRaisu,
+  // Acompanhamentos
+  "tamagoyaki": tamagoyaki,
+  "tsukemono": tsukemono,
+  "kinpira-gobo": kinpiraGobo,
+  "hijiki-nimono": hijikiNimono,
+  "nasu-dengaku": nasuDengaku,
+  "nikujaga": nikujaga,
+  "chawanmushi": chawanmushi,
+  "korokke": korokke,
+  "natto": natto,
+  "hiyayakko": hiyayakko,
+  "ohitashi": ohitashi,
+  "nimono-kabocha": nimonoKabocha,
+  // Izakaya & Petiscos
+  "kushikatsu": kushikatsu,
+  "motsu-nikomi": motsuNikomi,
+  "tebasaki": tebasaki,
+  "tataki-maguro": tatakiMaguro,
+  "mentaiko": mentaiko,
+  "yaki-onigiri": yakiOnigiri,
+  "dashimaki-tamago": dashimakiTamago,
 };
 
 export function getDishImage(imageKey: string): string {
