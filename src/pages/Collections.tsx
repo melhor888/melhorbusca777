@@ -1,8 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { ArrowLeft } from "lucide-react";
-import { drinks } from "@/data/drinks";
-import { getDrinkImage } from "@/data/drinkImages";
+import { dishes } from "@/data/dishes";
 import DrinkCard from "@/components/DrinkCard";
 
 interface Collection {
@@ -10,71 +9,88 @@ interface Collection {
   title: string;
   subtitle: string;
   emoji: string;
-  filter: (d: typeof drinks[0]) => boolean;
+  filter: (d: typeof dishes[0]) => boolean;
 }
 
 const collections: Collection[] = [
   {
-    id: "verao",
-    title: "Drinks de Verão",
-    subtitle: "Refrescantes e tropicais para os dias quentes",
-    emoji: "☀️",
+    id: "sushi-sashimi",
+    title: "Sushi & Sashimi",
+    subtitle: "Os clássicos da culinária japonesa crua",
+    emoji: "🍣",
     filter: (d) =>
-      d.category === "Drinks Tropicais" ||
-      d.ingredients.some((i) => /gelo|hortelã|suco|água com gás|tônica|ginger/i.test(i)),
+      /sushi|sashimi|nigiri|temaki|uramaki|hosomaki|futomaki|chirashi/i.test(d.name) ||
+      /sushi|sashimi|nigiri|temaki|uramaki|hosomaki|futomaki|chirashi/i.test(d.id),
   },
   {
-    id: "natal",
-    title: "Drinks para Natal",
-    subtitle: "Elegantes e festivos para celebrar",
-    emoji: "🎄",
+    id: "ramen-massas",
+    title: "Ramen & Massas",
+    subtitle: "Tigelas quentes e reconfortantes de macarrão",
+    emoji: "🍜",
     filter: (d) =>
-      d.category === "Champagne & Espumantes" ||
-      d.category === "Café & Licores" ||
-      d.ingredients.some((i) => /canela|noz-moscada|creme|champagne|prosecco|licor/i.test(i)),
+      /ramen|udon|soba|yakisoba|lamen/i.test(d.name) ||
+      /ramen|udon|soba|yakisoba|lamen/i.test(d.id),
   },
   {
-    id: "happy-hour",
-    title: "Happy Hour",
-    subtitle: "Rápidos e fáceis para depois do trabalho",
-    emoji: "🍻",
-    filter: (d) => d.difficulty === "Fácil" && d.time.includes("2") || d.time.includes("3"),
-  },
-  {
-    id: "romantico",
-    title: "Noite Romântica",
-    subtitle: "Sofisticados para uma noite especial",
-    emoji: "🌹",
+    id: "donburi",
+    title: "Donburi & Arroz",
+    subtitle: "Tigelas de arroz com coberturas deliciosas",
+    emoji: "🍚",
     filter: (d) =>
-      d.category === "Coquetéis Clássicos" ||
-      d.category === "Champagne & Espumantes" ||
-      ["martini", "cosmopolitan", "french-75", "bellini", "kir-royal"].includes(d.id),
+      /don$|don\b|gohan|onigiri|omurice|chahan|ochazuke/i.test(d.name) ||
+      /don$|don\b|gohan|onigiri|omurice|chahan|ochazuke/i.test(d.id),
   },
   {
-    id: "festa",
-    title: "Drinks para Festa",
-    subtitle: "Shots, punches e drinks que animam qualquer evento",
-    emoji: "🎉",
+    id: "grelhados-fritos",
+    title: "Grelhados & Fritos",
+    subtitle: "Yakitori, tempurá, karaage e mais",
+    emoji: "🔥",
     filter: (d) =>
-      d.category === "Shots e Rápidos" ||
-      d.category === "Drinks Tropicais" ||
-      d.ingredients.some((i) => /punch|grenadine/i.test(i)),
+      /yakitori|karaage|tempura|tonkatsu|kushikatsu|teppanyaki|tebasaki|korokke/i.test(d.name) ||
+      /yakitori|karaage|tempura|tonkatsu|kushikatsu|teppanyaki|tebasaki|korokke/i.test(d.id),
   },
   {
-    id: "sem-alcool",
-    title: "Zero Álcool",
-    subtitle: "Mocktails deliciosos para todos",
-    emoji: "🚫🍺",
-    filter: (d) => d.category === "Não Alcoólicos",
-  },
-  {
-    id: "cafe-lovers",
-    title: "Para Amantes de Café",
-    subtitle: "Drinks com espresso, Kahlúa e licores",
-    emoji: "☕",
+    id: "street-food",
+    title: "Street Food Japonesa",
+    subtitle: "Takoyaki, okonomiyaki, taiyaki e sabores de matsuri",
+    emoji: "🏮",
     filter: (d) =>
-      d.category === "Café & Licores" ||
-      d.ingredients.some((i) => /café|espresso|kahlúa|licor de café/i.test(i)),
+      /takoyaki|okonomiyaki|taiyaki|yakiimo|dango|gyoza/i.test(d.name) ||
+      /takoyaki|okonomiyaki|taiyaki|yakiimo|dango|gyoza/i.test(d.id),
+  },
+  {
+    id: "sopas",
+    title: "Sopas & Caldos",
+    subtitle: "Missoshiru, tonjiru e outras sopas tradicionais",
+    emoji: "🥣",
+    filter: (d) =>
+      /misso|tonjiru|ozoni|chawanmushi|sopa/i.test(d.name) ||
+      /misso|tonjiru|ozoni|chawanmushi/i.test(d.id),
+  },
+  {
+    id: "sobremesas",
+    title: "Sobremesas Japonesas",
+    subtitle: "Mochi, dorayaki, matcha e doces tradicionais",
+    emoji: "🍡",
+    filter: (d) =>
+      /mochi|dorayaki|dango|anmitsu|matcha|taiyaki|manju|warabi/i.test(d.name) ||
+      /mochi|dorayaki|dango|anmitsu|matcha|taiyaki|manju|warabi/i.test(d.id),
+  },
+  {
+    id: "facil",
+    title: "Fácil & Rápido",
+    subtitle: "Receitas simples para o dia a dia",
+    emoji: "⚡",
+    filter: (d) => d.difficulty === "Fácil",
+  },
+  {
+    id: "hotpot",
+    title: "Hotpot & Nabe",
+    subtitle: "Sukiyaki, shabu-shabu e panelas quentes",
+    emoji: "🫕",
+    filter: (d) =>
+      /sukiyaki|shabu|nabe|motsu/i.test(d.name) ||
+      /sukiyaki|shabu|nabe|motsu/i.test(d.id),
   },
 ];
 
@@ -85,6 +101,7 @@ export default function Collections() {
     <div className="min-h-screen pb-24">
       <Helmet>
         <title>Coleções Temáticas | Nihon Food</title>
+        <meta name="description" content="Coleções temáticas de receitas japonesas: sushi, ramen, donburi, street food e mais." />
       </Helmet>
 
       <div className="sticky top-0 z-40 glass-card border-b border-border/50 px-4 py-3 flex items-center gap-3">
@@ -96,19 +113,19 @@ export default function Collections() {
 
       <div className="px-4 pt-6 max-w-2xl mx-auto space-y-8">
         {collections.map((col) => {
-          const colDrinks = drinks.filter(col.filter).slice(0, 8);
-          if (colDrinks.length === 0) return null;
+          const colDishes = dishes.filter(col.filter).slice(0, 8);
+          if (colDishes.length === 0) return null;
           return (
             <section key={col.id}>
               <div className="mb-3">
                 <h2 className="font-display font-bold text-foreground text-lg flex items-center gap-2">
                   <span>{col.emoji}</span> {col.title}
                 </h2>
-                <p className="text-xs text-muted-foreground">{col.subtitle}</p>
+                <p className="text-xs text-muted-foreground">{col.subtitle} • {dishes.filter(col.filter).length} receitas</p>
               </div>
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
-                {colDrinks.map((drink) => (
-                  <DrinkCard key={drink.id} drink={drink} />
+                {colDishes.map((dish) => (
+                  <DrinkCard key={dish.id} drink={dish} />
                 ))}
               </div>
             </section>
