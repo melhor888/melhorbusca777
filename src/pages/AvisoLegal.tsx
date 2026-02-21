@@ -1,14 +1,13 @@
 import { Helmet } from "react-helmet-async";
 import Breadcrumbs from "@/components/Breadcrumbs";
 
-
 export default function AvisoLegal() {
   return (
     <>
       <Helmet>
-        <title>Aviso Legal (Disclaimer) - Drink Quest</title>
-        <meta name="description" content="Aviso Legal da Drink Quest. Informações sobre responsabilidade, conteúdo e limitações do site." />
-        <link rel="canonical" href="https://drinkseco.lovable.app/aviso-legal" />
+        <title>Aviso Legal (Disclaimer) - Nihon Food</title>
+        <meta name="description" content="Aviso Legal da Nihon Food. Informações sobre responsabilidade, conteúdo e limitações do site." />
+        <link rel="canonical" href="https://japanfood.lovable.app/aviso-legal" />
       </Helmet>
       <div className="min-h-screen pb-20">
         <div className="px-4 pt-16 max-w-2xl mx-auto">
@@ -18,21 +17,21 @@ export default function AvisoLegal() {
           <div className="space-y-6 text-secondary-foreground leading-relaxed text-sm">
             <section>
               <h2 className="text-lg font-display font-semibold text-foreground mb-2">1. Natureza do Conteúdo</h2>
-              <p>O conteúdo disponibilizado na Drink Quest, incluindo receitas de drinks, artigos e dicas, tem caráter exclusivamente informativo e educacional. As informações não substituem orientação profissional especializada.</p>
+              <p>O conteúdo disponibilizado na Nihon Food, incluindo receitas de comida japonesa, artigos e dicas, tem caráter exclusivamente informativo e educacional. As informações não substituem orientação profissional especializada.</p>
             </section>
 
             <section>
-              <h2 className="text-lg font-display font-semibold text-foreground mb-2">2. Consumo Responsável</h2>
-              <p>A Drink Quest promove o consumo responsável de bebidas alcoólicas. O conteúdo deste site é destinado exclusivamente a maiores de 18 anos. Beba com moderação. Se beber, não dirija. O álcool pode causar dependência. Gestantes e lactantes não devem consumir bebidas alcoólicas.</p>
+              <h2 className="text-lg font-display font-semibold text-foreground mb-2">2. Segurança Alimentar</h2>
+              <p>A Nihon Food recomenda atenção especial ao preparar receitas que envolvam peixe cru, fritura em alta temperatura, fermentação e uso de facas afiadas. Sempre utilize ingredientes frescos e de procedência confiável. Consulte um profissional de saúde em caso de alergias ou restrições alimentares.</p>
             </section>
 
             <section>
               <h2 className="text-lg font-display font-semibold text-foreground mb-2">3. Isenção de Responsabilidade</h2>
-              <p>A Drink Quest não se responsabiliza por:</p>
+              <p>A Nihon Food não se responsabiliza por:</p>
               <ul className="list-disc list-inside space-y-1 ml-2 mt-2">
                 <li>Resultados obtidos ao reproduzir as receitas</li>
                 <li>Reações alérgicas ou adversas a qualquer ingrediente</li>
-                <li>Uso indevido ou excessivo de bebidas alcoólicas</li>
+                <li>Acidentes durante o preparo das receitas</li>
                 <li>Danos diretos ou indiretos decorrentes do uso das informações</li>
                 <li>Precisão absoluta das informações nutricionais ou técnicas</li>
                 <li>Conteúdo de sites externos linkados</li>
@@ -56,16 +55,15 @@ export default function AvisoLegal() {
 
             <section>
               <h2 className="text-lg font-display font-semibold text-foreground mb-2">7. Alergias e Intolerâncias</h2>
-              <p>Algumas receitas podem conter alérgenos como leite, ovos, nozes e glúten. Sempre verifique os ingredientes antes de preparar ou consumir qualquer receita. Se você possui alergias ou intolerâncias alimentares, consulte um médico.</p>
+              <p>Algumas receitas podem conter alérgenos como soja, peixe, crustáceos, trigo, ovos, leite e gergelim. Sempre verifique os ingredientes antes de preparar ou consumir qualquer receita. Se você possui alergias ou intolerâncias alimentares, consulte um médico.</p>
             </section>
 
             <section>
               <h2 className="text-lg font-display font-semibold text-foreground mb-2">8. Contato</h2>
-              <p>Para questões legais: <strong>contato@drinkquest.com.br</strong></p>
+              <p>Para questões legais: <strong>contato@nihonfood.com.br</strong></p>
             </section>
           </div>
         </div>
-        
       </div>
     </>
   );

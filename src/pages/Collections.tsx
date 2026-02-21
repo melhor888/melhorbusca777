@@ -84,7 +84,7 @@ export default function Collections() {
   return (
     <div className="min-h-screen pb-24">
       <Helmet>
-        <title>Coleções Temáticas | Drink Quest</title>
+        <title>Coleções Temáticas | Nihon Food</title>
       </Helmet>
 
       <div className="sticky top-0 z-40 glass-card border-b border-border/50 px-4 py-3 flex items-center gap-3">

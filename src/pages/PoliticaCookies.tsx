@@ -1,20 +1,19 @@
 import { Helmet } from "react-helmet-async";
 import Breadcrumbs from "@/components/Breadcrumbs";
 
-
 export default function PoliticaCookies() {
   return (
     <>
       <Helmet>
-        <title>Política de Cookies - Drink Quest</title>
-        <meta name="description" content="Política de Cookies da Drink Quest. Saiba quais cookies utilizamos e como gerenciá-los." />
-        <link rel="canonical" href="https://drinkseco.lovable.app/cookies" />
+        <title>Política de Cookies - Nihon Food</title>
+        <meta name="description" content="Política de Cookies da Nihon Food. Saiba quais cookies utilizamos e como gerenciá-los." />
+        <link rel="canonical" href="https://japanfood.lovable.app/cookies" />
       </Helmet>
       <div className="min-h-screen pb-20">
         <div className="px-4 pt-16 max-w-2xl mx-auto">
           <Breadcrumbs items={[{ label: "Política de Cookies" }]} />
           <h1 className="text-3xl font-display font-bold text-foreground mt-4 mb-6">Política de Cookies</h1>
-          <p className="text-xs text-muted-foreground mb-6">Última atualização: 17 de fevereiro de 2026</p>
+          <p className="text-xs text-muted-foreground mb-6">Última atualização: 21 de fevereiro de 2026</p>
 
           <div className="space-y-6 text-secondary-foreground leading-relaxed text-sm">
             <section>
@@ -86,11 +85,10 @@ export default function PoliticaCookies() {
 
             <section>
               <h2 className="text-lg font-display font-semibold text-foreground mb-2">7. Contato</h2>
-              <p>Dúvidas sobre cookies: <strong>privacidade@drinkquest.com.br</strong></p>
+              <p>Dúvidas sobre cookies: <strong>privacidade@nihonfood.com.br</strong></p>
             </section>
           </div>
         </div>
-        
       </div>
     </>
   );

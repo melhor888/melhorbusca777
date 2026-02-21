@@ -155,8 +155,8 @@ export default function Vip() {
   return (
     <>
       <Helmet>
-        <title>Área VIP | Drink Quest</title>
-        <meta name="description" content="Categorias exclusivas para membros VIP do Drink Quest." />
+        <title>Área VIP | Nihon Food</title>
+        <meta name="description" content="Categorias exclusivas para membros VIP do Nihon Food." />
       </Helmet>
 
       <VipTrialBanner />

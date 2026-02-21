@@ -4,18 +4,18 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 
 export default function Contato() {
   const whatsappNumber = "5527995055993";
-  const whatsappMessage = encodeURIComponent("Olá! Vim pelo Drink Quest e gostaria de tirar uma dúvida.");
+  const whatsappMessage = encodeURIComponent("Olá! Vim pelo Nihon Food e gostaria de tirar uma dúvida.");
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
 
   return (
     <>
       <Helmet>
-        <title>Contato - Drink Quest | Fale Conosco</title>
-        <meta name="description" content="Entre em contato com a Drink Quest pelo WhatsApp. Tire suas dúvidas rapidamente." />
-        <link rel="canonical" href="https://drinkseco.lovable.app/contato" />
-        <meta property="og:title" content="Contato - Drink Quest" />
+        <title>Contato - Nihon Food | Fale Conosco</title>
+        <meta name="description" content="Entre em contato com a Nihon Food pelo WhatsApp. Tire suas dúvidas rapidamente." />
+        <link rel="canonical" href="https://japanfood.lovable.app/contato" />
+        <meta property="og:title" content="Contato - Nihon Food" />
         <meta property="og:description" content="Fale conosco pelo WhatsApp. Tire suas dúvidas rapidamente." />
-        <meta property="og:url" content="https://drinkseco.lovable.app/contato" />
+        <meta property="og:url" content="https://japanfood.lovable.app/contato" />
       </Helmet>
       <div className="min-h-screen pb-20">
         <div className="px-4 pt-16 max-w-2xl mx-auto">
@@ -39,7 +39,6 @@ export default function Contato() {
             <p className="text-sm text-muted-foreground text-center">Nosso número: (27) 99505-5993</p>
           </div>
         </div>
-        
       </div>
     </>
   );
