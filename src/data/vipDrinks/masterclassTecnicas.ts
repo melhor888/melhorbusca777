@@ -294,5 +294,126 @@ export const masterclassTecnicas: VipDrink[] = [
     difficulty: "Fácil",
     time: "40 min",
     description: "O bento japonês é uma forma de arte comestível — cada caixa é uma composição visual equilibrada. Mães japonesas acordam às 5h para preparar o bento dos filhos. A estética segue o conceito de 'ichigo ichie' (cada momento é único), por isso cada bento é diferente. As melhores caixas magewappa são feitas de cedro japonês curvado a vapor."
+  },
+  {
+    id: "mt-tecnica-sushi-nigiri",
+    name: "Técnica de Nigiri Sushi Perfeito",
+    category: "Masterclass de Técnicas",
+    image: "",
+    ingredients: ["Arroz koshihikari", "Vinagre de arroz, açúcar, sal", "Peixe variado para sashimi", "Wasabi fresco", "Pano úmido para as mãos"],
+    steps: ["O shari deve estar a 36°C — temperatura corporal.", "Molhe as mãos em água com vinagre (tezu) a cada nigiri.", "Pegue exatamente 18g de shari — use balança até memorizar.", "Forme um retângulo oval com 3 movimentos precisos.", "Aplique wasabi com o dedo indicador na face do peixe.", "Coloque o peixe sobre o shari e ajuste com pressão suave.", "O nigiri perfeito se desfaz na boca mas não cai ao pegar.", "Pratique 1000 vezes — itamae treinam 3 anos só no shari."],
+    difficulty: "Avançado",
+    time: "Prática contínua",
+    description: "A técnica de nigiri exige anos de prática. Em escolas como a Tokyo Sushi Academy, alunos passam meses apenas no shari antes de tocar no peixe."
+  },
+  {
+    id: "mt-wok-chahan",
+    name: "Técnica de Wok para Chahan",
+    category: "Masterclass de Técnicas",
+    image: "",
+    ingredients: ["Wok de carbono temperado", "Arroz cozido (preferencialmente do dia anterior)", "Ovos", "Cebolinha", "Óleo em alta temperatura", "Molho de soja", "Sal e pimenta"],
+    steps: ["O wok deve estar fumegante — tão quente que o óleo quase pega fogo.", "O segredo do chahan é o 'wok hei' — o sabor da chama no wok.", "Adicione óleo e incline o wok para cobrir.", "Ovos primeiro: quebre diretamente no wok e mexa rapidamente.", "Adicione o arroz ANTES dos ovos firmarem completamente.", "Movimentos rápidos de sacudir o wok — o arroz deve voar.", "Cada grão deve estar separado e coberto com ovo.", "Shoyu pelas laterais do wok (não sobre o arroz) para caramelizar.", "Todo o processo leva menos de 2 minutos."],
+    difficulty: "Avançado",
+    time: "5 min",
+    description: "Chahan (arroz frito) parece simples mas a técnica de wok é tudo. O calor extremo e os movimentos rápidos criam o 'wok hei' — aquele sabor defumado impossível de replicar em fogo baixo."
+  },
+  {
+    id: "mt-desossar-peixe-sanmai-oroshi",
+    name: "Sanmai Oroshi: Desossar Peixe em 3 Partes",
+    category: "Masterclass de Técnicas",
+    image: "",
+    ingredients: ["Peixe inteiro fresco (tai, suzuki ou saba)", "Faca deba (faca de desossar japonesa)", "Tábua de corte limpa", "Sal", "Toalhas de papel", "Recipiente para aparas"],
+    steps: ["Escame o peixe com costas da faca, da cauda para a cabeça.", "Remova as vísceras com corte preciso no abdômen.", "Lave sob água corrente, seque completamente.", "Primeiro corte: insira a deba atrás da cabeça em ângulo de 45°.", "Segundo corte: deslize a faca ao longo da espinha, do pescoço à cauda.", "Vire o peixe e repita do outro lado.", "Resultado: 2 filés + espinha central (sanmai = 3 partes).", "Remova espinhas restantes com pinça (honetsuki).", "A precisão preserva a carne — zero desperdício."],
+    difficulty: "Avançado",
+    time: "15 min",
+    description: "Sanmai oroshi é a técnica fundamental de filetar peixe no Japão. Todo chef deve dominar antes de avançar para cortes mais complexos. A faca deba, pesada e resistente, é projetada especificamente para este propósito."
+  },
+  {
+    id: "mt-preparo-dashi-variacoes",
+    name: "Variações de Dashi: Shojin, Niboshi, Iriko",
+    category: "Masterclass de Técnicas",
+    image: "",
+    ingredients: ["Kombu (alga)", "Katsuobushi (flocos de bonito)", "Niboshi (sardinhas secas)", "Shiitake seco", "Água filtrada"],
+    steps: ["Ichiban dashi: kombu + katsuobushi — para sopas e pratos delicados.", "Niban dashi: reutilize os ingredientes — para cozidos e molhos.", "Shojin dashi (vegano): kombu + shiitake seco — para culinária budista.", "Niboshi dashi: sardinhas secas fervidas — para missoshiru forte.", "Iriko dashi: similar ao niboshi, mas com peixes menores — regional de Shikoku.", "Awase dashi: combine 2+ bases para complexidade máxima.", "A qualidade da água é crucial — use água mole (pouco mineral).", "O dashi é a base invisível de 90% da culinária japonesa."],
+    difficulty: "Médio",
+    time: "30 min",
+    description: "Dashi é a alma da culinária japonesa — cada região tem sua variação. Dominar as diferentes bases abre portas para todos os pratos japoneses."
+  },
+  {
+    id: "mt-tecnica-tsukemono",
+    name: "Tsukemono: A Arte dos Conservas Japonesas",
+    category: "Masterclass de Técnicas",
+    image: "",
+    ingredients: ["Vegetais variados: pepino, daikon, nabo, repolho", "Sal marinho", "Vinagre de arroz", "Nuka (farelo de arroz)", "Missô", "Sakekasu (borra de sake)"],
+    steps: ["Shiozuke (sal): o mais simples — pepino com sal e peso por 2h.", "Asazuke (rápido): vegetais com sal e alga por 30 min.", "Nukazuke (farelo): prepare nukadoko (cama de farelo) — fermenta por meses.", "Misozuke (missô): mergulhe vegetais em missô por 3-7 dias.", "Kasuzuke (sakekasu): conserva em borra de sake — sabor complexo.", "Suzuke (vinagre): sunomono — pepino em vinagre de arroz doce.", "Cada tipo de tsukemono complementa diferentes pratos.", "Nukazuke exige manutenção diária — misture com as mãos todo dia."],
+    difficulty: "Médio",
+    time: "Variável",
+    description: "Tsukemono são as conservas japonesas — cada refeição inclui pelo menos um tipo. A técnica de nukazuke é passada por gerações, com famílias mantendo o mesmo nukadoko por décadas."
+  },
+  {
+    id: "mt-moldar-onigiri",
+    name: "Moldar Onigiri Perfeito",
+    category: "Masterclass de Técnicas",
+    image: "",
+    ingredients: ["Arroz japonês recém-cozido e quente", "Sal fino", "Nori (alga)", "Recheios: umeboshi, salmão grelhado, tarako, tuna mayo"],
+    steps: ["O arroz DEVE estar quente — é impossível moldar frio.", "Molhe as mãos em água com sal — evita grudar e tempera.", "Coloque ~100g de arroz na palma da mão.", "Faça um buraco no centro e coloque o recheio.", "Feche o arroz ao redor do recheio.", "Forme triângulo com 3 movimentos: pressione com ambas as mãos rotacionando.", "A pressão deve ser firme mas não excessiva — deve manter a forma mas não ficar compacto.", "Envolva com nori na hora de comer — crocante.", "Para bento, envolva antes — o nori amolece e fica igualmente delicioso."],
+    difficulty: "Fácil",
+    time: "10 min",
+    description: "Onigiri é o snack mais popular do Japão — vendido em cada konbini. Parece simples, mas a pressão, temperatura e formato corretos fazem toda a diferença."
+  },
+  {
+    id: "mt-tecnica-yakimono-peixes",
+    name: "Yakimono: Grelhar Peixe com Sal (Shioyaki)",
+    category: "Masterclass de Técnicas",
+    image: "",
+    ingredients: ["Peixe inteiro ou filé (saba, sanma, tai, sake)", "Sal grosso", "Espetos de metal longos", "Grelha ou forno a gás", "Daikon oroshi e limão para servir"],
+    steps: ["Shioyake: tempere com sal grosso 30 min antes (puxa umidade).", "Para peixe inteiro: espete em formato de onda (uchiwa-gushi).", "O espeto curvado dá a impressão de que o peixe está nadando.", "Grelhe primeiro o lado que será apresentado (omote) — mais bonito.", "Fogo médio-alto, distância de 10cm da chama.", "A pele deve estar crocante e dourada, a carne úmida.", "NUNCA vire mais de uma vez — perde o suco.", "Sirva com daikon oroshi e um fio de limão."],
+    difficulty: "Médio",
+    time: "20 min",
+    description: "Shioyaki é a técnica mais fundamental de grelhar peixe no Japão. A simplicidade do sal realça o sabor natural do peixe. A apresentação no espeto curvado é uma arte visual."
+  },
+  {
+    id: "mt-tecnica-mushimono",
+    name: "Mushimono: A Arte de Cozinhar no Vapor",
+    category: "Masterclass de Técnicas",
+    image: "",
+    ingredients: ["Panela com tampa e grade para vapor", "Pano de linho", "Ingredientes variados: peixe, vegetais, tofu, ovos"],
+    steps: ["Mushimono preserva sabor, textura e nutrientes — a técnica mais saudável.", "Use pano de linho sob a tampa para absorver condensação.", "Água deve ferver vigorosamente antes de colocar os ingredientes.", "Chawanmushi (creme de ovo): fogo baixo, 12-15 min. Sem bolhas.", "Sakamushi (peixe no vapor com sake): fogo médio, 8-10 min.", "Mushidori (frango no vapor): embrulhe em filme, 20 min.", "O vapor deve circular uniformemente — não empilhe demais.", "Teste com palito: se sair limpo, está pronto."],
+    difficulty: "Médio",
+    time: "20 min",
+    description: "Mushimono (cozimento a vapor) é uma das técnicas fundamentais da culinária japonesa, presente em todos os kaiseki. Preserva sabores puros e texturas delicadas impossíveis de obter com outros métodos."
+  },
+  {
+    id: "mt-tecnica-agemono",
+    name: "Agemono: Técnicas Avançadas de Fritura",
+    category: "Masterclass de Técnicas",
+    image: "",
+    ingredients: ["Óleo para fritura (mistura de óleos)", "Termômetro culinário", "Farinha, ovo, panko", "Grade de escorrimento", "Papel absorvente"],
+    steps: ["Karaage: marinar + polvilhar farinha — frite a 170°C por 4 min.", "Tempura: batter gelado com grumos — frite a 180°C brevemente.", "Tonkatsu: farinha→ovo→panko — frite a 170°C, descanse 4 min.", "Korokke: massa de batata empanada — frite a 180°C até dourar.", "Agedashi tofu: farinha de amido — frite a 170°C por 2 min.", "O som do óleo indica a temperatura: chiado suave = ok, silêncio = frio.", "Nunca coloque ingredientes demais — baixa a temperatura.", "Escorra em grade, NUNCA em papel diretamente — fica encharcado."],
+    difficulty: "Médio",
+    time: "30 min",
+    description: "Agemono (fritura) no Japão é uma ciência precisa. Cada estilo tem temperatura, cobertura e tempo específicos. A crocância japonesa é leve e limpa — nunca pesada ou oleosa."
+  },
+  {
+    id: "mt-tecnica-sunomono",
+    name: "Sunomono: Conservas em Vinagre",
+    category: "Masterclass de Técnicas",
+    image: "",
+    ingredients: ["Pepino japonês", "Wakame (alga)", "Vinagre de arroz", "Açúcar", "Sal", "Shoyu (opcional)", "Gergelim"],
+    steps: ["Sunomono = 'coisa em vinagre' — a salada japonesa por excelência.", "Prepare sanbaizu: vinagre + açúcar + sal (proporção 3:1:0.5).", "Para amazu (doce): mais açúcar. Para nihaizu: sem açúcar.", "Pepino: fatie fino com mandolina, salgue, esprema a água.", "Wakame: hidrate em água fria por 5 min, corte em pedaços.", "Misture pepino + wakame + sanbaizu.", "Adicione kani (surimi) ou tako (polvo) para versão com proteína.", "Sirva gelado em prato pequeno como acompanhamento refrescante."],
+    difficulty: "Fácil",
+    time: "15 min",
+    description: "Sunomono é o palate cleanser da culinária japonesa. Presente em praticamente toda refeição formal, sua acidez e frescor equilibram pratos mais ricos e gordurosos."
+  },
+  {
+    id: "mt-apresentacao-moritsuke",
+    name: "Moritsuke: A Arte da Apresentação",
+    category: "Masterclass de Técnicas",
+    image: "",
+    ingredients: ["Louça japonesa variada (cerâmica, laca, vidro)", "Ingredientes preparados", "Ervas e flores comestíveis para decoração", "Folhas sazonais (momiji, bambu, shiso)", "Hashi para montagem"],
+    steps: ["Moritsuke é a filosofia de apresentação que faz da comida japonesa uma arte.", "Regra 1: Nunca encha o prato — espaço vazio é essencial (ma).", "Regra 2: Números ímpares (3, 5, 7) — são mais harmoniosos.", "Regra 3: Altura no prato — monte com elevação, não espalhado.", "Regra 4: Contraste de cores — 5 cores em cada refeição (goshiki).", "Regra 5: Sazonal — a decoração reflete a estação do ano.", "Regra 6: O prato/tigela é parte da composição — escolha com cuidado.", "A comida japonesa é para os olhos primeiro, depois para a boca."],
+    difficulty: "Médio",
+    time: "Variável",
+    description: "Moritsuke é a arte de empratar na culinária japonesa. Cada chef estuda composição visual, teoria das cores e design cerâmico. A apresentação não é decoração — é parte integral do prato."
   }
 ];
