@@ -55,7 +55,7 @@ export default function ArticleDetail() {
 
   const isLastModule = currentModule === totalModules - 1;
   const isCurrentCompleted = completedModules.includes(currentModule);
-  const readArticles = JSON.parse(localStorage.getItem("drinks-co-read-articles") || "[]") as string[];
+  const readArticles = JSON.parse(localStorage.getItem("nihon-read-articles") || "[]") as string[];
   const alreadyRead = readArticles.includes(article.id);
 
   return (

@@ -29,6 +29,7 @@ export function getArticleById(id: string): Article | undefined {
 }
 
 export const articles: Article[] = [
+  // ===== FUNDAMENTOS (20) =====
   {
     id: "guia-arroz-japones",
     title: "Guia Completo do Arroz Japonês",
@@ -38,50 +39,8 @@ export const articles: Article[] = [
     xpReward: 25,
     readTime: "12 min",
     modules: [
-      {
-        title: "Por que o arroz japonês é diferente?",
-        content: `O arroz japonês (uruchimai) é da variedade japônica — grãos curtos e redondos que ficam pegajosos e brilhantes quando cozidos. É fundamentalmente diferente do arroz de grão longo (indica) usado no Brasil.
-
-A pegajosidade é desejável: permite que o arroz se mantenha unido para sushi, onigiri e donburi. As principais variedades são: Koshihikari (a mais premium, cultivada em Niigata), Akitakomachi (suave e versátil), Sasanishiki (tradicional, menos pegajoso) e Hitomebore (popular e equilibrado).`,
-      },
-      {
-        title: "O preparo perfeito",
-        content: `Lavar o arroz é obrigatório — remova o amido excessivo com 4-5 lavagens até a água sair quase transparente. Este passo é inegociável na culinária japonesa.
-
-Proporção de água: 1:1.1 (arroz:água). Deixe de molho 30 minutos antes de cozinhar. Cozinhe em panela com tampa pesada ou rice cooker (suihanki). Após desligar, descanse 10 minutos SEM abrir a tampa.
-
-Para arroz de sushi (shari): misture vinagre de arroz (3 col.), açúcar (1 col.) e sal (1/2 col.) enquanto o arroz está quente. Use movimentos de corte com shamoji, nunca amassar. Ao mesmo tempo, abane para esfriar e dar brilho.`,
-        highlight: true,
-      },
-    ],
-  },
-  {
-    id: "historia-gastronomia-japonesa",
-    title: "História da Gastronomia Japonesa",
-    subtitle: "Dos samurais ao patrimônio da UNESCO",
-    category: "cultura",
-    icon: "🏯",
-    xpReward: 30,
-    readTime: "18 min",
-    modules: [
-      {
-        title: "Período Jomon até Nara (10.000 a.C. — 794 d.C.)",
-        content: `A culinária japonesa começou com caça, pesca e coleta. O arroz chegou ao Japão por volta de 300 a.C., vindo da China, e rapidamente se tornou o alimento central.
-
-No período Nara, o Budismo influenciou profundamente a alimentação — o consumo de carne foi proibido por mais de 1.000 anos. Isso forçou os japoneses a desenvolver técnicas sofisticadas para vegetais, tofu, algas e peixes.`,
-      },
-      {
-        title: "Washoku: Patrimônio da UNESCO",
-        content: `Em 2013, a UNESCO reconheceu o Washoku (culinária tradicional japonesa) como Patrimônio Cultural Imaterial da Humanidade.
-
-• Respeito pela natureza e ingredientes sazonais
-• Equilíbrio nutricional e apresentação visual
-• Conexão com festividades e eventos sociais
-• A filosofia de ichigo ichie (cada encontro é único)
-
-Cada refeição tradicional segue o princípio "ichijū sansai" (一汁三菜): uma sopa e três acompanhamentos, mais arroz e tsukemono.`,
-        highlight: true,
-      },
+      { title: "Por que o arroz japonês é diferente?", content: "O arroz japonês (uruchimai) é da variedade japônica — grãos curtos e redondos que ficam pegajosos e brilhantes quando cozidos. A pegajosidade é desejável: permite que o arroz se mantenha unido para sushi, onigiri e donburi. As principais variedades são: Koshihikari (premium, de Niigata), Akitakomachi (suave), Sasanishiki (menos pegajoso) e Hitomebore (equilibrado)." },
+      { title: "O preparo perfeito", content: "Lavar o arroz é obrigatório — remova o amido excessivo com 4-5 lavagens até a água sair quase transparente. Proporção de água: 1:1.1 (arroz:água). Deixe de molho 30 min antes de cozinhar. Cozinhe com tampa pesada ou rice cooker. Após desligar, descanse 10 min SEM abrir a tampa.\n\nPara arroz de sushi (shari): misture vinagre de arroz (3 col.), açúcar (1 col.) e sal (1/2 col.) enquanto o arroz está quente. Use movimentos de corte com shamoji, nunca amassar.", highlight: true },
     ],
   },
   {
@@ -93,78 +52,504 @@ Cada refeição tradicional segue o princípio "ichijū sansai" (一汁三菜): 
     xpReward: 20,
     readTime: "15 min",
     modules: [
-      {
-        title: "Os peixes essenciais",
-        content: `Maguro (Atum): O rei do sushi. Akami (lombo magro) é mais acessível, chutoro (médio gordo) é o mais equilibrado, otoro (barriga ultra gordurosa) é o mais cobiçado.
+      { title: "Os peixes essenciais", content: "Maguro (Atum): O rei do sushi. Akami (magro), chutoro (médio gordo), otoro (barriga ultra gordurosa). Sake (Salmão): Relativamente recente no sushi — introduzido pelos noruegueses nos anos 80. Hirame (Linguado): Textura firme, sabor delicado. Hamachi (Olho-de-boi): Gorduroso e rico, perfeito para iniciantes.", highlight: true },
+    ],
+  },
+  {
+    id: "tipos-dashi",
+    title: "Os 5 Tipos de Dashi",
+    subtitle: "A base invisível de todo prato japonês",
+    category: "fundamentos",
+    icon: "🍲",
+    xpReward: 20,
+    readTime: "10 min",
+    modules: [
+      { title: "Kombu Dashi", content: "O mais suave. Mergulhe kombu em água fria por 30 min, aqueça lentamente e retire ANTES de ferver. Fervura torna o caldo amargo. Ideal para pratos vegetarianos e sopas delicadas." },
+      { title: "Katsuobushi e Awase Dashi", content: "Katsuobushi dashi usa flocos de bonito secos. Awase dashi combina kombu + katsuobushi — é o mais versátil e usado em 90% das receitas. Iriko dashi (sardinha seca) é mais forte, ideal para missoshiru. Shiitake dashi é vegetariano e intenso em umami.", highlight: true },
+    ],
+  },
+  {
+    id: "guia-tofu",
+    title: "Guia Completo do Tofu",
+    subtitle: "De simples proteína a estrela da alta gastronomia",
+    category: "fundamentos",
+    icon: "🧊",
+    xpReward: 15,
+    readTime: "10 min",
+    modules: [
+      { title: "Tipos de tofu", content: "Kinugoshi (sedoso): cremoso, para missoshiru e hiyayakko. Momen (firme): texturizado, para grelhar e fritar. Koya-dofu: liofilizado, absorve caldos. Aburaage: frito e oco, para inari-zushi." },
+      { title: "Tofu de Kyoto", content: "Kyoto é a capital do tofu no Japão. A água pura dos templos budistas cria um tofu excepcional. Restaurantes dedicados servem menus completos com 10+ pratos exclusivamente de tofu. Yuba (pele do leite de soja) é uma iguaria coletada camada por camada.", highlight: true },
+    ],
+  },
+  {
+    id: "guia-algas",
+    title: "Guia das Algas Japonesas",
+    subtitle: "Nori, kombu, wakame e hijiki — funções e usos",
+    category: "fundamentos",
+    icon: "🌿",
+    xpReward: 15,
+    readTime: "8 min",
+    modules: [
+      { title: "As 4 algas essenciais", content: "Nori: fina e tostada, para sushi e onigiri. Kombu: grossa e escura, base do dashi, rica em glutamato. Wakame: macia, para missoshiru e sunomono. Hijiki: filamentosa preta, cozida com shoyu e mirin. Nunca lave o pó branco do kombu — é o glutamato natural!", highlight: true },
+    ],
+  },
+  {
+    id: "guia-shoyu",
+    title: "Os 5 Tipos de Shoyu",
+    subtitle: "Nem todo molho de soja é igual",
+    category: "fundamentos",
+    icon: "🫘",
+    xpReward: 15,
+    readTime: "8 min",
+    modules: [
+      { title: "Classificação", content: "Koikuchi (escuro): 80% do consumo, versátil. Usukuchi (claro): mais salgado, para pratos claros. Tamari: sem trigo, mais rico, ideal para sashimi. Shiro (branco): feito de trigo, sabor delicado. Saishikomi (dupla fermentação): complexo e premium. Shoyu artesanal fermentado 1-2 anos é incomparavelmente superior ao industrial.", highlight: true },
+    ],
+  },
+  {
+    id: "guia-miso",
+    title: "Missô: O Ingrediente Mágico",
+    subtitle: "Branco, vermelho, misto — usos e diferenças",
+    category: "fundamentos",
+    icon: "🫙",
+    xpReward: 15,
+    readTime: "8 min",
+    modules: [
+      { title: "Tipos de missô", content: "Shiro miso (branco): fermentado 1-3 meses, suave e doce. Ideal para sopas leves e marinadas. Aka miso (vermelho): 1-3 anos de fermentação, intenso e complexo. Para ramen e pratos encorpados. Awase miso: mistura de branco e vermelho, o mais versátil. Hatcho miso: 100% soja, 3 anos, sabor profundíssimo." },
+      { title: "Regra de ouro", content: "NUNCA ferva o missô — a fervura mata as bactérias probióticas e os aromas delicados. Sempre adicione o missô ao caldo quente mas fora do fogo, misturando com um coador.", highlight: true },
+    ],
+  },
+  {
+    id: "guia-vinagre-mirin",
+    title: "Mirin, Vinagre de Arroz e Sake Culinário",
+    subtitle: "Os líquidos secretos que fazem a diferença",
+    category: "fundamentos",
+    icon: "🍶",
+    xpReward: 15,
+    readTime: "9 min",
+    modules: [
+      { title: "Mirin", content: "Vinho de arroz doce (14% álcool). Adiciona brilho, doçura sutil e profundidade. Essencial para teriyaki, nimono e tamagoyaki. Hon-mirin (verdadeiro) vs aji-mirin (imitação): mundos diferentes. Leia o rótulo!" },
+      { title: "Vinagre e Sake", content: "Su (vinagre de arroz): mais suave que outros vinagres, base do sushi-zu. Ryori-shu (sake culinário): remove cheiro de peixe, adiciona umami. Juntos com shoyu e mirin, formam a 'santíssima trindade' do sabor japonês.", highlight: true },
+    ],
+  },
+  {
+    id: "guia-wasabi-gengibre",
+    title: "Wasabi, Gengibre e Condimentos",
+    subtitle: "Complementos que elevam cada prato",
+    category: "fundamentos",
+    icon: "🟢",
+    xpReward: 15,
+    readTime: "8 min",
+    modules: [
+      { title: "Wasabi real vs falso", content: "95% do wasabi servido no mundo é raiz-forte com corante verde. Wasabi real (Wasabia japonica) cresce em córregos de montanha, leva 2 anos, é ralado na hora e perde sabor em 15 min. Custo: R$500-1000/kg." },
+      { title: "Outros condimentos", content: "Gari (gengibre em conserva): limpa o paladar entre peças de sushi. Shichimi togarashi: mistura de 7 especiarias. Yuzu kosho: pasta de pimenta e yuzu, explosão de sabor. Sansho: pimenta japonesa com efeito elétrico na língua.", highlight: true },
+    ],
+  },
+  {
+    id: "guia-panko-farinha",
+    title: "Panko e Farinhas Japonesas",
+    subtitle: "O segredo da crocância perfeita",
+    category: "fundamentos",
+    icon: "🍞",
+    xpReward: 10,
+    readTime: "6 min",
+    modules: [
+      { title: "Panko japonês", content: "Panko é feito de pão branco sem casca, seco e triturado em flocos irregulares. Isso cria bolsas de ar que ficam extra crocantes na fritura. Katakuriko (amido de batata) é usado para karaage — cria uma crosta fina e leve. Tempura-ko é a farinha específica para tempurá, com baixo glúten para massa leve.", highlight: true },
+    ],
+  },
+  {
+    id: "guia-cogumelos",
+    title: "Cogumelos Japoneses",
+    subtitle: "Shiitake, enoki, maitake, shimeji e matsutake",
+    category: "fundamentos",
+    icon: "🍄",
+    xpReward: 15,
+    readTime: "9 min",
+    modules: [
+      { title: "Os 5 cogumelos essenciais", content: "Shiitake: o mais versátil, seco concentra umami 10x. Enoki: fino e crocante, para nabe e saladas. Maitake: 'dança de alegria', carnudo e aromático. Shimeji: em cachos, sabor de nozes. Matsutake: o trufa japonês — pode custar ¥50.000/kg na temporada." },
+      { title: "Shiitake seco", content: "Shiitake seco é mais umami que fresco. Reidrate em água fria por 6h (nunca quente). A água de hidratação vira um dashi de cogumelo poderoso — jamais descarte!", highlight: true },
+    ],
+  },
+  {
+    id: "guia-noodles",
+    title: "Guia dos Macarrões Japoneses",
+    subtitle: "Udon, soba, ramen, somen — cada um é um mundo",
+    category: "fundamentos",
+    icon: "🍜",
+    xpReward: 20,
+    readTime: "12 min",
+    modules: [
+      { title: "Os 4 tipos principais", content: "Udon: grosso, elástico, de trigo. Soba: fino, de trigo sarraceno, sabor terroso. Ramen: médio, com kansui (água alcalina), elástico e amarelado. Somen: finíssimo, de trigo, servido gelado no verão." },
+      { title: "Como comer", content: "Aspire fazendo barulho — é educado e esfria o macarrão! Ramen deve ser comido rápido (absorve caldo). Soba fria deve ser mergulhada no tsuyu, não encharcada. Udon é melhor al dente — a textura elástica (koshi) é tudo.", highlight: true },
+    ],
+  },
+  {
+    id: "guia-soja-produtos",
+    title: "Produtos de Soja no Japão",
+    subtitle: "Natto, edamame, kinako e mais derivados",
+    category: "fundamentos",
+    icon: "🫛",
+    xpReward: 10,
+    readTime: "7 min",
+    modules: [
+      { title: "Derivados da soja", content: "Natto: soja fermentada com textura pegajosa e cheiro forte. Divisor de opiniões mas extremamente nutritivo. Edamame: soja verde, cozida e salgada, aperitivo perfeito. Kinako: farinha de soja torrada, usada em wagashi. Yuba: pele do leite de soja. Okara: resíduo do tofu, rico em fibras.", highlight: true },
+    ],
+  },
+  {
+    id: "guia-arroz-sushi",
+    title: "Arroz de Sushi (Shari) Perfeito",
+    subtitle: "O tempero, a temperatura e a técnica exata",
+    category: "fundamentos",
+    icon: "🍣",
+    xpReward: 20,
+    readTime: "10 min",
+    modules: [
+      { title: "Shari perfeito", content: "Shari é o arroz temperado para sushi. O vinagre (sushi-zu) deve ser misturado enquanto o arroz está QUENTE — isso garante absorção. Use hangiri (bacia de madeira de cipreste) que absorve umidade extra. Corte com shamoji, nunca esmague. Abane simultaneamente para dar brilho." },
+      { title: "Temperatura e textura", content: "O shari ideal está na temperatura corporal (36-38°C), nunca frio de geladeira. Cada grão deve ser distinto mas unido. A proporção de vinagre varia por sushiman — é sua assinatura pessoal. Os melhores treinam 3+ anos só no arroz.", highlight: true },
+    ],
+  },
+  {
+    id: "guia-ovos-japoneses",
+    title: "Ovos na Culinária Japonesa",
+    subtitle: "Tamago, onsen tamago e TKG — a versatilidade do ovo",
+    category: "fundamentos",
+    icon: "🥚",
+    xpReward: 10,
+    readTime: "7 min",
+    modules: [
+      { title: "Preparações com ovo", content: "Tamagoyaki: omelete em camadas, doce ou salgado. Onsen tamago: cozido em temperatura baixa (68°C), gema cremosa. Ajitsuke tamago: marinado em shoyu+mirin, topping de ramen. TKG (tamago kake gohan): ovo cru sobre arroz quente — o café da manhã mais simples e delicioso do Japão.", highlight: true },
+    ],
+  },
+  {
+    id: "guia-temperos-secos",
+    title: "Temperos Secos Japoneses",
+    subtitle: "Furikake, shichimi, sansho e katsuobushi",
+    category: "fundamentos",
+    icon: "🧂",
+    xpReward: 10,
+    readTime: "6 min",
+    modules: [
+      { title: "Os temperos de mesa", content: "Furikake: mistura para polvilhar sobre arroz (nori, gergelim, peixe seco). Shichimi togarashi: 7 especiarias, o tabasco japonês. Sansho: pimenta que dá formigamento. Katsuobushi: flocos de bonito, umami puro. Togarashi: pimenta vermelha simples. Cada mesa japonesa tem pelo menos 2 desses.", highlight: true },
+    ],
+  },
+  {
+    id: "guia-agua-cozinhar",
+    title: "A Importância da Água na Culinária Japonesa",
+    subtitle: "Água mole, dashi perfeito e arroz ideal",
+    category: "fundamentos",
+    icon: "💧",
+    xpReward: 10,
+    readTime: "5 min",
+    modules: [
+      { title: "Água e sabor", content: "A água japonesa é naturalmente mole (baixo mineral), ideal para extrair umami do kombu e preparar arroz delicado. Água dura prejudica o dashi e deixa o arroz pesado. Se sua água é dura, use filtrada ou mineral leve. A qualidade da água é o segredo não-dito da superioridade do dashi japonês.", highlight: true },
+    ],
+  },
+  {
+    id: "guia-sal-japones",
+    title: "Sal Japonês e Shio-koji",
+    subtitle: "Tipos de sal e o tempero mágico de fermentação",
+    category: "fundamentos",
+    icon: "🧂",
+    xpReward: 10,
+    readTime: "6 min",
+    modules: [
+      { title: "Sais e shio-koji", content: "Sais marinhos japoneses são extraídos lentamente e ricos em minerais. Flor de sal de Okinawa é especialmente valorizada. Shio-koji é koji fermentado com sal — marine carnes por 24h para maciez e sabor incomparáveis. É o tempero secreto dos chefs modernos que transforma qualquer proteína.", highlight: true },
+    ],
+  },
+  {
+    id: "guia-gorduras",
+    title: "Gorduras e Óleos na Culinária Japonesa",
+    subtitle: "Óleo de gergelim, óleo neutro e banha",
+    category: "fundamentos",
+    icon: "🫒",
+    xpReward: 10,
+    readTime: "5 min",
+    modules: [
+      { title: "Óleos essenciais", content: "Óleo de gergelim (goma-abura): tostado para finalização, perfumado e intenso. Óleo neutro (canola/soja): para fritura e cozimento. Rayu: óleo de pimenta com gergelim, essencial para gyoza e ramen. Lard (banha): usado em ramen tonkotsu para riqueza. Cada óleo tem seu momento — nunca frite com óleo de gergelim tostado!", highlight: true },
+    ],
+  },
+  {
+    id: "guia-conservas",
+    title: "Tsukemono: Conservas e Pickles",
+    subtitle: "O acompanhamento obrigatório de toda refeição",
+    category: "fundamentos",
+    icon: "🥒",
+    xpReward: 15,
+    readTime: "8 min",
+    modules: [
+      { title: "Tipos de tsukemono", content: "Nukazuke: fermentado em farelo de arroz, probiótico. Shiozuke: salga simples, rápido. Umeboshi: ameixa salgada e seca. Gari: gengibre em conserva para sushi. Takuan: daikon em nuka, amarelo vibrante. Shibazuke: berinjela com shiso roxo. Tsukemono acompanham TODA refeição japonesa — são o equilíbrio perfeito.", highlight: true },
+    ],
+  },
 
-Sake (Salmão): Salmão em sushi é relativamente recente — os noruegueses introduziram no Japão nos anos 80! Deve ser sashimi-grade (congelado a -20°C por 7 dias para eliminar parasitas).
+  // ===== TÉCNICAS (20) =====
+  {
+    id: "tecnica-tempura",
+    title: "A Arte da Tempurá Perfeita",
+    subtitle: "Crocância duradoura com massa leve como nuvem",
+    category: "tecnicas",
+    icon: "🍤",
+    xpReward: 20,
+    readTime: "10 min",
+    modules: [
+      { title: "Massa e óleo", content: "A massa DEVE usar água gelada (com gás para extra leveza). Misture rápido — grumos são desejáveis! Overmixing cria glúten = massa pesada. Temperatura do óleo: 180°C para vegetais, 170°C para frutos do mar. Teste com gota de massa. Frite poucos pedaços por vez. Sirva IMEDIATAMENTE.", highlight: true },
+    ],
+  },
+  {
+    id: "tecnica-corte-sashimi",
+    title: "Técnicas de Corte para Sashimi",
+    subtitle: "Hira-zukuri, sogi-zukuri e usu-zukuri",
+    category: "tecnicas",
+    icon: "🔪",
+    xpReward: 25,
+    readTime: "12 min",
+    modules: [
+      { title: "Os 3 cortes fundamentais", content: "Hira-zukuri (reto): fatias de 5-7mm, perpendiculares à fibra. O mais comum, para salmão e atum. Sogi-zukuri (diagonal): inclinação de 45°, fatias mais largas e finas, para peixes brancos. Usu-zukuri (finíssimo): 1-2mm translúcidas, para fugu. Use faca yanagiba e puxe em um único movimento, sem serrar.", highlight: true },
+    ],
+  },
+  {
+    id: "tecnica-tamagoyaki",
+    title: "Tamagoyaki: A Omelete Japonesa",
+    subtitle: "Técnica de camadas que transforma ovos em arte",
+    category: "tecnicas",
+    icon: "🥚",
+    xpReward: 20,
+    readTime: "10 min",
+    modules: [
+      { title: "Técnica de camadas", content: "Use makiyakinabe (panela retangular). Despeje fina camada de ovo, semifirme, enrole. Adicione mais ovo sob o rolo. Repita 4-6 vezes. Dashimaki (com dashi) é mais úmido. Atsuyaki é mais firme e doce. O tamagoyaki é o teste definitivo de habilidade — o cliente julga o sushiman por ele.", highlight: true },
+    ],
+  },
+  {
+    id: "tecnica-grelhados",
+    title: "Yakimono: Técnicas de Grelhado",
+    subtitle: "Do binchotan ao teppan — arte do fogo",
+    category: "tecnicas",
+    icon: "🔥",
+    xpReward: 20,
+    readTime: "10 min",
+    modules: [
+      { title: "Tipos de grelhado", content: "Binchotan: carvão branco de carvalho, 1000°C+, sem fumaça, calor uniforme. O segredo do yakitori perfeito. Robatayaki: grelhados rústicos sobre brasas, técnica de Hokkaido. Teppanyaki: chapa de ferro 250-300°C, performance culinária. Shioyaki: peixe inteiro grelhado apenas com sal — simplicidade absoluta.", highlight: true },
+    ],
+  },
+  {
+    id: "tecnica-nimono",
+    title: "Nimono: Cozidos Japoneses",
+    subtitle: "A técnica de cozinhar lentamente em caldo",
+    category: "tecnicas",
+    icon: "🍲",
+    xpReward: 15,
+    readTime: "8 min",
+    modules: [
+      { title: "Arte do nimono", content: "Nimono é cozinhar ingredientes em caldo temperado (dashi+shoyu+mirin+sake). Use otoshibuta (tampa flutuante) para distribuir calor uniformemente. A ordem importa: raízes primeiro (daikon, gobo), proteínas depois. Nikujaga (carne com batata) é o nimono mais popular — o comfort food japonês por excelência.", highlight: true },
+    ],
+  },
+  {
+    id: "tecnica-fritura",
+    title: "Agemono: Frituras Japonesas",
+    subtitle: "Karaage, tonkatsu, korokke — técnicas de fritura",
+    category: "tecnicas",
+    icon: "🍗",
+    xpReward: 15,
+    readTime: "9 min",
+    modules: [
+      { title: "Técnicas de fritura", content: "Karaage: katakuriko (amido), marinada de shoyu+gengibre+alho, dupla fritura (170°C→180°C). Tonkatsu: panko japonês, 2cm de espessura, dupla empanadura. Korokke: purê cremoso, empanado e frito. A temperatura do óleo é TUDO — baixa demais = encharcado, alta demais = queimado por fora, cru por dentro.", highlight: true },
+    ],
+  },
+  {
+    id: "tecnica-mushimono",
+    title: "Mushimono: Cozidos a Vapor",
+    subtitle: "Chawanmushi, mushimono e a delicadeza do vapor",
+    category: "tecnicas",
+    icon: "♨️",
+    xpReward: 15,
+    readTime: "7 min",
+    modules: [
+      { title: "Cozimento a vapor", content: "Chawanmushi (flan salgado de ovo) é o mushimono mais famoso. Proporção: 1 ovo para 3 partes de dashi. Vapor médio por 15 min — forte demais cria bolhas. A superfície deve ser lisa como espelho. Outros mushimono: peixe com sake no vapor, tofu com dashi. A técnica preserva sabor e nutrientes como nenhuma outra.", highlight: true },
+    ],
+  },
+  {
+    id: "tecnica-sushi-nigiri",
+    title: "Como Montar Nigiri Sushi",
+    subtitle: "A técnica de modelar arroz e peixe com as mãos",
+    category: "tecnicas",
+    icon: "🍣",
+    xpReward: 25,
+    readTime: "12 min",
+    modules: [
+      { title: "Modelagem", content: "Molhe as mãos em tezu (água com vinagre). Pegue ~20g de shari, modele uma bolinha oval com pressão leve. Coloque wasabi na fatia de peixe. Arroz sobre o peixe, pressione com 2 dedos, gire, pressione novamente. O arroz deve parecer firme mas desfazer na boca. Sushimans treinam 3+ anos apenas nisso.", highlight: true },
+    ],
+  },
+  {
+    id: "tecnica-maki-sushi",
+    title: "Técnicas de Maki Sushi",
+    subtitle: "Hosomaki, futomaki e uramaki — como enrolar",
+    category: "tecnicas",
+    icon: "🍙",
+    xpReward: 20,
+    readTime: "10 min",
+    modules: [
+      { title: "Enrolar sushi", content: "Hosomaki: meia folha de nori, pouco arroz, 1 ingrediente. Futomaki: folha inteira, vários ingredientes, pressão uniforme. Uramaki: arroz por fora, use filme plástico sobre a esteira. Corte com faca molhada. O segredo é a pressão: firme para não desmontar, suave para não esmagar o arroz.", highlight: true },
+    ],
+  },
+  {
+    id: "tecnica-ramen-caldo",
+    title: "Preparando Caldo de Ramen",
+    subtitle: "Tonkotsu, shoyu, miso e shio — 4 bases",
+    category: "tecnicas",
+    icon: "🍜",
+    xpReward: 25,
+    readTime: "14 min",
+    modules: [
+      { title: "Os 4 caldos", content: "Tonkotsu: ossos de porco em fogo ALTO por 12-18h, caldo branco cremoso. Shoyu: caldo claro com tare de shoyu, elegante. Miso: caldo com pasta de missô, encorpado e rico. Shio: o mais leve, baseado em sal e dashi puro." },
+      { title: "Tare", content: "Tare é a base concentrada que define o sabor do ramen. Cada ramen-ya tem sua receita secreta de tare, guardada a sete chaves. É combinada com o caldo na hora de servir. O equilíbrio tare/caldo/óleo aromático é a assinatura do chef.", highlight: true },
+    ],
+  },
+  {
+    id: "tecnica-onigiri",
+    title: "Como Fazer Onigiri Perfeito",
+    subtitle: "Moldar, rechear e embalar o bolinho de arroz",
+    category: "tecnicas",
+    icon: "🍙",
+    xpReward: 10,
+    readTime: "6 min",
+    modules: [
+      { title: "Técnica de moldagem", content: "Use arroz quente (não frio!). Sal nas mãos molhadas. Faça um buraco no centro, coloque o recheio (umeboshi, sake, mentaiko), feche e modele em triângulo com pressão firme mas gentil. Envolva com nori na hora de comer para manter crocância. Onigiri é o comfort food mais simples e perfeito do Japão.", highlight: true },
+    ],
+  },
+  {
+    id: "tecnica-donburi",
+    title: "A Arte do Donburi",
+    subtitle: "Gyudon, katsudon, oyakodon — tigela perfeita",
+    category: "tecnicas",
+    icon: "🍚",
+    xpReward: 15,
+    readTime: "8 min",
+    modules: [
+      { title: "Montagem do donburi", content: "Arroz quente na base, topping cobre TODA a superfície. Gyudon: carne finíssima com cebola em molho doce. Katsudon: tonkatsu com ovo semicozido. Oyakodon: frango com ovo em camadas. O ovo deve ser toro-toro (cremoso, nunca totalmente cozido). O caldo do topping deve infiltrar no arroz.", highlight: true },
+    ],
+  },
+  {
+    id: "tecnica-yakitori",
+    title: "Yakitori: Espetinhos Perfeitos",
+    subtitle: "Corte, espetamento, tare e timing de grelha",
+    category: "tecnicas",
+    icon: "🍢",
+    xpReward: 15,
+    readTime: "8 min",
+    modules: [
+      { title: "A arte do yakitori", content: "Corte cada pedaço do mesmo tamanho para cozimento uniforme. Espete na fibra da carne, não contra. Use carvão binchotan. Pincele tare apenas nos últimos 30 seg para não queimar o açúcar. Shio (sal) vs tare (molho): ambos são estilos válidos. Negima (frango com negi) é o clássico dos clássicos.", highlight: true },
+    ],
+  },
+  {
+    id: "tecnica-nabe",
+    title: "Nabe: Hot Pot Japonês",
+    subtitle: "Sukiyaki, shabu-shabu, chanko — panelas comunitárias",
+    category: "tecnicas",
+    icon: "🫕",
+    xpReward: 15,
+    readTime: "9 min",
+    modules: [
+      { title: "Tipos de nabe", content: "Sukiyaki: carne fatiada em molho doce de shoyu+mirin+açúcar, mergulhada em ovo cru. Shabu-shabu: carne finíssima passada 2-3 seg no caldo ('shabu-shabu' é onomatopeia). Chanko-nabe: a refeição dos lutadores de sumô, rica e farta. Oden: cozido lento de inverno com daikon, ovo e tofu." },
+      { title: "Ritual social", content: "Nabe é comida comunitária — todos comem da mesma panela. É símbolo de união familiar e amizade. No inverno, é a refeição mais popular do Japão. Ao final, adicione udon ou arroz ao caldo restante para o 'shime' (finalização).", highlight: true },
+    ],
+  },
+  {
+    id: "tecnica-fermentacao",
+    title: "Fermentação Japonesa com Koji",
+    subtitle: "O fungo que cria missô, shoyu, sakê e mirin",
+    category: "tecnicas",
+    icon: "🧫",
+    xpReward: 25,
+    readTime: "12 min",
+    modules: [
+      { title: "Aspergillus oryzae", content: "Koji é o fungo nacional do Japão (declarado em 2006). Cultivado sobre arroz, soja ou cevada. Suas enzimas quebram proteínas em umami e amidos em açúcar. É a base de: missô, shoyu, sakê, mirin, vinagre de arroz e amazake." },
+      { title: "Aplicações modernas", content: "Shio-koji (koji+sal): marine carnes por 24h para maciez incomparável. Amazake (koji+arroz): bebida doce sem álcool, probiótica. Chefs como René Redzepi (Noma) popularizaram técnicas japonesas de fermentação globalmente.", highlight: true },
+    ],
+  },
+  {
+    id: "tecnica-facas",
+    title: "Guia das Facas Japonesas",
+    subtitle: "Gyuto, santoku, nakiri, deba, yanagiba",
+    category: "tecnicas",
+    icon: "🔪",
+    xpReward: 20,
+    readTime: "10 min",
+    modules: [
+      { title: "As 5 facas essenciais", content: "Gyuto (chef): versátil, 21-27cm. Santoku: 'três virtudes' — cortar, fatiar, picar. Nakiri: retangular para vegetais. Deba: pesada para filetar peixes. Yanagiba: longa e fina para sashimi. Aço japonês (HRC 60-67) é mais duro e afiado que o ocidental, mas mais frágil. Nunca use em ossos!", highlight: true },
+    ],
+  },
+  {
+    id: "tecnica-massa-artesanal",
+    title: "Massas Artesanais Japonesas",
+    subtitle: "Fazer udon, soba e ramen à mão",
+    category: "tecnicas",
+    icon: "🍝",
+    xpReward: 25,
+    readTime: "12 min",
+    modules: [
+      { title: "Udon, soba e ramen", content: "Udon: farinha+água salgada, sovado pisando com os pés (tradição!). Descanso 2h. Soba: farinha de trigo sarraceno, misture rápido, estenda fino. Mestres treinam 3-5 anos. Ramen: farinha forte + kansui (água alcalina) para cor amarelada e elasticidade. Cada ramen-ya ajusta espessura e ondulação ao seu caldo.", highlight: true },
+    ],
+  },
+  {
+    id: "tecnica-presentacao",
+    title: "Moritsuke: A Arte da Apresentação",
+    subtitle: "Como montar pratos japoneses visualmente",
+    category: "tecnicas",
+    icon: "🎨",
+    xpReward: 20,
+    readTime: "9 min",
+    modules: [
+      { title: "Princípios visuais", content: "Monte com altura no centro, espaço nas bordas. Sirva em quantidades ímpares (3, 5, 7). Use garnishes sazonais: shiso (verão), momiji (outono), sakura (primavera). A louça complementa, nunca compete. 'Me de taberu' — comer com os olhos primeiro. A apresentação pode aumentar percepção de sabor em 30%.", highlight: true },
+    ],
+  },
+  {
+    id: "tecnica-teppanyaki",
+    title: "Teppanyaki: Culinária na Chapa",
+    subtitle: "Performance e técnica na chapa quente",
+    category: "tecnicas",
+    icon: "🫕",
+    xpReward: 15,
+    readTime: "7 min",
+    modules: [
+      { title: "A arte do teppan", content: "Chapa a 250-300°C para selar rapidamente. Manteiga com alho para aromaticar. A comida vai direto da chapa ao prato. Performance (espátulas voando, cebola em vulcão) é parte da experiência. Benihana levou o conceito aos EUA nos anos 60. Kobe beef na chapa é uma experiência transcendental.", highlight: true },
+    ],
+  },
 
-Hirame (Linguado): Textura firme e sabor delicado. Engawa (a barbatana) é uma iguaria gordurosa.
-
-Hamachi (Olho-de-boi jovem): Gorduroso e rico. Perfeito para iniciantes em sushi por sua textura amanteigada.`,
-        highlight: true,
-      },
+  // ===== CULTURA (20) =====
+  {
+    id: "historia-gastronomia-japonesa",
+    title: "História da Gastronomia Japonesa",
+    subtitle: "Dos samurais ao patrimônio da UNESCO",
+    category: "cultura",
+    icon: "🏯",
+    xpReward: 30,
+    readTime: "18 min",
+    modules: [
+      { title: "Período Jomon até Nara", content: "A culinária japonesa começou com caça, pesca e coleta. O arroz chegou por volta de 300 a.C. No período Nara, o Budismo proibiu carne por 1.000+ anos, forçando o desenvolvimento sofisticado de vegetais, tofu, algas e peixes." },
+      { title: "Washoku: Patrimônio da UNESCO", content: "Em 2013, a UNESCO reconheceu o Washoku como Patrimônio Cultural Imaterial. Princípios: respeito pela natureza, ingredientes sazonais, equilíbrio nutricional, apresentação visual, conexão com festividades. Cada refeição segue 'ichijū sansai': uma sopa e três acompanhamentos, mais arroz e tsukemono.", highlight: true },
     ],
   },
   {
     id: "significado-pratos",
     title: "O Significado dos Pratos Japoneses",
-    subtitle: "Cada prato carrega história, simbolismo e tradição",
+    subtitle: "Cada prato carrega história e simbolismo",
     category: "cultura",
     icon: "🎎",
     xpReward: 20,
     readTime: "12 min",
     modules: [
-      {
-        title: "Simbolismo na comida japonesa",
-        content: `Na cultura japonesa, a comida não é apenas nutrição — cada prato carrega significados profundos.
-
-Soba no Ano Novo (Toshikoshi Soba): Comida obrigatória na virada do ano. Os macarrões longos simbolizam longevidade. Cortá-los facilmente representa deixar para trás os problemas do ano anterior.
-
-Sekihan (Arroz com Feijão Vermelho): Servido em celebrações e marcos importantes. A cor vermelha afasta maus espíritos na tradição xintoísta.
-
-Tai (Pargo): Presente em casamentos e celebrações. O nome "tai" soa como "medetai" (auspicioso). Um pargo inteiro grelhado é o centro de festas.`,
-      },
-      {
-        title: "Comida e estações do ano",
-        content: `Shun (旬) — ingredientes no auge da temporada — é um conceito central.
-
-Primavera: Sakura mochi, bambu jovem (takenoko), peixes de rio
-Verão: Soba fria, unagi (enguia) para energia, kakigōri (raspadinha)
-Outono: Cogumelos matsutake, castanhas, sanma (sauro grelhado)
-Inverno: Nabe (hot pot), oden, mikan (tangerina japonesa)
-
-Restaurantes kaiseki mudam o cardápio inteiro a cada estação. A louça também muda para refletir a temporada.`,
-        highlight: true,
-      },
+      { title: "Simbolismo na comida", content: "Toshikoshi Soba: macarrão longo = longevidade. Sekihan: arroz com feijão vermelho = afasta maus espíritos. Tai (pargo): 'medetai' = auspicioso, presente em casamentos. Mochi de Ano Novo: continuidade e prosperidade." },
+      { title: "Comida e estações", content: "Shun (旬) — ingredientes no auge da temporada. Primavera: sakura mochi, takenoko. Verão: unagi, kakigori. Outono: matsutake, sanma. Inverno: nabe, oden, mikan. Restaurantes kaiseki mudam o cardápio inteiro a cada estação.", highlight: true },
     ],
   },
   {
-    id: "festivais-gastronomicos",
+    id: "festivais-gastronomicos-artigo",
     title: "Festivais Gastronômicos do Japão",
-    subtitle: "Matsuri e a comida de festival",
+    subtitle: "Matsuri, yatai e comida de festival",
     category: "cultura",
     icon: "🎆",
     xpReward: 15,
     readTime: "10 min",
     modules: [
-      {
-        title: "A comida nos matsuri",
-        content: `Os matsuri (festivais) japoneses são indissociáveis da comida. As barraquinhas de yatai são a alma gastronômica dos festivais.
-
-Pratos clássicos de festival:
-• Takoyaki — bolinhas de polvo, o rei dos matsuri
-• Yakisoba — macarrão frito na chapa gigante
-• Ikayaki — lula grelhada inteira no palito
-• Yakitori — espetinhos de frango grelhado
-• Kakigōri — raspadinha com xarope colorido
-• Wata-ame — algodão doce
-• Choco Banana — banana coberta de chocolate
-• Ramune — refrigerante com bolinha de vidro
-
-Os matsuri mais famosos incluem Gion Matsuri (Kyoto, julho), Tenjin Matsuri (Osaka, julho) e Nebuta Matsuri (Aomori, agosto).`,
-        highlight: true,
-      },
+      { title: "A comida nos matsuri", content: "Takoyaki, yakisoba, ikayaki, yakitori, kakigōri, wata-ame, choco banana, ramune. Os matsuri mais famosos: Gion Matsuri (Kyoto, julho), Tenjin Matsuri (Osaka, julho), Nebuta Matsuri (Aomori, agosto). A atmosfera festiva torna tudo mais gostoso.", highlight: true },
     ],
   },
   {
@@ -176,25 +561,7 @@ Os matsuri mais famosos incluem Gion Matsuri (Kyoto, julho), Tenjin Matsuri (Osa
     xpReward: 20,
     readTime: "14 min",
     modules: [
-      {
-        title: "A conquista global",
-        content: `A culinária japonesa é hoje uma das mais influentes do mundo. O conceito de umami, identificado pelo químico Kikunae Ikeda em 1908, revolucionou a compreensão do sabor globalmente.
-
-O sushi se espalhou pelo mundo nos anos 80-90. O California Roll, criado nos EUA, adaptou o sushi ao paladar ocidental. Hoje, há mais restaurantes de sushi fora do Japão do que dentro.
-
-O ramen se tornou fenômeno global nos anos 2010. Cidades como Nova York, Londres e São Paulo têm cenas vibrantes de ramen artesanal.`,
-      },
-      {
-        title: "Técnicas que mudaram a gastronomia",
-        content: `Omakase (お任せ): "Deixo nas suas mãos" — o chef decide o menu. Adotado por restaurantes de alta gastronomia no mundo todo.
-
-Teppanyaki: Culinária na chapa diante do cliente. Benihana levou o conceito aos EUA nos anos 60 e criou uma indústria.
-
-Fermentação: Miso, koji e shio-koji são agora ingredientes essenciais em restaurantes de vanguarda. Chefs como René Redzepi (Noma) abraçaram técnicas japonesas de fermentação.
-
-Matcha: De cerimônia do chá a ingrediente global — lattes, sorvetes, bolos e até chocolate.`,
-        highlight: true,
-      },
+      { title: "A conquista global", content: "Umami, identificado por Kikunae Ikeda em 1908, revolucionou a compreensão do sabor. Sushi se espalhou nos anos 80-90. Ramen virou fenômeno global nos anos 2010. Omakase foi adotado pela alta gastronomia mundial. Matcha de cerimônia do chá a ingrediente global.", highlight: true },
     ],
   },
   {
@@ -206,25 +573,433 @@ Matcha: De cerimônia do chá a ingrediente global — lattes, sorvetes, bolos e
     xpReward: 20,
     readTime: "13 min",
     modules: [
-      {
-        title: "Rituais à mesa",
-        content: `A mesa japonesa é cercada de rituais que expressam gratidão e respeito.
+      { title: "Rituais à mesa", content: "Itadakimasu e Gochisousama: gratidão antes e depois de cada refeição. Kampai: brinde obrigatório. Oshibori: toalha quente para mãos. Osechi Ryori: caixas de Ano Novo com pratos simbólicos. Setsubun: ehomaki sem cortar. Hinamatsuri: chirashi-zushi.", highlight: true },
+    ],
+  },
+  {
+    id: "etiqueta-mesa-japonesa",
+    title: "Etiqueta Japonesa à Mesa",
+    subtitle: "Regras essenciais para comer como os japoneses",
+    category: "cultura",
+    icon: "🥢",
+    xpReward: 15,
+    readTime: "8 min",
+    modules: [
+      { title: "Regras fundamentais", content: "NUNCA espete comida com hashis. NUNCA passe comida de hashi para hashi (ritual funerário). NUNCA fique os hashis em pé no arroz. Beba missoshiru da tigela sem colher. Fazer barulho ao comer macarrão é EDUCADO. Gorjeta NÃO existe no Japão e pode ser ofensiva.", highlight: true },
+    ],
+  },
+  {
+    id: "historia-sushi-artigo",
+    title: "A História do Sushi",
+    subtitle: "De comida fermentada a arte gastronômica",
+    category: "cultura",
+    icon: "📖",
+    xpReward: 20,
+    readTime: "12 min",
+    modules: [
+      { title: "Evolução do sushi", content: "Narezushi (séc. IV): peixe fermentado em arroz por meses, arroz descartado. Edomae Sushi (séc. XIX): Hanaya Yohei criou nigiri-zushi em Tóquio — fast food da era Edo. Kaiten-sushi (1958): esteira rolante, democratizou o sushi. Jiro Ono: 3 estrelas Michelin, 70+ anos dedicados ao sushi.", highlight: true },
+    ],
+  },
+  {
+    id: "cultura-kaiseki",
+    title: "Kaiseki: A Alta Gastronomia",
+    subtitle: "A refeição mais sofisticada do mundo",
+    category: "cultura",
+    icon: "🎨",
+    xpReward: 25,
+    readTime: "14 min",
+    modules: [
+      { title: "A arte kaiseki", content: "Nasceu da cerimônia do chá (séc. XVI). Sequência de 7-14 pratos: Sakizuke → Hassun → Mukōzuke → Takiawase → Yakimono → Gohan → Mizumono. Cada prato contrasta: quente/frio, doce/salgado, crocante/macio. A louça é tão importante quanto a comida. Pode custar ¥15.000-80.000 (R$500-2.700).", highlight: true },
+    ],
+  },
+  {
+    id: "cultura-izakaya",
+    title: "Cultura Izakaya",
+    subtitle: "Os bares de comida japoneses e a vida social",
+    category: "cultura",
+    icon: "🏮",
+    xpReward: 15,
+    readTime: "8 min",
+    modules: [
+      { title: "O universo izakaya", content: "'i' (ficar) + 'sakaya' (loja de sakê). Cardápio: edamame, karaage, yakitori, sashimi, gyoza, agedashi tofu. Otōshi: aperitivo compulsório (couvert). 'Toriaezu biiru!' (primeiro, cerveja!). Pedidos compartilhados. Os melhores estão escondidos em ruelas sob trilhos de trem (yokochō).", highlight: true },
+    ],
+  },
+  {
+    id: "cultura-konbini",
+    title: "Konbini: A Revolução da Conveniência",
+    subtitle: "7-Eleven, Lawson, FamilyMart — comida surpreendente",
+    category: "cultura",
+    icon: "🏪",
+    xpReward: 15,
+    readTime: "8 min",
+    modules: [
+      { title: "Comida de konbini", content: "56.000+ lojas no Japão. Onigiri frescos (2+ bilhões/ano), bentôs preparados 2-3x ao dia, oden no inverno. Kit-Kat edições limitadas sazonais (matcha, sakura, batata-doce). Turistas fazem tours gastronômicos dedicados a konbinis. O conceito japonês de qualidade se aplica até à comida de ¥100.", highlight: true },
+    ],
+  },
+  {
+    id: "cultura-bento",
+    title: "A Arte do Bentô",
+    subtitle: "Marmita japonesa elevada a forma de arte",
+    category: "cultura",
+    icon: "🍱",
+    xpReward: 15,
+    readTime: "9 min",
+    modules: [
+      { title: "Bentô como arte", content: "Existem desde o séc. XII (samurais). Regra: 4:3:2:1 — arroz, proteína, vegetais, pickles. Kyaraben: arte pop com personagens de anime feitos de arroz e nori. Ekiben: bentôs de estações de trem, especialidades regionais. Um bentô bonito = expressão de amor.", highlight: true },
+    ],
+  },
+  {
+    id: "cultura-cerimonia-cha",
+    title: "Chanoyu: A Cerimônia do Chá",
+    subtitle: "Harmonia, respeito, pureza e tranquilidade",
+    category: "cultura",
+    icon: "🍵",
+    xpReward: 25,
+    readTime: "14 min",
+    modules: [
+      { title: "Filosofia e ritual", content: "Trazido da China no séc. IX, transformado por Sen no Rikyū no séc. XVI. Princípios: wa (harmonia), kei (respeito), sei (pureza), jaku (tranquilidade). Cada movimento é coreografado. Wagashi sazonais são servidos antes do chá amargo. O chawan é girado antes de beber por respeito.", highlight: true },
+    ],
+  },
+  {
+    id: "cultura-wagashi",
+    title: "Wagashi: Doces como Obras de Arte",
+    subtitle: "Confeitaria milenar que captura as estações",
+    category: "cultura",
+    icon: "🍡",
+    xpReward: 20,
+    readTime: "10 min",
+    modules: [
+      { title: "A arte dos wagashi", content: "Nerikiri: massa de feijão branco modelada em flores e animais sazonais. Yokan: geleia firme de azuki. Mochi sazonal: sakura mochi (primavera), kashiwa mochi (Dia das Crianças). Seguem o conceito 'goshiki' — cinco cores das estações. Em Kyoto, podem custar ¥500-1.000 cada.", highlight: true },
+    ],
+  },
+  {
+    id: "cultura-sake",
+    title: "Sake: A Bebida dos Deuses",
+    subtitle: "De junmai a daiginjo — entenda as classificações",
+    category: "cultura",
+    icon: "🍶",
+    xpReward: 20,
+    readTime: "12 min",
+    modules: [
+      { title: "Classificações", content: "Junmai: arroz+água+koji, sem álcool adicionado. Ginjo: arroz polido a 60%, frutado. Daiginjo: polido a 50%+, o topo. Temperatura: junmai quente, ginjo/daiginjo SEMPRE gelado. Harmonização: seco → sashimi, frutado → tempurá, encorpado → grelhados. 'Nihonshu' é o nome correto em japonês.", highlight: true },
+    ],
+  },
+  {
+    id: "cultura-curry",
+    title: "Curry Japonês: O Comfort Food Nacional",
+    subtitle: "Como a Índia inspirou o prato #1 do Japão",
+    category: "cultura",
+    icon: "🍛",
+    xpReward: 15,
+    readTime: "9 min",
+    modules: [
+      { title: "História e variedades", content: "Chegou via marinheiros britânicos no séc. XIX. Adaptado com roux espesso e vegetais locais. Variações: katsu curry, curry udon, curry pan (pão frito). A Marinha serve curry toda sexta-feira desde 1908. O Japão consome mais curry per capita que a própria Índia!", highlight: true },
+    ],
+  },
+  {
+    id: "cultura-ramen-historia",
+    title: "A Revolução do Ramen",
+    subtitle: "De comida de rua a fenômeno global",
+    category: "cultura",
+    icon: "🍜",
+    xpReward: 20,
+    readTime: "12 min",
+    modules: [
+      { title: "Evolução do ramen", content: "Originado da China, adaptado no Japão no séc. XX. Cup Noodle de Momofuku Ando (1971) revolucionou a alimentação mundial. Cada região desenvolveu seu estilo: Hakata (tonkotsu), Sapporo (miso), Tóquio (shoyu). O Ramen Museum de Yokohama celebra a cultura. Hoje, filas de 2h em ramen-yas premiados são comuns.", highlight: true },
+    ],
+  },
+  {
+    id: "cultura-mercado-peixe",
+    title: "Mercados de Peixe Japoneses",
+    subtitle: "De Tsukiji a Toyosu — o coração gastronômico",
+    category: "cultura",
+    icon: "🐟",
+    xpReward: 15,
+    readTime: "8 min",
+    modules: [
+      { title: "Toyosu e a cultura do peixe", content: "Substituiu Tsukiji em 2018. O maior mercado de frutos do mar do mundo: 480+ tipos de produtos marinhos. Leilão de atum às 5:30h. Em 2019, um bluefin foi vendido por $3,1 milhões. Ikejime: técnica humanitária de abate que preserva qualidade. 'Me-kiki': olho treinado para julgar frescor.", highlight: true },
+    ],
+  },
+  {
+    id: "cultura-regional",
+    title: "Culinária Regional do Japão",
+    subtitle: "47 prefeituras, 47 universos gastronômicos",
+    category: "cultura",
+    icon: "🗾",
+    xpReward: 25,
+    readTime: "14 min",
+    modules: [
+      { title: "Regiões e sabores", content: "Hokkaido: frutos do mar, ramen de miso, jingisukan. Kansai (Osaka): takoyaki, okonomiyaki, kushikatsu. Kyoto: kaiseki, tofu de Nanzenji. Kyushu: tonkotsu ramen, mentaiko. Okinawa: goya champuru, taco rice. 'B-kyu gourmet' celebra comida de rua regional barata mas deliciosa.", highlight: true },
+    ],
+  },
+  {
+    id: "cultura-sazonalidade",
+    title: "Shun: A Filosofia da Sazonalidade",
+    subtitle: "Comer o que a natureza oferece no momento certo",
+    category: "cultura",
+    icon: "🌸",
+    xpReward: 20,
+    readTime: "10 min",
+    modules: [
+      { title: "Shun e as estações", content: "Primavera: takenoko, tai, sakura mochi. Verão: unagi, hamo, kakigori. Outono: sanma, matsutake, kuri, kaki. Inverno: fugu, buri, nabe, mikan. Restaurantes kaiseki mudam o cardápio a cada 2 semanas para acompanhar micro-estações. Os melhores sushimans conhecem a janela exata de shun de cada peixe.", highlight: true },
+    ],
+  },
+  {
+    id: "cultura-tradicional-moderna",
+    title: "Tradicional vs Moderna",
+    subtitle: "Como o Japão equilibra tradição e inovação",
+    category: "cultura",
+    icon: "⚡",
+    xpReward: 15,
+    readTime: "9 min",
+    modules: [
+      { title: "Dois mundos", content: "Washoku (tradicional): ichijū sansai, sazonalidade, UNESCO. Yoshoku (moderna): curry, hambāgu, korokke, omurice — adaptações da era Meiji. Fusão contemporânea: Nobu Matsuhisa, ramen gourmet, matcha em tudo. O Japão tem mais restaurantes Michelin que qualquer país — Tóquio lidera o ranking global.", highlight: true },
+    ],
+  },
 
-Itadakimasu e Gochisousama: Antes e depois de cada refeição, respectivamente. Não são orações religiosas, mas expressões de gratidão a todos envolvidos — do agricultor ao cozinheiro.
+  // ===== INGREDIENTES (10) =====
+  {
+    id: "guia-umami",
+    title: "A Ciência do Umami",
+    subtitle: "O quinto sabor que revolucionou a gastronomia",
+    category: "destilados",
+    icon: "🧪",
+    xpReward: 20,
+    readTime: "10 min",
+    modules: [
+      { title: "Umami explicado", content: "Descoberto em 1908 por Kikunae Ikeda. Percepção do ácido glutâmico. Fontes naturais: kombu, katsuobushi, shiitake seco, missô, shoyu, parmesão, tomate. Sinergia: glutamato + inosinato = 8x mais intenso! Por isso dashi de kombu+katsuobushi é tão poderoso. MSG é umami isolado, mas fontes naturais são mais complexas.", highlight: true },
+    ],
+  },
+  {
+    id: "guia-peixes-avancado",
+    title: "Peixes Avançados: Fugu, Uni e Anago",
+    subtitle: "Ingredientes premium da culinária japonesa",
+    category: "destilados",
+    icon: "🐡",
+    xpReward: 25,
+    readTime: "12 min",
+    modules: [
+      { title: "Ingredientes premium", content: "Fugu (baiacu): potencialmente letal, chefs precisam de licença especial (3 anos de estudo). Uni (ouriço-do-mar): cremoso e doce, o 'foie gras do mar'. Anago (congro): mais leve que unagi, elegante em sushi. Ikura (ovas de salmão): estalam na boca. Shirako (esperma de peixe): iguaria controversa mas reverenciada.", highlight: true },
+    ],
+  },
+  {
+    id: "guia-wagyu",
+    title: "Wagyu: A Carne Mais Cara do Mundo",
+    subtitle: "Kobe, Matsusaka e o marmoreio perfeito",
+    category: "destilados",
+    icon: "🥩",
+    xpReward: 20,
+    readTime: "10 min",
+    modules: [
+      { title: "Wagyu japonês", content: "Wagyu significa literalmente 'vaca japonesa'. As 4 raças: Japanese Black (mais comum), Japanese Brown, Japanese Shorthorn, Japanese Polled. Classificação BMS (Beef Marbling Score): de 1 a 12. Kobe beef é wagyu da prefeitura de Hyogo com BMS 6+. A5 é o topo: textura amanteigada que derrete na boca.", highlight: true },
+    ],
+  },
+  {
+    id: "guia-chá-japones",
+    title: "Chás Japoneses",
+    subtitle: "Matcha, sencha, hojicha, genmaicha e gyokuro",
+    category: "destilados",
+    icon: "🍵",
+    xpReward: 15,
+    readTime: "9 min",
+    modules: [
+      { title: "Os 5 chás essenciais", content: "Matcha: moído em pó, batido com chasen, usado na cerimônia do chá e culinária. Sencha: o mais popular, infusão de folhas. Hojicha: tostado, sabor amadeirado e baixa cafeína. Genmaicha: com arroz tostado, sabor reconfortante. Gyokuro: sombreado 3 semanas, o mais premium, sabor intenso e umami.", highlight: true },
+    ],
+  },
+  {
+    id: "guia-especiarias",
+    title: "Especiarias e Ervas Japonesas",
+    subtitle: "Shiso, sansho, yuzu, myoga e wasabi",
+    category: "destilados",
+    icon: "🌿",
+    xpReward: 15,
+    readTime: "8 min",
+    modules: [
+      { title: "Aromáticos japoneses", content: "Shiso (perilla): folhas perfumadas, frescas, para sashimi e tempurá. Sansho: pimenta com efeito elétrico/formigamento. Yuzu: cítrico aromático incomparável. Myoga: gengibre floral japonês. Mitsuba: 'salsa japonesa'. Cada erva tem sua estação e cada uma adiciona uma camada única de complexidade.", highlight: true },
+    ],
+  },
+  {
+    id: "guia-frutos-mar",
+    title: "Frutos do Mar Japoneses",
+    subtitle: "Camarão, polvo, lula, vieira e caranguejo",
+    category: "destilados",
+    icon: "🦐",
+    xpReward: 15,
+    readTime: "9 min",
+    modules: [
+      { title: "Frutos do mar essenciais", content: "Ebi (camarão): amaebi (doce, cru), kuruma ebi (grelhado). Tako (polvo): macio quando bem cozido, base do takoyaki. Ika (lula): versátil — cru, grelhado, seco. Hotate (vieira): doce e amanteigada, perfeita em sashimi. Kani (caranguejo): de Hokkaido, o mais valorizado do Japão.", highlight: true },
+    ],
+  },
+  {
+    id: "guia-vegetais-japoneses",
+    title: "Vegetais Japoneses",
+    subtitle: "Daikon, negi, gobo, renkon e kabocha",
+    category: "destilados",
+    icon: "🥬",
+    xpReward: 15,
+    readTime: "9 min",
+    modules: [
+      { title: "Vegetais tradicionais", content: "Daikon: rabanete gigante, para oden, salada e nimono. Negi (cebolinha): onipresente em ramen, donburi, yakitori. Gobo (bardana): terroso, para kinpira e tonjiru. Renkon (raiz de lótus): crocante com furos decorativos. Kabocha: abóbora japonesa, doce naturalmente. Nasu (berinjela japonesa): para dengaku com missô.", highlight: true },
+    ],
+  },
+  {
+    id: "guia-arroz-tipos",
+    title: "Tipos de Arroz e Grãos",
+    subtitle: "Japônica, mochigome, genmai e mais variedades",
+    category: "destilados",
+    icon: "🌾",
+    xpReward: 10,
+    readTime: "7 min",
+    modules: [
+      { title: "Variedades", content: "Koshihikari: a mais premium, de Niigata. Akitakomachi: suave e versátil. Mochigome (glutinoso): para mochi e sekihan. Genmai (integral): nutritivo, textura firme. Haiga-mai (parcialmente polido): equilíbrio entre branco e integral. Para sushi, Koshihikari é ideal. Nunca use arroz de grão longo!", highlight: true },
+    ],
+  },
+  {
+    id: "guia-soja-derivados",
+    title: "Natto: O Alimento Mais Polarizador",
+    subtitle: "Amor ou ódio — não existe meio-termo",
+    category: "destilados",
+    icon: "🫘",
+    xpReward: 15,
+    readTime: "7 min",
+    modules: [
+      { title: "Natto", content: "Soja fermentada com Bacillus subtilis. Textura pegajosa com fios (que quanto mais misturar, mais aparecem). Cheiro forte. O café da manhã clássico: natto sobre arroz quente com mostarda e cebolinha. Extremamente nutritivo: proteínas, probióticos, vitamina K2, nattoquinase (anticoagulante natural). Divide os japoneses: amado em Kanto, tolerado em Kansai.", highlight: true },
+    ],
+  },
+  {
+    id: "guia-shochu-whisky",
+    title: "Shochu e Whisky Japonês",
+    subtitle: "Os destilados que conquistaram o mundo",
+    category: "destilados",
+    icon: "🥃",
+    xpReward: 20,
+    readTime: "11 min",
+    modules: [
+      { title: "Shochu", content: "Destilado japonês (25-35% álcool) feito de batata-doce (imo), cevada (mugi) ou arroz (kome). Mais popular que sakê no consumo total. Bebe-se com água quente (oyuwari), com água (mizuwari), ou com soda (chu-hai)." },
+      { title: "Whisky japonês", content: "Iniciado por Masataka Taketsuru nos anos 1920, treinado na Escócia. Suntory (Yamazaki, Hibiki) e Nikka dominam. Em 2015, Yamazaki Single Malt foi eleito o melhor whisky do mundo. Highball (whisky+soda) é a forma mais popular de beber no Japão.", highlight: true },
+    ],
+  },
 
-Kampai: O brinde japonês antes de beber. Todos devem participar. Beber antes do kampai é considerado rude.
-
-Oshibori: A toalha quente (ou fria no verão) oferecida antes da refeição para limpar as mãos. Usar no rosto é aceitável em izakayas casuais, mas não em restaurantes formais.`,
-        highlight: true,
-      },
-      {
-        title: "Celebrações sazonais",
-        content: `Osechi Ryori (Ano Novo): Caixas empilhadas (jubako) com pratos simbólicos. Cada item tem significado: kazunoko (ovas de arenque = fertilidade), kuromame (feijão preto = saúde), datemaki (omelete enrolada = conhecimento).
-
-Setsubun (3 de fevereiro): Jogam-se grãos de soja para afastar demônios. Come-se ehomaki (futomaki) inteiro, sem cortar, olhando na direção auspiciosa do ano.
-
-Hinamatsuri (3 de março): Festival das meninas. Come-se chirashi-zushi (sushi espalhado), hina-arare (biscoitinhos de arroz coloridos) e bebe-se amazake.`,
-      },
+  // ===== AVANÇADO (10) =====
+  {
+    id: "omakase-guia",
+    title: "Omakase: A Experiência Suprema",
+    subtitle: "Quando o chef decide tudo por você",
+    category: "avancado",
+    icon: "👨‍🍳",
+    xpReward: 30,
+    readTime: "14 min",
+    modules: [
+      { title: "A filosofia omakase", content: "'Omakase' (お任せ) = 'deixo nas suas mãos'. O chef seleciona ingredientes do dia e cria uma sequência personalizada. Normalmente 10-20 peças de sushi seguindo progressão de sabor: peixe branco → crustáceo → peixe gordo → ovo. A relação chef-cliente é íntima — sentado no balcão, conversando. Preços: ¥10.000-50.000.", highlight: true },
+    ],
+  },
+  {
+    id: "tecnica-ikejime",
+    title: "Ikejime: A Ciência do Abate Humanitário",
+    subtitle: "Como o abate afeta o sabor do peixe",
+    category: "avancado",
+    icon: "🐟",
+    xpReward: 30,
+    readTime: "12 min",
+    modules: [
+      { title: "Ikejime explicado", content: "Técnica que destrói o sistema nervoso instantaneamente com um fio de metal na espinha. Evita estresse do peixe (que libera ácido lático = sabor ruim). O peixe pode ser maturado por dias após ikejime. Peixe com ikejime adequado pode ser 5x mais caro. Mestres de sushi insistem nessa técnica. Também é mais humanitário.", highlight: true },
+    ],
+  },
+  {
+    id: "maturacao-peixe",
+    title: "Maturação de Peixe (Aging)",
+    subtitle: "A técnica que transforma sashimi em obra-prima",
+    category: "avancado",
+    icon: "⏳",
+    xpReward: 30,
+    readTime: "12 min",
+    modules: [
+      { title: "Aging de peixe", content: "Nem todo sashimi é melhor fresco! Peixes como atum e pargo melhoram com maturação controlada de 2-10 dias. Enzimas quebram proteínas em aminoácidos (umami). O peixe fica mais macio e saboroso. Requer ikejime prévio e controle de temperatura preciso. Sushimans como Jiro Ono são mestres em julgar o ponto exato de maturação.", highlight: true },
+    ],
+  },
+  {
+    id: "tecnica-katsuramuki",
+    title: "Katsuramuki: Corte de Precisão",
+    subtitle: "Transformar um daikon em uma folha translúcida",
+    category: "avancado",
+    icon: "🔪",
+    xpReward: 35,
+    readTime: "10 min",
+    modules: [
+      { title: "O corte impossível", content: "Katsuramuki é descascar um daikon em uma lâmina contínua e finíssima (1mm), como desenrolar um papiro. Requer meses de prática diária. É o teste definitivo de habilidade com faca na culinária japonesa. A folha é depois cortada em ken — fios finíssimos que acompanham sashimi. Dominar katsuramuki significa dominar a faca.", highlight: true },
+    ],
+  },
+  {
+    id: "kaiseki-menu",
+    title: "Planejando um Menu Kaiseki",
+    subtitle: "A sequência perfeita de 12 pratos",
+    category: "avancado",
+    icon: "📋",
+    xpReward: 35,
+    readTime: "16 min",
+    modules: [
+      { title: "Os 12 pratos", content: "1. Sakizuke (aperitivo) 2. Hassun (sazonal) 3. Mukōzuke (sashimi) 4. Takiawase (cozido) 5. Futamono (sopa com tampa) 6. Yakimono (grelhado) 7. Suzakana (palate cleanser) 8. Shiizakana (prato forte) 9. Sunomono (vinagrete) 10. Gohan (arroz) 11. Tome-wan (sopa final) 12. Mizumono (sobremesa)." },
+      { title: "Princípios", content: "Cada prato contrasta com o anterior em temperatura, textura, sabor e cor. A louça muda a cada prato para refletir a estação. O chef visita pessoalmente o mercado pela manhã para selecionar ingredientes no pico do shun. Nenhum ingrediente se repete na sequência.", highlight: true },
+    ],
+  },
+  {
+    id: "sushi-counter-etiqueta",
+    title: "Etiqueta no Balcão de Sushi",
+    subtitle: "Como se comportar em um sushi premium",
+    category: "avancado",
+    icon: "🍣",
+    xpReward: 25,
+    readTime: "10 min",
+    modules: [
+      { title: "No balcão de sushi", content: "Não use perfume forte. Coma cada peça em uma bocada assim que servida. Nigiri pode ser comido com as mãos. Mergulhe pelo lado do peixe no shoyu (nunca o arroz). Não misture wasabi no shoyu — o chef já colocou entre o peixe e o arroz. Gari é para limpar o paladar entre peças, não é salada. Agradeça ao sushiman ao final.", highlight: true },
+    ],
+  },
+  {
+    id: "umami-layers",
+    title: "Camadas de Umami",
+    subtitle: "Como empilhar sabores para profundidade máxima",
+    category: "avancado",
+    icon: "🧪",
+    xpReward: 30,
+    readTime: "12 min",
+    modules: [
+      { title: "Empilhamento de umami", content: "Nível 1: glutamato (kombu, missô, tomate). Nível 2: inosinato (katsuobushi, carne). Nível 3: guanilato (shiitake seco). Combine fontes diferentes para sinergia exponencial. Exemplo: dashi de kombu+katsuobushi+shiitake = umami extremo. Adicione shoyu e mirin para mais camadas. Chefs de ramen usam 5+ fontes de umami em um único caldo.", highlight: true },
+    ],
+  },
+  {
+    id: "wabi-sabi-culinaria",
+    title: "Wabi-Sabi na Culinária",
+    subtitle: "A beleza da imperfeição na comida japonesa",
+    category: "avancado",
+    icon: "🏺",
+    xpReward: 25,
+    readTime: "10 min",
+    modules: [
+      { title: "Imperfeição intencional", content: "Wabi-sabi valoriza a beleza na imperfeição e transitoriedade. Na culinária: cerâmica irregular é preferida à perfeita. Alimentos apresentados em formas orgânicas, não geométricas. A assimetria é mais bonita que a simetria. Um prato que parece 'perfeito demais' é considerado sem alma. Kintsugi (reparar com ouro) celebra as cicatrizes.", highlight: true },
+    ],
+  },
+  {
+    id: "sustentabilidade-japonesa",
+    title: "Mottainai: Sustentabilidade Japonesa",
+    subtitle: "Zero desperdício na culinária tradicional",
+    category: "avancado",
+    icon: "♻️",
+    xpReward: 20,
+    readTime: "9 min",
+    modules: [
+      { title: "Filosofia mottainai", content: "'Mottainai' = 'que desperdício!'. Na culinária japonesa: ossos viram caldo, casca de peixe vira chips, água do shiitake vira dashi, okara (resíduo do tofu) vira prato. Até a água de lavar arroz é usada para regar plantas ou fermentar tsukemono. O Japão sempre praticou sustentabilidade — muito antes do conceito ocidental.", highlight: true },
+    ],
+  },
+  {
+    id: "futuro-culinaria-japonesa",
+    title: "O Futuro da Culinária Japonesa",
+    subtitle: "Tecnologia, sustentabilidade e novos caminhos",
+    category: "avancado",
+    icon: "🚀",
+    xpReward: 20,
+    readTime: "10 min",
+    modules: [
+      { title: "Tendências e inovação", content: "Robôs sushi-chefs e ramen-yas automatizados já existem. Cultivo de wasabi em laboratório para democratizar o ingrediente. Fermentação com koji aplicada a ingredientes não-japoneses (chefs ocidentais). Plant-based sushi e sashimi de célula cultivada. Inteligência artificial para otimizar fermentação de missô e sakê. A tradição milenar encontra a tecnologia do futuro.", highlight: true },
     ],
   },
 ];
