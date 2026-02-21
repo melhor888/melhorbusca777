@@ -16,7 +16,7 @@ export default function Dicas() {
     window.scrollTo(0, 0);
   }, []);
 
-  const readArticles = JSON.parse(localStorage.getItem("nihon-read-articles") || "[]") as string[];
+  const readArticles = JSON.parse(localStorage.getItem("drinks-co-read-articles") || "[]") as string[];
 
   const filteredArticles = selectedCategory === "todos"
     ? articles
