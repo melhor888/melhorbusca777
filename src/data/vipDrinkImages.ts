@@ -23,7 +23,7 @@ const vipImageNumbers: Record<string, number[]> = {
   sake: Array.from({ length: 10 }, (_, i) => i + 1),
   cardapio: Array.from({ length: 10 }, (_, i) => i + 1),
   secretas: Array.from({ length: 14 }, (_, i) => i + 1),
-  tecnicas: Array.from({ length: 10 }, (_, i) => i + 1),
+  tecnicas: Array.from({ length: 21 }, (_, i) => i + 1),
 };
 
 function buildImagePool(prefix: string): string[] {
@@ -694,7 +694,7 @@ const dedicatedImages: Record<string, string> = {
   // Masterclass de Técnicas dedicated images
   "mt-afiar-facas-japonesas": "/images/vip-tecnicas-2.jpg",
   "mt-dashi-perfeito": "/images/vip-tecnicas-4.jpg",
-  "mt-corte-sashimi": "/images/vip-tecnicas-2.jpg",
+  "mt-corte-sashimi": "/images/vip-tecnicas-11.jpg",
   "mt-tecnica-tempura": "/images/vip-tecnicas-6.jpg",
   "mt-arroz-shari": "/images/vip-tecnicas-10.jpg",
   "mt-katsuramuki": "/images/vip-tecnicas-7.jpg",
@@ -702,11 +702,17 @@ const dedicatedImages: Record<string, string> = {
   "mt-arte-bento": "/images/vip-tecnicas-8.jpg",
   "mt-tecnica-sushi-nigiri": "/images/vip-tecnicas-1.jpg",
   "mt-wok-chahan": "/images/vip-tecnicas-3.jpg",
-  "mt-desossar-peixe-sanmai-oroshi": "/images/vip-tecnicas-7.jpg",
-  "mt-apresentacao-moritsuke": "/images/vip-tecnicas-8.jpg",
-  "mt-tecnica-yakimono-peixes": "/images/vip-tecnicas-9.jpg",
-  "mt-fermentacao-japonesa": "/images/vip-tecnicas-4.jpg",
+  "mt-desossar-peixe-sanmai-oroshi": "/images/vip-tecnicas-13.jpg",
+  "mt-apresentacao-moritsuke": "/images/vip-tecnicas-14.jpg",
+  "mt-tecnica-yakimono-peixes": "/images/vip-tecnicas-15.jpg",
+  "mt-fermentacao-japonesa": "/images/vip-tecnicas-12.jpg",
   "mt-nimono-tecnica": "/images/vip-tecnicas-5.jpg",
+  "mt-preparo-dashi-variacoes": "/images/vip-tecnicas-16.jpg",
+  "mt-tecnica-tsukemono": "/images/vip-tecnicas-17.jpg",
+  "mt-moldar-onigiri": "/images/vip-tecnicas-18.jpg",
+  "mt-tecnica-mushimono": "/images/vip-tecnicas-19.jpg",
+  "mt-tecnica-agemono": "/images/vip-tecnicas-20.jpg",
+  "mt-tecnica-sunomono": "/images/vip-tecnicas-21.jpg",
   // Receitas Secretas do Chef dedicated images
   "wagyu-a5-teppanyaki": "/images/vip-secretas-1.jpg",
   "kaiseki-sakizuke": "/images/vip-secretas-8.jpg",
