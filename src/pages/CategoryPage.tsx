@@ -1,6 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { categories, getDrinksByCategory } from "@/data/drinks";
+import { categories, getDishesByCategory } from "@/data/dishes";
 import DrinkCard from "@/components/DrinkCard";
 import { ArrowLeft } from "lucide-react";
 import { useEffect } from "react";
@@ -23,7 +23,7 @@ export { slugify };
 export default function CategoryPage() {
   const { slug } = useParams<{ slug: string }>();
   const category = getCategoryFromSlug(slug || "");
-  const drinks = category ? getDrinksByCategory(category) : [];
+  const dishes = category ? getDishesByCategory(category) : [];
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -40,12 +40,11 @@ export default function CategoryPage() {
   return (
     <>
       <Helmet>
-        <title>{category} - Receitas de Drinks | Drink Quest</title>
+        <title>{category} - Receitas Japonesas | Nihon Food</title>
         <meta
           name="description"
-          content={`Descubra ${drinks.length} receitas de drinks na categoria ${category}. Aprenda a preparar coquetéis profissionais em casa.`}
+          content={`Descubra ${dishes.length} receitas na categoria ${category}. Pratos autênticos da culinária japonesa.`}
         />
-        <link rel="canonical" href={`https://drinkseco.lovable.app/categoria/${slug}`} />
       </Helmet>
       <div className="min-h-screen pb-24 pt-4 px-4 lg:px-6">
         <div className="flex items-center gap-3 mb-6">
@@ -59,18 +58,18 @@ export default function CategoryPage() {
             <h1 className="text-2xl lg:text-3xl font-display font-bold text-foreground">
               {category}
             </h1>
-            <p className="text-sm text-muted-foreground">{drinks.length} drinks disponíveis</p>
+            <p className="text-sm text-muted-foreground">{dishes.length} pratos disponíveis</p>
           </div>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 lg:gap-4">
-          {drinks.map((drink, i) => (
+          {dishes.map((dish, i) => (
             <div
-              key={drink.id}
+              key={dish.id}
               className="animate-fade-in"
               style={{ animationDelay: `${i * 50}ms` }}
             >
-              <DrinkCard drink={drink} />
+              <DrinkCard drink={dish} />
             </div>
           ))}
         </div>

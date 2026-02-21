@@ -2,12 +2,12 @@ export function WebsiteSchema() {
   const data = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: "Drink Quest",
-    url: "https://drinkseco.lovable.app",
-    description: "Receitas de drinks e coquetéis profissionais, dicas de bartenders e guias completos sobre coquetelaria.",
+    name: "Nihon Food",
+    url: "https://nihonfood.lovable.app",
+    description: "Receitas autênticas de comida japonesa, técnicas culinárias, cultura e gastronomia do Japão.",
     potentialAction: {
       "@type": "SearchAction",
-      target: "https://drinkseco.lovable.app/search?q={search_term_string}",
+      target: "https://nihonfood.lovable.app/search?q={search_term_string}",
       "query-input": "required name=search_term_string",
     },
   };
@@ -18,12 +18,11 @@ export function OrganizationSchema() {
   const data = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: "Drink Quest",
-    url: "https://drinkseco.lovable.app",
-    logo: "https://drinkseco.lovable.app/pwa-512x512.png",
+    name: "Nihon Food",
+    url: "https://nihonfood.lovable.app",
     contactPoint: {
       "@type": "ContactPoint",
-      email: "contato@drinkquest.com.br",
+      email: "contato@nihonfood.com.br",
       contactType: "customer service",
       availableLanguage: "Portuguese",
     },

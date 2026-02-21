@@ -8,23 +8,7 @@ import XPBar from "@/components/XPBar";
 import DrinkCard from "@/components/DrinkCard";
 import ThemeToggle from "@/components/ThemeToggle";
 import NotificationToggle from "@/components/NotificationToggle";
-import { categories, getDrinksByCategory, searchDrinks, drinks as allDrinks } from "@/data/drinks";
-
-function getDailySeed(): number {
-  const d = new Date();
-  return d.getFullYear() * 10000 + (d.getMonth() + 1) * 100 + d.getDate();
-}
-
-function seededShuffle<T>(arr: T[], seed: number): T[] {
-  const copy = [...arr];
-  let s = seed;
-  for (let i = copy.length - 1; i > 0; i--) {
-    s = (s * 1103515245 + 12345) & 0x7fffffff;
-    const j = s % (i + 1);
-    [copy[i], copy[j]] = [copy[j], copy[i]];
-  }
-  return copy;
-}
+import { categories, getDishesByCategory, searchDishes, dishes as allDishes } from "@/data/dishes";
 
 function slugify(text: string): string {
   return text
@@ -49,10 +33,10 @@ export default function Index() {
     if (q) setQuery(q);
   }, [searchParams]);
 
-  const results = query.length >= 2 ? searchDrinks(query) : [];
+  const results = query.length >= 2 ? searchDishes(query) : [];
 
   const filteredResults = activeFilter
-    ? (query.length >= 2 ? results : allDrinks).filter(
+    ? (query.length >= 2 ? results : allDishes).filter(
         (d) => d.difficulty === activeFilter
       )
     : results;
@@ -62,9 +46,8 @@ export default function Index() {
   return (
     <>
       <Helmet>
-        <title>Drink Quest - Receitas de Drinks e Coquetéis Profissionais</title>
-        <meta name="description" content="Descubra receitas autênticas de drinks e coquetéis profissionais. Aprenda técnicas de bartenders, mixologia e faça os melhores cocktails em casa." />
-        <link rel="canonical" href="https://drinkseco.lovable.app/" />
+        <title>Nihon Food - Receitas de Comida Japonesa Autêntica</title>
+        <meta name="description" content="Descubra receitas autênticas da culinária japonesa. Sushi, ramen, tempurá, yakitori e muito mais. Aprenda técnicas profissionais." />
       </Helmet>
       <div className="min-h-screen pb-20">
         <header className="fixed top-0 left-0 right-0 z-40 px-4 py-3 flex items-center justify-end gap-2 bg-gradient-to-b from-background via-background/90 to-transparent lg:hidden">
@@ -75,7 +58,6 @@ export default function Index() {
 
         <HeroBanner />
 
-        {/* Search + Filters */}
         <div className="px-4 lg:px-6 mb-4 -mt-2 lg:max-w-2xl lg:mx-auto">
           <div className="flex gap-2">
             <div className="relative flex-1">
@@ -84,7 +66,7 @@ export default function Index() {
                 type="text"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                placeholder="Buscar drinks, ingredientes..."
+                placeholder="Buscar pratos, ingredientes..."
                 className="w-full pl-10 pr-4 py-3 rounded-xl bg-secondary text-foreground placeholder:text-muted-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/50"
               />
               {query && (
@@ -108,7 +90,6 @@ export default function Index() {
             </button>
           </div>
 
-          {/* Filter pills */}
           {showFilters && (
             <div className="flex gap-2 mt-3 animate-fade-in">
               {difficulties.map((diff) => (
@@ -146,13 +127,13 @@ export default function Index() {
           <div className="px-4 lg:px-6">
             {filteredResults.length > 0 ? (
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 lg:gap-4">
-                {filteredResults.map((drink, i) => (
+                {filteredResults.map((dish, i) => (
                   <div
-                    key={drink.id}
+                    key={dish.id}
                     className="animate-fade-in"
                     style={{ animationDelay: `${i * 40}ms` }}
                   >
-                    <DrinkCard drink={drink} />
+                    <DrinkCard drink={dish} />
                   </div>
                 ))}
               </div>
@@ -165,8 +146,8 @@ export default function Index() {
         ) : (
           <div className="space-y-2">
             {categories.map((cat) => {
-              const catDrinks = getDrinksByCategory(cat);
-              const shuffled = [...catDrinks].sort(() => Math.random() - 0.5);
+              const catDishes = getDishesByCategory(cat);
+              const shuffled = [...catDishes].sort(() => Math.random() - 0.5);
               return (
                 <div key={cat}>
                   <CategoryRow

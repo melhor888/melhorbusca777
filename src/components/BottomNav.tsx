@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { Wine, Heart, HelpCircle, BarChart3, MoreHorizontal, GraduationCap, BookOpen, ShoppingCart, Package, Layers, X, Crown } from "lucide-react";
+import { UtensilsCrossed, Heart, HelpCircle, BarChart3, MoreHorizontal, GraduationCap, BookOpen, ShoppingCart, Package, Layers, X, Crown } from "lucide-react";
 import { useLocation, useNavigate } from "react-router-dom";
 import XPBar from "./XPBar";
 import { useShoppingList } from "@/hooks/useShoppingList";
 
 const navItems = [
-  { path: "/", icon: Wine, label: "Receitas" },
+  { path: "/", icon: UtensilsCrossed, label: "Receitas" },
   { path: "/quiz", icon: HelpCircle, label: "Quiz" },
   { path: "/dashboard", icon: BarChart3, label: "Stats" },
   { path: "/favorites", icon: Heart, label: "Favoritos" },
@@ -15,7 +15,7 @@ const moreItems = [
   { path: "/ingredientes", icon: Package, label: "Ingredientes" },
   { path: "/colecoes", icon: Layers, label: "Coleções" },
   { path: "/tips", icon: GraduationCap, label: "Escola" },
-  { path: "/dicas", icon: BookOpen, label: "Dicas" },
+  { path: "/dicas", icon: BookOpen, label: "Cultura" },
   { path: "/lista-compras", icon: ShoppingCart, label: "Lista de Compras" },
   { path: "/vip", icon: Crown, label: "VIP" },
 ];
@@ -32,7 +32,6 @@ export default function BottomNav() {
 
   return (
     <>
-      {/* More menu overlay */}
       {showMore && (
         <div className="fixed inset-0 z-[55] bg-background/60 backdrop-blur-sm lg:hidden" onClick={() => setShowMore(false)}>
           <div
@@ -57,13 +56,13 @@ export default function BottomNav() {
                       active ? "bg-primary/10 text-primary" : "text-muted-foreground hover:bg-secondary"
                     }`}
                   >
-                    <Icon size={22} strokeWidth={active ? 2.5 : 1.5} className={path === "/vip" ? "text-yellow-500" : ""} />
+                    <Icon size={22} strokeWidth={active ? 2.5 : 1.5} className={path === "/vip" ? "text-accent" : ""} />
                     {showBadge && (
                       <span className="absolute top-2 right-2 w-4 h-4 rounded-full bg-primary text-primary-foreground text-[9px] font-bold flex items-center justify-center">
                         {drinkIds.length}
                       </span>
                     )}
-                    <span className={`text-[10px] font-medium leading-tight text-center ${path === "/vip" ? "text-yellow-500" : ""}`}>{label}</span>
+                    <span className={`text-[10px] font-medium leading-tight text-center ${path === "/vip" ? "text-accent" : ""}`}>{label}</span>
                   </button>
                 );
               })}
@@ -72,7 +71,6 @@ export default function BottomNav() {
         </div>
       )}
 
-      {/* Bottom nav bar */}
       <nav className="fixed bottom-0 left-0 right-0 z-50 glass-card border-t border-border/50 pb-safe lg:hidden">
         <div className="flex justify-around items-center h-16 max-w-lg mx-auto">
           {navItems.map(({ path, icon: Icon, label }) => {
@@ -90,7 +88,6 @@ export default function BottomNav() {
               </button>
             );
           })}
-          {/* More button */}
           <button
             onClick={() => setShowMore(!showMore)}
             className={`relative flex flex-col items-center gap-1 px-4 py-2 transition-colors ${

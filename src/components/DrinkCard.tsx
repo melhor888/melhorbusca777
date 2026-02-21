@@ -1,10 +1,10 @@
 import { useNavigate } from "react-router-dom";
-import { Drink } from "@/data/drinks";
-import { getDrinkImage } from "@/data/drinkImages";
+import { Dish } from "@/data/dishes";
+import { getDishImage } from "@/data/dishImages";
 import { Clock, ChefHat } from "lucide-react";
 
 interface DrinkCardProps {
-  drink: Drink;
+  drink: Dish;
   size?: "small" | "large";
 }
 
@@ -26,7 +26,7 @@ export default function DrinkCard({ drink, size = "small" }: DrinkCardProps) {
       }`}
     >
       <img
-        src={getDrinkImage(drink.image)}
+        src={getDishImage(drink.image)}
         alt={drink.name}
         className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
         loading="lazy"

@@ -1,50 +1,48 @@
 import { useState, useMemo } from "react";
 import { Search } from "lucide-react";
-import { searchDrinks, categories, drinks } from "@/data/drinks";
-import { getDrinkImage } from "@/data/drinkImages";
+import { searchDishes, categories, dishes } from "@/data/dishes";
+import { getDishImage } from "@/data/dishImages";
 import DrinkCard from "@/components/DrinkCard";
 import { useNavigate } from "react-router-dom";
 
 export default function SearchPage() {
   const [query, setQuery] = useState("");
   const navigate = useNavigate();
-  const results = query.length >= 2 ? searchDrinks(query) : [];
+  const results = query.length >= 2 ? searchDishes(query) : [];
 
-  const randomDrink = useMemo(() => {
-    return drinks[Math.floor(Math.random() * drinks.length)];
+  const randomDish = useMemo(() => {
+    return dishes[Math.floor(Math.random() * dishes.length)];
   }, []);
 
   return (
     <div className="min-h-screen pb-20 pt-4">
-      {/* Random featured drink */}
       {query.length < 2 && (
         <div className="px-4 mb-4">
           <button
-            onClick={() => navigate(`/recipe/${randomDrink.id}`)}
+            onClick={() => navigate(`/recipe/${randomDish.id}`)}
             className="relative w-full h-48 rounded-2xl overflow-hidden group"
           >
             <img
-              src={getDrinkImage(randomDrink.image)}
-              alt={randomDrink.name}
+              src={getDishImage(randomDish.image)}
+              alt={randomDish.name}
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
             <div className="absolute inset-0 hero-overlay" />
             <div className="absolute bottom-0 left-0 right-0 p-4">
               <span className="text-[10px] uppercase tracking-wider text-primary font-semibold">
-                Drink do momento
+                Prato do momento
               </span>
               <h2 className="font-display font-bold text-foreground text-xl leading-tight">
-                {randomDrink.name}
+                {randomDish.name}
               </h2>
               <p className="text-muted-foreground text-xs mt-1">
-                {randomDrink.category} · {randomDrink.difficulty} · {randomDrink.time}
+                {randomDish.category} · {randomDish.difficulty} · {randomDish.time}
               </p>
             </div>
           </button>
         </div>
       )}
 
-      {/* Categories horizontal scroll - above search bar */}
       {query.length < 2 && (
         <div className="mb-4 overflow-x-auto scrollbar-hide">
           <div className="flex gap-2 px-4 whitespace-nowrap">
@@ -61,7 +59,6 @@ export default function SearchPage() {
         </div>
       )}
 
-      {/* Search bar */}
       <div className="px-4 mb-6">
         <div className="relative">
           <Search
@@ -72,19 +69,18 @@ export default function SearchPage() {
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Buscar drinks, ingredientes..."
+            placeholder="Buscar pratos, ingredientes..."
             className="w-full pl-10 pr-4 py-3 rounded-xl bg-secondary text-foreground placeholder:text-muted-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/50"
           />
         </div>
       </div>
 
-      {/* Results */}
       {query.length >= 2 && (
         <div className="px-4">
           {results.length > 0 ? (
             <div className="grid grid-cols-2 gap-3">
-              {results.map((drink) => (
-                <DrinkCard key={drink.id} drink={drink} />
+              {results.map((dish) => (
+                <DrinkCard key={dish.id} drink={dish} />
               ))}
             </div>
           ) : (
