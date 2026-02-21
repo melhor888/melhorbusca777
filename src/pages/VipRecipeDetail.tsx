@@ -1,6 +1,7 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { ArrowLeft, Crown, Clock, ChefHat, Wine, Lightbulb, Lock, ShoppingCart, Heart, Share2 } from "lucide-react";
+import CookingTimer from "@/components/CookingTimer";
 import { getVipDrinkById, getVipChefTip } from "@/data/vipDrinks";
 import { isVipUnlocked } from "@/utils/vipKeys";
 import VipTrialBanner from "@/components/VipTrialBanner";
@@ -228,6 +229,11 @@ export default function VipRecipeDetail() {
                 </li>
               ))}
             </ol>
+          </div>
+
+          {/* Cooking Timer - VIP Exclusive */}
+          <div className="mb-6">
+            <CookingTimer timeString={drink.time} />
           </div>
         </div>
       </div>
