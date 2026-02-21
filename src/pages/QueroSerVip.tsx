@@ -1,31 +1,30 @@
 import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
 import {
-  Crown, Star, Wine, Beer, Snowflake, Martini, Flame, IceCream, Globe, Trophy,
+  Crown, Star, Flame, Globe, Trophy,
   ShoppingCart, BookOpen, Heart, Lightbulb, ChefHat, Sparkles, ArrowRight,
-  MessageCircle, Check, Zap
+  MessageCircle, Check, Zap, UtensilsCrossed, Soup, Fish, Leaf, CakeSlice, Coffee
 } from "lucide-react";
 
 const vipBenefits = [
   {
     icon: Crown,
     title: "1.200+ Receitas Exclusivas",
-    description: "Acesso a 12 categorias VIP com 100 receitas cada, incluindo drinks de autor, sazonais e masterclass.",
+    description: "Acesso a 20 categorias VIP com receitas autênticas, incluindo pratos de autor, sazonais e masterclass.",
   },
   {
     icon: ChefHat,
     title: "Dicas do Chef em Cada Receita",
-    description: "Cada drink VIP vem com orientações de bartenders profissionais: copo ideal, temperatura e segredos do ofício.",
+    description: "Cada receita VIP vem com orientações de chefs profissionais: utensílio ideal, modo de servir e segredos do ofício.",
   },
   {
     icon: Sparkles,
     title: "Descrição VIP Detalhada",
-    description: "Saiba a história de cada drink, onde é mais consumido, em qual estação brilha e com o que harmoniza.",
+    description: "Saiba a história de cada prato, onde é mais consumido, em qual estação brilha e com o que harmoniza.",
   },
   {
-    icon: Wine,
+    icon: UtensilsCrossed,
     title: "Categorias Premium",
-    description: "Vinho & Sangrias, Frozen & Blended, Picantes & Defumados, Volta ao Mundo, Masterclass e muito mais.",
+    description: "Receitas Secretas, Masterclass Técnicas, Harmonização com Sake, Cardápios Completos e muito mais.",
   },
   {
     icon: Zap,
@@ -42,8 +41,8 @@ const vipBenefits = [
 const appFeatures = [
   {
     icon: BookOpen,
-    title: "400+ Receitas Gratuitas",
-    description: "Centenas de drinks clássicos e modernos disponíveis gratuitamente.",
+    title: "100+ Receitas Gratuitas",
+    description: "Dezenas de pratos clássicos da culinária japonesa disponíveis gratuitamente.",
   },
   {
     icon: ShoppingCart,
@@ -53,44 +52,44 @@ const appFeatures = [
   {
     icon: Heart,
     title: "Favoritos",
-    description: "Salve seus drinks preferidos e acesse rapidamente.",
+    description: "Salve seus pratos preferidos e acesse rapidamente.",
   },
   {
     icon: Lightbulb,
     title: "Dicas & Técnicas",
-    description: "Artigos sobre técnicas de bartender, utensílios e segredos profissionais.",
+    description: "Artigos sobre técnicas japonesas, utensílios e segredos profissionais.",
   },
   {
     icon: Globe,
-    title: "Quiz de Drinks",
-    description: "Teste seus conhecimentos sobre coquetéis e descubra novos sabores.",
+    title: "Quiz de Culinária",
+    description: "Teste seus conhecimentos sobre gastronomia japonesa e descubra novos sabores.",
   },
   {
-    icon: Martini,
+    icon: Fish,
     title: "Busca por Ingredientes",
-    description: "Encontre drinks com o que você já tem em casa.",
+    description: "Encontre receitas com o que você já tem em casa.",
   },
 ];
 
 const vipCategories = [
-  { name: "Vinho & Sangrias", icon: Wine, color: "from-rose-500 to-red-700" },
-  { name: "Cerveja & Beer Cocktails", icon: Beer, color: "from-amber-400 to-yellow-600" },
-  { name: "Frozen & Blended", icon: Snowflake, color: "from-cyan-400 to-blue-600" },
-  { name: "Drinks de Autor", icon: Martini, color: "from-violet-500 to-purple-700" },
+  { name: "Receitas Secretas", icon: Sparkles, color: "from-violet-500 to-purple-700" },
+  { name: "Masterclass Técnicas", icon: Trophy, color: "from-yellow-500 to-amber-700" },
+  { name: "Harmonização com Sake", icon: Coffee, color: "from-rose-500 to-red-700" },
+  { name: "Cardápios Completos", icon: UtensilsCrossed, color: "from-emerald-500 to-green-700" },
+  { name: "Clássicos Reinventados", icon: Star, color: "from-amber-400 to-yellow-600" },
+  { name: "Tropical & Tiki", icon: Leaf, color: "from-cyan-400 to-blue-600" },
   { name: "Picantes & Defumados", icon: Flame, color: "from-orange-500 to-red-600" },
-  { name: "Sobremesa & Doces", icon: IceCream, color: "from-pink-400 to-fuchsia-600" },
-  { name: "Volta ao Mundo", icon: Globe, color: "from-cyan-400 to-blue-600" },
-  { name: "Masterclass", icon: Trophy, color: "from-yellow-500 to-amber-700" },
+  { name: "Sobremesa & Doces", icon: CakeSlice, color: "from-pink-400 to-fuchsia-600" },
 ];
 
-const WHATSAPP_URL = "https://wa.me/5527995055993?text=Ol%C3%A1!%20Quero%20ser%20VIP%20no%20Drink%20Quest!";
+const WHATSAPP_URL = "https://wa.me/5527995055993?text=Ol%C3%A1!%20Quero%20ser%20VIP%20no%20Nihon%20Food!";
 
 export default function QueroSerVip() {
   return (
     <>
       <Helmet>
         <title>Quero Ser VIP | Nihon Food</title>
-        <meta name="description" content="Desbloqueie receitas exclusivas, dicas do chef e categorias premium. Torne-se VIP no Nihon Food." />
+        <meta name="description" content="Desbloqueie receitas exclusivas da culinária japonesa, dicas do chef e categorias premium. Torne-se VIP no Nihon Food." />
       </Helmet>
 
       <main className="pb-32 lg:pb-12">
@@ -108,8 +107,8 @@ export default function QueroSerVip() {
               </span>
             </h1>
             <p className="text-muted-foreground mt-4 text-base leading-relaxed max-w-md mx-auto">
-              Desbloqueie um universo de <strong className="text-foreground">1.200+ receitas exclusivas</strong>, 
-              dicas de bartenders profissionais e categorias premium que você não encontra em nenhum outro lugar.
+              Desbloqueie um universo de <strong className="text-foreground">1.200+ receitas exclusivas</strong> da culinária japonesa, 
+              dicas de chefs profissionais e categorias premium que você não encontra em nenhum outro lugar.
             </p>
             <a
               href={WHATSAPP_URL}
@@ -155,9 +154,9 @@ export default function QueroSerVip() {
           <div className="max-w-2xl mx-auto">
             <div className="text-center mb-8">
               <h2 className="font-display text-xl font-bold text-foreground">
-                12 Categorias Premium
+                20 Categorias Premium
               </h2>
-              <p className="text-muted-foreground text-sm mt-2">100 receitas em cada categoria</p>
+              <p className="text-muted-foreground text-sm mt-2">Receitas autênticas em cada categoria</p>
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
               {vipCategories.map((cat, i) => {
@@ -172,7 +171,7 @@ export default function QueroSerVip() {
                 );
               })}
             </div>
-            <p className="text-center text-xs text-muted-foreground mt-4">+ 4 categorias adicionais</p>
+            <p className="text-center text-xs text-muted-foreground mt-4">+ 12 categorias adicionais</p>
           </div>
         </section>
 
@@ -218,10 +217,10 @@ export default function QueroSerVip() {
                 <div className="p-3 text-yellow-500 bg-yellow-500/5">VIP ★</div>
               </div>
               {[
-                ["Receitas", "400+", "1.600+"],
-                ["Dicas do Chef", "—", "✓"],
+                ["Receitas", "100+", "1.300+"],
+                ["Dicas do Chef", "Parcial", "✓ Completo"],
                 ["Descrição VIP", "—", "✓"],
-                ["Categorias", "8", "20"],
+                ["Categorias", "8", "28"],
                 ["Lista de Compras", "✓", "✓"],
                 ["Favoritos", "✓", "✓"],
                 ["Atualizações", "✓", "✓ Prioritário"],
