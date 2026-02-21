@@ -5,8 +5,8 @@ export default function TermosDeUso() {
   return (
     <>
       <Helmet>
-        <title>Termos de Uso - Nihon Food</title>
-        <meta name="description" content="Termos de Uso da Nihon Food. Condições de utilização do site, direitos e responsabilidades dos usuários." />
+        <title>Termos de Uso - Receitas Japonesas XP</title>
+        <meta name="description" content="Termos de Uso do Receitas Japonesas XP. Condições de utilização do site, direitos e responsabilidades dos usuários." />
         <link rel="canonical" href="https://japanfood.lovable.app/termos" />
       </Helmet>
       <div className="min-h-screen pb-20">
@@ -18,12 +18,12 @@ export default function TermosDeUso() {
           <div className="space-y-6 text-secondary-foreground leading-relaxed text-sm">
             <section>
               <h2 className="text-lg font-display font-semibold text-foreground mb-2">1. Aceitação dos Termos</h2>
-              <p>Ao acessar e utilizar o site Nihon Food ("Site"), você concorda com estes Termos de Uso. Se não concordar com qualquer parte destes termos, não utilize o Site. O uso continuado após alterações constitui aceitação das modificações.</p>
+              <p>Ao acessar e utilizar o site Receitas Japonesas XP ("Site"), você concorda com estes Termos de Uso. Se não concordar com qualquer parte destes termos, não utilize o Site. O uso continuado após alterações constitui aceitação das modificações.</p>
             </section>
 
             <section>
               <h2 className="text-lg font-display font-semibold text-foreground mb-2">2. Descrição do Serviço</h2>
-              <p>A Nihon Food é uma plataforma online que oferece receitas de comida japonesa, artigos educacionais sobre culinária e cultura japonesa, dicas de chefs profissionais e conteúdo relacionado ao universo da gastronomia do Japão. O conteúdo é disponibilizado gratuitamente e monetizado através de publicidade.</p>
+              <p>O Receitas Japonesas XP é uma plataforma online que oferece receitas de comida japonesa, artigos educacionais sobre culinária e cultura japonesa, dicas de chefs profissionais e conteúdo relacionado ao universo da gastronomia do Japão. O conteúdo é disponibilizado gratuitamente e monetizado através de publicidade.</p>
             </section>
 
             <section>
@@ -33,7 +33,7 @@ export default function TermosDeUso() {
 
             <section>
               <h2 className="text-lg font-display font-semibold text-foreground mb-2">4. Propriedade Intelectual</h2>
-              <p>Todo o conteúdo do Site, incluindo textos, receitas, imagens, logotipos, design, código-fonte e materiais audiovisuais são protegidos por direitos autorais e pertencem à Nihon Food ou são utilizados com autorização. É proibida a reprodução, distribuição ou uso comercial sem autorização expressa.</p>
+              <p>Todo o conteúdo do Site, incluindo textos, receitas, imagens, logotipos, design, código-fonte e materiais audiovisuais são protegidos por direitos autorais e pertencem ao Receitas Japonesas XP ou são utilizados com autorização. É proibida a reprodução, distribuição ou uso comercial sem autorização expressa.</p>
             </section>
 
             <section>
@@ -65,12 +65,12 @@ export default function TermosDeUso() {
 
             <section>
               <h2 className="text-lg font-display font-semibold text-foreground mb-2">8. Alergias e Segurança Alimentar</h2>
-              <p>O conteúdo do Site é informativo e educacional. A Nihon Food não se responsabiliza por reações alérgicas ou adversas a qualquer ingrediente. Sempre verifique os ingredientes antes de preparar qualquer receita, especialmente se você possui alergias ou intolerâncias alimentares.</p>
+              <p>O conteúdo do Site é informativo e educacional. O Receitas Japonesas XP não se responsabiliza por reações alérgicas ou adversas a qualquer ingrediente. Sempre verifique os ingredientes antes de preparar qualquer receita, especialmente se você possui alergias ou intolerâncias alimentares.</p>
             </section>
 
             <section>
               <h2 className="text-lg font-display font-semibold text-foreground mb-2">9. Isenção de Responsabilidade</h2>
-              <p>As receitas e informações são fornecidas "como estão", sem garantias de qualquer tipo. A Nihon Food não se responsabiliza por resultados obtidos ao seguir as receitas, reações alérgicas, ou qualquer dano decorrente do uso das informações do Site.</p>
+              <p>As receitas e informações são fornecidas "como estão", sem garantias de qualquer tipo. O Receitas Japonesas XP não se responsabiliza por resultados obtidos ao seguir as receitas, reações alérgicas, ou qualquer dano decorrente do uso das informações do Site.</p>
             </section>
 
             <section>
@@ -90,7 +90,7 @@ export default function TermosDeUso() {
 
             <section>
               <h2 className="text-lg font-display font-semibold text-foreground mb-2">13. Contato</h2>
-              <p>Dúvidas sobre estes Termos podem ser enviadas para: <strong>contato@nihonfood.com.br</strong></p>
+              <p>Dúvidas sobre estes Termos podem ser enviadas para: <strong>contato@receitasjaponesasxp.com.br</strong></p>
             </section>
           </div>
         </div>

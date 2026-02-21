@@ -82,14 +82,14 @@ const vipCategories = [
   { name: "Sobremesa & Doces", icon: CakeSlice, color: "from-pink-400 to-fuchsia-600" },
 ];
 
-const WHATSAPP_URL = "https://wa.me/5527995055993?text=Ol%C3%A1!%20Quero%20ser%20VIP%20no%20Nihon%20Food!";
+const WHATSAPP_URL = "https://wa.me/5527995055993?text=Ol%C3%A1!%20Quero%20ser%20VIP%20no%20Receitas%20Japonesas%20XP!";
 
 export default function QueroSerVip() {
   return (
     <>
       <Helmet>
-        <title>Quero Ser VIP | Nihon Food</title>
-        <meta name="description" content="Desbloqueie receitas exclusivas da culinária japonesa, dicas do chef e categorias premium. Torne-se VIP no Nihon Food." />
+        <title>Quero Ser VIP | Receitas Japonesas XP</title>
+        <meta name="description" content="Desbloqueie receitas exclusivas da culinária japonesa, dicas do chef e categorias premium. Torne-se VIP no Receitas Japonesas XP." />
       </Helmet>
 
       <main className="pb-32 lg:pb-12">

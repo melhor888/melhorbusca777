@@ -5,8 +5,8 @@ export default function PoliticaCookies() {
   return (
     <>
       <Helmet>
-        <title>Política de Cookies - Nihon Food</title>
-        <meta name="description" content="Política de Cookies da Nihon Food. Saiba quais cookies utilizamos e como gerenciá-los." />
+        <title>Política de Cookies - Receitas Japonesas XP</title>
+        <meta name="description" content="Política de Cookies do Receitas Japonesas XP. Saiba quais cookies utilizamos e como gerenciá-los." />
         <link rel="canonical" href="https://japanfood.lovable.app/cookies" />
       </Helmet>
       <div className="min-h-screen pb-20">
@@ -85,7 +85,7 @@ export default function PoliticaCookies() {
 
             <section>
               <h2 className="text-lg font-display font-semibold text-foreground mb-2">7. Contato</h2>
-              <p>Dúvidas sobre cookies: <strong>privacidade@nihonfood.com.br</strong></p>
+              <p>Dúvidas sobre cookies: <strong>privacidade@receitasjaponesasxp.com.br</strong></p>
             </section>
           </div>
         </div>

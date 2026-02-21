@@ -103,7 +103,7 @@ export default function Achievements() {
   return (
     <div className="min-h-screen pb-24">
       <Helmet>
-        <title>Todas as Conquistas | Nihon Food</title>
+        <title>Todas as Conquistas | Receitas Japonesas XP</title>
         <meta name="description" content="Veja todas as conquistas disponíveis, requisitos de XP e nível para desbloquear cada uma." />
       </Helmet>
 

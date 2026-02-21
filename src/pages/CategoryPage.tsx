@@ -40,7 +40,7 @@ export default function CategoryPage() {
   return (
     <>
       <Helmet>
-        <title>{category} - Receitas Japonesas | Nihon Food</title>
+        <title>{category} - Receitas Japonesas | Receitas Japonesas XP</title>
         <meta
           name="description"
           content={`Descubra ${dishes.length} receitas na categoria ${category}. Pratos autênticos da culinária japonesa.`}

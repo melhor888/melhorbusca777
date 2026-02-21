@@ -46,7 +46,7 @@ export default function Index() {
   return (
     <>
       <Helmet>
-        <title>Nihon Food - Receitas de Comida Japonesa Autêntica</title>
+        <title>Receitas Japonesas XP - Receitas de Comida Japonesa Autêntica</title>
         <meta name="description" content="Descubra receitas autênticas da culinária japonesa. Sushi, ramen, tempurá, yakitori e muito mais. Aprenda técnicas profissionais." />
       </Helmet>
       <div className="min-h-screen pb-20">

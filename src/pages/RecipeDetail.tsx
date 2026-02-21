@@ -59,7 +59,7 @@ export default function RecipeDetail() {
   const inCart = isInList(dish.id);
   const chefTip = getChefTip(dish.id);
   const handleShare = async () => {
-    const text = `🍣 ${dish.name}\n\nIngredientes:\n${dish.ingredients.join("\n")}\n\nConfira no Nihon Food!`;
+    const text = `🍣 ${dish.name}\n\nIngredientes:\n${dish.ingredients.join("\n")}\n\nConfira no Receitas Japonesas XP!`;
     if (navigator.share) {
       await navigator.share({ title: dish.name, text });
     } else {
@@ -67,12 +67,12 @@ export default function RecipeDetail() {
     }
   };
 
-  const ogDescription = `Aprenda a fazer ${dish.name}: ${dish.ingredients.slice(0, 3).join(", ")}. Receita completa no Nihon Food.`;
+  const ogDescription = `Aprenda a fazer ${dish.name}: ${dish.ingredients.slice(0, 3).join(", ")}. Receita completa no Receitas Japonesas XP.`;
 
   return (
     <div className="min-h-screen pb-24">
       <Helmet>
-        <title>{dish.name} - Receita Japonesa | Nihon Food</title>
+        <title>{dish.name} - Receita Japonesa | Receitas Japonesas XP</title>
         <meta name="description" content={ogDescription} />
       </Helmet>
       <XPToast xp={xpGained} show={showXP} onClose={() => setShowXP(false)} />

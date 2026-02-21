@@ -2,12 +2,12 @@ export function WebsiteSchema() {
   const data = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: "Nihon Food",
-    url: "https://nihonfood.lovable.app",
+    name: "Receitas Japonesas XP",
+    url: "https://japanfood.lovable.app",
     description: "Receitas autênticas de comida japonesa, técnicas culinárias, cultura e gastronomia do Japão.",
     potentialAction: {
       "@type": "SearchAction",
-      target: "https://nihonfood.lovable.app/search?q={search_term_string}",
+      target: "https://japanfood.lovable.app/search?q={search_term_string}",
       "query-input": "required name=search_term_string",
     },
   };
@@ -18,11 +18,11 @@ export function OrganizationSchema() {
   const data = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: "Nihon Food",
-    url: "https://nihonfood.lovable.app",
+    name: "Receitas Japonesas XP",
+    url: "https://japanfood.lovable.app",
     contactPoint: {
       "@type": "ContactPoint",
-      email: "contato@nihonfood.com.br",
+      email: "contato@receitasjaponesasxp.com.br",
       contactType: "customer service",
       availableLanguage: "Portuguese",
     },
