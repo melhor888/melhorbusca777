@@ -25,16 +25,16 @@ export default defineConfig(({ mode }) => ({
         maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
       },
       manifest: {
-        name: "Drink Quest",
-        short_name: "Drink Quest",
-        description: "Descubra receitas de drinks e coquetéis incríveis",
+        name: "Nihon Food",
+        short_name: "Nihon Food",
+        description: "Descubra receitas autênticas da culinária japonesa",
         theme_color: "#0f1318",
         background_color: "#0f1318",
         lang: "pt",
         display: "standalone",
         orientation: "portrait",
         scope: "/",
-        start_url: "https://drinkseco.lovable.app/",
+        start_url: "https://japanfood.lovable.app/",
         icons: [
           {
             src: "/pwa-192x192.png",
