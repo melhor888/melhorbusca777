@@ -271,5 +271,22 @@
     "cultureAch": "Cultura",
     "schoolAch": "Escola",
     "specialAch": "Especiais"
+  },
+  "shopping_list": {
+    "title": "Lista de Compras",
+    "seoTitle": "Lista de Compras | Receitas MexicanasXP",
+    "seoDesc": "Monte sua lista de compras com os ingredientes das receitas selecionadas.",
+    "organization": "Organização",
+    "recipesCount": "{{count}} receita",
+    "recipesCount_plural": "{{count}} receitas",
+    "ingredientsCount": "{{count}} ingredientes",
+    "addRecipesHint": "Adicione receitas para montar sua lista",
+    "noRecipes": "Nenhuma receita selecionada",
+    "noRecipesHint": "Abra uma receita e toque no ícone 🛒 para adicionar ingredientes à sua lista de compras.",
+    "explore": "Explorar Receitas",
+    "selectedRecipes": "Receitas Selecionadas",
+    "ingredients": "Ingredientes",
+    "copied": "Lista copiada!",
+    "copyHeader": "🛒 Lista de Compras - Receitas MexicanasXP"
   }
 }
