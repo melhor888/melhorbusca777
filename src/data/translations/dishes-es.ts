@@ -382,4 +382,143 @@ export const dishTranslationsES: Record<string, DishTranslation> = {
     steps: ["El Día de Muertos (1-2 de noviembre) es patrimonio UNESCO.", "Las ofrendas incluyen la comida favorita del difunto.", "Pan de muerto es pan decorado con 'huesos' de masa.", "Calaveritas de azúcar son calaveras decoradas.", "Cada región celebra de forma diferente.", "Es celebración de la vida, no luto."],
     description: "La gastronomía del Día de Muertos — cómo la comida conecta a vivos y muertos en la tradición mexicana."
   },
+
+  // ============ ESCUELA MEXICANA ============
+  "curso-basico": {
+    name: "🎓 Desafío: Cocina Mexicana Básica",
+    ingredients: ["Masa harina (2 tazas)", "Agua tibia (1¼ tazas)", "Frijol negro (500g)", "Manteca o aceite", "Arroz (2 tazas)", "Tomate (4 und)", "Caldo de pollo (4 tazas)", "Aguacate (3 und)", "Cebolla blanca", "Cilantro fresco", "Limón (4 und)", "Chile jalapeño", "Queso Oaxaca o mozzarella", "Comino molido", "Orégano mexicano", "Chile ancho en polvo"],
+    steps: [
+      "🎯 DESAFÍO: ¡Prepara una cena mexicana completa para 4 personas siguiendo los 6 módulos!",
+      "📘 Módulo 1 — Tortillas Artesanales: Mezcla 2 tazas de masa harina + 1¼ tazas de agua tibia + ½ cucharadita de sal. Amasa 5 min hasta que quede lisa como plastilina. Haz bolitas de 35g, presiona en tortillera forrada con plástico grueso hasta 2mm. Cocina en comal bien caliente sin aceite: 30s primer lado → voltea → 1 min → voltea nuevamente → 30s (¡debe inflarse!). Guarda en un trapo limpio.",
+      "📘 Módulo 2 — Base de Frijol y Arroz: FRIJOLES REFRITOS — Cocina 500g de frijol negro en olla de presión con cebolla y ajo por 30 min. Fríe ½ cebolla picada en manteca, agrega frijoles con caldo y machaca con tenedor. ARROZ MEXICANO — Lava 2 tazas de arroz. Licua 2 tomates con ¼ de cebolla. Fríe el arroz hasta dorar, agrega el tomate licuado. Vierte caldo caliente 2:1, tapa y cocina a fuego bajo 18 min sin mover.",
+      "📘 Módulo 3 — Salsas Frescas: GUACAMOLE — Machaca 3 aguacates con tenedor, mezcla ½ cebolla picada, 1 tomate en cubos, cilantro, jugo de 1 limón, sal y ½ jalapeño. PICO DE GALLO — 3 tomates + ½ cebolla + cilantro + limón + jalapeño en cubos uniformes. SALSA ROJA — Asa 4 tomates y 2 chiles en comal hasta carbonizar. Licua con ajo y sal.",
+      "📘 Módulo 4 — Montaje de Tacos y Quesadillas: Calienta tortillas en comal 15s de cada lado, rellena con frijoles + queso + salsa. QUESADILLAS — Tortilla en comal con queso Oaxaca deshebrado, dobla a la mitad, asa 2 min cada lado.",
+      "📘 Módulo 5 — Condimentos Esenciales: COMINO — sabor terroso para frijoles y carnes. ORÉGANO MEXICANO — más cítrico e intenso. CHILE ANCHO EN POLVO — dulce y ahumado, base de adobos. EPAZOTE — hierba fuerte, usa con moderación. Regla: tuesta especias 30s en comal para intensificar aroma.",
+      "📘 Módulo 6 — Práctica Final: Monta la mesa con todo: tortillas en tortillero, salsas en molcajetes, arroz y frijoles en ollas de barro. Decora con papel picado. Acompaña con agua de horchata o limonada con chía.",
+      "🏆 ¿Completaste? ¡Dominaste las bases! Avanza al Curso Intermedio."
+    ],
+    description: "🎯 ¡DESAFÍO completo para principiantes! Prepara una cena mexicana desde cero — tortillas, salsas, arroz, frijoles y montaje de tacos."
+  },
+  "curso-intermediario": {
+    name: "🎓 Desafío: Cocina Intermedia",
+    ingredients: ["Tortillas de maíz (24 und)", "Pollo (1kg)", "Tomatillo (500g)", "Chile poblano (6 und)", "Crema ácida (400ml)", "Queso para gratinar", "Manteca de cerdo (500g)", "Pierna de cerdo (2kg)", "Naranja (4 und)", "Chiles secos: ancho, guajillo, mulato, pasilla", "Cacahuate (100g)", "Chocolate amargo (50g)", "Hoja de plátano", "Masa harina (1kg)"],
+    steps: [
+      "🎯 DESAFÍO: ¡Prepara un banquete mexicano intermedio con 6 preparaciones completas!",
+      "📘 Módulo 1 — Enchiladas con 3 Salsas: ROJAS — Hidrata 4 guajillo + 2 ancho en agua caliente 20 min, licua con ajo y sal. Fríe 3 min. Pasa tortillas por la salsa, rellena con pollo deshebrado, enrolla. VERDES — Cuece 500g tomatillos + 2 serranos + ½ cebolla 10 min, licua con cilantro. SUIZAS — Salsa verde + 200ml crema ácida + queso gratinado, hornea a 200°C por 15 min.",
+      "📘 Módulo 2 — Tamales de Pollo: Bate 500g masa harina + 200g manteca batida + caldo de pollo hasta masa suave. Unta 3 cucharadas en hoja de maíz, coloca pollo en salsa verde al centro, cierra. Cocina al vapor 1h.",
+      "📘 Módulo 3 — Carnitas Estilo Michoacán: Corta 2kg de pierna en cubos grandes. Derrite 500g manteca, agrega carne + jugo de 4 naranjas + 1 taza leche + 4 ajos + sal. Cocina a fuego bajo 3h sin tapar. Deshebra cuando esté dorada.",
+      "📘 Módulo 4 — Mole Simplificado (12 ingredientes): Tuesta en comal: 3 ancho + 2 guajillo + 1 pasilla. Hidrata 20 min. Fríe tomates, cebolla, ajos. Agrega cacahuate + tortilla vieja + especias. Licua todo. Fríe la pasta, agrega caldo. Final: 30g chocolate amargo + sal. Cocina 15 min.",
+      "📘 Módulo 5 — Chiles Rellenos: Asa 6 poblanos directo en la llama hasta que la piel esté negra. Mete en bolsa 10 min. Pela, corta, retira semillas. Rellena con queso Oaxaca. Capea con claras batidas a punto de nieve. Fríe a 180°C hasta dorar.",
+      "📘 Módulo 6 — Menú para 12: ENTRADA — Guacamole + totopos + sopa de tortilla. PRINCIPAL — Enchiladas suizas + carnitas + arroz + frijoles. POSTRE — Flan mexicano. Calcula 300g proteína + 100g arroz + 100g frijoles por persona.",
+      "🏆 ¿Completaste? ¡Cocinas como un chef! ¿Listo para el Avanzado?"
+    ],
+    description: "🎯 ¡DESAFÍO intermedio completo! Enchiladas con 3 salsas, tamales, carnitas michoacanas, mole y chiles rellenos."
+  },
+  "curso-avancado": {
+    name: "🎓 Desafío: Cocina Avanzada",
+    ingredients: ["Chiles: negro, mulato, chipotle, ancho, guajillo, pasilla (30+)", "Achiote en pasta (200g)", "Naranja agria (6)", "Hoja de plátano", "Pierna de cerdo (3kg)", "Borrego (2kg)", "Pencas de maguey", "Carne para birria (2kg)", "Maíz para nixtamal (1kg)", "Cal viva (50g)", "Nueces de Castilla (500g)", "Granada (4)", "Frutas cristalizadas", "Tequila reposado", "Mezcal artesanal"],
+    steps: [
+      "🎯 DESAFÍO SUPREMO: ¡Los platillos más complejos de México! ¡Cada módulo es un proyecto de 1-3 días!",
+      "📘 Módulo 1 — Mole Negro Oaxaqueño (3 días): DÍA 1 — Tuesta hasta NEGROS: 6 chilhuacle negro + 4 mulato + 4 pasilla. Tuesta 1 tortilla hasta carbón + 1 pan hasta negro. Hidrata 2h. DÍA 2 — Fríe por separado: cacahuate + ajonjolí + pasas + almendras + especias + tomates + cebolla + ajos. Licua todo. DÍA 3 — Fríe la pasta en manteca 30 min sin parar. Agrega caldo de guajolote (2L). Incorpora chocolate + hoja de aguacate + sal. Cocina 2h.",
+      "📘 Módulo 2 — Cochinita Pibil Auténtica: Pasta de achiote casera con semillas tostadas + ajo asado + jugo de naranja agria + especias. Marina 3kg pierna 12h. Envuelve en hoja de plátano. Hornea a 160°C por 5h. Sirve con cebolla morada curtida.",
+      "📘 Módulo 3 — Barbacoa y Birria: BARBACOA — 2kg borrego marinado con chiles, envuelto en maguey, al vapor 8h. BIRRIA — Chiles hidratados licuados con tomate y especias, marina carne 4h, cocina en caldo 4h. Para tacos de birria: sumerge tortilla en consomé con grasa y fríe en comal.",
+      "📘 Módulo 4 — Chiles en Nogada: Picadillo con carne molida + frutas + pasas + almendras + especias. Rellena poblanos. NOGADA — Nueces de Castilla peladas + queso de cabra + leche + jerez. Decora con granada y perejil. ¡Los 3 colores de la bandera!",
+      "📘 Módulo 5 — Nixtamalización: Hierve 2L agua + 50g cal. Agrega 1kg maíz. Cocina 35 min. Reposa 12h. Lava 3 veces frotando. Muele en molino fino. Haz tortillas y nota la diferencia incomparable.",
+      "📘 Módulo 6 — Maridaje con Destilados: TEQUILA BLANCO — ceviche y aguachile. REPOSADO — tacos al pastor y carnitas. MEZCAL JOVEN — mole negro y tlayuda. MEZCAL AÑEJO — postres. PULQUE — antojitos callejeros.",
+      "🏆 ¿Completaste? ¡Eres un maestro de la cocina mexicana! 🇲🇽"
+    ],
+    description: "🎯 ¡DESAFÍO SUPREMO! Mole negro de 3 días, nixtamalización, chiles en nogada y maridaje con destilados."
+  },
+  "tecnica-tortilla-pro": {
+    name: "🔥 Desafío: Tortilla Perfecta",
+    ingredients: ["Masa harina (500g)", "Maíz para nixtamalizar (500g)", "Cal viva (25g)", "Tortillera/prensa", "Comal de barro o hierro", "Plástico grueso cortado", "Agua tibia"],
+    steps: [
+      "🎯 DESAFÍO: ¡Haz 20 tortillas que se inflen en el comal!",
+      "📘 Prepara la Masa: 2 tazas masa harina + 1¼ tazas agua tibia + ½ cucharadita sal. Amasa 5 min. Consistencia de plastilina. Si se agrieta = más agua. Si se pega = más masa. Cubre con trapo húmedo. Reposa 15 min.",
+      "📘 Prensa y Técnica: Forra con plástico grueso. Bolita de 35g, presión firme y uniforme a 2mm. Sin prensa: tabla de cortar + olla pesada. Despega despacio del plástico.",
+      "📘 Comal y el Secreto de Inflar: Comal a fuego medio-alto. SIN ACEITE. 30s → voltea → 1 min (burbujas) → voltea → 30s (¡DEBE INFLARSE!). Si no infla: comal poco caliente, masa muy gruesa o seca.",
+      "📘 Variedades de Maíz: AZUL — más terroso y dulce, ideal para quesadillas. BLANCO — neutro y versátil, el más común. AMARILLO — más dulce, común en EE.UU.",
+      "🏆 ¿Todas se inflaron? ¡Dominaste el arte ancestral de la tortilla!"
+    ],
+    description: "🎯 DESAFÍO: ¡Domina la tortilla perfecta! Masa, prensa, comal y el secreto para inflar."
+  },
+  "tecnica-molhos-salsas": {
+    name: "🔥 Desafío: 10 Salsas en 1 Día",
+    ingredients: ["Tomate (1kg)", "Tomatillo (500g)", "Chiles: ancho, guajillo, chipotle, habanero, serrano, de árbol", "Molcajete", "Licuadora", "Cilantro fresco", "Ajo y cebolla", "Cacahuate (100g)", "Mango maduro (2)", "Aceite vegetal"],
+    steps: [
+      "🎯 DESAFÍO: ¡10 salsas diferentes en un día!",
+      "📘 Salsa 1 — Pico de Gallo: 4 tomates + ½ cebolla + cilantro + jalapeño + limón + sal. Todo en cubos de 5mm. No licues — es salsa cruda cortada a mano.",
+      "📘 Salsa 2 — Roja Asada: Asa en comal: 4 tomates + 2 guajillo + 1 ancho + 3 ajos + ½ cebolla hasta carbonizar. Machaca en molcajete o licua con sal.",
+      "📘 Salsa 3 — Verde Cruda: Cuece 500g tomatillos + 3 serranos 8 min. Licua con cilantro + cebolla + ajo + sal.",
+      "📘 Salsa 4 — Macha Veracruzana: Fríe en aceite: 10 chiles de árbol + 5 morita + cacahuate + ajos. Licua toscamente. Agrega sal y vinagre. Se conserva por meses.",
+      "📘 Salsas 5-10: 5) GUACAMOLE clásico. 6) HABANERO-MANGO — habaneros asados + mango + vinagre (¡usa guantes!). 7) BORRACHA — pasilla tostados + jugo de naranja + pulque. 8) MORITA AHUMADA. 9) CHIPOTLE CREMOSA — chipotles en adobo + crema ácida. 10) MOLE RÁPIDO — ancho + guajillo + cacahuate + chocolate + tortilla frita.",
+      "🏆 ¿Hiciste las 10? ¡Maestra de las salsas!"
+    ],
+    description: "🎯 DESAFÍO: ¡10 salsas mexicanas en 1 día! Del pico de gallo al mole rápido."
+  },
+  "uso-pimentas-pro": {
+    name: "🌶️ Desafío: Maestro de los Chiles",
+    ingredients: ["Chile ancho (seco, dulce — SHU 1.500)", "Chile guajillo (seco, afrutado — SHU 5.000)", "Chile chipotle (ahumado — SHU 8.000)", "Chile habanero (MUY picante — SHU 300.000)", "Chile serrano (fresco, picante — SHU 15.000)", "Chile poblano (fresco, suave — SHU 1.500)", "Chile pasilla (seco, terroso — SHU 2.500)", "Chile de árbol (seco, ardiente — SHU 30.000)", "Chile cascabel (seco, ahumado — SHU 3.000)", "Chile morita (chipotle pequeño — SHU 10.000)"],
+    steps: [
+      "🎯 DESAFÍO: ¡Identifica, tuesta y cocina con 10 chiles!",
+      "📘 Identificación: ANCHO — poblano seco, dulce, base de moles. GUAJILLO — largo, afrutado, el más usado. CHIPOTLE — jalapeño ahumado, sabor profundo. HABANERO — extremadamente picante. SERRANO — picante directo, para salsas crudas. POBLANO — grande, suave, para rellenar. PASILLA — casi negro, terroso. ÁRBOL — delgado, picante. CASCABEL — redondo, amaderado. MORITA — chipotle pequeño, más ahumado.",
+      "📘 Tostado: Chiles SECOS: 15-30s cada lado en comal hasta flexibles. NO QUEMES. Chiles FRESCOS: asa directo en llama hasta piel negra.",
+      "📘 Hidratación: Agua caliente (80°C), tapa y espera 20-30 min. GUARDA EL AGUA — ¡es oro líquido!",
+      "📘 3 Preparaciones: ADOBO ROJO — ancho+guajillo+pasilla hidratados + tomate + ajo + especias. TINGA — chipotle+tomate+pollo deshebrado. SALSA HABANERO — habaneros asados + mango + vinagre (¡con guantes!). 5 combinaciones clásicas: 1) Ancho+guajillo, 2) Chipotle+tomate, 3) Guajillo+árbol, 4) Ancho+pasilla+mulato, 5) Habanero+cítricos.",
+      "📘 Equilibrio: ¿Muy picante? Agrega crema, queso, aguacate, azúcar o más tomate. NUNCA agua. Empieza con chiles suaves, agrega medios, finaliza con picantes.",
+      "🏆 ¿Usaste los 10? ¡Maestro de los Chiles! 🌶️"
+    ],
+    description: "🎯 DESAFÍO: ¡Domina 10 chiles mexicanos! Perfil de sabor, tostado, hidratación y combinaciones."
+  },
+  "fermentacoes-mex": {
+    name: "🔥 Desafío: Fermentaciones Ancestrales",
+    ingredients: ["Cáscaras de 2 piñas", "Piloncillo (300g)", "Clavo (6) y canela (2 rajas)", "Jalapeños frescos (500g)", "Vinagre blanco (500ml)", "Zanahoria (3) y cebolla (2)", "Sal gruesa sin yodo", "Tomate (500g)", "Chile habanero (3)", "Ajo (1 cabeza)"],
+    steps: [
+      "🎯 DESAFÍO: ¡3 fermentaciones en 7 días!",
+      "📘 Tepache (Días 1-3): Cáscaras de piña en frasco de 3L con agua + piloncillo + canela + clavo. Tapa con trapo y liga. 25-30°C. Día 2: espuma blanca = normal. Día 3: prueba — ligeramente ácido y efervescente. Cuela y refrigera. Moho negro/rosa/verde = desecha todo.",
+      "📘 Chiles en Escabeche (Días 1-5): Jalapeños en rodajas + zanahoria + cebolla. Hierve vinagre + agua + sal + especias. Vierte HIRVIENDO sobre vegetales en frascos esterilizados. Refrigerados duran 6+ meses.",
+      "📘 Salsa Lacto-Fermentada (Días 1-7): Tomate + habaneros + ajo + cebolla picados. Sal al 3% del peso. NO sal yodada. Prensa para sumergir en líquido. Tapa flojo. Días 5-7: sabor complejo ácido y picante. Refrigera al gusto.",
+      "📘 Seguridad: Esteriliza frascos. Todo sumergido. Espuma blanca = normal. DESECHA si: moho negro/rosa/verde, olor podrido, textura viscosa.",
+      "🏆 ¿Completaste las 3? ¡Dominaste técnicas de 2.000 años!"
+    ],
+    description: "🎯 DESAFÍO: ¡3 fermentaciones ancestrales en 7 días! Tepache, escabeche y salsa lacto-fermentada."
+  },
+  "processos-tradicionais": {
+    name: "🔥 Desafío: Utensilios Ancestrales",
+    ingredients: ["Molcajete de piedra volcánica", "Arroz crudo (para curar)", "Tomate (4)", "Chile serrano (3)", "Ajo (4 dientes)", "Sal gruesa", "Chocolate mexicano en tablilla (2)", "Molinillo de madera", "Leche caliente (1L)", "Comal de barro o hierro"],
+    steps: [
+      "🎯 DESAFÍO: ¡Cocina con 3 utensilios ancestrales!",
+      "📘 Molcajete: CURAR — Muele arroz crudo 15 min hasta que salga blanco. Repite 3-4 veces. SALSA — 1º sal+ajo → 2º chiles serrano asados → 3º tomates asados. Machaca, no tritures. El sabor es superior al de la licuadora. Nunca laves con jabón.",
+      "📘 Molinillo: Disuelve chocolate en leche caliente. Gira el molinillo entre las palmas 3-5 min hasta espuma densa y cremosa. Sirve en jícara de barro.",
+      "📘 Comal: CURAR NUEVO — Barro: calienta gradualmente 30 min. Hierro: unta aceite y calienta 3 veces. TATEAR — Tomates enteros 15-20 min girando. Chiles secos 15-30s cada lado. Cebolla cortada 10 min. Ajo con cáscara 8 min. Todo tatemado = base de salsa auténtica.",
+      "🏆 ¿Usaste los 3? ¡Cocinaste como hace 3.000 años! Son tecnología mesoamericana."
+    ],
+    description: "🎯 DESAFÍO: ¡Molcajete, molinillo y comal — utensilios y técnicas milenarias!"
+  },
+  "conservacao-alimentos": {
+    name: "🔥 Desafío: Conservación Mexicana",
+    ingredients: ["Chiles frescos variados (500g)", "Carne de res magra corte fino (1kg)", "Sal gruesa (1kg)", "Jalapeños frescos (500g)", "Vinagre blanco (1L)", "Orégano, laurel, pimienta", "Zanahoria y cebolla"],
+    steps: [
+      "🎯 DESAFÍO: ¡3 técnicas de conservación ancestrales!",
+      "📘 Deshidratar Chiles: HORNO — 80°C puerta entreabierta, gira cada 1h. Jalapeño 4-6h, habanero 3-4h. Punto: flexibles como cuero, sin humedad. SOL — 3-5 días cubiertos con tul. Jalapeño seco + ahumado = ¡chipotle! Almacena en frasco de vidrio — duran 1 año.",
+      "📘 Cecina Estilo Yecapixtla: Rebanadas de 3mm + sal gruesa por ambos lados. Refrigera 24h. Lava, sazona con guajillo + limón. Seca al sol 2-3 días o en horno 60°C 8h. Seca pero flexible, rojo-oscura. Asa en comal para servir.",
+      "📘 Escabeche Clásico: Jalapeños + zanahoria + cebolla + ajos en frascos esterilizados. Salmuera hirviendo (vinagre + agua + sal + especias). Cierra e invierte 5 min. Dura 6-12 meses sellado.",
+      "📘 Durabilidad: Chiles secos 1 año. Escabeche 6-12 meses. Cecina 2-3 semanas refrigerada. Siempre frascos de vidrio esterilizados.",
+      "🏆 ¿Dominaste las 3? ¡Conservación como los mesoamericanos!"
+    ],
+    description: "🎯 DESAFÍO: ¡Deshidratar, salar y conservar — 3 técnicas ancestrales mexicanas!"
+  },
+  "producao-artesanal": {
+    name: "🔥 Desafío: Productor Artesanal",
+    ingredients: ["Cacao en nibs (300g)", "Piloncillo (200g)", "Canela en raja (3)", "Leche fresca entera (4L)", "Ácido cítrico o limón", "Cuajo (1 pastilla)", "Pierna de cerdo (1kg)", "Grasa de cerdo (200g)", "Chiles ancho secos (6)", "Chiles guajillo secos (4)", "Vinagre de manzana", "Comino, orégano, pimienta, clavo"],
+    steps: [
+      "🎯 DESAFÍO: ¡3 productos artesanales mexicanos desde cero!",
+      "📘 Chocolate Mexicano: Tuesta nibs a 130°C 25 min. Muele en procesador 15-20 min hasta pasta oleosa. Agrega piloncillo rallado + canela molida + pizca de chile ancho. Moldea y refrigera 2h. Para usar: 50g en 250ml leche caliente con molinillo. Dura 3 meses.",
+      "📘 Chorizo Mexicano: Hidrata 6 ancho + 4 guajillo. Licua con ajo + vinagre + especias. Mezcla 1kg carne molida + 200g grasa + pasta de chiles. Refrigera 24-48h. Fríe desmoronando. 70% carne + 30% grasa. Dura 5 días refrigerado, 3 meses congelado.",
+      "📘 Queso Oaxaca: Calienta 4L leche a 35°C. Agrega cuajo + ácido cítrico. Espera 30-40 min. Corta cuajada en cubos, calienta a 42°C. Escurre suero. Calienta cuajada en agua a 70°C hasta elástica. Estira como mozzarella. Enrolla en bola. Dura 1 semana refrigerado.",
+      "📘 Precio: Costo ingredientes + 30% = costo total. Venta = costo × 2 a 2.5. Empaca con identidad visual. Mercados locales, ferias e Instagram.",
+      "🏆 ¿Produjiste los 3? ¡Verdadero artesano mexicano!"
+    ],
+    description: "🎯 DESAFÍO: ¡Chocolate, chorizo y queso Oaxaca — 3 productos artesanales desde cero!"
+  },
 };
