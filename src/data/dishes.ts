@@ -1,3 +1,5 @@
+import { dishesBatch2 } from "./dishes-batch2";
+
 export interface Dish {
   id: string;
   name: string;
@@ -581,6 +583,7 @@ export const dishes: Dish[] = [
     steps: ["Misture ovos, dashi, shoyu e mirin sem fazer espuma.", "Coe a mistura.", "Aqueça a frigideira retangular com óleo.", "Despeje camada fina e enrole quando semicozido.", "Empurre para o lado e adicione nova camada.", "Repita até acabar. O interior deve ficar úmido e macio."],
     difficulty: "Avançado", time: "15 min",
     description: "Versão de izakaya do tamagoyaki, com mais dashi — tão macio que quase desmancha. Teste de habilidade do chef." },
+  ...dishesBatch2,
 ];
 
 export function getDishById(id: string): Dish | undefined {
