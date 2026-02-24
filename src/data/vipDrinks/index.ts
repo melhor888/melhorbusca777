@@ -20,6 +20,7 @@ export { receitasSecretas } from "./receitasSecretas";
 export { masterclassTecnicas } from "./masterclassTecnicas";
 export { harmonizacaoSake } from "./harmonizacaoSake";
 export { cardapiosCompletos } from "./cardapiosCompletos";
+export { receitasExclusivas } from "./receitasExclusivas";
 
 import { VipDrink } from "./types";
 import { vinhoSangrias } from "./vinhoSangrias";
@@ -43,9 +44,10 @@ import { receitasSecretas } from "./receitasSecretas";
 import { masterclassTecnicas } from "./masterclassTecnicas";
 import { harmonizacaoSake } from "./harmonizacaoSake";
 import { cardapiosCompletos } from "./cardapiosCompletos";
+import { receitasExclusivas } from "./receitasExclusivas";
 
 export function getAllVipDrinks(): VipDrink[] {
-  return [...vinhoSangrias, ...cervejaBeerCocktails, ...frozenBlended, ...shotsShooters, ...tropicalTiki, ...classicosReinventados, ...lowAbvWellness, ...drinksAutor, ...cafeDessertCocktails, ...sazonaisFestivos, ...sobremesaDoces, ...picantesDefumados, ...chaInfusoes, ...veganosPlantBased, ...masterclassCocktails, ...voltaAoMundo, ...receitasSecretas, ...masterclassTecnicas, ...harmonizacaoSake, ...cardapiosCompletos];
+  return [...vinhoSangrias, ...cervejaBeerCocktails, ...frozenBlended, ...shotsShooters, ...tropicalTiki, ...classicosReinventados, ...lowAbvWellness, ...drinksAutor, ...cafeDessertCocktails, ...sazonaisFestivos, ...sobremesaDoces, ...picantesDefumados, ...chaInfusoes, ...veganosPlantBased, ...masterclassCocktails, ...voltaAoMundo, ...receitasSecretas, ...masterclassTecnicas, ...harmonizacaoSake, ...cardapiosCompletos, ...receitasExclusivas];
 }
 
 export function getVipDrinksByCategory(category: string): VipDrink[] {

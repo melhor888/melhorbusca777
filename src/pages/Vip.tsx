@@ -1,13 +1,20 @@
 import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { Crown, Lock, Wine, Beer, Snowflake, Leaf, KeyRound, Check, X, Flame, GlassWater, IceCream, Trophy, Globe, CupSoda, Martini, ArrowRight, Sparkles, ChefHat, GraduationCap, UtensilsCrossed, BookOpen, Wrench, FileText } from "lucide-react";
+import { Crown, Lock, Wine, Beer, Snowflake, Leaf, KeyRound, Check, X, Flame, GlassWater, IceCream, Trophy, Globe, CupSoda, Martini, ArrowRight, Sparkles, ChefHat, GraduationCap, UtensilsCrossed, BookOpen, Wrench, FileText, Star } from "lucide-react";
 import { validateVipKey, isVipUnlocked, setVipUnlocked } from "@/utils/vipKeys";
 import VipTrialBanner from "@/components/VipTrialBanner";
 import VipNetflixHero from "@/components/VipNetflixHero";
 import { getVipDrinksByCategory } from "@/data/vipDrinks";
 
 const vipCategories = [
+  {
+    id: "receitas-exclusivas",
+    name: "🌮 Receitas Exclusivas (Premium)",
+    icon: Star,
+    description: "Receitas secretas, regionais autênticas, pratos raros, combinações autorais, gourmet e alto ticket",
+    color: "from-yellow-500 to-amber-700",
+  },
   {
     id: "receitas-secretas",
     name: "Receitas Secretas do Chef",
