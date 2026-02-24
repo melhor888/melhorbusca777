@@ -3,6 +3,16 @@ import { dishesBatch3 } from "./dishes-batch3";
 import { dishesBatch4 } from "./dishes-batch4";
 import { dishesBatch5 } from "./dishes-batch5";
 
+export type SpiceLevel = 0 | 1 | 2 | 3;
+export type FlavorTag = "picante" | "não picante" | "defumado" | "suave" | "intenso";
+
+export const spiceLevelLabels: Record<SpiceLevel, { label: string; icon: string; color: string }> = {
+  0: { label: "Suave", icon: "🌱", color: "text-green-400" },
+  1: { label: "Médio", icon: "🌶️", color: "text-yellow-400" },
+  2: { label: "Forte", icon: "🌶️🌶️", color: "text-orange-400" },
+  3: { label: "Extremo", icon: "🌶️🌶️🌶️", color: "text-red-500" },
+};
+
 export interface Dish {
   id: string;
   name: string;
@@ -16,6 +26,40 @@ export interface Dish {
   price?: string;
   curiosity?: string;
   origin?: string;
+  spiceLevel?: SpiceLevel;
+  tags?: FlavorTag[];
+}
+
+/** Auto-detect spice level from ingredients and name */
+export function getSpiceLevel(dish: Dish): SpiceLevel {
+  if (dish.spiceLevel !== undefined) return dish.spiceLevel;
+  const text = [...dish.ingredients, dish.name, dish.description || ""].join(" ").toLowerCase();
+
+  // Extremo (3)
+  if (/habanero|diabla|extra.?picante/i.test(text)) return 3;
+  // Forte (2)
+  if (/chipotle|chile de árbol|serrano|guajillo.*ancho|ancho.*guajillo|picante/i.test(text)) return 2;
+  // Médio (1)
+  if (/jalapeño|poblano|chile|pimenta|chili|cayena|achiote/i.test(text)) return 1;
+  // Suave (0)
+  return 0;
+}
+
+/** Auto-detect flavor tags */
+export function getFlavorTags(dish: Dish): FlavorTag[] {
+  if (dish.tags && dish.tags.length > 0) return dish.tags;
+  const text = [...dish.ingredients, dish.name, dish.description || ""].join(" ").toLowerCase();
+  const tags: FlavorTag[] = [];
+
+  const spice = getSpiceLevel(dish);
+  if (spice >= 2) tags.push("picante");
+  if (spice === 0) tags.push("não picante");
+  if (spice >= 2) tags.push("intenso");
+  if (spice <= 1 && !tags.includes("não picante")) tags.push("suave");
+
+  if (/chipotle|defumad|ahumad|morita|pasilla/i.test(text)) tags.push("defumado");
+
+  return [...new Set(tags)];
 }
 
 export const categories = [

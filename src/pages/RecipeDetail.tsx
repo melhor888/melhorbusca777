@@ -1,7 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState, useRef } from "react";
 import { Helmet } from "react-helmet-async";
-import { getDishById, dishes as allDishes } from "@/data/dishes";
+import { getDishById, dishes as allDishes, getSpiceLevel, getFlavorTags, spiceLevelLabels } from "@/data/dishes";
 import { getDishImage } from "@/data/dishImages";
 import { getChefTip } from "@/data/chefTips";
 import { getDishExtra } from "@/data/dishExtras";
@@ -11,6 +11,8 @@ import XPToast from "@/components/XPToast";
 import SimilarDrinks from "@/components/SimilarDrinks";
 import AdBanner from "@/components/AdBanner";
 import ShareCard from "@/components/ShareCard";
+import SpiceBadge from "@/components/SpiceBadge";
+import FlavorTags from "@/components/FlavorTags";
 import { ArrowLeft, Heart, Share2, Clock, ChefHat, UtensilsCrossed, Lightbulb, Zap, ShoppingCart, Image, MapPin, Coins, Sparkles } from "lucide-react";
 import { useShoppingList } from "@/hooks/useShoppingList";
 
@@ -61,8 +63,12 @@ export default function RecipeDetail() {
   const inCart = isInList(dish.id);
   const chefTip = getChefTip(dish.id);
   const extra = getDishExtra(dish.id);
+  const spice = getSpiceLevel(dish);
+  const spiceInfo = spiceLevelLabels[spice];
+  const tags = getFlavorTags(dish);
+
   const handleShare = async () => {
-    const text = `🍣 ${dish.name}\n\nIngredientes:\n${dish.ingredients.join("\n")}\n\nConfira no Receitas Japonesas XP!`;
+    const text = `🌮 ${dish.name}\n\nIngredientes:\n${dish.ingredients.join("\n")}\n\nConfira no Receitas MexicanasXP!`;
     if (navigator.share) {
       await navigator.share({ title: dish.name, text });
     } else {
@@ -70,12 +76,12 @@ export default function RecipeDetail() {
     }
   };
 
-  const ogDescription = `Aprenda a fazer ${dish.name}: ${dish.ingredients.slice(0, 3).join(", ")}. Receita completa no Receitas Japonesas XP.`;
+  const ogDescription = `Aprenda a fazer ${dish.name}: ${dish.ingredients.slice(0, 3).join(", ")}. Receita completa no Receitas MexicanasXP.`;
 
   return (
     <div className="min-h-screen pb-24">
       <Helmet>
-        <title>{dish.name} - Receita Japonesa | Receitas Japonesas XP</title>
+        <title>{dish.name} - Receita Mexicana | Receitas MexicanasXP</title>
         <meta name="description" content={ogDescription} />
       </Helmet>
       <XPToast xp={xpGained} show={showXP} onClose={() => setShowXP(false)} />
@@ -151,6 +157,10 @@ export default function RecipeDetail() {
             }`}>
               <ChefHat size={14} /> {dish.difficulty}
             </span>
+            {/* Spice Level */}
+            <span className={`flex items-center gap-1 font-semibold ${spiceInfo.color}`}>
+              <SpiceBadge level={spice} showLabel />
+            </span>
             {extra?.price && (
               <span className="flex items-center gap-1">
                 <Coins size={14} className="text-primary" /> {extra.price}
@@ -166,6 +176,11 @@ export default function RecipeDetail() {
       </div>
 
       <div className="px-6 mt-6 space-y-8 lg:max-w-3xl lg:mx-auto">
+        {/* Flavor Tags */}
+        {tags.length > 0 && (
+          <FlavorTags tags={tags} />
+        )}
+
         {dish.description && (
           <section className="glass-card rounded-2xl p-5">
             <p className="text-secondary-foreground text-sm leading-relaxed italic">

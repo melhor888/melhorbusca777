@@ -1,7 +1,8 @@
 import { useNavigate } from "react-router-dom";
-import { Dish } from "@/data/dishes";
+import { Dish, getSpiceLevel } from "@/data/dishes";
 import { getDishImage } from "@/data/dishImages";
 import { Clock, ChefHat } from "lucide-react";
+import SpiceBadge from "@/components/SpiceBadge";
 
 interface DrinkCardProps {
   drink: Dish;
@@ -17,6 +18,7 @@ const difficultyColor: Record<string, string> = {
 export default function DrinkCard({ drink, size = "small" }: DrinkCardProps) {
   const navigate = useNavigate();
   const isLarge = size === "large";
+  const spice = getSpiceLevel(drink);
 
   return (
     <button
@@ -32,6 +34,12 @@ export default function DrinkCard({ drink, size = "small" }: DrinkCardProps) {
         loading="lazy"
       />
       <div className="absolute inset-0 hero-overlay" />
+
+      {/* Spice badge top-right */}
+      <div className="absolute top-2 right-2 bg-background/70 backdrop-blur-sm rounded-full px-2 py-1">
+        <SpiceBadge level={spice} />
+      </div>
+
       <div className="absolute bottom-0 left-0 right-0 p-3">
         <h3
           className={`font-display font-bold text-foreground leading-tight ${
