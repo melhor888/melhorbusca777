@@ -27,11 +27,11 @@ const categoryNames: Record<string, string> = {
 };
 
 const categoryHeroImages: Record<string, string> = {
-  "receitas-secretas": PLACEHOLDER,
-  "masterclass-tecnicas": PLACEHOLDER,
-  "harmonizacao-sake": PLACEHOLDER,
-  "cardapios-completos": PLACEHOLDER,
-  "receitas-exclusivas": PLACEHOLDER,
+  "receitas-secretas": "/images/vip-hero-receitas-secretas.jpg",
+  "masterclass-tecnicas": "/images/vip-hero-masterclass.jpg",
+  "harmonizacao-sake": "/images/vip-hero-harmonizacao.jpg",
+  "cardapios-completos": "/images/vip-hero-cardapios.jpg",
+  "receitas-exclusivas": "/images/vip-hero-receitas-secretas.jpg",
 };
 
 const categorySubtitles: Record<string, string> = {

@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { Crown, Play, ChevronLeft, ChevronRight } from "lucide-react";
-import { getDishImage } from "@/data/dishImages";
+
 
 interface Slide {
   id: string;
@@ -20,8 +20,8 @@ const slides: Slide[] = [
     id: "receitas-secretas",
     title: "Receitas Secretas do Chef",
     subtitle: "Exclusivo VIP",
-    description: "Wagyu A5, Fugu, Kaiseki, Omakase — receitas que só chefs com anos de experiência dominam. Aprenda os segredos dos mestres itamae.",
-    image: getDishImage("sashimi-misto"),
+    description: "Mole negro de 30 ingredientes, cochinita pibil autêntica, chiles en nogada — receitas que só chefs com décadas de experiência dominam.",
+    image: "/images/vip-hero-receitas-secretas.jpg",
     cta: "Ver Categoria",
     ctaLink: "/vip/categoria/receitas-secretas",
   },
@@ -29,17 +29,17 @@ const slides: Slide[] = [
     id: "masterclass-tecnicas",
     title: "Masterclass de Técnicas",
     subtitle: "Domine a Arte",
-    description: "Afiar facas japonesas, corte perfeito de sashimi, dashi fundamental, arte do tempurá — técnicas de nível profissional.",
-    image: getDishImage("tempura-mista"),
+    description: "Nixtamalização, técnica de mole, tortillas artesanais, tatemado no comal — técnicas de nível profissional da culinária mexicana.",
+    image: "/images/vip-hero-masterclass.jpg",
     cta: "Ver Categoria",
     ctaLink: "/vip/categoria/masterclass-tecnicas",
   },
   {
     id: "harmonizacao-sake",
-    title: "Harmonização Sake & Drinks",
+    title: "Harmonização Tequila & Mezcal",
     subtitle: "Sabores Perfeitos",
-    description: "Guia completo de harmonização: sakê, shochu, whisky japonês e chás especiais com cada tipo de prato da culinária japonesa.",
-    image: getDishImage("sukiyaki"),
+    description: "Guia completo de harmonização: tequila blanco, reposado, añejo, mezcal artesanal e coquetéis mexicanos com cada tipo de prato.",
+    image: "/images/vip-hero-harmonizacao.jpg",
     cta: "Ver Categoria",
     ctaLink: "/vip/categoria/harmonizacao-sake",
   },
@@ -47,8 +47,8 @@ const slides: Slide[] = [
     id: "cardapios-completos",
     title: "Cardápios Completos",
     subtitle: "Menus Exclusivos",
-    description: "Menus completos para ocasiões especiais: Kaiseki, noite de Izakaya, Hanami sob cerejeiras e Réveillon Japonês.",
-    image: getDishImage("sushi-misto"),
+    description: "Menus completos para ocasiões especiais: Taquiza, Pozoliza, Día de Muertos, Navidad Mexicana e Parrillada.",
+    image: "/images/vip-hero-cardapios.jpg",
     cta: "Ver Categoria",
     ctaLink: "/vip/categoria/cardapios-completos",
   },
