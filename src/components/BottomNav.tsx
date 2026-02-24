@@ -31,7 +31,7 @@ export default function BottomNav() {
     { path: "/vip", icon: Crown, label: t("nav.vip") },
   ];
 
-  if (location.pathname.startsWith("/tip/")) return null;
+  // Bottom nav is now global — always visible on mobile
 
   const isMoreActive = moreItems.some((m) => location.pathname.endsWith(m.path));
 
