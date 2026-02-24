@@ -5,6 +5,7 @@ import { getDishById, dishes as allDishes, getSpiceLevel, getFlavorTags, spiceLe
 import { getDishImage } from "@/data/dishImages";
 import { getChefTip } from "@/data/chefTips";
 import { getDishExtra } from "@/data/dishExtras";
+import { getDishPricing } from "@/data/dishPricing";
 import { useFavorites } from "@/hooks/useFavorites";
 import { useXP } from "@/hooks/useXP";
 import XPToast from "@/components/XPToast";
@@ -13,7 +14,7 @@ import AdBanner from "@/components/AdBanner";
 import ShareCard from "@/components/ShareCard";
 import SpiceBadge from "@/components/SpiceBadge";
 import FlavorTags from "@/components/FlavorTags";
-import { ArrowLeft, Heart, Share2, Clock, ChefHat, UtensilsCrossed, Lightbulb, Zap, ShoppingCart, Image, MapPin, Coins, Sparkles } from "lucide-react";
+import { ArrowLeft, Heart, Share2, Clock, ChefHat, UtensilsCrossed, Lightbulb, Zap, ShoppingCart, Image, MapPin, Coins, Sparkles, DollarSign, TrendingUp, Package, Info } from "lucide-react";
 import { useShoppingList } from "@/hooks/useShoppingList";
 
 export default function RecipeDetail() {
@@ -63,6 +64,7 @@ export default function RecipeDetail() {
   const inCart = isInList(dish.id);
   const chefTip = getChefTip(dish.id);
   const extra = getDishExtra(dish.id);
+  const pricing = getDishPricing(dish.id);
   const spice = getSpiceLevel(dish);
   const spiceInfo = spiceLevelLabels[spice];
   const tags = getFlavorTags(dish);
@@ -266,6 +268,60 @@ export default function RecipeDetail() {
             </div>
           </section>
         )}
+        {pricing && (
+          <section className="glass-card rounded-2xl p-5 space-y-4 border border-accent/20">
+            <h2 className="text-lg font-display font-bold text-foreground flex items-center gap-2">
+              <DollarSign size={20} className="text-accent" />
+              Preço de Venda no Brasil
+            </h2>
+
+            {/* Overview cards */}
+            <div className="grid grid-cols-2 gap-3">
+              <div className="bg-accent/10 rounded-xl p-3 text-center">
+                <p className="text-[10px] font-semibold text-accent uppercase tracking-wider mb-1">Preço Médio de Venda</p>
+                <p className="text-base font-bold text-foreground">{pricing.sellPrice}</p>
+              </div>
+              <div className="bg-primary/10 rounded-xl p-3 text-center">
+                <p className="text-[10px] font-semibold text-primary uppercase tracking-wider mb-1">Custo de Produção</p>
+                <p className="text-base font-bold text-foreground">{pricing.productionCost}</p>
+              </div>
+              <div className="bg-green-500/10 rounded-xl p-3 text-center">
+                <p className="text-[10px] font-semibold text-green-500 uppercase tracking-wider mb-1">Margem de Lucro</p>
+                <p className="text-base font-bold text-green-500">{pricing.margin}</p>
+              </div>
+              <div className="bg-muted rounded-xl p-3 text-center">
+                <p className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider mb-1">Rendimento</p>
+                <p className="text-sm font-bold text-foreground">{pricing.yield}</p>
+              </div>
+            </div>
+
+            {/* Regional prices */}
+            <div>
+              <p className="text-xs font-semibold text-foreground uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                <MapPin size={12} className="text-accent" />
+                Preço por Região
+              </p>
+              <div className="space-y-1.5">
+                {pricing.regionalPrices.map((rp, i) => (
+                  <div key={i} className="flex justify-between items-center text-sm py-1.5 px-3 rounded-lg bg-muted/50">
+                    <span className="text-muted-foreground">{rp.region}</span>
+                    <span className="font-semibold text-foreground">{rp.price}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Pricing tip */}
+            <div className="flex items-start gap-3 bg-accent/5 rounded-xl p-3 border border-accent/10">
+              <TrendingUp size={16} className="text-accent mt-0.5 flex-shrink-0" />
+              <div>
+                <p className="text-[10px] font-semibold text-accent uppercase tracking-wider mb-1">Dica de Precificação</p>
+                <p className="text-secondary-foreground text-sm leading-relaxed">{pricing.pricingTip}</p>
+              </div>
+            </div>
+          </section>
+        )}
+
         <AdBanner slot="recipe-bottom" className="mt-4" />
 
         <SimilarDrinks currentDrink={dish} allDrinks={allDishes} />
