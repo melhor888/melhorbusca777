@@ -17,7 +17,10 @@ export default function Blog() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
   const posts = getBlogPostsByCategory(selectedCategory);
-  const featured = blogPosts[0];
+  const featured = useMemo(() => {
+    const shuffled = [...blogPosts].sort(() => Math.random() - 0.5);
+    return shuffled[0];
+  }, []);
   const featuredT = getTranslatedBlogPost(featured, lang);
 
   function getCatLabel(catId: string, fallback: string) {
