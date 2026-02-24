@@ -4,6 +4,7 @@ import { ArrowLeft, Crown, Clock, ChefHat, Lock, Search, X } from "lucide-react"
 import { getVipDrinksByCategory } from "@/data/vipDrinks";
 import { isVipUnlocked } from "@/utils/vipKeys";
 import VipTrialBanner from "@/components/VipTrialBanner";
+import VipHeroBanner from "@/components/VipHeroBanner";
 import { useEffect, useState, useMemo } from "react";
 import { getVipDrinkImage } from "@/data/vipDrinkImages";
 import { Input } from "@/components/ui/input";
@@ -95,54 +96,71 @@ export default function VipCategoryPage() {
     );
   }
 
+  const showHeroBanner = slug === "receitas-exclusivas" && allDrinks.length >= 4;
+
   return (
     <>
       <VipTrialBanner />
       <Helmet>
-        <title>{categoryName} VIP | Receitas Japonesas XP</title>
+        <title>{categoryName} VIP | Receitas Mexicanas XP</title>
         <meta name="description" content={`${drinks.length} receitas VIP exclusivas de ${categoryName}.`} />
       </Helmet>
       <div className="min-h-screen pb-24">
-        {/* Hero Banner */}
-        <div className="relative h-[320px] lg:h-[420px] w-full overflow-hidden">
-          {heroImage && (
-            <img
-              src={heroImage}
-              alt={categoryName}
-              className="absolute inset-0 w-full h-full object-cover object-center"
-            />
-          )}
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-black/30" />
-          <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-transparent to-transparent" />
-
-          {/* Back button */}
-          <button
-            onClick={(e) => { e.stopPropagation(); e.preventDefault(); navigate("/vip"); }}
-            className="absolute top-4 left-4 z-30 w-9 h-9 rounded-full bg-background/60 backdrop-blur flex items-center justify-center cursor-pointer"
-            aria-label="Voltar"
-          >
-            <ArrowLeft size={16} className="text-foreground" />
-          </button>
-
-          {/* Hero content */}
-          <div className="absolute bottom-0 left-0 right-0 p-5 lg:p-10 lg:max-w-2xl">
-            <div className="flex items-center gap-2 mb-2">
-              <Crown size={14} className="text-yellow-500" />
-              <span className="text-yellow-500 text-xs font-semibold tracking-widest uppercase">
-                VIP · Exclusivo
-              </span>
+        {/* Netflix-style Hero Banner for categories with enough content */}
+        {showHeroBanner ? (
+          <>
+            {/* Back button over hero */}
+            <div className="relative">
+              <button
+                onClick={(e) => { e.stopPropagation(); e.preventDefault(); navigate("/vip"); }}
+                className="absolute top-4 left-4 z-30 w-9 h-9 rounded-full bg-background/60 backdrop-blur flex items-center justify-center cursor-pointer"
+                aria-label="Voltar"
+              >
+                <ArrowLeft size={16} className="text-foreground" />
+              </button>
+              <VipHeroBanner drinks={allDrinks} count={10} />
             </div>
-            <h1 className="text-2xl lg:text-4xl font-display font-bold text-foreground leading-tight">
-              {categoryName}
-            </h1>
-            <p className="text-sm text-muted-foreground mt-2 max-w-md">
-              {subtitle}
-            </p>
-            <p className="text-xs text-yellow-500/80 mt-2 font-semibold">
-              {allDrinks.length} receitas exclusivas
-            </p>
+          </>
+        ) : (
+          /* Static Hero Banner for other categories */
+          <div className="relative h-[320px] lg:h-[420px] w-full overflow-hidden">
+            {heroImage && (
+              <img
+                src={heroImage}
+                alt={categoryName}
+                className="absolute inset-0 w-full h-full object-cover object-center"
+              />
+            )}
+            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-black/30" />
+            <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-transparent to-transparent" />
+
+            <button
+              onClick={(e) => { e.stopPropagation(); e.preventDefault(); navigate("/vip"); }}
+              className="absolute top-4 left-4 z-30 w-9 h-9 rounded-full bg-background/60 backdrop-blur flex items-center justify-center cursor-pointer"
+              aria-label="Voltar"
+            >
+              <ArrowLeft size={16} className="text-foreground" />
+            </button>
+
+            <div className="absolute bottom-0 left-0 right-0 p-5 lg:p-10 lg:max-w-2xl">
+              <div className="flex items-center gap-2 mb-2">
+                <Crown size={14} className="text-yellow-500" />
+                <span className="text-yellow-500 text-xs font-semibold tracking-widest uppercase">
+                  VIP · Exclusivo
+                </span>
+              </div>
+              <h1 className="text-2xl lg:text-4xl font-display font-bold text-foreground leading-tight">
+                {categoryName}
+              </h1>
+              <p className="text-sm text-muted-foreground mt-2 max-w-md">
+                {subtitle}
+              </p>
+              <p className="text-xs text-yellow-500/80 mt-2 font-semibold">
+                {allDrinks.length} receitas exclusivas
+              </p>
+            </div>
           </div>
-        </div>
+        )}
 
         {/* Search bar */}
         <div className="px-4 lg:px-6 py-4 sticky top-0 z-20 bg-background/80 backdrop-blur-lg border-b border-border/30">
