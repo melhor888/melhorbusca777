@@ -1,0 +1,98 @@
+{
+  "nav": {
+    "recipes": "Recipes",
+    "quiz": "Quiz",
+    "stats": "Stats",
+    "favorites": "Favorites",
+    "ingredients": "Ingredients",
+    "collections": "Collections",
+    "school": "Mexican School",
+    "culture": "Culture",
+    "shoppingList": "Shopping List",
+    "vip": "VIP",
+    "more": "More",
+    "moreOptions": "More options",
+    "menu": "Menu",
+    "institutional": "Institutional",
+    "about": "About Us",
+    "contact": "Contact",
+    "dashboard": "Dashboard",
+    "search": "Search dishes..."
+  },
+  "hero": {
+    "highlight": "Today's Highlight",
+    "viewRecipe": "View Recipe"
+  },
+  "search": {
+    "placeholder": "Search dishes, ingredients...",
+    "noResults": "No results found.",
+    "clear": "Clear"
+  },
+  "filters": {
+    "easy": "Easy",
+    "medium": "Medium",
+    "advanced": "Advanced",
+    "mild": "🌱 Mild",
+    "mediumSpice": "🌶️ Medium",
+    "hot": "🌶️🌶️ Hot",
+    "extreme": "🌶️🌶️🌶️ Extreme"
+  },
+  "recipe": {
+    "ingredients": "Ingredients",
+    "steps": "Directions",
+    "difficulty": "Difficulty",
+    "time": "Time",
+    "servings": "Servings",
+    "origin": "Origin",
+    "curiosity": "Fun Fact",
+    "similar": "Similar Recipes",
+    "share": "Share",
+    "addToList": "Add to list"
+  },
+  "footer": {
+    "navigation": "Navigation",
+    "institutional": "Institutional",
+    "legal": "Legal",
+    "about": "About",
+    "contact": "Contact",
+    "sitemap": "Sitemap",
+    "privacy": "Privacy",
+    "terms": "Terms of Use",
+    "cookies": "Cookies",
+    "disclaimer": "Disclaimer",
+    "adDisclaimer": "This site is not affiliated with Google. Monetization is done through the Google AdSense platform, in accordance with their policies.",
+    "rights": "All rights reserved."
+  },
+  "seo": {
+    "title": "MexicanRecipesXP - Authentic Mexican Food Recipes",
+    "description": "Discover authentic Mexican cuisine recipes. Tacos, burritos, enchiladas, guacamole and much more."
+  },
+  "categories": {
+    "Tacos": "Tacos",
+    "Tortillas & Bases": "Tortillas & Bases",
+    "Pratos Tradicionais": "Traditional Dishes",
+    "Antojitos": "Antojitos",
+    "Queijos & Recheios": "Cheese & Fillings",
+    "Molhos & Salsas": "Sauces & Salsas",
+    "Sopas & Caldos": "Soups & Broths",
+    "Carnes Mexicanas": "Mexican Meats",
+    "Mariscos": "Seafood",
+    "Sobremesas": "Desserts",
+    "Bebidas": "Drinks",
+    "Arroz & Feijão": "Rice & Beans",
+    "Café da Manhã": "Breakfast",
+    "Tamales & Massas": "Tamales & Dough",
+    "Cultura Mexicana": "Mexican Culture",
+    "Escola Mexicana": "Mexican School"
+  },
+  "common": {
+    "seeAll": "See all",
+    "back": "Back",
+    "loading": "Loading...",
+    "language": "Language"
+  },
+  "pwa": {
+    "install": "Install App",
+    "installDesc": "Add to home screen for quick access"
+  }
+}

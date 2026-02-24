@@ -1,0 +1,98 @@
+{
+  "nav": {
+    "recipes": "Recetas",
+    "quiz": "Quiz",
+    "stats": "Estadísticas",
+    "favorites": "Favoritos",
+    "ingredients": "Ingredientes",
+    "collections": "Colecciones",
+    "school": "Escuela Mexicana",
+    "culture": "Cultura",
+    "shoppingList": "Lista de Compras",
+    "vip": "VIP",
+    "more": "Más",
+    "moreOptions": "Más opciones",
+    "menu": "Menú",
+    "institutional": "Institucional",
+    "about": "Sobre Nosotros",
+    "contact": "Contacto",
+    "dashboard": "Dashboard",
+    "search": "Buscar platos..."
+  },
+  "hero": {
+    "highlight": "Destacado del Día",
+    "viewRecipe": "Ver Receta"
+  },
+  "search": {
+    "placeholder": "Buscar platos, ingredientes...",
+    "noResults": "No se encontraron resultados.",
+    "clear": "Limpiar"
+  },
+  "filters": {
+    "easy": "Fácil",
+    "medium": "Medio",
+    "advanced": "Avanzado",
+    "mild": "🌱 Suave",
+    "mediumSpice": "🌶️ Medio",
+    "hot": "🌶️🌶️ Fuerte",
+    "extreme": "🌶️🌶️🌶️ Extremo"
+  },
+  "recipe": {
+    "ingredients": "Ingredientes",
+    "steps": "Preparación",
+    "difficulty": "Dificultad",
+    "time": "Tiempo",
+    "servings": "Porciones",
+    "origin": "Origen",
+    "curiosity": "Curiosidad",
+    "similar": "Recetas Similares",
+    "share": "Compartir",
+    "addToList": "Agregar a la lista"
+  },
+  "footer": {
+    "navigation": "Navegación",
+    "institutional": "Institucional",
+    "legal": "Legal",
+    "about": "Acerca de",
+    "contact": "Contacto",
+    "sitemap": "Mapa del Sitio",
+    "privacy": "Privacidad",
+    "terms": "Términos de Uso",
+    "cookies": "Cookies",
+    "disclaimer": "Aviso Legal",
+    "adDisclaimer": "Este sitio no está afiliado a Google. La monetización se realiza a través de la plataforma Google AdSense, según las políticas de la plataforma.",
+    "rights": "Todos los derechos reservados."
+  },
+  "seo": {
+    "title": "RecetasMexicanasXP - Recetas Auténticas de Comida Mexicana",
+    "description": "Descubre recetas auténticas de la cocina mexicana. Tacos, burritos, enchiladas, guacamole y mucho más."
+  },
+  "categories": {
+    "Tacos": "Tacos",
+    "Tortillas & Bases": "Tortillas y Bases",
+    "Pratos Tradicionais": "Platos Tradicionales",
+    "Antojitos": "Antojitos",
+    "Queijos & Recheios": "Quesos y Rellenos",
+    "Molhos & Salsas": "Salsas",
+    "Sopas & Caldos": "Sopas y Caldos",
+    "Carnes Mexicanas": "Carnes Mexicanas",
+    "Mariscos": "Mariscos",
+    "Sobremesas": "Postres",
+    "Bebidas": "Bebidas",
+    "Arroz & Feijão": "Arroz y Frijoles",
+    "Café da Manhã": "Desayuno",
+    "Tamales & Massas": "Tamales y Masas",
+    "Cultura Mexicana": "Cultura Mexicana",
+    "Escola Mexicana": "Escuela Mexicana"
+  },
+  "common": {
+    "seeAll": "Ver todo",
+    "back": "Volver",
+    "loading": "Cargando...",
+    "language": "Idioma"
+  },
+  "pwa": {
+    "install": "Instalar App",
+    "installDesc": "Agregar a la pantalla de inicio para acceso rápido"
+  }
+}

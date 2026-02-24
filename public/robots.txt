@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://drinkseco.lovable.app/sitemap.xml
+Sitemap: https://receitasmexicanas.lovable.app/sitemap.xml

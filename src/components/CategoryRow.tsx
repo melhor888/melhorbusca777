@@ -1,8 +1,10 @@
 import { useRef, useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { Dish } from "@/data/dishes";
 import DrinkCard from "./DrinkCard";
+import { useLocalizedPath } from "@/i18n/useLocalizedPath";
 
 interface CategoryRowProps {
   title: string;
@@ -11,6 +13,8 @@ interface CategoryRowProps {
 }
 
 export default function CategoryRow({ title, drinks, categorySlug }: CategoryRowProps) {
+  const { t } = useTranslation();
+  const { localePath } = useLocalizedPath();
   const scrollRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
@@ -45,13 +49,13 @@ export default function CategoryRow({ title, drinks, categorySlug }: CategoryRow
           {title}
         </h2>
         <div className="flex items-center gap-3">
-          <span className="text-xs text-muted-foreground">{drinks.length} pratos</span>
+          <span className="text-xs text-muted-foreground">{drinks.length}</span>
           {categorySlug && (
             <Link
-              to={`/categoria/${categorySlug}`}
+              to={localePath(`/categoria/${categorySlug}`)}
               className="text-xs text-primary font-semibold hover:underline"
             >
-              Ver todos →
+              {t("common.seeAll")} →
             </Link>
           )}
         </div>
