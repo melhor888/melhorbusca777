@@ -271,5 +271,22 @@
     "cultureAch": "Culture",
     "schoolAch": "School",
     "specialAch": "Special"
+  },
+  "shopping_list": {
+    "title": "Shopping List",
+    "seoTitle": "Shopping List | MexicanRecipesXP",
+    "seoDesc": "Build your shopping list with ingredients from selected recipes.",
+    "organization": "Organization",
+    "recipesCount": "{{count}} recipe",
+    "recipesCount_plural": "{{count}} recipes",
+    "ingredientsCount": "{{count}} ingredients",
+    "addRecipesHint": "Add recipes to build your list",
+    "noRecipes": "No recipes selected",
+    "noRecipesHint": "Open a recipe and tap the 🛒 icon to add ingredients to your shopping list.",
+    "explore": "Explore Recipes",
+    "selectedRecipes": "Selected Recipes",
+    "ingredients": "Ingredients",
+    "copied": "List copied!",
+    "copyHeader": "🛒 Shopping List - MexicanRecipesXP"
   }
 }

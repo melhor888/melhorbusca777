@@ -8,9 +8,11 @@ import { getVipDrinkById } from "@/data/vipDrinks";
 import { getVipDrinkImage } from "@/data/vipDrinkImages";
 import { useShoppingList } from "@/hooks/useShoppingList";
 import { toast } from "sonner";
+import { useTranslation } from "react-i18next";
 
 export default function ShoppingList() {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const { drinkIds, toggleDrink, clearList } = useShoppingList();
 
   const selectedRecipes = useMemo(
@@ -39,18 +41,18 @@ export default function ShoppingList() {
   }, [selectedRecipes]);
 
   const copyList = () => {
-    const text = `🛒 Lista de Compras - Receitas Japonesas XP\n\n${consolidatedIngredients
+    const text = `${t("shopping_list.copyHeader")}\n\n${consolidatedIngredients
       .map((i) => `• ${i.name}${i.count > 1 ? ` (x${i.count})` : ""}`)
       .join("\n")}`;
     navigator.clipboard.writeText(text);
-    toast.success("Lista copiada!");
+    toast.success(t("shopping_list.copied"));
   };
 
   return (
     <>
       <Helmet>
-        <title>Lista de Compras | Receitas Japonesas XP</title>
-        <meta name="description" content="Monte sua lista de compras com os ingredientes das receitas selecionadas." />
+        <title>{t("shopping_list.seoTitle")}</title>
+        <meta name="description" content={t("shopping_list.seoDesc")} />
       </Helmet>
       <div className="min-h-screen pb-24">
         {/* Hero Banner */}
@@ -76,12 +78,12 @@ export default function ShoppingList() {
             </div>
           )}
           <div className="absolute bottom-0 left-0 right-0 px-4 pb-4">
-            <span className="text-primary text-xs font-semibold tracking-widest uppercase">Organização</span>
-            <h1 className="text-2xl font-display font-bold text-foreground mt-1">Lista de Compras</h1>
+            <span className="text-primary text-xs font-semibold tracking-widest uppercase">{t("shopping_list.organization")}</span>
+            <h1 className="text-2xl font-display font-bold text-foreground mt-1">{t("shopping_list.title")}</h1>
             <p className="text-xs text-muted-foreground mt-0.5">
               {selectedRecipes.length > 0
-                ? `${selectedRecipes.length} receita${selectedRecipes.length > 1 ? "s" : ""} · ${consolidatedIngredients.length} ingredientes`
-                : "Adicione receitas para montar sua lista"}
+                ? `${selectedRecipes.length} ${selectedRecipes.length > 1 ? t("shopping_list.recipesCount_plural", { count: selectedRecipes.length }) : t("shopping_list.recipesCount", { count: selectedRecipes.length })} · ${t("shopping_list.ingredientsCount", { count: consolidatedIngredients.length })}`
+                : t("shopping_list.addRecipesHint")}
             </p>
           </div>
         </div>
@@ -89,22 +91,22 @@ export default function ShoppingList() {
         {drinkIds.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-24 px-6 text-center">
             <UtensilsCrossed size={48} className="text-muted-foreground/30 mb-4" />
-            <h2 className="font-display font-bold text-foreground text-lg">Nenhuma receita selecionada</h2>
+            <h2 className="font-display font-bold text-foreground text-lg">{t("shopping_list.noRecipes")}</h2>
             <p className="text-sm text-muted-foreground mt-2 max-w-xs">
-              Abra uma receita e toque no ícone 🛒 para adicionar ingredientes à sua lista de compras.
+              {t("shopping_list.noRecipesHint")}
             </p>
             <button
               onClick={() => navigate("/")}
               className="mt-6 bg-primary text-primary-foreground px-6 py-3 rounded-full font-semibold text-sm"
             >
-              Explorar Receitas
+              {t("shopping_list.explore")}
             </button>
           </div>
         ) : (
           <div className="px-4 lg:px-6 lg:max-w-3xl lg:mx-auto mt-4 space-y-6">
             {/* Selected recipes */}
             <section>
-              <h2 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-3">Receitas Selecionadas</h2>
+              <h2 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-3">{t("shopping_list.selectedRecipes")}</h2>
               <div className="flex gap-3 overflow-x-auto scrollbar-hide pb-2">
                 {selectedRecipes.map((recipe) => recipe && (
                   <div key={recipe.id} className="relative flex-shrink-0 w-20">
@@ -130,7 +132,7 @@ export default function ShoppingList() {
             {/* Consolidated ingredients */}
             <section>
               <h2 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-3">
-                Ingredientes ({consolidatedIngredients.length})
+                {t("shopping_list.ingredients")} ({consolidatedIngredients.length})
               </h2>
               <ul className="space-y-2">
                 {consolidatedIngredients.map((item, i) => (
