@@ -8,7 +8,7 @@ import XPBar from "@/components/XPBar";
 import DrinkCard from "@/components/DrinkCard";
 import ThemeToggle from "@/components/ThemeToggle";
 import NotificationToggle from "@/components/NotificationToggle";
-import { categories, getDishesByCategory, searchDishes, dishes as allDishes } from "@/data/dishes";
+import { categories, getDishesByCategory, searchDishes, dishes as allDishes, getSpiceLevel, type SpiceLevel } from "@/data/dishes";
 
 function slugify(text: string): string {
   return text
@@ -20,11 +20,18 @@ function slugify(text: string): string {
 }
 
 const difficulties = ["Fácil", "Médio", "Avançado"] as const;
+const spiceFilters = [
+  { level: 0 as const, label: "🌱 Suave", color: "text-green-400", ring: "ring-green-500/50", bg: "bg-green-500/20" },
+  { level: 1 as const, label: "🌶️ Médio", color: "text-yellow-400", ring: "ring-yellow-500/50", bg: "bg-yellow-500/20" },
+  { level: 2 as const, label: "🌶️🌶️ Forte", color: "text-orange-400", ring: "ring-orange-500/50", bg: "bg-orange-500/20" },
+  { level: 3 as const, label: "🌶️🌶️🌶️ Extremo", color: "text-red-500", ring: "ring-red-500/50", bg: "bg-red-500/20" },
+];
 
 export default function Index() {
   const [searchParams] = useSearchParams();
   const [query, setQuery] = useState(searchParams.get("q") || "");
   const [activeFilter, setActiveFilter] = useState<string | null>(null);
+  const [activeSpice, setActiveSpice] = useState<SpiceLevel | null>(null);
   const [showFilters, setShowFilters] = useState(false);
   const navigate = useNavigate();
 
@@ -35,13 +42,14 @@ export default function Index() {
 
   const results = query.length >= 2 ? searchDishes(query) : [];
 
-  const filteredResults = activeFilter
-    ? (query.length >= 2 ? results : allDishes).filter(
-        (d) => d.difficulty === activeFilter
-      )
-    : results;
+  const filteredResults = (() => {
+    let base = query.length >= 2 ? results : (activeFilter || activeSpice !== null ? allDishes : []);
+    if (activeFilter) base = base.filter((d) => d.difficulty === activeFilter);
+    if (activeSpice !== null) base = base.filter((d) => getSpiceLevel(d) === activeSpice);
+    return base;
+  })();
 
-  const showFilteredGrid = query.length >= 2 || activeFilter;
+  const showFilteredGrid = query.length >= 2 || activeFilter || activeSpice !== null;
 
   return (
     <>
@@ -81,7 +89,7 @@ export default function Index() {
             <button
               onClick={() => setShowFilters(!showFilters)}
               className={`flex items-center justify-center w-12 rounded-xl transition-colors ${
-                showFilters || activeFilter
+                showFilters || activeFilter || activeSpice !== null
                   ? "bg-primary text-primary-foreground"
                   : "bg-secondary text-muted-foreground"
               }`}
@@ -91,35 +99,53 @@ export default function Index() {
           </div>
 
           {showFilters && (
-            <div className="flex gap-2 mt-3 animate-fade-in">
-              {difficulties.map((diff) => (
-                <button
-                  key={diff}
-                  onClick={() =>
-                    setActiveFilter(activeFilter === diff ? null : diff)
-                  }
-                  className={`px-4 py-1.5 rounded-full text-xs font-semibold transition-all ${
-                    activeFilter === diff
-                      ? diff === "Fácil"
-                        ? "bg-green-500/20 text-green-400 ring-1 ring-green-500/50"
-                        : diff === "Médio"
-                        ? "bg-yellow-500/20 text-yellow-400 ring-1 ring-yellow-500/50"
-                        : "bg-red-500/20 text-red-400 ring-1 ring-red-500/50"
-                      : "bg-secondary text-muted-foreground hover:text-foreground"
-                  }`}
-                >
-                  {diff}
-                </button>
-              ))}
-              {activeFilter && (
-                <button
-                  onClick={() => setActiveFilter(null)}
-                  className="px-3 py-1.5 rounded-full text-xs text-muted-foreground hover:text-foreground bg-secondary"
-                >
-                  Limpar
-                </button>
-              )}
-            </div>
+            <>
+              <div className="flex gap-2 mt-3 animate-fade-in flex-wrap">
+                {difficulties.map((diff) => (
+                  <button
+                    key={diff}
+                    onClick={() =>
+                      setActiveFilter(activeFilter === diff ? null : diff)
+                    }
+                    className={`px-4 py-1.5 rounded-full text-xs font-semibold transition-all ${
+                      activeFilter === diff
+                        ? diff === "Fácil"
+                          ? "bg-green-500/20 text-green-400 ring-1 ring-green-500/50"
+                          : diff === "Médio"
+                          ? "bg-yellow-500/20 text-yellow-400 ring-1 ring-yellow-500/50"
+                          : "bg-red-500/20 text-red-400 ring-1 ring-red-500/50"
+                        : "bg-secondary text-muted-foreground hover:text-foreground"
+                    }`}
+                  >
+                    {diff}
+                  </button>
+                ))}
+                {(activeFilter || activeSpice !== null) && (
+                  <button
+                    onClick={() => { setActiveFilter(null); setActiveSpice(null); }}
+                    className="px-3 py-1.5 rounded-full text-xs text-muted-foreground hover:text-foreground bg-secondary"
+                  >
+                    Limpar
+                  </button>
+                )}
+              </div>
+              {/* Spice Level Filter */}
+              <div className="flex gap-2 mt-2 animate-fade-in overflow-x-auto scrollbar-hide">
+                {spiceFilters.map((sf) => (
+                  <button
+                    key={sf.level}
+                    onClick={() => setActiveSpice(activeSpice === sf.level ? null : sf.level)}
+                    className={`flex-shrink-0 px-3 py-1.5 rounded-full text-xs font-semibold transition-all ${
+                      activeSpice === sf.level
+                        ? `${sf.bg} ${sf.color} ring-1 ${sf.ring}`
+                        : "bg-secondary text-muted-foreground hover:text-foreground"
+                    }`}
+                  >
+                    {sf.label}
+                  </button>
+                ))}
+              </div>
+            </>
           )}
         </div>
 
