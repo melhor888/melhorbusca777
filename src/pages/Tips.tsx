@@ -1,25 +1,33 @@
 import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useXP, getLevel, LEVELS } from "@/hooks/useXP";
 import { bartenderTips } from "@/data/bartenderTips";
 import { achievements, getAchievementById } from "@/data/achievements";
 import XPBar from "@/components/XPBar";
 import TipCard from "@/components/TipCard";
-import { Trophy, Lock, Shield } from "lucide-react";
+import { Trophy, Lock, Shield, BookOpen, CheckCircle2 } from "lucide-react";
 
 function getTipRequiredLevel(index: number): number {
   if (index < 3) return 1;
-  const lvl = Math.min(7, Math.floor((index - 3) / 3) + 2);
-  return lvl;
+  if (index < 6) return 2;
+  if (index < 10) return 3;
+  if (index < 15) return 4;
+  if (index < 20) return 5;
+  if (index < 26) return 6;
+  if (index < 33) return 7;
+  return 8;
 }
 
 export default function Tips() {
   const navigate = useNavigate();
   const { totalXP, achievements: unlockedAchievements, viewedRecipes } = useXP();
   const currentLevel = getLevel(totalXP);
+  const [readTips, setReadTips] = useState<string[]>([]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    const stored = JSON.parse(localStorage.getItem("drinks-co-read-tips") || "[]") as string[];
+    setReadTips(stored);
   }, []);
 
   const tipsWithLevel = bartenderTips.map((tip, index) => ({
@@ -37,6 +45,7 @@ export default function Tips() {
     return currentLevel.level < t.requiredLevel;
   });
 
+  const readCount = availableTips.filter(t => readTips.includes(t.id)).length;
   const nextLocked = lockedTips[0];
   const nextLevelNeeded = nextLocked?.requiredLevel ?? 0;
   const nextLevelInfo = LEVELS.find(l => l.level === nextLevelNeeded);
@@ -49,24 +58,48 @@ export default function Tips() {
 
       <XPBar />
 
-      <div className="grid grid-cols-3 gap-2 mt-4">
+      <div className="grid grid-cols-4 gap-2 mt-4">
         <div className="glass-card rounded-xl p-3 text-center">
           <p className="text-lg font-bold text-foreground">{currentLevel.level}</p>
-          <p className="text-[10px] text-muted-foreground">Nível Atual</p>
+          <p className="text-[10px] text-muted-foreground">Nível</p>
           <p className="text-[9px] text-primary font-semibold">{currentLevel.title}</p>
         </div>
         <div className="glass-card rounded-xl p-3 text-center">
           <p className="text-lg font-bold text-primary">{availableTips.length}</p>
-          <p className="text-[10px] text-muted-foreground">Dicas Desbloqueadas</p>
+          <p className="text-[10px] text-muted-foreground">Desbloqueadas</p>
         </div>
         <div className="glass-card rounded-xl p-3 text-center">
-          <p className="text-lg font-bold text-accent">{unlockedAchievements.length}</p>
-          <p className="text-[10px] text-muted-foreground">Conquistas</p>
+          <p className="text-lg font-bold text-accent">{readCount}</p>
+          <p className="text-[10px] text-muted-foreground">Lidas</p>
+        </div>
+        <div className="glass-card rounded-xl p-3 text-center">
+          <p className="text-lg font-bold text-muted-foreground">{lockedTips.length}</p>
+          <p className="text-[10px] text-muted-foreground">Bloqueadas</p>
         </div>
       </div>
 
+      {/* Progress bar of read tips */}
+      {availableTips.length > 0 && (
+        <div className="mt-3 glass-card rounded-xl p-3">
+          <div className="flex items-center justify-between mb-2">
+            <span className="text-xs font-semibold text-foreground flex items-center gap-1">
+              <BookOpen size={12} className="text-primary" /> Progresso de Leitura
+            </span>
+            <span className="text-xs text-muted-foreground">
+              {readCount}/{availableTips.length}
+            </span>
+          </div>
+          <div className="h-2 bg-muted rounded-full overflow-hidden">
+            <div
+              className="h-full bg-primary rounded-full transition-all duration-500"
+              style={{ width: `${(readCount / availableTips.length) * 100}%` }}
+            />
+          </div>
+        </div>
+      )}
+
       {nextLocked && (
-        <div className="mt-4 glass-card rounded-xl p-3 border-primary/20 flex items-center gap-3">
+        <div className="mt-3 glass-card rounded-xl p-3 border-primary/20 flex items-center gap-3">
           <Shield size={16} className="text-primary flex-shrink-0" />
           <p className="text-xs text-muted-foreground">
             Próxima dica requer{" "}
@@ -111,7 +144,13 @@ export default function Tips() {
           <div className="space-y-3">
             {availableTips.map((tip, i) => (
               <div key={tip.id} className="animate-fade-in" style={{ animationDelay: `${i * 80}ms` }}>
-                <TipCard tip={tip} unlocked={true} tipLevel={tip.requiredLevel} onClick={() => navigate(`/tip/${tip.id}`)} />
+                <TipCard
+                  tip={tip}
+                  unlocked={true}
+                  tipLevel={tip.requiredLevel}
+                  isRead={readTips.includes(tip.id)}
+                  onClick={() => navigate(`/tip/${tip.id}`)}
+                />
               </div>
             ))}
           </div>

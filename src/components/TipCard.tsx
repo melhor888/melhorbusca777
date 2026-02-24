@@ -1,4 +1,4 @@
-import { Lock, Zap, Shield } from "lucide-react";
+import { Lock, Zap, Shield, CheckCircle2 } from "lucide-react";
 import type { BartenderTip } from "@/data/bartenderTips";
 import { getTipImage } from "@/data/tipImages";
 import { LEVELS } from "@/hooks/useXP";
@@ -7,6 +7,7 @@ interface TipCardProps {
   tip: BartenderTip;
   unlocked: boolean;
   tipLevel?: number;
+  isRead?: boolean;
   onClick: () => void;
 }
 
@@ -24,7 +25,7 @@ const categoryLabels: Record<string, string> = {
   historia: "História",
 };
 
-export default function TipCard({ tip, unlocked, tipLevel, onClick }: TipCardProps) {
+export default function TipCard({ tip, unlocked, tipLevel, isRead, onClick }: TipCardProps) {
   const image = getTipImage(tip.id, tip.category, tip.themeTag);
   const lvl = tipLevel ?? tip.requiredLevel ?? 1;
   const levelInfo = LEVELS.find(l => l.level === lvl);
@@ -37,7 +38,7 @@ export default function TipCard({ tip, unlocked, tipLevel, onClick }: TipCardPro
         unlocked
           ? "hover:scale-[1.02] hover:border-primary/30 active:scale-[0.98]"
           : "opacity-60 cursor-not-allowed"
-      }`}
+      } ${isRead ? "border-primary/20" : ""}`}
     >
       <div className="flex">
         {/* Image */}
@@ -59,6 +60,12 @@ export default function TipCard({ tip, unlocked, tipLevel, onClick }: TipCardPro
           }`}>
             Lv.{lvl}
           </div>
+          {/* Read indicator */}
+          {isRead && unlocked && (
+            <div className="absolute bottom-1 right-1">
+              <CheckCircle2 size={16} className="text-primary fill-primary/20" />
+            </div>
+          )}
         </div>
 
         {/* Content */}
@@ -67,6 +74,11 @@ export default function TipCard({ tip, unlocked, tipLevel, onClick }: TipCardPro
             <span className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full ${categoryColors[tip.category]}`}>
               {categoryLabels[tip.category]}
             </span>
+            {isRead && unlocked && (
+              <span className="text-[10px] text-primary font-semibold flex items-center gap-1">
+                ✓ Lido
+              </span>
+            )}
             {!unlocked && lvl > 1 && (
               <span className="text-[10px] text-muted-foreground flex items-center gap-1">
                 <Shield size={10} /> Nível {lvl}
