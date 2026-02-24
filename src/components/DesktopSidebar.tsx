@@ -10,7 +10,7 @@ const mainNav = [
   { path: "/quiz", icon: HelpCircle, label: "Quiz" },
   { path: "/ingredientes", icon: Package, label: "Ingredientes" },
   { path: "/colecoes", icon: Layers, label: "Coleções" },
-  { path: "/tips", icon: GraduationCap, label: "Escola Japonesa" },
+  { path: "/tips", icon: GraduationCap, label: "Escola Mexicana" },
   { path: "/dicas", icon: BookOpen, label: "Cultura" },
   { path: "/dashboard", icon: BarChart3, label: "Dashboard" },
   { path: "/lista-compras", icon: ShoppingCart, label: "Lista de Compras" },
@@ -40,9 +40,9 @@ export default function DesktopSidebar() {
   return (
     <aside className="hidden lg:flex flex-col fixed left-0 top-0 bottom-0 w-60 z-50 glass-card border-r border-border/50">
       <Link to="/" className="flex items-center gap-2 px-5 py-5 border-b border-border/50">
-        <span className="text-2xl">🍣</span>
+        <span className="text-2xl">🌮</span>
         <span className="font-display font-bold text-lg text-foreground">
-          Receitas Japonesas<span className="text-primary">XP</span>
+          Receitas Mexicanas<span className="text-primary">XP</span>
         </span>
       </Link>
 
@@ -128,7 +128,7 @@ export default function DesktopSidebar() {
 
       <div className="px-4 py-4 border-t border-border/50">
         <p className="text-[10px] text-muted-foreground text-center">
-          © {new Date().getFullYear()} Receitas Japonesas XP
+          © {new Date().getFullYear()} Receitas MexicanasXP
         </p>
       </div>
     </aside>

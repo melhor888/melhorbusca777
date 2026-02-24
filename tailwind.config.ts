@@ -16,8 +16,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ["Noto Serif JP", "serif"],
-        body: ["Noto Sans JP", "sans-serif"],
+        display: ["Playfair Display", "serif"],
+        body: ["Inter", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -53,9 +53,9 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        "japan-red": "hsl(var(--japan-red))",
-        "japan-gold": "hsl(var(--japan-gold))",
-        "japan-cream": "hsl(var(--japan-cream))",
+        "mexico-green": "hsl(var(--mexico-green))",
+        "mexico-red": "hsl(var(--mexico-red))",
+        "mexico-gold": "hsl(var(--mexico-gold))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",

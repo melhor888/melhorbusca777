@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600;700;900&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -15,7 +15,7 @@
     --popover: 0 0% 9%;
     --popover-foreground: 0 0% 96%;
 
-    --primary: 350 100% 37%;
+    --primary: 145 63% 32%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 0 0% 14%;
@@ -24,30 +24,30 @@
     --muted: 0 0% 12%;
     --muted-foreground: 0 0% 55%;
 
-    --accent: 43 76% 47%;
-    --accent-foreground: 0 0% 5%;
+    --accent: 0 72% 51%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
     --border: 0 0% 16%;
     --input: 0 0% 16%;
-    --ring: 350 100% 37%;
+    --ring: 145 63% 32%;
 
     --radius: 0.75rem;
 
     --sidebar-background: 0 0% 7%;
     --sidebar-foreground: 0 0% 96%;
-    --sidebar-primary: 350 100% 37%;
+    --sidebar-primary: 145 63% 32%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 0 0% 14%;
     --sidebar-accent-foreground: 0 0% 90%;
     --sidebar-border: 0 0% 16%;
-    --sidebar-ring: 350 100% 37%;
+    --sidebar-ring: 145 63% 32%;
 
-    --japan-red: 350 100% 37%;
-    --japan-gold: 43 76% 47%;
-    --japan-cream: 40 30% 95%;
+    --mexico-green: 145 63% 32%;
+    --mexico-red: 0 72% 51%;
+    --mexico-gold: 43 90% 55%;
   }
 
   .light {
@@ -60,7 +60,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 8%;
 
-    --primary: 350 100% 37%;
+    --primary: 145 63% 32%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 40 20% 90%;
@@ -69,7 +69,7 @@
     --muted: 40 15% 92%;
     --muted-foreground: 0 0% 40%;
 
-    --accent: 43 76% 42%;
+    --accent: 0 72% 46%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 50%;
@@ -77,20 +77,20 @@
 
     --border: 40 15% 85%;
     --input: 40 15% 85%;
-    --ring: 350 100% 37%;
+    --ring: 145 63% 32%;
 
     --sidebar-background: 40 20% 98%;
     --sidebar-foreground: 0 0% 8%;
-    --sidebar-primary: 350 100% 37%;
+    --sidebar-primary: 145 63% 32%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 40 15% 92%;
     --sidebar-accent-foreground: 0 0% 15%;
     --sidebar-border: 40 15% 85%;
-    --sidebar-ring: 350 100% 37%;
+    --sidebar-ring: 145 63% 32%;
 
-    --japan-red: 350 100% 37%;
-    --japan-gold: 43 76% 42%;
-    --japan-cream: 40 30% 96%;
+    --mexico-green: 145 63% 32%;
+    --mexico-red: 0 72% 46%;
+    --mexico-gold: 43 90% 50%;
   }
 }
 
@@ -117,9 +117,9 @@
     display: none;
   }
 
-  .text-gradient-gold {
+  .text-gradient-mexico {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, hsl(350 100% 37%), hsl(43 76% 47%));
+    background-image: linear-gradient(135deg, hsl(145 63% 32%), hsl(0 72% 51%));
   }
 
   .glass-card {

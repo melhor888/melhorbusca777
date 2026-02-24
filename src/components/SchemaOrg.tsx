@@ -2,12 +2,11 @@ export function WebsiteSchema() {
   const data = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: "Receitas Japonesas XP",
-    url: "https://japanfood.lovable.app",
-    description: "Receitas autênticas de comida japonesa, técnicas culinárias, cultura e gastronomia do Japão.",
+    name: "Receitas MexicanasXP",
+    description: "Receitas autênticas de comida mexicana, técnicas culinárias, cultura e gastronomia do México.",
     potentialAction: {
       "@type": "SearchAction",
-      target: "https://japanfood.lovable.app/search?q={search_term_string}",
+      target: "{search_term_string}",
       "query-input": "required name=search_term_string",
     },
   };
@@ -18,11 +17,10 @@ export function OrganizationSchema() {
   const data = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: "Receitas Japonesas XP",
-    url: "https://japanfood.lovable.app",
+    name: "Receitas MexicanasXP",
     contactPoint: {
       "@type": "ContactPoint",
-      email: "contato@receitasjaponesasxp.com.br",
+      email: "contato@receitasmexicanasxp.com.br",
       contactType: "customer service",
       availableLanguage: "Portuguese",
     },

@@ -46,8 +46,8 @@ export default function Index() {
   return (
     <>
       <Helmet>
-        <title>Receitas Japonesas XP - Receitas de Comida Japonesa Autêntica</title>
-        <meta name="description" content="Descubra receitas autênticas da culinária japonesa. Sushi, ramen, tempurá, yakitori e muito mais. Aprenda técnicas profissionais." />
+        <title>Receitas MexicanasXP - Receitas de Comida Mexicana Autêntica</title>
+        <meta name="description" content="Descubra receitas autênticas da culinária mexicana. Tacos, burritos, enchiladas, guacamole e muito mais. Aprenda técnicas profissionais." />
       </Helmet>
       <div className="min-h-screen pb-20">
         <header className="fixed top-0 left-0 right-0 z-40 px-4 py-3 flex items-center justify-end gap-2 bg-gradient-to-b from-background via-background/90 to-transparent lg:hidden">
