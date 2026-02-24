@@ -52,6 +52,7 @@ const categoryImagePools: Record<string, string[]> = {
   "Masterclass de Técnicas": buildImagePool('tecnicas'),
   "Harmonização Sake & Drinks": buildImagePool('sake'),
   "Cardápios Completos": buildImagePool('cardapio'),
+  "Receitas Exclusivas": [],
 };
 
 const categoryHeroBanners: Record<string, string> = {
@@ -75,6 +76,7 @@ const categoryHeroBanners: Record<string, string> = {
   "masterclass-tecnicas": categoryImagePools["Masterclass de Técnicas"]?.[0] || '',
   "harmonizacao-sake": categoryImagePools["Harmonização Sake & Drinks"]?.[0] || '',
   "cardapios-completos": categoryImagePools["Cardápios Completos"]?.[0] || '',
+  "receitas-exclusivas": "/images/dish-menu-degustacao-mexicano.jpg",
 };
 
 // Dedicated images for specific drinks (overrides hash-based assignment)
@@ -748,6 +750,23 @@ const dedicatedImages: Record<string, string> = {
   "gyukatsu-wagyu": "/images/vip-secretas-12.jpg",
   "chirashi-zushi-edomae": "/images/vip-secretas-13.jpg",
   "katsudon": "/images/vip-secretas-9.jpg",
+  // Receitas Exclusivas (Premium) - dedicated images
+  "mole-negro-oaxaca-secreto": "/images/dish-mole-negro-oaxaca-secreto.jpg",
+  "birria-jalisco-secreta": "/images/dish-birria-jalisco-secreta.jpg",
+  "tlayuda-oaxaquena": "/images/dish-tlayuda-oaxaquena.jpg",
+  "papadzules-yucatecos": "/images/dish-papadzules-yucatecos.jpg",
+  "chiles-en-nogada-premium": "/images/dish-chiles-en-nogada-premium.jpg",
+  "mole-amarillo-oaxaca": "/images/dish-mole-amarillo-oaxaca.jpg",
+  "taco-wagyu-trufa": "/images/dish-taco-wagyu-trufa.jpg",
+  "mole-chocolate-belga": "/images/dish-mole-chocolate-belga.jpg",
+  "pozole-seafood-gourmet": "/images/dish-pozole-seafood-gourmet.jpg",
+  "enchiladas-langosta": "/images/dish-enchiladas-langosta.jpg",
+  "cochinita-pibil-premium": "/images/dish-cochinita-pibil-premium.jpg",
+  "barbacoa-borrego-hidalgo": "/images/dish-barbacoa-borrego-hidalgo.jpg",
+  "taco-al-pastor-chef": "/images/dish-taco-al-pastor-chef.jpg",
+  "carnitas-michoacan-chef": "/images/dish-carnitas-michoacan-chef.jpg",
+  "menu-degustacao-mexicano": "/images/dish-menu-degustacao-mexicano.jpg",
+  "cena-premium-wagyu-mezcal": "/images/dish-cena-premium-wagyu-mezcal.jpg",
 };
 
 // Simple hash to get consistent image for each drink
