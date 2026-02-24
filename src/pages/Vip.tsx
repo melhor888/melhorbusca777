@@ -3,6 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { useTranslation } from "react-i18next";
 import { Crown, Lock, Wine, KeyRound, Check, X, Star, ArrowRight, ChefHat, GraduationCap, BookOpen, Wrench, FileText } from "lucide-react";
+import { FadeUp, ScaleIn, StaggerContainer } from "@/components/VipAnimations";
 import { validateVipKey, isVipUnlocked, setVipUnlocked } from "@/utils/vipKeys";
 import VipTrialBanner from "@/components/VipTrialBanner";
 import VipNetflixHero from "@/components/VipNetflixHero";
@@ -118,38 +119,39 @@ export default function Vip() {
           </div>
         )}
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto">
-          {vipCategories.map((cat) => {
+        <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto">
+          {vipCategories.map((cat, i) => {
             const Icon = cat.icon;
             const catDrinks = getVipDrinksByCategory(cat.id);
             return (
-              <button
-                key={cat.id}
-                onClick={() => unlocked && navigate(`/vip/${cat.id}`)}
-                className={`relative overflow-hidden rounded-2xl p-5 text-left transition-all ${
-                  unlocked ? "hover:scale-[1.02] active:scale-[0.98]" : "opacity-60"
-                }`}
-              >
-                <div className={`absolute inset-0 bg-gradient-to-br ${cat.color} opacity-20`} />
-                <div className="relative z-10">
-                  <Icon size={28} className="text-primary mb-3" />
-                  <h3 className="font-display font-bold text-foreground text-lg">{cat.name}</h3>
-                  <p className="text-xs text-muted-foreground mt-1">{cat.description}</p>
-                  <p className="text-xs text-primary font-semibold mt-2">{catDrinks.length} {t("common.recipes")}</p>
-                  {!unlocked && (
-                    <div className="absolute top-3 right-3">
-                      <Lock size={16} className="text-muted-foreground" />
-                    </div>
-                  )}
-                </div>
-              </button>
+              <ScaleIn key={cat.id} index={i}>
+                <button
+                  onClick={() => unlocked && navigate(`/vip/${cat.id}`)}
+                  className={`relative overflow-hidden rounded-2xl p-5 text-left transition-all w-full ${
+                    unlocked ? "hover:scale-[1.02] active:scale-[0.98]" : "opacity-60"
+                  }`}
+                >
+                  <div className={`absolute inset-0 bg-gradient-to-br ${cat.color} opacity-20`} />
+                  <div className="relative z-10">
+                    <Icon size={28} className="text-primary mb-3" />
+                    <h3 className="font-display font-bold text-foreground text-lg">{cat.name}</h3>
+                    <p className="text-xs text-muted-foreground mt-1">{cat.description}</p>
+                    <p className="text-xs text-primary font-semibold mt-2">{catDrinks.length} {t("common.recipes")}</p>
+                    {!unlocked && (
+                      <div className="absolute top-3 right-3">
+                        <Lock size={16} className="text-muted-foreground" />
+                      </div>
+                    )}
+                  </div>
+                </button>
+              </ScaleIn>
             );
           })}
-        </div>
+        </StaggerContainer>
 
         {/* VIP Tools */}
         {unlocked && (
-          <div className="max-w-2xl mx-auto mt-8 mb-4">
+          <FadeUp className="max-w-2xl mx-auto mt-8 mb-4">
             <button
               onClick={() => navigate("/vip/ferramentas")}
               className="w-full flex items-center gap-4 rounded-2xl p-5 text-left bg-gradient-to-r from-yellow-500/10 to-amber-500/10 border border-yellow-500/20 hover:border-yellow-500/40 transition-all hover:scale-[1.01]"
@@ -176,7 +178,7 @@ export default function Vip() {
               </div>
               <ArrowRight size={20} className="text-emerald-500" />
             </button>
-          </div>
+          </FadeUp>
         )}
 
         {!unlocked && (

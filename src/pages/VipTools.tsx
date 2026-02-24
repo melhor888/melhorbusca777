@@ -7,6 +7,7 @@ import {
   Crown, Lock, ArrowLeft, ChevronDown, ChevronUp, Plus, Minus, Trash2,
   Copy, Check, RotateCcw
 } from "lucide-react";
+import { FadeUp } from "@/components/VipAnimations";
 import { isVipUnlocked } from "@/utils/vipKeys";
 import { Button } from "@/components/ui/button";
 
@@ -544,12 +545,13 @@ export default function VipTools() {
         </div>
 
         <div className="space-y-3">
-          {tools.map((tool) => {
+          {tools.map((tool, i) => {
             const Icon = tool.icon;
             const isOpen = openTool === tool.id;
             const ToolComponent = tool.component;
             return (
-              <div key={tool.id} className="rounded-2xl border border-border overflow-hidden bg-card">
+              <FadeUp key={tool.id} index={i}>
+              <div className="rounded-2xl border border-border overflow-hidden bg-card">
                 <button
                   onClick={() => setOpenTool(isOpen ? null : tool.id)}
                   className="w-full flex items-center gap-3 p-4 text-left"
@@ -569,6 +571,7 @@ export default function VipTools() {
                   </div>
                 )}
               </div>
+              </FadeUp>
             );
           })}
         </div>

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { FadeUp } from "@/components/VipAnimations";
 import {
   Crown, Lock, ArrowLeft, Copy, Check, FileText, Truck, Store,
   Building2, Package, PartyPopper, Gift, CalendarDays, ChevronDown, ChevronUp,
@@ -514,8 +515,10 @@ export default function VipModelos() {
 
         {/* Models */}
         <div className="space-y-3">
-          {activeCategory?.models.map(modelo => (
-            <ModeloCard key={modelo.id} modelo={modelo} />
+          {activeCategory?.models.map((modelo, i) => (
+            <FadeUp key={modelo.id} index={i}>
+              <ModeloCard modelo={modelo} />
+            </FadeUp>
           ))}
         </div>
       </main>
