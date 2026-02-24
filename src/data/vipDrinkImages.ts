@@ -684,27 +684,19 @@ const dedicatedImages: Record<string, string> = {
   "amsterdam-canal-cocktail-vm": "/images/vip-volta-102.jpg",
   "petra-cocktail-jordania-vm": "/images/vip-volta-103.jpg",
   "mumbai-chai-old-fashioned-vm": "/images/vip-volta-104.jpg",
-  // Cardápios Completos dedicated images (20 receitas, 20 imagens únicas)
-  "cc-jantar-kaiseki": "/images/vip-cardapio-1.jpg",
-  "cc-festa-izakaya": "/images/vip-cardapio-2.jpg",
-  "cc-hanami-party": "/images/vip-cardapio-3.jpg",
-  "cc-reveillon-japones": "/images/vip-cardapio-4.jpg",
-  "cc-bento-premium": "/images/vip-cardapio-5.jpg",
-  "cc-menu-ramen": "/images/vip-cardapio-6.jpg",
-  "cc-churrasco-yakiniku": "/images/vip-cardapio-7.jpg",
-  "cc-cafe-da-manha-ryokan": "/images/vip-cardapio-8.jpg",
-  "cc-menu-soba": "/images/vip-cardapio-9.jpg",
-  "cc-menu-udon": "/images/vip-cardapio-10.jpg",
-  "cc-menu-tempura": "/images/vip-cardapio-11.jpg",
-  "cc-menu-donburi": "/images/vip-cardapio-12.jpg",
-  "cc-menu-kaiseki-verao": "/images/vip-cardapio-13.jpg",
-  "cc-brunch-japones": "/images/vip-cardapio-14.jpg",
-  "cc-menu-teppanyaki": "/images/vip-cardapio-15.jpg",
-  "cc-menu-sukiyaki": "/images/vip-cardapio-16.jpg",
-  "cc-menu-sushi-caseiro": "/images/vip-cardapio-17.jpg",
-  "cc-menu-osechi-moderno": "/images/vip-cardapio-18.jpg",
-  "cc-piquenique-hanami-moderno": "/images/vip-cardapio-19.jpg",
-  "cc-menu-curry-japones": "/images/vip-cardapio-20.jpg",
+  // Cardápios Completos - imagens dedicadas (12 receitas mexicanas)
+  "cc-dia-muertos": "/images/vip-menu-muertos.jpg",
+  "cc-taquiza": "/images/vip-menu-taquiza.jpg",
+  "cc-desayuno": "/images/vip-cardapio-desayuno.jpg",
+  "cc-parrillada": "/images/vip-cardapio-parrillada.jpg",
+  "cc-antojitos": "/images/vip-cardapio-antojitos.jpg",
+  "cc-yucateco": "/images/vip-cardapio-yucateco.jpg",
+  "cc-oaxaqueno": "/images/vip-cardapio-oaxaqueno.jpg",
+  "cc-mariscos": "/images/vip-cardapio-mariscos.jpg",
+  "cc-navidad": "/images/vip-cardapio-navidad.jpg",
+  "cc-pozoliza": "/images/vip-cardapio-pozoliza.jpg",
+  "cc-vegetariano": "/images/vip-cardapio-vegetariano.jpg",
+  "cc-degustacao": "/images/vip-cardapio-degustacao.jpg",
   // Masterclass de Técnicas - imagens dedicadas (13 receitas mexicanas)
   "mt-nixtamalizacao": "/images/vip-tecnica-nixtamalizacao.jpg",
   "mt-molcajete": "/images/vip-tecnica-molcajete.jpg",
@@ -765,11 +757,7 @@ const dedicatedImages: Record<string, string> = {
   "sopa-azteca-premium": "/images/vip-exclusiva-sopa-azteca.jpg",
   "coctel-vuelve-a-la-vida": "/images/vip-exclusiva-vuelve-vida.jpg",
   "chiles-en-nogada-clasico-puebla": "/images/vip-exclusiva-chiles-nogada-clasico.jpg",
-  // (Agave images already mapped above)
-  
-  // Mexican Menus Images
-  "cc-dia-muertos": "/images/vip-menu-muertos.jpg",
-  "cc-taquiza": "/images/vip-menu-taquiza.jpg",
+  // (Agave and menu images already mapped above)
   
   // Mexican Infusions Images
   "ci-cafe-olla": "/images/vip-infusao-cafe-olla.jpg",
