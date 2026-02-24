@@ -462,7 +462,7 @@ export default function VipModelos() {
   if (!unlocked) {
     return (
       <>
-        <Helmet><title>Modelos Prontos VIP | Receitas MexicanasXP</title></Helmet>
+        <Helmet><title>Modelos Prontos VIP | Mexi Food XP</title></Helmet>
         <main className="px-4 pt-8 pb-32 lg:pb-12 text-center">
           <Lock size={48} className="mx-auto text-muted-foreground mb-4" />
           <h1 className="font-display text-2xl font-bold text-foreground">Modelos Prontos VIP</h1>
@@ -480,7 +480,7 @@ export default function VipModelos() {
   return (
     <>
       <Helmet>
-        <title>Modelos Prontos VIP | Receitas MexicanasXP</title>
+        <title>Modelos Prontos VIP | Mexi Food XP</title>
         <meta name="description" content="Modelos prontos VIP: cardápios editáveis, delivery, food truck, dark kitchen, combos, kits e campanhas sazonais." />
       </Helmet>
       <main className="px-4 pt-6 pb-32 lg:pb-12 max-w-2xl mx-auto">

@@ -43,7 +43,7 @@ export default function Footer() {
             {t("footer.adDisclaimer")}
           </p>
           <p className="text-[10px] text-muted-foreground">
-            © {new Date().getFullYear()} Receitas 🇲🇽XP. {t("footer.rights")}
+            © {new Date().getFullYear()} <span style={{ color: '#006847' }}>Mexi</span> <span>Food</span> <span style={{ color: '#CE1126' }}>XP</span>. {t("footer.rights")}
           </p>
         </div>
       </div>

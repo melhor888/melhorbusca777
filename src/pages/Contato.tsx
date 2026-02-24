@@ -4,16 +4,16 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 
 export default function Contato() {
   const whatsappNumber = "5527995055993";
-  const whatsappMessage = encodeURIComponent("Olá! Vim pelo Receitas MexicanasXP e gostaria de tirar uma dúvida.");
+  const whatsappMessage = encodeURIComponent("Olá! Vim pelo Mexi Food XP e gostaria de tirar uma dúvida.");
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
 
   return (
     <>
       <Helmet>
-        <title>Contato - Receitas MexicanasXP | Fale Conosco</title>
-        <meta name="description" content="Entre em contato com o Receitas MexicanasXP pelo WhatsApp. Tire suas dúvidas rapidamente." />
+        <title>Contato - Mexi Food XP | Fale Conosco</title>
+        <meta name="description" content="Entre em contato com o Mexi Food XP pelo WhatsApp. Tire suas dúvidas rapidamente." />
         <link rel="canonical" href="https://receitasmexicanas.lovable.app/contato" />
-        <meta property="og:title" content="Contato - Receitas MexicanasXP" />
+        <meta property="og:title" content="Contato - Mexi Food XP" />
         <meta property="og:description" content="Fale conosco pelo WhatsApp. Tire suas dúvidas rapidamente." />
         <meta property="og:url" content="https://receitasmexicanas.lovable.app/contato" />
       </Helmet>

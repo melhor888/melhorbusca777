@@ -75,7 +75,7 @@ export default function RecipeDetail() {
   const tags = getFlavorTags(rawDish);
 
   const handleShare = async () => {
-    const text = `🌮 ${dish.name}\n\n${t("recipe.ingredients")}:\n${dish.ingredients.join("\n")}\n\nReceitas MexicanasXP!`;
+    const text = `🌮 ${dish.name}\n\n${t("recipe.ingredients")}:\n${dish.ingredients.join("\n")}\n\nMexi Food XP!`;
     if (navigator.share) {
       await navigator.share({ title: dish.name, text });
     } else {
@@ -83,12 +83,12 @@ export default function RecipeDetail() {
     }
   };
 
-  const ogDescription = `${dish.name}: ${dish.ingredients.slice(0, 3).join(", ")}. Receitas MexicanasXP.`;
+  const ogDescription = `${dish.name}: ${dish.ingredients.slice(0, 3).join(", ")}. Mexi Food XP.`;
 
   return (
     <div className="min-h-screen pb-24">
       <Helmet>
-        <title>{dish.name} - Receitas MexicanasXP</title>
+        <title>{dish.name} - Mexi Food XP</title>
         <meta name="description" content={ogDescription} />
       </Helmet>
       <XPToast xp={xpGained} show={showXP} onClose={() => setShowXP(false)} />

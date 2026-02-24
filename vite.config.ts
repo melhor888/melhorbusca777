@@ -24,8 +24,8 @@ export default defineConfig(({ mode }) => ({
         maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
       },
       manifest: {
-        name: "Receitas MexicanasXP",
-        short_name: "MexicanasXP",
+        name: "Mexi Food XP",
+        short_name: "MexiFoodXP",
         description: "Descubra receitas autênticas da culinária mexicana",
         theme_color: "#0d6832",
         background_color: "#0d0d0d",

@@ -508,7 +508,7 @@ export default function VipTools() {
   if (!unlocked) {
     return (
       <>
-        <Helmet><title>Ferramentas VIP | Receitas MexicanasXP</title></Helmet>
+        <Helmet><title>Ferramentas VIP | Mexi Food XP</title></Helmet>
         <main className="px-4 pt-8 pb-32 lg:pb-12 text-center">
           <Lock size={48} className="mx-auto text-muted-foreground mb-4" />
           <h1 className="font-display text-2xl font-bold text-foreground">Ferramentas VIP</h1>
@@ -524,7 +524,7 @@ export default function VipTools() {
   return (
     <>
       <Helmet>
-        <title>Ferramentas VIP | Receitas MexicanasXP</title>
+        <title>Ferramentas VIP | Mexi Food XP</title>
         <meta name="description" content="Ferramentas exclusivas VIP: calculadora de ardência, lucro, gerador de cardápio, combos, preços, promoções e simulador de delivery." />
       </Helmet>
       <main className="px-4 pt-6 pb-32 lg:pb-12 max-w-2xl mx-auto">

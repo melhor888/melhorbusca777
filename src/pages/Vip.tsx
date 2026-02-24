@@ -80,7 +80,7 @@ export default function Vip() {
   return (
     <>
       <Helmet>
-        <title>VIP | Receitas MexicanasXP</title>
+        <title>VIP | Mexi Food XP</title>
       </Helmet>
 
       <VipTrialBanner />

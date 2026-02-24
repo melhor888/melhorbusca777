@@ -88,8 +88,8 @@ export default function QueroSerVip() {
   return (
     <>
       <Helmet>
-        <title>Quero Ser VIP | Receitas MexicanasXP</title>
-        <meta name="description" content="Desbloqueie receitas exclusivas da culinária mexicana, dicas do chef e categorias premium. Torne-se VIP no Receitas MexicanasXP." />
+        <title>Quero Ser VIP | Mexi Food XP</title>
+        <meta name="description" content="Desbloqueie receitas exclusivas da culinária mexicana, dicas do chef e categorias premium. Torne-se VIP no Mexi Food XP." />
       </Helmet>
 
       <main className="pb-32 lg:pb-12">

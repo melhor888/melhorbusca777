@@ -46,9 +46,10 @@ export default function DesktopSidebar() {
   return (
     <aside className="hidden lg:flex flex-col fixed left-0 top-0 bottom-0 w-60 z-50 glass-card border-r border-border/50">
       <Link to={localePath("/")} className="flex items-center gap-2 px-5 py-5 border-b border-border/50">
-        <span className="text-2xl">🌮</span>
-        <span className="font-display font-bold text-lg text-foreground">
-          Receitas 🇲🇽<span className="text-primary">XP</span>
+        <span className="font-display font-bold text-lg">
+          <span style={{ color: '#006847' }}>Mexi</span>{' '}
+          <span className="text-foreground">Food</span>{' '}
+          <span style={{ color: '#CE1126' }}>XP</span>
         </span>
       </Link>
 
