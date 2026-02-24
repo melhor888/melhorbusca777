@@ -50,8 +50,17 @@ export function getAllVipDrinks(): VipDrink[] {
   return [...vinhoSangrias, ...cervejaBeerCocktails, ...frozenBlended, ...shotsShooters, ...tropicalTiki, ...classicosReinventados, ...lowAbvWellness, ...drinksAutor, ...cafeDessertCocktails, ...sazonaisFestivos, ...sobremesaDoces, ...picantesDefumados, ...chaInfusoes, ...veganosPlantBased, ...masterclassCocktails, ...voltaAoMundo, ...receitasSecretas, ...masterclassTecnicas, ...harmonizacaoSake, ...cardapiosCompletos, ...receitasExclusivas];
 }
 
+const categorySlugMap: Record<string, string[]> = {
+  "receitas-secretas": ["Receitas Secretas do Chef"],
+  "masterclass-tecnicas": ["Masterclass de Técnicas"],
+  "harmonizacao-sake": ["Harmonização Agave & Comida"],
+  "cardapios-completos": ["Cardápios Completos"],
+  "receitas-exclusivas": ["receitas-exclusivas"],
+};
+
 export function getVipDrinksByCategory(category: string): VipDrink[] {
-  return getAllVipDrinks().filter((d) => d.category === category);
+  const names = categorySlugMap[category] || [category];
+  return getAllVipDrinks().filter((d) => names.includes(d.category) || d.category === category);
 }
 
 export function getVipDrinkById(id: string): VipDrink | undefined {
