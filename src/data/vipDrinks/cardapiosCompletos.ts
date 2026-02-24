@@ -416,5 +416,115 @@ export const cardapiosCompletos: VipDrink[] = [
     difficulty: "Fácil",
     time: "1h30",
     description: "Curry japonês é o prato caseiro mais popular do Japão — preparado semanalmente em milhões de lares. Diferente do curry indiano, é mais suave, doce e espesso. CoCo Ichibanya é a cadeia de curry mais famosa do mundo."
-  }
+  },
+  {
+    id: "cc-menu-gyoza-night",
+    name: "Noite de Gyoza Caseiro",
+    category: "Cardápios Completos",
+    image: "",
+    ingredients: ["Massa de gyoza (300g farinha + 150ml água quente)", "Recheio de porco: porco moído, repolho, nirá, gengibre", "Recheio de camarão: camarão picado, cebolinha, gergelim", "Recheio vegano: tofu, cogumelos, nirá", "Molho: shoyu + vinagre + rayu", "Edamame, cerveja japonesa"],
+    steps: ["Prepare 3 recheios diferentes — variedade é a chave.", "Faça a massa e abra discos de 8cm.", "Monte estação de montagem: massa, recheios, água para selar.", "Cada pessoa monta seus próprios gyozas — é interativo!", "Sele em frigideira: frite 2 min, adicione água, tampe 4 min.", "Sirva rodadas contínuas: 6 gyozas por vez.", "Acompanhe com edamame e cerveja japonesa gelada.", "Encerre com arroz com nori e missoshiru simples."],
+    difficulty: "Médio",
+    time: "2h",
+    description: "Gyoza party é tradição familiar no Japão — todos montam juntos, conversam e comem rodada após rodada. É a melhor forma de reunir amigos: interativo, delicioso e infinitamente customizável."
+  },
+  {
+    id: "cc-menu-yakitori-izakaya",
+    name: "Noite Yakitori Izakaya em Casa",
+    category: "Cardápios Completos",
+    image: "",
+    ingredients: ["Espetos: momo (coxa), negima (peito+negi), tsukune (almôndega), kawa (pele)", "Tare caseiro: shoyu + mirin + sake + açúcar", "Shichimi togarashi", "Edamame, hiyayakko (tofu frio)", "Sake e cerveja japonesa", "Grelha de mesa ou churrasqueira"],
+    steps: ["Prepare tare: ferva shoyu+mirin+sake+açúcar até engrossar.", "Corte frango em cubos de 3cm para espetos.", "Monte espetos alternando carne e negi.", "Tsukune: misture frango moído com gengibre e ovo, forme bolas.", "Kawa: dobre pele de frango em sanfona no espeto.", "Grelhe em fogo de carvão ou grelha de mesa.", "Pincele com tare nas últimas rodadas.", "Sirva com shichimi, edamame e sake gelado."],
+    difficulty: "Médio",
+    time: "2h",
+    description: "Transforme sua casa em izakaya com yakitori caseiro. No Japão, yakitoriyas são os bares mais democráticos — do salaryman ao CEO, todos sentam lado a lado comendo espetos e bebendo sake."
+  },
+  {
+    id: "cc-menu-onigiri-picnic",
+    name: "Piquenique de Onigiri Japonês",
+    category: "Cardápios Completos",
+    image: "",
+    ingredients: ["Arroz japonês quente", "Recheios: salmão grelhado, umeboshi, okaka (bonito+shoyu), tarako, tuna mayo", "Nori", "Tamagoyaki", "Tsukemono variados", "Frutas da estação", "Chá verde gelado"],
+    steps: ["Cozinhe arroz japonês e tempere com sal nas mãos molhadas.", "Prepare 5 recheios diferentes para variedade.", "Molde onigiris em triângulo com mãos molhadas e salgadas.", "Coloque recheio no centro, feche e pressione firmemente.", "Envolva com nori — fresco para crocante, ou previamente para macio.", "Corte tamagoyaki em fatias e embale.", "Prepare tsukemono: pepino, nabo, gengibre.", "Embale tudo em bento boxes para transporte."],
+    difficulty: "Fácil",
+    time: "1h30",
+    description: "Onigiri é o snack perfeito do Japão — portátil, nutritivo e infinitamente variável. Para piqueniques (hanami, praia, montanha), é tradição preparar onigiri caseiros embalados com carinho."
+  },
+  {
+    id: "cc-menu-shabu-shabu",
+    name: "Noite de Shabu-Shabu Premium",
+    category: "Cardápios Completos",
+    image: "",
+    ingredients: ["Carne bovina fatiada ultra-fina (wagyu ou ribeye)", "Caldo kombu dashi", "Tofu firme", "Hakusai (repolho chinês)", "Enoki, shimeji, shiitake", "Udon ou harusame", "Ponzu e gomadare (molho de gergelim)", "Arroz japonês"],
+    steps: ["Prepare caldo: ferva água com kombu — retire antes de ferver.", "Disponha ingredientes em pratos decorativos na mesa.", "Cada pessoa pega uma fatia de carne com hashi.", "Shabu-shabu: mergulhe na panela fervente e mexa 2-3 vezes.", "A carne deve ficar rosada — não cozinhe demais!", "Mergulhe no ponzu ou gomadare.", "Cozinhe vegetais e tofu no caldo — ficam cada vez mais saborosos.", "Ao final, cozinhe udon no caldo enriquecido — o shime (encerramento)."],
+    difficulty: "Fácil",
+    time: "1h30",
+    description: "Shabu-shabu é fondue japonês — elegante, interativo e saudável. O nome vem do som 'shabu-shabu' da carne na água. É refeição de celebração, ideal para grupos e família."
+  },
+  {
+    id: "cc-menu-teishoku",
+    name: "Teishoku: Set Meal Japonês Completo",
+    category: "Cardápios Completos",
+    image: "",
+    ingredients: ["Prato principal: tonkatsu, salmão grelhado ou gengibre porco (shogayaki)", "Arroz japonês", "Missoshiru", "Tsukemono (conservas)", "Salada com wafu dressing", "Pequenas porções: hiyayakko, hijiki nimono"],
+    steps: ["Monte na bandeja: arroz à esquerda, sopa à direita.", "Prato principal no centro-trás.", "Tsukemono e pequenos pratos nos cantos.", "Salada na lateral.", "Arroz e missoshiru são repostos gratuitamente (okawari).", "Coma alternando: arroz → okazu (acompanhamento) → sopa.", "Nunca despeje molho no arroz — coma separadamente.", "Termine com chá verde — o encerramento perfeito."],
+    difficulty: "Médio",
+    time: "1h30",
+    description: "Teishoku é o almoço padrão japonês — equilibrado, completo e acessível. Segue a regra ichiju-sansai (uma sopa, três acompanhamentos) que garante nutrição perfeita em cada refeição."
+  },
+  {
+    id: "cc-menu-chirashi-celebration",
+    name: "Chirashi-zushi de Celebração",
+    category: "Cardápios Completos",
+    image: "",
+    ingredients: ["Shari (arroz de sushi temperado)", "Sashimi variado: atum, salmão, hamachi, ikura, uni", "Tamago, pepino, shiso", "Nori fatiado, gergelim", "Wasabi, gari (gengibre)", "Missoshiru de camarão", "Chawanmushi"],
+    steps: ["Prepare shari perfeito: arroz + vinagre temperado, abanando.", "Espalhe shari na tigela grande de madeira (hangiri).", "Disponha sashimi artisticamente sobre o arroz.", "Crie padrão de cores: vermelho (atum), laranja (salmão), amarelo (tamago).", "Adicione ikura em pequenos montes como joias.", "Decore com shiso, nori fatiado e gergelim.", "Acompanhe com missoshiru e chawanmushi.", "Chirashi é o prato de celebração: Hinamatsuri, aniversários, promoções."],
+    difficulty: "Médio",
+    time: "1h30",
+    description: "Chirashi-zushi é a versão festiva do sushi — todos os ingredientes premium espalhados artisticamente sobre arroz temperado. É o prato de celebração no Japão, servido em datas especiais como Hinamatsuri (Dia das Meninas)."
+  },
+  {
+    id: "cc-menu-ramen-caseiro",
+    name: "Ramen Party: 3 Estilos em Casa",
+    category: "Cardápios Completos",
+    image: "",
+    ingredients: ["Caldo tonkotsu (porco), shoyu (frango) e miso", "Macarrão ramen fresco ou seco", "Toppings: chashu, ajitama (ovo marinado), menma, nori, negi", "Rayu (óleo de chili)", "Arroz para finalizar"],
+    steps: ["Prepare 3 caldos em panelas separadas (ou use bases prontas).", "Tonkotsu: branco e encorpado — ferva ossos 12h+.", "Shoyu: claro com dashi de frango — 4h de cozimento.", "Miso: dissolva miso no caldo de frango — não ferva após.", "Cozinhe ramen em água separada (NUNCA no caldo).", "Monte estação de toppings: chashu, ajitama, menma, nori, negi.", "Cada pessoa escolhe seu estilo e monta seu bowl.", "Slurp é obrigatório — aeração melhora o sabor!"],
+    difficulty: "Avançado",
+    time: "4h (caldos) + 30 min montagem",
+    description: "Ramen party é o jantar interativo definitivo — ofereça 3 estilos e deixe cada convidado montar o seu. No Japão, cada região tem seu ramen: Hakata (tonkotsu), Tokyo (shoyu), Sapporo (miso)."
+  },
+  {
+    id: "cc-menu-kaiseki-inverno",
+    name: "Kaiseki de Inverno Completo",
+    category: "Cardápios Completos",
+    image: "",
+    ingredients: ["Sakizuke: tofu de gergelim com yuzu miso", "Owan: sopa de matsutake com hamo", "Mukouzuke: sashimi de buri (yellowtail) de inverno", "Hassun: prato sazonal com ingredientes de inverno", "Yakimono: salmão kasuzuke (marinado em sake lees)", "Nimono: daikon com buri em molho de shoyu", "Gohan: arroz com castanhas (kuri gohan)", "Wagashi de inverno"],
+    steps: ["Sakizuke: sirva tofu de gergelim gelado com yuzu miso por cima.", "Owan: caldo dashi cristalino com matsutake (ou shimeji) e yuzu.", "Mukouzuke: buri de inverno fatiado grosso — no auge da gordura.", "Hassun: monte prato decorativo com folhas de inverno.", "Yakimono: salmão marinado em kasuzuke por 3 dias, grelhe.", "Nimono: buri-daikon — o prato de conforto do inverno japonês.", "Gohan: arroz cozido com castanhas e sal.", "Encerre com wagashi de inverno e matcha quente."],
+    difficulty: "Avançado",
+    time: "5h",
+    description: "Kaiseki de inverno celebra os ingredientes no auge: buri gordo, matsutake aromático, castanhas doces. Cada prato reflete a beleza da estação fria — é meditação culinária sobre o ciclo da natureza."
+  },
+  {
+    id: "cc-menu-takoyaki-party",
+    name: "Takoyaki Party em Casa",
+    category: "Cardápios Completos",
+    image: "",
+    ingredients: ["Massa de takoyaki: farinha, dashi, ovos, baking powder", "Polvo cozido em cubos", "Tenkasu, beni-shoga (gengibre vermelho), negi", "Molho takoyaki, maionese japonesa", "Katsuobushi, aonori", "Máquina de takoyaki", "Cerveja e highball"],
+    steps: ["Prepare a massa: farinha + dashi frio + ovos — líquida como crepe.", "Aqueça máquina de takoyaki e oleie cada cavidade.", "Despeje massa até transbordar levemente.", "Adicione polvo, tenkasu, beni-shoga e negi em cada bola.", "Quando a borda firmar, gire 90° com palito de bambu.", "Continue girando até formar esfera perfeita — dourada por fora.", "Sirva imediatamente com molho, mayo, katsuobushi e aonori.", "Takoyaki party: cada pessoa gira suas próprias bolas — diversão!"],
+    difficulty: "Médio",
+    time: "1h30",
+    description: "Takoyaki party é a diversão culinária mais popular de Osaka — cada casa tem sua máquina. Girar takoyaki perfeitos é habilidade social básica em Osaka. Acompanhe com cerveja e muitas risadas."
+  },
+  {
+    id: "cc-menu-japanese-breakfast",
+    name: "Café da Manhã Japonês Tradicional Completo",
+    category: "Cardápios Completos",
+    image: "",
+    ingredients: ["Arroz japonês quente", "Missoshiru com tofu e wakame", "Salmão grelhado com sal (shiojake)", "Tamagoyaki", "Natto com negi", "Tsukemono: umeboshi, takuan, kyuri", "Nori seco", "Chá verde hojicha"],
+    steps: ["Cozinhe arroz japonês — base de tudo.", "Prepare missoshiru fresco: dashi + miso + tofu + wakame.", "Grelhe salmão com sal — simples e perfeito.", "Faça tamagoyaki em 5 camadas — doce ou salgado.", "Sirva natto com shoyu e negi — misture até ficar grudento.", "Disponha tsukemono em pratinho: umeboshi, takuan, pepino.", "Nori seco ao lado do arroz — envolva arroz e coma.", "Chá hojicha ao final — tostado e reconfortante."],
+    difficulty: "Médio",
+    time: "45 min",
+    description: "O café da manhã japonês tradicional é a refeição mais balanceada do mundo: proteína (salmão, ovo), fermentados (miso, natto, tsukemono), carboidrato (arroz) e vitaminas. Milhões de japoneses começam assim todos os dias."
+  },
 ];

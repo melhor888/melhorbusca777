@@ -378,5 +378,115 @@ export const harmonizacaoSake: VipDrink[] = [
     difficulty: "Médio",
     time: "5 min",
     description: "O shiso (perilla) é uma erva aromática japonesa com notas de menta e manjericão. Combinado com gin japonês Roku (que já contém botânicos de shiso), cria um cocktail autenticamente japonês."
-  }
+  },
+  {
+    id: "hs-sake-gyoza-party",
+    name: "Sake Frio com Gyoza Party",
+    category: "Harmonização Sake & Drinks",
+    image: "",
+    ingredients: ["1 garrafa de Junmai Sake gelado", "Gyoza variados: porco, camarão, vegetais", "Molho: shoyu + vinagre de arroz + rayu", "Edamame com sal", "Ochoko e tokkuri gelados"],
+    steps: ["Sirva sake em tokkuri gelado — mantenha em gelo.", "Gyoza de porco: o clássico — gordura combina com sake seco.", "Gyoza de camarão: delicado — peça sake mais leve.", "Gyoza de vegetais: nirá e repolho — sake Junmai equilibra.", "Mergulhe gyoza no molho com shoyu + vinagre + rayu (óleo picante).", "Entre cada tipo de gyoza, tome um gole de sake para limpar.", "Edamame entre os rounds de gyoza como palate cleanser.", "Sake frio realça a crocância da base do gyoza."],
+    difficulty: "Fácil",
+    time: "5 min",
+    description: "Gyoza + sake frio é a combinação perfeita dos izakayas japoneses. A gordura do gyoza pede a acidez e limpeza do sake, criando um ciclo vicioso de sabor que não cansa."
+  },
+  {
+    id: "hs-whisky-japanese-cheese",
+    name: "Japanese Whisky com Queijos Artesanais",
+    category: "Harmonização Sake & Drinks",
+    image: "",
+    ingredients: ["Japanese whisky single malt (Yamazaki, Hakushu ou Nikka)", "Queijo comté francês", "Queijo pecorino", "Queijo gouda envelhecido", "Frutas secas e nozes", "Chocolate amargo 70%"],
+    steps: ["Sirva whisky neat em copo Glencairn.", "Comté: notas de nozes combinam com maltosidade do whisky.", "Pecorino: salinidade contrasta com doçura do whisky.", "Gouda envelhecido: caramelo espelha notas de barril.", "Chocolate 70%: amargura + maltosidade é harmonia perfeita.", "Frutas secas entre queijos para limpar o paladar.", "Adicione 2-3 gotas de água ao whisky para abrir aromas.", "Japanese whisky tem menos turfa que scotch — mais versátil com queijos."],
+    difficulty: "Fácil",
+    time: "5 min",
+    description: "Japanese whisky ganhou o mundo por sua elegância e equilíbrio. Com queijos artesanais, cria-se uma degustação sofisticada que transcende culturas — o umami do queijo encontra a complexidade do malte."
+  },
+  {
+    id: "hs-shochu-nabe-inverno",
+    name: "Shochu Oyuwari com Nabe de Inverno",
+    category: "Harmonização Sake & Drinks",
+    image: "",
+    ingredients: ["Shochu de batata-doce (imo)", "Água quente (70°C)", "Nabe: tofu, hakusai, negi, cogumelos, carne fatiada", "Ponzu para dipping", "Momiji oroshi"],
+    steps: ["Oyuwari: primeiro água quente, depois shochu (proporção 6:4).", "A ordem importa: água primeiro aquece o copo uniformemente.", "Nabe de inverno: ferva caldo dashi com kombu.", "Adicione ingredientes na ordem: raízes primeiro, folhas por último.", "Retire cada item quando cozido e mergulhe no ponzu.", "Shochu oyuwari aquece por dentro enquanto nabe aquece por fora.", "A batata-doce do shochu complementa os vegetais do nabe.", "Reabasteça o nabe e o shochu ao longo da refeição."],
+    difficulty: "Fácil",
+    time: "10 min",
+    description: "Nabe (panela quente) + shochu oyuwari é o ritual do inverno japonês. Famílias e amigos se reúnem ao redor da panela, cozinhando juntos e bebendo shochu quente. É comunidade em forma de refeição."
+  },
+  {
+    id: "hs-umeshu-wagashi",
+    name: "Umeshu Rocks com Wagashi de Estação",
+    category: "Harmonização Sake & Drinks",
+    image: "",
+    ingredients: ["Umeshu artesanal (envelhecido 3+ anos)", "Gelo grande em bloco", "Wagashi sazonais: sakura mochi (primavera), mizu yokan (verão), kuri kinton (outono), shiruko (inverno)", "Chá verde para acompanhar"],
+    steps: ["Sirva umeshu com um único cubo grande de gelo.", "Primavera: sakura mochi — a doçura do feijão + acidez da ameixa.", "Verão: mizu yokan gelado — refrescante contraste.", "Outono: kuri kinton (castanha) — notas terrosas com ameixa.", "Inverno: shiruko quente — umeshu frio + shiruko quente = perfeição.", "Alterne: um gole de umeshu, uma mordida de wagashi, um gole de chá.", "Umeshu envelhecido tem mais profundidade — ideal para wagashi.", "A arte está no ritmo pausado da degustação."],
+    difficulty: "Fácil",
+    time: "5 min",
+    description: "Umeshu (licor de ameixa) com wagashi é uma harmonização poética que segue as estações. Cada wagashi reflete a natureza do momento — cerejeiras, calor, folhas ou neve — e o umeshu conecta tudo."
+  },
+  {
+    id: "hs-sake-soba-tsuyu",
+    name: "Sake Quente com Soba e Sobayu",
+    category: "Harmonização Sake & Drinks",
+    image: "",
+    ingredients: ["Sake Junmai Kimoto (para aquecer)", "Soba artesanal (juwari ou nihachi)", "Tsuyu: dashi + shoyu + mirin", "Negi picado, wasabi, nori", "Sobayu (água do cozimento da soba)"],
+    steps: ["Prepare soba artesanal — cozinhe e lave em água gelada.", "Sirva soba fria com tsuyu para mergulhar (zaru soba).", "Aqueça sake a 45°C — nurukan, temperatura ideal.", "Coma soba mergulhando no tsuyu com negi e wasabi.", "O sake morno entre as porções de soba limpa e aquece.", "Ao final, peça sobayu — a água nutritiva do cozimento.", "Misture sobayu com o tsuyu restante — beba como sopa.", "Termine com último gole de sake quente. Perfeição."],
+    difficulty: "Fácil",
+    time: "10 min",
+    description: "Soba com sake é a refeição do trabalhador japonês — rápida, nutritiva e reconfortante. O sobayu (água de cozimento) ao final é tradição obrigatória: contém nutrientes do trigo sarraceno e fecha a refeição."
+  },
+  {
+    id: "hs-highball-kushikatsu",
+    name: "Whisky Highball com Kushikatsu de Osaka",
+    category: "Harmonização Sake & Drinks",
+    image: "",
+    ingredients: ["Japanese whisky (Kakubin ou Tory's)", "Soda gelada (Wilkinson)", "Gelo forte (duro e cristalino)", "Kushikatsu variados: porco, camarão, renkon, quiabo, queijo", "Molho tonkatsu compartilhado", "Repolho fresco"],
+    steps: ["Highball: encha copo com gelo, adicione whisky (1:3 ou 1:4 com soda).", "Mexa 13.5 vezes — tradição Suntory para carbonatação perfeita.", "Kushikatsu: empane em farinha→ovo→panko fino e frite a 180°C.", "REGRA DE OURO: mergulhe no molho UMA vez só — é compartilhado!", "Use repolho como colher para pegar mais molho se precisar.", "A carbonatação do highball corta a fritura do kushikatsu.", "Alterne: um kushikatsu, um gole de highball.", "Em Osaka, kushikatsu sem highball é considerado incompleto."],
+    difficulty: "Fácil",
+    time: "5 min",
+    description: "Kushikatsu + highball é a combinação sagrada de Shinsekai, Osaka. A regra do molho ('nenhum double dip!') é lei. O highball japonês é mais diluído que o ocidental, perfeito para sessões longas de frituras."
+  },
+  {
+    id: "hs-sake-unagi",
+    name: "Sake Premium com Unagi Kabayaki",
+    category: "Harmonização Sake & Drinks",
+    image: "",
+    ingredients: ["Junmai Daiginjo sake gelado", "Unagi (enguia) kabayaki", "Molho kabayaki: shoyu + mirin + açúcar", "Arroz japonês quente", "Sansho (pimenta japonesa)", "Nori fatiado fino"],
+    steps: ["Sirva sake Daiginjo bem gelado em ochoko.", "Unagi kabayaki: grelhe sobre carvão, molhe no tare, repita 3x.", "O molho kabayaki deve caramelizar e brilhar.", "Sirva unagi sobre arroz quente (unadon).", "Polvilhe sansho — sua citricidade corta a gordura.", "O sake Daiginjo frutado contrasta com o tare salgado-doce.", "Primeira forma: coma puro. Segunda: com condimentos.", "Terceira: com dashi quente por cima (hitsumabushi style)."],
+    difficulty: "Médio",
+    time: "8 min",
+    description: "Unagi (enguia) é iguaria japonesa, consumida especialmente no Dia do Boi (Doyo no Ushi) para energia no verão. Com sake Daiginjo premium, a gordura da enguia e a frutosidade do sake criam harmonia sublime."
+  },
+  {
+    id: "hs-cocktail-yuzu-tempura",
+    name: "Yuzu Highball com Tempura Moriawase",
+    category: "Harmonização Sake & Drinks",
+    image: "",
+    ingredients: ["45ml de shochu de cevada (mugi)", "Suco de yuzu fresco (15ml)", "Soda gelada", "Tempura moriawase: camarão, shiso, kabocha, renkon, nasu", "Tentsuyu: dashi + shoyu + mirin", "Daikon oroshi e gengibre ralado"],
+    steps: ["Yuzu highball: shochu + yuzu + soda com muito gelo.", "Tempura: prepare batter gelado com grumos — não misture demais.", "Frite cada ingrediente na ordem: vegetais primeiro, camarão por último.", "Sirva imediatamente — tempura fria é pecado.", "Mergulhe tempura no tentsuyu com daikon oroshi.", "O yuzu do highball ecoa a frescura da tempura.", "A acidez cítrica corta a fritura leve da tempura.", "A cada tempura, um gole de highball — ritmo perfeito."],
+    difficulty: "Médio",
+    time: "8 min",
+    description: "Tempura com yuzu highball é refinamento casual japonês. O yuzu adiciona dimensão cítrica ao shochu, enquanto a tempura edomae (estilo Tokyo) é leve como uma nuvem — juntos, são verão no prato e no copo."
+  },
+  {
+    id: "hs-amazake-dessert",
+    name: "Amazake Quente com Sobremesas Japonesas",
+    category: "Harmonização Sake & Drinks",
+    image: "",
+    ingredients: ["Amazake caseiro (arroz koji fermentado)", "Gengibre ralado", "Dorayaki (panqueca com anko)", "Dango (bolinhas de mochi)", "Taiyaki (peixe waffle com recheio)", "Matcha para polvilhar"],
+    steps: ["Amazake: fermente arroz cozido com koji a 55-60°C por 8-10h.", "Sirva quente com pitada de gengibre ralado.", "Amazake é naturalmente doce — sem açúcar adicionado.", "Dorayaki: castanha do anko combina com doçura do amazake.", "Dango: textura de mochi + doçura do amazake = conforto.", "Taiyaki: o crocante do waffle contrasta com a cremosidade.", "Polvilhe matcha sobre o amazake para camada amarga.", "Amazake é bebida do Ano Novo japonês — tradição milenar."],
+    difficulty: "Fácil",
+    time: "5 min (amazake pronto)",
+    description: "Amazake é a bebida fermentada não-alcoólica mais antiga do Japão, feita apenas com arroz e koji. Naturalmente doce e probiótica, é tradição do Ano Novo e dos festivais de inverno. Com wagashi, é pura nostalgia."
+  },
+  {
+    id: "hs-sake-yakitori-omakase",
+    name: "Sake Pairing com Yakitori Omakase",
+    category: "Harmonização Sake & Drinks",
+    image: "",
+    ingredients: ["3 tipos de sake: Junmai, Junmai Ginjo, Junmai Daiginjo", "Yakitori omakase: momo (coxa), negima (peito+negi), tsukune (almôndega), kawa (pele), sunagimo (moela), reba (fígado), nankotsu (cartilagem), tori wasabi", "Tare e shio (sal)"],
+    steps: ["Momo (coxa) com tare: Junmai encorpado — suporta o tare doce.", "Negima com shio: Junmai Ginjo — delicadeza com delicadeza.", "Tsukune com tare e gema: Junmai — a gema pede corpo.", "Kawa (pele) com shio: sake qualquer — textura crocante é a estrela.", "Sunagimo (moela) com shio: Junmai seco — limpa a textura firme.", "Reba (fígado) com tare: Junmai Daiginjo frutado — contraste.", "Nankotsu com shio: Junmai gelado — crocância + frescor.", "Tori wasabi (peito cru com wasabi): Daiginjo — delicadeza extrema."],
+    difficulty: "Fácil",
+    time: "10 min",
+    description: "Yakitori omakase com sake pairing é a experiência quintessencial do izakaya japonês premium. Cada espeto pede um estilo diferente de sake — o yakitori master sugere a ordem e o chef de sake harmoniza."
+  },
 ];

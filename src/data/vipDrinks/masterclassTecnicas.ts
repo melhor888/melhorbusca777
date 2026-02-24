@@ -415,5 +415,104 @@ export const masterclassTecnicas: VipDrink[] = [
     difficulty: "Médio",
     time: "Variável",
     description: "Moritsuke é a arte de empratar na culinária japonesa. Cada chef estuda composição visual, teoria das cores e design cerâmico. A apresentação não é decoração — é parte integral do prato."
-  }
+  },
+  {
+    id: "mt-tecnica-gyoza",
+    name: "Gyoza: A Arte do Dumpling Japonês",
+    category: "Masterclass de Técnicas",
+    image: "",
+    ingredients: ["Massa de gyoza (farinha + água quente)", "Recheio: porco moído, repolho, nirá, gengibre, shoyu, óleo de gergelim", "Óleo para selar", "Água para vapor", "Molho: shoyu + vinagre de arroz + rayu"],
+    steps: ["Massa: 200g farinha + 100ml água quente → sove 10 min até lisa.", "Recheio: pique repolho fino, salgue e esprema toda a água.", "Misture porco, repolho, nirá picado, gengibre e temperos.", "Abra discos de 8cm — borda fina, centro levemente grosso.", "Coloque 1 colher de recheio no centro.", "Dobre ao meio formando pregas apenas de um lado.", "Aqueça frigideira com óleo — sele gyozas 2 min.", "Adicione 60ml de água e tampe — vapor por 4 min.", "Retire tampa e deixe crocante na base por 1 min.", "A base deve estar dourada e crocante, o topo macio."],
+    difficulty: "Médio",
+    time: "1h",
+    description: "Gyoza é a versão japonesa do jiaozi chinês, mas com pregas características e a técnica de yaki (selar + vaporizar) que cria a textura perfeita: crocante embaixo, macio em cima."
+  },
+  {
+    id: "mt-tecnica-okonomiyaki",
+    name: "Okonomiyaki: A Panqueca de Osaka",
+    category: "Masterclass de Técnicas",
+    image: "",
+    ingredients: ["Farinha, nagaimo ralado, ovos, dashi", "Repolho fatiado fino", "Tenkasu (tempura crocante)", "Barriga de porco fatiada", "Molho okonomiyaki, maionese japonesa", "Katsuobushi, aonori"],
+    steps: ["Masa: farinha + dashi + nagaimo ralado + ovo — não mexa demais.", "Nagaimo é o segredo: dá leveza e elasticidade.", "Adicione repolho abundante e tenkasu.", "Despeje na chapa quente oleada, formando disco de 15cm.", "Coloque fatias de porco por cima.", "NÃO aperte com espátula — mantém ar dentro.", "Vire uma única vez quando dourar (3-4 min).", "Cozinhe mais 3 min do outro lado.", "Cubra com molho okonomiyaki em zigue-zague.", "Adicione maionese, katsuobushi (dança!) e aonori."],
+    difficulty: "Médio",
+    time: "30 min",
+    description: "Okonomiyaki significa 'grelhado como você quiser'. Em Osaka, é religião — cada bairro tem sua variante. O nagaimo (inhame japonês) é o ingrediente secreto que diferencia amadores de mestres."
+  },
+  {
+    id: "mt-tecnica-ramen-chashu",
+    name: "Chashu Pork: A Barriga Perfeita para Ramen",
+    category: "Masterclass de Técnicas",
+    image: "",
+    ingredients: ["1kg de barriga de porco em bloco", "200ml de shoyu", "200ml de mirin", "100ml de sake", "50g de açúcar", "Gengibre, alho, negi (cebolinha)"],
+    steps: ["Enrole a barriga de porco firmemente com barbante.", "Sele em panela quente por todos os lados até dourar.", "Adicione shoyu, mirin, sake, açúcar, gengibre e alho.", "Complete com água até cobrir metade da carne.", "Tampe com otoshibuta (tampa de papel) direto na superfície.", "Cozinhe em fogo baixíssimo por 2-3 horas.", "Vire a carne a cada 30 min.", "Quando tender com hashi, retire e resfrie no líquido.", "Fatie em rodelas de 5mm quando frio.", "Tostee com maçarico antes de servir no ramen."],
+    difficulty: "Médio",
+    time: "3h",
+    description: "Chashu é a estrela de qualquer ramen — barriga de porco cozida lentamente em shoyu e mirin. O segredo é o otoshibuta (tampa flutuante) que garante cozimento uniforme sem evaporação."
+  },
+  {
+    id: "mt-tecnica-mochi",
+    name: "Mochi: A Arte do Arroz Glutinoso",
+    category: "Masterclass de Técnicas",
+    image: "",
+    ingredients: ["Mochigome (arroz glutinoso)", "Água", "Katakuriko (amido de batata) para polvilhar", "Anko (pasta de feijão azuki)", "Ichigo (morango) para daifuku"],
+    steps: ["Lave mochigome 5-6 vezes até água sair limpa.", "Deixe de molho por 8 horas (mínimo).", "Cozinhe no vapor por 40 min — nunca fervido em água.", "Tradicional: soque com kine (martelo) no usu (pilão de pedra).", "Moderno: use micro-ondas — 2 min, mexa, mais 1 min.", "A textura deve ser elástica, lisa e não grudar nos dentes.", "Polvilhe katakuriko na superfície para manipular.", "Para daifuku: achate disco, coloque anko + morango, feche.", "Mochi fresco deve ser consumido no mesmo dia.", "ATENÇÃO: mastigue bem — mochi causa engasgos fatais no Japão."],
+    difficulty: "Avançado",
+    time: "2h (+ 8h molho)",
+    description: "Mochi é fundamental na cultura japonesa — presente no Ano Novo, festivais e no dia a dia. A técnica mochitsuki (socar mochi) é ritual comunitário milenar que exige ritmo perfeito entre dois praticantes."
+  },
+  {
+    id: "mt-tecnica-udon-sanuki",
+    name: "Udon Sanuki: Massa Artesanal com os Pés",
+    category: "Masterclass de Técnicas",
+    image: "",
+    ingredients: ["Farinha de trigo para udon (média proteína)", "Água salgada (sal + água morna)", "Katakuriko para polvilhar", "Tsuyu: dashi + shoyu + mirin"],
+    steps: ["Dissolva sal em água morna — concentração de 3-5%.", "Adicione água salgada à farinha gradualmente.", "Misture até formar migalhas grossas.", "Forme bola e coloque em saco plástico grosso.", "PISE na massa com os pés — 10 min de cada lado.", "Dobre ao meio e pise novamente — repita 3 vezes.", "Descanse a massa por 2 horas em temperatura ambiente.", "Abra com rolo até 3mm de espessura.", "Dobre e corte em tiras de 4mm de largura.", "Cozinhe em água fervente abundante por 12-15 min."],
+    difficulty: "Avançado",
+    time: "3h (+ 2h descanso)",
+    description: "Sanuki udon de Kagawa é o mais famoso do Japão. O segredo é pisar na massa — o peso do corpo desenvolve o glúten de forma impossível com as mãos. A textura deve ser tsurushiko: escorregadia e elástica."
+  },
+  {
+    id: "mt-tecnica-tamagoyaki-master",
+    name: "Tamagoyaki Avançado: Versão Sushiya",
+    category: "Masterclass de Técnicas",
+    image: "",
+    ingredients: ["6 ovos", "Dashi (30ml)", "Mirin (15ml)", "Shoyu claro (5ml)", "Açúcar (10g)", "Óleo neutro", "Makisu (esteira de bambu)", "Frigideira retangular (makiyakinabe)"],
+    steps: ["Bata ovos sem incorporar ar — movimentos horizontais com hashi.", "Coe a mistura para remover chalazas.", "Aqueça makiyakinabe em fogo médio-baixo.", "Oleie com papel dobrado — camada finíssima.", "Despeje camada fina de ovo — estoure bolhas.", "Quando semifirme, enrole de trás para frente.", "Empurre o rolo para o fundo, oleie novamente.", "Despeje nova camada EMBAIXO do rolo existente.", "Repita 5-7 vezes até usar todo o ovo.", "Molde com makisu (esteira) por 5 min para forma retangular."],
+    difficulty: "Avançado",
+    time: "20 min",
+    description: "Nos sushiyas de Tóquio, o tamagoyaki é o teste final do aprendiz — leva anos para dominar. Cada camada deve ser uniforme e a textura final deve ser úmida (juicy), nunca seca."
+  },
+  {
+    id: "mt-tecnica-tonkotsu-broth",
+    name: "Caldo Tonkotsu: 48 Horas de Perfeição",
+    category: "Masterclass de Técnicas",
+    image: "",
+    ingredients: ["3kg de ossos de porco (fêmur, espinha)", "Pé de porco", "Água abundante", "Gengibre", "Negi (cebolinha japonesa)", "Alho"],
+    steps: ["Lave ossos em água fria por 2 horas — troque água 3 vezes.", "Ferva ossos por 10 min — escume e descarte água.", "Lave ossos novamente retirando toda impureza.", "Em panela limpa, cubra ossos com água fresca.", "Ferva em fogo alto — o caldo DEVE ferver forte.", "A fervura violenta emulsifica gordura + colágeno = brancura.", "Adicione gengibre e negi após 4 horas.", "Mantenha fervura por 12-18 horas, adicionando água.", "Na hora 18-48, o caldo fica cada vez mais branco e encorpado.", "Coe e ajuste consistência — deve grudar nos lábios."],
+    difficulty: "Avançado",
+    time: "48h",
+    description: "O caldo tonkotsu é a base do ramen de Fukuoka/Hakata. A fervura violenta é o oposto de caldos franceses — aqui queremos emulsificação total. O resultado é um caldo branco como leite, rico em colágeno."
+  },
+  {
+    id: "mt-tecnica-sashimi-usuzukuri",
+    name: "Usuzukuri: Corte Translúcido de Sashimi",
+    category: "Masterclass de Técnicas",
+    image: "",
+    ingredients: ["Peixe branco de carne firme (hirame, fugu, tai)", "Faca yanagiba afiada", "Prato decorativo", "Ponzu", "Momiji oroshi (daikon com pimenta)", "Cebolinha fina"],
+    steps: ["Usuzukuri = corte ultra-fino translúcido — técnica de mestres.", "Use apenas peixes de carne branca e firme.", "A faca deve estar perfeitamente afiada — sem serrilhar.", "Posicione o bloco de peixe com fibras perpendiculares.", "Corte em ângulo de 45° — fatias de 1-2mm.", "Cada fatia deve ser translúcida — veja o prato através dela.", "Disponha em círculo no prato como pétalas de flor.", "Sirva com ponzu, momiji oroshi e cebolinha.", "A beleza visual é tão importante quanto o sabor.", "No fugu (baiacu), usuzukuri é obrigatório por segurança e tradição."],
+    difficulty: "Avançado",
+    time: "15 min",
+    description: "Usuzukuri é a mais difícil das técnicas de corte japonês — fatias tão finas que são translúcidas. Requer anos de prática e uma faca yanagiba perfeitamente afiada. No fugu, é questão de vida ou morte."
+  },
+  {
+    id: "mt-tecnica-kaiseki-composicao",
+    name: "Composição Kaiseki: Os 5 Métodos de Cozimento",
+    category: "Masterclass de Técnicas",
+    image: "",
+    ingredients: ["Ingredientes sazonais variados", "Dashi perfeito", "Sake, mirin, shoyu", "Louça kaiseki (cerâmica, laca, vidro)", "Decoração sazonal (folhas, flores)"],
+    steps: ["Kaiseki segue os 5 métodos: nama (cru), nimono (cozido), yakimono (grelhado), agemono (frito), mushimono (vapor).", "Cada refeição deve ter todos os 5 métodos representados.", "Sakizuke (aperitivo): sempre começa a narrativa do menu.", "Owan (sopa): dashi perfeito com guarnição sazonal.", "Mukouzuke (sashimi): peixes da estação, cortes variados.", "Hassun: prato sazonal que define o tema do menu.", "Yakimono: peixe grelhado com sal — simplicidade é a chave.", "Takiawase: vegetais nimono com proteína — equilíbrio.", "Gohan (arroz): sempre no final com tsukemono.", "Cada prato conta uma história da estação atual."],
+    difficulty: "Avançado",
+    time: "Variável",
+    description: "Kaiseki é a mais alta expressão da culinária japonesa — um menu-narrativa que segue a filosofia wabi-sabi. Cada prato reflete a estação, a região e a intenção do chef. É meditação em forma de comida."
+  },
 ];
