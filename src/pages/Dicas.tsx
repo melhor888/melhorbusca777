@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { BookOpen, Clock, Zap, CheckCircle, Filter } from "lucide-react";
 import { articles, articleCategories } from "@/data/articles";
 import { useXP } from "@/hooks/useXP";
+import { getTranslatedArticle, getTranslatedArticleCategoryLabel } from "@/data/articleTranslations";
 import { Helmet } from "react-helmet-async";
 
 type CategoryKey = keyof typeof articleCategories | "todos";
@@ -105,9 +106,11 @@ export default function Dicas() {
 
         {/* Articles list */}
         <div className="space-y-3">
-          {filteredArticles.map((article, i) => {
+          {filteredArticles.map((rawArticle, i) => {
+            const article = getTranslatedArticle(rawArticle);
             const isRead = readArticles.includes(article.id);
             const catInfo = articleCategories[article.category];
+            const translatedCatLabel = getTranslatedArticleCategoryLabel(article.category);
             return (
               <button
                 key={article.id}
@@ -126,7 +129,7 @@ export default function Dicas() {
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 mb-1 flex-wrap">
                       <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-primary/20 text-primary">
-                        {catInfo.label}
+                        {translatedCatLabel}
                       </span>
                       <span className="text-[10px] text-muted-foreground flex items-center gap-1">
                         <Clock size={10} /> {article.readTime}

@@ -226,7 +226,7 @@ const ptToEsTerms: [RegExp, string][] = [
  * Automatically translates a Portuguese text to Spanish using term mapping.
  * Since PT and ES are very similar, this covers most culinary terms.
  */
-function autoTranslatePtToEs(text: string): string {
+export function autoTranslatePtToEs(text: string): string {
   let result = text;
   for (const [pattern, replacement] of ptToEsTerms) {
     result = result.replace(pattern, replacement);

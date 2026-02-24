@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { ArrowLeft, Zap, BookOpen, CheckCircle } from "lucide-react";
 import { getArticleById, articleCategories } from "@/data/articles";
 import { useXP } from "@/hooks/useXP";
+import { getTranslatedArticle, getTranslatedArticleCategoryLabel } from "@/data/articleTranslations";
 
 export default function ArticleDetail() {
   const { id } = useParams<{ id: string }>();
@@ -20,7 +21,8 @@ export default function ArticleDetail() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [currentModule]);
 
-  const article = getArticleById(id || "");
+  const rawArticle = getArticleById(id || "");
+  const article = rawArticle ? getTranslatedArticle(rawArticle) : undefined;
 
   if (!article) {
     return (
@@ -31,6 +33,7 @@ export default function ArticleDetail() {
   }
 
   const catInfo = articleCategories[article.category];
+  const translatedCatLabel = getTranslatedArticleCategoryLabel(article.category);
   const totalModules = article.modules.length;
   const allCompleted = completedModules.length === totalModules;
 
@@ -71,7 +74,7 @@ export default function ArticleDetail() {
           </button>
           <div className="flex-1">
             <p className={`text-xs font-semibold uppercase tracking-wider text-${catInfo.color}`}>
-              {catInfo.label}
+              {translatedCatLabel}
             </p>
             <h1 className="text-lg font-display font-bold text-foreground truncate">
               {article.title}
