@@ -16,6 +16,7 @@ export default function ShoppingList() {
   const { t } = useTranslation();
   const { drinkIds, toggleDrink, clearList } = useShoppingList();
 
+  const lang = t("shopping_list.title"); // track language changes
   const selectedRecipes = useMemo(
     () => drinkIds.map((id) => {
       const dish = getDishById(id);
@@ -24,7 +25,8 @@ export default function ShoppingList() {
       if (vip) return { ...vip, isVip: true };
       return null;
     }).filter(Boolean),
-    [drinkIds]
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [drinkIds, lang]
   );
 
   const consolidatedIngredients = useMemo(() => {
