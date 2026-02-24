@@ -17,30 +17,30 @@ interface Question {
 
 const questions: Question[] = [
   {
-    question: "Qual sabor te atrai mais na culinária japonesa?",
+    question: "Qual sabor te atrai mais na culinária mexicana?",
     options: [
-      { label: "🍣 Fresco e delicado (peixe cru)", tags: ["fresco", "cru"] },
-      { label: "🍜 Rico e encorpado (caldos intensos)", tags: ["caldo", "intenso"] },
-      { label: "🍤 Crocante e frito (empanados)", tags: ["frito", "crocante"] },
-      { label: "🍡 Doce e suave (sobremesas)", tags: ["doce", "sobremesa"] },
+      { label: "🌶️ Picante e ousado", tags: ["picante", "intenso"] },
+      { label: "🥑 Fresco e suave (guacamole)", tags: ["fresco", "suave"] },
+      { label: "🧀 Rico e cremoso (queijo, crema)", tags: ["cremoso", "rico"] },
+      { label: "🍮 Doce e reconfortante", tags: ["doce", "sobremesa"] },
     ],
   },
   {
     question: "Qual situação combina mais com você agora?",
     options: [
-      { label: "🏯 Jantar especial tradicional", tags: ["tradicional", "especial"] },
-      { label: "🍱 Almoço rápido e prático", tags: ["rapido", "pratico"] },
-      { label: "🎌 Explorando street food japonesa", tags: ["street", "casual"] },
-      { label: "🍵 Momento zen e reconfortante", tags: ["reconfortante", "sopa"] },
+      { label: "🎉 Festa mexicana com amigos", tags: ["festa", "casual"] },
+      { label: "🍽️ Jantar especial e elaborado", tags: ["especial", "elaborado"] },
+      { label: "🌮 Comida de rua rápida e deliciosa", tags: ["street", "rapido"] },
+      { label: "🫕 Algo quente e reconfortante", tags: ["reconfortante", "sopa"] },
     ],
   },
   {
     question: "Qual ingrediente principal te chama mais atenção?",
     options: [
-      { label: "🐟 Salmão e peixes frescos", tags: ["peixe", "salmao"] },
-      { label: "🍖 Carnes (frango, porco, boi)", tags: ["carne", "frango"] },
-      { label: "🥬 Vegetais e tofu", tags: ["vegetal", "tofu"] },
-      { label: "🍚 Arroz e massas (udon, soba)", tags: ["arroz", "massa"] },
+      { label: "🥩 Carne (boi, porco, carnitas)", tags: ["carne", "porco"] },
+      { label: "🍗 Frango ou peru", tags: ["frango", "ave"] },
+      { label: "🦐 Frutos do mar e peixes", tags: ["marisco", "peixe"] },
+      { label: "🌽 Milho, feijão e vegetais", tags: ["vegetal", "milho"] },
     ],
   },
   {
@@ -53,43 +53,45 @@ const questions: Question[] = [
     ],
   },
   {
-    question: "Qual estilo de prato japonês te fascina?",
+    question: "Qual estilo de prato mexicano te fascina?",
     options: [
-      { label: "🍣 Sushi e Sashimi", tags: ["sushi", "tradicional"] },
-      { label: "🍜 Ramen e Udon", tags: ["ramen", "massa"] },
-      { label: "🥟 Gyoza, Tempurá e Yakitori", tags: ["frito", "street"] },
-      { label: "🍲 Sukiyaki, Shabu-shabu e Donburi", tags: ["caldo", "reconfortante"] },
+      { label: "🌮 Tacos e Burritos", tags: ["taco", "street"] },
+      { label: "🫔 Tamales e Enchiladas", tags: ["tamale", "tradicional"] },
+      { label: "🫕 Pozole, Birria e Sopas", tags: ["sopa", "reconfortante"] },
+      { label: "🌶️ Mole e Molhos Complexos", tags: ["mole", "elaborado"] },
     ],
   },
 ];
 
 const tagToDishScore: Record<string, (d: typeof dishes[0]) => number> = {
-  fresco: (d) => (d.ingredients.some((i) => /salmão|atum|peixe|sashimi/i.test(i)) ? 3 : 0),
-  cru: (d) => (d.category === "Pratos Tradicionais" && d.ingredients.some((i) => /salmão fresco|atum fresco/i.test(i)) ? 4 : 0),
-  caldo: (d) => (d.category === "Massas Japonesas" || d.category === "Sopas" ? 4 : 0),
-  intenso: (d) => (d.ingredients.some((i) => /caldo|dashi|miso|tonkotsu/i.test(i)) ? 3 : 0),
-  frito: (d) => (d.ingredients.some((i) => /frit[ao]|empan|óleo/i.test(i)) || d.name.includes("Tempura") || d.name.includes("Karaage") || d.name.includes("Tonkatsu") ? 4 : 0),
-  crocante: (d) => (d.ingredients.some((i) => /panko|farinha|tempura/i.test(i)) ? 3 : 0),
-  doce: (d) => (d.category === "Sobremesas Japonesas" ? 5 : 0),
-  sobremesa: (d) => (d.category === "Sobremesas Japonesas" ? 5 : 0),
-  tradicional: (d) => (d.category === "Pratos Tradicionais" ? 4 : 0),
+  picante: (d) => (d.ingredients.some((i) => /pimenta|jalapeño|chipotle|habanero|chili/i.test(i)) ? 3 : 0),
+  intenso: (d) => (d.category === "Carnes & Guisados" ? 3 : 0),
+  fresco: (d) => (d.ingredients.some((i) => /abacate|guacamole|coentro|limão/i.test(i)) ? 3 : 0),
+  suave: (d) => (d.difficulty === "Fácil" ? 2 : 0),
+  cremoso: (d) => (d.ingredients.some((i) => /queijo|crema|creme/i.test(i)) ? 3 : 0),
+  rico: (d) => (d.category === "Carnes & Guisados" ? 2 : 0),
+  doce: (d) => (d.category === "Sobremesas" ? 5 : 0),
+  sobremesa: (d) => (d.category === "Sobremesas" ? 5 : 0),
+  festa: (d) => (d.category === "Antojitos" || d.category === "Tacos" ? 3 : 0),
+  casual: (d) => (d.category === "Tacos" || d.category === "Antojitos" ? 3 : 0),
   especial: (d) => (d.difficulty === "Avançado" || d.difficulty === "Médio" ? 2 : 0),
+  elaborado: (d) => (d.difficulty === "Avançado" ? 3 : 0),
+  street: (d) => (d.category === "Tacos" || d.category === "Antojitos" ? 5 : 0),
   rapido: (d) => (d.time && parseInt(d.time) <= 30 ? 3 : 0),
-  pratico: (d) => (d.difficulty === "Fácil" ? 3 : 0),
-  street: (d) => (d.category === "Street Food" ? 5 : d.category === "Entradas" ? 2 : 0),
-  casual: (d) => (d.category === "Street Food" || d.category === "Entradas" ? 3 : 0),
-  reconfortante: (d) => (d.category === "Sopas" || d.category === "Pratos Quentes" ? 4 : 0),
-  sopa: (d) => (d.category === "Sopas" ? 5 : 0),
-  peixe: (d) => (d.ingredients.some((i) => /salmão|atum|peixe|camarão/i.test(i)) ? 3 : 0),
-  salmao: (d) => (d.ingredients.some((i) => /salmão/i.test(i)) ? 4 : 0),
-  carne: (d) => (d.ingredients.some((i) => /porco|boi|carne|frango|chicken/i.test(i)) ? 3 : 0),
-  frango: (d) => (d.ingredients.some((i) => /frango|chicken/i.test(i)) ? 4 : 0),
-  vegetal: (d) => (d.ingredients.some((i) => /tofu|legumes|vegetais|cogumelo|shiitake/i.test(i)) ? 3 : 0),
-  tofu: (d) => (d.ingredients.some((i) => /tofu/i.test(i)) ? 5 : 0),
-  arroz: (d) => (d.ingredients.some((i) => /arroz/i.test(i)) ? 3 : 0),
-  massa: (d) => (d.category === "Massas Japonesas" ? 5 : 0),
-  sushi: (d) => (d.name.toLowerCase().includes("sushi") || d.name.includes("Nigiri") || d.name.includes("Temaki") || d.name.includes("Uramaki") || d.name.includes("Hosomaki") || d.name.includes("Futomaki") ? 5 : 0),
-  ramen: (d) => (d.name.toLowerCase().includes("ramen") || d.name.toLowerCase().includes("lamen") ? 5 : 0),
+  reconfortante: (d) => (d.category === "Sopas & Caldos" ? 5 : 0),
+  sopa: (d) => (d.category === "Sopas & Caldos" ? 5 : 0),
+  carne: (d) => (d.ingredients.some((i) => /carne|boi|porco|carnitas|res/i.test(i)) ? 3 : 0),
+  porco: (d) => (d.ingredients.some((i) => /porco|carnitas|cochinita/i.test(i)) ? 4 : 0),
+  frango: (d) => (d.ingredients.some((i) => /frango|pollo/i.test(i)) ? 4 : 0),
+  ave: (d) => (d.ingredients.some((i) => /frango|peru|pollo/i.test(i)) ? 3 : 0),
+  marisco: (d) => (d.category === "Mariscos" ? 5 : 0),
+  peixe: (d) => (d.ingredients.some((i) => /peixe|camarão|tilápia/i.test(i)) ? 3 : 0),
+  vegetal: (d) => (d.ingredients.some((i) => /feijão|milho|abóbora|vegetais/i.test(i)) ? 3 : 0),
+  milho: (d) => (d.ingredients.some((i) => /milho|tortilla/i.test(i)) ? 3 : 0),
+  taco: (d) => (d.category === "Tacos" ? 5 : 0),
+  tamale: (d) => (d.category === "Tamales & Massas" ? 5 : 0),
+  tradicional: (d) => (d.category === "Tamales & Massas" || d.category === "Carnes & Guisados" ? 3 : 0),
+  mole: (d) => (d.name.toLowerCase().includes("mole") ? 5 : d.category === "Molhos & Salsas" ? 3 : 0),
   facil: (d) => (d.difficulty === "Fácil" ? 3 : 0),
   medio: (d) => (d.difficulty === "Médio" ? 3 : 0),
   avancado: (d) => (d.difficulty === "Avançado" ? 3 : 0),
@@ -145,32 +147,25 @@ export default function Quiz() {
   return (
     <div className="min-h-screen pb-24">
       <Helmet>
-        <title>Quiz - Qual prato japonês combina com você? | Japan Food</title>
-        <meta name="description" content="Descubra qual prato da culinária japonesa combina com seu paladar neste quiz interativo." />
+        <title>Quiz - Qual prato mexicano combina com você? | Receitas MexicanasXP</title>
+        <meta name="description" content="Descubra qual prato da culinária mexicana combina com seu paladar neste quiz interativo." />
       </Helmet>
       <XPToast xp={XP_QUIZ} show={showXP} onClose={() => setShowXP(false)} />
 
-      {/* Header */}
       <div className="sticky top-0 z-40 glass-card border-b border-border/50 px-4 py-3 flex items-center gap-3">
         <button onClick={() => navigate(-1)} className="w-9 h-9 rounded-full bg-secondary flex items-center justify-center">
           <ArrowLeft size={18} className="text-foreground" />
         </button>
-        <h1 className="font-display font-bold text-foreground text-lg">Quiz Gastronômico 🍣</h1>
+        <h1 className="font-display font-bold text-foreground text-lg">Quiz Gastronômico 🌮</h1>
       </div>
 
       <QuizHeroBanner />
 
       {!results ? (
         <div className="px-6 pt-8 max-w-lg mx-auto">
-          {/* Progress */}
           <div className="flex gap-1.5 mb-8">
             {questions.map((_, i) => (
-              <div
-                key={i}
-                className={`h-1.5 flex-1 rounded-full transition-colors ${
-                  i <= step ? "bg-primary" : "bg-secondary"
-                }`}
-              />
+              <div key={i} className={`h-1.5 flex-1 rounded-full transition-colors ${i <= step ? "bg-primary" : "bg-secondary"}`} />
             ))}
           </div>
 
@@ -178,9 +173,7 @@ export default function Quiz() {
             <p className="text-xs text-primary font-semibold uppercase tracking-wider mb-2">
               Pergunta {step + 1} de {questions.length}
             </p>
-            <h2 className="text-2xl font-display font-bold text-foreground mb-8">
-              {q.question}
-            </h2>
+            <h2 className="text-2xl font-display font-bold text-foreground mb-8">{q.question}</h2>
 
             <div className="space-y-3">
               {q.options.map((opt, i) => (
@@ -201,10 +194,10 @@ export default function Quiz() {
           <div className="text-center mb-8">
             <Sparkles className="mx-auto text-primary mb-3" size={40} />
             <h2 className="text-2xl font-display font-bold text-foreground mb-2">
-              Seus Pratos Ideais! 🎌
+              Seus Pratos Ideais! 🇲🇽
             </h2>
             <p className="text-muted-foreground text-sm">
-              Baseado nas suas preferências, esses pratos japoneses combinam com você:
+              Baseado nas suas preferências, esses pratos mexicanos combinam com você:
             </p>
             {showXP && (
               <div className="mt-3 inline-flex items-center gap-1.5 bg-primary/20 text-primary rounded-full px-4 py-1.5">

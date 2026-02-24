@@ -1,9 +1,9 @@
 import { dishes } from "@/data/dishes";
 
-const NOTIFICATION_KEY = "nihon-notif-enabled";
-const LAST_NOTIF_KEY = "nihon-last-notif";
-const NOTIF_COUNT_KEY = "nihon-notif-count";
-const NOTIF_DATE_KEY = "nihon-notif-date";
+const NOTIFICATION_KEY = "mexican-notif-enabled";
+const LAST_NOTIF_KEY = "mexican-last-notif";
+const NOTIF_COUNT_KEY = "mexican-notif-count";
+const NOTIF_DATE_KEY = "mexican-notif-date";
 const MAX_DAILY = 5;
 const INTERVAL_MS = 3 * 60 * 60 * 1000; // ~3 hours
 
@@ -66,8 +66,8 @@ export function sendWelcomeNotification() {
   if (Notification.permission !== "granted") return;
 
   try {
-    new Notification("🎉 Bem-vindo ao Receitas Japonesas XP!", {
-      body: "Você receberá 5 sugestões diárias de receitas japonesas. Itadakimasu! 🍣",
+    new Notification("🎉 ¡Bienvenido ao Receitas MexicanasXP!", {
+      body: "Você receberá 5 sugestões diárias de receitas mexicanas. ¡Buen provecho! 🌮",
       icon: "/pwa-192x192.png",
       badge: "/pwa-192x192.png",
       tag: "welcome",
@@ -90,7 +90,7 @@ export function sendDishNotification() {
   localStorage.setItem(LAST_NOTIF_KEY, Date.now().toString());
   incrementDailyCount();
 
-  const emojis = ["🍣", "🍜", "🍱", "🍙", "🍤", "🍡", "🍥", "🥟"];
+  const emojis = ["🌮", "🌯", "🫔", "🌶️", "🥑", "🍮", "🫕", "🌽"];
   const emoji = emojis[Math.floor(Math.random() * emojis.length)];
 
   try {
@@ -108,11 +108,9 @@ export function sendDishNotification() {
 export function startNotificationScheduler() {
   if (!isNotificationsEnabled()) return;
   sendDishNotification();
-  // Check every 30 min, respects daily limit of 5
   setInterval(() => {
     sendDishNotification();
   }, 30 * 60 * 1000);
 }
 
-// Aliases for backward compatibility
 export const sendDrinkNotification = sendDishNotification;
