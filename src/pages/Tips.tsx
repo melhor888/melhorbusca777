@@ -6,6 +6,7 @@ import { achievements, getAchievementById } from "@/data/achievements";
 import XPBar from "@/components/XPBar";
 import TipCard from "@/components/TipCard";
 import { Trophy, Lock, Shield, BookOpen, CheckCircle2 } from "lucide-react";
+import { getTranslatedTip, getTipsUIStrings } from "@/data/tipTranslations";
 
 function getTipRequiredLevel(index: number): number {
   if (index < 2) return 1;
@@ -30,6 +31,7 @@ export default function Tips() {
   const { totalXP, achievements: unlockedAchievements, viewedRecipes } = useXP();
   const currentLevel = getLevel(totalXP);
   const [readTips, setReadTips] = useState<string[]>([]);
+  const ui = getTipsUIStrings();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -60,7 +62,7 @@ export default function Tips() {
   return (
     <div className="min-h-screen pb-24 pt-4 px-4 lg:px-6 lg:max-w-4xl lg:mx-auto">
       <h1 className="text-2xl font-display font-bold text-foreground mb-4">
-        Escola Mexicana 🌮
+        {ui.pageTitle}
       </h1>
 
       <XPBar />
@@ -68,20 +70,20 @@ export default function Tips() {
       <div className="grid grid-cols-4 gap-2 mt-4">
         <div className="glass-card rounded-xl p-3 text-center">
           <p className="text-lg font-bold text-foreground">{currentLevel.level}</p>
-          <p className="text-[10px] text-muted-foreground">Nível</p>
+          <p className="text-[10px] text-muted-foreground">{ui.level}</p>
           <p className="text-[9px] text-primary font-semibold">{currentLevel.title}</p>
         </div>
         <div className="glass-card rounded-xl p-3 text-center">
           <p className="text-lg font-bold text-primary">{availableTips.length}</p>
-          <p className="text-[10px] text-muted-foreground">Desbloqueadas</p>
+          <p className="text-[10px] text-muted-foreground">{ui.unlocked}</p>
         </div>
         <div className="glass-card rounded-xl p-3 text-center">
           <p className="text-lg font-bold text-accent">{readCount}</p>
-          <p className="text-[10px] text-muted-foreground">Lidas</p>
+          <p className="text-[10px] text-muted-foreground">{ui.read}</p>
         </div>
         <div className="glass-card rounded-xl p-3 text-center">
           <p className="text-lg font-bold text-muted-foreground">{lockedTips.length}</p>
-          <p className="text-[10px] text-muted-foreground">Bloqueadas</p>
+          <p className="text-[10px] text-muted-foreground">{ui.locked}</p>
         </div>
       </div>
 
@@ -90,7 +92,7 @@ export default function Tips() {
         <div className="mt-3 glass-card rounded-xl p-3">
           <div className="flex items-center justify-between mb-2">
             <span className="text-xs font-semibold text-foreground flex items-center gap-1">
-              <BookOpen size={12} className="text-primary" /> Progresso de Leitura
+              <BookOpen size={12} className="text-primary" /> {ui.readingProgress}
             </span>
             <span className="text-xs text-muted-foreground">
               {readCount}/{availableTips.length}
@@ -109,12 +111,12 @@ export default function Tips() {
         <div className="mt-3 glass-card rounded-xl p-3 border-primary/20 flex items-center gap-3">
           <Shield size={16} className="text-primary flex-shrink-0" />
           <p className="text-xs text-muted-foreground">
-            Próxima dica requer{" "}
+            {ui.nextTipRequires}{" "}
             {nextLocked.requiredLevel <= 1 ? (
               <span className="text-primary font-bold">{nextLocked.requiredXP - totalXP} XP</span>
             ) : (
               <span className="text-primary font-bold">
-                Nível {nextLocked.requiredLevel} ({nextLevelInfo?.title})
+                {ui.level} {nextLocked.requiredLevel} ({nextLevelInfo?.title})
                 {nextLevelInfo ? ` — ${nextLevelInfo.minXP} XP` : ""}
               </span>
             )}
@@ -126,7 +128,7 @@ export default function Tips() {
         <section className="mt-6">
           <h2 className="text-sm font-display font-bold text-foreground mb-3 flex items-center gap-2">
             <Trophy size={16} className="text-primary" />
-            Conquistas
+            {ui.achievements}
           </h2>
           <div className="flex gap-2 overflow-x-auto scrollbar-hide pb-2">
             {unlockedAchievements.map((id) => {
@@ -146,20 +148,23 @@ export default function Tips() {
       {availableTips.length > 0 && (
         <section className="mt-6">
           <h2 className="text-sm font-display font-bold text-foreground mb-3">
-            📖 Dicas Desbloqueadas ({availableTips.length})
+            {ui.unlockedTips} ({availableTips.length})
           </h2>
           <div className="space-y-3">
-            {availableTips.map((tip, i) => (
-              <div key={tip.id} className="animate-fade-in" style={{ animationDelay: `${i * 80}ms` }}>
-                <TipCard
-                  tip={tip}
-                  unlocked={true}
-                  tipLevel={tip.requiredLevel}
-                  isRead={readTips.includes(tip.id)}
-                  onClick={() => navigate(`/tip/${tip.id}`)}
-                />
-              </div>
-            ))}
+            {availableTips.map((rawTip, i) => {
+              const tip = getTranslatedTip(rawTip);
+              return (
+                <div key={tip.id} className="animate-fade-in" style={{ animationDelay: `${i * 80}ms` }}>
+                  <TipCard
+                    tip={tip}
+                    unlocked={true}
+                    tipLevel={rawTip.requiredLevel}
+                    isRead={readTips.includes(tip.id)}
+                    onClick={() => navigate(`/tip/${tip.id}`)}
+                  />
+                </div>
+              );
+            })}
           </div>
         </section>
       )}
@@ -167,12 +172,15 @@ export default function Tips() {
       {lockedTips.length > 0 && (
         <section className="mt-6">
           <h2 className="text-sm font-display font-bold text-foreground mb-3">
-            🔒 A Desbloquear ({lockedTips.length})
+            {ui.toUnlock} ({lockedTips.length})
           </h2>
           <div className="space-y-3">
-            {lockedTips.map((tip) => (
-              <TipCard key={tip.id} tip={tip} unlocked={false} tipLevel={tip.requiredLevel} onClick={() => {}} />
-            ))}
+            {lockedTips.map((rawTip) => {
+              const tip = getTranslatedTip(rawTip);
+              return (
+                <TipCard key={tip.id} tip={tip} unlocked={false} tipLevel={rawTip.requiredLevel} onClick={() => {}} />
+              );
+            })}
           </div>
         </section>
       )}

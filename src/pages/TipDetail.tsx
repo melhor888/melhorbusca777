@@ -5,6 +5,7 @@ import { getTipImage } from "@/data/tipImages";
 import { ArrowLeft, Zap } from "lucide-react";
 import { useXP } from "@/hooks/useXP";
 import XPToast from "@/components/XPToast";
+import { getTranslatedTip, getTipsUIStrings } from "@/data/tipTranslations";
 
 const XP_PER_TIP = 5;
 
@@ -14,6 +15,7 @@ export default function TipDetail() {
   const { addTipXP } = useXP();
   const [showXP, setShowXP] = useState(false);
   const [xpGained, setXpGained] = useState(0);
+  const ui = getTipsUIStrings();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -31,12 +33,13 @@ export default function TipDetail() {
     return () => clearTimeout(timer);
   }, [id, addTipXP]);
 
-  const tip = getTipById(id || "");
+  const rawTip = getTipById(id || "");
+  const tip = rawTip ? getTranslatedTip(rawTip) : undefined;
 
   if (!tip) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <p className="text-muted-foreground">Dica não encontrada.</p>
+        <p className="text-muted-foreground">{ui.tipNotFound}</p>
       </div>
     );
   }
@@ -62,7 +65,7 @@ export default function TipDetail() {
           </button>
           <div className="flex-1">
             <p className={`text-xs font-semibold uppercase tracking-wider ${categoryColors[tip.category]}`}>
-              Escola Mexicana
+              {ui.schoolLabel}
             </p>
             <h1 className="text-lg font-display font-bold text-foreground truncate">
               {tip.title}
@@ -86,7 +89,7 @@ export default function TipDetail() {
             <p className="text-sm text-muted-foreground">{tip.subtitle}</p>
             <div className="flex items-center justify-center gap-1 text-primary">
               <Zap size={14} className="fill-primary" />
-              <span className="text-xs font-bold">Desbloqueado com {tip.requiredXP} XP</span>
+              <span className="text-xs font-bold">{ui.unlockedWith} {tip.requiredXP} XP</span>
             </div>
           </div>
         </div>
