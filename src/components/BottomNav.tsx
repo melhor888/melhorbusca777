@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { UtensilsCrossed, Heart, HelpCircle, BarChart3, MoreHorizontal, GraduationCap, BookOpen, ShoppingCart, Package, Layers, X, Crown } from "lucide-react";
+import { UtensilsCrossed, Heart, HelpCircle, BarChart3, MoreHorizontal, GraduationCap, BookOpen, ShoppingCart, Package, Layers, X, Crown, Newspaper } from "lucide-react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import XPBar from "./XPBar";
@@ -26,6 +26,7 @@ export default function BottomNav() {
     { path: "/colecoes", icon: Layers, label: t("nav.collections") },
     { path: "/tips", icon: GraduationCap, label: t("nav.school") },
     { path: "/dicas", icon: BookOpen, label: t("nav.culture") },
+    { path: "/blog", icon: Newspaper, label: "Blog" },
     { path: "/lista-compras", icon: ShoppingCart, label: t("nav.shoppingList") },
     { path: "/vip", icon: Crown, label: t("nav.vip") },
   ];

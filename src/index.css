@@ -135,6 +135,35 @@
   }
 }
 
+/* Blog content styles */
+.blog-content h2 {
+  @apply text-xl font-display font-bold text-foreground mt-8 mb-4;
+}
+
+.blog-content h3 {
+  @apply text-lg font-display font-bold text-foreground mt-6 mb-3;
+}
+
+.blog-content p {
+  @apply text-sm text-secondary-foreground leading-relaxed mb-4;
+}
+
+.blog-content strong {
+  @apply text-foreground font-semibold;
+}
+
+.blog-content ul, .blog-content ol {
+  @apply text-sm text-secondary-foreground leading-relaxed mb-4 pl-5 space-y-1;
+}
+
+.blog-content ul {
+  @apply list-disc;
+}
+
+.blog-content ol {
+  @apply list-decimal;
+}
+
 /* Prevent iOS zoom on input focus */
 @supports (-webkit-touch-callout: none) {
   input, select, textarea {

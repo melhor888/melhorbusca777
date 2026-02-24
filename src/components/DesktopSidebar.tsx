@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { UtensilsCrossed, GraduationCap, Heart, BookOpen, Info, Mail, ShoppingCart, Search, HelpCircle, BarChart3, Package, Layers, Crown } from "lucide-react";
+import { UtensilsCrossed, GraduationCap, Heart, BookOpen, Info, Mail, ShoppingCart, Search, HelpCircle, BarChart3, Package, Layers, Crown, Newspaper } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import XPBar from "./XPBar";
@@ -23,6 +23,7 @@ export default function DesktopSidebar() {
     { path: "/colecoes", icon: Layers, label: t("nav.collections") },
     { path: "/tips", icon: GraduationCap, label: t("nav.school") },
     { path: "/dicas", icon: BookOpen, label: t("nav.culture") },
+    { path: "/blog", icon: Newspaper, label: "Blog" },
     { path: "/dashboard", icon: BarChart3, label: t("nav.dashboard") },
     { path: "/lista-compras", icon: ShoppingCart, label: t("nav.shoppingList") },
     { path: "/favorites", icon: Heart, label: t("nav.favorites") },
