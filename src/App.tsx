@@ -31,6 +31,7 @@ import VipCategoryPage from "./pages/VipCategoryPage";
 import VipRecipeDetail from "./pages/VipRecipeDetail";
 import QueroSerVip from "./pages/QueroSerVip";
 import VipTools from "./pages/VipTools";
+import VipModelos from "./pages/VipModelos";
 import BottomNav from "./components/BottomNav";
 import DesktopSidebar from "./components/DesktopSidebar";
 import CookieConsent from "./components/CookieConsent";
@@ -85,6 +86,7 @@ const App = () => (
               <Route path="/vip/recipe/:id" element={<VipRecipeDetail />} />
               <Route path="/queroservip" element={<QueroSerVip />} />
               <Route path="/vip/ferramentas" element={<VipTools />} />
+              <Route path="/vip/modelos" element={<VipModelos />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
             <BottomNav />
