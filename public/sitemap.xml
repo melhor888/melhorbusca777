@@ -1,27 +1,191 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://receitasmexicanas.lovable.app/</loc><changefreq>daily</changefreq><priority>1.0</priority></url>
-  <url><loc>https://receitasmexicanas.lovable.app/tips</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://receitasmexicanas.lovable.app/dicas</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://receitasmexicanas.lovable.app/favorites</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://receitasmexicanas.lovable.app/sobre</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://receitasmexicanas.lovable.app/contato</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://receitasmexicanas.lovable.app/privacidade</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://receitasmexicanas.lovable.app/termos</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://receitasmexicanas.lovable.app/cookies</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://receitasmexicanas.lovable.app/aviso-legal</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://receitasmexicanas.lovable.app/sitemap</loc><changefreq>monthly</changefreq><priority>0.3</priority></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <!-- Static Pages -->
+  <url>
+    <loc>https://receitasmexicanas.lovable.app/</loc>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://receitasmexicanas.lovable.app/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://receitasmexicanas.lovable.app/en" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://receitasmexicanas.lovable.app/es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://receitasmexicanas.lovable.app/" />
+  </url>
+  <url>
+    <loc>https://receitasmexicanas.lovable.app/tips</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://receitasmexicanas.lovable.app/tips" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://receitasmexicanas.lovable.app/en/tips" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://receitasmexicanas.lovable.app/es/tips" />
+  </url>
+  <url>
+    <loc>https://receitasmexicanas.lovable.app/dicas</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://receitasmexicanas.lovable.app/dicas" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://receitasmexicanas.lovable.app/en/dicas" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://receitasmexicanas.lovable.app/es/dicas" />
+  </url>
+  <url>
+    <loc>https://receitasmexicanas.lovable.app/blog</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://receitasmexicanas.lovable.app/blog" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://receitasmexicanas.lovable.app/en/blog" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://receitasmexicanas.lovable.app/es/blog" />
+  </url>
+  <url>
+    <loc>https://receitasmexicanas.lovable.app/quiz</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://receitasmexicanas.lovable.app/quiz" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://receitasmexicanas.lovable.app/en/quiz" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://receitasmexicanas.lovable.app/es/quiz" />
+  </url>
+  <url>
+    <loc>https://receitasmexicanas.lovable.app/colecoes</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://receitasmexicanas.lovable.app/colecoes" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://receitasmexicanas.lovable.app/en/colecoes" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://receitasmexicanas.lovable.app/es/colecoes" />
+  </url>
+  <url>
+    <loc>https://receitasmexicanas.lovable.app/favorites</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://receitasmexicanas.lovable.app/lista-compras</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://receitasmexicanas.lovable.app/dashboard</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://receitasmexicanas.lovable.app/ingredientes</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://receitasmexicanas.lovable.app/vip</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://receitasmexicanas.lovable.app/queroservip</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://receitasmexicanas.lovable.app/sobre</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://receitasmexicanas.lovable.app/sobre" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://receitasmexicanas.lovable.app/en/sobre" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://receitasmexicanas.lovable.app/es/sobre" />
+  </url>
+  <url>
+    <loc>https://receitasmexicanas.lovable.app/contato</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://receitasmexicanas.lovable.app/privacidade</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://receitasmexicanas.lovable.app/termos</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://receitasmexicanas.lovable.app/cookies</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://receitasmexicanas.lovable.app/aviso-legal</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://receitasmexicanas.lovable.app/sitemap</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
 
   <!-- Categorias -->
   <url><loc>https://receitasmexicanas.lovable.app/categoria/tacos</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://receitasmexicanas.lovable.app/categoria/tortillas-bases</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://receitasmexicanas.lovable.app/categoria/pratos-tradicionais</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://receitasmexicanas.lovable.app/categoria/antojitos</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://receitasmexicanas.lovable.app/categoria/sopas-caldos</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://receitasmexicanas.lovable.app/categoria/carnes-guisados</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://receitasmexicanas.lovable.app/categoria/queijos-recheios</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://receitasmexicanas.lovable.app/categoria/molhos-salsas</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://receitasmexicanas.lovable.app/categoria/sopas-caldos</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://receitasmexicanas.lovable.app/categoria/carnes-mexicanas</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://receitasmexicanas.lovable.app/categoria/mariscos</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://receitasmexicanas.lovable.app/categoria/sobremesas</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://receitasmexicanas.lovable.app/categoria/bebidas</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://receitasmexicanas.lovable.app/categoria/mariscos</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://receitasmexicanas.lovable.app/categoria/arroz-feijao</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://receitasmexicanas.lovable.app/categoria/cafe-da-manha</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://receitasmexicanas.lovable.app/categoria/tamales-massas</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://receitasmexicanas.lovable.app/categoria/cultura-mexicana</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://receitasmexicanas.lovable.app/categoria/escola-mexicana</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+
+  <!-- Blog Posts -->
+  <url>
+    <loc>https://receitasmexicanas.lovable.app/blog/historia-tacos-al-pastor</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://receitasmexicanas.lovable.app/blog/historia-tacos-al-pastor" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://receitasmexicanas.lovable.app/en/blog/historia-tacos-al-pastor" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://receitasmexicanas.lovable.app/es/blog/historia-tacos-al-pastor" />
+  </url>
+  <url>
+    <loc>https://receitasmexicanas.lovable.app/blog/mole-poblano-sinfonia-ingredientes</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://receitasmexicanas.lovable.app/blog/mole-poblano-sinfonia-ingredientes" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://receitasmexicanas.lovable.app/en/blog/mole-poblano-sinfonia-ingredientes" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://receitasmexicanas.lovable.app/es/blog/mole-poblano-sinfonia-ingredientes" />
+  </url>
+  <url>
+    <loc>https://receitasmexicanas.lovable.app/blog/guia-definitivo-chiles-mexicanos</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://receitasmexicanas.lovable.app/blog/guia-definitivo-chiles-mexicanos" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://receitasmexicanas.lovable.app/en/blog/guia-definitivo-chiles-mexicanos" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://receitasmexicanas.lovable.app/es/blog/guia-definitivo-chiles-mexicanos" />
+  </url>
+  <url>
+    <loc>https://receitasmexicanas.lovable.app/blog/street-food-cidade-mexico-roteiro</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://receitasmexicanas.lovable.app/blog/street-food-cidade-mexico-roteiro" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://receitasmexicanas.lovable.app/en/blog/street-food-cidade-mexico-roteiro" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://receitasmexicanas.lovable.app/es/blog/street-food-cidade-mexico-roteiro" />
+  </url>
+  <url>
+    <loc>https://receitasmexicanas.lovable.app/blog/tortillas-milho-artesanais-nixtamalizacao</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://receitasmexicanas.lovable.app/blog/tortillas-milho-artesanais-nixtamalizacao" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://receitasmexicanas.lovable.app/en/blog/tortillas-milho-artesanais-nixtamalizacao" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://receitasmexicanas.lovable.app/es/blog/tortillas-milho-artesanais-nixtamalizacao" />
+  </url>
+
+  <!-- VIP Categories -->
+  <url><loc>https://receitasmexicanas.lovable.app/vip/categoria/receitas-secretas</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://receitasmexicanas.lovable.app/vip/categoria/masterclass-tecnicas</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://receitasmexicanas.lovable.app/vip/categoria/harmonizacao-sake</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://receitasmexicanas.lovable.app/vip/categoria/cardapios-completos</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://receitasmexicanas.lovable.app/vip/categoria/receitas-exclusivas</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+
+  <!-- NOTE: Full sitemap with all 500+ recipes x 3 languages is generated dynamically at /sitemap route -->
+  <!-- This static file provides the essential structure for search engine crawlers -->
 </urlset>
