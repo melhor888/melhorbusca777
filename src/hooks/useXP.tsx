@@ -35,13 +35,14 @@ export interface Level {
 }
 
 export const LEVELS: Level[] = [
-  { level: 1, title: "Iniciante", minXP: 0, maxXP: 50 },
-  { level: 2, title: "Aprendiz", minXP: 50, maxXP: 100 },
-  { level: 3, title: "Cozinheiro Jr.", minXP: 100, maxXP: 200 },
-  { level: 4, title: "Sushiman", minXP: 200, maxXP: 350 },
-  { level: 5, title: "Chef Japonês", minXP: 350, maxXP: 500 },
-  { level: 6, title: "Mestre Itamae", minXP: 500, maxXP: 750 },
-  { level: 7, title: "Lenda da Cozinha", minXP: 750, maxXP: Infinity },
+  { level: 1, title: "Principiante", minXP: 0, maxXP: 30 },
+  { level: 2, title: "Aprendiz", minXP: 30, maxXP: 70 },
+  { level: 3, title: "Cocinero", minXP: 70, maxXP: 130 },
+  { level: 4, title: "Taquero", minXP: 130, maxXP: 200 },
+  { level: 5, title: "Chef Mexicano", minXP: 200, maxXP: 300 },
+  { level: 6, title: "Maestro Mole", minXP: 300, maxXP: 450 },
+  { level: 7, title: "Abuela Sabia", minXP: 450, maxXP: 650 },
+  { level: 8, title: "Leyenda Culinaria", minXP: 650, maxXP: Infinity },
 ];
 
 export function getLevel(xp: number): Level {
