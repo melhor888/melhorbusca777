@@ -38,7 +38,7 @@ export default function Footer() {
             Este site não é afiliado ao Google. A monetização é feita através da plataforma Google AdSense, conforme as políticas da plataforma.
           </p>
           <p className="text-[10px] text-muted-foreground">
-            © {new Date().getFullYear()} Receitas MexicanasXP. Todos os direitos reservados.
+            © {new Date().getFullYear()} Receitas 🇲🇽XP. Todos os direitos reservados.
           </p>
         </div>
       </div>
