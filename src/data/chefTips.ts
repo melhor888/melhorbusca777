@@ -434,40 +434,55 @@ export const chefTips: Record<string, ChefTip> = {
     serve: "Planeje viagens em torno dos festivais.",
     tip: "A Guelaguetza em julho é a experiência cultural mais completa.",
   },
-  "tecnica-tortilla": {
-    glass: "Aula prática",
-    serve: "Pratique com masa harina antes de usar nixtamal.",
-    tip: "A tortillera é investimento essencial — $200 MXN resolve.",
+  "curso-basico": {
+    glass: "Curso completo — 6 módulos",
+    serve: "Siga a ordem dos módulos para melhor aprendizado.",
+    tip: "Domine tortillas e feijão antes de tudo — são a base de 80% da culinária mexicana.",
   },
-  "tecnica-chiles": {
-    glass: "Aula prática",
-    serve: "Tenha 3-4 tipos de chile para comparar.",
-    tip: "Nunca queime os chiles — torre levemente. Queimado = amargo.",
+  "curso-intermediario": {
+    glass: "Curso completo — 6 módulos",
+    serve: "Pratique cada módulo 2-3 vezes antes de avançar.",
+    tip: "O tamale é o termômetro do cozinheiro mexicano — se fizer tamales bons, está pronto.",
   },
-  "tecnica-mole": {
-    glass: "Masterclass",
-    serve: "Reserve um dia inteiro para sua primeira tentativa.",
-    tip: "Cada ingrediente preparado separadamente é o segredo — atalhos comprometem.",
+  "curso-avancado": {
+    glass: "Masterclass — 6 módulos",
+    serve: "Reserve dias inteiros para módulos complexos como mole negro.",
+    tip: "Mole negro leva 3 dias — não existe atalho. A paciência é o ingrediente secreto.",
   },
-  "tecnica-salsa": {
-    glass: "Aula prática",
-    serve: "Faça as 5 salsas essenciais numa tarde.",
-    tip: "O molcajete dá textura rústica impossível no liquidificador.",
+  "tecnica-tortilla-pro": {
+    glass: "Aula prática intensiva",
+    serve: "Pratique com masa harina antes de usar nixtamal fresco.",
+    tip: "A tortillera é investimento essencial. A tortilla perfeita infla na terceira virada.",
   },
-  "tecnica-nixtamal": {
-    glass: "Aula avançada",
-    serve: "Processo de 24h — planeje com antecedência.",
-    tip: "A cal (hidróxido de cálcio) libera niacina do milho — por isso os astecas não tinham pelagra.",
+  "tecnica-molhos-salsas": {
+    glass: "Aula prática — 10 salsas",
+    serve: "Faça todas as salsas numa tarde para comparar sabores.",
+    tip: "O molcajete dá textura rústica impossível no liquidificador — vale o investimento.",
   },
-  "tecnica-fermentacao": {
-    glass: "Aula prática",
-    serve: "Comece com tepache — o mais fácil.",
-    tip: "A temperatura ambiente tropical (25-30°C) acelera a fermentação.",
+  "uso-pimentas-pro": {
+    glass: "Aula técnica — 15 chiles",
+    serve: "Tenha todos os chiles em mãos para comparar aroma, cor e sabor.",
+    tip: "Nunca queime os chiles — torre levemente por 10-15 segundos. Queimado = amargo.",
   },
-  "tecnica-artesanal": {
-    glass: "Leitura educativa",
-    serve: "Procure molcajetes de pedra vulcânica autênticos.",
-    tip: "Um molcajete novo precisa ser 'curado' — moa arroz até sair pó branco.",
+  "fermentacoes-mex": {
+    glass: "Aula prática — 3 a 7 dias",
+    serve: "Comece com tepache — é o mais fácil e perdoador.",
+    tip: "Temperatura de 25-30°C é ideal. Frio demais = fermentação lenta. Quente demais = vinagre.",
+  },
+  "processos-tradicionais": {
+    glass: "Aula teórico-prática",
+    serve: "Procure utensílios artesanais autênticos em mercados mexicanos.",
+    tip: "Um molcajete novo precisa ser 'curado' — moa arroz até não sair mais pó.",
+  },
+  "conservacao-alimentos": {
+    glass: "Aula técnica",
+    serve: "Higiene é fundamental — esterilize todos os recipientes.",
+    tip: "Chiles secos duram anos se armazenados em local seco e escuro.",
+  },
+  "producao-artesanal": {
+    glass: "Workshop de produção",
+    serve: "Comece com lotes pequenos para testar receitas antes de escalar.",
+    tip: "Embalagem profissional aumenta o valor percebido em 40% — invista nela.",
   },
 
   // ============ MOLHOS EXTRAS ============

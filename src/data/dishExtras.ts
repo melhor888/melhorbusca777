@@ -122,14 +122,17 @@ export const dishExtras: Record<string, DishExtra> = {
   "regioes-gastronomicas": { price: "Gratuito", origin: "México", curiosity: "O México tem 32 estados e cada um poderia ser um país gastronômico independente." },
   "festivais-mexicanos": { price: "Gratuito", origin: "México", curiosity: "A Guelaguetza é a celebração mais antiga das Américas — mais de 3.000 anos de tradição." },
 
-  // ============ ESCOLA MEXICANA ============
-  "tecnica-tortilla": { price: "Gratuito", origin: "México", curiosity: "Uma tortillera profissional faz 3 tortillas por minuto — 180 por hora." },
-  "tecnica-chiles": { price: "Gratuito", origin: "México", curiosity: "A capsaicina (substância picante) é medida em SHU: poblano=1.500, jalapeño=5.000, habanero=350.000." },
-  "tecnica-mole": { price: "Gratuito", origin: "Puebla/Oaxaca", curiosity: "Um mole negro autêntico pode levar 3 dias e 40+ ingredientes para preparar." },
-  "tecnica-salsa": { price: "Gratuito", origin: "México", curiosity: "Existem mais de 1.000 salsas documentadas no México — cada cidade tem a sua." },
-  "tecnica-nixtamal": { price: "Gratuito", origin: "Mesoamérica", curiosity: "A nixtamalização aumenta o valor nutricional do milho em 30% — por isso os maias e astecas prosperaram." },
-  "tecnica-fermentacao": { price: "Gratuito", origin: "México pré-hispânico", curiosity: "O pulque era bebida sagrada — só sacerdotes e guerreiros podiam beber em quantidade." },
-  "tecnica-artesanal": { price: "Gratuito", origin: "México", curiosity: "Um molcajete de pedra vulcânica dura gerações — passa de mãe para filha." },
+  // ============ ESCOLA MEXICANA (PREMIUM) ============
+  "curso-basico": { price: "Premium", origin: "México", curiosity: "A culinária mexicana foi declarada Patrimônio Imaterial da Humanidade pela UNESCO em 2010." },
+  "curso-intermediario": { price: "Premium", origin: "México", curiosity: "O tamale é o prato mais antigo das Américas — existem evidências de 8.000 a.C." },
+  "curso-avancado": { price: "Premium", origin: "México", curiosity: "O mole negro de Oaxaca pode levar 40+ ingredientes e 3 dias para preparar." },
+  "tecnica-tortilla-pro": { price: "Premium", origin: "México", curiosity: "Uma tortillera profissional faz 3 tortillas por minuto — 180 por hora." },
+  "tecnica-molhos-salsas": { price: "Premium", origin: "México", curiosity: "Existem mais de 1.000 salsas documentadas no México — cada cidade tem a sua." },
+  "uso-pimentas-pro": { price: "Premium", origin: "México", curiosity: "A capsaicina é medida em SHU: poblano=1.500, jalapeño=5.000, habanero=350.000, Carolina Reaper=2.200.000." },
+  "fermentacoes-mex": { price: "Premium", origin: "México pré-hispânico", curiosity: "O pulque era bebida sagrada dos astecas — só sacerdotes e guerreiros podiam beber em quantidade." },
+  "processos-tradicionais": { price: "Premium", origin: "México", curiosity: "Um molcajete de pedra vulcânica dura gerações — passa de mãe para filha." },
+  "conservacao-alimentos": { price: "Premium", origin: "México", curiosity: "A nixtamalização aumenta o valor nutricional do milho em 30% e permite conservação por meses." },
+  "producao-artesanal": { price: "Premium", origin: "México", curiosity: "O mercado de produtos artesanais mexicanos movimenta bilhões — chocolate, queijo Oaxaca e mole lideram." },
 
   // ============ MOLHOS EXTRAS ============
   "molho-apimentado-habanero": { price: "$30 MXN (~R$10)", origin: "Yucatán, México", curiosity: "O habanero yucateco é uma das pimentas mais ardidas do mundo — 350.000 SHU na escala Scoville." },
