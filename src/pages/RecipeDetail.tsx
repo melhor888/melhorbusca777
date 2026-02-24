@@ -2,6 +2,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState, useRef } from "react";
 import { Helmet } from "react-helmet-async";
 import { getDishById, dishes as allDishes, getSpiceLevel, getFlavorTags, spiceLevelLabels } from "@/data/dishes";
+import { getTranslatedDish } from "@/data/translations";
 import { getDishImage } from "@/data/dishImages";
 import { getChefTip } from "@/data/chefTips";
 import { getDishExtra } from "@/data/dishExtras";
