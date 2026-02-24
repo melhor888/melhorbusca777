@@ -12,6 +12,7 @@ import { useFavorites } from "@/hooks/useFavorites";
 import { useXP } from "@/hooks/useXP";
 import XPToast from "@/components/XPToast";
 import SimilarDrinks from "@/components/SimilarDrinks";
+import BlogSuggestions from "@/components/BlogSuggestions";
 import AdBanner from "@/components/AdBanner";
 import ShareCard from "@/components/ShareCard";
 import SpiceBadge from "@/components/SpiceBadge";
@@ -325,6 +326,8 @@ export default function RecipeDetail() {
             </div>
           </section>
         )}
+
+        <BlogSuggestions recipeId={id} />
 
         <AdBanner slot="recipe-bottom" className="mt-4" />
 
