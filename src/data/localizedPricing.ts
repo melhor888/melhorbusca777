@@ -1,8 +1,8 @@
 import i18n from "@/i18n/config";
 import { DishPricing, getDishPricing } from "./dishPricing";
+import { getLocalizedPricingTip } from "./localizedPricingTips";
 
 interface LocalizedPricing extends DishPricing {}
-
 // Approximate conversion rates from BRL
 const BRL_TO_USD = 0.19;
 const BRL_TO_EUR = 0.17;
@@ -57,6 +57,6 @@ export function getLocalizedPricing(id: string): LocalizedPricing | undefined {
         : rp.region,
       price: convertPrice(rp.price, currency),
     })),
-    pricingTip: pricing.pricingTip, // kept in PT-BR as fallback
+    pricingTip: getLocalizedPricingTip(id, lang) || pricing.pricingTip,
   };
 }
