@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { ArrowLeft, Trash2, Copy, ShoppingCart, X, UtensilsCrossed } from "lucide-react";
 import { getDishById } from "@/data/dishes";
+import { getTranslatedDish } from "@/data/translations";
 import { getDishImage } from "@/data/dishImages";
 import { getVipDrinkById } from "@/data/vipDrinks";
 import { getVipDrinkImage } from "@/data/vipDrinkImages";
@@ -18,7 +19,7 @@ export default function ShoppingList() {
   const selectedRecipes = useMemo(
     () => drinkIds.map((id) => {
       const dish = getDishById(id);
-      if (dish) return { ...dish, isVip: false };
+      if (dish) return { ...getTranslatedDish(dish), isVip: false };
       const vip = getVipDrinkById(id);
       if (vip) return { ...vip, isVip: true };
       return null;
