@@ -89,9 +89,12 @@ const dishImages: Record<string, string> = {
   "salsa-verde": "/images/dish-salsa-verde.jpg",
   "salsa-roja": "/images/dish-salsa-roja.jpg",
   "pico-de-gallo": "/images/dish-pico-de-gallo.jpg",
-  "salsa-macha": "/images/dish-salsa-roja.jpg",
-  "adobo-mexicano": "/images/dish-salsa-roja.jpg",
-  "habanero-salsa": "/images/dish-salsa-verde.jpg",
+  "salsa-macha": "/images/dish-salsa-macha.jpg",
+  "adobo-mexicano": "/images/dish-adobo-mexicano.jpg",
+  "habanero-salsa": "/images/dish-habanero-salsa.jpg",
+  "molho-apimentado-habanero": "/images/dish-molho-habanero.jpg",
+  "molho-suave-aguacate": "/images/dish-molho-aguacate.jpg",
+  "molho-defumado-chipotle": "/images/dish-molho-chipotle.jpg",
 
   // ============ SOBREMESAS ============
   "churros": "/images/dish-churros.jpg",
