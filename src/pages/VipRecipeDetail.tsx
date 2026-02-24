@@ -1,6 +1,7 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { ArrowLeft, Crown, Clock, ChefHat, Wine, Lightbulb, Lock, ShoppingCart, Heart, Share2 } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import CookingTimer from "@/components/CookingTimer";
 import { getVipDrinkById, getVipChefTip } from "@/data/vipDrinks";
 import { isVipUnlocked } from "@/utils/vipKeys";
@@ -19,6 +20,7 @@ const difficultyColor: Record<string, string> = {
 export default function VipRecipeDetail() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const [unlocked, setUnlocked] = useState(false);
   const { isInList, toggleDrink } = useShoppingList();
   const { isFavorite, toggleFavorite } = useFavorites();
@@ -205,7 +207,7 @@ export default function VipRecipeDetail() {
 
           {/* Ingredients */}
           <div className="mb-6">
-            <h2 className="font-display font-bold text-foreground text-lg mb-3">Ingredientes</h2>
+            <h2 className="font-display font-bold text-foreground text-lg mb-3">{t("recipe.ingredients", "Ingredientes")}</h2>
             <ul className="space-y-2">
               {drink.ingredients.map((ing, i) => (
                 <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
@@ -218,7 +220,7 @@ export default function VipRecipeDetail() {
 
           {/* Steps */}
           <div className="mb-6">
-            <h2 className="font-display font-bold text-foreground text-lg mb-3">Modo de Preparo</h2>
+            <h2 className="font-display font-bold text-foreground text-lg mb-3">{t("recipe.steps", "Modo de Preparo")}</h2>
             <ol className="space-y-3">
               {drink.steps.map((step, i) => (
                 <li key={i} className="flex items-start gap-3 text-sm text-muted-foreground">
