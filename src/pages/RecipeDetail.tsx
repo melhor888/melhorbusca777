@@ -2,7 +2,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState, useRef } from "react";
 import { Helmet } from "react-helmet-async";
 import { useTranslation } from "react-i18next";
-import { getDishById, dishes as allDishes, getSpiceLevel, getFlavorTags, spiceLevelLabels } from "@/data/dishes";
+import { getDishById, getAllDishes, getSpiceLevel, getFlavorTags, spiceLevelLabels } from "@/data/dishes";
 import { getTranslatedDish, getTranslatedCategory, getTranslatedDifficulty } from "@/data/translations";
 import { getDishImage } from "@/data/dishImages";
 import { getLocalizedChefTip } from "@/data/localizedChefTips";
@@ -331,7 +331,7 @@ export default function RecipeDetail() {
 
         <AdBanner slot="recipe-bottom" className="mt-4" />
 
-        <SimilarDrinks currentDrink={rawDish} allDrinks={allDishes} />
+        <SimilarDrinks currentDrink={rawDish} allDrinks={getAllDishes()} />
       </div>
     </div>
   );

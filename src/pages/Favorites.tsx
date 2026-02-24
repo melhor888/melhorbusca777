@@ -1,5 +1,5 @@
 import { useFavorites } from "@/hooks/useFavorites";
-import { dishes } from "@/data/dishes";
+import { getAllDishes } from "@/data/dishes";
 import { useTranslation } from "react-i18next";
 import DrinkCard from "@/components/DrinkCard";
 import { Heart } from "lucide-react";
@@ -7,7 +7,7 @@ import { Heart } from "lucide-react";
 export default function Favorites() {
   const { favorites } = useFavorites();
   const { t } = useTranslation();
-  const favDishes = dishes.filter((d) => favorites.includes(d.id));
+  const favDishes = getAllDishes().filter((d) => favorites.includes(d.id));
 
   return (
     <div className="min-h-screen pb-20 pt-4 px-4 lg:px-6">

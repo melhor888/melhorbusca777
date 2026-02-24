@@ -2,12 +2,12 @@ import { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { ArrowLeft, Search, X, Check } from "lucide-react";
-import { dishes } from "@/data/dishes";
+import { getAllDishes } from "@/data/dishes";
 import { getDishImage } from "@/data/dishImages";
 
 function extractAllIngredients(): string[] {
   const set = new Set<string>();
-  for (const d of dishes) {
+  for (const d of getAllDishes()) {
     for (const ing of d.ingredients) {
       const name = ing
         .replace(/^\d+[\w/]*\s*(de\s+)?/i, "")
@@ -50,7 +50,7 @@ export default function Ingredients() {
 
   const matchedDishes = useMemo(() => {
     if (selected.length === 0) return [];
-    return dishes
+    return getAllDishes()
       .map((dish) => {
         const matchCount = dish.ingredients.filter((di) =>
           selected.some((s) => di.toLowerCase().includes(s.toLowerCase()))

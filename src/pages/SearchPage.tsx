@@ -1,7 +1,7 @@
 import { useState, useMemo } from "react";
 import { Search } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { searchDishes, categories, dishes } from "@/data/dishes";
+import { searchDishes, categories, getAllDishes } from "@/data/dishes";
 import { getDishImage } from "@/data/dishImages";
 import { getTranslatedDish, getTranslatedCategory } from "@/data/translations";
 import DrinkCard from "@/components/DrinkCard";
@@ -15,8 +15,9 @@ export default function SearchPage() {
   const navigate = useNavigate();
   const results = query.length >= 2 ? searchDishes(query) : [];
 
+  const allDishes = getAllDishes();
   const randomDish = useMemo(() => {
-    return dishes[Math.floor(Math.random() * dishes.length)];
+    return allDishes[Math.floor(Math.random() * allDishes.length)];
   }, []);
 
   const translatedRandom = getTranslatedDish(randomDish);
