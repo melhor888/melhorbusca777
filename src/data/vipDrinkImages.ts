@@ -81,27 +81,19 @@ const categoryHeroBanners: Record<string, string> = {
 
 // Dedicated images for specific drinks (overrides hash-based assignment)
 const dedicatedImages: Record<string, string> = {
-  // Harmonização Sake & Drinks - imagens dedicadas (20 receitas, 20 imagens únicas)
-  "hs-junmai-daiginjo": "/images/vip-sake-1.jpg",
-  "hs-nigori-yakitori": "/images/vip-sake-2.jpg",
-  "hs-shochu-izakaya": "/images/vip-sake-3.jpg",
-  "hs-whisky-japones": "/images/vip-sake-4.jpg",
-  "hs-umeshu-sobremesa": "/images/vip-sake-5.jpg",
-  "hs-sparkling-sake-tempura": "/images/vip-sake-6.jpg",
-  "hs-sake-quente-nabe": "/images/vip-sake-7.jpg",
-  "hs-cocktail-matcha-gin": "/images/vip-sake-8.jpg",
-  "hs-awamori-okinawa": "/images/vip-sake-9.jpg",
-  "hs-sake-queijo": "/images/vip-sake-10.jpg",
-  "hs-sake-sushi-omakase": "/images/vip-sake-11.jpg",
-  "hs-sake-tempurá-seasonal": "/images/vip-sake-12.jpg",
-  "hs-highball-karaage": "/images/vip-sake-13.jpg",
-  "hs-sake-ramen": "/images/vip-sake-14.jpg",
-  "hs-yuzu-cocktail-sashimi": "/images/vip-sake-15.jpg",
-  "hs-beer-japonesa-izakaya": "/images/vip-sake-16.jpg",
-  "hs-sake-yakiniku": "/images/vip-sake-17.jpg",
-  "hs-plum-wine-cheese": "/images/vip-sake-18.jpg",
-  "hs-sake-oden": "/images/vip-sake-19.jpg",
-  "hs-cocktail-shiso-gin": "/images/vip-sake-20.jpg",
+  // Harmonização Agave & Comida - imagens dedicadas (12 receitas mexicanas)
+  "hs-tequila-ceviche": "/images/vip-harmonizacao-tequila.jpg",
+  "hs-reposado-tacos": "/images/vip-agave-reposado-pastor.jpg",
+  "hs-mezcal-mole": "/images/vip-harmonizacao-mezcal.jpg",
+  "hs-anejo-chocolate": "/images/vip-agave-anejo-chocolate.jpg",
+  "hs-sotol-carne": "/images/vip-agave-sotol-carne.jpg",
+  "hs-pulque-carnitas": "/images/vip-agave-pulque-carnitas.jpg",
+  "hs-tobala-chapulines": "/images/vip-agave-tobala-chapulines.jpg",
+  "hs-raicilla-aguachile": "/images/vip-agave-raicilla-ceviche.jpg",
+  "hs-michelada-birria": "/images/vip-agave-michelada-birria.jpg",
+  "hs-extraanejo-molepoblano": "/images/vip-agave-extraanejo-mole.jpg",
+  "hs-margarita-guacamole": "/images/vip-agave-margarita-guacamole.jpg",
+  "hs-bacanora-machaca": "/images/vip-agave-bacanora-machaca.jpg",
   "beer-boulevardier": "/images/vip-beer-90.jpg",
   "beer-bloody-mary": "/images/vip-beer-91.jpg",
   "cerveza-preparada": "/images/vip-beer-92.jpg",
@@ -773,9 +765,7 @@ const dedicatedImages: Record<string, string> = {
   "sopa-azteca-premium": "/images/vip-exclusiva-sopa-azteca.jpg",
   "coctel-vuelve-a-la-vida": "/images/vip-exclusiva-vuelve-vida.jpg",
   "chiles-en-nogada-clasico-puebla": "/images/vip-exclusiva-chiles-nogada-clasico.jpg",
-  // Agave Pairing Images
-  "hs-tequila-ceviche": "/images/vip-harmonizacao-tequila.jpg",
-  "hs-mezcal-mole": "/images/vip-harmonizacao-mezcal.jpg",
+  // (Agave images already mapped above)
   
   // Mexican Menus Images
   "cc-dia-muertos": "/images/vip-menu-muertos.jpg",
