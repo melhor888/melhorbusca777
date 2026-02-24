@@ -160,7 +160,7 @@ export default function VipRecipeDetail() {
           <div className="rounded-2xl border border-yellow-500/20 bg-yellow-500/5 p-4 mb-6">
             <div className="flex items-center gap-2 mb-2">
               <Wine size={16} className="text-yellow-500" />
-              <span className="text-sm font-semibold text-foreground">Sobre este drink</span>
+              <span className="text-sm font-semibold text-foreground">Sobre esta receita</span>
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed">{drink.description}</p>
           </div>
