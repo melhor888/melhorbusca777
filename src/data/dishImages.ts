@@ -166,12 +166,12 @@ const dishImages: Record<string, string> = {
   "chilaquiles-pollo": "/images/dish-chilaquiles.jpg",
 
   // ============ TAMALES & MASSAS ============
-  "tamales-oaxaquenos": "/images/dish-tamales.jpg",
-  "tamales-rajas": "/images/dish-tamales.jpg",
+  "tamales-oaxaquenos": "/images/dish-tamales-oaxaquenos.jpg",
+  "tamales-rajas": "/images/dish-tamales-rajas.jpg",
   "chiles-nogada": "/images/dish-chiles-en-nogada-premium.jpg",
   "torta-ahogada": "/images/dish-torta-ahogada.jpg",
   "cemita-poblana": "/images/dish-cemita.jpg",
-  "tamales-dulces": "/images/dish-tamales.jpg",
+  "tamales-dulces": "/images/dish-tamales-dulces.jpg",
   "empanadas-mexicanas": "/images/dish-empanadas-mexicanas.jpg",
   "mole-amarillo": "/images/dish-mole-amarillo-oaxaca.jpg",
 
