@@ -2,12 +2,13 @@ import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { useTranslation } from "react-i18next";
 import { ArrowLeft } from "lucide-react";
-import { dishes } from "@/data/dishes";
+import { getAllDishes } from "@/data/dishes";
 import DrinkCard from "@/components/DrinkCard";
 
 export default function Collections() {
   const navigate = useNavigate();
   const { t } = useTranslation();
+  const dishes = getAllDishes();
 
   const collections = [
     {

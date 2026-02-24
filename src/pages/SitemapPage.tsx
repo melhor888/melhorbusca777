@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { drinks, categories as drinkCategories } from "@/data/drinks";
-import { dishes, categories as dishCategories } from "@/data/dishes";
+import { getAllDishes, categories as dishCategories } from "@/data/dishes";
 import { articles } from "@/data/articles";
 import { blogPosts } from "@/data/blogPosts";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -64,7 +64,7 @@ export default function SitemapPage() {
             </section>
 
             {dishCategories.map((cat) => {
-              const catDishes = dishes.filter(d => d.category === cat);
+              const catDishes = getAllDishes().filter(d => d.category === cat);
               if (catDishes.length === 0) return null;
               return (
                 <section key={cat}>

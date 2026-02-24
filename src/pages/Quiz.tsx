@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { useTranslation } from "react-i18next";
 import { ArrowLeft, ArrowRight, Sparkles, Zap, UtensilsCrossed } from "lucide-react";
-import { dishes } from "@/data/dishes";
+import { getAllDishes } from "@/data/dishes";
 import { getDishImage } from "@/data/dishImages";
 import { getTranslatedDish } from "@/data/translations";
 import { useXP } from "@/hooks/useXP";
@@ -22,7 +22,7 @@ interface Question {
   options: QuizOption[];
 }
 
-const tagToDishScore: Record<string, (d: typeof dishes[0]) => number> = {
+const tagToDishScore: Record<string, (d: ReturnType<typeof getAllDishes>[0]) => number> = {
   picante: (d) => (d.ingredients.some((i) => /pimenta|jalapeño|chipotle|habanero|chili/i.test(i)) ? 3 : 0),
   intenso: (d) => (d.category === "Carnes & Guisados" ? 3 : 0),
   fresco: (d) => (d.ingredients.some((i) => /abacate|guacamole|coentro|limão/i.test(i)) ? 3 : 0),
@@ -57,8 +57,8 @@ const tagToDishScore: Record<string, (d: typeof dishes[0]) => number> = {
   qualquer: () => 1,
 };
 
-function getRecommendations(tags: string[]): typeof dishes {
-  const scored = dishes.map((d) => {
+function getRecommendations(tags: string[]): ReturnType<typeof getAllDishes> {
+  const scored = getAllDishes().map((d) => {
     let score = 0;
     for (const tag of tags) {
       const fn = tagToDishScore[tag];
@@ -73,7 +73,7 @@ function getRecommendations(tags: string[]): typeof dishes {
 export default function Quiz() {
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<string[][]>([]);
-  const [results, setResults] = useState<typeof dishes | null>(null);
+  const [results, setResults] = useState<ReturnType<typeof getAllDishes> | null>(null);
   const [showXP, setShowXP] = useState(false);
   const { addRecipeXP } = useXP();
   const navigate = useNavigate();

@@ -10,7 +10,7 @@ import DrinkCard from "@/components/DrinkCard";
 import ThemeToggle from "@/components/ThemeToggle";
 import NotificationToggle from "@/components/NotificationToggle";
 import LanguageSelector from "@/components/LanguageSelector";
-import { categories, getDishesByCategory, searchDishes, dishes as allDishes, getSpiceLevel, type SpiceLevel } from "@/data/dishes";
+import { categories, getDishesByCategory, searchDishes, getAllDishes, getSpiceLevel, type SpiceLevel } from "@/data/dishes";
 import { useLocalizedPath } from "@/i18n/useLocalizedPath";
 
 function slugify(text: string): string {
@@ -53,7 +53,7 @@ export default function Index() {
   const results = query.length >= 2 ? searchDishes(query) : [];
 
   const filteredResults = (() => {
-    let base = query.length >= 2 ? results : (activeFilter || activeSpice !== null ? allDishes : []);
+    let base = query.length >= 2 ? results : (activeFilter || activeSpice !== null ? getAllDishes() : []);
     if (activeFilter) base = base.filter((d) => d.difficulty === activeFilter);
     if (activeSpice !== null) base = base.filter((d) => getSpiceLevel(d) === activeSpice);
     return base;

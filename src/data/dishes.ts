@@ -384,13 +384,11 @@ export const dishes: Dish[] = [
 ];
 
 export function getDishesByCategory(category: string): Dish[] {
-  const allDishes = [...dishes, ...dishesBatch2, ...dishesBatch3, ...dishesBatch4, ...dishesBatch5, ...dishesBatch6, ...dishesBatch7];
-  return allDishes.filter((d) => d.category === category);
+  return getAllDishes().filter((d) => d.category === category);
 }
 
 export function getDishById(id: string): Dish | undefined {
-  const allDishes = [...dishes, ...dishesBatch2, ...dishesBatch3, ...dishesBatch4, ...dishesBatch5, ...dishesBatch6, ...dishesBatch7];
-  return allDishes.find((d) => d.id === id);
+  return getAllDishes().find((d) => d.id === id);
 }
 
 export function getAllDishes(): Dish[] {

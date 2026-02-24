@@ -5,7 +5,7 @@ import { ArrowLeft, Trophy, Eye, Heart, Star, BookOpen, Zap, Target } from "luci
 import { useXP, getLevel, getLevelProgress, LEVELS } from "@/hooks/useXP";
 import { useFavorites } from "@/hooks/useFavorites";
 import { achievements as allAchievements } from "@/data/achievements";
-import { dishes, categories } from "@/data/dishes";
+import { getAllDishes, categories } from "@/data/dishes";
 import { getTranslatedCategory } from "@/data/translations";
 
 export default function Dashboard() {
@@ -16,14 +16,16 @@ export default function Dashboard() {
   const level = getLevel(xpData.totalXP);
   const progress = getLevelProgress(xpData.totalXP);
 
+  const allDishes = getAllDishes();
+
   const categoryStats = categories.map((cat) => {
-    const catDishes = dishes.filter((d) => d.category === cat);
+    const catDishes = allDishes.filter((d) => d.category === cat);
     const viewed = catDishes.filter((d) => xpData.viewedRecipes.includes(d.id)).length;
     return { name: cat, total: catDishes.length, viewed };
   });
 
   const totalViewed = xpData.viewedRecipes.length;
-  const totalDishes = dishes.length;
+  const totalDishes = allDishes.length;
   const unlockedCount = xpData.achievements.length;
   const totalAchievements = allAchievements.length;
   const readArticles = JSON.parse(localStorage.getItem("drinks-co-read-articles") || "[]") as string[];
