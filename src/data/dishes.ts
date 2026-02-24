@@ -1,6 +1,7 @@
 import { dishesBatch2 } from "./dishes-batch2";
 import { dishesBatch3 } from "./dishes-batch3";
 import { dishesBatch4 } from "./dishes-batch4";
+import { dishesBatch5 } from "./dishes-batch5";
 
 export interface Dish {
   id: string;
@@ -12,6 +13,9 @@ export interface Dish {
   difficulty: "Fácil" | "Médio" | "Avançado";
   time: string;
   description?: string;
+  price?: string;        // Preço médio estimado (ex: "¥800 (~R$30)")
+  curiosity?: string;    // Curiosidade única sobre a receita
+  origin?: string;       // Onde foi inventada/região de origem
 }
 
 export const categories = [
@@ -588,6 +592,7 @@ export const dishes: Dish[] = [
   ...dishesBatch2,
   ...dishesBatch3,
   ...dishesBatch4,
+  ...dishesBatch5,
 ];
 
 export function getDishById(id: string): Dish | undefined {

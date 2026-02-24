@@ -4,13 +4,14 @@ import { Helmet } from "react-helmet-async";
 import { getDishById, dishes as allDishes } from "@/data/dishes";
 import { getDishImage } from "@/data/dishImages";
 import { getChefTip } from "@/data/chefTips";
+import { getDishExtra } from "@/data/dishExtras";
 import { useFavorites } from "@/hooks/useFavorites";
 import { useXP } from "@/hooks/useXP";
 import XPToast from "@/components/XPToast";
 import SimilarDrinks from "@/components/SimilarDrinks";
 import AdBanner from "@/components/AdBanner";
 import ShareCard from "@/components/ShareCard";
-import { ArrowLeft, Heart, Share2, Clock, ChefHat, UtensilsCrossed, Lightbulb, Zap, ShoppingCart, Image } from "lucide-react";
+import { ArrowLeft, Heart, Share2, Clock, ChefHat, UtensilsCrossed, Lightbulb, Zap, ShoppingCart, Image, MapPin, Coins, Sparkles } from "lucide-react";
 import { useShoppingList } from "@/hooks/useShoppingList";
 
 export default function RecipeDetail() {
@@ -59,6 +60,7 @@ export default function RecipeDetail() {
   const fav = isFavorite(dish.id);
   const inCart = isInList(dish.id);
   const chefTip = getChefTip(dish.id);
+  const extra = getDishExtra(dish.id);
   const handleShare = async () => {
     const text = `🍣 ${dish.name}\n\nIngredientes:\n${dish.ingredients.join("\n")}\n\nConfira no Receitas Japonesas XP!`;
     if (navigator.share) {
@@ -139,7 +141,7 @@ export default function RecipeDetail() {
           <h1 className="text-3xl font-display font-bold text-foreground mt-1">
             {dish.name}
           </h1>
-          <div className="flex items-center gap-4 mt-2 text-sm text-muted-foreground">
+          <div className="flex flex-wrap items-center gap-4 mt-2 text-sm text-muted-foreground">
             <span className="flex items-center gap-1">
               <Clock size={14} /> {dish.time}
             </span>
@@ -149,6 +151,16 @@ export default function RecipeDetail() {
             }`}>
               <ChefHat size={14} /> {dish.difficulty}
             </span>
+            {extra?.price && (
+              <span className="flex items-center gap-1">
+                <Coins size={14} className="text-primary" /> {extra.price}
+              </span>
+            )}
+            {extra?.origin && (
+              <span className="flex items-center gap-1">
+                <MapPin size={14} className="text-primary" /> {extra.origin}
+              </span>
+            )}
           </div>
         </div>
       </div>
@@ -159,6 +171,18 @@ export default function RecipeDetail() {
             <p className="text-secondary-foreground text-sm leading-relaxed italic">
               {dish.description}
             </p>
+          </section>
+        )}
+
+        {extra?.curiosity && (
+          <section className="glass-card rounded-2xl p-5 border border-primary/20">
+            <div className="flex items-start gap-3">
+              <Sparkles size={18} className="text-primary mt-0.5 flex-shrink-0" />
+              <div>
+                <p className="text-xs font-semibold text-primary uppercase tracking-wider mb-1">Curiosidade</p>
+                <p className="text-secondary-foreground text-sm leading-relaxed">{extra.curiosity}</p>
+              </div>
+            </div>
           </section>
         )}
 
