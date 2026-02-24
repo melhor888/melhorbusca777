@@ -1,130 +1,123 @@
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import { useTranslation } from "react-i18next";
 import { ArrowLeft } from "lucide-react";
 import { dishes } from "@/data/dishes";
 import DrinkCard from "@/components/DrinkCard";
 
-interface Collection {
-  id: string;
-  title: string;
-  subtitle: string;
-  emoji: string;
-  filter: (d: typeof dishes[0]) => boolean;
-}
-
-const collections: Collection[] = [
-  {
-    id: "tacos",
-    title: "Tacos",
-    subtitle: "O rei da comida de rua mexicana em todas as variações",
-    emoji: "🌮",
-    filter: (d) => /taco/i.test(d.name) || d.category === "Tacos",
-  },
-  {
-    id: "sopas-caldos",
-    title: "Sopas & Caldos",
-    subtitle: "Pozole, menudo, caldo de pollo e mais",
-    emoji: "🍲",
-    filter: (d) =>
-      /pozole|menudo|caldo|sopa|consomé/i.test(d.name) || d.category === "Sopas & Caldos",
-  },
-  {
-    id: "antojitos",
-    title: "Antojitos",
-    subtitle: "Quesadillas, enchiladas, chilaquiles, sopes e gorditas",
-    emoji: "🫔",
-    filter: (d) =>
-      /quesadilla|enchilada|chilaquiles|sope|gordita|tostada|elote|tamale/i.test(d.name) || d.category === "Antojitos",
-  },
-  {
-    id: "carnes",
-    title: "Carnes Mexicanas",
-    subtitle: "Mole, carnitas, barbacoa, cochinita e arrachera",
-    emoji: "🥩",
-    filter: (d) =>
-      /mole|carnitas|barbacoa|cochinita|arrachera|bistec|cecina|tasajo|suadero|carne/i.test(d.name) || d.category === "Carnes Mexicanas",
-  },
-  {
-    id: "molhos-salsas",
-    title: "Molhos & Salsas",
-    subtitle: "Guacamole, salsa roja, verde, pico de gallo e mais",
-    emoji: "🥣",
-    filter: (d) =>
-      /guacamole|salsa|pico de gallo|molho|mole/i.test(d.name) || d.category === "Molhos & Salsas",
-  },
-  {
-    id: "mariscos",
-    title: "Mariscos",
-    subtitle: "Ceviche, camarões, peixe e frutos do mar",
-    emoji: "🦐",
-    filter: (d) =>
-      /ceviche|camar|pescado|zarandeado|marisco/i.test(d.name) || d.category === "Mariscos",
-  },
-  {
-    id: "sobremesas",
-    title: "Sobremesas Mexicanas",
-    subtitle: "Churros, flan, tres leches e doces tradicionais",
-    emoji: "🍮",
-    filter: (d) =>
-      /churro|flan|tres leches|arroz con leche|mazapan|alegria|helado/i.test(d.name) || d.category === "Sobremesas",
-  },
-  {
-    id: "bebidas",
-    title: "Bebidas",
-    subtitle: "Horchata, jamaica, chocolate mexicano e michelada",
-    emoji: "🍹",
-    filter: (d) =>
-      /horchata|jamaica|chocolate|michelada|margarita|pulque|agua/i.test(d.name) || d.category === "Bebidas",
-  },
-  {
-    id: "cafe-da-manha",
-    title: "Café da Manhã",
-    subtitle: "Huevos rancheros, divorciados e chilaquiles matinais",
-    emoji: "🍳",
-    filter: (d) =>
-      /huevos|motuleños/i.test(d.name) || d.category === "Café da Manhã",
-  },
-  {
-    id: "facil",
-    title: "Fácil & Rápido",
-    subtitle: "Receitas simples para o dia a dia",
-    emoji: "⚡",
-    filter: (d) => d.difficulty === "Fácil",
-  },
-  {
-    id: "tortillas-bases",
-    title: "Tortillas & Bases",
-    subtitle: "Tortillas de milho, trigo, sopes, tlacoyos e tostadas",
-    emoji: "🫓",
-    filter: (d) =>
-      /tortilla|tlacoyo|tostada/i.test(d.name) || d.category === "Tortillas & Bases",
-  },
-  {
-    id: "picantes",
-    title: "Para os Corajosos 🔥",
-    subtitle: "As receitas mais picantes do cardápio",
-    emoji: "🌶️",
-    filter: (d) =>
-      /habanero|diabla|extra.?picante/i.test(d.name) ||
-      /habanero|diabla/i.test(d.ingredients?.join(" ") || ""),
-  },
-];
-
 export default function Collections() {
   const navigate = useNavigate();
+  const { t } = useTranslation();
+
+  const collections = [
+    {
+      id: "tacos",
+      title: t("collections_page.tacos"),
+      subtitle: t("collections_page.tacosDesc"),
+      emoji: "🌮",
+      filter: (d: typeof dishes[0]) => /taco/i.test(d.name) || d.category === "Tacos",
+    },
+    {
+      id: "sopas-caldos",
+      title: t("collections_page.soupsAndBroths"),
+      subtitle: t("collections_page.soupsAndBrothsDesc"),
+      emoji: "🍲",
+      filter: (d: typeof dishes[0]) =>
+        /pozole|menudo|caldo|sopa|consomé/i.test(d.name) || d.category === "Sopas & Caldos",
+    },
+    {
+      id: "antojitos",
+      title: t("collections_page.antojitos"),
+      subtitle: t("collections_page.antojitosDesc"),
+      emoji: "🫔",
+      filter: (d: typeof dishes[0]) =>
+        /quesadilla|enchilada|chilaquiles|sope|gordita|tostada|elote|tamale/i.test(d.name) || d.category === "Antojitos",
+    },
+    {
+      id: "carnes",
+      title: t("collections_page.meats"),
+      subtitle: t("collections_page.meatsDesc"),
+      emoji: "🥩",
+      filter: (d: typeof dishes[0]) =>
+        /mole|carnitas|barbacoa|cochinita|arrachera|bistec|cecina|tasajo|suadero|carne/i.test(d.name) || d.category === "Carnes Mexicanas",
+    },
+    {
+      id: "molhos-salsas",
+      title: t("collections_page.sauces"),
+      subtitle: t("collections_page.saucesDesc"),
+      emoji: "🥣",
+      filter: (d: typeof dishes[0]) =>
+        /guacamole|salsa|pico de gallo|molho|mole/i.test(d.name) || d.category === "Molhos & Salsas",
+    },
+    {
+      id: "mariscos",
+      title: t("collections_page.seafood"),
+      subtitle: t("collections_page.seafoodDesc"),
+      emoji: "🦐",
+      filter: (d: typeof dishes[0]) =>
+        /ceviche|camar|pescado|zarandeado|marisco/i.test(d.name) || d.category === "Mariscos",
+    },
+    {
+      id: "sobremesas",
+      title: t("collections_page.desserts"),
+      subtitle: t("collections_page.dessertsDesc"),
+      emoji: "🍮",
+      filter: (d: typeof dishes[0]) =>
+        /churro|flan|tres leches|arroz con leche|mazapan|alegria|helado/i.test(d.name) || d.category === "Sobremesas",
+    },
+    {
+      id: "bebidas",
+      title: t("collections_page.beverages"),
+      subtitle: t("collections_page.beveragesDesc"),
+      emoji: "🍹",
+      filter: (d: typeof dishes[0]) =>
+        /horchata|jamaica|chocolate|michelada|margarita|pulque|agua/i.test(d.name) || d.category === "Bebidas",
+    },
+    {
+      id: "cafe-da-manha",
+      title: t("collections_page.breakfast"),
+      subtitle: t("collections_page.breakfastDesc"),
+      emoji: "🍳",
+      filter: (d: typeof dishes[0]) =>
+        /huevos|motuleños/i.test(d.name) || d.category === "Café da Manhã",
+    },
+    {
+      id: "facil",
+      title: t("collections_page.easyAndQuick"),
+      subtitle: t("collections_page.easyAndQuickDesc"),
+      emoji: "⚡",
+      filter: (d: typeof dishes[0]) => d.difficulty === "Fácil",
+    },
+    {
+      id: "tortillas-bases",
+      title: t("collections_page.tortillasAndBases"),
+      subtitle: t("collections_page.tortillasAndBasesDesc"),
+      emoji: "🫓",
+      filter: (d: typeof dishes[0]) =>
+        /tortilla|tlacoyo|tostada/i.test(d.name) || d.category === "Tortillas & Bases",
+    },
+    {
+      id: "picantes",
+      title: t("collections_page.spicy"),
+      subtitle: t("collections_page.spicyDesc"),
+      emoji: "🌶️",
+      filter: (d: typeof dishes[0]) =>
+        /habanero|diabla|extra.?picante/i.test(d.name) ||
+        /habanero|diabla/i.test(d.ingredients?.join(" ") || ""),
+    },
+  ];
 
   return (
     <div className="min-h-screen pb-24">
       <Helmet>
-        <title>Coleções Temáticas | Receitas MexicanasXP</title>
-        <meta name="description" content="Coleções temáticas de receitas mexicanas: tacos, enchiladas, moles, sopas, sobremesas e mais." />
+        <title>{t("collections_page.title")} | Receitas MexicanasXP</title>
       </Helmet>
 
       <div className="sticky top-0 z-40 glass-card border-b border-border/50 px-4 py-3 flex items-center gap-3">
         <button onClick={() => navigate(-1)} className="w-9 h-9 rounded-full bg-secondary flex items-center justify-center">
           <ArrowLeft size={18} className="text-foreground" />
         </button>
-        <h1 className="font-display font-bold text-foreground text-lg">Coleções Temáticas</h1>
+        <h1 className="font-display font-bold text-foreground text-lg">{t("collections_page.title")}</h1>
       </div>
 
       <div className="px-4 pt-6 max-w-2xl mx-auto space-y-8">
@@ -137,7 +130,7 @@ export default function Collections() {
                 <h2 className="font-display font-bold text-foreground text-lg flex items-center gap-2">
                   <span>{col.emoji}</span> {col.title}
                 </h2>
-                <p className="text-xs text-muted-foreground">{col.subtitle} • {dishes.filter(col.filter).length} receitas</p>
+                <p className="text-xs text-muted-foreground">{col.subtitle} • {dishes.filter(col.filter).length} {t("common.recipes")}</p>
               </div>
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
                 {colDishes.map((dish) => (

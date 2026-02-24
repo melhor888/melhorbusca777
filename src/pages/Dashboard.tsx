@@ -1,13 +1,16 @@
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import { useTranslation } from "react-i18next";
 import { ArrowLeft, Trophy, Eye, Heart, Star, BookOpen, Zap, Target } from "lucide-react";
 import { useXP, getLevel, getLevelProgress, LEVELS } from "@/hooks/useXP";
 import { useFavorites } from "@/hooks/useFavorites";
 import { achievements as allAchievements } from "@/data/achievements";
 import { dishes, categories } from "@/data/dishes";
+import { getTranslatedCategory } from "@/data/translations";
 
 export default function Dashboard() {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const xpData = useXP();
   const { favorites } = useFavorites();
   const level = getLevel(xpData.totalXP);
@@ -36,15 +39,14 @@ export default function Dashboard() {
   return (
     <div className="min-h-screen pb-24">
       <Helmet>
-        <title>Dashboard do Chef | Receitas MexicanasXP</title>
-        <meta name="description" content="Acompanhe seu progresso na culinária mexicana: XP, nível, conquistas e receitas exploradas." />
+        <title>{t("dashboard.title")} | Receitas MexicanasXP</title>
       </Helmet>
 
       <div className="sticky top-0 z-40 glass-card border-b border-border/50 px-4 py-3 flex items-center gap-3">
         <button onClick={() => navigate(-1)} className="w-9 h-9 rounded-full bg-secondary flex items-center justify-center">
           <ArrowLeft size={18} className="text-foreground" />
         </button>
-        <h1 className="font-display font-bold text-foreground text-lg">Dashboard do Chef 🌮</h1>
+        <h1 className="font-display font-bold text-foreground text-lg">{t("dashboard.title")}</h1>
       </div>
 
       <div className="px-4 pt-6 max-w-2xl mx-auto space-y-6">
@@ -54,7 +56,7 @@ export default function Dashboard() {
             <span className="text-3xl">{levelEmojis[level.title] || "🌮"}</span>
           </div>
           <h2 className="font-display font-bold text-xl text-foreground">{level.title}</h2>
-          <p className="text-primary text-sm font-semibold">Nível {level.level}</p>
+          <p className="text-primary text-sm font-semibold">{t("dashboard.level")} {level.level}</p>
           <div className="mt-4 w-full bg-secondary rounded-full h-3 overflow-hidden">
             <div
               className="h-full bg-gradient-to-r from-primary to-gold-light rounded-full transition-all duration-500"
@@ -69,10 +71,10 @@ export default function Dashboard() {
         {/* Quick Stats */}
         <div className="grid grid-cols-2 gap-3">
           {[
-            { icon: Eye, label: "Receitas Vistas", value: totalViewed, sub: `de ${totalDishes} pratos` },
-            { icon: Heart, label: "Favoritos", value: favorites.length, sub: "pratos salvos" },
-            { icon: Trophy, label: "Conquistas", value: unlockedCount, sub: `de ${totalAchievements}` },
-            { icon: BookOpen, label: "Artigos Lidos", value: readArticles.length, sub: "completos" },
+            { icon: Eye, label: t("dashboard.recipesViewed"), value: totalViewed, sub: t("dashboard.ofDishes", { total: totalDishes }) },
+            { icon: Heart, label: t("dashboard.favorites"), value: favorites.length, sub: t("dashboard.savedDishes") },
+            { icon: Trophy, label: t("dashboard.achievements"), value: unlockedCount, sub: t("dashboard.of", { total: totalAchievements }) },
+            { icon: BookOpen, label: t("dashboard.articlesRead"), value: readArticles.length, sub: t("dashboard.completed") },
           ].map(({ icon: Icon, label, value, sub }) => (
             <div key={label} className="glass-card rounded-xl p-4">
               <Icon size={20} className="text-primary mb-2" />
@@ -87,7 +89,7 @@ export default function Dashboard() {
         <div className="glass-card rounded-2xl p-5">
           <h3 className="font-display font-bold text-foreground mb-4 flex items-center gap-2">
             <Target size={18} className="text-primary" />
-            Progresso por Categoria
+            {t("dashboard.progressByCategory")}
           </h3>
           <div className="space-y-3">
             {categoryStats.map(({ name, total, viewed }) => {
@@ -95,7 +97,7 @@ export default function Dashboard() {
               return (
                 <div key={name}>
                   <div className="flex justify-between text-xs mb-1">
-                    <span className="text-secondary-foreground truncate">{name}</span>
+                    <span className="text-secondary-foreground truncate">{getTranslatedCategory(name)}</span>
                     <span className="text-muted-foreground">{viewed}/{total}</span>
                   </div>
                   <div className="w-full bg-secondary rounded-full h-2 overflow-hidden">
@@ -112,10 +114,10 @@ export default function Dashboard() {
           <div className="flex items-center justify-between mb-4">
             <h3 className="font-display font-bold text-foreground flex items-center gap-2">
               <Star size={18} className="text-primary" />
-              Conquistas ({unlockedCount}/{totalAchievements})
+              {t("dashboard.achievements")} ({unlockedCount}/{totalAchievements})
             </h3>
             <button onClick={() => navigate("/conquistas")} className="text-xs text-primary font-semibold hover:underline">
-              Ver todas →
+              {t("dashboard.viewAll")}
             </button>
           </div>
           <div className="grid grid-cols-4 sm:grid-cols-6 gap-3">
@@ -138,7 +140,7 @@ export default function Dashboard() {
             className="w-full mt-4 py-2.5 rounded-xl bg-primary/10 text-primary text-sm font-semibold hover:bg-primary/20 transition-colors flex items-center justify-center gap-2"
           >
             <Trophy size={16} />
-            Ver todas as {totalAchievements} conquistas
+            {t("dashboard.viewAllAchievements", { total: totalAchievements })}
           </button>
         </div>
       </div>

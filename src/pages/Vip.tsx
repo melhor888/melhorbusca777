@@ -1,56 +1,58 @@
 import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { Crown, Lock, Wine, Beer, Snowflake, Leaf, KeyRound, Check, X, Flame, GlassWater, IceCream, Trophy, Globe, CupSoda, Martini, ArrowRight, Sparkles, ChefHat, GraduationCap, UtensilsCrossed, BookOpen, Wrench, FileText, Star } from "lucide-react";
+import { useTranslation } from "react-i18next";
+import { Crown, Lock, Wine, KeyRound, Check, X, Star, ArrowRight, ChefHat, GraduationCap, BookOpen, Wrench, FileText } from "lucide-react";
 import { validateVipKey, isVipUnlocked, setVipUnlocked } from "@/utils/vipKeys";
 import VipTrialBanner from "@/components/VipTrialBanner";
 import VipNetflixHero from "@/components/VipNetflixHero";
 import { getVipDrinksByCategory } from "@/data/vipDrinks";
 
-const vipCategories = [
-  {
-    id: "receitas-exclusivas",
-    name: "🌮 Receitas Exclusivas (Premium)",
-    icon: Star,
-    description: "Receitas secretas, regionais autênticas, pratos raros, combinações autorais, gourmet e alto ticket",
-    color: "from-yellow-500 to-amber-700",
-  },
-  {
-    id: "receitas-secretas",
-    name: "Receitas Secretas do Chef",
-    icon: ChefHat,
-    description: "Mole negro, Cochinita Pibil, Barbacoa de borrego — receitas que só chefs dominam",
-    color: "from-red-600 to-rose-800",
-  },
-  {
-    id: "masterclass-tecnicas",
-    name: "Masterclass de Técnicas",
-    icon: GraduationCap,
-    description: "Tortillas à mão, nixtamalização, assados em folha de bananeira",
-    color: "from-indigo-500 to-blue-800",
-  },
-  {
-    id: "harmonizacao-sake",
-    name: "Tequila, Mezcal & Drinks",
-    icon: Wine,
-    description: "Guia de harmonização: tequila, mezcal, michelada com cada prato",
-    color: "from-purple-500 to-violet-800",
-  },
-  {
-    id: "cardapios-completos",
-    name: "Cardápios Completos",
-    icon: BookOpen,
-    description: "Menus completos: Dia de los Muertos, Navidad, Quinceañera, Fiesta",
-    color: "from-amber-500 to-orange-700",
-  },
-];
-
 export default function Vip() {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const [unlocked, setUnlocked] = useState(false);
   const [keyInput, setKeyInput] = useState("");
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
   const [checking, setChecking] = useState(false);
+
+  const vipCategories = [
+    {
+      id: "receitas-exclusivas",
+      name: t("vip.exclusiveRecipes"),
+      icon: Star,
+      description: t("vip.exclusiveRecipesDesc"),
+      color: "from-yellow-500 to-amber-700",
+    },
+    {
+      id: "receitas-secretas",
+      name: t("vip.secretRecipes"),
+      icon: ChefHat,
+      description: t("vip.secretRecipesDesc"),
+      color: "from-red-600 to-rose-800",
+    },
+    {
+      id: "masterclass-tecnicas",
+      name: t("vip.masterclass"),
+      icon: GraduationCap,
+      description: t("vip.masterclassDesc"),
+      color: "from-indigo-500 to-blue-800",
+    },
+    {
+      id: "harmonizacao-sake",
+      name: t("vip.drinks"),
+      icon: Wine,
+      description: t("vip.drinksDesc"),
+      color: "from-purple-500 to-violet-800",
+    },
+    {
+      id: "cardapios-completos",
+      name: t("vip.menus"),
+      icon: BookOpen,
+      description: t("vip.menusDesc"),
+      color: "from-amber-500 to-orange-700",
+    },
+  ];
 
   useEffect(() => {
     setUnlocked(isVipUnlocked());
@@ -78,8 +80,7 @@ export default function Vip() {
   return (
     <>
       <Helmet>
-        <title>Área VIP | Receitas MexicanasXP</title>
-        <meta name="description" content="Categorias exclusivas para membros VIP do Receitas MexicanasXP." />
+        <title>VIP | Receitas MexicanasXP</title>
       </Helmet>
 
       <VipTrialBanner />
@@ -91,13 +92,13 @@ export default function Vip() {
             <form onSubmit={handleSubmit} className="glass-card rounded-2xl p-6 space-y-4">
               <div className="flex items-center gap-2 mb-2">
                 <KeyRound size={20} className="text-primary" />
-                <h3 className="font-display font-bold text-foreground">Insira sua Chave VIP</h3>
+                <h3 className="font-display font-bold text-foreground">{t("vip.enterKey")}</h3>
               </div>
               <input
                 type="text"
                 value={keyInput}
                 onChange={(e) => setKeyInput(e.target.value)}
-                placeholder="Ex: MEXICANXP-XXXX-XXXX"
+                placeholder={t("vip.keyPlaceholder")}
                 className="w-full px-4 py-3 rounded-xl bg-secondary text-foreground placeholder:text-muted-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/50"
               />
               <button
@@ -105,13 +106,13 @@ export default function Vip() {
                 disabled={checking}
                 className="w-full py-3 rounded-xl bg-primary text-primary-foreground font-semibold text-sm disabled:opacity-50"
               >
-                {checking ? "Verificando..." : "Ativar VIP"}
+                {checking ? t("vip.checking") : t("vip.activate")}
               </button>
               {status === "success" && (
-                <p className="text-green-400 text-xs flex items-center gap-1"><Check size={14} /> Chave válida! Bem-vindo ao VIP.</p>
+                <p className="text-green-400 text-xs flex items-center gap-1"><Check size={14} /> {t("vip.validKey")}</p>
               )}
               {status === "error" && (
-                <p className="text-red-400 text-xs flex items-center gap-1"><X size={14} /> Chave inválida. Tente novamente.</p>
+                <p className="text-red-400 text-xs flex items-center gap-1"><X size={14} /> {t("vip.invalidKey")}</p>
               )}
             </form>
           </div>
@@ -134,7 +135,7 @@ export default function Vip() {
                   <Icon size={28} className="text-primary mb-3" />
                   <h3 className="font-display font-bold text-foreground text-lg">{cat.name}</h3>
                   <p className="text-xs text-muted-foreground mt-1">{cat.description}</p>
-                  <p className="text-xs text-primary font-semibold mt-2">{catDrinks.length} receitas</p>
+                  <p className="text-xs text-primary font-semibold mt-2">{catDrinks.length} {t("common.recipes")}</p>
                   {!unlocked && (
                     <div className="absolute top-3 right-3">
                       <Lock size={16} className="text-muted-foreground" />
@@ -146,7 +147,7 @@ export default function Vip() {
           })}
         </div>
 
-        {/* Ferramentas VIP */}
+        {/* VIP Tools */}
         {unlocked && (
           <div className="max-w-2xl mx-auto mt-8 mb-4">
             <button
@@ -157,8 +158,8 @@ export default function Vip() {
                 <Wrench size={24} className="text-white" />
               </div>
               <div className="flex-1">
-                <h3 className="font-display font-bold text-foreground text-lg">Ferramentas VIP 🛠️</h3>
-                <p className="text-xs text-muted-foreground mt-1">Calculadora de ardência, lucro, gerador de cardápio, combos, preços, promoções e simulador de delivery</p>
+                <h3 className="font-display font-bold text-foreground text-lg">{t("vip.tools")}</h3>
+                <p className="text-xs text-muted-foreground mt-1">{t("vip.toolsDesc")}</p>
               </div>
               <ArrowRight size={20} className="text-yellow-500" />
             </button>
@@ -170,8 +171,8 @@ export default function Vip() {
                 <FileText size={24} className="text-white" />
               </div>
               <div className="flex-1">
-                <h3 className="font-display font-bold text-foreground text-lg">Modelos Prontos 📋</h3>
-                <p className="text-xs text-muted-foreground mt-1">Cardápios editáveis, delivery, food truck, dark kitchen, combos, kits e campanhas sazonais</p>
+                <h3 className="font-display font-bold text-foreground text-lg">{t("vip.templates")}</h3>
+                <p className="text-xs text-muted-foreground mt-1">{t("vip.templatesDesc")}</p>
               </div>
               <ArrowRight size={20} className="text-emerald-500" />
             </button>
@@ -185,7 +186,7 @@ export default function Vip() {
               className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-3 rounded-full font-semibold text-sm hover:scale-105 transition-transform"
             >
               <Crown size={18} />
-              Quero ser VIP
+              {t("vip.wantVip")}
               <ArrowRight size={16} />
             </Link>
           </div>
