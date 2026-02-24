@@ -2,6 +2,7 @@ import { Lock, Zap, Shield, CheckCircle2 } from "lucide-react";
 import type { BartenderTip } from "@/data/bartenderTips";
 import { getTipImage } from "@/data/tipImages";
 import { LEVELS } from "@/hooks/useXP";
+import { getTranslatedTipCategoryLabel, getTipsUIStrings } from "@/data/tipTranslations";
 
 interface TipCardProps {
   tip: BartenderTip;
@@ -18,17 +19,12 @@ const categoryColors: Record<string, string> = {
   historia: "bg-[hsl(345,70%,40%)]/20 text-[hsl(345,70%,40%)]",
 };
 
-const categoryLabels: Record<string, string> = {
-  tecnica: "Técnica",
-  apresentacao: "Apresentação",
-  harmonizacao: "Harmonização",
-  historia: "História",
-};
-
 export default function TipCard({ tip, unlocked, tipLevel, isRead, onClick }: TipCardProps) {
   const image = getTipImage(tip.id, tip.category, tip.themeTag);
   const lvl = tipLevel ?? tip.requiredLevel ?? 1;
   const levelInfo = LEVELS.find(l => l.level === lvl);
+  const ui = getTipsUIStrings();
+  const categoryLabel = getTranslatedTipCategoryLabel(tip.category);
 
   return (
     <button
@@ -72,16 +68,16 @@ export default function TipCard({ tip, unlocked, tipLevel, isRead, onClick }: Ti
         <div className="flex-1 min-w-0 p-3">
           <div className="flex items-center gap-2 mb-1">
             <span className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full ${categoryColors[tip.category]}`}>
-              {categoryLabels[tip.category]}
+              {categoryLabel}
             </span>
             {isRead && unlocked && (
               <span className="text-[10px] text-primary font-semibold flex items-center gap-1">
-                ✓ Lido
+                {ui.readLabel}
               </span>
             )}
             {!unlocked && lvl > 1 && (
               <span className="text-[10px] text-muted-foreground flex items-center gap-1">
-                <Shield size={10} /> Nível {lvl}
+                <Shield size={10} /> {ui.requiresLevel} {lvl}
               </span>
             )}
             {!unlocked && lvl <= 1 && (
@@ -97,8 +93,8 @@ export default function TipCard({ tip, unlocked, tipLevel, isRead, onClick }: Ti
             {unlocked 
               ? tip.subtitle 
               : lvl > 1 
-                ? `Requer Nível ${lvl} — ${levelInfo?.title ?? ""}`
-                : `Desbloqueie com ${tip.requiredXP} XP`
+                ? `${ui.requiresLevelFull} ${lvl} — ${levelInfo?.title ?? ""}`
+                : `${ui.unlockWith} ${tip.requiredXP} XP`
             }
           </p>
         </div>
