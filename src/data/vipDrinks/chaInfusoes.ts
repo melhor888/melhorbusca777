@@ -1,904 +1,197 @@
 import { VipDrink } from "./types";
 
 export const chaInfusoes: VipDrink[] = [
-  // ===== CHÁ VERDE & MATCHA (1-15) =====
   {
-    id: "matcha-gin-fizz",
-    name: "Matcha Gin Fizz",
-    category: "Chá & Infusões",
-    image: "matcha-gin-fizz",
-    ingredients: ["60ml de gin", "15ml de xarope de matcha", "30ml de suco de limão", "1 clara de ovo", "Água com gás", "Matcha em pó"],
-    steps: ["Dissolva matcha em pouca água quente.", "Dry shake gin, matcha, limão e clara.", "Adicione gelo e agite.", "Coe para copo alto.", "Complete com água com gás."],
-    difficulty: "Médio",
-    time: "6 min",
-    description: "Matcha ceremonial de Uji (Kyoto): chá verde moído em pedra desde o séc. XII. Rico em L-teanina e catequinas. Gin botânico amplifica o umami vegetal. Harmoniza com mochi e wagashi japoneses."
-  },
-  {
-    id: "green-tea-mojito",
-    name: "Green Tea Mojito",
-    category: "Chá & Infusões",
-    image: "green-tea-mojito",
-    ingredients: ["60ml de rum branco", "30ml de chá verde concentrado", "30ml de suco de limão", "15ml de xarope simples", "Hortelã fresca", "Água com gás"],
-    steps: ["Prepare chá verde forte e resfrie.", "Macere hortelã com xarope.", "Adicione rum, chá e limão.", "Complete com gelo e água com gás.", "Decore com hortelã."],
+    id: "ci-cafe-olla",
+    name: "Café de Olla Tradicional",
+    category: "Infusões Mexicanas",
+    image: "ci-cafe-olla",
+    ingredients: [
+      "1L de água",
+      "4 colheres de café moído grosso (preferência mexicano)",
+      "1 cone de Piloncillo (rapadura)",
+      "1 pau de canela (canela verdadeira)",
+      "Casca de laranja (opcional)",
+      "Cravo (opcional)",
+      "Olla de barro (panela de barro)"
+    ],
+    steps: [
+      "Aqueça a água na olla de barro com a canela e o piloncillo.",
+      "Deixe ferver até o piloncillo dissolver completamente.",
+      "Adicione o café e desligue o fogo imediatamente.",
+      "Cubra e deixe em infusão por 5-10 minutos.",
+      "Coe ao servir.",
+      "O barro dá um sabor mineral essencial ao café."
+    ],
     difficulty: "Fácil",
-    time: "5 min",
-    description: "Fusão cubano-japonesa: o mojito encontra o sencha. Chá verde Sencha tem notas herbais que combinam com hortelã. Antioxidantes do chá + frescor do rum. Harmoniza com sushi e tempurá."
+    time: "15 min",
+    description: "O café da Revolução. Servido aos soldados (Adelitas) em panelas de barro para dar energia. A mistura de especiarias, piloncillo e o sabor da terra do barro cria uma bebida reconfortante e única."
   },
   {
-    id: "jasmine-tea-martini",
-    name: "Jasmine Tea Martini",
-    category: "Chá & Infusões",
-    image: "jasmine-tea-martini",
-    ingredients: ["60ml de vodka infusionada com jasmim", "15ml de xarope de lichia", "10ml de suco de limão", "Flor de jasmim"],
-    steps: ["Infusione vodka com chá de jasmim 2h.", "Coe a vodka perfumada.", "Agite com lichia e limão.", "Coe para martini gelada.", "Decore com flor de jasmim."],
+    id: "ci-atole",
+    name: "Atole de Vainilla (Masa)",
+    category: "Infusões Mexicanas",
+    image: "dish-atole",
+    ingredients: [
+      "100g de masa de milho (ou farinha de milho)",
+      "1L de leite (ou água)",
+      "1 pau de canela",
+      "Piloncillo ou açúcar a gosto",
+      "1 fava de baunilha (Vainilla de Papantla)"
+    ],
+    steps: [
+      "Dissolva a masa em um pouco de água fria.",
+      "Aqueça o leite com canela e baunilha.",
+      "Adicione a masa dissolvida, mexendo sempre para não empelotar.",
+      "Cozinhe em fogo médio até engrossar (cerca de 20 min).",
+      "Deve ter consistência aveludada, potável mas espessa.",
+      "Sirva quente, tradicionalmente acompanhando tamales."
+    ],
     difficulty: "Médio",
-    time: "2h infusão + 5 min",
-    description: "Chá de jasmim (mo li hua cha): chá verde perfumado com flores de jasmim colhidas à noite em Fujian. Tradição chinesa de 1.000 anos. A lichia amplifica o floral. Harmoniza com dim sum cantonês."
+    time: "30 min",
+    description: "Bebida pré-hispânica à base de milho. 'Atolli' significa aguado em náhuatl, mas é cremoso e sustenta. O milho nixtamalizado nutre e aquece. Variações incluem frutas, chocolate (champurrado) ou nozes."
   },
   {
-    id: "genmaicha-whiskey-highball",
-    name: "Genmaicha Whiskey Highball",
-    category: "Chá & Infusões",
-    image: "genmaicha-whiskey-highball",
-    ingredients: ["60ml de whisky japonês", "120ml de chá genmaicha gelado", "Gelo", "Arroz tostado"],
-    steps: ["Prepare genmaicha forte e resfrie.", "Adicione whisky ao copo alto com gelo.", "Complete com genmaicha gelado.", "Mexa uma vez.", "Decore com arroz tostado."],
+    id: "ci-champurrado",
+    name: "Champurrado (Atole de Chocolate)",
+    category: "Infusões Mexicanas",
+    image: "dish-champurrado",
+    ingredients: [
+      "Masa de milho dissolvida",
+      "Água e/ou Leite",
+      "1 tablete de Chocolate Mexicano (com açúcar e canela)",
+      "Piloncillo",
+      "Canela"
+    ],
+    steps: [
+      "A mesma base do atole, mas adicionando o chocolate mexicano.",
+      "O chocolate é batido com molinillo para espumar.",
+      "A masa engrossa o chocolate criando uma bebida densa.",
+      "Café da manhã clássico nas ruas da Cidade do México (com tamal = Guajolota)."
+    ],
+    difficulty: "Médio",
+    time: "30 min",
+    description: "O encontro do cacau com o milho. Bebida sagrada dos Astecas e Maias, consumida em rituais e hoje em dia no café da manhã popular. Rico, espesso e energético."
+  },
+  {
+    id: "ci-jamaica",
+    name: "Agua de Jamaica (Hibisco)",
+    category: "Infusões Mexicanas",
+    image: "dish-agua-jamaica",
+    ingredients: [
+      "2 xícaras de flores de hibisco secas (Flor de Jamaica)",
+      "2L de água",
+      "Açúcar a gosto",
+      "Gelo",
+      "Opcional: gengibre ou canela"
+    ],
+    steps: [
+      "Ferva as flores em 1L de água por 10-15 minutos (concentrado).",
+      "Coe o líquido vermelho escuro.",
+      "Adicione o restante da água e açúcar a gosto (é bem ácido).",
+      "Sirva muito gelado.",
+      "Dica: as flores fervidas podem ser refogadas para tacos vegetarianos!"
+    ],
     difficulty: "Fácil",
-    time: "5 min",
-    description: "Genmaicha: chá verde japonês com arroz tostado (pipoca de arroz). Notas de noz e cereal. Whisky Suntory é parceiro natural. Tradição do highball japonês reinventada. Harmoniza com yakitori."
+    time: "20 min",
+    description: "Uma das 'Aguas Frescas' clássicas. Diurética e refrescante, acompanha perfeitamente a comida mexicana picante e gordurosa. A acidez limpa o paladar."
   },
   {
-    id: "gyokuro-gin-tonic",
-    name: "Gyokuro Gin Tônica",
-    category: "Chá & Infusões",
-    image: "gyokuro-gin-tonic",
-    ingredients: ["60ml de gin", "15ml de xarope de gyokuro", "150ml de água tônica", "Folha de shiso", "Gelo"],
-    steps: ["Prepare xarope com gyokuro premium.", "Adicione gin e xarope ao copo.", "Complete com tônica.", "Mexa suavemente.", "Decore com shiso."],
+    id: "ci-horchata",
+    name: "Horchata de Arroz Artesanal",
+    category: "Infusões Mexicanas",
+    image: "dish-agua-horchata",
+    ingredients: [
+      "1 xícara de arroz branco cru",
+      "Canela em pau",
+      "Água",
+      "Leite (opcional para cremosidade)",
+      "Leite condensado (estilo moderno)",
+      "Baunilha",
+      "Amêndoas (opcional)"
+    ],
+    steps: [
+      "Deixe o arroz e a canela de molho em água quente por 2 horas (ou noite toda).",
+      "Bata tudo no liquidificador até virar uma pasta fina.",
+      "Coe em peneira fina ou pano (muito importante).",
+      "Adicione açúcar/leite condensado, baunilha e mais água/leite a gosto.",
+      "Sirva com MUITO gelo e canela em pó por cima."
+    ],
     difficulty: "Médio",
-    time: "5 min",
-    description: "Gyokuro ('orvalho de jade'): o chá verde mais premium do Japão, cultivado à sombra por 3 semanas. Umami intenso e doçura natural. Gin com botânicos amplifica. Harmoniza com kaiseki."
+    time: "2h (molho) + 15 min",
+    description: "Doce, leitosa e com sabor intenso de canela. Diferente da horchata espanhola (de chufa), a mexicana é de arroz. Essencial para apagar o fogo de um taco picante."
   },
   {
-    id: "sencha-spritz",
-    name: "Sencha Spritz",
-    category: "Chá & Infusões",
-    image: "sencha-spritz",
-    ingredients: ["30ml de Aperol", "30ml de xarope de sencha", "90ml de prosecco", "Água com gás", "Folha de chá verde"],
-    steps: ["Prepare xarope com sencha japonês.", "Adicione Aperol e xarope ao copo.", "Complete com prosecco.", "Splash de água com gás.", "Decore com folha de chá."],
+    id: "ci-tejate",
+    name: "Tejate: A Bebida dos Deuses",
+    category: "Infusões Mexicanas",
+    image: "ci-tejate",
+    ingredients: [
+      "Milho nixtamalizado",
+      "Cacau fermentado",
+      "Almendra de mamey (pixtle)",
+      "Flor de cacao (rosita de cacao)",
+      "Água gelada",
+      "Açúcar"
+    ],
+    steps: [
+      "Ingredientes são tostados e moídos em metate até formar uma pasta oleosa.",
+      "A pasta é misturada manualmente com água gelada em uma olla grande.",
+      "O óleo da flor de cacau sobe e forma uma espuma branca espessa (a 'flor').",
+      "Servido em jícaras pintadas.",
+      "É difícil fazer em casa sem os ingredientes de Oaxaca, mas vale conhecer."
+    ],
+    difficulty: "Muito Avançado",
+    time: "Horas",
+    description: "Bebida ancestral zapoteca de San Andrés Huayapam, Oaxaca. Visualmente impressionante com sua espuma branca sobre o líquido marrom. Sabor complexo de cacau, milho e flores. Patrimônio cultural."
+  },
+  {
+    id: "ci-tascalate",
+    name: "Tascalate de Chiapas",
+    category: "Infusões Mexicanas",
+    image: "ci-tascalate", // Mapping generic
+    ingredients: [
+      "Milho tostado",
+      "Cacau",
+      "Achiote (Urucum) - dá a cor laranja",
+      "Canela",
+      "Açúcar ou Piloncillo",
+      "Água ou Leite"
+    ],
+    steps: [
+      "Toste o milho e o cacau.",
+      "Moa com achiote e canela até virar pó fino laranja.",
+      "Dissolva em água ou leite gelado.",
+      "Bata para espumar.",
+      "O achiote dá sabor terroso e cor vibrante."
+    ],
+    difficulty: "Médio",
+    time: "30 min",
+    description: "Bebida refrescante de Chiapas. A cor laranja tijolo vem do achiote. É energética e refrescante, bebido frio nos dias quentes da selva lacandona."
+  },
+  {
+    id: "ci-tepache",
+    name: "Tepache de Piña",
+    category: "Infusões Mexicanas",
+    image: "dish-tepache",
+    ingredients: [
+      "Cascas de 1 abacaxi maduro",
+      "1 cone de Piloncillo",
+      "1 pau de canela",
+      "3 cravos",
+      "2L de água",
+      "Cerveja (opcional, para acelerar)"
+    ],
+    steps: [
+      "Lave o abacaxi e use as cascas (com um pouco de polpa).",
+      "Coloque em jarra de vidro/barro com água, piloncillo e especiarias.",
+      "Cubra com pano (deixe respirar).",
+      "Fermente por 2-3 dias em local morno.",
+      "Coe e sirva com gelo.",
+      "Se fermentar demais vira vinagre! Levemente alcoólico (1-2%)."
+    ],
     difficulty: "Fácil",
-    time: "5 min",
-    description: "Sencha: chá verde mais consumido no Japão (80% da produção). Notas herbais e vegetais com umami. Aperol adiciona amargor cítrico. Fusão ítalo-japonesa refrescante. Harmoniza com antipasti leves."
-  },
-  {
-    id: "hojicha-bourbon-old-fashioned",
-    name: "Hojicha Bourbon Old Fashioned",
-    category: "Chá & Infusões",
-    image: "hojicha-bourbon-old-fashioned",
-    ingredients: ["60ml de bourbon", "15ml de xarope de hojicha", "2 dashes de Angostura", "Folha de hojicha tostada"],
-    steps: ["Toste hojicha e faça xarope.", "Misture bourbon, xarope e bitters.", "Mexa com gelo.", "Coe para rocks com gelo grande.", "Decore com folha tostada."],
-    difficulty: "Médio",
-    time: "6 min",
-    description: "Hojicha: chá verde japonês tostado em fogo alto. Notas de caramelo, noz e tabaco doce. Baixa cafeína. Bourbon com baunilha é parceiro perfeito. Harmoniza com sobremesas japonesas."
-  },
-  {
-    id: "matcha-espresso-martini",
-    name: "Matcha Espresso Martini",
-    category: "Chá & Infusões",
-    image: "matcha-espresso-martini",
-    ingredients: ["45ml de vodka", "30ml de Kahlúa", "30ml de espresso", "5ml de xarope de matcha", "Matcha em pó"],
-    steps: ["Dissolva matcha em espresso quente.", "Agite com vodka e Kahlúa.", "Agite MUITO forte para crema.", "Coe para taça coupé.", "Polvilhe matcha na crema."],
-    difficulty: "Médio",
-    time: "5 min",
-    description: "Matcha + espresso: dupla de cafeína premium. L-teanina do matcha suaviza o pico do café. Criação dos bares de Shibuya (Tokyo). Crema verde é instagramável. Harmoniza com tiramisu matcha."
-  },
-  {
-    id: "dragon-well-vodka-soda",
-    name: "Dragon Well Vodka Soda",
-    category: "Chá & Infusões",
-    image: "dragon-well-vodka-soda",
-    ingredients: ["60ml de vodka infusionada com Longjing", "15ml de suco de limão", "Água com gás", "Folha de Longjing"],
-    steps: ["Infusione vodka com Longjing 3h.", "Coe a vodka.", "Adicione limão e gelo.", "Complete com água com gás.", "Decore com folhas de chá."],
-    difficulty: "Fácil",
-    time: "3h infusão + 3 min",
-    description: "Longjing (Dragon Well): chá verde chinês de Hangzhou, um dos 10 famosos chás da China. Notas de castanha e vegetal doce. Colheita antes do Qingming (5 de abril) é premium. Harmoniza com comida de Zhejiang."
-  },
-  {
-    id: "gunpowder-gin-cocktail",
-    name: "Gunpowder Gin Cocktail",
-    category: "Chá & Infusões",
-    image: "gunpowder-gin-cocktail",
-    ingredients: ["60ml de gin", "30ml de chá gunpowder concentrado", "15ml de mel", "15ml de suco de limão", "Hortelã"],
-    steps: ["Prepare chá gunpowder forte.", "Resfrie completamente.", "Agite gin, chá, mel e limão.", "Coe para rocks com gelo.", "Decore com hortelã."],
-    difficulty: "Fácil",
-    time: "5 min",
-    description: "Gunpowder: chá verde chinês enrolado em bolinhas que 'explodem' na água. Notas de fumaça suave e vegetal. Tradição marroquina do chá de menta. Gin amplifica os botânicos. Harmoniza com tagine."
-  },
-  {
-    id: "kukicha-rum-cocktail",
-    name: "Kukicha Rum Cocktail",
-    category: "Chá & Infusões",
-    image: "kukicha-rum-cocktail",
-    ingredients: ["60ml de rum branco", "30ml de chá kukicha gelado", "15ml de xarope de baunilha", "15ml de suco de limão", "Canela"],
-    steps: ["Prepare kukicha e resfrie.", "Agite rum, chá, baunilha e limão.", "Coe para rocks com gelo.", "Decore com canela em pau.", "Notas cremosas e suaves."],
-    difficulty: "Fácil",
-    time: "5 min",
-    description: "Kukicha: chá japonês feito de caules e galhos (não folhas). Notas cremosas e amanteigadas com quase zero cafeína. Macrobiótica japonesa. Rum branco não compete. Harmoniza com doces japoneses."
-  },
-  {
-    id: "matcha-whiskey-sour",
-    name: "Matcha Whiskey Sour",
-    category: "Chá & Infusões",
-    image: "matcha-whiskey-sour",
-    ingredients: ["60ml de bourbon", "15ml de xarope de matcha", "30ml de suco de limão", "1 clara de ovo", "Matcha"],
-    steps: ["Dissolva matcha em xarope.", "Dry shake bourbon, xarope e clara.", "Adicione gelo e agite.", "Coe para rocks.", "Polvilhe matcha na espuma."],
-    difficulty: "Médio",
-    time: "6 min",
-    description: "Matcha ceremonial com bourbon: Oriente encontra Ocidente. A espuma verde sobre o whiskey é visual marcante. L-teanina equilibra o álcool. Criação de bares craft de Brooklyn. Harmoniza com chocolate amargo."
-  },
-  {
-    id: "bancha-tequila-sunrise",
-    name: "Bancha Tequila Sunrise",
-    category: "Chá & Infusões",
-    image: "bancha-tequila-sunrise",
-    ingredients: ["60ml de tequila", "90ml de chá bancha gelado", "30ml de suco de laranja", "15ml de grenadine"],
-    steps: ["Prepare bancha e resfrie.", "Despeje tequila e chá com gelo.", "Adicione suco de laranja.", "Despeje grenadine lentamente.", "Efeito sunrise com chá."],
-    difficulty: "Fácil",
-    time: "5 min",
-    description: "Bancha: chá verde japonês de colheita tardia, corpo robusto e menos cafeína que sencha. Notas terrosas que combinam com tequila. O efeito sunrise com grenadine é visual. Harmoniza com tacos leves."
-  },
-  {
-    id: "green-tea-caipirinha",
-    name: "Caipirinha de Chá Verde",
-    category: "Chá & Infusões",
-    image: "green-tea-caipirinha",
-    ingredients: ["60ml de cachaça", "1 limão cortado", "15ml de xarope de chá verde", "Gelo", "Folha de chá verde"],
-    steps: ["Prepare xarope com chá verde.", "Macere limão no copo.", "Adicione cachaça e xarope.", "Complete com gelo picado.", "Decore com folha de chá."],
-    difficulty: "Fácil",
-    time: "4 min",
-    description: "Fusão Brasil-Japão: cachaça artesanal encontra chá verde. Os taninos do chá equilibram a doçura da cachaça. Criação dos bares da Liberdade (São Paulo). Harmoniza com temaki e gyoza."
-  },
-  {
-    id: "matcha-colada",
-    name: "Matcha Colada",
-    category: "Chá & Infusões",
-    image: "matcha-colada",
-    ingredients: ["60ml de rum branco", "60ml de leite de coco", "30ml de suco de abacaxi", "10ml de xarope de matcha", "Gelo", "Coco tostado"],
-    steps: ["Dissolva matcha em leite de coco.", "Bata rum, coco, abacaxi e matcha.", "Sirva em copo alto com gelo.", "Decore com coco tostado.", "Drink verde tropical."],
-    difficulty: "Fácil",
-    time: "5 min",
-    description: "Piña Colada reinventada com matcha: a cor verde vibrante é hipnotizante. Leite de coco amplifica o umami do matcha. Abacaxi equilibra. Criação dos beach bars de Bali. Harmoniza com comida havaiana."
-  },
-
-  // ===== CHÁ PRETO & FERMENTADO (16-35) =====
-  {
-    id: "earl-grey-martini-tea",
-    name: "Earl Grey Martini",
-    category: "Chá & Infusões",
-    image: "earl-grey-martini-tea",
-    ingredients: ["60ml de gin infusionado com Earl Grey", "15ml de xarope de lavanda", "15ml de suco de limão", "Casca de limão"],
-    steps: ["Infusione gin com Earl Grey 2h.", "Coe o gin perfumado.", "Agite com lavanda e limão.", "Coe para martini gelada.", "Decore com casca de limão."],
-    difficulty: "Médio",
-    time: "2h infusão + 5 min",
-    description: "Earl Grey MarTEAni: criação de Audrey Saunders (Pegu Club, NYC, 2003). Earl Grey com bergamota + lavanda = elegância floral. O gin amplifica os botânicos. Harmoniza com scones e clotted cream."
-  },
-  {
-    id: "chai-old-fashioned",
-    name: "Chai Old Fashioned",
-    category: "Chá & Infusões",
-    image: "chai-old-fashioned",
-    ingredients: ["60ml de bourbon", "15ml de xarope de chai masala", "2 dashes de Angostura", "Canela em pau", "Anis-estrelado"],
-    steps: ["Faça xarope com chai masala.", "Misture bourbon, xarope e bitters.", "Mexa com gelo.", "Coe para rocks com gelo grande.", "Decore com canela e anis."],
-    difficulty: "Médio",
-    time: "6 min",
-    description: "Chai masala: chá preto indiano com cardamomo, canela, cravo, gengibre e pimenta-do-reino. Cada chai wallah tem sua receita secreta. Bourbon com baunilha é ponte perfeita. Harmoniza com samosas."
-  },
-  {
-    id: "english-breakfast-bloody-mary",
-    name: "English Breakfast Bloody Mary",
-    category: "Chá & Infusões",
-    image: "english-breakfast-bloody-mary",
-    ingredients: ["60ml de vodka infusionada com English Breakfast", "120ml de suco de tomate", "15ml de suco de limão", "Molho inglês", "Tabasco", "Bacon"],
-    steps: ["Infusione vodka com English Breakfast 3h.", "Coe a vodka.", "Misture com tomate e temperos.", "Despeje em copo alto com gelo.", "Decore com bacon e aipo."],
-    difficulty: "Médio",
-    time: "3h infusão + 5 min",
-    description: "Full English em forma líquida: vodka com chá inglês no Bloody Mary. English Breakfast é blend de Assam, Ceylon e Kenya. O tanino do chá corta a riqueza do tomate. Harmoniza com brunch britânico."
-  },
-  {
-    id: "darjeeling-champagne-cocktail",
-    name: "Darjeeling Champagne Cocktail",
-    category: "Chá & Infusões",
-    image: "darjeeling-champagne-cocktail",
-    ingredients: ["15ml de cognac", "10ml de xarope de Darjeeling", "1 cubo de açúcar", "2 dashes de Peychaud's", "Champagne"],
-    steps: ["Faça xarope com Darjeeling first flush.", "Coloque cubo de açúcar com bitters.", "Adicione cognac e xarope.", "Complete com champagne gelado.", "Aroma muscatel elevado."],
-    difficulty: "Médio",
-    time: "5 min",
-    description: "Darjeeling: 'champagne dos chás', cultivado nos Himalaias (2.000m). First flush tem aroma muscatel único. Champagne brut amplifica a elegância. Harmoniza com foie gras e canapés."
-  },
-  {
-    id: "lapsang-mezcal-cocktail",
-    name: "Lapsang Mezcal Cocktail",
-    category: "Chá & Infusões",
-    image: "lapsang-mezcal-cocktail",
-    ingredients: ["60ml de mezcal", "30ml de xarope de lapsang souchong", "15ml de suco de limão", "Fumaça de pinho"],
-    steps: ["Prepare xarope com lapsang souchong.", "Agite mezcal, xarope e limão.", "Coe para rocks com gelo.", "A fumaça dupla é intencional.", "Decore com pinho."],
-    difficulty: "Médio",
-    time: "6 min",
-    description: "Lapsang Souchong: chá preto chinês defumado sobre pinhais de Wuyi (Fujian). Combinado com mezcal defumado, cria dupla camada de fumaça ancestral — China + México. Harmoniza com salmão defumado."
-  },
-  {
-    id: "ceylon-rum-punch",
-    name: "Ceylon Rum Punch",
-    category: "Chá & Infusões",
-    image: "ceylon-rum-punch",
-    ingredients: ["60ml de rum escuro", "60ml de chá Ceylon gelado", "30ml de suco de limão", "15ml de xarope de canela", "Noz-moscada"],
-    steps: ["Prepare Ceylon forte e resfrie.", "Agite rum, chá, limão e canela.", "Coe para copo alto com gelo.", "Rale noz-moscada.", "Decore com canela e limão."],
-    difficulty: "Fácil",
-    time: "5 min",
-    description: "Ceylon: chá preto do Sri Lanka, herança colonial britânica. Notas cítricas e maltadas. Rum caribenho e canela do Ceilão são parceiros naturais — da mesma ilha! Harmoniza com curry cingalês."
-  },
-  {
-    id: "keemun-whiskey-cocktail",
-    name: "Keemun Whiskey Cocktail",
-    category: "Chá & Infusões",
-    image: "keemun-whiskey-cocktail",
-    ingredients: ["60ml de scotch", "30ml de xarope de Keemun", "15ml de suco de limão", "2 dashes de orange bitters"],
-    steps: ["Prepare xarope com Keemun premium.", "Agite scotch, xarope e limão.", "Adicione bitters.", "Coe para rocks com gelo.", "Decore com casca de laranja."],
-    difficulty: "Médio",
-    time: "6 min",
-    description: "Keemun: chá preto chinês de Anhui, um dos 10 chás famosos da China. Notas de orquídea, cacau e vinho. Favorito de Elizabeth II. Scotch com malte combina. Harmoniza com queijos ingleses."
-  },
-  {
-    id: "assam-bourbon-smash",
-    name: "Assam Bourbon Smash",
-    category: "Chá & Infusões",
-    image: "assam-bourbon-smash",
-    ingredients: ["60ml de bourbon", "30ml de chá Assam concentrado", "15ml de mel", "Hortelã fresca", "Limão"],
-    steps: ["Prepare Assam forte e resfrie.", "Macere hortelã com mel.", "Agite bourbon, chá e limão.", "Coe para rocks com gelo.", "Decore com hortelã."],
-    difficulty: "Fácil",
-    time: "5 min",
-    description: "Assam: chá preto indiano robusto do vale do Brahmaputra. Notas de malte e caramelo — idênticas ao bourbon! Maior região produtora do mundo. A hortelã refresca. Harmoniza com scones e crumpets."
-  },
-  {
-    id: "pu-erh-old-fashioned",
-    name: "Pu-erh Old Fashioned",
-    category: "Chá & Infusões",
-    image: "pu-erh-old-fashioned",
-    ingredients: ["60ml de bourbon", "15ml de xarope de pu-erh", "2 dashes de chocolate bitters", "Casca de tangerina seca"],
-    steps: ["Prepare xarope com pu-erh aged.", "Misture bourbon, xarope e bitters.", "Mexa com gelo.", "Coe para rocks com gelo grande.", "Decore com tangerina seca."],
-    difficulty: "Médio",
-    time: "6 min",
-    description: "Pu-erh: chá fermentado chinês de Yunnan que melhora com idade (como vinho). Safras de 30+ anos custam milhares. Notas terrosas, cogumelo e chocolate. Bourbon aged combina perfeitamente. Harmoniza com pato."
-  },
-  {
-    id: "thai-iced-tea-cocktail",
-    name: "Thai Iced Tea Cocktail",
-    category: "Chá & Infusões",
-    image: "thai-iced-tea-cocktail",
-    ingredients: ["60ml de rum branco", "90ml de Thai iced tea", "30ml de leite condensado", "Gelo", "Anis-estrelado"],
-    steps: ["Prepare Thai tea com anis e baunilha.", "Resfrie e adicione leite condensado.", "Coloque gelo no copo alto.", "Despeje rum e chá.", "O efeito degradê laranja-branco é visual."],
-    difficulty: "Fácil",
-    time: "5 min",
-    description: "Thai Iced Tea (cha yen): chá preto com anis-estrelado, baunilha e leite condensado. Cor laranja vibrante icônica. Tradição das ruas de Bangkok. Rum branco não compete. Harmoniza com pad thai."
-  },
-  {
-    id: "irish-breakfast-cocktail",
-    name: "Irish Breakfast Cocktail",
-    category: "Chá & Infusões",
-    image: "irish-breakfast-cocktail",
-    ingredients: ["60ml de Irish whiskey", "30ml de chá Irish Breakfast gelado", "15ml de mel irlandês", "15ml de suco de limão", "Cravo"],
-    steps: ["Prepare Irish Breakfast forte.", "Resfrie completamente.", "Agite whiskey, chá, mel e limão.", "Coe para rocks com gelo.", "Decore com cravo."],
-    difficulty: "Fácil",
-    time: "5 min",
-    description: "Irish Breakfast: chá preto forte e maltado, mais robusto que o English Breakfast. Jameson é o whiskey natural. Mel irlandês das planícies. Tradição do brunch irlandês. Harmoniza com Irish soda bread."
-  },
-  {
-    id: "golden-yunnan-cocktail",
-    name: "Golden Yunnan Cocktail",
-    category: "Chá & Infusões",
-    image: "golden-yunnan-cocktail",
-    ingredients: ["60ml de cognac", "30ml de xarope de Yunnan gold", "15ml de suco de limão", "Mel", "Pétalas douradas"],
-    steps: ["Prepare xarope com Yunnan gold tips.", "Agite cognac, xarope e limão.", "Coe para taça coupé.", "Float de mel.", "Decore com pétalas douradas."],
-    difficulty: "Médio",
-    time: "6 min",
-    description: "Yunnan Gold: chá preto chinês de folhas douradas (gold tips). Notas de mel, cacau e pimenta. Província de Yunnan é berço do chá. Cognac francês amplifica a nobreza. Harmoniza com chocolate belga."
-  },
-  {
-    id: "kombucha-gin-cocktail",
-    name: "Kombucha Gin Cocktail",
-    category: "Chá & Infusões",
-    image: "kombucha-gin-cocktail",
-    ingredients: ["60ml de gin", "120ml de kombucha artesanal", "15ml de suco de limão", "Gengibre fresco", "Hortelã"],
-    steps: ["Adicione gin ao copo com gelo.", "Complete com kombucha gelada.", "Esprema limão.", "Decore com gengibre e hortelã.", "Não agite — preservar bolhas."],
-    difficulty: "Fácil",
-    time: "3 min",
-    description: "Kombucha: chá fermentado com SCOBY, originário da Manchúria (220 a.C.). Probióticos vivos, ácido acético e efervescência natural. Gin botânico amplifica. Harmoniza com pratos fermentados."
-  },
-  {
-    id: "black-tea-negroni",
-    name: "Black Tea Negroni",
-    category: "Chá & Infusões",
-    image: "black-tea-negroni",
-    ingredients: ["30ml de gin infusionado com chá preto", "30ml de Campari", "30ml de vermouth rosso", "Casca de laranja"],
-    steps: ["Infusione gin com chá preto 1h.", "Coe o gin.", "Misture com Campari e vermouth.", "Mexa com gelo.", "Decore com casca de laranja."],
-    difficulty: "Médio",
-    time: "1h infusão + 5 min",
-    description: "Gin infusionado com chá preto adiciona taninos e corpo ao Negroni. Os taninos do chá mimetizam o envelhecimento em barril. Criação dos bares craft de Shoreditch (Londres). Harmoniza com charcutaria."
-  },
-  {
-    id: "masala-chai-toddy",
-    name: "Masala Chai Toddy",
-    category: "Chá & Infusões",
-    image: "masala-chai-toddy",
-    ingredients: ["60ml de bourbon", "120ml de masala chai quente", "15ml de mel", "Canela", "Cardamomo", "Gengibre"],
-    steps: ["Prepare masala chai com especiarias.", "Adicione bourbon e mel.", "Mexa suavemente.", "Sirva fumegante.", "Decore com canela e cardamomo."],
-    difficulty: "Fácil",
-    time: "8 min",
-    description: "Masala chai quente com bourbon: o Hot Toddy indiano perfeito para noites frias. Cardamomo, canela e gengibre aquecem corpo e alma. Tradição dos chai wallahs reinventada. Harmoniza com pakoras."
-  },
-
-  // ===== ERVAS & INFUSÕES BOTÂNICAS (36-55) =====
-  {
-    id: "camomila-honey-bourbon",
-    name: "Camomila Honey Bourbon",
-    category: "Chá & Infusões",
-    image: "camomila-honey-bourbon",
-    ingredients: ["60ml de bourbon", "30ml de infusão de camomila", "15ml de mel de abelha", "15ml de suco de limão", "Flores de camomila"],
-    steps: ["Prepare infusão forte de camomila.", "Agite bourbon, camomila, mel e limão.", "Coe para rocks com gelo.", "Decore com flores de camomila.", "Aroma relaxante."],
-    difficulty: "Fácil",
-    time: "5 min",
-    description: "Camomila (Matricaria chamomilla): erva medicinal desde o Egito antigo. Apigenina é calmante natural. Mel amplifica a doçura floral. Bourbon com notas de caramelo é parceiro ideal. Harmoniza com queijos suaves."
-  },
-  {
-    id: "hibiscus-mezcal-sour",
-    name: "Hibiscus Mezcal Sour",
-    category: "Chá & Infusões",
-    image: "hibiscus-mezcal-sour",
-    ingredients: ["60ml de mezcal", "30ml de infusão de hibisco", "15ml de xarope de agave", "15ml de suco de limão", "1 clara de ovo", "Flor de hibisco"],
-    steps: ["Prepare infusão forte de hibisco.", "Dry shake mezcal, hibisco, agave e clara.", "Adicione gelo e agite.", "Coe para rocks.", "Decore com flor de hibisco."],
-    difficulty: "Médio",
-    time: "6 min",
-    description: "Hibisco (Hibiscus sabdariffa): flor originária da África, base da agua de jamaica mexicana. Cor vermelha vibrante e acidez natural. Mezcal defumado contrasta. Harmoniza com enchiladas e tacos."
-  },
-  {
-    id: "lavanda-gin-fizz",
-    name: "Lavanda Gin Fizz",
-    category: "Chá & Infusões",
-    image: "lavanda-gin-fizz",
-    ingredients: ["60ml de gin", "15ml de xarope de lavanda", "30ml de suco de limão", "1 clara de ovo", "Água com gás", "Ramo de lavanda"],
-    steps: ["Faça xarope com lavanda seca.", "Dry shake gin, lavanda e clara.", "Adicione gelo e agite.", "Coe para copo alto.", "Complete com água com gás."],
-    difficulty: "Médio",
-    time: "6 min",
-    description: "Lavanda (Lavandula): erva perfumada da Provence (França). Linalol é o composto aromático calmante. CUIDADO: pouca lavanda — em excesso vira sabão. Gin botânico amplifica. Harmoniza com queijos de cabra."
-  },
-  {
-    id: "elderflower-champagne-tea",
-    name: "Elderflower Champagne Tea",
-    category: "Chá & Infusões",
-    image: "elderflower-champagne-tea",
-    ingredients: ["30ml de St-Germain (elderflower)", "15ml de infusão de flor de sabugueiro", "90ml de champagne", "Flores de sabugueiro"],
-    steps: ["Prepare infusão de flor de sabugueiro.", "Resfrie e adicione St-Germain.", "Complete com champagne gelado.", "Mexa suavemente.", "Decore com flores."],
-    difficulty: "Fácil",
-    time: "5 min",
-    description: "Flor de sabugueiro (Sambucus nigra): flor europeia com aroma de lichia e mel. St-Germain é o licor francês artesanal. Champagne amplifica a efervescência. Dupla dose floral. Harmoniza com macarons."
-  },
-  {
-    id: "rosa-vodka-cocktail",
-    name: "Rosa Vodka Cocktail",
-    category: "Chá & Infusões",
-    image: "rosa-vodka-cocktail",
-    ingredients: ["60ml de vodka", "30ml de infusão de rosas", "15ml de xarope de lichia", "15ml de suco de limão", "Pétalas de rosa"],
-    steps: ["Prepare infusão com pétalas de rosa.", "Agite vodka, rosa, lichia e limão.", "Coe para taça coupé.", "Decore com pétalas de rosa.", "Aroma envolvente."],
-    difficulty: "Médio",
-    time: "6 min",
-    description: "Rosa damascena: a rosa mais aromática do mundo, cultivada na Bulgária e Turquia. Água de rosas é tradição persa milenar. Lichia amplifica o floral. Vodka neutra não compete. Harmoniza com baklava."
-  },
-  {
-    id: "verbena-gin-tonic",
-    name: "Verbena Gin Tônica",
-    category: "Chá & Infusões",
-    image: "verbena-gin-tonic",
-    ingredients: ["60ml de gin", "15ml de xarope de verbena", "150ml de água tônica", "Folhas de verbena", "Limão"],
-    steps: ["Faça xarope com verbena fresca.", "Adicione gin e xarope ao copo.", "Complete com tônica.", "Mexa suavemente.", "Decore com verbena e limão."],
-    difficulty: "Fácil",
-    time: "4 min",
-    description: "Verbena (Aloysia citrodora): erva sul-americana com aroma cítrico intenso. Tisana favorita da França ('verveine'). Citral combina com botânicos do gin. Harmoniza com peixes e frutos do mar."
-  },
-  {
-    id: "erva-cidreira-caipirinha",
-    name: "Caipirinha de Erva-Cidreira",
-    category: "Chá & Infusões",
-    image: "erva-cidreira-caipirinha",
-    ingredients: ["60ml de cachaça", "1 limão cortado", "15ml de xarope de erva-cidreira", "Gelo", "Erva-cidreira fresca"],
-    steps: ["Faça xarope com erva-cidreira.", "Macere limão no copo.", "Adicione cachaça e xarope.", "Complete com gelo picado.", "Decore com erva-cidreira."],
-    difficulty: "Fácil",
-    time: "4 min",
-    description: "Erva-cidreira (Melissa officinalis): erva brasileira popular com aroma de limão e propriedades calmantes. Chá de cidreira é tradição das avós. Cachaça artesanal amplifica. Harmoniza com comida caseira."
-  },
-  {
-    id: "mint-julep-infusion",
-    name: "Mint Julep Infusion",
-    category: "Chá & Infusões",
-    image: "mint-julep-infusion",
-    ingredients: ["60ml de bourbon", "30ml de infusão de hortelã-pimenta", "15ml de xarope simples", "Hortelã fresca", "Gelo picado"],
-    steps: ["Prepare infusão de hortelã-pimenta.", "Macere hortelã com xarope.", "Adicione bourbon e infusão.", "Complete com gelo picado.", "Decore com buquê de hortelã."],
-    difficulty: "Fácil",
-    time: "5 min",
-    description: "Mint Julep: drink oficial do Kentucky Derby desde 1938. Hortelã-pimenta (Mentha piperita) tem mentol mais intenso. A infusão intensifica o frescor. Harmoniza com Southern food e fried chicken."
-  },
-  {
-    id: "lemongrass-vodka-cooler",
-    name: "Lemongrass Vodka Cooler",
-    category: "Chá & Infusões",
-    image: "lemongrass-vodka-cooler",
-    ingredients: ["60ml de vodka", "30ml de infusão de capim-limão", "15ml de xarope simples", "15ml de suco de limão", "Água com gás", "Capim-limão"],
-    steps: ["Prepare infusão de capim-limão.", "Agite vodka, infusão, xarope e limão.", "Coe para copo alto com gelo.", "Complete com água com gás.", "Decore com capim-limão."],
-    difficulty: "Fácil",
-    time: "5 min",
-    description: "Capim-limão (Cymbopogon citratus): erva tropical essencial da culinária tailandesa. Citral é o aroma dominante. Vodka neutra permite que o capim-limão brilhe. Harmoniza com tom yum e curry verde."
-  },
-  {
-    id: "butterfly-pea-gin",
-    name: "Butterfly Pea Gin",
-    category: "Chá & Infusões",
-    image: "butterfly-pea-gin",
-    ingredients: ["60ml de gin infusionado com butterfly pea", "15ml de xarope simples", "30ml de suco de limão", "Tônica"],
-    steps: ["Infusione gin com butterfly pea 1h.", "O gin fica azul intenso.", "Agite com xarope e limão.", "A acidez muda a cor para violeta!", "Complete com tônica para magia."],
-    difficulty: "Médio",
-    time: "1h infusão + 5 min",
-    description: "Butterfly Pea (Clitoria ternatea): flor tailandesa que muda de azul para violeta com acidez. Antocianinas são o pigmento. Efeito visual mágico que viraliza nas redes. Harmoniza com finger food."
-  },
-  {
-    id: "tomilho-whiskey-cocktail",
-    name: "Tomilho Whiskey Cocktail",
-    category: "Chá & Infusões",
-    image: "tomilho-whiskey-cocktail",
-    ingredients: ["60ml de bourbon", "30ml de infusão de tomilho", "15ml de mel", "15ml de suco de limão", "Ramo de tomilho"],
-    steps: ["Prepare infusão de tomilho fresco.", "Agite bourbon, infusão, mel e limão.", "Coe para rocks com gelo.", "Decore com ramo de tomilho.", "Aroma mediterrâneo."],
-    difficulty: "Fácil",
-    time: "5 min",
-    description: "Tomilho (Thymus vulgaris): erva mediterrânea com timol antibacteriano. Na Grécia antiga era símbolo de coragem. Mel de tomilho grego é premium. Bourbon com caramelo combina. Harmoniza com cordeiro."
-  },
-  {
-    id: "alecrim-gin-smash",
-    name: "Alecrim Gin Smash",
-    category: "Chá & Infusões",
-    image: "alecrim-gin-smash",
-    ingredients: ["60ml de gin", "30ml de infusão de alecrim", "15ml de xarope simples", "30ml de suco de limão", "Alecrim fresco"],
-    steps: ["Prepare infusão de alecrim.", "Agite gin, infusão, xarope e limão.", "Coe para rocks com gelo.", "Flambe ramo de alecrim.", "Coloque sobre o drink fumegante."],
-    difficulty: "Médio",
-    time: "6 min",
-    description: "Alecrim (Rosmarinus officinalis): erva do Mediterrâneo com ácido rosmarínico. Flambado libera óleos essenciais aromáticos. Gin com botânicos é base natural. Harmoniza com focaccia e azeite."
-  },
-  {
-    id: "manjericao-vodka-smash",
-    name: "Manjericão Vodka Smash",
-    category: "Chá & Infusões",
-    image: "manjericao-vodka-smash",
-    ingredients: ["60ml de vodka", "6 folhas de manjericão", "30ml de suco de limão", "15ml de xarope simples", "Manjericão fresco"],
-    steps: ["Macere manjericão com xarope.", "Adicione vodka e limão.", "Agite com gelo.", "Coe para rocks com gelo.", "Decore com manjericão."],
-    difficulty: "Fácil",
-    time: "4 min",
-    description: "Manjericão (Ocimum basilicum): erva sagrada indiana (tulsi). Notas de anis, cravo e pimenta. Na Itália, base do pesto genovese. Vodka permite que o aroma domine. Harmoniza com caprese e bruschetta."
-  },
-  {
-    id: "sage-mezcal-cocktail",
-    name: "Sage Mezcal Cocktail",
-    category: "Chá & Infusões",
-    image: "sage-mezcal-cocktail",
-    ingredients: ["60ml de mezcal", "15ml de infusão de sálvia", "15ml de xarope de agave", "15ml de suco de limão", "Folha de sálvia"],
-    steps: ["Prepare infusão de sálvia.", "Agite mezcal, infusão, agave e limão.", "Coe para rocks com gelo.", "Flambe folha de sálvia.", "Coloque no topo."],
-    difficulty: "Médio",
-    time: "6 min",
-    description: "Sálvia (Salvia officinalis): erva sagrada dos nativos americanos para cerimônias de smudging. Notas de cânfora e eucalipto. Mezcal defumado amplifica. Harmoniza com porco e abóbora."
-  },
-  {
-    id: "dill-aquavit-cocktail",
-    name: "Dill Aquavit Cocktail",
-    category: "Chá & Infusões",
-    image: "dill-aquavit-cocktail",
-    ingredients: ["60ml de aquavit", "30ml de infusão de endro", "15ml de suco de limão", "15ml de xarope simples", "Endro fresco"],
-    steps: ["Prepare infusão de endro fresco.", "Agite aquavit, infusão, limão e xarope.", "Coe para taça coupé.", "Decore com endro.", "Aroma escandinavo."],
-    difficulty: "Médio",
-    time: "5 min",
-    description: "Endro (Anethum graveolens): erva escandinava essencial do gravlax e pickles. Aquavit é o destilado nórdico com cominho e endro. Combinação autêntica da Escandinávia. Harmoniza com salmão gravlax."
-  },
-
-  // ===== CHÁ BRANCO & OOLONG (56-75) =====
-  {
-    id: "white-tea-gin-cocktail",
-    name: "White Tea Gin Cocktail",
-    category: "Chá & Infusões",
-    image: "white-tea-gin-cocktail",
-    ingredients: ["60ml de gin", "30ml de infusão de chá branco", "15ml de xarope de lichia", "15ml de suco de limão", "Pétalas brancas"],
-    steps: ["Prepare infusão de Silver Needle.", "Agite gin, chá, lichia e limão.", "Coe para taça coupé gelada.", "Decore com pétalas brancas.", "Delicadeza extrema."],
-    difficulty: "Médio",
-    time: "6 min",
-    description: "Silver Needle (Bai Hao Yin Zhen): chá branco mais premium da China (Fujian). Apenas brotos prateados colhidos 2 dias/ano. Notas de mel e melão. O chá mais delicado do mundo. Harmoniza com dim sum leve."
-  },
-  {
-    id: "white-peony-spritz",
-    name: "White Peony Spritz",
-    category: "Chá & Infusões",
-    image: "white-peony-spritz",
-    ingredients: ["30ml de St-Germain", "30ml de infusão de Bai Mu Dan", "90ml de prosecco", "Pétalas de peônia"],
-    steps: ["Prepare infusão de White Peony.", "Adicione St-Germain e chá ao copo.", "Complete com prosecco.", "Mexa suavemente.", "Decore com pétalas."],
-    difficulty: "Fácil",
-    time: "5 min",
-    description: "Bai Mu Dan (White Peony): segundo chá branco mais nobre da China. Notas florais e frutadas. St-Germain (elderflower) amplifica a delicadeza. Prosecco adiciona bolhas. Harmoniza com macarons."
-  },
-  {
-    id: "oolong-bourbon-cocktail",
-    name: "Oolong Bourbon Cocktail",
-    category: "Chá & Infusões",
-    image: "oolong-bourbon-cocktail",
-    ingredients: ["60ml de bourbon", "30ml de xarope de oolong", "15ml de suco de limão", "2 dashes de peach bitters", "Pêssego"],
-    steps: ["Prepare xarope com oolong premium.", "Agite bourbon, xarope e limão.", "Adicione bitters.", "Coe para rocks com gelo.", "Decore com fatia de pêssego."],
-    difficulty: "Médio",
-    time: "6 min",
-    description: "Oolong: chá semi-fermentado de Taiwan e Fujian, entre verde e preto. Dong Ding e Tieguanyin são clássicos. Notas de orquídea, pêssego e mel. Bourbon com baunilha amplifica. Harmoniza com pato laqueado."
-  },
-  {
-    id: "tieguanyin-martini",
-    name: "Tieguanyin Martini",
-    category: "Chá & Infusões",
-    image: "tieguanyin-martini",
-    ingredients: ["60ml de vodka infusionada com Tieguanyin", "15ml de vermouth seco", "Folha de oolong"],
-    steps: ["Infusione vodka com Tieguanyin 3h.", "Coe a vodka perfumada.", "Mexa com vermouth e gelo.", "Coe para martini gelada.", "Decore com folha de oolong."],
-    difficulty: "Avançado",
-    time: "3h infusão + 5 min",
-    description: "Tieguanyin ('Deusa de Ferro da Misericórdia'): oolong chinês lendário de Anxi (Fujian). Notas de orquídea, mel e minerais. Múltiplas infusões revelam camadas. Vodka preserva a delicadeza. Harmoniza com dim sum."
-  },
-  {
-    id: "dong-ding-whiskey",
-    name: "Dong Ding Whiskey",
-    category: "Chá & Infusões",
-    image: "dong-ding-whiskey",
-    ingredients: ["60ml de whisky taiwanês (Kavalan)", "30ml de xarope de Dong Ding", "2 dashes de Angostura", "Folha de oolong tostada"],
-    steps: ["Prepare xarope com Dong Ding oolong.", "Misture whisky, xarope e bitters.", "Mexa com gelo.", "Coe para rocks com gelo grande.", "Decore com folha tostada."],
-    difficulty: "Médio",
-    time: "6 min",
-    description: "Dong Ding: oolong tostado de Nantou (Taiwan). Notas de noz tostada e caramelo. Kavalan: whisky taiwanês premiado mundialmente. Taiwan produz os melhores oolongs E whiskies do mundo. Harmoniza com pato."
-  },
-  {
-    id: "oriental-beauty-cocktail",
-    name: "Oriental Beauty Cocktail",
-    category: "Chá & Infusões",
-    image: "oriental-beauty-cocktail",
-    ingredients: ["60ml de gin", "30ml de infusão de Oriental Beauty", "15ml de mel", "15ml de suco de limão", "Folha de chá"],
-    steps: ["Prepare infusão de Oriental Beauty.", "Agite gin, chá, mel e limão.", "Coe para taça coupé.", "Decore com folha de chá.", "Notas de mel e moscatel."],
-    difficulty: "Médio",
-    time: "6 min",
-    description: "Oriental Beauty (Dong Fang Mei Ren): oolong taiwanês mordido por cigarrinhas que criam notas de mel e moscatel. Quanto mais mordido, melhor! Elizabeth II deu-lhe o nome. Harmoniza com queijos suaves."
-  },
-  {
-    id: "milk-oolong-cocktail",
-    name: "Milk Oolong Cocktail",
-    category: "Chá & Infusões",
-    image: "milk-oolong-cocktail",
-    ingredients: ["60ml de vodka", "30ml de infusão de Jin Xuan (milk oolong)", "15ml de xarope de baunilha", "15ml de creme de leite"],
-    steps: ["Prepare infusão de Jin Xuan.", "Agite vodka, chá, baunilha e creme.", "Coe para taça coupé.", "Textura cremosa e sedosa.", "Decore com canela."],
-    difficulty: "Médio",
-    time: "6 min",
-    description: "Jin Xuan (Milk Oolong): oolong taiwanês com notas naturais de leite e manteiga — sem adição de laticínios! Cultivar nº 12 criado em 1980. A baunilha amplifica o cremoso. Harmoniza com sobremesas leves."
-  },
-  {
-    id: "alishan-gin-tonic",
-    name: "Alishan Gin Tônica",
-    category: "Chá & Infusões",
-    image: "alishan-gin-tonic",
-    ingredients: ["60ml de gin", "15ml de xarope de Alishan oolong", "150ml de água tônica", "Folha de oolong", "Limão"],
-    steps: ["Prepare xarope com Alishan high mountain.", "Adicione gin e xarope ao copo.", "Complete com tônica.", "Mexa suavemente.", "Decore com folha e limão."],
-    difficulty: "Fácil",
-    time: "5 min",
-    description: "Alishan: oolong de altitude (1.200m) da montanha sagrada de Taiwan. Neblina constante cria notas florais únicas. Gin botânico amplifica. Taiwan é paraíso dos chás de altitude. Harmoniza com tempurá."
-  },
-  {
-    id: "da-hong-pao-old-fashioned",
-    name: "Da Hong Pao Old Fashioned",
-    category: "Chá & Infusões",
-    image: "da-hong-pao-old-fashioned",
-    ingredients: ["60ml de bourbon", "15ml de xarope de Da Hong Pao", "2 dashes de chocolate bitters", "Casca de laranja"],
-    steps: ["Prepare xarope com Da Hong Pao.", "Misture bourbon, xarope e bitters.", "Mexa com gelo.", "Coe para rocks com gelo grande.", "Decore com casca de laranja."],
-    difficulty: "Avançado",
-    time: "6 min",
-    description: "Da Hong Pao ('Grande Manto Vermelho'): oolong de rocha de Wuyi (Fujian), um dos chás mais caros do mundo. Árvores originais de 360+ anos valem milhões. Notas minerais e tostadas. Harmoniza com chocolate amargo."
-  },
-  {
-    id: "rooibos-bourbon-cocktail",
-    name: "Rooibos Bourbon Cocktail",
-    category: "Chá & Infusões",
-    image: "rooibos-bourbon-cocktail",
-    ingredients: ["60ml de bourbon", "30ml de infusão de rooibos", "15ml de mel", "15ml de suco de limão", "Canela"],
-    steps: ["Prepare infusão de rooibos.", "Agite bourbon, rooibos, mel e limão.", "Coe para rocks com gelo.", "Decore com canela.", "Zero cafeína."],
-    difficulty: "Fácil",
-    time: "5 min",
-    description: "Rooibos: 'arbusto vermelho' da África do Sul (Cederberg). Não é chá — é leguminosa! Zero cafeína, rico em antioxidantes. Notas de baunilha e mel. Bourbon amplifica. Harmoniza com biltong e bobotie."
-  },
-  {
-    id: "osmanthus-oolong-cocktail",
-    name: "Osmanthus Oolong Cocktail",
-    category: "Chá & Infusões",
-    image: "osmanthus-oolong-cocktail",
-    ingredients: ["60ml de vodka", "30ml de infusão de oolong com osmanthus", "15ml de xarope de pêssego", "15ml de suco de limão"],
-    steps: ["Prepare infusão de oolong com osmanthus.", "Agite vodka, chá, pêssego e limão.", "Coe para taça coupé.", "Decore com flores de osmanthus.", "Aroma de damasco."],
-    difficulty: "Médio",
-    time: "6 min",
-    description: "Osmanthus (gui hua): flor chinesa com aroma de damasco e pêssego. Combinada com oolong, cria chá perfumado milenar. Tradição do Festival da Lua. Harmoniza com mooncakes e doces chineses."
-  },
-  {
-    id: "white-tea-mojito",
-    name: "White Tea Mojito",
-    category: "Chá & Infusões",
-    image: "white-tea-mojito",
-    ingredients: ["60ml de rum branco", "30ml de infusão de chá branco", "30ml de suco de limão", "15ml de xarope simples", "Hortelã", "Água com gás"],
-    steps: ["Prepare infusão de chá branco.", "Macere hortelã com xarope.", "Adicione rum, chá e limão.", "Complete com gelo e água com gás.", "Decore com hortelã."],
-    difficulty: "Fácil",
-    time: "5 min",
-    description: "Chá branco no mojito: a delicadeza do Shou Mei com a frescura cubana. Chá branco é o menos processado — apenas murchado e seco. Antioxidantes preservados. Harmoniza com frutos do mar leves."
-  },
-
-  // ===== INFUSÕES ESPECIAIS & EXÓTICAS (76-100) =====
-  {
-    id: "yerba-mate-gin-tonic",
-    name: "Yerba Mate Gin Tônica",
-    category: "Chá & Infusões",
-    image: "yerba-mate-gin-tonic",
-    ingredients: ["60ml de gin", "30ml de infusão de yerba mate", "150ml de água tônica", "Limão", "Folha de mate"],
-    steps: ["Prepare infusão de yerba mate.", "Adicione gin e mate ao copo.", "Complete com tônica.", "Mexa suavemente.", "Decore com folha de mate."],
-    difficulty: "Fácil",
-    time: "5 min",
-    description: "Yerba mate (Ilex paraguariensis): erva sul-americana sagrada dos Guaranis. Mateína é estimulante suave. Tradição do chimarrão gaúcho e tereré. Gin botânico amplifica. Harmoniza com churrasco gaúcho."
-  },
-  {
-    id: "mate-caipirinha",
-    name: "Caipirinha de Mate",
-    category: "Chá & Infusões",
-    image: "mate-caipirinha",
-    ingredients: ["60ml de cachaça", "1 limão cortado", "15ml de xarope de mate", "Gelo", "Erva-mate"],
-    steps: ["Faça xarope com yerba mate.", "Macere limão no copo.", "Adicione cachaça e xarope.", "Complete com gelo picado.", "Decore com erva-mate."],
-    difficulty: "Fácil",
-    time: "4 min",
-    description: "Fusão 100% sul-americana: cachaça brasileira + mate gaúcho. O mate traz notas vegetais e amargas que equilibram o doce da cachaça. Tradição do tereré reinventada. Harmoniza com churrasco."
-  },
-  {
-    id: "guayusa-rum-cocktail",
-    name: "Guayusa Rum Cocktail",
-    category: "Chá & Infusões",
-    image: "guayusa-rum-cocktail",
-    ingredients: ["60ml de rum branco", "30ml de infusão de guayusa", "15ml de mel de abelha", "15ml de suco de limão", "Folha de guayusa"],
-    steps: ["Prepare infusão de guayusa.", "Agite rum, guayusa, mel e limão.", "Coe para rocks com gelo.", "Decore com folha de guayusa.", "Energia amazônica."],
-    difficulty: "Fácil",
-    time: "5 min",
-    description: "Guayusa (Ilex guayusa): prima da yerba mate, nativa da Amazônia equatoriana. Os Kichwa tomam ao amanhecer para 'sonhos lúcidos'. Cafeína + L-teanina = energia sem ansiedade. Harmoniza com comida equatoriana."
-  },
-  {
-    id: "tulsi-gin-cocktail",
-    name: "Tulsi Gin Cocktail",
-    category: "Chá & Infusões",
-    image: "tulsi-gin-cocktail",
-    ingredients: ["60ml de gin", "30ml de infusão de tulsi", "15ml de mel", "15ml de suco de limão", "Folha de manjericão sagrado"],
-    steps: ["Prepare infusão de tulsi (holy basil).", "Agite gin, tulsi, mel e limão.", "Coe para taça coupé.", "Decore com folha de tulsi.", "Aroma sagrado."],
-    difficulty: "Médio",
-    time: "6 min",
-    description: "Tulsi (Ocimum tenuiflorum): manjericão sagrado indiano, consagrado a Vishnu. Adaptogênico — reduz cortisol. Notas de cravo e canela. Gin botânico amplifica. Harmoniza com comida ayurvédica."
-  },
-  {
-    id: "chrysanthemum-vodka",
-    name: "Chrysanthemum Vodka Cocktail",
-    category: "Chá & Infusões",
-    image: "chrysanthemum-vodka",
-    ingredients: ["60ml de vodka", "30ml de infusão de crisântemo", "15ml de xarope de mel", "15ml de suco de limão", "Flores de crisântemo"],
-    steps: ["Prepare infusão de crisântemo.", "Agite vodka, infusão, mel e limão.", "Coe para taça coupé.", "Decore com crisântemo.", "Refresca e acalma."],
-    difficulty: "Fácil",
-    time: "5 min",
-    description: "Crisântemo (Chrysanthemum morifolium): chá floral chinês da dinastia Song. Refresca 'calor interno' na medicina chinesa. Notas de mel e ervas. Festival do Duplo Nove. Harmoniza com mooncakes."
-  },
-  {
-    id: "moringa-gin-fizz",
-    name: "Moringa Gin Fizz",
-    category: "Chá & Infusões",
-    image: "moringa-gin-fizz",
-    ingredients: ["60ml de gin", "15ml de xarope de moringa", "30ml de suco de limão", "1 clara de ovo", "Água com gás", "Moringa em pó"],
-    steps: ["Dissolva moringa em xarope.", "Dry shake gin, moringa e clara.", "Adicione gelo e agite.", "Coe para copo alto.", "Complete com água com gás."],
-    difficulty: "Médio",
-    time: "6 min",
-    description: "Moringa (Moringa oleifera): 'árvore milagre' indiana com mais nutrientes que qualquer planta. Cor verde vibrante e sabor terroso. Superfood dos anos 2020. Gin amplifica. Harmoniza com comida indiana."
-  },
-  {
-    id: "goji-berry-tea-cocktail",
-    name: "Goji Berry Tea Cocktail",
-    category: "Chá & Infusões",
-    image: "goji-berry-tea-cocktail",
-    ingredients: ["60ml de vodka", "30ml de infusão de goji berry", "15ml de xarope de lichia", "15ml de suco de limão", "Goji berries"],
-    steps: ["Prepare infusão de goji berries.", "Agite vodka, infusão, lichia e limão.", "Coe para taça coupé.", "Decore com goji berries.", "Cor vermelha vibrante."],
-    difficulty: "Fácil",
-    time: "5 min",
-    description: "Goji berry (Lycium barbarum): 'fruta da longevidade' chinesa, cultivada em Ningxia. Medicina chinesa há 2.000 anos. Superfruta com zeaxantina para visão. Harmoniza com comida chinesa."
-  },
-  {
-    id: "pandan-rum-cocktail",
-    name: "Pandan Rum Cocktail",
-    category: "Chá & Infusões",
-    image: "pandan-rum-cocktail",
-    ingredients: ["60ml de rum branco", "30ml de xarope de pandan", "30ml de leite de coco", "15ml de suco de limão", "Folha de pandan"],
-    steps: ["Faça xarope com folha de pandan.", "Agite rum, pandan, coco e limão.", "Coe para rocks com gelo.", "Decore com folha de pandan.", "Aroma de baunilha tropical."],
-    difficulty: "Médio",
-    time: "6 min",
-    description: "Pandan (Pandanus amaryllifolius): 'baunilha do Sudeste Asiático'. Aroma de baunilha, coco e grama. Cor verde natural. Essencial em kaya toast e chiffon cake. Harmoniza com comida malaia."
-  },
-  {
-    id: "cascara-espresso-cocktail",
-    name: "Cascara Espresso Cocktail",
-    category: "Chá & Infusões",
-    image: "cascara-espresso-cocktail",
-    ingredients: ["45ml de vodka", "30ml de espresso", "30ml de infusão de cascara", "15ml de xarope simples"],
-    steps: ["Prepare infusão de cascara (casca de café).", "Agite vodka, espresso e cascara.", "Agite forte para crema.", "Coe para taça coupé.", "Decore com grãos de café."],
-    difficulty: "Médio",
-    time: "6 min",
-    description: "Cascara: casca seca do fruto do café, tradicionalmente descartada. Notas de cereja, hibisco e rosa mosqueta. Cafeína leve. Sustainability trend dos specialty coffees. Harmoniza com chocolate."
-  },
-  {
-    id: "jiaogulan-gin-cocktail",
-    name: "Jiaogulan Gin Cocktail",
-    category: "Chá & Infusões",
-    image: "jiaogulan-gin-cocktail",
-    ingredients: ["60ml de gin", "30ml de infusão de jiaogulan", "15ml de mel", "15ml de suco de limão", "Folha de jiaogulan"],
-    steps: ["Prepare infusão de jiaogulan.", "Agite gin, infusão, mel e limão.", "Coe para taça coupé.", "Decore com folha.", "Chá da imortalidade."],
-    difficulty: "Médio",
-    time: "6 min",
-    description: "Jiaogulan (Gynostemma pentaphyllum): 'erva da imortalidade' chinesa. Adaptogênico com ginsenosídeos naturais. Vila Bama (Guizhou) com mais centenários do mundo. Gin amplifica. Harmoniza com comida chinesa."
-  },
-  {
-    id: "blue-lotus-cocktail",
-    name: "Blue Lotus Cocktail",
-    category: "Chá & Infusões",
-    image: "blue-lotus-cocktail",
-    ingredients: ["60ml de vodka", "30ml de infusão de lótus azul", "15ml de xarope de mel", "15ml de suco de limão", "Pétala de lótus"],
-    steps: ["Prepare infusão de lótus azul.", "Agite vodka, infusão, mel e limão.", "Coe para taça coupé.", "Decore com pétala de lótus.", "Efeito relaxante."],
-    difficulty: "Avançado",
-    time: "6 min",
-    description: "Lótus Azul (Nymphaea caerulea): flor sagrada do Egito antigo, presente em murais dos faraós. Apomorfina é levemente euforizante. Rituais dos templos egípcios. Harmoniza com comida mediterrânea."
-  },
-  {
-    id: "schisandra-berry-cocktail",
-    name: "Schisandra Berry Cocktail",
-    category: "Chá & Infusões",
-    image: "schisandra-berry-cocktail",
-    ingredients: ["60ml de vodka", "30ml de infusão de schisandra", "15ml de mel", "15ml de suco de limão", "Schisandra berries"],
-    steps: ["Prepare infusão de schisandra.", "Agite vodka, infusão, mel e limão.", "Coe para rocks com gelo.", "Decore com schisandra.", "5 sabores em uma fruta."],
-    difficulty: "Médio",
-    time: "6 min",
-    description: "Schisandra (wu wei zi = '5 sabores'): fruta chinesa que é doce, azeda, salgada, amarga e picante simultaneamente. Adaptogênica. Medicina chinesa há 2.000 anos. Harmoniza com pratos complexos."
-  },
-  {
-    id: "hemp-tea-cocktail",
-    name: "Hemp Tea Cocktail",
-    category: "Chá & Infusões",
-    image: "hemp-tea-cocktail",
-    ingredients: ["60ml de gin", "30ml de infusão de cânhamo", "15ml de mel", "15ml de suco de limão", "Sementes de cânhamo"],
-    steps: ["Prepare infusão de folhas de cânhamo.", "Agite gin, infusão, mel e limão.", "Coe para rocks com gelo.", "Polvilhe sementes de cânhamo.", "Notas terrosas e herbais."],
-    difficulty: "Fácil",
-    time: "5 min",
-    description: "Chá de cânhamo (Cannabis sativa L.): folhas sem THC com CBD relaxante. Notas terrosas e herbais. Legalizado na maioria dos países. Gin com botânicos amplifica. Harmoniza com snacks wellness."
-  },
-  {
-    id: "ashwagandha-bourbon",
-    name: "Ashwagandha Bourbon",
-    category: "Chá & Infusões",
-    image: "ashwagandha-bourbon",
-    ingredients: ["60ml de bourbon", "15ml de xarope de ashwagandha", "15ml de mel", "2 dashes de Angostura", "Canela"],
-    steps: ["Faça xarope com ashwagandha em pó.", "Misture bourbon, xarope e bitters.", "Mexa com gelo.", "Coe para rocks com gelo grande.", "Decore com canela."],
-    difficulty: "Médio",
-    time: "6 min",
-    description: "Ashwagandha (Withania somnifera): 'ginseng indiano', adaptogênico ayurvédico de 3.000 anos. Reduz cortisol e ansiedade. Notas terrosas e amargas. Bourbon com caramelo é ponte. Harmoniza com comida indiana."
-  },
-  {
-    id: "reishi-tea-cocktail",
-    name: "Reishi Tea Cocktail",
-    category: "Chá & Infusões",
-    image: "reishi-tea-cocktail",
-    ingredients: ["60ml de whisky japonês", "30ml de infusão de reishi", "15ml de mel", "15ml de suco de limão", "Cogumelo reishi seco"],
-    steps: ["Prepare infusão de reishi (decocção 20min).", "Agite whisky, reishi, mel e limão.", "Coe para rocks com gelo.", "Decore com fatia de reishi.", "Amargo e terroso."],
-    difficulty: "Avançado",
-    time: "25 min",
-    description: "Reishi (Ganoderma lucidum): 'cogumelo da imortalidade' na medicina chinesa. Adaptogênico e imunomodulador. Notas amargas e terrosas. Whisky japonês (Suntory) é ponte cultural. Harmoniza com kaiseki."
-  },
-  {
-    id: "chaga-bourbon-old-fashioned",
-    name: "Chaga Bourbon Old Fashioned",
-    category: "Chá & Infusões",
-    image: "chaga-bourbon-old-fashioned",
-    ingredients: ["60ml de bourbon", "15ml de xarope de chaga", "2 dashes de vanilla bitters", "Canela"],
-    steps: ["Prepare decocção de chaga (30min).", "Faça xarope com a decocção.", "Misture bourbon, xarope e bitters.", "Mexa com gelo.", "Decore com canela."],
-    difficulty: "Avançado",
-    time: "35 min",
-    description: "Chaga (Inonotus obliquus): fungo de bétulas da Sibéria. Usado há séculos pelos povos siberianos. Maior concentração de antioxidantes do reino vegetal. Notas de baunilha e terra. Harmoniza com carnes de caça."
-  },
-  {
-    id: "lion-mane-espresso-martini",
-    name: "Lion's Mane Espresso Martini",
-    category: "Chá & Infusões",
-    image: "lion-mane-espresso-martini",
-    ingredients: ["45ml de vodka", "30ml de Kahlúa", "30ml de espresso", "5ml de extrato de lion's mane"],
-    steps: ["Adicione extrato de lion's mane ao espresso.", "Agite com vodka e Kahlúa.", "Agite MUITO forte para crema.", "Coe para taça coupé.", "Decore com grãos de café."],
-    difficulty: "Médio",
-    time: "5 min",
-    description: "Lion's Mane (Hericium erinaceus): cogumelo neurotrópico que estimula NGF (fator de crescimento nervoso). Notas de lagosta e umami. Combinado com café, cria foco cognitivo. Harmoniza com chocolates craft."
-  },
-  {
-    id: "turmeric-chai-latte-cocktail",
-    name: "Turmeric Chai Latte Cocktail",
-    category: "Chá & Infusões",
-    image: "turmeric-chai-latte-cocktail",
-    ingredients: ["60ml de bourbon", "60ml de chai com cúrcuma", "30ml de leite de aveia", "15ml de mel", "Canela", "Pimenta-do-reino"],
-    steps: ["Prepare chai masala com cúrcuma.", "Aqueça levemente com leite de aveia.", "Adicione bourbon e mel.", "Polvilhe canela e pimenta.", "Golden chai quente e reconfortante."],
-    difficulty: "Fácil",
-    time: "8 min",
-    description: "Golden chai: fusão de golden milk ayurvédico com masala chai. Cúrcuma anti-inflamatória + especiarias digestivas. Pimenta ativa curcumina. Bourbon aquece. Harmoniza com noites frias e cookies."
-  },
-  {
-    id: "yerba-mate-negroni",
-    name: "Yerba Mate Negroni",
-    category: "Chá & Infusões",
-    image: "yerba-mate-negroni",
-    ingredients: ["30ml de gin infusionado com yerba mate", "30ml de Campari", "30ml de vermouth rosso", "Casca de laranja"],
-    steps: ["Infusione gin com yerba mate 2h.", "Coe o gin verde.", "Misture com Campari e vermouth.", "Mexa com gelo.", "Decore com casca de laranja."],
-    difficulty: "Médio",
-    time: "2h infusão + 5 min",
-    description: "Gin infusionado com yerba mate: o amargo do mate amplifica o Campari no Negroni. Fusão Sul América-Itália. Cor verde-avermelhada única. Criação dos bares de Buenos Aires. Harmoniza com asado."
-  },
-  {
-    id: "hibiscus-rose-spritz",
-    name: "Hibiscus Rose Spritz",
-    category: "Chá & Infusões",
-    image: "hibiscus-rose-spritz",
-    ingredients: ["30ml de St-Germain", "30ml de infusão de hibisco e rosa", "90ml de prosecco", "Água com gás", "Pétalas"],
-    steps: ["Prepare infusão de hibisco com pétalas de rosa.", "Adicione St-Germain e infusão.", "Complete com prosecco.", "Splash de água com gás.", "Decore com pétalas."],
-    difficulty: "Fácil",
-    time: "5 min",
-    description: "Hibisco + rosa: dupla floral com cor vermelha-rosada vibrante. Acidez natural do hibisco equilibra a doçura do St-Germain. Prosecco adiciona bolhas. Harmoniza com macarons e frutas."
-  },
-  {
-    id: "linden-flower-cocktail",
-    name: "Linden Flower Cocktail",
-    category: "Chá & Infusões",
-    image: "linden-flower-cocktail",
-    ingredients: ["60ml de vodka", "30ml de infusão de tília", "15ml de mel", "15ml de suco de limão", "Flores de tília"],
-    steps: ["Prepare infusão de flor de tília.", "Agite vodka, tília, mel e limão.", "Coe para taça coupé.", "Decore com flores de tília.", "Relaxante e floral."],
-    difficulty: "Fácil",
-    time: "5 min",
-    description: "Tília (Tilia europaea): flor calmante europeia, tisana favorita da França. Notas de mel e feno. Farnesol é o composto relaxante. Tradição do 'tilleul' parisiense. Harmoniza com queijos franceses."
-  },
-  {
-    id: "pine-needle-gin",
-    name: "Pine Needle Gin Cocktail",
-    category: "Chá & Infusões",
-    image: "pine-needle-gin",
-    ingredients: ["60ml de gin", "30ml de infusão de agulhas de pinheiro", "15ml de xarope de mel", "15ml de suco de limão", "Ramo de pinheiro"],
-    steps: ["Prepare infusão de agulhas de pinheiro.", "Agite gin, infusão, mel e limão.", "Coe para rocks com gelo.", "Decore com ramo de pinheiro.", "Aroma florestal."],
-    difficulty: "Médio",
-    time: "6 min",
-    description: "Agulhas de pinheiro: infusão florestal rica em vitamina C (receita dos vikings). Notas resinosas que amplificam o zimbro do gin. Foraging trend dos bares nórdicos. Harmoniza com salmão gravlax e pratos nórdicos."
-  },
-  {
-    id: "nettle-gin-cocktail",
-    name: "Nettle Gin Cocktail",
-    category: "Chá & Infusões",
-    image: "nettle-gin-cocktail",
-    ingredients: ["60ml de gin", "30ml de infusão de urtiga", "15ml de xarope de elderflower", "15ml de suco de limão", "Folha de urtiga seca"],
-    steps: ["Prepare infusão de urtiga seca.", "Agite gin, urtiga, elderflower e limão.", "Coe para taça coupé.", "Decore com folha de urtiga seca.", "Cor verde terrosa."],
-    difficulty: "Médio",
-    time: "6 min",
-    description: "Urtiga (Urtica dioica): erva 'daninha' que é superfood — rica em ferro e minerais. Infusão tem sabor vegetal e terroso. Tradição da fitoterapia europeia. Gin amplifica os botânicos. Harmoniza com queijos britânicos."
-  },
-  {
-    id: "dandelion-bourbon-cocktail",
-    name: "Dandelion Bourbon Cocktail",
-    category: "Chá & Infusões",
-    image: "dandelion-bourbon-cocktail",
-    ingredients: ["60ml de bourbon", "30ml de infusão de dente-de-leão", "15ml de mel", "15ml de suco de limão", "Flor de dente-de-leão"],
-    steps: ["Prepare infusão de raiz de dente-de-leão.", "Agite bourbon, infusão, mel e limão.", "Coe para rocks com gelo.", "Decore com flor de dente-de-leão.", "Amargo e terroso."],
-    difficulty: "Fácil",
-    time: "5 min",
-    description: "Dente-de-leão (Taraxacum officinale): raiz tostada é substituto de café sem cafeína. Notas amargas e terrosas. Tradição europeia de foraging. Bourbon com caramelo equilibra. Harmoniza com saladas selvagens."
-  },
+    time: "3 dias",
+    description: "Probiótico natural e refrescante. O aproveitamento total do abacaxi. Venda comum em bicicletas e barracas de rua, servido em saco plástico com canudo. Sabor fermentado, doce e especiarias."
+  }
 ];
