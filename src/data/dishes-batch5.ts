@@ -2,11 +2,11 @@ import { Dish } from "./dishes";
 
 export const dishesBatch5: Dish[] = [
   // ============ TACOS EXTRAS ============
-  { id: "tacos-camarao", name: "Tacos de Camarão Empanado", category: "Tacos", image: "tacos-camarao",
-    ingredients: ["500g de camarões grandes", "Farinha de trigo", "Cerveja gelada", "Repolho roxo", "Maionese de chipotle", "Limão", "Tortillas de milho"],
-    steps: ["Prepare massa: farinha, cerveja e sal.", "Empane e frite os camarões.", "Fatie repolho roxo fino.", "Prepare maionese com chipotle.", "Monte: tortilla, repolho, camarão.", "Finalize com molho e limão."],
-    difficulty: "Médio", time: "30 min", spiceLevel: 1, tags: ["suave", "defumado"],
-    description: "Camarões empanados em massa de cerveja sobre repolho crocante — estilo Baja California." },
+  { id: "tacos-cochinita", name: "Tacos de Cochinita Pibil", category: "Tacos", image: "tacos-cochinita",
+    ingredients: ["500g de cochinita pibil desfiada", "Cebola roxa curtida em limão", "Chile habanero", "Tortillas de milho", "Feijão negro", "Coentro"],
+    steps: ["Prepare cochinita pibil ou use pronta desfiada.", "Curta cebola roxa em limão e sal por 30 min.", "Aqueça tortillas na chapa.", "Recheie com cochinita generosamente.", "Cubra com cebola roxa curtida.", "Sirva com habanero à parte — MUITO picante."],
+    difficulty: "Fácil", time: "15 min (com cochinita pronta)", spiceLevel: 2, tags: ["picante", "intenso"],
+    description: "Tacos yucatecos com cochinita pibil desfiada e cebola roxa curtida — a combinação perfeita de Yucatán." },
 
   { id: "tacos-veganos", name: "Tacos Veganos de Couve-Flor", category: "Tacos", image: "tacos-veganos",
     ingredients: ["1 couve-flor em floretes", "Chile ancho em pó", "Cominho", "Limão", "Feijão negro", "Abacate", "Cebola roxa", "Coentro", "Tortillas de milho"],
@@ -40,11 +40,11 @@ export const dishesBatch5: Dish[] = [
     difficulty: "Avançado", time: "2h", spiceLevel: 1, tags: ["suave"],
     description: "Tamales clássicos recheados com frango em salsa verde de tomatillo — tradição milenar." },
 
-  { id: "enfrijoladas-trad", name: "Enfrijoladas", category: "Pratos Tradicionais", image: "enfrijoladas-trad",
-    ingredients: ["Tortillas de milho", "Feijão negro batido", "Frango desfiado", "Creme ácido", "Queijo fresco", "Cebola roxa", "Epazote"],
-    steps: ["Bata feijão cozido com epazote até cremoso.", "Aqueça o molho de feijão.", "Passe as tortillas no molho.", "Recheie com frango e dobre.", "Cubra com mais molho.", "Decore com creme, queijo e cebola."],
-    difficulty: "Fácil", time: "25 min", spiceLevel: 0, tags: ["não picante", "suave"],
-    description: "Tortillas banhadas em molho de feijão negro — alternativa reconfortante às enchiladas." },
+  { id: "papadzules", name: "Papadzules Yucatecos", category: "Pratos Tradicionais", image: "papadzules",
+    ingredients: ["12 tortillas de milho", "6 ovos cozidos", "Pepitas de abóbora", "Epazote", "Tomate", "Chile habanero", "Sal"],
+    steps: ["Torre pepitas e moa com epazote e sal.", "Adicione água quente e bata até cremoso — é a salsa de pepita.", "Cozinhe e pique os ovos.", "Passe tortillas na salsa de pepita.", "Recheie com ovo picado e enrole.", "Cubra com salsa de pepita e molho de tomate por cima."],
+    difficulty: "Médio", time: "40 min", spiceLevel: 0, tags: ["não picante", "suave"],
+    description: "Enchiladas maias de pepita de abóbora — prato pré-hispânico de Yucatán, recheado com ovo e banhado em molho verde de sementes." },
 
   { id: "mole-amarillo", name: "Mole Amarillo de Oaxaca", category: "Pratos Tradicionais", image: "mole-amarillo",
     ingredients: ["Chile chilcostle", "Chile ancho", "Tomate", "Tomatillo", "Hierba santa", "Masa de milho", "Chayote", "Feijão verde", "Frango"],
@@ -91,24 +91,24 @@ export const dishesBatch5: Dish[] = [
     description: "Bebida sagrada dos astecas — seiva de agave fermentada. O ancestral da tequila e do mezcal." },
 
   // ============ MAIS MARISCOS ============
-  { id: "camarones-coconut", name: "Camarões ao Coco com Chile", category: "Mariscos", image: "camarones-coco",
-    ingredients: ["500g de camarões", "Coco ralado", "Farinha de trigo", "Ovo", "Chile habanero", "Manga", "Limão"],
-    steps: ["Empane camarões em farinha, ovo e coco.", "Frite até dourar (180°C).", "Prepare salsa de manga com habanero.", "Pique manga, habanero e limão.", "Sirva camarões com salsa.", "A doçura do coco + manga equilibra o habanero."],
-    difficulty: "Médio", time: "25 min", spiceLevel: 3, tags: ["picante", "intenso"],
-    description: "Camarões empanados em coco com salsa de manga e habanero — doce, crocante e extremamente picante." },
+  { id: "camarones-ajillo", name: "Camarões al Mojo de Ajo", category: "Mariscos", image: "camarones-ajillo",
+    ingredients: ["500g de camarões grandes", "10 dentes de alho fatiados", "Manteiga", "Chile guajillo em pó", "Limão", "Coentro", "Arroz branco"],
+    steps: ["Derreta manteiga em panela quente.", "Frite alho fatiado até dourar levemente.", "Adicione camarões e chile guajillo.", "Cozinhe 2-3 min de cada lado.", "Esprema limão generosamente.", "Sirva com arroz branco e coentro."],
+    difficulty: "Fácil", time: "15 min", spiceLevel: 1, tags: ["suave"],
+    description: "Camarões no alho com manteiga — clássico das marisquerías mexicanas, simples e irresistível." },
 
-  { id: "zarandeado", name: "Pescado Zarandeado", category: "Mariscos", image: "zarandeado",
-    ingredients: ["1 pargo inteiro", "Chile ancho", "Maionese", "Molho de soja", "Limão", "Alho", "Mostarda"],
-    steps: ["Abra o pargo em borboleta.", "Prepare marinada com maionese, chile, soja e limão.", "Cubra o peixe generosamente.", "Grelhe na brasa por 20-25 min.", "A pele deve ficar crocante.", "Sirva com tortillas e guacamole."],
-    difficulty: "Médio", time: "35 min", spiceLevel: 1, tags: ["suave", "defumado"],
-    description: "Peixe inteiro grelhado na brasa com marinada de chile — especialidade de Nayarit, costa do Pacífico." },
+  { id: "tacos-marlín", name: "Tacos de Marlín Ahumado", category: "Mariscos", image: "tacos-marlin",
+    ingredients: ["300g de marlín defumado desfiado", "Tomate", "Cebola", "Chile chipotle", "Creme ácido", "Tortillas de milho", "Repolho", "Limão"],
+    steps: ["Desfie o marlín defumado.", "Refogue cebola e tomate.", "Adicione chipotle e o marlín.", "Cozinhe 10 min mexendo.", "Monte tacos com repolho e creme.", "Sirva com limão."],
+    difficulty: "Fácil", time: "20 min", spiceLevel: 2, tags: ["picante", "defumado"],
+    description: "Tacos de marlín defumado — especialidade da Baja California Sur. Sabor do mar com defumação intensa." },
 
   // ============ MAIS SOBREMESAS ============  
-  { id: "pastel-tres-leches", name: "Pastel de Tres Leches", category: "Sobremesas", image: "tres-leches-pastel",
-    ingredients: ["Bolo esponja (ovo, farinha, açúcar)", "Leite condensado", "Leite evaporado", "Creme de leite", "Chantilly", "Canela", "Morangos"],
-    steps: ["Asse o bolo esponja e deixe esfriar.", "Misture os 3 leites.", "Fure o bolo com garfo.", "Despeje a mistura de leites lentamente.", "Refrigere por 4h.", "Cubra com chantilly, canela e morangos."],
-    difficulty: "Médio", time: "1h + 4h refrigeração", spiceLevel: 0, tags: ["não picante"],
-    description: "O bolo mais popular do México — esponja encharcada em 3 tipos de leite com chantilly. Presente em toda festa." },
+  { id: "chongos-zamoranos", name: "Chongos Zamoranos", category: "Sobremesas", image: "chongos-zamoranos",
+    ingredients: ["1 litro de leite fresco", "Pastilha de coalho", "Açúcar", "Canela em pau", "Baunilha"],
+    steps: ["Aqueça leite a 37°C.", "Adicione pastilha de coalho e espere talhar.", "Corte a coalhada em quadrados.", "Adicione açúcar e canela.", "Cozinhe em fogo baixíssimo por 3h sem mexer.", "Os chongos devem ficar firmes e caramelados. Sirva frios."],
+    difficulty: "Médio", time: "3h 30min", spiceLevel: 0, tags: ["não picante"],
+    description: "Sobremesa colonial de Zamora, Michoacán — leite talhado e caramelado lentamente com canela. Tradição de conventos." },
 
   { id: "alegrias", name: "Alegrías de Amaranto", category: "Sobremesas", image: "alegrias",
     ingredients: ["2 xícaras de amaranto estourado", "Mel ou piloncillo", "Passas", "Amendoim", "Pepitas de abóbora"],
