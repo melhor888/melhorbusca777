@@ -141,7 +141,7 @@ export const chaInfusoes: VipDrink[] = [
       "Servido em jícaras pintadas.",
       "É difícil fazer em casa sem os ingredientes de Oaxaca, mas vale conhecer."
     ],
-    difficulty: "Muito Avançado",
+    difficulty: "Avançado",
     time: "Horas",
     description: "Bebida ancestral zapoteca de San Andrés Huayapam, Oaxaca. Visualmente impressionante com sua espuma branca sobre o líquido marrom. Sabor complexo de cacau, milho e flores. Patrimônio cultural."
   },

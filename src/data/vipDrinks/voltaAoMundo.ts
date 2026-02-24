@@ -21,7 +21,7 @@ export const voltaAoMundo: VipDrink[] = [
       "Coma uma Tlayuda no mercado à noite.",
       "Finalize com chocolate quente batido."
     ],
-    difficulty: "Informativo",
+    difficulty: "Médio",
     time: "N/A",
     description: "Oaxaca é o coração indígena do México. Sua cozinha zapoteca e mixteca é complexa e ancestral. O milho, o cacau e o agave são sagrados aqui."
   },
@@ -43,7 +43,7 @@ export const voltaAoMundo: VipDrink[] = [
       "Prove a Birria original (de cabrito) em tlaquepaque.",
       "Escute Mariachi enquanto bebe tequila bandera (limão, tequila, sangrita)."
     ],
-    difficulty: "Informativo",
+    difficulty: "Médio",
     time: "N/A",
     description: "Jalisco é a imagem do México para o mundo: Mariachis, Tequila e Charros. Sua cozinha é vibrante, picante e festiva. Guadalajara é a capital moderna com alma tradicional."
   },
@@ -67,7 +67,7 @@ export const voltaAoMundo: VipDrink[] = [
       "Prove a Cochinita Pibil assada no pib (forno de terra).",
       "Beba Xtabentún (licor de mel e anis) como digestivo."
     ],
-    difficulty: "Informativo",
+    difficulty: "Médio",
     time: "N/A",
     description: "Isolada do resto do país por selvas, Yucatán desenvolveu uma culinária única. É uma fusão de técnicas maias ancestrais com ingredientes trazidos pelos espanhóis e holandeses."
   },
@@ -90,7 +90,7 @@ export const voltaAoMundo: VipDrink[] = [
       "Visite Pátzcuaro no Día de Muertos.",
       "Beba Charanda, a denominação de origem local para o destilado de cana."
     ],
-    difficulty: "Informativo",
+    difficulty: "Médio",
     time: "N/A",
     description: "Terra dos lagos e florestas. A cozinha Purépecha é rústica e profunda. Michoacán é onde o milho, o feijão e o chile encontram sua expressão mais caseira e autêntica."
   },
@@ -114,7 +114,7 @@ export const voltaAoMundo: VipDrink[] = [
       "Prove Tacos Árabes (influência libanesa que criou o Pastor).",
       "Coma doces de camote e beba Rompope."
     ],
-    difficulty: "Informativo",
+    difficulty: "Avançado",
     time: "N/A",
     description: "Puebla é a cozinha sofisticada dos conventos coloniais. Aqui nasceram os pratos mais barrocos e elaborados do México, misturando influências árabes, espanholas e indígenas."
   },
@@ -137,7 +137,7 @@ export const voltaAoMundo: VipDrink[] = [
       "Prove a Lagosta com feijão e arroz em Puerto Nuevo.",
       "Experimente a cozinha Baja Med: fusão mediterrânea-mexicana."
     ],
-    difficulty: "Informativo",
+    difficulty: "Médio",
     time: "N/A",
     description: "O Mediterrâneo mexicano. Baja é moderna, focada em frutos do mar frescos, azeite, vinho e vegetais orgânicos. É onde a tradição encontra a inovação californiana."
   },
@@ -162,7 +162,7 @@ export const voltaAoMundo: VipDrink[] = [
       "Beba Pulque em uma pulquería tradicional.",
       "Visite Xochimilco e coma nas trajineras."
     ],
-    difficulty: "Informativo",
+    difficulty: "Fácil",
     time: "N/A",
     description: "A Cidade do México (antiga Tenochtitlán) é uma das maiores capitas gastronômicas do mundo. Da comida de rua mais humilde aos melhores restaurantes do planeta, a CDMX vibra comida 24h por dia."
   }
