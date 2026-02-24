@@ -1,5 +1,6 @@
 import { dishesBatch2 } from "./dishes-batch2";
 import { dishesBatch3 } from "./dishes-batch3";
+import { dishesBatch4 } from "./dishes-batch4";
 
 export interface Dish {
   id: string;
@@ -586,6 +587,7 @@ export const dishes: Dish[] = [
     description: "Versão de izakaya do tamagoyaki, com mais dashi — tão macio que quase desmancha. Teste de habilidade do chef." },
   ...dishesBatch2,
   ...dishesBatch3,
+  ...dishesBatch4,
 ];
 
 export function getDishById(id: string): Dish | undefined {
