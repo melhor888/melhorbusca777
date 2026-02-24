@@ -47,11 +47,11 @@ const dishImages: Record<string, string> = {
   "gorditas": "/images/dish-gorditas.jpg",
   "elotes": "/images/dish-elotes.jpg",
   "tostadas": "/images/dish-tostadas.jpg",
-  "tlacoyos": "/images/dish-sopes.jpg",
-  "huaraches": "/images/dish-sopes.jpg",
-  "flautas": "/images/dish-enchiladas-rojas.jpg",
-  "molletes": "/images/dish-quesadillas.jpg",
-  "esquites": "/images/dish-elotes.jpg",
+  "tlacoyos": "/images/dish-tlacoyos.jpg",
+  "huaraches": "/images/dish-huaraches.jpg",
+  "flautas": "/images/dish-flautas.jpg",
+  "molletes": "/images/dish-molletes.jpg",
+  "esquites": "/images/dish-esquites.jpg",
 
   // ============ SOPAS & CALDOS ============
   "pozole-rojo": "/images/dish-pozole-rojo.jpg",
