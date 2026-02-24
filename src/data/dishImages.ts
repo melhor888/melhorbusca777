@@ -38,6 +38,14 @@ const dishImages: Record<string, string> = {
   "tacos-veganos": "/images/dish-tacos-veganos.jpg",
   "tacos-cochinita": "/images/dish-tacos-cochinita.jpg",
   "tacos-gourmet": "/images/dish-tacos-gourmet.jpg",
+  "tacos-tripas": "/images/dish-tacos-tripas.jpg",
+  "tacos-nopales-queso": "/images/dish-tacos-nopales-queso.jpg",
+  "tacos-rajas-crema": "/images/dish-tacos-rajas-crema.jpg",
+  "tacos-chicharron-guisado": "/images/dish-tacos-chicharron-guisado.jpg",
+  "tacos-papa-criolla": "/images/dish-tacos-papa-criolla.jpg",
+  "tacos-mixiote": "/images/dish-tacos-mixiote.jpg",
+  "tacos-chapulines": "/images/dish-tacos-chapulines.jpg",
+  "tacos-arrachera-queso": "/images/dish-tacos-arrachera-queso.jpg",
 
   // ============ ANTOJITOS ============
   "quesadillas": "/images/dish-quesadillas.jpg",
