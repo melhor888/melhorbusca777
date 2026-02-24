@@ -26,7 +26,8 @@
   "search": {
     "placeholder": "Buscar platos, ingredientes...",
     "noResults": "No se encontraron resultados.",
-    "clear": "Limpiar"
+    "clear": "Limpiar",
+    "dishOfMoment": "Plato del momento"
   },
   "filters": {
     "easy": "Fácil",
@@ -45,6 +46,17 @@
     "servings": "Porciones",
     "origin": "Origen",
     "curiosity": "Curiosidad",
+    "chefTip": "Consejo del Chef",
+    "idealDish": "Platillo Ideal",
+    "howToServe": "Cómo Servir",
+    "chefSecret": "Secreto del Chef",
+    "sellPrice": "Precio de Venta en Brasil",
+    "avgPrice": "Precio Promedio de Venta",
+    "prodCost": "Costo de Producción",
+    "margin": "Margen de Ganancia",
+    "yield": "Rendimiento",
+    "regionalPrice": "Precio por Región",
+    "pricingTip": "Consejo de Precio",
     "similar": "Recetas Similares",
     "share": "Compartir",
     "addToList": "Agregar a la lista"
@@ -89,7 +101,12 @@
     "seeAll": "Ver todo",
     "back": "Volver",
     "loading": "Cargando...",
-    "language": "Idioma"
+    "language": "Idioma",
+    "recipeNotFound": "Receta no encontrada.",
+    "categoryNotFound": "Categoría no encontrada.",
+    "recipes": "recetas",
+    "dishesAvailable": "platos disponibles",
+    "gained": "Ganado"
   },
   "pwa": {
     "install": "Instalar App",

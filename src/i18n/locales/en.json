@@ -26,7 +26,8 @@
   "search": {
     "placeholder": "Search dishes, ingredients...",
     "noResults": "No results found.",
-    "clear": "Clear"
+    "clear": "Clear",
+    "dishOfMoment": "Dish of the moment"
   },
   "filters": {
     "easy": "Easy",
@@ -45,6 +46,17 @@
     "servings": "Servings",
     "origin": "Origin",
     "curiosity": "Fun Fact",
+    "chefTip": "Chef's Tip",
+    "idealDish": "Ideal Dish",
+    "howToServe": "How to Serve",
+    "chefSecret": "Chef's Secret",
+    "sellPrice": "Selling Price in Brazil",
+    "avgPrice": "Average Selling Price",
+    "prodCost": "Production Cost",
+    "margin": "Profit Margin",
+    "yield": "Yield",
+    "regionalPrice": "Price by Region",
+    "pricingTip": "Pricing Tip",
     "similar": "Similar Recipes",
     "share": "Share",
     "addToList": "Add to list"
@@ -89,7 +101,12 @@
     "seeAll": "See all",
     "back": "Back",
     "loading": "Loading...",
-    "language": "Language"
+    "language": "Language",
+    "recipeNotFound": "Recipe not found.",
+    "categoryNotFound": "Category not found.",
+    "recipes": "recipes",
+    "dishesAvailable": "dishes available",
+    "gained": "Gained"
   },
   "pwa": {
     "install": "Install App",

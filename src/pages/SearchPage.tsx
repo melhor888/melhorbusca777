@@ -1,12 +1,17 @@
 import { useState, useMemo } from "react";
 import { Search } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { searchDishes, categories, dishes } from "@/data/dishes";
 import { getDishImage } from "@/data/dishImages";
+import { getTranslatedDish, getTranslatedCategory } from "@/data/translations";
 import DrinkCard from "@/components/DrinkCard";
 import { useNavigate } from "react-router-dom";
+import { useLocalizedPath } from "@/i18n/useLocalizedPath";
 
 export default function SearchPage() {
   const [query, setQuery] = useState("");
+  const { t } = useTranslation();
+  const { localePath } = useLocalizedPath();
   const navigate = useNavigate();
   const results = query.length >= 2 ? searchDishes(query) : [];
 
@@ -14,29 +19,31 @@ export default function SearchPage() {
     return dishes[Math.floor(Math.random() * dishes.length)];
   }, []);
 
+  const translatedRandom = getTranslatedDish(randomDish);
+
   return (
     <div className="min-h-screen pb-20 pt-4">
       {query.length < 2 && (
         <div className="px-4 mb-4">
           <button
-            onClick={() => navigate(`/recipe/${randomDish.id}`)}
+            onClick={() => navigate(localePath(`/recipe/${randomDish.id}`))}
             className="relative w-full h-48 rounded-2xl overflow-hidden group"
           >
             <img
               src={getDishImage(randomDish.image)}
-              alt={randomDish.name}
+              alt={translatedRandom.name}
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
             <div className="absolute inset-0 hero-overlay" />
             <div className="absolute bottom-0 left-0 right-0 p-4">
               <span className="text-[10px] uppercase tracking-wider text-primary font-semibold">
-                Prato do momento
+                {t("search.dishOfMoment", "Prato do momento")}
               </span>
               <h2 className="font-display font-bold text-foreground text-xl leading-tight">
-                {randomDish.name}
+                {translatedRandom.name}
               </h2>
               <p className="text-muted-foreground text-xs mt-1">
-                {randomDish.category} · {randomDish.difficulty} · {randomDish.time}
+                {translatedRandom.category} · {translatedRandom.difficulty} · {translatedRandom.time}
               </p>
             </div>
           </button>
@@ -52,7 +59,7 @@ export default function SearchPage() {
                 onClick={() => setQuery(cat)}
                 className="px-4 py-2 rounded-full bg-secondary text-secondary-foreground text-sm font-medium transition-colors hover:bg-primary hover:text-primary-foreground flex-shrink-0"
               >
-                {cat}
+                {getTranslatedCategory(cat)}
               </button>
             ))}
           </div>
@@ -69,7 +76,7 @@ export default function SearchPage() {
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Buscar pratos, ingredientes..."
+            placeholder={t("search.placeholder", "Buscar pratos, ingredientes...")}
             className="w-full pl-10 pr-4 py-3 rounded-xl bg-secondary text-foreground placeholder:text-muted-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/50"
           />
         </div>
@@ -85,7 +92,7 @@ export default function SearchPage() {
             </div>
           ) : (
             <p className="text-muted-foreground text-center mt-12">
-              Nenhum resultado para "{query}"
+              {t("search.noResults", "Nenhum resultado")} "{query}"
             </p>
           )}
         </div>
