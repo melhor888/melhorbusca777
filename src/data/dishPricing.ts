@@ -1,3 +1,7 @@
+import { dishPricingBatch2 } from "./dishPricing-batch2";
+import { dishPricingBatch3 } from "./dishPricing-batch3";
+import { dishPricingBatch4 } from "./dishPricing-batch4";
+
 export interface RegionalPrice {
   region: string;
   price: string;
@@ -19,7 +23,7 @@ export interface DishPricing {
 }
 
 export function getDishPricing(id: string): DishPricing | undefined {
-  return dishPricingData[id];
+  return dishPricingData[id] || dishPricingBatch2[id] || dishPricingBatch3[id] || dishPricingBatch4[id];
 }
 
 export const dishPricingData: Record<string, DishPricing> = {
