@@ -6,7 +6,7 @@ import { getDishById, dishes as allDishes, getSpiceLevel, getFlavorTags, spiceLe
 import { getTranslatedDish, getTranslatedCategory, getTranslatedDifficulty } from "@/data/translations";
 import { getDishImage } from "@/data/dishImages";
 import { getLocalizedChefTip } from "@/data/localizedChefTips";
-import { getDishExtra } from "@/data/dishExtras";
+import { getLocalizedExtra } from "@/data/localizedExtras";
 import { getLocalizedPricing } from "@/data/localizedPricing";
 import { useFavorites } from "@/hooks/useFavorites";
 import { useXP } from "@/hooks/useXP";
@@ -67,7 +67,7 @@ export default function RecipeDetail() {
   const fav = isFavorite(dish.id);
   const inCart = isInList(dish.id);
   const chefTip = getLocalizedChefTip(dish.id);
-  const extra = getDishExtra(dish.id);
+  const extra = getLocalizedExtra(dish.id);
   const pricing = getLocalizedPricing(dish.id);
   const spice = getSpiceLevel(rawDish);
   const spiceInfo = spiceLevelLabels[spice];

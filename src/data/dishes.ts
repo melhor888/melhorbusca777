@@ -2,6 +2,8 @@ import { dishesBatch2 } from "./dishes-batch2";
 import { dishesBatch3 } from "./dishes-batch3";
 import { dishesBatch4 } from "./dishes-batch4";
 import { dishesBatch5 } from "./dishes-batch5";
+import { dishesBatch6 } from "./dishes-batch6";
+import { dishesBatch7 } from "./dishes-batch7";
 
 export type SpiceLevel = 0 | 1 | 2 | 3;
 export type FlavorTag = "picante" | "não picante" | "defumado" | "suave" | "intenso";
@@ -371,17 +373,17 @@ export const dishes: Dish[] = [
 ];
 
 export function getDishesByCategory(category: string): Dish[] {
-  const allDishes = [...dishes, ...dishesBatch2, ...dishesBatch3, ...dishesBatch4, ...dishesBatch5];
+  const allDishes = [...dishes, ...dishesBatch2, ...dishesBatch3, ...dishesBatch4, ...dishesBatch5, ...dishesBatch6, ...dishesBatch7];
   return allDishes.filter((d) => d.category === category);
 }
 
 export function getDishById(id: string): Dish | undefined {
-  const allDishes = [...dishes, ...dishesBatch2, ...dishesBatch3, ...dishesBatch4, ...dishesBatch5];
+  const allDishes = [...dishes, ...dishesBatch2, ...dishesBatch3, ...dishesBatch4, ...dishesBatch5, ...dishesBatch6, ...dishesBatch7];
   return allDishes.find((d) => d.id === id);
 }
 
 export function getAllDishes(): Dish[] {
-  return [...dishes, ...dishesBatch2, ...dishesBatch3, ...dishesBatch4, ...dishesBatch5];
+  return [...dishes, ...dishesBatch2, ...dishesBatch3, ...dishesBatch4, ...dishesBatch5, ...dishesBatch6, ...dishesBatch7];
 }
 
 export function searchDishes(query: string): Dish[] {
