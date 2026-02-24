@@ -1,5 +1,5 @@
-import { useNavigate } from "react-router-dom";
 import { Dish } from "@/data/dishes";
+import { useTranslation } from "react-i18next";
 import DrinkCard from "./DrinkCard";
 
 interface SimilarDrinksProps {
@@ -8,6 +8,7 @@ interface SimilarDrinksProps {
 }
 
 export default function SimilarDrinks({ currentDrink, allDrinks }: SimilarDrinksProps) {
+  const { t } = useTranslation();
   const similar = allDrinks
     .filter(
       (d) =>
@@ -22,7 +23,7 @@ export default function SimilarDrinks({ currentDrink, allDrinks }: SimilarDrinks
   return (
     <section className="mt-8">
       <h2 className="text-lg font-display font-bold text-foreground mb-4">
-        Pratos Similares
+        {t("recipe.similar", "Pratos Similares")}
       </h2>
       <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
         {similar.map((drink, i) => (
