@@ -678,6 +678,27 @@ const dishImages: Record<string, string> = {
   // Cultura
   "mezcal-cultura": "/images/dish-pulque.jpg",
   "mercados-mexico": "/images/dish-tacos-al-pastor.jpg",
+
+  // ============ MISSING IMAGE KEY MAPPINGS ============
+  "arroz-con-leche": "/images/dish-arroz-con-leche.jpg",
+  "camarones-ajillo": "/images/dish-camarones-ajillo.jpg",
+  "tacos-marlin": "/images/dish-tacos-marlin.jpg",
+  "tacos-guisado-tinga": "/images/dish-tacos-guisado-tinga.jpg",
+  "tacos-cochinita-hab": "/images/dish-tacos-cochinita-hab.jpg",
+  "sopa-piedra": "/images/dish-sopa-piedra.jpg",
+  "pozole-guerrero": "/images/dish-pozole-guerrero.jpg",
+  "sopa-lentejas": "/images/dish-sopa-lentejas.jpg",
+  "costillas-verde": "/images/dish-costillas-verde.jpg",
+  "espinazo-verde": "/images/dish-espinazo-verde.jpg",
+  "chicharron-salsa": "/images/dish-chicharron-salsa.jpg",
+  "puntas-mexicana": "/images/dish-puntas-mexicana.jpg",
+  "milanesa": "/images/dish-milanesa-empanizada.jpg",
+  "barbacoa-chihuahua": "/images/dish-barbacoa-chihuahua.jpg",
+  "aguachile-mango": "/images/dish-aguachile-mango.jpg",
+  "pulpo-pastor": "/images/dish-pulpo-pastor.jpg",
+  "camarones-curry": "/images/dish-camarones-curry.jpg",
+  "calabaza-tacha": "/images/dish-calabaza-tacha.jpg",
+  "torta-ahogada-carnitas": "/images/dish-torta-ahogada-carnitas.jpg",
 };
 
 export function getDishImage(dishId: string): string {
