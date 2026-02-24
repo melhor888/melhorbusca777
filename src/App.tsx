@@ -87,6 +87,7 @@ const App = () => (
               <Route path="/queroservip" element={<QueroSerVip />} />
               <Route path="/vip/ferramentas" element={<VipTools />} />
               <Route path="/vip/modelos" element={<VipModelos />} />
+              <Route path="/vip/:slug" element={<VipCategoryPage />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
             <BottomNav />
