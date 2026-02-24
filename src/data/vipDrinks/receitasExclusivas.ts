@@ -185,4 +185,159 @@ export const receitasExclusivas: VipDrink[] = [
     time: "3h",
     description: "Experiência gastronômica premium de alto ticket — Wagyu com mezcal artesanal, guacamole com camarão e flan com ouro comestível. Perfeito para jantares de R$500+ por pessoa ou eventos corporativos exclusivos."
   },
+  // ============ RECEITAS TRADICIONAIS AVANÇADAS ============
+  {
+    id: "tamales-negros-oaxaca",
+    name: "Tamales Negros de Oaxaca — Método Ancestral",
+    category: "receitas-exclusivas",
+    image: "tamales-negros",
+    ingredients: ["1kg de masa de milho nixtamalizado", "500g de mole negro preparado", "300g de frango desfiado", "Folhas de banana frescas", "Banha de porco", "Sal"],
+    steps: ["Prepare a masa: bata banha até ficar cremosa, adicione masa e sal.", "Teste flutuação: uma bolinha de masa deve flutuar em água.", "Integre o mole negro à masa até ficar escura e homogênea.", "Corte folhas de banana em retângulos de 25cm.", "Passe folhas na chama para amolecê-las.", "Espalhe masa na folha, adicione frango desfiado.", "Dobre em envelope e amarre com tira de folha.", "Cozinhe no vapor por 1h30 até a masa soltar da folha."],
+    difficulty: "Avançado",
+    time: "4h",
+    description: "Os tamales negros de Oaxaca são envolvidos em folha de banana e recheados com mole negro — o resultado é um tamal escuro, aromático e complexo. Receita de família zapoteca de 5 gerações."
+  },
+  {
+    id: "mixiote-borrego-secreto",
+    name: "Mixiote de Borrego — Receita do Altiplano",
+    category: "receitas-exclusivas",
+    image: "mixiote-borrego",
+    ingredients: ["2kg de borrego (cordeiro) em pedaços", "8 chiles guajillo", "4 chiles pasilla", "Cominho", "Orégano mexicano", "Folha de aguacate", "Pimenta-da-jamaica", "Membrana de maguey (mixiote)", "Folhas de papel alumínio"],
+    steps: ["Hidrate chiles em água quente por 20 min.", "Bata chiles com especiarias e vinagre até pasta suave.", "Marine o borrego na pasta por mínimo 6 horas.", "Corte a membrana de maguey em quadrados grandes.", "Coloque porções de carne marinada em cada membrana.", "Amarre com barbante formando trouxinhas.", "Cozinhe no vapor em panela grande por 3-4 horas.", "A carne deve desmanchar — sirva com tortillas e salsa verde."],
+    difficulty: "Avançado",
+    time: "5h (+ marinada)",
+    description: "O mixiote é um método pré-hispânico do Altiplano Central mexicano. A carne é cozida na membrana translúcida do maguey, que sela sabores e aromas. Esta receita vem de Tlaxcala."
+  },
+  {
+    id: "mole-coloradito-oaxaca",
+    name: "Mole Coloradito de Oaxaca",
+    category: "receitas-exclusivas",
+    image: "mole-coloradito",
+    ingredients: ["6 chiles ancho", "4 chiles guajillo", "3 tomates", "1 plátano macho maduro", "Chocolate de metate", "Ajonjolí torrado", "Amendoim torrado", "Canela", "Orégano", "Cebola", "Alho", "Banha de porco"],
+    steps: ["Torre chiles em comal seco sem queimar.", "Hidrate em água quente por 15 min.", "Asse tomates, cebola e alho no comal.", "Torre ajonjolí e amendoim separadamente.", "Frite plátano maduro em banha até dourar.", "Bata tudo no liquidificador com caldo.", "Frite a pasta em banha quente por 20 min mexendo.", "Adicione chocolate e cozinhe por 1h em fogo baixo.", "A cor deve ser vermelho-tijolo com brilho acetinado.", "Sirva sobre pollo ou enchiladas."],
+    difficulty: "Avançado",
+    time: "3h",
+    description: "O mole coloradito é um dos 7 moles de Oaxaca — mais suave que o negro, com doçura do plátano e chocolate. Perfeito para enchiladas de mole coloradito, prato icônico oaxaqueño."
+  },
+  {
+    id: "chile-xcatic-yucatan",
+    name: "Chile Xcatic Relleno — Estilo Yucatán",
+    category: "receitas-exclusivas",
+    image: "chile-xcatic",
+    ingredients: ["8 chiles xcatic (ou güero)", "500g de carne de porco desfiada", "Recado negro (chilmole)", "Cebola roxa curtida em limão", "Naranja agria", "Epazote fresco", "Tomate", "Habanero"],
+    steps: ["Asse chiles xcatic na brasa até a pele estalar.", "Retire sementes com cuidado, mantendo inteiros.", "Prepare recheio: refogue porco desfiado com recado negro.", "Adicione epazote e naranja agria ao refogado.", "Recheie cada chile com a mistura.", "Prepare salsa de tomate com habanero assado.", "Banhe os chiles na salsa.", "Sirva com cebola roxa curtida e tortillas."],
+    difficulty: "Médio",
+    time: "2h",
+    description: "O chile xcatic é exclusivo de Yucatán — amarelo, aromático e levemente picante. Recheado com porco em chilmole, é um prato de festa das famílias maias."
+  },
+  {
+    id: "poc-chuc-yucateco",
+    name: "Poc Chuc Yucateco Autêntico",
+    category: "receitas-exclusivas",
+    image: "poc-chuc",
+    ingredients: ["1kg de lombo de porco fatiado fino", "200ml de naranja agria", "Cebola roxa", "Tomate", "Cilantro", "Chile habanero", "Sal", "Frijoles colados", "Tortillas de maíz"],
+    steps: ["Corte porco em fatias finas de 5mm.", "Marine em naranja agria e sal por 2 horas.", "Grelhe em fogo alto de carvão — 2 min cada lado.", "Prepare xni-pec: tomate, cebola, habanero, cilantro e naranja agria picados.", "Grelhe cebolas inteiras até caramelizar.", "Sirva carne com cebola grelhada e xni-pec.", "Acompanhe com frijoles colados e tortillas.", "O sabor defumado do carvão é essencial."],
+    difficulty: "Médio",
+    time: "1h (+ marinada)",
+    description: "Poc Chuc significa 'carne sobre as brasas' em maia. Este prato ancestral de Yucatán é simples na técnica mas profundo em sabor — a naranja agria e o carvão são insubstituíveis."
+  },
+  {
+    id: "enchiladas-potosinas-secretas",
+    name: "Enchiladas Potosinas — Receita Original",
+    category: "receitas-exclusivas",
+    image: "enchiladas-potosinas",
+    ingredients: ["1kg de masa de maíz", "Chile ancho desidratado", "Chile guajillo", "Queso fresco", "Cebola", "Epazote", "Banha de porco", "Salsa verde cruda"],
+    steps: ["Hidrate e bata chiles com pouca água — pasta concentrada.", "Misture pasta de chile com masa até ficar vermelha uniformemente.", "A masa deve ser maleável e não grudar nas mãos.", "Faça tortillas pequenas de 10cm.", "Recheie com queso fresco desmoronado e cebola.", "Dobre ao meio como quesadilla e sele as bordas.", "Frite em banha quente até crocante dos dois lados.", "Sirva com salsa verde, crema e aguacate."],
+    difficulty: "Médio",
+    time: "2h",
+    description: "As enchiladas potosinas não são enchiladas tradicionais — são tortillas de masa com chile, recheadas e fritas. Originaram em San Luis Potosí e a receita é guardada com zelo pelas famílias locais."
+  },
+  {
+    id: "manchamanteles-oaxaca",
+    name: "Manchamanteles Oaxaqueño",
+    category: "receitas-exclusivas",
+    image: "manchamanteles",
+    ingredients: ["6 chiles ancho", "2 chiles mulato", "1 abacaxi maduro", "2 plátanos machos", "1 pera mexicana", "Canela", "Cravos", "Pimenta-da-jamaica", "Frango em pedaços", "Banha", "Amêndoas"],
+    steps: ["Torre e hidrate os chiles.", "Bata chiles com especiarias e amêndoas.", "Frite a pasta em banha por 15 min.", "Cozinhe frango em caldo até macio.", "Adicione frango ao molho.", "Corte frutas em pedaços grandes.", "Adicione abacaxi, plátano e pera ao guisado.", "Cozinhe 45 min — as frutas devem ficar macias mas inteiras.", "O resultado deve manchar o mantel (toalha de mesa)."],
+    difficulty: "Avançado",
+    time: "3h",
+    description: "Manchamanteles significa 'mancha-toalhas' — um mole frutado que realmente mancha tudo. Um dos 7 moles de Oaxaca, combina chiles com frutas tropicais em harmonia doce-picante."
+  },
+  {
+    id: "aguachile-negro-sinaloa",
+    name: "Aguachile Negro de Sinaloa — Chef's Secret",
+    category: "receitas-exclusivas",
+    image: "aguachile-negro",
+    ingredients: ["500g de camarão fresco", "100ml de suco de limão", "50ml de soja", "Chile serrano", "Chile de árbol seco", "Cebolla morada", "Pepino", "Cilantro", "Maggi", "Tostadas"],
+    steps: ["Borbolete camarões e coloque em prato plano sobre gelo.", "Bata limão com chiles, soja e Maggi.", "O aguachile deve ser intensamente picante e salgado.", "Despeje sobre os camarões crus.", "Deixe curar por 5 minutos máximo — não mais.", "Decore com cebola roxa, pepino e cilantro.", "Sirva imediatamente com tostadas.", "A versão negra usa a soja e Maggi para cor e umami intenso."],
+    difficulty: "Médio",
+    time: "20 min",
+    description: "O aguachile negro de Sinaloa é a versão mais ousada — intenso em umami com soja e Maggi. Esta receita vem de um marisquero de Mazatlán que inventou a versão nos anos 90."
+  },
+  {
+    id: "cabrito-al-pastor-monterrey",
+    name: "Cabrito al Pastor — Estilo Monterrey",
+    category: "receitas-exclusivas",
+    image: "cabrito-pastor",
+    ingredients: ["1 cabrito inteiro limpo (~8kg)", "Sal grosso", "Manteca de cerdo", "Frijoles a la charra", "Tortillas de harina", "Salsa taquera", "Guacamole", "Cebolla asada"],
+    steps: ["Abra o cabrito em borboleta sobre uma cruz de ferro.", "Sal grosso generosamente em toda a superfície.", "Posicione sobre carvão de mesquite a 60cm de distância.", "Asse lentamente por 3-4 horas girando periodicamente.", "Baste com manteca derretida a cada 30 min.", "A pele deve ficar crocante e a carne macia.", "Corte em porções e sirva com frijoles charros.", "Acompanhe com tortillas de harina e salsa."],
+    difficulty: "Avançado",
+    time: "5h",
+    description: "O cabrito é o prato símbolo de Monterrey e Nuevo León. Assado lentamente em cruz sobre carvão de mesquite, é tradição dominical das famílias norteñas há séculos."
+  },
+  {
+    id: "mole-chichilo-negro",
+    name: "Mole Chichilo Negro de Oaxaca",
+    category: "receitas-exclusivas",
+    image: "mole-chichilo",
+    ingredients: ["Chile chilhuacle negro", "Chile mulato", "Chile pasilla", "Tortilla queimada", "Miltomate (tomate verde silvestre)", "Chayote", "Ejote", "Hierba santa", "Carne de res", "Cebola queimada", "Ajo queimado"],
+    steps: ["Queme cebola y ajo directamente en la llama.", "Torre chiles por segundos — no queimar.", "Hidrate chiles em água quente.", "Queme tortilla completamente — dá cor e profundidade.", "Bata tudo com miltomates assados.", "Frite pasta em manteca por 20 min.", "Cozinhe carne em caldo com chayote e ejote.", "Adicione o mole e hierba santa.", "Cozinhe por 2h em fogo baixo.", "A textura deve ser aveludada e a cor negra profunda."],
+    difficulty: "Avançado",
+    time: "4h",
+    description: "O chichilo é o mais raro dos 7 moles de Oaxaca — negro profundo, com hierba santa e vegetais. É servido apenas em ocasiões especiais e poucos cozinheiros dominam sua preparação."
+  },
+  {
+    id: "tacos-gobernador-sinaloa",
+    name: "Tacos Gobernador — Receita Original de Mazatlán",
+    category: "receitas-exclusivas",
+    image: "tacos-gobernador",
+    ingredients: ["500g de camarão limpo", "300g de queijo Chihuahua", "Chile poblano", "Tomate", "Cebola", "Mantequilla", "Tortillas de harina", "Chile de árbol"],
+    steps: ["Salteia camarões em mantequilla com alho — 2 min apenas.", "Em outra panela, refogue cebola, tomate e poblano.", "Adicione camarões ao refogado.", "Aqueça tortillas de harina na chapa.", "Coloque queijo ralado na tortilla na chapa quente.", "Quando queijo derreter, adicione recheio de camarão.", "Dobre e grelhe até crocante.", "Sirva com salsa de chile de árbol."],
+    difficulty: "Médio",
+    time: "30 min",
+    description: "Criados em Mazatlán supostamente para o governador de Sinaloa, estes tacos de camarão com queijo derretido são uma obra-prima de simplicidade. A receita original nunca foi publicada oficialmente."
+  },
+  {
+    id: "sopa-azteca-premium",
+    name: "Sopa Azteca Premium — Versão do Chef",
+    category: "receitas-exclusivas",
+    image: "sopa-azteca",
+    ingredients: ["Chile pasilla frito", "Chile ancho", "Tomates asados", "Caldo de pollo casero", "Tortillas cortadas y fritas", "Aguacate", "Crema", "Queso fresco", "Chicharrón", "Epazote"],
+    steps: ["Frite tiras de tortilla até crocantes — reserve.", "Asse chiles pasilla por segundos — reserve inteiros para decorar.", "Asse tomates, cebola e alho.", "Bata com chile ancho hidratado.", "Frite a salsa em azeite por 10 min.", "Adicione caldo de frango caseiro e epazote.", "Cozinhe 30 min em fogo baixo.", "Sirva com tortilla frita, aguacate, crema, queijo e pasilla frito."],
+    difficulty: "Médio",
+    time: "1h",
+    description: "A Sopa Azteca (ou sopa de tortilla) é um ícone da culinária mexicana. Esta versão premium usa chile pasilla frito inteiro como decoração e chicharrón crocante para textura."
+  },
+  {
+    id: "coctel-vuelve-a-la-vida",
+    name: "Vuelve a la Vida — Coquetel de Mariscos Veracruzano",
+    category: "receitas-exclusivas",
+    image: "vuelve-vida",
+    ingredients: ["200g de camarón cocido", "200g de pulpo cocido", "100g de ostión fresco", "200ml de salsa catsup", "100ml de suco de limão", "Chile serrano", "Cilantro", "Cebolla", "Aguacate", "Galletas saladas"],
+    steps: ["Corte todos los mariscos en cubos pequeños.", "Pique cebolla, cilantro y chile serrano finamente.", "Mezcle mariscos con catsup y jugo de limón.", "Agregue cebolla, cilantro y chile.", "Refrigere por 30 min.", "Sirva em copo grande com aguacate.", "Acompañe con galletas saladas y limones.", "El nombre 'Vuelve a la Vida' viene de su fama como cura de resaca."],
+    difficulty: "Fácil",
+    time: "30 min",
+    description: "O Vuelve a la Vida é o coquetel de mariscos mais famoso de Veracruz — literalmente 'volte à vida'. Servido nas praias e mercados costeiros, é a cura mexicana para ressaca."
+  },
+  {
+    id: "chiles-en-nogada-clasico-puebla",
+    name: "Chiles en Nogada — Método Clássico de Puebla",
+    category: "receitas-exclusivas",
+    image: "chiles-nogada-clasico",
+    ingredients: ["8 chiles poblanos grandes", "500g carne de porco molida", "500g carne de res molida", "Frutas cristalizadas: acitrón, durazno, pera, manzana", "Nuez de Castilla fresca", "Queso de cabra", "Leche", "Granada roja", "Perejil fresco", "Canela, clavo, pimienta"],
+    steps: ["Ase y pele los chiles poblanos — no remoje en agua.", "Prepare picadillo: refogue carnes con especiarias.", "Adicione frutas picadas e cristalizadas ao picadillo.", "Cozinhe por 45 min até encorpar.", "Para la nogada: bata nueces remojadas, queso de cabra e leche.", "La nogada debe ser cremosa y blanca como nieve.", "Rellene chiles con picadillo.", "Bañe com nogada, decore com granada y perejil.", "Los colores representan la bandera mexicana.", "Sirva a temperatura ambiente — NUNCA quente."],
+    difficulty: "Avançado",
+    time: "4h",
+    description: "Chiles en Nogada é o prato mais patriótico do México — verde (chile), branco (nogada) e vermelho (granada). Servido apenas em agosto-setembro quando as nueces e granadas estão em temporada. Receita conventual do século XIX."
+  },
 ];
