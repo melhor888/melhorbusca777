@@ -1,101 +1,51 @@
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import { useTranslation } from "react-i18next";
 import { ArrowLeft, Lock, CheckCircle, Zap, Star, Trophy } from "lucide-react";
 import { useXP, getLevel, LEVELS } from "@/hooks/useXP";
 import { achievements as allAchievements } from "@/data/achievements";
 import { Progress } from "@/components/ui/progress";
 
-function getRequirement(ach: typeof allAchievements[0]): string {
-  if (ach.requiredXP) return `${ach.requiredXP} XP`;
-  
-  // Level achievements
-  if (ach.id.startsWith("level-")) {
-    const lvlNum = parseInt(ach.id.split("-")[1]);
-    const lvl = LEVELS.find(l => l.level === lvlNum);
-    return lvl ? `Nível ${lvlNum} (${lvl.minXP} XP)` : `Nível ${lvlNum}`;
-  }
-  
-  // Explorer
-  const explorerMatch = ach.id.match(/^explorer-(\d+)$/);
-  if (explorerMatch) return `Ver ${explorerMatch[1]} receitas`;
-  if (ach.id === "explorer-all") return "Ver todas as receitas";
-  
-  // Favorites
-  const favMatch = ach.id.match(/^fav-(\d+)$/);
-  if (favMatch) return `Favoritar ${favMatch[1]} pratos`;
-  
-  // Shopping
-  const shopMatch = ach.id.match(/^shop-(\d+)$/);
-  if (shopMatch) return `${shopMatch[1]} pratos na lista`;
-  
-  // Tips
-  const tipsMatch = ach.id.match(/^tips-(\d+)$/);
-  if (tipsMatch) return `Completar ${tipsMatch[1]} lições`;
-  if (ach.id === "first-tip") return "Completar 1 lição";
-  if (ach.id === "all-tips") return "Completar todas as lições";
-  
-  // Articles/Scholar
-  const scholarMatch = ach.id.match(/^scholar-(\d+)$/);
-  if (scholarMatch) return `Ler ${scholarMatch[1]} artigos`;
-  if (ach.id === "first-article") return "Ler 1 artigo";
-  if (ach.id === "articles-all") return "Ler todos os artigos";
-  
-  // Difficulty
-  if (ach.id.startsWith("diff-")) return ach.description;
-  
-  // Category
-  if (ach.id.startsWith("cat-")) return ach.description;
-  
-  // History/Culture
-  if (ach.id.startsWith("history-") || ach.id.startsWith("learn-")) return ach.description;
-  
-  // Streaks
-  const streakMatch = ach.id.match(/^streak-(\d+)$/);
-  if (streakMatch) return `${streakMatch[1]} dias seguidos`;
-  
-  // Special/Behavior
-  if (ach.id === "night-owl") return "Explorar após meia-noite";
-  if (ach.id === "early-bird") return "Explorar antes das 7h";
-  if (ach.id === "weekend-warrior") return "Ver 20 receitas em 1 dia";
-  if (ach.id === "binge-viewer") return "Ver 30 receitas em 1 dia";
-  if (ach.id === "first-search") return "Fazer primeira busca";
-  if (ach.id === "speed-learner") return "Ganhar 100 XP em 1 dia";
-  if (ach.id === "speed-master") return "Ganhar 200 XP em 1 dia";
-  if (ach.id === "completionist") return "Desbloquear 50 conquistas";
-  if (ach.id === "mega-completionist") return "Desbloquear 75 conquistas";
-  if (ach.id === "ultimate") return "Desbloquear 100 conquistas";
-  
-  return ach.description;
-}
-
-function getCategory(ach: typeof allAchievements[0]): string {
-  if (ach.id.startsWith("explorer")) return "Exploração";
-  if (ach.id.startsWith("xp-")) return "Marcos de XP";
-  if (ach.id.startsWith("level-")) return "Níveis";
-  if (ach.id.startsWith("cat-")) return "Categorias";
-  if (ach.id.startsWith("fav-")) return "Favoritos";
-  if (ach.id.startsWith("shop-")) return "Lista de Compras";
-  if (ach.id.startsWith("diff-")) return "Dificuldade";
-  if (ach.id.startsWith("history-") || ach.id.startsWith("learn-")) return "Cultura";
+function getCategory(ach: typeof allAchievements[0], t: (key: string) => string): string {
+  if (ach.id.startsWith("explorer")) return t("achievements_page.exploration");
+  if (ach.id.startsWith("xp-")) return t("achievements_page.xpMilestones");
+  if (ach.id.startsWith("level-")) return t("achievements_page.levels");
+  if (ach.id.startsWith("cat-")) return t("achievements_page.categoryAch");
+  if (ach.id.startsWith("fav-")) return t("achievements_page.favoritesAch");
+  if (ach.id.startsWith("shop-")) return t("achievements_page.shoppingList");
+  if (ach.id.startsWith("diff-")) return t("achievements_page.difficultyAch");
+  if (ach.id.startsWith("history-") || ach.id.startsWith("learn-")) return t("achievements_page.cultureAch");
   if (ach.id.startsWith("tips-") || ach.id === "first-tip" || ach.id === "all-tips" ||
-      ach.id.startsWith("scholar-") || ach.id === "first-article" || ach.id === "articles-all") return "Escola";
-  return "Especiais";
+      ach.id.startsWith("scholar-") || ach.id === "first-article" || ach.id === "articles-all") return t("achievements_page.schoolAch");
+  return t("achievements_page.specialAch");
 }
-
-const categoryOrder = ["Exploração", "Marcos de XP", "Níveis", "Escola", "Categorias", "Favoritos", "Lista de Compras", "Dificuldade", "Cultura", "Especiais"];
 
 export default function Achievements() {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const xpData = useXP();
   const unlockedSet = new Set(xpData.achievements);
   const unlockedCount = xpData.achievements.length;
   const totalCount = allAchievements.length;
   const pct = Math.round((unlockedCount / totalCount) * 100);
 
+  const categoryOrder = [
+    t("achievements_page.exploration"),
+    t("achievements_page.xpMilestones"),
+    t("achievements_page.levels"),
+    t("achievements_page.schoolAch"),
+    t("achievements_page.categoryAch"),
+    t("achievements_page.favoritesAch"),
+    t("achievements_page.shoppingList"),
+    t("achievements_page.difficultyAch"),
+    t("achievements_page.cultureAch"),
+    t("achievements_page.specialAch"),
+  ];
+
   // Group by category
   const grouped = new Map<string, typeof allAchievements>();
   for (const ach of allAchievements) {
-    const cat = getCategory(ach);
+    const cat = getCategory(ach, t);
     if (!grouped.has(cat)) grouped.set(cat, []);
     grouped.get(cat)!.push(ach);
   }
@@ -103,15 +53,14 @@ export default function Achievements() {
   return (
     <div className="min-h-screen pb-24">
       <Helmet>
-        <title>Todas as Conquistas | Receitas Japonesas XP</title>
-        <meta name="description" content="Veja todas as conquistas disponíveis, requisitos de XP e nível para desbloquear cada uma." />
+        <title>{t("achievements_page.title")} | Receitas MexicanasXP</title>
       </Helmet>
 
       <div className="sticky top-0 z-40 glass-card border-b border-border/50 px-4 py-3 flex items-center gap-3">
         <button onClick={() => navigate(-1)} className="w-9 h-9 rounded-full bg-secondary flex items-center justify-center">
           <ArrowLeft size={18} className="text-foreground" />
         </button>
-        <h1 className="font-display font-bold text-foreground text-lg">Todas as Conquistas 🏆</h1>
+        <h1 className="font-display font-bold text-foreground text-lg">{t("achievements_page.title")}</h1>
       </div>
 
       <div className="px-4 pt-6 max-w-2xl mx-auto space-y-6">
@@ -122,7 +71,7 @@ export default function Achievements() {
             <span className="font-display font-bold text-2xl text-foreground">{unlockedCount}/{totalCount}</span>
           </div>
           <Progress value={pct} className="h-3 mb-2" />
-          <p className="text-xs text-muted-foreground">{pct}% das conquistas desbloqueadas</p>
+          <p className="text-xs text-muted-foreground">{t("achievements_page.pctUnlocked", { pct })}</p>
         </div>
 
         {/* Grouped achievements */}
@@ -159,10 +108,6 @@ export default function Achievements() {
                           )}
                         </div>
                         <p className="text-xs text-muted-foreground mt-0.5">{ach.description}</p>
-                        <div className="flex items-center gap-1 mt-1">
-                          <Zap size={12} className="text-primary" />
-                          <span className="text-[11px] text-primary font-medium">{getRequirement(ach)}</span>
-                        </div>
                       </div>
                     </div>
                   );

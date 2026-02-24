@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { BookOpen, Clock, Zap, CheckCircle, Filter } from "lucide-react";
 import { articles, articleCategories } from "@/data/articles";
 import { useXP } from "@/hooks/useXP";
@@ -9,6 +10,7 @@ type CategoryKey = keyof typeof articleCategories | "todos";
 
 export default function Dicas() {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const { totalXP } = useXP();
   const [selectedCategory, setSelectedCategory] = useState<CategoryKey>("todos");
 
@@ -27,32 +29,31 @@ export default function Dicas() {
     : 0;
 
   const categories: { key: CategoryKey; label: string }[] = [
-    { key: "todos", label: "Todos" },
-    { key: "fundamentos", label: "Fundamentos" },
-    { key: "tecnicas", label: "Técnicas" },
-    { key: "cultura", label: "Cultura" },
-    { key: "destilados", label: "Ingredientes" },
-    { key: "avancado", label: "Avançado" },
+    { key: "todos", label: t("tips.all") },
+    { key: "fundamentos", label: t("tips.fundamentals") },
+    { key: "tecnicas", label: t("tips.techniques") },
+    { key: "cultura", label: t("tips.culture") },
+    { key: "destilados", label: t("tips.ingredients") },
+    { key: "avancado", label: t("tips.advanced") },
   ];
 
   return (
     <>
       <Helmet>
-        <title>Dicas & Artigos | Receitas MexicanasXP</title>
-        <meta name="description" content="Aprenda sobre culinária mexicana com artigos completos sobre técnicas, ingredientes, cultura e mais." />
+        <title>{t("tips.title")} | Receitas MexicanasXP</title>
       </Helmet>
       <div className="min-h-screen pb-24 pt-4 px-4 lg:px-6 lg:max-w-4xl lg:mx-auto">
         <h1 className="text-2xl font-display font-bold text-foreground mb-1">
-          Cultura & Artigos
+          {t("tips.title")}
         </h1>
         <p className="text-sm text-muted-foreground mb-4">
-          Aprenda sobre a cultura gastronômica mexicana e ganhe XP
+          {t("tips.subtitle")}
         </p>
 
         {/* Progress */}
         <div className="glass-card rounded-xl p-4 mb-4">
           <div className="flex items-center justify-between mb-2">
-            <span className="text-sm font-bold text-foreground">Progresso Geral</span>
+            <span className="text-sm font-bold text-foreground">{t("tips.overallProgress")}</span>
             <span className="text-sm font-bold text-primary">{readArticles.length}/{articles.length}</span>
           </div>
           <div className="w-full h-3 bg-secondary rounded-full overflow-hidden">
@@ -61,22 +62,22 @@ export default function Dicas() {
               style={{ width: `${completionPercent}%` }}
             />
           </div>
-          <p className="text-xs text-muted-foreground mt-1.5">{completionPercent}% concluído</p>
+          <p className="text-xs text-muted-foreground mt-1.5">{t("tips.pctCompleted", { pct: completionPercent })}</p>
         </div>
 
         {/* Stats */}
         <div className="grid grid-cols-3 gap-2 mb-4">
           <div className="glass-card rounded-xl p-3 text-center">
             <p className="text-lg font-bold text-primary">{readArticles.length}</p>
-            <p className="text-[10px] text-muted-foreground">Concluídos</p>
+            <p className="text-[10px] text-muted-foreground">{t("tips.completed")}</p>
           </div>
           <div className="glass-card rounded-xl p-3 text-center">
             <p className="text-lg font-bold text-foreground">{articles.length - readArticles.length}</p>
-            <p className="text-[10px] text-muted-foreground">Pendentes</p>
+            <p className="text-[10px] text-muted-foreground">{t("tips.pending")}</p>
           </div>
           <div className="glass-card rounded-xl p-3 text-center">
             <p className="text-lg font-bold text-accent">{articles.length}</p>
-            <p className="text-[10px] text-muted-foreground">Total</p>
+            <p className="text-[10px] text-muted-foreground">{t("tips.total")}</p>
           </div>
         </div>
 
@@ -132,7 +133,7 @@ export default function Dicas() {
                       </span>
                       {isRead && (
                         <span className="text-[10px] text-primary font-bold flex items-center gap-0.5">
-                          ✓ Concluído
+                          {t("tips.articleCompleted")}
                         </span>
                       )}
                     </div>
@@ -147,7 +148,7 @@ export default function Dicas() {
                     {!isRead && (
                       <div className="flex items-center gap-1 mt-2 text-primary">
                         <Zap size={12} className="fill-primary" />
-                        <span className="text-[10px] font-bold">+{article.xpReward} XP ao completar</span>
+                        <span className="text-[10px] font-bold">{t("tips.xpOnComplete", { xp: article.xpReward })}</span>
                       </div>
                     )}
                   </div>

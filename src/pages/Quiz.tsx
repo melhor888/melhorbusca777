@@ -1,67 +1,26 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import { useTranslation } from "react-i18next";
 import { ArrowLeft, ArrowRight, Sparkles, Zap, UtensilsCrossed } from "lucide-react";
 import { dishes } from "@/data/dishes";
 import { getDishImage } from "@/data/dishImages";
+import { getTranslatedDish } from "@/data/translations";
 import { useXP } from "@/hooks/useXP";
 import XPToast from "@/components/XPToast";
 import QuizHeroBanner from "@/components/QuizHeroBanner";
 
 const XP_QUIZ = 25;
 
-interface Question {
-  question: string;
-  options: { label: string; tags: string[] }[];
+interface QuizOption {
+  label: string;
+  tags: string[];
 }
 
-const questions: Question[] = [
-  {
-    question: "Qual sabor te atrai mais na culinária mexicana?",
-    options: [
-      { label: "🌶️ Picante e ousado", tags: ["picante", "intenso"] },
-      { label: "🥑 Fresco e suave (guacamole)", tags: ["fresco", "suave"] },
-      { label: "🧀 Rico e cremoso (queijo, crema)", tags: ["cremoso", "rico"] },
-      { label: "🍮 Doce e reconfortante", tags: ["doce", "sobremesa"] },
-    ],
-  },
-  {
-    question: "Qual situação combina mais com você agora?",
-    options: [
-      { label: "🎉 Festa mexicana com amigos", tags: ["festa", "casual"] },
-      { label: "🍽️ Jantar especial e elaborado", tags: ["especial", "elaborado"] },
-      { label: "🌮 Comida de rua rápida e deliciosa", tags: ["street", "rapido"] },
-      { label: "🫕 Algo quente e reconfortante", tags: ["reconfortante", "sopa"] },
-    ],
-  },
-  {
-    question: "Qual ingrediente principal te chama mais atenção?",
-    options: [
-      { label: "🥩 Carne (boi, porco, carnitas)", tags: ["carne", "porco"] },
-      { label: "🍗 Frango ou peru", tags: ["frango", "ave"] },
-      { label: "🦐 Frutos do mar e peixes", tags: ["marisco", "peixe"] },
-      { label: "🌽 Milho, feijão e vegetais", tags: ["vegetal", "milho"] },
-    ],
-  },
-  {
-    question: "Qual nível de preparo você busca?",
-    options: [
-      { label: "👌 Fácil — quero algo simples", tags: ["facil"] },
-      { label: "🎯 Médio — aceito um desafio", tags: ["medio"] },
-      { label: "🔥 Avançado — quero impressionar!", tags: ["avancado"] },
-      { label: "🤷 Tanto faz, surpreenda-me!", tags: ["qualquer"] },
-    ],
-  },
-  {
-    question: "Qual estilo de prato mexicano te fascina?",
-    options: [
-      { label: "🌮 Tacos e Burritos", tags: ["taco", "street"] },
-      { label: "🫔 Tamales e Enchiladas", tags: ["tamale", "tradicional"] },
-      { label: "🫕 Pozole, Birria e Sopas", tags: ["sopa", "reconfortante"] },
-      { label: "🌶️ Mole e Molhos Complexos", tags: ["mole", "elaborado"] },
-    ],
-  },
-];
+interface Question {
+  question: string;
+  options: QuizOption[];
+}
 
 const tagToDishScore: Record<string, (d: typeof dishes[0]) => number> = {
   picante: (d) => (d.ingredients.some((i) => /pimenta|jalapeño|chipotle|habanero|chili/i.test(i)) ? 3 : 0),
@@ -118,6 +77,55 @@ export default function Quiz() {
   const [showXP, setShowXP] = useState(false);
   const { addRecipeXP } = useXP();
   const navigate = useNavigate();
+  const { t } = useTranslation();
+
+  const questions: Question[] = [
+    {
+      question: t("quiz.q1"),
+      options: [
+        { label: t("quiz.q1o1"), tags: ["picante", "intenso"] },
+        { label: t("quiz.q1o2"), tags: ["fresco", "suave"] },
+        { label: t("quiz.q1o3"), tags: ["cremoso", "rico"] },
+        { label: t("quiz.q1o4"), tags: ["doce", "sobremesa"] },
+      ],
+    },
+    {
+      question: t("quiz.q2"),
+      options: [
+        { label: t("quiz.q2o1"), tags: ["festa", "casual"] },
+        { label: t("quiz.q2o2"), tags: ["especial", "elaborado"] },
+        { label: t("quiz.q2o3"), tags: ["street", "rapido"] },
+        { label: t("quiz.q2o4"), tags: ["reconfortante", "sopa"] },
+      ],
+    },
+    {
+      question: t("quiz.q3"),
+      options: [
+        { label: t("quiz.q3o1"), tags: ["carne", "porco"] },
+        { label: t("quiz.q3o2"), tags: ["frango", "ave"] },
+        { label: t("quiz.q3o3"), tags: ["marisco", "peixe"] },
+        { label: t("quiz.q3o4"), tags: ["vegetal", "milho"] },
+      ],
+    },
+    {
+      question: t("quiz.q4"),
+      options: [
+        { label: t("quiz.q4o1"), tags: ["facil"] },
+        { label: t("quiz.q4o2"), tags: ["medio"] },
+        { label: t("quiz.q4o3"), tags: ["avancado"] },
+        { label: t("quiz.q4o4"), tags: ["qualquer"] },
+      ],
+    },
+    {
+      question: t("quiz.q5"),
+      options: [
+        { label: t("quiz.q5o1"), tags: ["taco", "street"] },
+        { label: t("quiz.q5o2"), tags: ["tamale", "tradicional"] },
+        { label: t("quiz.q5o3"), tags: ["sopa", "reconfortante"] },
+        { label: t("quiz.q5o4"), tags: ["mole", "elaborado"] },
+      ],
+    },
+  ];
 
   const handleAnswer = (tags: string[]) => {
     const newAnswers = [...answers, tags];
@@ -147,8 +155,7 @@ export default function Quiz() {
   return (
     <div className="min-h-screen pb-24">
       <Helmet>
-        <title>Quiz - Qual prato mexicano combina com você? | Receitas MexicanasXP</title>
-        <meta name="description" content="Descubra qual prato da culinária mexicana combina com seu paladar neste quiz interativo." />
+        <title>{t("quiz.title")} | Receitas MexicanasXP</title>
       </Helmet>
       <XPToast xp={XP_QUIZ} show={showXP} onClose={() => setShowXP(false)} />
 
@@ -156,7 +163,7 @@ export default function Quiz() {
         <button onClick={() => navigate(-1)} className="w-9 h-9 rounded-full bg-secondary flex items-center justify-center">
           <ArrowLeft size={18} className="text-foreground" />
         </button>
-        <h1 className="font-display font-bold text-foreground text-lg">Quiz Gastronômico 🌮</h1>
+        <h1 className="font-display font-bold text-foreground text-lg">{t("quiz.title")}</h1>
       </div>
 
       <QuizHeroBanner />
@@ -171,7 +178,7 @@ export default function Quiz() {
 
           <div className="animate-fade-in" key={step}>
             <p className="text-xs text-primary font-semibold uppercase tracking-wider mb-2">
-              Pergunta {step + 1} de {questions.length}
+              {t("quiz.questionOf", { current: step + 1, total: questions.length })}
             </p>
             <h2 className="text-2xl font-display font-bold text-foreground mb-8">{q.question}</h2>
 
@@ -194,47 +201,50 @@ export default function Quiz() {
           <div className="text-center mb-8">
             <Sparkles className="mx-auto text-primary mb-3" size={40} />
             <h2 className="text-2xl font-display font-bold text-foreground mb-2">
-              Seus Pratos Ideais! 🇲🇽
+              {t("quiz.yourIdealDishes")}
             </h2>
             <p className="text-muted-foreground text-sm">
-              Baseado nas suas preferências, esses pratos mexicanos combinam com você:
+              {t("quiz.basedOnPreferences")}
             </p>
             {showXP && (
               <div className="mt-3 inline-flex items-center gap-1.5 bg-primary/20 text-primary rounded-full px-4 py-1.5">
                 <Zap size={14} />
-                <span className="text-xs font-bold">+{XP_QUIZ} XP pelo Quiz!</span>
+                <span className="text-xs font-bold">{t("quiz.xpFromQuiz", { xp: XP_QUIZ })}</span>
               </div>
             )}
           </div>
 
           <div className="space-y-3">
-            {results.map((dish, i) => (
-              <button
-                key={dish.id}
-                onClick={() => navigate(`/recipe/${dish.id}`)}
-                className="w-full flex items-center gap-4 p-3 rounded-xl bg-card hover:bg-card/80 border border-border/50 hover:border-primary/30 transition-all animate-fade-in"
-                style={{ animationDelay: `${i * 100}ms` }}
-              >
-                <div className="relative w-16 h-16 rounded-lg overflow-hidden flex-shrink-0">
-                  <img src={getDishImage(dish.image)} alt={dish.name} className="w-full h-full object-cover" />
-                  <div className="absolute top-1 left-1 w-6 h-6 rounded-full bg-primary text-primary-foreground text-xs font-bold flex items-center justify-center">
-                    {i + 1}
+            {results.map((rawDish, i) => {
+              const dish = getTranslatedDish(rawDish);
+              return (
+                <button
+                  key={dish.id}
+                  onClick={() => navigate(`/recipe/${dish.id}`)}
+                  className="w-full flex items-center gap-4 p-3 rounded-xl bg-card hover:bg-card/80 border border-border/50 hover:border-primary/30 transition-all animate-fade-in"
+                  style={{ animationDelay: `${i * 100}ms` }}
+                >
+                  <div className="relative w-16 h-16 rounded-lg overflow-hidden flex-shrink-0">
+                    <img src={getDishImage(rawDish.image)} alt={dish.name} className="w-full h-full object-cover" />
+                    <div className="absolute top-1 left-1 w-6 h-6 rounded-full bg-primary text-primary-foreground text-xs font-bold flex items-center justify-center">
+                      {i + 1}
+                    </div>
                   </div>
-                </div>
-                <div className="text-left flex-1">
-                  <h3 className="font-display font-bold text-foreground">{dish.name}</h3>
-                  <p className="text-xs text-muted-foreground">{dish.category} · {dish.difficulty}</p>
-                </div>
-                <ArrowRight size={16} className="text-muted-foreground" />
-              </button>
-            ))}
+                  <div className="text-left flex-1">
+                    <h3 className="font-display font-bold text-foreground">{dish.name}</h3>
+                    <p className="text-xs text-muted-foreground">{dish.category} · {dish.difficulty}</p>
+                  </div>
+                  <ArrowRight size={16} className="text-muted-foreground" />
+                </button>
+              );
+            })}
           </div>
 
           <button
             onClick={restart}
             className="w-full mt-6 py-3 rounded-xl border border-border/50 text-muted-foreground hover:text-foreground hover:border-primary/50 transition-all text-sm font-medium"
           >
-            Refazer Quiz
+            {t("quiz.retake")}
           </button>
         </div>
       )}
