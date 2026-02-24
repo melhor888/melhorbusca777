@@ -1,63 +1,54 @@
 import { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { Crown, Play, ChevronLeft, ChevronRight } from "lucide-react";
-
-
-interface Slide {
-  id: string;
-  title: string;
-  subtitle: string;
-  description: string;
-  image: string;
-  cta: string;
-  ctaLink: string;
-}
 
 const INTERVAL = 7000;
 
-const slides: Slide[] = [
-  {
-    id: "receitas-secretas",
-    title: "Receitas Secretas do Chef",
-    subtitle: "Exclusivo VIP",
-    description: "Mole negro de 30 ingredientes, cochinita pibil autêntica, chiles en nogada — receitas que só chefs com décadas de experiência dominam.",
-    image: "/images/vip-hero-receitas-secretas.jpg",
-    cta: "Ver Categoria",
-    ctaLink: "/vip/categoria/receitas-secretas",
-  },
-  {
-    id: "masterclass-tecnicas",
-    title: "Masterclass de Técnicas",
-    subtitle: "Domine a Arte",
-    description: "Nixtamalização, técnica de mole, tortillas artesanais, tatemado no comal — técnicas de nível profissional da culinária mexicana.",
-    image: "/images/vip-hero-masterclass.jpg",
-    cta: "Ver Categoria",
-    ctaLink: "/vip/categoria/masterclass-tecnicas",
-  },
-  {
-    id: "harmonizacao-sake",
-    title: "Harmonização Tequila & Mezcal",
-    subtitle: "Sabores Perfeitos",
-    description: "Guia completo de harmonização: tequila blanco, reposado, añejo, mezcal artesanal e coquetéis mexicanos com cada tipo de prato.",
-    image: "/images/vip-hero-harmonizacao.jpg",
-    cta: "Ver Categoria",
-    ctaLink: "/vip/categoria/harmonizacao-sake",
-  },
-  {
-    id: "cardapios-completos",
-    title: "Cardápios Completos",
-    subtitle: "Menus Exclusivos",
-    description: "Menus completos para ocasiões especiais: Taquiza, Pozoliza, Día de Muertos, Navidad Mexicana e Parrillada.",
-    image: "/images/vip-hero-cardapios.jpg",
-    cta: "Ver Categoria",
-    ctaLink: "/vip/categoria/cardapios-completos",
-  },
-];
-
 export default function VipNetflixHero() {
+  const { t } = useTranslation();
   const [index, setIndex] = useState(0);
   const [fading, setFading] = useState(false);
   const navigate = useNavigate();
+
+  const slides = [
+    {
+      id: "receitas-secretas",
+      title: t("vip.heroTitleSecretRecipes"),
+      subtitle: t("vip.heroSubtitleSecretRecipes"),
+      description: t("vip.heroDescSecretRecipes"),
+      image: "/images/vip-hero-receitas-secretas.jpg",
+      cta: t("vip.heroCta"),
+      ctaLink: "/vip/categoria/receitas-secretas",
+    },
+    {
+      id: "masterclass-tecnicas",
+      title: t("vip.heroTitleMasterclass"),
+      subtitle: t("vip.heroSubtitleMasterclass"),
+      description: t("vip.heroDescMasterclass"),
+      image: "/images/vip-hero-masterclass.jpg",
+      cta: t("vip.heroCta"),
+      ctaLink: "/vip/categoria/masterclass-tecnicas",
+    },
+    {
+      id: "harmonizacao-sake",
+      title: t("vip.heroTitleDrinks"),
+      subtitle: t("vip.heroSubtitleDrinks"),
+      description: t("vip.heroDescDrinks"),
+      image: "/images/vip-hero-harmonizacao.jpg",
+      cta: t("vip.heroCta"),
+      ctaLink: "/vip/categoria/harmonizacao-sake",
+    },
+    {
+      id: "cardapios-completos",
+      title: t("vip.heroTitleMenus"),
+      subtitle: t("vip.heroSubtitleMenus"),
+      description: t("vip.heroDescMenus"),
+      image: "/images/vip-hero-cardapios.jpg",
+      cta: t("vip.heroCta"),
+      ctaLink: "/vip/categoria/cardapios-completos",
+    },
+  ];
 
   const slide = slides[index];
 
@@ -75,11 +66,11 @@ export default function VipNetflixHero() {
 
   const advance = useCallback(() => {
     goTo((index + 1) % slides.length);
-  }, [index, goTo]);
+  }, [index, goTo, slides.length]);
 
   const prev = useCallback(() => {
     goTo((index - 1 + slides.length) % slides.length);
-  }, [index, goTo]);
+  }, [index, goTo, slides.length]);
 
   useEffect(() => {
     const id = setInterval(advance, INTERVAL);

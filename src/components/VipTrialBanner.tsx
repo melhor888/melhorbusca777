@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import { Clock, Crown } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { isVipTrial, getTrialRemainingMs } from "@/utils/vipKeys";
 
 export default function VipTrialBanner() {
+  const { t } = useTranslation();
   const [remaining, setRemaining] = useState(0);
   const [show, setShow] = useState(false);
 
@@ -34,7 +36,7 @@ export default function VipTrialBanner() {
     <div className="sticky top-0 z-50 bg-gradient-to-r from-amber-500 to-yellow-500 text-black px-4 py-2 flex items-center justify-center gap-3 text-sm font-medium shadow-lg">
       <Clock className="w-4 h-4 animate-pulse" />
       <span>
-        🎉 Degustação VIP gratuita! Tempo restante:{" "}
+        {t("vip.trialFree")}{" "}
         <strong>{minutes}:{seconds.toString().padStart(2, "0")}</strong>
       </span>
       <Link
@@ -42,7 +44,7 @@ export default function VipTrialBanner() {
         className="ml-2 bg-black text-amber-400 px-3 py-1 rounded-full text-xs font-bold hover:bg-black/80 transition-colors inline-flex items-center gap-1"
       >
         <Crown className="w-3 h-3" />
-        Desbloquear VIP
+        {t("vip.unlockVipBtn")}
       </Link>
     </div>
   );
