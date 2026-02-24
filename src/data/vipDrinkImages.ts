@@ -750,7 +750,7 @@ const dedicatedImages: Record<string, string> = {
   "gyukatsu-wagyu": "/images/vip-secretas-12.jpg",
   "chirashi-zushi-edomae": "/images/vip-secretas-13.jpg",
   "katsudon": "/images/vip-secretas-9.jpg",
-  // Receitas Exclusivas (Premium) - dedicated images
+  // Receitas Exclusivas (Premium) - dedicated images (all 24 recipes)
   "mole-negro-oaxaca-secreto": "/images/dish-mole-negro-oaxaca-secreto.jpg",
   "birria-jalisco-secreta": "/images/dish-birria-jalisco-secreta.jpg",
   "tlayuda-oaxaquena": "/images/dish-tlayuda-oaxaquena.jpg",
@@ -767,6 +767,20 @@ const dedicatedImages: Record<string, string> = {
   "carnitas-michoacan-chef": "/images/dish-carnitas-michoacan-chef.jpg",
   "menu-degustacao-mexicano": "/images/dish-menu-degustacao-mexicano.jpg",
   "cena-premium-wagyu-mezcal": "/images/dish-cena-premium-wagyu-mezcal.jpg",
+  "tamales-negros-oaxaca": "/images/vip-exclusiva-tamales-negros.jpg",
+  "mixiote-borrego-secreto": "/images/vip-exclusiva-mixiote-borrego.jpg",
+  "mole-coloradito-oaxaca": "/images/vip-exclusiva-mole-coloradito.jpg",
+  "chile-xcatic-yucatan": "/images/vip-exclusiva-chile-xcatic.jpg",
+  "poc-chuc-yucateco": "/images/vip-exclusiva-poc-chuc.jpg",
+  "enchiladas-potosinas-secretas": "/images/vip-exclusiva-enchiladas-potosinas.jpg",
+  "manchamanteles-oaxaca": "/images/vip-exclusiva-manchamanteles.jpg",
+  "aguachile-negro-sinaloa": "/images/vip-exclusiva-aguachile-negro.jpg",
+  "cabrito-al-pastor-monterrey": "/images/vip-exclusiva-cabrito-pastor.jpg",
+  "mole-chichilo-negro": "/images/vip-exclusiva-mole-chichilo.jpg",
+  "tacos-gobernador-sinaloa": "/images/vip-exclusiva-tacos-gobernador.jpg",
+  "sopa-azteca-premium": "/images/vip-exclusiva-sopa-azteca.jpg",
+  "coctel-vuelve-a-la-vida": "/images/vip-exclusiva-vuelve-vida.jpg",
+  "chiles-en-nogada-clasico-puebla": "/images/vip-exclusiva-chiles-nogada-clasico.jpg",
 };
 
 // Simple hash to get consistent image for each drink
