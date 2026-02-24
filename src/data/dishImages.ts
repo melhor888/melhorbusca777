@@ -215,16 +215,17 @@ const dishImages: Record<string, string> = {
   "festivais-mexicanos": "/images/dish-pozole-rojo.jpg",
 
   // ============ ESCOLA MEXICANA ============
-  "curso-basico": "/images/dish-tacos-al-pastor.jpg",
-  "curso-intermediario": "/images/dish-mole-poblano.jpg",
-  "curso-avancado": "/images/dish-mole-negro-oaxaca-secreto.jpg",
-  "tecnica-tortilla": "/images/dish-tacos-al-pastor.jpg",
-  "tecnica-salsa": "/images/dish-salsa-roja.jpg",
-  "tecnica-fermentacao": "/images/dish-tepache.jpg",
-  "tecnica-artesanal": "/images/dish-mole-poblano.jpg",
-  "conservacao-alimentos": "/images/dish-chiles-rellenos.jpg",
-  "producao-artesanal": "/images/dish-chocolate-mexicano.jpg",
-  "suadero-taco": "/images/dish-tacos-lengua.jpg",
+  "curso-basico": "/images/dish-curso-basico.jpg",
+  "curso-intermediario": "/images/dish-curso-intermediario.jpg",
+  "curso-avancado": "/images/dish-curso-avancado.jpg",
+  "tecnica-tortilla": "/images/dish-tecnica-tortilla.jpg",
+  "tecnica-salsa": "/images/dish-tecnica-salsa.jpg",
+  "uso-pimentas": "/images/dish-uso-pimentas.jpg",
+  "tecnica-fermentacao": "/images/dish-fermentacoes.jpg",
+  "tecnica-artesanal": "/images/dish-processos-tradicionais.jpg",
+  "conservacao-alimentos": "/images/dish-conservacao.jpg",
+  "producao-artesanal": "/images/dish-producao-artesanal.jpg",
+  "suadero-taco": "/images/dish-tacos-suadero.jpg",
 };
 
 export function getDishImage(dishId: string): string {
