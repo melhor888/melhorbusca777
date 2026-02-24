@@ -1,5 +1,6 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import { useTranslation } from "react-i18next";
 import { ArrowLeft, Crown, Clock, ChefHat, Lock, Search, X } from "lucide-react";
 import { getVipDrinksByCategory } from "@/data/vipDrinks";
 import { isVipUnlocked } from "@/utils/vipKeys";
@@ -9,21 +10,10 @@ import { useEffect, useState, useMemo } from "react";
 import { getVipDrinkImage } from "@/data/vipDrinkImages";
 import { Input } from "@/components/ui/input";
 
-// Hero images now use placeholder
-const PLACEHOLDER = "/placeholder.svg";
-
 const difficultyColor: Record<string, string> = {
   "Fácil": "text-green-400",
   "Médio": "text-yellow-400",
   "Avançado": "text-red-400",
-};
-
-const categoryNames: Record<string, string> = {
-  "receitas-secretas": "Receitas Secretas do Chef",
-  "masterclass-tecnicas": "Masterclass de Técnicas",
-  "harmonizacao-sake": "Harmonização Sake & Drinks",
-  "cardapios-completos": "Cardápios Completos",
-  "receitas-exclusivas": "Receitas Exclusivas Premium",
 };
 
 const categoryHeroImages: Record<string, string> = {
@@ -34,17 +24,26 @@ const categoryHeroImages: Record<string, string> = {
   "receitas-exclusivas": "/images/vip-hero-receitas-secretas.jpg",
 };
 
-const categorySubtitles: Record<string, string> = {
-  "receitas-secretas": "Receitas exclusivas dos melhores chefs mexicanos",
-  "masterclass-tecnicas": "Técnicas avançadas da culinária mexicana",
-  "harmonizacao-sake": "Harmonização de tequila, mezcal e drinks mexicanos",
-  "cardapios-completos": "Menus completos para festas e eventos mexicanos",
-  "receitas-exclusivas": "Receitas premium dos melhores chefs — segredos, técnicas e pratos de alto padrão",
+const categoryNameKeys: Record<string, string> = {
+  "receitas-secretas": "catNameSecretRecipes",
+  "masterclass-tecnicas": "catNameMasterclass",
+  "harmonizacao-sake": "catNameDrinks",
+  "cardapios-completos": "catNameMenus",
+  "receitas-exclusivas": "catNameExclusive",
+};
+
+const categorySubKeys: Record<string, string> = {
+  "receitas-secretas": "catSubSecretRecipes",
+  "masterclass-tecnicas": "catSubMasterclass",
+  "harmonizacao-sake": "catSubDrinks",
+  "cardapios-completos": "catSubMenus",
+  "receitas-exclusivas": "catSubExclusive",
 };
 
 export default function VipCategoryPage() {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const [unlocked, setUnlocked] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -56,12 +55,25 @@ export default function VipCategoryPage() {
     setSearchQuery("");
   }, [slug]);
 
-  const categoryName = categoryNames[slug || ""] || "";
+  const categoryNameKey = categoryNameKeys[slug || ""];
+  const categoryName = categoryNameKey ? t(`vip.${categoryNameKey}`) : "";
+  const categorySubKey = categorySubKeys[slug || ""];
+  const subtitle = categorySubKey ? t(`vip.${categorySubKey}`) : "";
+
+  // Still need the PT name for data lookup
+  const categoryNamesPT: Record<string, string> = {
+    "receitas-secretas": "Receitas Secretas do Chef",
+    "masterclass-tecnicas": "Masterclass de Técnicas",
+    "harmonizacao-sake": "Harmonização Sake & Drinks",
+    "cardapios-completos": "Cardápios Completos",
+    "receitas-exclusivas": "Receitas Exclusivas Premium",
+  };
+  const ptName = categoryNamesPT[slug || ""] || "";
+
   const allDrinks = slug ? getVipDrinksByCategory(slug).concat(
-    categoryName ? getVipDrinksByCategory(categoryName).filter(d => !getVipDrinksByCategory(slug).some(s => s.id === d.id)) : []
+    ptName ? getVipDrinksByCategory(ptName).filter(d => !getVipDrinksByCategory(slug).some(s => s.id === d.id)) : []
   ) : [];
   const heroImage = categoryHeroImages[slug || ""];
-  const subtitle = categorySubtitles[slug || ""] || "";
 
   const drinks = useMemo(() => {
     if (!searchQuery.trim()) return allDrinks;
@@ -76,9 +88,9 @@ export default function VipCategoryPage() {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center gap-4 px-4">
         <Lock size={48} className="text-yellow-500" />
-        <p className="text-muted-foreground text-center">Desbloqueie a área VIP para acessar este conteúdo.</p>
+        <p className="text-muted-foreground text-center">{t("vip.unlockVip")}</p>
         <Link to="/vip" className="text-yellow-500 font-semibold text-sm hover:underline">
-          Ir para a Área VIP →
+          {t("vip.goToVip")}
         </Link>
       </div>
     );
@@ -88,9 +100,9 @@ export default function VipCategoryPage() {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center gap-4 px-4">
         <Crown size={48} className="text-yellow-500" />
-        <p className="text-muted-foreground text-center">Categoria em breve! Estamos preparando receitas exclusivas.</p>
+        <p className="text-muted-foreground text-center">{t("vip.comingSoon")}</p>
         <Link to="/vip" className="text-yellow-500 font-semibold text-sm hover:underline">
-          ← Voltar para VIP
+          {t("vip.backToVip")}
         </Link>
       </div>
     );
@@ -103,18 +115,16 @@ export default function VipCategoryPage() {
       <VipTrialBanner />
       <Helmet>
         <title>{categoryName} VIP | Mexi Food XP</title>
-        <meta name="description" content={`${drinks.length} receitas VIP exclusivas de ${categoryName}.`} />
+        <meta name="description" content={`${drinks.length} ${t("vip.exclusiveRecipesCount", { count: drinks.length })}.`} />
       </Helmet>
       <div className="min-h-screen pb-24">
-        {/* Netflix-style Hero Banner for categories with enough content */}
         {showHeroBanner ? (
           <>
-            {/* Back button over hero */}
             <div className="relative">
               <button
                 onClick={(e) => { e.stopPropagation(); e.preventDefault(); navigate("/vip"); }}
                 className="absolute top-4 left-4 z-30 w-9 h-9 rounded-full bg-background/60 backdrop-blur flex items-center justify-center cursor-pointer"
-                aria-label="Voltar"
+                aria-label={t("common.back")}
               >
                 <ArrowLeft size={16} className="text-foreground" />
               </button>
@@ -122,7 +132,6 @@ export default function VipCategoryPage() {
             </div>
           </>
         ) : (
-          /* Static Hero Banner for other categories */
           <div className="relative h-[320px] lg:h-[420px] w-full overflow-hidden">
             {heroImage && (
               <img
@@ -137,7 +146,7 @@ export default function VipCategoryPage() {
             <button
               onClick={(e) => { e.stopPropagation(); e.preventDefault(); navigate("/vip"); }}
               className="absolute top-4 left-4 z-30 w-9 h-9 rounded-full bg-background/60 backdrop-blur flex items-center justify-center cursor-pointer"
-              aria-label="Voltar"
+              aria-label={t("common.back")}
             >
               <ArrowLeft size={16} className="text-foreground" />
             </button>
@@ -146,7 +155,7 @@ export default function VipCategoryPage() {
               <div className="flex items-center gap-2 mb-2">
                 <Crown size={14} className="text-yellow-500" />
                 <span className="text-yellow-500 text-xs font-semibold tracking-widest uppercase">
-                  VIP · Exclusivo
+                  {t("vip.exclusive")}
                 </span>
               </div>
               <h1 className="text-2xl lg:text-4xl font-display font-bold text-foreground leading-tight">
@@ -156,7 +165,7 @@ export default function VipCategoryPage() {
                 {subtitle}
               </p>
               <p className="text-xs text-yellow-500/80 mt-2 font-semibold">
-                {allDrinks.length} receitas exclusivas
+                {t("vip.exclusiveRecipesCount", { count: allDrinks.length })}
               </p>
             </div>
           </div>
@@ -168,7 +177,7 @@ export default function VipCategoryPage() {
             <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
             <Input
               type="text"
-              placeholder={`Buscar em ${categoryName}...`}
+              placeholder={t("vip.searchIn", { name: categoryName })}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="pl-9 pr-9 h-10 bg-card border-yellow-500/30 focus-visible:ring-yellow-500/50 text-sm rounded-full"
@@ -177,7 +186,7 @@ export default function VipCategoryPage() {
               <button
                 onClick={() => setSearchQuery("")}
                 className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
-                aria-label="Limpar busca"
+                aria-label={t("search.clear")}
               >
                 <X size={14} />
               </button>
@@ -189,7 +198,7 @@ export default function VipCategoryPage() {
         <div className="px-4 lg:px-6 mt-4">
           {drinks.length === 0 && searchQuery ? (
             <p className="text-muted-foreground text-sm text-center py-8">
-              Nenhuma receita encontrada para "{searchQuery}"
+              {t("vip.noResultsFor", { query: searchQuery })}
             </p>
           ) : (
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 lg:gap-4">

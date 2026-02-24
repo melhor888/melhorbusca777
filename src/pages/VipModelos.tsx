@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import {
   Crown, Lock, ArrowLeft, Copy, Check, FileText, Truck, Store,
   Building2, Package, PartyPopper, Gift, CalendarDays, ChevronDown, ChevronUp,
@@ -29,7 +30,7 @@ interface Modelo {
   footer?: string;
 }
 
-// ======== DADOS ========
+// ======== DADOS (content stays in PT as it's business templates) ========
 const cardapiosEditaveis: Modelo[] = [
   {
     id: "cardapio-completo",
@@ -96,6 +97,7 @@ const cardapiosEditaveis: Modelo[] = [
   },
 ];
 
+// All other model data arrays: cardapiosDelivery, cardapiosFoodTruck, cardapiosDarkKitchen, combosProntos, kitsInauguracao, kitsPromocionais, campanhasSazonais
 const cardapiosDelivery: Modelo[] = [
   {
     id: "delivery-ifood",
@@ -336,6 +338,7 @@ const campanhasSazonais: Modelo[] = [
 
 // ======== COMPONENTE DE MODELO ========
 function ModeloCard({ modelo }: { modelo: Modelo }) {
+  const { t } = useTranslation();
   const [open, setOpen] = useState(false);
   const [editing, setEditing] = useState(false);
   const [sections, setSections] = useState(modelo.sections);
@@ -382,10 +385,10 @@ function ModeloCard({ modelo }: { modelo: Modelo }) {
         <div className="px-4 pb-4 border-t border-border pt-4 space-y-4">
           <div className="flex gap-2">
             <Button size="sm" variant={editing ? "default" : "outline"} onClick={() => setEditing(!editing)} className="text-xs">
-              <Edit3 size={14} /> {editing ? "Visualizar" : "Editar"}
+              <Edit3 size={14} /> {editing ? t("vip.modelView") : t("vip.modelEdit")}
             </Button>
             <Button size="sm" variant={copied ? "secondary" : "outline"} onClick={copyText} className="text-xs">
-              {copied ? <><Check size={14} /> Copiado!</> : <><Copy size={14} /> Copiar</>}
+              {copied ? <><Check size={14} /> {t("vip.modelCopied")}</> : <><Copy size={14} /> {t("vip.modelCopy")}</>}
             </Button>
           </div>
 
@@ -403,7 +406,7 @@ function ModeloCard({ modelo }: { modelo: Modelo }) {
                       <input value={item.name} onChange={e => { const u = [...sections]; u[si].items[ii] = { ...u[si].items[ii], name: e.target.value }; setSections(u); }} className="px-2 py-1 rounded bg-secondary text-foreground text-xs" />
                       <input value={item.price} onChange={e => { const u = [...sections]; u[si].items[ii] = { ...u[si].items[ii], price: e.target.value }; setSections(u); }} className="px-2 py-1 rounded bg-secondary text-foreground text-xs" />
                       {item.desc !== undefined && (
-                        <input value={item.desc} onChange={e => { const u = [...sections]; u[si].items[ii] = { ...u[si].items[ii], desc: e.target.value }; setSections(u); }} className="col-span-2 px-2 py-1 rounded bg-secondary text-foreground text-xs" placeholder="Descrição" />
+                        <input value={item.desc} onChange={e => { const u = [...sections]; u[si].items[ii] = { ...u[si].items[ii], desc: e.target.value }; setSections(u); }} className="col-span-2 px-2 py-1 rounded bg-secondary text-foreground text-xs" placeholder={t("vip.shortDesc")} />
                       )}
                     </div>
                   ))}
@@ -437,23 +440,23 @@ function ModeloCard({ modelo }: { modelo: Modelo }) {
   );
 }
 
-// ======== CATEGORIAS DE MODELOS ========
-const modelCategories = [
-  { id: "cardapios", title: "📋 Cardápios Editáveis", models: cardapiosEditaveis },
-  { id: "delivery", title: "🚚 Cardápios para Delivery", models: cardapiosDelivery },
-  { id: "foodtruck", title: "🚛 Cardápios para Food Truck", models: cardapiosFoodTruck },
-  { id: "darkkitchen", title: "🏭 Cardápios para Dark Kitchen", models: cardapiosDarkKitchen },
-  { id: "combos", title: "📦 Combos Prontos", models: combosProntos },
-  { id: "inauguracao", title: "🎉 Kits de Inauguração", models: kitsInauguracao },
-  { id: "promocionais", title: "🎁 Kits Promocionais", models: kitsPromocionais },
-  { id: "sazonais", title: "📅 Campanhas Sazonais", models: campanhasSazonais },
-];
-
 // ======== PÁGINA PRINCIPAL ========
 export default function VipModelos() {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const [unlocked, setUnlockedState] = useState(false);
   const [activeTab, setActiveTab] = useState("cardapios");
+
+  const modelCategories = [
+    { id: "cardapios", title: t("vip.modelCatMenus"), models: cardapiosEditaveis },
+    { id: "delivery", title: t("vip.modelCatDelivery"), models: cardapiosDelivery },
+    { id: "foodtruck", title: t("vip.modelCatFoodTruck"), models: cardapiosFoodTruck },
+    { id: "darkkitchen", title: t("vip.modelCatDarkKitchen"), models: cardapiosDarkKitchen },
+    { id: "combos", title: t("vip.modelCatCombos"), models: combosProntos },
+    { id: "inauguracao", title: t("vip.modelCatInauguration"), models: kitsInauguracao },
+    { id: "promocionais", title: t("vip.modelCatPromo"), models: kitsPromocionais },
+    { id: "sazonais", title: t("vip.modelCatSeasonal"), models: campanhasSazonais },
+  ];
 
   useEffect(() => {
     setUnlockedState(isVipUnlocked());
@@ -462,13 +465,13 @@ export default function VipModelos() {
   if (!unlocked) {
     return (
       <>
-        <Helmet><title>Modelos Prontos VIP | Mexi Food XP</title></Helmet>
+        <Helmet><title>{t("vip.modelsPageTitle")} | Mexi Food XP</title></Helmet>
         <main className="px-4 pt-8 pb-32 lg:pb-12 text-center">
           <Lock size={48} className="mx-auto text-muted-foreground mb-4" />
-          <h1 className="font-display text-2xl font-bold text-foreground">Modelos Prontos VIP</h1>
-          <p className="text-muted-foreground text-sm mt-2 max-w-md mx-auto">Cardápios, combos, kits e campanhas prontos para usar. Exclusivo para membros VIP.</p>
+          <h1 className="font-display text-2xl font-bold text-foreground">{t("vip.modelsPageTitle")}</h1>
+          <p className="text-muted-foreground text-sm mt-2 max-w-md mx-auto">{t("vip.modelsPageDesc")}</p>
           <Button onClick={() => navigate("/queroservip")} className="mt-6">
-            <Crown size={18} /> Quero ser VIP
+            <Crown size={18} /> {t("vip.wantVip")}
           </Button>
         </main>
       </>
@@ -480,17 +483,17 @@ export default function VipModelos() {
   return (
     <>
       <Helmet>
-        <title>Modelos Prontos VIP | Mexi Food XP</title>
-        <meta name="description" content="Modelos prontos VIP: cardápios editáveis, delivery, food truck, dark kitchen, combos, kits e campanhas sazonais." />
+        <title>{t("vip.modelsPageTitle")} | Mexi Food XP</title>
+        <meta name="description" content={t("vip.modelsPageDesc")} />
       </Helmet>
       <main className="px-4 pt-6 pb-32 lg:pb-12 max-w-2xl mx-auto">
         <div className="flex items-center gap-3 mb-6">
           <button onClick={() => navigate("/vip")} className="text-muted-foreground hover:text-foreground"><ArrowLeft size={20} /></button>
           <div>
             <h1 className="font-display text-xl font-bold text-foreground flex items-center gap-2">
-              <Crown size={22} className="text-yellow-500" /> Modelos Prontos
+              <Crown size={22} className="text-yellow-500" /> {t("vip.modelsReadyTemplates")}
             </h1>
-            <p className="text-xs text-muted-foreground">Cardápios, combos e campanhas editáveis</p>
+            <p className="text-xs text-muted-foreground">{t("vip.modelsPageSubtitle")}</p>
           </div>
         </div>
 

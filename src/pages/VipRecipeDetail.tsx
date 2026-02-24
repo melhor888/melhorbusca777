@@ -1,6 +1,6 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { ArrowLeft, Crown, Clock, ChefHat, Wine, Lightbulb, Lock, ShoppingCart, Heart, Share2 } from "lucide-react";
+import { ArrowLeft, Crown, Clock, ChefHat, Wine, Lightbulb, Lock, ShoppingCart, Heart } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import CookingTimer from "@/components/CookingTimer";
 import { getVipDrinkById, getVipChefTip } from "@/data/vipDrinks";
@@ -37,9 +37,9 @@ export default function VipRecipeDetail() {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center gap-4 px-4">
         <Lock size={48} className="text-yellow-500" />
-        <p className="text-muted-foreground text-center">Desbloqueie a área VIP para acessar este conteúdo.</p>
+        <p className="text-muted-foreground text-center">{t("vip.unlockVip")}</p>
         <Link to="/vip" className="text-yellow-500 font-semibold text-sm hover:underline">
-          Ir para a Área VIP →
+          {t("vip.goToVip")}
         </Link>
       </div>
     );
@@ -48,9 +48,9 @@ export default function VipRecipeDetail() {
   if (!drink) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center gap-4 px-4">
-        <p className="text-muted-foreground">Receita não encontrada.</p>
+        <p className="text-muted-foreground">{t("vip.recipeNotFound")}</p>
         <Link to="/vip" className="text-yellow-500 font-semibold text-sm hover:underline">
-          ← Voltar para VIP
+          {t("vip.backToVip")}
         </Link>
       </div>
     );
@@ -60,7 +60,7 @@ export default function VipRecipeDetail() {
     <>
       <VipTrialBanner />
       <Helmet>
-        <title>{drink.name} - Receita VIP | Receitas Japonesas XP</title>
+        <title>{drink.name} - {t("vip.exclusiveVip")} | Mexi Food XP</title>
         <meta name="description" content={drink.description.slice(0, 155)} />
       </Helmet>
       <div className="min-h-screen pb-24">
@@ -77,7 +77,7 @@ export default function VipRecipeDetail() {
               <button
                 onClick={(e) => { e.stopPropagation(); e.preventDefault(); navigate(-1); }}
                 className="w-10 h-10 rounded-full bg-background/60 backdrop-blur flex items-center justify-center cursor-pointer z-30"
-                aria-label="Voltar"
+                aria-label={t("common.back")}
               >
                 <ArrowLeft size={20} className="text-foreground" />
               </button>
@@ -162,12 +162,12 @@ export default function VipRecipeDetail() {
           <div className="rounded-2xl border border-yellow-500/20 bg-yellow-500/5 p-4 mb-6">
             <div className="flex items-center gap-2 mb-2">
               <Wine size={16} className="text-yellow-500" />
-              <span className="text-sm font-semibold text-foreground">Sobre esta receita</span>
+              <span className="text-sm font-semibold text-foreground">{t("vip.aboutRecipe")}</span>
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed">{drink.description}</p>
           </div>
 
-          {/* Chef Tips - Moved up for prominence */}
+          {/* Chef Tips */}
           {chefTip && (
             <div className="rounded-2xl border border-yellow-500/20 bg-gradient-to-br from-yellow-500/5 to-amber-500/5 p-4 mb-6">
               <div className="flex items-center gap-2 mb-3">
@@ -175,29 +175,29 @@ export default function VipRecipeDetail() {
                   <Lightbulb size={16} className="text-white" />
                 </div>
                 <div>
-                  <span className="text-sm font-bold text-foreground">Dica do Chef</span>
-                  <p className="text-[10px] text-yellow-500 font-semibold uppercase tracking-wider">Exclusivo VIP</p>
+                  <span className="text-sm font-bold text-foreground">{t("vip.chefTip")}</span>
+                  <p className="text-[10px] text-yellow-500 font-semibold uppercase tracking-wider">{t("vip.exclusiveVip")}</p>
                 </div>
               </div>
               <div className="space-y-3 text-sm">
                 <div className="flex items-start gap-2">
                   <span className="text-yellow-500 font-bold text-xs mt-0.5">🥂</span>
                   <div>
-                    <span className="font-semibold text-foreground">Copo ideal:</span>
+                    <span className="font-semibold text-foreground">{t("vip.idealGlass")}</span>
                     <span className="text-muted-foreground ml-1">{chefTip.glass}</span>
                   </div>
                 </div>
                 <div className="flex items-start gap-2">
                   <span className="text-yellow-500 font-bold text-xs mt-0.5">🧊</span>
                   <div>
-                    <span className="font-semibold text-foreground">Como servir:</span>
+                    <span className="font-semibold text-foreground">{t("vip.howToServe")}</span>
                     <span className="text-muted-foreground ml-1">{chefTip.serve}</span>
                   </div>
                 </div>
                 <div className="flex items-start gap-2">
                   <span className="text-yellow-500 font-bold text-xs mt-0.5">✨</span>
                   <div>
-                    <span className="font-semibold text-foreground">Segredo do bartender:</span>
+                    <span className="font-semibold text-foreground">{t("vip.bartenderSecret")}</span>
                     <span className="text-muted-foreground ml-1">{chefTip.tip}</span>
                   </div>
                 </div>
@@ -207,7 +207,7 @@ export default function VipRecipeDetail() {
 
           {/* Ingredients */}
           <div className="mb-6">
-            <h2 className="font-display font-bold text-foreground text-lg mb-3">{t("recipe.ingredients", "Ingredientes")}</h2>
+            <h2 className="font-display font-bold text-foreground text-lg mb-3">{t("recipe.ingredients")}</h2>
             <ul className="space-y-2">
               {drink.ingredients.map((ing, i) => (
                 <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
@@ -220,7 +220,7 @@ export default function VipRecipeDetail() {
 
           {/* Steps */}
           <div className="mb-6">
-            <h2 className="font-display font-bold text-foreground text-lg mb-3">{t("recipe.steps", "Modo de Preparo")}</h2>
+            <h2 className="font-display font-bold text-foreground text-lg mb-3">{t("recipe.steps")}</h2>
             <ol className="space-y-3">
               {drink.steps.map((step, i) => (
                 <li key={i} className="flex items-start gap-3 text-sm text-muted-foreground">
@@ -233,7 +233,7 @@ export default function VipRecipeDetail() {
             </ol>
           </div>
 
-          {/* Cooking Timer - VIP Exclusive */}
+          {/* Cooking Timer */}
           <div className="mb-6">
             <CookingTimer timeString={drink.time} />
           </div>

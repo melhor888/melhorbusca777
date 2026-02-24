@@ -1,5 +1,6 @@
 import { useMemo, useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { Play, Crown } from "lucide-react";
 import { VipDrink } from "@/data/vipDrinks/types";
 import { getVipDrinkImage } from "@/data/vipDrinkImages";
@@ -12,6 +13,7 @@ interface VipHeroBannerProps {
 }
 
 export default function VipHeroBanner({ drinks, count = 8 }: VipHeroBannerProps) {
+  const { t } = useTranslation();
   const queue = useMemo(() => {
     const shuffled = [...drinks].sort(() => Math.random() - 0.5);
     return shuffled.slice(0, count);
@@ -58,7 +60,7 @@ export default function VipHeroBanner({ drinks, count = 8 }: VipHeroBannerProps)
         <div className="flex items-center gap-2 mb-1">
           <Crown size={14} className="text-yellow-500" />
           <span className="text-yellow-500 text-xs font-semibold tracking-widest uppercase">
-            VIP · Destaque
+            {t("vip.highlight")}
           </span>
         </div>
 
@@ -76,7 +78,7 @@ export default function VipHeroBanner({ drinks, count = 8 }: VipHeroBannerProps)
             className="flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-full font-semibold text-sm transition-transform hover:scale-105 active:scale-95"
           >
             <Play size={16} fill="currentColor" />
-            Ver Receita
+            {t("vip.viewRecipe")}
           </button>
           <span className="text-xs text-muted-foreground">
             {featured.difficulty} · {featured.time}
