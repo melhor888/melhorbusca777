@@ -176,14 +176,14 @@ const dishImages: Record<string, string> = {
   "mole-amarillo": "/images/dish-mole-amarillo-oaxaca.jpg",
 
   // ============ TORTILLAS & BASES ============
-  "tortilla-milho": "/images/dish-tacos-al-pastor.jpg",
-  "tortilla-trigo": "/images/dish-quesadillas.jpg",
-  "gorditas-base": "/images/dish-gorditas.jpg",
-  "sopes-base": "/images/dish-sopes.jpg",
-  "tlacoyos-base": "/images/dish-sopes.jpg",
-  "tostadas-base": "/images/dish-tostadas.jpg",
-  "pupusas-mex": "/images/dish-sopes.jpg",
-  "chalupas": "/images/dish-tostadas.jpg",
+  "tortilla-milho": "/images/dish-tortilla-milho.jpg",
+  "tortilla-trigo": "/images/dish-tortilla-trigo.jpg",
+  "gorditas-base": "/images/dish-gorditas-base.jpg",
+  "sopes-base": "/images/dish-sopes-base.jpg",
+  "tlacoyos-base": "/images/dish-tlacoyos-base.jpg",
+  "tostadas-base": "/images/dish-tostadas-base.jpg",
+  "pupusas-mex": "/images/dish-memelas.jpg",
+  "chalupas": "/images/dish-chalupas.jpg",
 
   // ============ PRATOS TRADICIONAIS ============
   "enchiladas-verdes": "/images/dish-enchiladas-verdes.jpg",
