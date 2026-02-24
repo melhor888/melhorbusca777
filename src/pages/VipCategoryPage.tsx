@@ -22,6 +22,7 @@ const categoryNames: Record<string, string> = {
   "masterclass-tecnicas": "Masterclass de Técnicas",
   "harmonizacao-sake": "Harmonização Sake & Drinks",
   "cardapios-completos": "Cardápios Completos",
+  "receitas-exclusivas": "Receitas Exclusivas Premium",
 };
 
 const categoryHeroImages: Record<string, string> = {
@@ -29,6 +30,7 @@ const categoryHeroImages: Record<string, string> = {
   "masterclass-tecnicas": PLACEHOLDER,
   "harmonizacao-sake": PLACEHOLDER,
   "cardapios-completos": PLACEHOLDER,
+  "receitas-exclusivas": PLACEHOLDER,
 };
 
 const categorySubtitles: Record<string, string> = {
@@ -36,6 +38,7 @@ const categorySubtitles: Record<string, string> = {
   "masterclass-tecnicas": "Técnicas avançadas da culinária mexicana",
   "harmonizacao-sake": "Harmonização de tequila, mezcal e drinks mexicanos",
   "cardapios-completos": "Menus completos para festas e eventos mexicanos",
+  "receitas-exclusivas": "Receitas premium dos melhores chefs — segredos, técnicas e pratos de alto padrão",
 };
 
 export default function VipCategoryPage() {
@@ -53,7 +56,9 @@ export default function VipCategoryPage() {
   }, [slug]);
 
   const categoryName = categoryNames[slug || ""] || "";
-  const allDrinks = categoryName ? getVipDrinksByCategory(categoryName) : [];
+  const allDrinks = slug ? getVipDrinksByCategory(slug).concat(
+    categoryName ? getVipDrinksByCategory(categoryName).filter(d => !getVipDrinksByCategory(slug).some(s => s.id === d.id)) : []
+  ) : [];
   const heroImage = categoryHeroImages[slug || ""];
   const subtitle = categorySubtitles[slug || ""] || "";
 
