@@ -64,16 +64,21 @@ export function getFlavorTags(dish: Dish): FlavorTag[] {
 
 export const categories = [
   "Tacos",
+  "Tortillas & Bases",
+  "Pratos Tradicionais",
   "Antojitos",
-  "Sopas & Caldos",
-  "Carnes & Guisados",
+  "Queijos & Recheios",
   "Molhos & Salsas",
+  "Sopas & Caldos",
+  "Carnes Mexicanas",
+  "Mariscos",
   "Sobremesas",
   "Bebidas",
-  "Mariscos",
   "Arroz & Feijão",
   "Café da Manhã",
   "Tamales & Massas",
+  "Cultura Mexicana",
+  "Escola Mexicana",
 ];
 
 export const dishes: Dish[] = [
@@ -200,32 +205,32 @@ export const dishes: Dish[] = [
     difficulty: "Fácil", time: "1h",
     description: "O caldo de frango mexicano é remédio para tudo — gripe, tristeza e fome. Servido com limão e arroz." },
 
-  // ============ CARNES & GUISADOS ============
-  { id: "mole-poblano", name: "Mole Poblano", category: "Carnes & Guisados", image: "mole-poblano",
+  // ============ CARNES MEXICANAS ============
+  { id: "mole-poblano", name: "Mole Poblano", category: "Carnes Mexicanas", image: "mole-poblano",
     ingredients: ["8 chiles (mulato, ancho, pasilla, chipotle)", "Chocolate amargo", "Amêndoas", "Gergelim", "Passas", "Banana", "Canela", "Cravo", "Tortillas secas", "Peru ou frango cozido"],
     steps: ["Torre e hidrate cada tipo de chile separadamente.", "Torre amêndoas, gergelim e especiarias.", "Bata tudo com chocolate e tortillas.", "Frite a pasta em óleo quente.", "Adicione caldo e cozinhe por 1h mexendo.", "O mole deve ter consistência aveludada. Sirva sobre peru ou frango."],
     difficulty: "Avançado", time: "3h",
     description: "O rei da culinária mexicana — mais de 30 ingredientes incluindo chocolate, chiles e especiarias. Receita de Puebla, patrimônio da humanidade." },
 
-  { id: "cochinita-pibil", name: "Cochinita Pibil", category: "Carnes & Guisados", image: "cochinita-pibil",
+  { id: "cochinita-pibil", name: "Cochinita Pibil", category: "Carnes Mexicanas", image: "cochinita-pibil",
     ingredients: ["1kg de pernil suíno", "100g de achiote (pasta de urucum)", "Suco de laranja amarga", "Suco de limão", "Folhas de bananeira", "Cebola roxa em curtida", "Habanero"],
     steps: ["Dissolva achiote em suco de laranja e limão.", "Marine a carne por 12h.", "Envolva em folhas de bananeira.", "Asse a 160°C por 3-4h até desmanchar.", "Desfie a carne.", "Sirva com cebola roxa curtida e habanero."],
     difficulty: "Médio", time: "4h + marinada",
     description: "Prato maia de Yucatán — carne de porco marinada em achiote e assada em folhas de bananeira. Cor alaranjada vibrante." },
 
-  { id: "chiles-rellenos", name: "Chiles Rellenos", category: "Carnes & Guisados", image: "chiles-rellenos",
+  { id: "chiles-rellenos", name: "Chiles Rellenos", category: "Carnes Mexicanas", image: "chiles-rellenos",
     ingredients: ["6 chiles poblanos", "300g de queijo Oaxaca ou carne moída", "4 ovos", "Farinha de trigo", "Molho de tomate", "Creme ácido"],
     steps: ["Asse os chiles diretamente no fogo até a pele queimar.", "Coloque em saco plástico por 10 min e remova a pele.", "Recheie com queijo ou carne.", "Passe na farinha e na clara em neve.", "Frite até dourar.", "Sirva com molho de tomate e creme."],
     difficulty: "Médio", time: "50 min",
     description: "Chiles poblanos assados, recheados e fritos em capa de ovo. Prato emblemático da comida caseira mexicana." },
 
-  { id: "barbacoa", name: "Barbacoa", category: "Carnes & Guisados", image: "barbacoa",
+  { id: "barbacoa", name: "Barbacoa", category: "Carnes Mexicanas", image: "barbacoa",
     ingredients: ["1kg de carne bovina (bochechas ou acém)", "Chiles guajillo e ancho", "Folhas de agave ou bananeira", "Alho", "Cominho", "Cravo", "Orégano", "Vinagre"],
     steps: ["Hidrate e bata os chiles com especiarias.", "Cubra a carne com a pasta.", "Envolva em folhas de agave ou bananeira.", "Cozinhe no forno a 150°C por 5h.", "Desfie a carne.", "Sirva em tacos com consomé, cebola e coentro."],
     difficulty: "Avançado", time: "5h",
     description: "Carne cozida lentamente em forno de terra (ou forno convencional), desfiada e suculenta. Tradição dominical do centro do México." },
 
-  { id: "carne-en-su-jugo", name: "Carne en su Jugo", category: "Carnes & Guisados", image: "carne-en-su-jugo",
+  { id: "carne-en-su-jugo", name: "Carne en su Jugo", category: "Carnes Mexicanas", image: "carne-en-su-jugo",
     ingredients: ["500g de carne bovina picada", "Bacon", "Feijão pinto cozido", "Tomatillos verdes", "Chile serrano", "Coentro", "Cebola", "Alho"],
     steps: ["Asse tomatillos e chiles e bata com coentro.", "Frite o bacon até crocante.", "Sele a carne rapidamente em fogo alto.", "Adicione o molho verde e feijões.", "Cozinhe por 15 min.", "Sirva com cebola, coentro, tortillas e limão."],
     difficulty: "Fácil", time: "35 min",

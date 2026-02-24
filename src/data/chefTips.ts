@@ -239,4 +239,352 @@ export const chefTips: Record<string, ChefTip> = {
     serve: "Quentes e crocantes. O recheio deve estar bem temperado.",
     tip: "Se fritar, o óleo deve estar a 170°C. Se assar, pincele com ovo para dourar.",
   },
+
+  // ============ TORTILLAS & BASES ============
+  "tortilla-milho": {
+    glass: "Cesto com pano (tortillero)",
+    serve: "Quentes, diretamente da chapa. Devem inflar ao cozinhar.",
+    tip: "A proporção é 2:1¼ (masa:água). Se a masa rachar nas bordas, adicione mais água.",
+  },
+  "tortilla-trigo": {
+    glass: "Tortillero ou pano limpo",
+    serve: "Quentes e flexíveis — devem dobrar sem quebrar.",
+    tip: "A banha faz toda a diferença na textura. Descanse a massa 30 min para o glúten relaxar.",
+  },
+  "gorditas-base": {
+    glass: "Prato simples",
+    serve: "Abra com cuidado e recheie generosamente.",
+    tip: "A massa deve ser mais grossa que tortilla — 2cm. Abra enquanto quente.",
+  },
+  "sopes-base": {
+    glass: "Prato de barro",
+    serve: "Monte na hora para manter a crocância.",
+    tip: "Levante as bordas imediatamente após tirar da chapa — esfria rápido.",
+  },
+  "tlacoyos-base": {
+    glass: "Prato com salsa",
+    serve: "Cubra com nopales e queijo fresco.",
+    tip: "O recheio vai dentro da masa antes de cozinhar — não é cobertura.",
+  },
+  "tostadas-base": {
+    glass: "Prato ou cesta",
+    serve: "Completamente planas e crocantes.",
+    tip: "Tortillas velhas fritam melhor. O óleo deve estar a 180°C.",
+  },
+
+  // ============ PRATOS TRADICIONAIS ============
+  "enchiladas-verdes": {
+    glass: "Travessa de barro",
+    serve: "Cubra generosamente com creme e queijo.",
+    tip: "Tomatillos cozidos ficam menos ácidos. Para mais frescor, use crus.",
+  },
+  "burritos": {
+    glass: "Embrulhado em papel alumínio",
+    serve: "Deve ser grande o suficiente para ser uma refeição completa.",
+    tip: "Aqueça a tortilla de farinha na chapa para ficar flexível — se não, vai rasgar.",
+  },
+  "chimichangas": {
+    glass: "Prato com guacamole e creme",
+    serve: "Crocante por fora, suculento por dentro.",
+    tip: "Prenda bem com palitos antes de fritar — se abrir, o recheio escapa no óleo.",
+  },
+  "quesadillas-trad": {
+    glass: "Prato ou tábua",
+    serve: "Queijo deve estar completamente derretido.",
+    tip: "Flor de abóbora refogada com epazote é o recheio mais tradicional da CDMX.",
+  },
+  "fajitas": {
+    glass: "Chapa de ferro fumegante",
+    serve: "A apresentação fumegante é essencial — aqueça a chapa antes.",
+    tip: "Corte sempre contra as fibras da carne para máxima maciez.",
+  },
+  "chilaquiles-rojos": {
+    glass: "Prato fundo com ovo",
+    serve: "Al dente — não totalmente moles. Sirva imediatamente.",
+    tip: "Use totopos grossos que aguentem a salsa sem desmanchar.",
+  },
+  "pozole-blanco": {
+    glass: "Tigela grande",
+    serve: "Com todos os acompanhamentos na mesa.",
+    tip: "Sem chile — o sabor vem da carne e do hominy. Perfeito para crianças.",
+  },
+  "enchiladas-suizas": {
+    glass: "Travessa refratária gratinada",
+    serve: "Quentes do forno com queijo borbulhando.",
+    tip: "O creme de leite suaviza a acidez do tomatillo — esse é o 'suíço' do nome.",
+  },
+  "tamales-verdes": {
+    glass: "Na própria folha de milho",
+    serve: "Acompanhe com atole quente.",
+    tip: "A masa deve flutuar na água. Bata mais banha se afundar.",
+  },
+  "enfrijoladas-trad": {
+    glass: "Prato fundo",
+    serve: "O molho de feijão deve ser sedoso e quente.",
+    tip: "Use feijão negro com epazote — o sabor é insubstituível.",
+  },
+  "mole-amarillo": {
+    glass: "Prato de barro",
+    serve: "Espessado com masa — textura aveludada.",
+    tip: "O chilcostle é essencial e difícil de encontrar fora de Oaxaca — chile ancho é substituto.",
+  },
+
+  // ============ QUEIJOS & RECHEIOS ============
+  "queijo-oaxaca": {
+    glass: "Panela de barro quente",
+    serve: "O queijo deve puxar fios longos quando servido.",
+    tip: "Queijo Oaxaca é enrolado em novelo como barbante — desfie antes de usar.",
+  },
+  "queso-fundido": {
+    glass: "Panela de barro borbulhando",
+    serve: "Sirva imediatamente — endurece rápido.",
+    tip: "Use queijo Chihuahua para derreter perfeito. Oaxaca também funciona.",
+  },
+  "queijo-cotija": {
+    glass: "Esfarelado sobre pratos",
+    serve: "Não derrete — use esfarelado como parmesão.",
+    tip: "O verdadeiro Cotija vem de Michoacán e tem denominação de origem.",
+  },
+  "recheio-picadillo": {
+    glass: "Tigela para recheio",
+    serve: "Versátil — use em chiles, empanadas, tacos.",
+    tip: "Passas e azeitonas são o toque especial que diferencia o picadillo mexicano.",
+  },
+  "recheio-tinga": {
+    glass: "Tigela para recheio",
+    serve: "Desfie o frango em fios médios.",
+    tip: "O chipotle em adobo já tem molho — use o molho da lata para mais sabor.",
+  },
+  "recheio-rajas": {
+    glass: "Tigela cremosa",
+    serve: "Cremoso e com tiras de poblano visíveis.",
+    tip: "Asse o poblano até a pele estalar e ficar preta — mas não queime a carne.",
+  },
+  "recheio-vegano": {
+    glass: "Tigela",
+    serve: "Colorido e fresco — monte na hora.",
+    tip: "Grelhe os nopales até perder TODA a baba — paciência aqui é fundamental.",
+  },
+
+  // ============ CARNES MEXICANAS EXTRAS ============
+  "carnitas-michoacan": {
+    glass: "Prato de barro ou bandeja",
+    serve: "Misture cortes macios e crocantes para variedade de texturas.",
+    tip: "A panela de cobre de Michoacán conduz calor uniformemente — use panela grossa.",
+  },
+  "pollo-asado-mex": {
+    glass: "Tábua de corte",
+    serve: "A pele deve estar crocante e vermelha da marinada.",
+    tip: "Marine por no mínimo 12h — o achiote precisa de tempo para penetrar.",
+  },
+  "bistec-ranchero": {
+    glass: "Prato com tortillas",
+    serve: "O molho ranchero deve cobrir a carne.",
+    tip: "Sele a carne primeiro em fogo alto — depois cozinhe no molho.",
+  },
+  "arrachera": {
+    glass: "Tábua fumegante",
+    serve: "Corte contra as fibras em tiras finas.",
+    tip: "A cerveja na marinada amacia as fibras. Não passe do ponto — deve ficar ao ponto.",
+  },
+  "cecina-yecapixtla": {
+    glass: "Prato com guacamole",
+    serve: "Rápida na brasa — 2-3 min por lado.",
+    tip: "Cecina já é salgada — não adicione sal. O guacamole equilibra.",
+  },
+  "tasajo-oaxaca": {
+    glass: "Prato com nopales",
+    serve: "Carne fina e rápida de grelhar.",
+    tip: "Compre tasajo nos mercados de Oaxaca — a qualidade varia muito.",
+  },
+  "suadero-guisado": {
+    glass: "Prato com tortillas",
+    serve: "Frite até ficar crocante por fora.",
+    tip: "Suadero é uma carne única — entre costela e pele. Textura inimitável.",
+  },
+
+  // ============ CULTURA & ESCOLA ============
+  "historia-taco": {
+    glass: "Leitura — não é receita",
+    serve: "Acompanhe com tacos de verdade enquanto lê.",
+    tip: "A história do taco é a história do México — cada região conta sua versão.",
+  },
+  "cultura-pimenta": {
+    glass: "Leitura educativa",
+    serve: "Tenha as pimentas em mãos para comparar.",
+    tip: "Comece com poblano (suave) e vá subindo até habanero (extremo) gradualmente.",
+  },
+  "historia-mole": {
+    glass: "Leitura cultural",
+    serve: "Experimente um mole enquanto lê sobre sua história.",
+    tip: "Cada mole conta uma história de 500 anos de fusão cultural.",
+  },
+  "dia-muertos": {
+    glass: "Leitura cultural",
+    serve: "Monte uma ofrenda com as comidas mencionadas.",
+    tip: "A ofrenda deve incluir a comida favorita do ente querido — é pessoal.",
+  },
+  "regioes-gastronomicas": {
+    glass: "Leitura educativa",
+    serve: "Use como guia para planejar viagens gastronômicas.",
+    tip: "Cada estado merece pelo menos uma semana de exploração culinária.",
+  },
+  "festivais-mexicanos": {
+    glass: "Leitura informativa",
+    serve: "Planeje viagens em torno dos festivais.",
+    tip: "A Guelaguetza em julho é a experiência cultural mais completa.",
+  },
+  "tecnica-tortilla": {
+    glass: "Aula prática",
+    serve: "Pratique com masa harina antes de usar nixtamal.",
+    tip: "A tortillera é investimento essencial — $200 MXN resolve.",
+  },
+  "tecnica-chiles": {
+    glass: "Aula prática",
+    serve: "Tenha 3-4 tipos de chile para comparar.",
+    tip: "Nunca queime os chiles — torre levemente. Queimado = amargo.",
+  },
+  "tecnica-mole": {
+    glass: "Masterclass",
+    serve: "Reserve um dia inteiro para sua primeira tentativa.",
+    tip: "Cada ingrediente preparado separadamente é o segredo — atalhos comprometem.",
+  },
+  "tecnica-salsa": {
+    glass: "Aula prática",
+    serve: "Faça as 5 salsas essenciais numa tarde.",
+    tip: "O molcajete dá textura rústica impossível no liquidificador.",
+  },
+  "tecnica-nixtamal": {
+    glass: "Aula avançada",
+    serve: "Processo de 24h — planeje com antecedência.",
+    tip: "A cal (hidróxido de cálcio) libera niacina do milho — por isso os astecas não tinham pelagra.",
+  },
+  "tecnica-fermentacao": {
+    glass: "Aula prática",
+    serve: "Comece com tepache — o mais fácil.",
+    tip: "A temperatura ambiente tropical (25-30°C) acelera a fermentação.",
+  },
+  "tecnica-artesanal": {
+    glass: "Leitura educativa",
+    serve: "Procure molcajetes de pedra vulcânica autênticos.",
+    tip: "Um molcajete novo precisa ser 'curado' — moa arroz até sair pó branco.",
+  },
+
+  // ============ MOLHOS EXTRAS ============
+  "molho-apimentado-habanero": {
+    glass: "Frasco pequeno — use com cautela",
+    serve: "Gotas — não colheradas. É MUITO picante.",
+    tip: "Use luvas ao manusear habanero. A capsaicina não sai com água — use leite.",
+  },
+  "molho-suave-aguacate": {
+    glass: "Tigela ou squeeze bottle",
+    serve: "Cremoso e suave — perfeito para crianças.",
+    tip: "Adicione creme ácido para estabilizar a cor verde por mais tempo.",
+  },
+  "molho-defumado-chipotle": {
+    glass: "Squeeze bottle ou pote",
+    serve: "Como dipping sauce ou drizzle.",
+    tip: "Uma lata de chipotle rende muito — congele o restante em porções.",
+  },
+
+  // ============ SOPAS EXTRAS ============
+  "caldo-camaron": {
+    glass: "Tigela funda",
+    serve: "Os camarões devem ficar rosados e firmes — não cozinhe demais.",
+    tip: "O caldo das cascas é o segredo — tem mais sabor que os camarões.",
+  },
+  "caldo-tlalpeno": {
+    glass: "Tigela com toppings",
+    serve: "Queijo panela em cubos no caldo quente.",
+    tip: "O grão de bico deve estar bem cozido — use de lata se necessário.",
+  },
+
+  // ============ SOBREMESAS EXTRAS ============
+  "helado-nieve": {
+    glass: "Cone ou copo",
+    serve: "Artesanal e cremosa — sem cristais de gelo.",
+    tip: "Mexa a cada 30 min durante o congelamento para textura cremosa.",
+  },
+  "mazapan": {
+    glass: "Embalagem individual",
+    serve: "Desmancha na boca — delicado ao manusear.",
+    tip: "O amendoim deve virar pó fino — grosso demais não gruda.",
+  },
+  "pastel-tres-leches": {
+    glass: "Prato fundo — solta líquido",
+    serve: "Encharcado mas sem desmoronar. Chantilly generoso.",
+    tip: "Fure bastante com garfo para absorver os 3 leites uniformemente.",
+  },
+  "alegrias": {
+    glass: "Embalagem ou prato",
+    serve: "Barrinhas crocantes e doces.",
+    tip: "O mel deve estar no ponto de fio — quente demais queima o amaranto.",
+  },
+
+  // ============ BATCH 5 EXTRAS ============
+  "tacos-camarao": {
+    glass: "Cesta ou prato",
+    serve: "Sirva imediatamente — a crocância é efêmera.",
+    tip: "Massa de cerveja gelada + óleo quente = empanado perfeito.",
+  },
+  "tacos-veganos": {
+    glass: "Prato ou bandeja",
+    serve: "Colorido e fresco — a couve-flor deve estar dourada.",
+    tip: "Asse em temperatura alta (220°C) para caramelizar sem amolecer.",
+  },
+  "tacos-gourmet": {
+    glass: "Prato de apresentação",
+    serve: "Micro-greens e glace de molho para apresentação premium.",
+    tip: "4h de cozimento lento é inegociável — não há atalho para costela perfeita.",
+  },
+  "pupusas-mex": {
+    glass: "Prato simples",
+    serve: "Quentes da chapa com feijão e salsa.",
+    tip: "Pincele com banha para brilho e sabor extra.",
+  },
+  "chalupas": {
+    glass: "Prato",
+    serve: "Pequenas e crocantes — finger food perfeito.",
+    tip: "Discos pequenos — menores que sopes. Devem ser planos.",
+  },
+  "michelada": {
+    glass: "Copo grande com borda de sal e tajín",
+    serve: "Gelada com bastante gelo.",
+    tip: "A qualidade do Clamato faz toda diferença — Clamato mexicano é melhor.",
+  },
+  "margarita": {
+    glass: "Taça coupe ou rocks com borda de sal",
+    serve: "Agite bem no shaker com gelo.",
+    tip: "Use tequila 100% agave — mixtos comprometem o sabor.",
+  },
+  "pulque": {
+    glass: "Copo ou jícara",
+    serve: "Fresco e levemente ácido.",
+    tip: "Pulque não pode ser industrializado — só existe artesanal e fresco.",
+  },
+  "camarones-coconut": {
+    glass: "Prato com salsa de manga",
+    serve: "A salsa de manga + habanero é o equilíbrio perfeito.",
+    tip: "Dupla empanagem (farinha → ovo → coco) para cobertura grossa.",
+  },
+  "zarandeado": {
+    glass: "Prato grande — peixe inteiro",
+    serve: "Na mesa inteiro — visual impressionante.",
+    tip: "Pargo ou huachinango são os peixes ideais. A pele deve estar crocante.",
+  },
+  "frijoles-puercos": {
+    glass: "Tigela de barro",
+    serve: "Caldoso com todos os toppings visíveis.",
+    tip: "É a versão 'tudo junto' — quanto mais ingredientes, melhor.",
+  },
+  "huevos-motulenos": {
+    glass: "Prato grande — muitos componentes",
+    serve: "Tudo empilhado: tortilla, feijão, ovo, salsa, banana.",
+    tip: "Sim, banana frita é essencial — o doce combina com o salgado.",
+  },
+  "chilaquiles-especiais": {
+    glass: "Prato fundo",
+    serve: "Queijo Oaxaca deve derreter sobre os chilaquiles.",
+    tip: "Adicione o queijo 2 min antes de servir para derreter sem queimar.",
+  },
 };
