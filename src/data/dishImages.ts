@@ -63,7 +63,7 @@ const dishImages: Record<string, string> = {
   "sopa-fideo": "/images/dish-sopa-tortilla.jpg",
   "sopa-lima": "/images/dish-sopa-tortilla.jpg",
   "pozole-verde": "/images/dish-pozole-rojo.jpg",
-  "pozole-blanco": "/images/dish-pozole-rojo.jpg",
+  "pozole-blanco": "/images/dish-pozole-blanco.jpg",
   "caldo-camaron": "/images/dish-coctel-camarones.jpg",
   "caldo-tlalpeno": "/images/dish-caldo-de-pollo.jpg",
 
@@ -171,10 +171,8 @@ const dishImages: Record<string, string> = {
   "chiles-nogada": "/images/dish-chiles-en-nogada-premium.jpg",
   "torta-ahogada": "/images/dish-gorditas.jpg",
   "cemita-poblana": "/images/dish-gorditas.jpg",
-  "tamales-verdes": "/images/dish-tamales.jpg",
   "tamales-dulces": "/images/dish-tamales.jpg",
   "empanadas-mexicanas": "/images/dish-gorditas.jpg",
-  "enfrijoladas-trad": "/images/dish-enchiladas-rojas.jpg",
   "mole-amarillo": "/images/dish-mole-amarillo-oaxaca.jpg",
 
   // ============ TORTILLAS & BASES ============
@@ -188,13 +186,16 @@ const dishImages: Record<string, string> = {
   "chalupas": "/images/dish-tostadas.jpg",
 
   // ============ PRATOS TRADICIONAIS ============
-  "enchiladas-verdes": "/images/dish-enchiladas-rojas.jpg",
-  "burritos": "/images/dish-quesadillas.jpg",
-  "chimichangas": "/images/dish-quesadillas.jpg",
-  "quesadillas-trad": "/images/dish-quesadillas.jpg",
-  "fajitas": "/images/dish-tacos-carne-asada.jpg",
-  "chilaquiles-rojos": "/images/dish-chilaquiles.jpg",
-  "enchiladas-suizas": "/images/dish-enchiladas-rojas.jpg",
+  "enchiladas-verdes": "/images/dish-enchiladas-verdes.jpg",
+  "burritos": "/images/dish-burritos.jpg",
+  "chimichangas": "/images/dish-chimichangas.jpg",
+  "quesadillas-trad": "/images/dish-quesadillas-flor.jpg",
+  "quesadillas-flor": "/images/dish-quesadillas-flor.jpg",
+  "fajitas": "/images/dish-fajitas.jpg",
+  "chilaquiles-rojos": "/images/dish-chilaquiles-rojos.jpg",
+  "enchiladas-suizas": "/images/dish-enchiladas-suizas.jpg",
+  "tamales-verdes": "/images/dish-tamales-verdes.jpg",
+  "enfrijoladas-trad": "/images/dish-enfrijoladas.jpg",
 
   // ============ QUEIJOS & RECHEIOS ============
   "queijo-oaxaca": "/images/dish-quesadillas.jpg",
