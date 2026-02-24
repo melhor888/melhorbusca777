@@ -232,6 +232,32 @@
     "q5o3": "🫕 Pozole, Birria and Soups",
     "q5o4": "🌶️ Mole and Complex Sauces"
   },
+  "xp": {
+    "lvShort": "Lv.{{level}}",
+    "level": "Level {{level}}",
+    "xpToNext": "{{xp}} XP to next level",
+    "recipeViewed": "Recipe viewed!",
+    "quizCompleted": "Quiz completed!",
+    "articleRead": "Article read!",
+    "tipRead": "Tip completed!",
+    "levelTitles": {
+      "1": "Beginner",
+      "2": "Curious",
+      "3": "Apprentice",
+      "4": "Cook",
+      "5": "Taquero",
+      "6": "Salsero",
+      "7": "Grill Master",
+      "8": "Mexican Chef",
+      "9": "Mole Master",
+      "10": "Oaxacan Maestro",
+      "11": "Wise Abuela",
+      "12": "Flavor Healer",
+      "13": "Corn Guardian",
+      "14": "Culinary Legend",
+      "15": "God of Mole"
+    }
+  },
   "achievements_page": {
     "title": "All Achievements 🏆",
     "pctUnlocked": "{{pct}}% of achievements unlocked",

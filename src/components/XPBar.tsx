@@ -1,4 +1,5 @@
-import { useXP, getLevelProgress, getLevel } from "@/hooks/useXP";
+import { useXP } from "@/hooks/useXP";
+import { useTranslation } from "react-i18next";
 import { Zap } from "lucide-react";
 
 interface XPBarProps {
@@ -7,6 +8,7 @@ interface XPBarProps {
 
 export default function XPBar({ compact = false }: XPBarProps) {
   const { totalXP, level, progress } = useXP();
+  const { t } = useTranslation();
 
   if (compact) {
     return (
@@ -21,7 +23,7 @@ export default function XPBar({ compact = false }: XPBarProps) {
             style={{ width: `${progress}%` }}
           />
         </div>
-        <span className="text-[10px] text-muted-foreground">Nv.{level.level}</span>
+        <span className="text-[10px] text-muted-foreground">{t("xp.lvShort", { level: level.level })}</span>
       </div>
     );
   }
@@ -34,14 +36,14 @@ export default function XPBar({ compact = false }: XPBarProps) {
             <Zap size={20} className="text-primary fill-primary" />
           </div>
           <div>
-            <p className="text-sm font-bold text-foreground">Nível {level.level}</p>
-            <p className="text-xs text-primary font-semibold">{level.title}</p>
+            <p className="text-sm font-bold text-foreground">{t("xp.level", { level: level.level })}</p>
+            <p className="text-xs text-primary font-semibold">{t(`xp.levelTitles.${level.level}`)}</p>
           </div>
         </div>
         <div className="text-right">
           <p className="text-lg font-bold text-gradient-gold">{totalXP} XP</p>
           {level.maxXP !== Infinity && (
-            <p className="text-[10px] text-muted-foreground">{level.maxXP - totalXP} XP para próximo nível</p>
+            <p className="text-[10px] text-muted-foreground">{t("xp.xpToNext", { xp: level.maxXP - totalXP })}</p>
           )}
         </div>
       </div>

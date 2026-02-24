@@ -157,7 +157,7 @@ export default function Quiz() {
       <Helmet>
         <title>{t("quiz.title")} | Receitas MexicanasXP</title>
       </Helmet>
-      <XPToast xp={XP_QUIZ} show={showXP} onClose={() => setShowXP(false)} />
+      <XPToast xp={XP_QUIZ} show={showXP} onClose={() => setShowXP(false)} message={t("xp.quizCompleted")} />
 
       <div className="sticky top-0 z-40 glass-card border-b border-border/50 px-4 py-3 flex items-center gap-3">
         <button onClick={() => navigate(-1)} className="w-9 h-9 rounded-full bg-secondary flex items-center justify-center">

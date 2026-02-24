@@ -232,6 +232,32 @@
     "q5o3": "🫕 Pozole, Birria y Sopas",
     "q5o4": "🌶️ Mole y Salsas Complejas"
   },
+  "xp": {
+    "lvShort": "Nv.{{level}}",
+    "level": "Nivel {{level}}",
+    "xpToNext": "{{xp}} XP para el siguiente nivel",
+    "recipeViewed": "¡Receta vista!",
+    "quizCompleted": "¡Quiz completado!",
+    "articleRead": "¡Artículo leído!",
+    "tipRead": "¡Consejo completado!",
+    "levelTitles": {
+      "1": "Principiante",
+      "2": "Curioso",
+      "3": "Aprendiz",
+      "4": "Cocinero",
+      "5": "Taquero",
+      "6": "Salsero",
+      "7": "Parrillero",
+      "8": "Chef Mexicano",
+      "9": "Maestro del Mole",
+      "10": "Maestro Oaxaqueño",
+      "11": "Abuela Sabia",
+      "12": "Curandero del Sabor",
+      "13": "Guardián del Maíz",
+      "14": "Leyenda Culinaria",
+      "15": "Dios del Mole"
+    }
+  },
   "achievements_page": {
     "title": "Todos los Logros 🏆",
     "pctUnlocked": "{{pct}}% de logros desbloqueados",
