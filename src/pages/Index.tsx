@@ -1,14 +1,17 @@
-import { useState, useEffect, useMemo } from "react";
-import { useNavigate, useSearchParams, Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { Search, SlidersHorizontal, X } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import HeroBanner from "@/components/HeroBanner";
 import CategoryRow from "@/components/CategoryRow";
 import XPBar from "@/components/XPBar";
 import DrinkCard from "@/components/DrinkCard";
 import ThemeToggle from "@/components/ThemeToggle";
 import NotificationToggle from "@/components/NotificationToggle";
+import LanguageSelector from "@/components/LanguageSelector";
 import { categories, getDishesByCategory, searchDishes, dishes as allDishes, getSpiceLevel, type SpiceLevel } from "@/data/dishes";
+import { useLocalizedPath } from "@/i18n/useLocalizedPath";
 
 function slugify(text: string): string {
   return text
@@ -19,21 +22,28 @@ function slugify(text: string): string {
     .replace(/(^-|-$)/g, "");
 }
 
-const difficulties = ["Fácil", "Médio", "Avançado"] as const;
-const spiceFilters = [
-  { level: 0 as const, label: "🌱 Suave", color: "text-green-400", ring: "ring-green-500/50", bg: "bg-green-500/20" },
-  { level: 1 as const, label: "🌶️ Médio", color: "text-yellow-400", ring: "ring-yellow-500/50", bg: "bg-yellow-500/20" },
-  { level: 2 as const, label: "🌶️🌶️ Forte", color: "text-orange-400", ring: "ring-orange-500/50", bg: "bg-orange-500/20" },
-  { level: 3 as const, label: "🌶️🌶️🌶️ Extremo", color: "text-red-500", ring: "ring-red-500/50", bg: "bg-red-500/20" },
-];
-
 export default function Index() {
+  const { t } = useTranslation();
+  const { localePath } = useLocalizedPath();
   const [searchParams] = useSearchParams();
   const [query, setQuery] = useState(searchParams.get("q") || "");
   const [activeFilter, setActiveFilter] = useState<string | null>(null);
   const [activeSpice, setActiveSpice] = useState<SpiceLevel | null>(null);
   const [showFilters, setShowFilters] = useState(false);
   const navigate = useNavigate();
+
+  const difficulties = [
+    { key: "Fácil", label: t("filters.easy") },
+    { key: "Médio", label: t("filters.medium") },
+    { key: "Avançado", label: t("filters.advanced") },
+  ];
+
+  const spiceFilters = [
+    { level: 0 as const, label: t("filters.mild"), color: "text-green-400", ring: "ring-green-500/50", bg: "bg-green-500/20" },
+    { level: 1 as const, label: t("filters.mediumSpice"), color: "text-yellow-400", ring: "ring-yellow-500/50", bg: "bg-yellow-500/20" },
+    { level: 2 as const, label: t("filters.hot"), color: "text-orange-400", ring: "ring-orange-500/50", bg: "bg-orange-500/20" },
+    { level: 3 as const, label: t("filters.extreme"), color: "text-red-500", ring: "ring-red-500/50", bg: "bg-red-500/20" },
+  ];
 
   useEffect(() => {
     const q = searchParams.get("q");
@@ -54,11 +64,12 @@ export default function Index() {
   return (
     <>
       <Helmet>
-        <title>Receitas MexicanasXP - Receitas de Comida Mexicana Autêntica</title>
-        <meta name="description" content="Descubra receitas autênticas da culinária mexicana. Tacos, burritos, enchiladas, guacamole e muito mais. Aprenda técnicas profissionais." />
+        <title>{t("seo.title")}</title>
+        <meta name="description" content={t("seo.description")} />
       </Helmet>
       <div className="min-h-screen pb-20">
         <header className="fixed top-0 left-0 right-0 z-40 px-4 py-3 flex items-center justify-end gap-2 bg-gradient-to-b from-background via-background/90 to-transparent lg:hidden">
+          <LanguageSelector compact />
           <NotificationToggle />
           <ThemeToggle />
           <XPBar compact />
@@ -74,7 +85,7 @@ export default function Index() {
                 type="text"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                placeholder="Buscar pratos, ingredientes..."
+                placeholder={t("search.placeholder")}
                 className="w-full pl-10 pr-4 py-3 rounded-xl bg-secondary text-foreground placeholder:text-muted-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/50"
               />
               {query && (
@@ -103,21 +114,21 @@ export default function Index() {
               <div className="flex gap-2 mt-3 animate-fade-in flex-wrap">
                 {difficulties.map((diff) => (
                   <button
-                    key={diff}
+                    key={diff.key}
                     onClick={() =>
-                      setActiveFilter(activeFilter === diff ? null : diff)
+                      setActiveFilter(activeFilter === diff.key ? null : diff.key)
                     }
                     className={`px-4 py-1.5 rounded-full text-xs font-semibold transition-all ${
-                      activeFilter === diff
-                        ? diff === "Fácil"
+                      activeFilter === diff.key
+                        ? diff.key === "Fácil"
                           ? "bg-green-500/20 text-green-400 ring-1 ring-green-500/50"
-                          : diff === "Médio"
+                          : diff.key === "Médio"
                           ? "bg-yellow-500/20 text-yellow-400 ring-1 ring-yellow-500/50"
                           : "bg-red-500/20 text-red-400 ring-1 ring-red-500/50"
                         : "bg-secondary text-muted-foreground hover:text-foreground"
                     }`}
                   >
-                    {diff}
+                    {diff.label}
                   </button>
                 ))}
                 {(activeFilter || activeSpice !== null) && (
@@ -125,11 +136,10 @@ export default function Index() {
                     onClick={() => { setActiveFilter(null); setActiveSpice(null); }}
                     className="px-3 py-1.5 rounded-full text-xs text-muted-foreground hover:text-foreground bg-secondary"
                   >
-                    Limpar
+                    {t("search.clear")}
                   </button>
                 )}
               </div>
-              {/* Spice Level Filter */}
               <div className="flex gap-2 mt-2 animate-fade-in overflow-x-auto scrollbar-hide">
                 {spiceFilters.map((sf) => (
                   <button
@@ -165,7 +175,7 @@ export default function Index() {
               </div>
             ) : (
               <p className="text-muted-foreground text-center mt-12">
-                Nenhum resultado encontrado.
+                {t("search.noResults")}
               </p>
             )}
           </div>
@@ -177,7 +187,7 @@ export default function Index() {
               return (
                 <div key={cat}>
                   <CategoryRow
-                    title={cat}
+                    title={t(`categories.${cat}`, cat)}
                     drinks={shuffled}
                     categorySlug={slugify(cat)}
                   />

@@ -1,8 +1,10 @@
 import { useMemo, useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { dishes } from "@/data/dishes";
 import { getDishImage } from "@/data/dishImages";
 import { Play } from "lucide-react";
+import { useLocalizedPath } from "@/i18n/useLocalizedPath";
 
 function getDailySeed(): number {
   const now = new Date();
@@ -23,6 +25,8 @@ function seededShuffle<T>(arr: T[], seed: number): T[] {
 const INTERVAL = 5000;
 
 export default function HeroBanner() {
+  const { t } = useTranslation();
+  const { localePath } = useLocalizedPath();
   const queue = useMemo(() => seededShuffle(dishes, getDailySeed()).slice(0, 8), []);
   const [index, setIndex] = useState(0);
   const [fading, setFading] = useState(false);
@@ -53,7 +57,7 @@ export default function HeroBanner() {
       <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
       <div className={`absolute bottom-0 left-0 right-0 p-6 lg:p-12 lg:max-w-3xl transition-all duration-500 ${fading ? "opacity-0 translate-y-2" : "opacity-100 translate-y-0"}`}>
         <span className="text-primary text-xs font-semibold tracking-widest uppercase">
-          Destaque do Dia
+          {t("hero.highlight")}
         </span>
         <h1 className="text-4xl lg:text-5xl font-display font-bold text-foreground mt-1">
           {featured.name}
@@ -62,11 +66,11 @@ export default function HeroBanner() {
           {featured.ingredients.slice(0, 3).join(" · ")}
         </p>
         <button
-          onClick={() => navigate(`/recipe/${featured.id}`)}
+          onClick={() => navigate(localePath(`/recipe/${featured.id}`))}
           className="mt-4 flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-full font-semibold text-sm transition-transform hover:scale-105 active:scale-95"
         >
           <Play size={16} fill="currentColor" />
-          Ver Receita
+          {t("hero.viewRecipe")}
         </button>
       </div>
       <div className="absolute bottom-3 right-4 flex gap-1.5">
