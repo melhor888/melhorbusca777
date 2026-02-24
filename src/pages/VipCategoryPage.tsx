@@ -8,12 +8,8 @@ import { useEffect, useState, useMemo } from "react";
 import { getVipDrinkImage } from "@/data/vipDrinkImages";
 import { Input } from "@/components/ui/input";
 
-import heroReceitasSecretas from "@/assets/vip/hero-receitas-secretas.jpg";
-import heroMasterclassTecnicas from "@/assets/vip/hero-masterclass-tecnicas.jpg";
-import heroHarmonizacaoSake from "@/assets/vip/hero-harmonizacao-sake.jpg";
-import heroCardapiosCompletos from "@/assets/vip/hero-cardapios-completos.jpg";
-
-// All category card images now come from getVipDrinkImage()
+// Hero images now use placeholder
+const PLACEHOLDER = "/placeholder.svg";
 
 const difficultyColor: Record<string, string> = {
   "Fácil": "text-green-400",
@@ -29,17 +25,17 @@ const categoryNames: Record<string, string> = {
 };
 
 const categoryHeroImages: Record<string, string> = {
-  "receitas-secretas": heroReceitasSecretas,
-  "masterclass-tecnicas": heroMasterclassTecnicas,
-  "harmonizacao-sake": heroHarmonizacaoSake,
-  "cardapios-completos": heroCardapiosCompletos,
+  "receitas-secretas": PLACEHOLDER,
+  "masterclass-tecnicas": PLACEHOLDER,
+  "harmonizacao-sake": PLACEHOLDER,
+  "cardapios-completos": PLACEHOLDER,
 };
 
 const categorySubtitles: Record<string, string> = {
-  "receitas-secretas": "Wagyu A5, Fugu, Kaiseki, Omakase — receitas que só chefs dominam",
-  "masterclass-tecnicas": "Afiar facas, corte sashimi, dashi perfeito, arte do tempurá",
-  "harmonizacao-sake": "Guia de harmonização: sakê, shochu, whisky japonês com cada prato",
-  "cardapios-completos": "Menus completos: Kaiseki, Izakaya, Hanami, Réveillon Japonês",
+  "receitas-secretas": "Receitas exclusivas dos melhores chefs mexicanos",
+  "masterclass-tecnicas": "Técnicas avançadas da culinária mexicana",
+  "harmonizacao-sake": "Harmonização de tequila, mezcal e drinks mexicanos",
+  "cardapios-completos": "Menus completos para festas e eventos mexicanos",
 };
 
 export default function VipCategoryPage() {
