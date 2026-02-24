@@ -94,32 +94,32 @@ export const dishesBatch2: Dish[] = [
     difficulty: "Médio", time: "2h",
     description: "Versão verde do pozole, de Guerrero — mais fresca e herbácea que a vermelha." },
 
-  // ============ CARNES & GUISADOS (5) ============
-  { id: "tinga-res", name: "Tinga de Res", category: "Carnes & Guisados", image: "tinga-res",
+  // ============ CARNES MEXICANAS (5) ============
+  { id: "tinga-res", name: "Tinga de Res", category: "Carnes Mexicanas", image: "tinga-res",
     ingredients: ["500g de carne bovina (acém)", "Chiles chipotle em adobo", "Tomate", "Cebola", "Alho", "Orégano", "Louro"],
     steps: ["Cozinhe a carne até macia e desfie.", "Refogue cebola e adicione tomate.", "Adicione chipotles e caldo.", "Junte a carne desfiada.", "Cozinhe 20 min.", "Sirva em tostadas com creme e queijo."],
     difficulty: "Fácil", time: "1h 30min",
     description: "Carne desfiada em molho de chipotle — sabor defumado e levemente picante." },
 
-  { id: "chile-verde", name: "Chile Verde con Cerdo", category: "Carnes & Guisados", image: "chile-verde",
+  { id: "chile-verde", name: "Chile Verde con Cerdo", category: "Carnes Mexicanas", image: "chile-verde",
     ingredients: ["600g de pernil suíno em cubos", "Tomatillos", "Chile serrano", "Chile poblano", "Cebola", "Alho", "Coentro"],
     steps: ["Sele a carne em panela quente.", "Cozinhe tomatillos e chiles.", "Bata com cebola, alho e coentro.", "Adicione a salsa à carne.", "Cozinhe por 40 min.", "Sirva com arroz e tortillas."],
     difficulty: "Médio", time: "1h",
     description: "Guisado de porco em molho de tomatillo — ácido, fresco e reconfortante." },
 
-  { id: "picadillo", name: "Picadillo", category: "Carnes & Guisados", image: "picadillo",
+  { id: "picadillo", name: "Picadillo", category: "Carnes Mexicanas", image: "picadillo",
     ingredients: ["500g de carne moída", "Batata em cubos", "Cenoura em cubos", "Tomate", "Cebola", "Chile chipotle", "Cominho", "Ervilhas"],
     steps: ["Frite a carne moída até dourar.", "Adicione cebola e alho.", "Junte tomate, batata e cenoura.", "Tempere com chipotle e cominho.", "Cozinhe até legumes ficarem macios.", "Sirva com arroz e tortillas."],
     difficulty: "Fácil", time: "35 min",
     description: "Carne moída com batata — comfort food mexicano. Serve para tacos, empanadas e chiles rellenos." },
 
-  { id: "pollo-mole-verde", name: "Pollo en Mole Verde", category: "Carnes & Guisados", image: "pollo-mole-verde",
+  { id: "pollo-mole-verde", name: "Pollo en Mole Verde", category: "Carnes Mexicanas", image: "pollo-mole-verde",
     ingredients: ["1 frango em pedaços", "Tomatillos", "Chile poblano", "Pepitas de abóbora", "Alface", "Coentro", "Epazote", "Cebola"],
     steps: ["Cozinhe o frango e reserve o caldo.", "Bata tomatillos, chiles, pepitas e ervas.", "Frite a salsa em óleo.", "Adicione caldo até consistência desejada.", "Mergulhe o frango no mole verde.", "Sirva com arroz e tortillas."],
     difficulty: "Médio", time: "1h",
     description: "Mole verde de pepitas — mais leve que o poblano mas igualmente delicioso. Tradição de Oaxaca e Puebla." },
 
-  { id: "albondigas", name: "Albóndigas en Chipotle", category: "Carnes & Guisados", image: "albondigas",
+  { id: "albondigas", name: "Albóndigas en Chipotle", category: "Carnes Mexicanas", image: "albondigas",
     ingredients: ["500g de carne moída", "Arroz cozido", "Ovo", "Cominho", "Chiles chipotle", "Tomate", "Cebola", "Caldo de frango"],
     steps: ["Misture carne, arroz, ovo e temperos.", "Forme bolinhas e reserve.", "Bata tomate com chipotle.", "Frite a salsa e adicione caldo.", "Cozinhe as albóndigas na salsa por 25 min.", "Sirva com arroz e tortillas."],
     difficulty: "Médio", time: "45 min",
