@@ -667,6 +667,81 @@ export const chefTips: Record<string, ChefTip> = {
   "dengaku-miso": { glass: "Potinho para pincelar durante a grelha", serve: "Pincele sobre berinjela, tofu ou konnyaku e grile até caramelizar.", tip: "A gema de ovo dá brilho e corpo. Cozinhe em fogo baixo mexendo sempre — queima fácil." },
   "karashi-su-miso": { glass: "Potinho para acompanhar wakame e lula", serve: "Use com frutos do mar, wakame ou vegetais escalfados.", tip: "Ajuste o karashi ao gosto — começa sutil, aumenta gradualmente. Miso branco é mais suave." },
   "amazu-shoga": { glass: "Potinho de cerâmica ou vidro", serve: "Acompanha sushi, serve como palate cleanser entre peças.", tip: "Use gengibre JOVEM (shin shoga) — é mais tenro e fica rosado naturalmente no vinagre. Gengibre velho é fibroso." },
+
+  // ============ BATCH 4 - PRATOS TRADICIONAIS ============
+  "temari-sushi": { glass: "Prato de cerâmica colorido ou bandeja de bambu", serve: "Sirva em conjunto colorido — a variedade visual é parte do encanto.", tip: "Use filme plástico para moldar — gire firme. Cada bolinha deve ter apenas 15g de arroz para ser delicada." },
+  "saba-sushi": { glass: "Tábua de madeira ou prato retangular de cerâmica", serve: "Corte em fatias uniformes mostrando a pele prateada. O vinagre deve brilhar.", tip: "A cura em sal é a etapa mais crítica — 3h mínimo. O vinagre depois suaviza a intensidade." },
+  "tekka-maki": { glass: "Prato retangular de cerâmica com gari", serve: "Corte com faca molhada em 6 peças iguais. O vermelho do atum deve ser vibrante.", tip: "Use atum sashimi-grade fresco. A tira deve ser contínua — sem emendas. Wasabi entre arroz e peixe." },
+  "chirashi-kyoto": { glass: "Bandeja lacada ou tigela rasa grande", serve: "A decoração com kinshi tamago dourado é a assinatura de Kyoto.", tip: "Cada vegetal cozido separadamente em seu tempero ideal — nunca cozinhe tudo junto." },
+  "bara-chirashi": { glass: "Tigela de cerâmica colorida", serve: "Os cubos devem ser do mesmo tamanho (1cm). A uniformidade é charme.", tip: "Corte tudo em cubos iguais — a consistência de tamanho faz a diferença visual e de textura." },
+  "ika-somen": { glass: "Prato de cerâmica elegante com shiso", serve: "Monte como macarrão somen — enrolado com hashi. O visual engana.", tip: "A faca deve estar afiada como navalha. Cada corte em um movimento — se puxar, rasga." },
+  "uzaku": { glass: "Tigelinha de cerâmica ou vidro", serve: "Sirva bem gelado — é entrada refrescante de verão.", tip: "Salgue e esprema o pepino antes. Unagi deve estar fria. O contraste de temperaturas com o vinagrete é o segredo." },
+  "kabu-sushi": { glass: "Prato de cerâmica tradicional", serve: "Corte em pedaços mostrando as camadas. É arte comestível.", tip: "A fermentação com koji leva dias — paciência é a virtude deste prato. O sabor melhora a cada dia." },
+
+  // ============ BATCH 4 - MASSAS ============
+  "yaki-udon": { glass: "Prato grande ou tigela rasa", serve: "O katsuobushi dançando no vapor é parte do show. Sirva fumegante.", tip: "Fogo ALTÍSSIMO é essencial — o wok deve fumaçar. Não mexa demais, deixe o udon pegar cor." },
+  "tori-nanban-udon": { glass: "Tigela grande de cerâmica", serve: "O frango grelhado deve ter marcas bonitas. O negi caramelizado é dourado.", tip: "Grelhe o negi até ficar marcado — a caramelização transforma o sabor de picante para doce." },
+  "hoto": { glass: "Donabe de barro — sirva direto da panela", serve: "É prato rústico — não tente fazer elegante. A panela é a apresentação.", tip: "O macarrão cozinha CRU no caldo — isso engrossa naturalmente. A kabocha deve ficar macia mas não desmanchar." },
+  "niku-soba": { glass: "Tigela grande de cerâmica quente", serve: "A carne doce por cima do soba em caldo claro. Contraste de sabores.", tip: "Refogue a carne com açúcar ANTES do shoyu — isso carameliza e dá brilho." },
+  "shoyu-ramen": { glass: "Tigela grande e profunda de cerâmica", serve: "Monte os toppings artisticamente — chashu, ovo, nori em posições precisas.", tip: "O tare de shoyu é a alma. Cada restaurante guarda seu tare secreto por gerações." },
+  "miso-nikomi": { glass: "Donabe individual de barro — sirva borbulhando", serve: "O ovo semicozido no centro é obrigatório. Coma direto do donabe.", tip: "Use miso hatcho (escuro, de Nagoya) para autenticidade. Miso branco não funciona neste prato." },
+
+  // ============ BATCH 4 - PRATOS QUENTES ============
+  "hamburg-steak": { glass: "Prato oval de cerâmica branca", serve: "O molho demi-glace deve escorrer pelos lados. Arroz ao lado.", tip: "Faça cavidade no centro da carne — cozinha uniformemente. Sove a massa até ficar pegajosa (5 min)." },
+  "ebi-fry": { glass: "Prato com papel absorvente e repolho fatiado", serve: "Os camarões devem ficar retos e dourados. Crocância é tudo.", tip: "Faça cortes na barriga do camarão e estique — isso evita que enrolem na fritura." },
+  "hire-katsu": { glass: "Prato retangular com compartimento para molho", serve: "Corte em fatias mostrando o interior rosado. Repolho fatiado obrigatório.", tip: "Amasse levemente com martelo para uniformizar a espessura. Dupla empanadura = extra crocância." },
+  "kaki-fry": { glass: "Prato com papel absorvente, tártaro e limão", serve: "O interior deve ser cremoso. Se estiver borrachudo, cozinhou demais.", tip: "Seque as ostras COMPLETAMENTE antes de empanar — umidade = panko que não gruda." },
+  "shogayaki": { glass: "Prato com arroz e repolho fresco fatiado", serve: "A carne caramelizada deve brilhar. Repolho cru equilibra a gordura.", tip: "Gengibre fresco ralado NA HORA. O frescor do gengibre é insubstituível — em pó não funciona." },
+  "mabo-dofu": { glass: "Tigela funda de cerâmica", serve: "O sansho (pimenta japonesa) no final é o toque que diferencia da versão chinesa.", tip: "Escalfe o tofu antes de cozinhar — remove água e firma a textura para não desmanchar." },
+  "subuta": { glass: "Prato grande com arroz ao lado", serve: "As cores devem ser vibrantes — vermelho, verde, amarelo do abacaxi.", tip: "Frite a carne em amido antes — isso cria a base para o molho aderir e ficar brilhante." },
+  "chinjao-rosu": { glass: "Prato grande fumegante", serve: "Sirva IMEDIATAMENTE — os vegetais devem estar al dente, não moles.", tip: "Marine a carne com amido — isso sela os sucos. Wok em fogo MÁXIMO, mexa rápido." },
+
+  // ============ BATCH 4 - STREET FOOD ============
+  "curry-pan": { glass: "Papel kraft ou bandeja de padaria", serve: "Sirva quente — morda e sinta o curry derretido dentro. Cuidado com o calor!", tip: "O curry recheio deve ser ESPESSO. Curry líquido = explode na fritura. Resfrie bem antes de rechear." },
+  "melon-pan": { glass: "Papel de padaria ou prato", serve: "O exterior cookie deve estar crocante, o interior macio e fofo.", tip: "A massa cookie FRIA sobre a massa pão MORNA. O contraste de temperatura cria a textura perfeita." },
+  "anpan": { glass: "Prato de cerâmica com chá verde", serve: "O gergelim no topo é decorativo e dá aroma. Sirva morno com chá.", tip: "O anko não deve ser muito doce — o equilíbrio doce/salgado é o segredo de Kimuraya desde 1874." },
+  "katsu-sando": { glass: "Papel encerado cortado em triângulo", serve: "O corte diagonal revela as camadas: pão, molho, repolho, katsu.", tip: "Use shokupan (pão japonês) — é mais macio e doce que o pão comum. Karashi no pão é essencial." },
+  "onigirazu": { glass: "Filme plástico cortado ao meio", serve: "Corte ao meio mostrando as camadas coloridas. É bentô fotogênico.", tip: "Não sobrecarregue de recheio — fecha mal e desmonta. O nori precisa de 5min para aderir." },
+
+  // ============ BATCH 4 - ENTRADAS ============
+  "tofu-salad": { glass: "Tigela de cerâmica ou vidro", serve: "Regue o dressing na hora de servir para manter a crocância das folhas.", tip: "Use tofu sedoso — a textura contrasta com as folhas crocantes. Katsuobushi fresco faz diferença." },
+  "nasu-hasami": { glass: "Prato de cerâmica com molho", serve: "Corte ao meio mostrando o recheio de carne. O contraste é bonito.", tip: "Não separe completamente as fatias — a berinjela em sanduíche segura melhor o recheio na fritura." },
+  "agedashi-nasu": { glass: "Tigela funda com caldo quente", serve: "Sirva imediatamente — a crocância dura segundos no caldo.", tip: "Faça cortes em cruz na pele — permite cozimento uniforme e absorção do caldo." },
+  "uzura-tamago": { glass: "Pratinho de cerâmica ou espeto de bambu", serve: "3 ovos por espeto — aperitivo de izakaya perfeito.", tip: "Cozinhe EXATAMENTE 2 minutos para gema mole. A marinada em tsuyu por 2-4h é ideal." },
+  "age-dashi-renkon": { glass: "Tigela com molho quente de dashi", serve: "O exterior crocante e interior mochi-mochi surpreende.", tip: "Rale o renkon grosseiramente — não faça purê liso. Os pedaços dão textura interessante." },
+
+  // ============ BATCH 4 - SOPAS ============
+  "sanpei-jiru": { glass: "Tigela grande de cerâmica rústica", serve: "Sirva fumegante com negi fresco. Prato histórico dos Ainu.", tip: "Use salmão com pele e osso — extrai mais sabor. O caldo de kombu é a base, não dashi de peixe." },
+  "arajiru": { glass: "Tigela grande de cerâmica", serve: "O gengibre fresco no final corta o cheiro de peixe e adiciona frescor.", tip: "Escalfe as partes do peixe antes — remove impurezas e garante caldo limpo. Zero desperdício." },
+  "kayaku-gohan-jiru": { glass: "Tigela de cerâmica rústica — estilo templo", serve: "É shojin ryori — culinária monástica 100% vegetal. Respeite a tradição.", tip: "O óleo de gergelim refogando os vegetais é o que dá profundidade ao caldo vegano." },
+  "kasujiru": { glass: "Tigela grande — sirva fumegante", serve: "Aquece o corpo inteiro — perfeito para noites de inverno.", tip: "Dissolva o sake kasu em caldo MORNO primeiro — se colocar direto, forma grumos impossíveis." },
+
+  // ============ BATCH 4 - SOBREMESAS ============
+  "monaka": { glass: "Prato de cerâmica com papel washi", serve: "Sirva imediatamente após montar — o wafer amolece rapidamente com a umidade do anko.", tip: "Use anko tsubuan (com pedaços) para contraste de textura com o wafer crocante." },
+  "annindofu": { glass: "Taça de vidro transparente com frutas", serve: "A textura deve tremer como pudim. As frutas em calda dão cor.", tip: "Use essência de AMÊNDOA, não de baunilha. É o aroma que define o prato. Gelatina em vez de ágar para textura mais sedosa." },
+  "uji-kintoki": { glass: "Tigela grande ou copo especial de kakigori", serve: "Monte em montanha. A calda de matcha GENEROSA é obrigatória.", tip: "Use gelo em bloco, não cubos — a textura raspada fica fofa como neve. Máquina de kakigori com lâmina afiada." },
+  "mizu-yokan": { glass: "Prato de cerâmica fria ou vidro", serve: "Sirva gelado — é sobremesa de verão. A textura leve é o diferencial.", tip: "Mais água que o yokan normal — proporção 1.5x. A textura deve ser mais suave e refrescante." },
+  "raindrop-cake": { glass: "Prato de cerâmica branca — a transparência se destaca", serve: "Deve parecer uma gota de água. Kinako e kuromitsu ao lado.", tip: "Use água mineral de qualidade — o sabor é sutil. Consuma em 30 minutos ou derrete." },
+
+  // ============ BATCH 4 - DONBURI ============
+  "tai-meshi": { glass: "Panela de barro aberta na mesa ou tigela nobre", serve: "O aroma ao abrir a tampa deve surpreender. Decore com mitsuba.", tip: "Grelhe o tai antes de cozinhar com o arroz — isso adiciona sabor defumado ao grão." },
+  "maze-gohan": { glass: "Tigela de cerâmica ou panela de arroz", serve: "Misture delicadamente para não esmagar os ingredientes.", tip: "Cozinhe os ingredientes SEPARADOS e misture depois — isso preserva textura individual de cada um." },
+  "taco-rice": { glass: "Prato raso grande", serve: "As camadas devem ser distintas: arroz, carne, vegetais, queijo.", tip: "Tempere a carne com cominho e chili — é a ponte entre México e Okinawa. Salsa picante é obrigatória." },
+  "gomoku-gohan": { glass: "Panela de arroz na mesa ou tigela grande", serve: "O aroma ao abrir a tampa é inesquecível. NÃO mexa antes de cozinhar.", tip: "Coloque ingredientes POR CIMA do arroz sem misturar antes de cozinhar — senão não cozinha direito." },
+  "natto-don": { glass: "Tigela donburi pequena", serve: "Misture o nattō 50x antes de colocar no arroz. A gema intacta no centro.", tip: "O arroz DEVE estar fervendo — é ele que aquece o nattō. Shoyu de qualidade faz toda a diferença." },
+
+  // ============ BATCH 4 - ACOMPANHAMENTOS ============
+  "horenso-gomaae": { glass: "Pratinho de cerâmica pequeno (kobachi)", serve: "Monte em formato cilíndrico — é o padrão de apresentação japonesa.", tip: "30 SEGUNDOS de cozimento MAX. Choque térmico imediato. Esprema toda a água antes de temperar." },
+  "moyashi-namul": { glass: "Pratinho de cerâmica", serve: "Sirva frio. Perfeito como acompanhamento de yakiniku ou bibimbap.", tip: "NÃO cozinhe demais — 1 minuto MAX. Os brotos devem manter crocância." },
+  "renkon-kinpira": { glass: "Pratinho pequeno de cerâmica", serve: "O formato de flor do renkon é decorativo e elegante.", tip: "Deixe em água com vinagre 5 min para não escurecer. Fogo alto para manter crocância." },
+  "nasu-itame": { glass: "Prato de cerâmica — sirva sobre arroz", serve: "O miso brilhante cobrindo a berinjela é irresistível.", tip: "Frite a berinjela ANTES de adicionar miso — absorve menos óleo que cozinhar junto." },
+  "wafu-pasta": { glass: "Prato fundo de cerâmica", serve: "Shiso e nori picados no topo. O aroma é japonês puro.", tip: "Misture mentaiko com manteiga FORA do fogo — calor demais cozinha as ovas e perde textura." },
+
+  // ============ BATCH 4 - IZAKAYA ============
+  "tofu-steak": { glass: "Prato de cerâmica com shoyu e alho", serve: "A crosta dourada de manteiga é a assinatura. Interior macio.", tip: "Prense o tofu 30min sob peso para remover água. Amido de milho na superfície = crosta perfeita." },
+  "buta-bara-yaki": { glass: "Prato com limão e shichimi", serve: "A gordura caramelizada e crocante é o prazer. Sirva com cerveja.", tip: "Fogo ALTO sem mexer — deixe a gordura caramelizar de um lado antes de virar." },
+  "ika-maruyaki": { glass: "Prato ou espeto com tare brilhante", serve: "Corte em anéis depois de grelhar. O aroma atrai de longe.", tip: "Cortes diagonais em cruz — evita que enrole e cozinha uniformemente. 2-3 min MAX de cada lado." },
+  "negima-buta": { glass: "Prato de espetos ou tábua de madeira", serve: "O negi caramelizado dentro do porco é a surpresa na mordida.", tip: "Enrole o porco firme ao redor do negi — se ficar solto, desmonta na grelha." },
 };
 
 export function getChefTip(id: string): ChefTip | undefined {
