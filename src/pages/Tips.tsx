@@ -8,14 +8,21 @@ import TipCard from "@/components/TipCard";
 import { Trophy, Lock, Shield, BookOpen, CheckCircle2 } from "lucide-react";
 
 function getTipRequiredLevel(index: number): number {
-  if (index < 3) return 1;
-  if (index < 6) return 2;
-  if (index < 10) return 3;
-  if (index < 15) return 4;
-  if (index < 20) return 5;
-  if (index < 26) return 6;
-  if (index < 33) return 7;
-  return 8;
+  if (index < 2) return 1;
+  if (index < 4) return 2;
+  if (index < 6) return 3;
+  if (index < 8) return 4;
+  if (index < 10) return 5;
+  if (index < 13) return 6;
+  if (index < 16) return 7;
+  if (index < 19) return 8;
+  if (index < 22) return 9;
+  if (index < 25) return 10;
+  if (index < 28) return 11;
+  if (index < 31) return 12;
+  if (index < 34) return 13;
+  if (index < 37) return 14;
+  return 15;
 }
 
 export default function Tips() {
