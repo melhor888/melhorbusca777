@@ -14,6 +14,8 @@ import TipDetail from "./pages/TipDetail";
 import Favorites from "./pages/Favorites";
 import Dicas from "./pages/Dicas";
 import ArticleDetail from "./pages/ArticleDetail";
+import Blog from "./pages/Blog";
+import BlogPostPage from "./pages/BlogPost";
 import SobreNos from "./pages/SobreNos";
 import Contato from "./pages/Contato";
 import PoliticaPrivacidade from "./pages/PoliticaPrivacidade";
@@ -108,6 +110,8 @@ const App = () => (
                 <Route path="/favorites" element={<LanguageWrapper><Favorites /></LanguageWrapper>} />
                 <Route path="/dicas" element={<LanguageWrapper><Dicas /></LanguageWrapper>} />
                 <Route path="/artigo/:id" element={<LanguageWrapper><ArticleDetail /></LanguageWrapper>} />
+                <Route path="/blog" element={<LanguageWrapper><Blog /></LanguageWrapper>} />
+                <Route path="/blog/:slug" element={<LanguageWrapper><BlogPostPage /></LanguageWrapper>} />
                 <Route path="/sobre" element={<LanguageWrapper><SobreNos /></LanguageWrapper>} />
                 <Route path="/contato" element={<LanguageWrapper><Contato /></LanguageWrapper>} />
                 <Route path="/privacidade" element={<LanguageWrapper><PoliticaPrivacidade /></LanguageWrapper>} />
@@ -139,6 +143,8 @@ const App = () => (
                 <Route path="/:lang/favorites" element={<LanguageWrapper><Favorites /></LanguageWrapper>} />
                 <Route path="/:lang/dicas" element={<LanguageWrapper><Dicas /></LanguageWrapper>} />
                 <Route path="/:lang/artigo/:id" element={<LanguageWrapper><ArticleDetail /></LanguageWrapper>} />
+                <Route path="/:lang/blog" element={<LanguageWrapper><Blog /></LanguageWrapper>} />
+                <Route path="/:lang/blog/:slug" element={<LanguageWrapper><BlogPostPage /></LanguageWrapper>} />
                 <Route path="/:lang/sobre" element={<LanguageWrapper><SobreNos /></LanguageWrapper>} />
                 <Route path="/:lang/contato" element={<LanguageWrapper><Contato /></LanguageWrapper>} />
                 <Route path="/:lang/privacidade" element={<LanguageWrapper><PoliticaPrivacidade /></LanguageWrapper>} />
