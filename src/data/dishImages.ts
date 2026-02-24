@@ -64,6 +64,8 @@ const dishImages: Record<string, string> = {
   "sopa-lima": "/images/dish-sopa-tortilla.jpg",
   "pozole-verde": "/images/dish-pozole-rojo.jpg",
   "pozole-blanco": "/images/dish-pozole-rojo.jpg",
+  "caldo-camaron": "/images/dish-coctel-camarones.jpg",
+  "caldo-tlalpeno": "/images/dish-caldo-de-pollo.jpg",
 
   // ============ CARNES MEXICANAS ============
   "mole-poblano": "/images/dish-mole-poblano.jpg",
@@ -83,6 +85,7 @@ const dishImages: Record<string, string> = {
   "cecina-yecapixtla": "/images/dish-tacos-carne-asada.jpg",
   "tasajo-oaxaca": "/images/dish-tacos-carne-asada.jpg",
   "suadero-guisado": "/images/dish-tacos-lengua.jpg",
+  "mole-negro": "/images/dish-mole-poblano.jpg",
 
   // ============ MOLHOS & SALSAS ============
   "guacamole": "/images/dish-guacamole.jpg",
@@ -95,6 +98,9 @@ const dishImages: Record<string, string> = {
   "molho-apimentado-habanero": "/images/dish-molho-habanero.jpg",
   "molho-suave-aguacate": "/images/dish-molho-aguacate.jpg",
   "molho-defumado-chipotle": "/images/dish-molho-chipotle.jpg",
+  "molho-habanero": "/images/dish-molho-habanero.jpg",
+  "molho-aguacate": "/images/dish-molho-aguacate.jpg",
+  "molho-chipotle": "/images/dish-molho-chipotle.jpg",
 
   // ============ SOBREMESAS ============
   "churros": "/images/dish-churros.jpg",
@@ -106,9 +112,12 @@ const dishImages: Record<string, string> = {
   "gelatina-mosaic": "/images/dish-gelatina-mosaic.jpg",
   "capirotada": "/images/dish-capirotada.jpg",
   "pastel-tres-leches": "/images/dish-tres-leches.jpg",
+  "tres-leches-pastel": "/images/dish-tres-leches.jpg",
   "alegrias": "/images/dish-alegrias.jpg",
   "helado-nieve": "/images/dish-nieves-oaxaca.jpg",
+  "nieves-oaxaca": "/images/dish-nieves-oaxaca.jpg",
   "mazapan": "/images/dish-mazapan.jpg",
+  "arroz-doce": "/images/dish-flan-mexicano.jpg",
 
   // ============ MARISCOS ============
   "ceviche-mexicano": "/images/dish-ceviche-mexicano.jpg",
@@ -118,7 +127,9 @@ const dishImages: Record<string, string> = {
   "tacos-camaron": "/images/dish-tacos-pescado.jpg",
   "tostada-atun": "/images/dish-tostada-atun.jpg",
   "camarones-coconut": "/images/dish-camarones-coco.jpg",
+  "camarones-coco": "/images/dish-camarones-coco.jpg",
   "zarandeado": "/images/dish-pescado-zarandeado.jpg",
+  "camarones-diabla": "/images/dish-camarones-diabla.jpg",
 
   // ============ ARROZ & FEIJÃO ============
   "arroz-rojo": "/images/dish-arroz-rojo.jpg",
@@ -128,9 +139,23 @@ const dishImages: Record<string, string> = {
   "frijoles-negros": "/images/dish-frijoles-refritos.jpg",
   "arroz-con-rajas": "/images/dish-arroz-mexicano.jpg",
   "frijoles-puercos": "/images/dish-frijoles-refritos.jpg",
+  "frijoles-charros": "/images/dish-frijoles-charros.jpg",
+
+  // ============ BEBIDAS ============
+  "agua-horchata": "/images/dish-agua-horchata.jpg",
+  "agua-jamaica": "/images/dish-agua-jamaica.jpg",
+  "chocolate-mexicano": "/images/dish-chocolate-mexicano.jpg",
+  "champurrado": "/images/dish-champurrado.jpg",
+  "atole": "/images/dish-atole.jpg",
+  "tepache": "/images/dish-tepache.jpg",
+  "cafe-de-olla": "/images/dish-cafe-de-olla.jpg",
+  "michelada": "/images/dish-michelada.jpg",
+  "margarita": "/images/dish-margarita.jpg",
+  "pulque": "/images/dish-pulque.jpg",
 
   // ============ CAFÉ DA MANHÃ ============
   "huevos-rancheros": "/images/dish-huevos-rancheros.jpg",
+  "huevos-divorciados": "/images/dish-huevos-rancheros.jpg",
   "migas": "/images/dish-chilaquiles.jpg",
   "enfrijoladas": "/images/dish-enchiladas-rojas.jpg",
   "machaca": "/images/dish-huevos-rancheros.jpg",
@@ -138,6 +163,7 @@ const dishImages: Record<string, string> = {
   "pan-dulce": "/images/dish-churros.jpg",
   "huevos-motulenos": "/images/dish-huevos-rancheros.jpg",
   "chilaquiles-especiais": "/images/dish-chilaquiles.jpg",
+  "chilaquiles-pollo": "/images/dish-chilaquiles.jpg",
 
   // ============ TAMALES & MASSAS ============
   "tamales-oaxaquenos": "/images/dish-tamales.jpg",
@@ -146,6 +172,8 @@ const dishImages: Record<string, string> = {
   "torta-ahogada": "/images/dish-gorditas.jpg",
   "cemita-poblana": "/images/dish-gorditas.jpg",
   "tamales-verdes": "/images/dish-tamales.jpg",
+  "tamales-dulces": "/images/dish-tamales.jpg",
+  "empanadas-mexicanas": "/images/dish-gorditas.jpg",
   "enfrijoladas-trad": "/images/dish-enchiladas-rojas.jpg",
   "mole-amarillo": "/images/dish-mole-amarillo-oaxaca.jpg",
 
@@ -181,13 +209,21 @@ const dishImages: Record<string, string> = {
   "historia-taco": "/images/dish-tacos-al-pastor.jpg",
   "cultura-pimenta": "/images/dish-salsa-roja.jpg",
   "historia-mole": "/images/dish-mole-poblano.jpg",
-  "dia-muertos": "/images/dish-churros.jpg",
+  "dia-muertos": "/images/dish-pan-de-muerto.jpg",
   "regioes-gastronomicas": "/images/dish-tacos-al-pastor.jpg",
   "festivais-mexicanos": "/images/dish-pozole-rojo.jpg",
 
   // ============ ESCOLA MEXICANA ============
   "curso-basico": "/images/dish-tacos-al-pastor.jpg",
   "curso-intermediario": "/images/dish-mole-poblano.jpg",
+  "curso-avancado": "/images/dish-mole-negro-oaxaca-secreto.jpg",
+  "tecnica-tortilla": "/images/dish-tacos-al-pastor.jpg",
+  "tecnica-salsa": "/images/dish-salsa-roja.jpg",
+  "tecnica-fermentacao": "/images/dish-tepache.jpg",
+  "tecnica-artesanal": "/images/dish-mole-poblano.jpg",
+  "conservacao-alimentos": "/images/dish-chiles-rellenos.jpg",
+  "producao-artesanal": "/images/dish-chocolate-mexicano.jpg",
+  "suadero-taco": "/images/dish-tacos-lengua.jpg",
 };
 
 export function getDishImage(dishId: string): string {
