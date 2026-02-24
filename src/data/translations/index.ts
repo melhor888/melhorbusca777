@@ -1,7 +1,9 @@
 import { Dish } from "../dishes";
 import i18n from "@/i18n/config";
 import { dishTranslationsEN } from "./dishes-en";
+import { dishTranslationsENBatch8_18 } from "./dishes-en-batch8-18";
 import { dishTranslationsES } from "./dishes-es";
+import { dishTranslationsESBatch8_18 } from "./dishes-es-batch8-18";
 
 export interface DishTranslation {
   name: string;
@@ -13,8 +15,8 @@ export interface DishTranslation {
 }
 
 const translationMaps: Record<string, Record<string, DishTranslation>> = {
-  en: dishTranslationsEN,
-  es: dishTranslationsES,
+  en: { ...dishTranslationsEN, ...dishTranslationsENBatch8_18 },
+  es: { ...dishTranslationsES, ...dishTranslationsESBatch8_18 },
 };
 
 const difficultyMap: Record<string, Record<string, string>> = {

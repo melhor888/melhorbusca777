@@ -1,3 +1,5 @@
+import { chefTipsBatch8_18 } from "./localizedChefTipsBatch8_18";
+
 export interface ChefTip {
   glass: string;
   serve: string;
@@ -9,6 +11,7 @@ export function getChefTip(id: string): ChefTip | undefined {
 }
 
 export const chefTips: Record<string, ChefTip> = {
+  ...chefTipsBatch8_18,
   "tacos-al-pastor": {
     glass: "Prato de barro ou bandeja rústica",
     serve: "Sirva com limão, cebola, coentro e salsa verde. As tortillas devem ser duplas.",
