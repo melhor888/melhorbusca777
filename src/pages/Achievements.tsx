@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet-async";
 import { useTranslation } from "react-i18next";
 import { ArrowLeft, Lock, CheckCircle, Zap, Star, Trophy } from "lucide-react";
 import { useXP, getLevel, LEVELS } from "@/hooks/useXP";
-import { achievements as allAchievements } from "@/data/achievements";
+import { achievements as allAchievements, getTranslatedAchievement } from "@/data/achievements";
 import { Progress } from "@/components/ui/progress";
 
 function getCategory(ach: typeof allAchievements[0], t: (key: string) => string): string {
@@ -44,8 +44,9 @@ export default function Achievements() {
 
   // Group by category
   const grouped = new Map<string, typeof allAchievements>();
-  for (const ach of allAchievements) {
-    const cat = getCategory(ach, t);
+  for (const rawAch of allAchievements) {
+    const ach = getTranslatedAchievement(rawAch);
+    const cat = getCategory(rawAch, t); // Use raw for ID check
     if (!grouped.has(cat)) grouped.set(cat, []);
     grouped.get(cat)!.push(ach);
   }

@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { dishes } from "@/data/dishes";
 import { getDishImage } from "@/data/dishImages";
 import { Play, ChevronLeft, ChevronRight } from "lucide-react";
+import { useTranslation } from "react-i18next";
+import { getTranslatedDish } from "@/data/translations";
 
 function randomShuffle<T>(arr: T[]): T[] {
   const shuffled = [...arr];
@@ -20,8 +22,10 @@ export default function QuizHeroBanner() {
   const [index, setIndex] = useState(0);
   const [fading, setFading] = useState(false);
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
-  const featured = queue[index];
+  const rawFeatured = queue[index];
+  const featured = getTranslatedDish(rawFeatured);
 
   const goTo = useCallback(
     (next: number) => {
@@ -70,7 +74,7 @@ export default function QuizHeroBanner() {
     <div className="relative -mx-4 mb-6 overflow-hidden rounded-b-3xl group">
       <div className="relative h-[340px] lg:h-[420px] w-full">
         <img
-          src={getDishImage(featured.image)}
+          src={getDishImage(rawFeatured.image)}
           alt={featured.name}
           className={`absolute inset-0 w-full h-full object-cover object-center transition-all duration-500 ${
             fading ? "opacity-0 scale-105" : "opacity-100 scale-100"
@@ -100,11 +104,11 @@ export default function QuizHeroBanner() {
           </p>
 
           <button
-            onClick={() => navigate(`/recipe/${featured.id}`)}
+            onClick={() => navigate(`/recipe/${rawFeatured.id}`)}
             className="mt-4 flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-full font-semibold text-sm shadow-lg transition-all hover:shadow-xl hover:scale-105 active:scale-95"
           >
             <Play size={16} fill="currentColor" />
-            Ver Receita
+            {t("hero.viewRecipe")}
           </button>
         </div>
 
