@@ -970,139 +970,139 @@ export const dishTranslationsEN: Record<string, DishTranslation> = {
   // ============ ESCOLA MEXICANA ============
   "curso-basico": {
     name: "🎓 Challenge: Basic Mexican Cooking",
-    ingredients: ["Corn and flour tortillas", "Refried beans", "Mexican red rice", "Fresh guacamole", "Pico de gallo", "Homemade red salsa", "Cheese quesadillas", "Simple assembled tacos"],
+    ingredients: ["Masa harina (2 cups)", "Warm water (1¼ cups)", "Black beans (500g)", "Lard or oil", "Rice (2 cups)", "Tomato (4)", "Chicken broth (4 cups)", "Avocado (3)", "White onion", "Fresh cilantro", "Lime (4)", "Jalapeño chile", "Oaxaca or mozzarella cheese", "Ground cumin", "Mexican oregano", "Ancho chile powder"],
     steps: [
-      "🎯 CHALLENGE: Prepare a complete Mexican dinner for 4 following the 6 modules below. Use AI as your sous-chef — ask for detailed recipes, technique tips and ingredient substitutions!",
-      "📘 Module 1 — Artisanal Tortillas: Make corn tortillas with masa harina (2 cups masa + 1¼ cups warm water). Knead to Play-Doh consistency, press in tortillera and cook on comal 30s each side. 🤖 Ask AI: 'Teach me corn tortillas step by step'.",
-      "📘 Module 2 — Beans and Rice Base: Refried beans with lard and onion. Mexican rice: sauté with blended tomato, add broth 2:1. 🤖 Ask AI: 'What's the secret to non-soggy Mexican red rice?'.",
-      "📘 Module 3 — Fresh Salsas: Guacamole (3 avocados + onion + tomato + cilantro + lime). Pico de gallo. Red salsa (roasted tomatoes and chiles). 🤖 Ask AI: 'Give me guacamole variations with different ingredients'.",
-      "📘 Module 4 — Taco and Quesadilla Assembly: Heated tortillas + beans + melted cheese. 🤖 Ask AI: 'What are the 10 most popular taco fillings in Mexico?'.",
-      "📘 Module 5 — Essential Seasonings: Cumin, Mexican oregano, ancho chile powder and epazote. 🤖 Ask AI: 'Explain the difference between Mexican and regular oregano'.",
-      "📘 Module 6 — Final Practice: Set the complete table and photograph! 🤖 Ask AI: 'How to set a beautiful Mexican table?'.",
-      "🏆 Completed? You've mastered the basics! Move on to Intermediate Course."
+      "🎯 CHALLENGE: Prepare a complete Mexican dinner for 4 following the 6 modules below!",
+      "📘 Module 1 — Artisanal Tortillas: Mix 2 cups masa harina + 1¼ cups warm water + ½ tsp salt. Knead 5 min until smooth like Play-Doh (if cracking, add water little by little; if sticky, add more masa). Form 35g balls, press in tortillera lined with thick plastic to 2mm. Cook on very hot comal without oil: 30s first side → flip → 1 min → flip again → 30s (should puff!). Keep in a cloth. If no press, use cutting board with weight.",
+      "📘 Module 2 — Bean and Rice Base: REFRIED BEANS — Cook 500g black beans in pressure cooker with onion and garlic 30 min. In a skillet, heat 3 tbsp lard, fry ½ diced onion until golden, add beans with broth and mash with fork into creamy purée. Season with salt and cumin. MEXICAN RICE — Wash 2 cups rice until water runs clear. Blend 2 tomatoes with ¼ onion. Fry rice in oil until golden (5 min), add blended tomato and stir 2 min. Pour hot broth at 2:1 ratio (4 cups), salt, cover and cook on low 18 min without stirring.",
+      "📘 Module 3 — Fresh Salsas: GUACAMOLE — Mash 3 avocados with fork (don't blend), mix ½ finely diced onion, 1 seeded diced tomato, 2 tbsp chopped cilantro, juice of 1 lime, salt and ½ diced jalapeño. Variations: add mango, pomegranate or jicama. PICO DE GALLO — 3 tomatoes + ½ onion + cilantro + lime + jalapeño, all in uniform small cubes. SALSA ROJA — Char 4 tomatoes and 2 chiles (hydrated guajillo or ancho) on comal until blackened. Blend with 1 garlic clove and salt.",
+      "📘 Module 4 — Taco and Quesadilla Assembly: TACOS — Heat tortillas on comal 15s each side, fill with beans + cheese + salsa. The 10 most popular fillings in Mexico: al pastor, carnitas, barbacoa, bistec, chorizo, suadero, cochinita, birria, shrimp and pollo. QUESADILLAS — Tortilla on comal, spread shredded Oaxaca cheese, fold in half, cook until golden and cheese melts (2 min each side). Serve with guacamole and pico de gallo.",
+      "📘 Module 5 — Essential Seasonings: CUMIN — earthy flavor, use in beans and meats (½ tsp per portion). MEXICAN OREGANO — more citrusy and intense than regular (swap 1:1 if unavailable). ANCHO CHILE POWDER — sweet and smoky, adobo base. EPAZOTE — strong herb, use sparingly in beans and quesadillas (1-2 leaves). Rule: toast dry spices 30s on comal to intensify aroma before using.",
+      "📘 Module 6 — Final Practice: Set the table with everything: tortillas in tortillero (or cloth), salsas in molcajetes or bowls, rice and beans in clay pots. Decorate with colorful banners (papel picado). Arrange everything in center so each person assembles their own tacos. Serve with horchata (1 cup rice + cinnamon + sugar + milk, blended and strained) or limeade with chia.",
+      "🏆 Completed? You've mastered the basics! Move on to the Intermediate Course."
     ],
-    description: "🎯 Beginner CHALLENGE! Prepare a complete Mexican dinner from scratch. Use AI as your assistant — ask recipes, get tips and learn by doing!"
+    description: "🎯 Complete CHALLENGE for beginners! Prepare a Mexican dinner from scratch — tortillas, salsas, rice, beans and taco assembly."
   },
   "curso-intermediario": {
     name: "🎓 Challenge: Intermediate Cooking",
-    ingredients: ["Green and red enchiladas", "Chilaquiles with egg", "Chicken tamales", "Pork carnitas", "Simple mole (12 ingredients)", "Cheese stuffed chiles", "Tortilla soup", "Beef fajitas"],
+    ingredients: ["Corn tortillas (24)", "Chicken (1kg)", "Tomatillo (500g)", "Poblano chile (6)", "Sour cream (400ml)", "Grating cheese", "Pork lard (500g)", "Pork shoulder (2kg)", "Orange (4)", "Dried chiles: ancho, guajillo, mulato, pasilla", "Peanuts (100g)", "Dark chocolate (50g)", "Banana leaf", "Masa harina (1kg)"],
     steps: [
-      "🎯 CHALLENGE: Prepare an intermediate Mexican banquet! Use AI for advanced techniques!",
-      "📘 Module 1 — Enchiladas: Make with 3 sauces (red, green, suizas). 🤖 Ask AI: 'Teach me authentic suizas enchiladas'.",
-      "📘 Module 2 — Tamales: Masa with whipped lard + chicken in green salsa, steam 1h. 🤖 Ask AI: 'How to know when tamale masa is ready?'.",
-      "📘 Module 3 — Carnitas: Pork shoulder in lard with orange, 3h low heat. 🤖 Ask AI: 'Michoacán-style carnitas technique'.",
-      "📘 Module 4 — Simplified Mole: 12 ingredients: chiles, tomato, peanuts, chocolate, spices. 🤖 Ask AI: 'Beginner mole poblano recipe'.",
-      "📘 Module 5 — Chiles Rellenos: Roast poblanos, stuff with cheese, batter and fry. 🤖 Ask AI: 'How to peel chiles without tearing?'.",
-      "📘 Module 6 — Event Menu: 5-course menu. 🤖 Ask AI: 'Plan Mexican menu for 12 with schedule'.",
+      "🎯 CHALLENGE: Prepare an intermediate Mexican banquet with 6 complete preparations!",
+      "📘 Module 1 — Enchiladas with 3 Sauces: ROJAS — Hydrate 4 guajillo + 2 ancho chiles in hot water 20 min, blend with 1 garlic clove and salt. Fry in oil 3 min. Dip tortillas in sauce, fill with shredded chicken, roll. VERDES — Cook 500g tomatillos + 2 serranos + ½ onion 10 min, blend with cilantro. Assemble same way. SUIZAS — Use green sauce + 200ml sour cream + grated cheese on top, bake at 200°C for 15 min until golden and bubbly.",
+      "📘 Module 2 — Chicken Tamales: Beat 500g masa harina + 200g lard (whipped until it floats in water) + chicken broth until soft dough. Spread 3 tbsp masa on corn husk (leave border), place shredded chicken in green salsa in center, close by folding sides and bottom. Steam in large pot with coins at bottom (they stop clinking = no water) for 1h. Tamal is done when masa peels cleanly from husk.",
+      "📘 Module 3 — Michoacán-Style Carnitas: Cut 2kg pork shoulder into large cubes. In deep pot, melt 500g lard, add meat + juice of 4 oranges + 1 cup milk + 4 garlic cloves + salt. Cook on low heat for 3h uncovered. Meat will cook in liquid then fry in fat. Shred when golden. Secret: don't stir too much. Serve in tortillas with onion, cilantro and green salsa.",
+      "📘 Module 4 — Simplified Mole (12 ingredients): Toast on comal: 3 ancho + 2 guajillo + 1 pasilla chiles (15s each side). Hydrate 20 min. Fry in oil: 2 tomatoes, ½ onion, 3 garlic cloves. In same pan: 50g peanuts + 1 old tortilla + cloves + cinnamon + pepper. Blend everything with chile water. Fry paste in oil 5 min, add broth until thick. Finish: 30g dark chocolate + salt. Cook 15 min.",
+      "📘 Module 5 — Chiles Rellenos: Char 6 poblanos directly on stovetop flame, turning with tongs until skin is completely black. Place in plastic bag 10 min (steam loosens skin). Peel under running water carefully to avoid tearing. Make side cut, remove seeds and veins. Stuff with Oaxaca cheese. Batter: dust with flour, then dip in egg whites beaten to stiff peaks with pinch of salt. Fry in hot oil (180°C) until golden. Serve with caldillo de tomate (blended tomato fried with onion).",
+      "📘 Module 6 — Menu for 12: STARTER — Guacamole + totopos + tortilla soup. MAIN — Suizas enchiladas + carnitas + Mexican rice + beans. DESSERT — Mexican flan. SCHEDULE — Day before: mole, beans, flan. Morning: carnitas (3h), rice. 1h before: enchiladas, salsas. 30 min: fresh tortillas. Calculate 300g protein + 100g rice + 100g beans per person.",
       "🏆 Completed? You cook like a chef! Ready for Advanced?"
     ],
-    description: "🎯 Intermediate CHALLENGE! Enchiladas, tamales, carnitas and mole. AI is your personal mentor!"
+    description: "🎯 Complete intermediate CHALLENGE! Enchiladas with 3 sauces, tamales, Michoacán carnitas, mole and chiles rellenos."
   },
   "curso-avancado": {
     name: "🎓 Challenge: Advanced Cooking",
-    ingredients: ["Black mole (30+ ingredients)", "Authentic cochinita pibil", "Lamb barbacoa", "Beef birria", "Red pozole", "Chiles en nogada", "Nixtamalized corn", "Mezcal for pairing"],
+    ingredients: ["Chiles: negro, mulato, chipotle, ancho, guajillo, pasilla (30+)", "Achiote paste (200g)", "Bitter orange (6)", "Banana leaf", "Pork shoulder (3kg)", "Lamb (2kg)", "Maguey leaves", "Birria meat (2kg)", "Corn for nixtamal (1kg)", "Calcium hydroxide (50g)", "Castilian walnuts (500g)", "Pomegranate (4)", "Crystallized fruits", "Reposado tequila", "Artisanal mezcal"],
     steps: [
       "🎯 SUPREME CHALLENGE: Mexico's most complex dishes. Each module is a 1-3 day project!",
-      "📘 Module 1 — Black Mole (3 days): 6 types of chile, 30+ ingredients. 🤖 Ask AI: 'Guide me through Oaxacan black mole day by day'.",
-      "📘 Module 2 — Cochinita Pibil: 12h achiote marinade, banana leaf, 5h at 160°C. 🤖 Ask AI: 'How to make homemade achiote paste?'.",
-      "📘 Module 3 — Barbacoa and Birria: Lamb in maguey 8h / beef in chiles 4h. 🤖 Ask AI: 'Difference between barbacoa and birria with authentic recipes'.",
-      "📘 Module 4 — Chiles en Nogada: Picadillo with fruits, walnut nogada, pomegranate. 🤖 Ask AI: 'Step-by-step chiles en nogada — perfect nogada'.",
-      "📘 Module 5 — Nixtamalization: Corn + lime 12h, wash and grind. Tortillas with fresh masa. 🤖 Ask AI: 'Chemical process of nixtamalization'.",
-      "📘 Module 6 — Pairing: Tequila, mezcal and pulque with each dish. 🤖 Ask AI: 'Tasting menu with spirit pairings'.",
+      "📘 Module 1 — Oaxacan Black Mole (3 days): DAY 1 — Toast until BLACK (not burned): 6 chilhuacle negro + 4 mulato + 4 pasilla chiles. Separately: toast 1 tortilla to charcoal + 1 piece of bread until black. Hydrate everything in hot water 2h. DAY 2 — Fry separately: 100g peanuts + 50g sesame + raisins + almonds + cloves + cinnamon + allspice + oregano + thyme + 4 tomatoes + onion + 6 garlic cloves. Blend everything in batches with chile water. DAY 3 — Fry paste in lard 30 min stirring constantly. Add turkey broth gradually (2L). Add 100g chocolate + avocado leaf + salt. Cook 2h on low. Should be black-reddish and glossy.",
+      "📘 Module 2 — Authentic Cochinita Pibil: HOMEMADE ACHIOTE PASTE — Toast 100g achiote seeds 1 min, grind. Mix with 8 roasted garlic cloves + juice of 6 bitter oranges (or 4 oranges + 2 limes) + cumin + pepper + oregano + salt. PREPARATION — Marinate 3kg pork shoulder in paste 12h refrigerated. Line baking dish with banana leaves (pass through flame to soften), place meat, seal well. Bake at 160°C for 5h until falling apart. Shred and serve in tortillas with pickled red onion (onion + vinegar + oregano + salt, 2h).",
+      "📘 Module 3 — Barbacoa and Birria: BARBACOA — Marinate 2kg lamb with hydrated and blended guajillo+ancho chiles + garlic + cumin. Wrap in maguey leaves (or foil). Steam over water with chickpeas for 8h on low heat. BIRRIA — Hydrate 6 guajillo + 4 ancho + 2 cascabel. Blend with tomato + onion + garlic + spices. Marinate 2kg meat 4h. Cook in pot with broth 4h on low until falling apart. Serve consomé with onion, cilantro and lime. For birria tacos: dip tortilla in consomé fat, griddle-fry and fill.",
+      "📘 Module 4 — Chiles en Nogada: PICADILLO — Fry 500g ground meat + onion + garlic. Add 2 tomatoes + fruits: diced apple, peach, pear, plantain + raisins + almonds + acitrón (or crystallized fruits) + cinnamon + cloves + salt + sugar. Cook 25 min. Stuff roasted, peeled poblanos. PERFECT NOGADA — Remove skin from 300g Castilian walnuts (blanch 5 min). Blend with 200g fresh goat cheese + 100ml milk + 50ml sherry + salt + cinnamon. Should be white and creamy. Cover chiles, garnish with pomegranate and parsley. The 3 colors of the Mexican flag!",
+      "📘 Module 5 — Nixtamalization: Boil 2L water + 50g calcium hydroxide. When dissolved, add 1kg washed corn. Cook 35 min. Turn off and soak 12h (process transforms husk and releases nutrients). Wash corn 3x rubbing to remove skin (nexayotl). Grind in meat grinder with fine disc (or food processor with water). Masa should be smooth and soft. Make tortillas: note the difference — more intense aroma, superior flexibility, incomparable flavor vs masa harina.",
+      "📘 Module 6 — Spirit Pairing: TEQUILA BLANCO — fish dishes, ceviche, aguachile (enhances acidity). TEQUILA REPOSADO — tacos al pastor, carnitas, enchiladas (complements fat). MEZCAL JOVEN — black mole, chapulines, tlayuda (smokiness matches). MEZCAL AÑEJO — desserts, chocolate (smoothness). PULQUE NATURAL — street antojitos, tacos de canasta (tradition). Tasting menu: Starter (ceviche + tequila blanco) → Main (black mole + mezcal espadin) → Dessert (chocolate + mezcal añejo).",
       "🏆 Completed? You are a master of Mexican cuisine! 🇲🇽"
     ],
-    description: "🎯 SUPREME CHALLENGE! Black mole, nixtamalization, chiles en nogada. AI is your consulting chef!"
+    description: "🎯 SUPREME CHALLENGE! 3-day black mole, nixtamalization, chiles en nogada and spirit pairing."
   },
   "tecnica-tortilla-pro": {
     name: "🔥 Challenge: Perfect Tortilla",
-    ingredients: ["Masa harina", "Nixtamalized corn", "Lime (calcium hydroxide)", "Tortilla press", "Clay or iron comal", "Thick plastic", "Warm water"],
+    ingredients: ["Masa harina (500g)", "Corn for nixtamalizing (500g)", "Calcium hydroxide (25g)", "Tortilla press", "Clay or iron comal", "Thick cut plastic", "Warm water"],
     steps: [
-      "🎯 CHALLENGE: Make 20 tortillas that puff on the comal! Use AI to troubleshoot.",
-      "📘 Prepare Masa: 2 cups masa harina + 1¼ cups warm water. Play-Doh consistency. 🤖 Ask AI: 'Masa cracking/sticking, what do I do?'.",
-      "📘 Press: 35g ball, even pressure, 2mm thick. 🤖 Ask AI: 'Alternatives without a tortilla press'.",
-      "📘 Comal: 30s → flip → 1min → flip → 30s. Should puff! 🤖 Ask AI: 'Tortillas not puffing, what do I do?'.",
-      "📘 Variations: Blue, white and yellow corn. 🤖 Ask AI: 'Flavor difference between corn types'.",
+      "🎯 CHALLENGE: Make 20 tortillas that puff on the comal!",
+      "📘 Prepare Masa: 2 cups masa harina + 1¼ cups warm water + ½ tsp salt. Knead 5 min. Play-Doh consistency: should form a ball without cracking or sticking. If cracking = more water (1 tbsp at a time). If sticking = more masa. Cover with damp cloth to prevent drying. Masa improves after resting 15 min.",
+      "📘 Press Technique: Line press with thick plastic cut into 2 circles. 35g ball (golf ball size), center on press. Firm, even pressure — don't over-press (2mm ideal thickness). Without press: use cutting board + heavy pan, or two boards. Alternative: roll between 2 pieces of plastic. Peel slowly from plastic — if sticking, masa is too wet.",
+      "📘 Comal and the Secret to Puffing: Heat comal on medium-high (test: water drops evaporate in 2s). NO OIL. Place tortilla: 30s → flip with spatula → 1 min (bubbles should form) → flip again → 30s (SHOULD PUFF like a balloon!). If not puffing: comal not hot enough, masa too thick or too dry, or you pressed too hard on second flip. Done tortilla is flexible with golden spots.",
+      "📘 Corn Variations: BLUE — earthier and sweeter flavor, beautiful purple-blue color, ideal for quesadillas. WHITE — most neutral and versatile, most common in Mexico. YELLOW — sweeter, common in USA (Maseca masa harina). Try mixing corn types for unique flavors. Fresh corn tortillas (green) are moister and more delicate.",
       "🏆 All puffed? You've mastered the ancestral art of the tortilla!"
     ],
-    description: "🎯 CHALLENGE: Tortillas that puff on the comal! Nixtamalization and pressing with AI as guide."
+    description: "🎯 CHALLENGE: Master the perfect tortilla! Masa, press, comal and the secret to puffing."
   },
   "tecnica-molhos-salsas": {
     name: "🔥 Challenge: 10 Salsas in 1 Day",
-    ingredients: ["Tomato (1kg)", "Tomatillo (500g)", "Chiles: ancho, guajillo, chipotle, habanero, serrano, árbol", "Molcajete", "Blender", "Fresh cilantro", "Garlic and onion", "Peanuts"],
+    ingredients: ["Tomato (1kg)", "Tomatillo (500g)", "Chiles: ancho, guajillo, chipotle, habanero, serrano, de árbol", "Molcajete", "Blender", "Fresh cilantro", "Garlic and onion", "Peanuts (100g)", "Ripe mango (2)", "Vegetable oil"],
     steps: [
-      "🎯 CHALLENGE: 10 different salsas in one day! AI adjusts flavors.",
-      "📘 Salsa 1 — Pico de Gallo: Tomato + onion + jalapeño + cilantro + lime, diced.",
-      "📘 Salsa 2 — Roasted Red: Roast tomatoes and chiles on comal, crush in molcajete. 🤖 Ask AI: 'Perfect point for roasting tomatoes'.",
-      "📘 Salsa 3 — Green: Cooked tomatillos + serranos + cilantro.",
-      "📘 Salsa 4 — Macha: Fried chiles in oil + peanuts. 🤖 Ask AI: 'Authentic Veracruz salsa macha'.",
-      "📘 Salsas 5-10: Guacamole, habanero-mango, borracha, morita, creamy chipotle, quick mole. 🤖 Ask AI: 'Quick recipes for salsas 5 to 10'.",
-      "🏆 Made all 10? Salsa master! Set up a tasting with chips."
+      "🎯 CHALLENGE: 10 different salsas in one day!",
+      "📘 Salsa 1 — Pico de Gallo: 4 tomatoes + ½ onion + 2 tbsp cilantro + 1 jalapeño + juice of 1 lime + salt. Everything in uniform 5mm cubes. Don't blend — it's a hand-cut raw salsa.",
+      "📘 Salsa 2 — Roasted Red (Roja Asada): Char on comal until blackened: 4 tomatoes + 2 guajillo chiles + 1 ancho + 3 garlic cloves in skin + ½ onion. Ideal point: black blistered skin, soft flesh (15-20 min turning). Crush in molcajete or blend with salt. Rustic texture.",
+      "📘 Salsa 3 — Raw Green (Verde Crua): Cook 500g tomatillos + 3 serranos in water 8 min. Blend with ½ cup cilantro + ½ onion + 1 garlic + salt. Should be vibrant green. For spicier, add serranos with seeds.",
+      "📘 Salsa 4 — Macha from Veracruz: Fry in ½ cup oil: 10 chiles de árbol + 5 morita chiles + 50g peanuts + 3 garlic cloves (2 min medium heat, don't burn). Roughly blend — should have chunks. Return to oil, add salt and vinegar (1 tbsp). Keeps months refrigerated.",
+      "📘 Salsas 5-10: 5) Classic GUACAMOLE (see basic module). 6) HABANERO-MANGO — 3 roasted habaneros + 1 mango + vinegar + salt (wear gloves!). 7) BORRACHA — 4 toasted pasilla + orange juice + pulque or beer + fresh cheese. 8) SMOKED MORITA — 8 hydrated moritas + tomato + garlic, blend rustic. 9) CREAMY CHIPOTLE — 1 can chipotles in adobo + 200ml sour cream + lime. 10) QUICK MOLE — 3 ancho + 2 hydrated guajillo + peanuts + chocolate + fried tortilla, blend and fry 10 min.",
+      "🏆 Made all 10? Salsa master! Set up a tasting with fresh totopos and label each salsa."
     ],
-    description: "🎯 CHALLENGE: 10 salsas in 1 day! From pico de gallo to quick mole. AI adjusts each recipe."
+    description: "🎯 CHALLENGE: 10 Mexican salsas in 1 day! From pico de gallo to quick mole — complete recipes."
   },
   "uso-pimentas-pro": {
     name: "🌶️ Challenge: Chile Master",
-    ingredients: ["Ancho chile", "Guajillo chile", "Chipotle chile", "Habanero chile", "Serrano chile", "Poblano chile", "Pasilla chile", "Árbol chile", "Cascabel chile", "Morita chile"],
+    ingredients: ["Ancho chile (dried, sweet, mild — SHU 1,500)", "Guajillo chile (dried, fruity — SHU 5,000)", "Chipotle chile (smoked jalapeño — SHU 8,000)", "Habanero chile (fresh, floral, VERY hot — SHU 300,000)", "Serrano chile (fresh, green, hot — SHU 15,000)", "Poblano chile (fresh, large, mild — SHU 1,500)", "Pasilla chile (dried, dark, earthy — SHU 2,500)", "Chile de árbol (dried, thin, fiery — SHU 30,000)", "Cascabel chile (dried, round, smoky — SHU 3,000)", "Morita chile (small chipotle — SHU 10,000)"],
     steps: [
-      "🎯 CHALLENGE: Identify, toast and cook with 10 chiles! AI guides flavors.",
-      "📘 Identification: Organize and note each chile's flavor profile. 🤖 Ask AI: 'Flavor profile of the 10 main chiles'.",
-      "📘 Toasting: Comal 15-30s each side until flexible. Don't burn! 🤖 Ask AI: 'How do I know it's toasted right?'.",
-      "📘 Soaking: Hot water (not boiling) 20-30 min. Save the water! 🤖 Ask AI: 'Uses for soaking water'.",
-      "📘 3 Preparations: Adobo (ancho+guajillo+pasilla), tinga (chipotle+tomato), habanero salsa. 🤖 Ask AI: '5 classic chile combinations'.",
-      "📘 Balance: Sweetness + acidity + smokiness. 🤖 Ask AI: 'Salsa too spicy, how to balance?'.",
+      "🎯 CHALLENGE: Identify, toast and cook with 10 chiles!",
+      "📘 Identification and Profile: Organize all 10 chiles and note: ANCHO — dried poblano, reddish-brown, sweet with dried fruit notes, mole base. GUAJILLO — long, smooth skin, fruity and slightly acidic, most used in Mexico. CHIPOTLE — smoked jalapeño, dark color, deep smoky flavor. HABANERO — small lantern shape, orange/red, floral and extremely hot. SERRANO — thin green, direct heat, for raw salsas. POBLANO — large, dark, mild, for stuffing (chiles rellenos). PASILLA — long, nearly black, earthy, for mole negro. ÁRBOL — thin red, hot and decorative. CASCABEL — round, seeds rattle inside, woody flavor. MORITA — smaller chipotle, more smoky.",
+      "📘 Toasting: Comal on medium heat. DRIED chiles: press with spatula 15-30s each side until flexible, color changes slightly and aroma releases. DON'T BURN — burnt chile becomes bitter and ruins the dish. FRESH chiles (poblano, serrano, habanero): char on direct flame or hot comal, turning, until skin is black. Poblano: bag to peel. Serrano/habanero: use directly.",
+      "📘 Hydration: After toasting dried chiles, cover with hot water (not boiling — 80°C). Cover and wait 20-30 min until soft. SAVE THE WATER — it's liquid gold! Use as sauce base (has flavor and color). Larger chiles (ancho, guajillo) = 30 min. Smaller (árbol, morita) = 15 min.",
+      "📘 3 Classic Preparations: ADOBO ROJO — 4 ancho + 3 guajillo + 2 pasilla hydrated + 2 charred tomatoes + 4 garlic + cumin + oregano + vinegar. Blend, fry 5 min. Marinate meats 4h. TINGA — Fry onion, add 3 chipotles in adobo + 4 blended tomatoes. Add shredded chicken. Cook 15 min. HABANERO SALSA — 4 charred habaneros + mango or cooked carrot + vinegar + salt. USE GLOVES. The 5 classic combos: 1) Ancho+guajillo (enchiladas), 2) Chipotle+tomato (tinga), 3) Guajillo+árbol (table salsa), 4) Ancho+pasilla+mulato (mole), 5) Habanero+citrus (yucateco).",
+      "📘 Flavor Balance: Too hot? Add: sour cream, cheese, avocado (fat neutralizes capsaicin), sugar/piloncillo, or more tomato. NEVER add water — dilutes flavor without reducing heat. Building scale: start with mild chiles (ancho, poblano), add medium (guajillo, chipotle), finish with hot (serrano, árbol). Habanero: use with extreme moderation.",
       "🏆 Used all 10? Chile Master! 🌶️"
     ],
-    description: "🎯 CHALLENGE: Master 10 Mexican chiles! Toasting, soaking, combinations with AI."
+    description: "🎯 CHALLENGE: Master 10 Mexican chiles! Flavor profiles, toasting, hydration and classic combinations."
   },
   "fermentacoes-mex": {
     name: "🔥 Challenge: Ancestral Fermentations",
-    ingredients: ["Pineapple peels", "Piloncillo", "Cloves and cinnamon", "Fresh jalapeño chiles", "White vinegar", "Carrot and onion"],
+    ingredients: ["Peels of 2 large pineapples", "Piloncillo (300g)", "Cloves (6) and cinnamon sticks (2)", "Fresh jalapeño chiles (500g)", "White vinegar (500ml)", "Carrots (3) and onions (2)", "Non-iodized coarse salt", "Tomato (500g)", "Habanero chile (3)", "Garlic (1 head)"],
     steps: [
-      "🎯 CHALLENGE: 3 fermentations in 7 days! AI monitors the process.",
-      "📘 Tepache (3 days): Pineapple peels + piloncillo + spices in jar. 🤖 Ask AI: 'Is foam on tepache normal?'.",
-      "📘 Pickled Chiles (5 days): Jalapeños + carrot + onion in vinegar with spices. 🤖 Ask AI: 'Chiles en escabeche that last months'.",
-      "📘 Fermented Salsa (7 days): Tomato + chile + garlic + 3% salt. 🤖 Ask AI: 'Lacto-fermented habanero salsa'.",
-      "📘 Safety: Sterilize jars. Black/pink mold = discard. 🤖 Ask AI: 'Signs of dangerous fermentation'.",
-      "🏆 Completed all 3? You've mastered 2,000-year-old techniques!"
+      "🎯 CHALLENGE: 3 fermentations in 7 days!",
+      "📘 Tepache (Days 1-3): Wash peels of 2 pineapples well (use organic if possible). Place in large glass jar (3L) with 2L water + 300g piloncillo + 2 cinnamon sticks + 6 cloves. Cover with cloth and rubber band (don't seal — needs to breathe). Leave at room temperature (25-30°C ideal). Day 1: nothing visible. Day 2: white foam appears — this is normal and desired! It's natural yeasts. Day 3: taste — should be slightly acidic and effervescent. If too sweet, wait +1 day. Strain and refrigerate. White surface foam is OK; black, pink or green mold = discard everything.",
+      "📘 Pickled Chiles en Escabeche (Days 1-5): Cut 500g jalapeños into 5mm rounds. Slice 3 carrots and 2 onions into rounds. Boil 500ml vinegar + 250ml water + 2 tbsp salt + oregano + pepper + 3 garlic cloves + bay leaf. Place vegetables in sterilized glass jars (boil 10 min). Pour BOILING liquid over vegetables until covered. Seal. Days 1-2: flavors begin to merge. Days 3-5: jalapeños become slightly soft and flavor is balanced. Refrigerated they last 6+ months. Serve as accompaniment to any Mexican dish.",
+      "📘 Lacto-Fermented Salsa (Days 1-7): Chop 500g tomato + 3 habaneros + 6 garlic cloves + ½ onion. Mix with salt at 3% of total weight (e.g., 500g vegetables = 15g salt). DO NOT use iodized salt — kills good bacteria. Place in glass jar, press to submerge in liquid (use a bag with brine as weight). Loosely cover. Days 1-2: bubbles start. Days 3-4: pleasant acidic aroma. Days 5-7: complex, acidic and spicy flavor. Taste daily — refrigerate when desired flavor is reached.",
+      "📘 Safety: ALWAYS sterilize jars (boiling water 10 min). Use fresh vegetables without bruises. Keep everything submerged in liquid. White foam/bubbles = normal fermentation. DISCARD if: black, pink or green mold; rotten smell (different from acidic); slimy/viscous texture. When in doubt, discard. Safe fermentation = pleasant acidic smell.",
+      "🏆 Completed all 3? You've mastered 2,000-year-old preservation techniques!"
     ],
-    description: "🎯 CHALLENGE: 3 fermentations in 7 days! Tepache, escabeche and fermented salsa with AI."
+    description: "🎯 CHALLENGE: 3 ancestral fermentations in 7 days! Tepache, escabeche and lacto-fermented salsa."
   },
   "processos-tradicionais": {
     name: "🔥 Challenge: Ancestral Tools",
-    ingredients: ["Volcanic stone molcajete", "Tomato, chile and garlic", "Mexican chocolate tablet", "Wooden molinillo", "Hot milk", "Clay or iron comal"],
+    ingredients: ["Volcanic stone molcajete", "Raw rice (for seasoning)", "Tomato (4)", "Serrano chile (3)", "Garlic (4 cloves)", "Coarse salt", "Mexican chocolate tablets (2)", "Wooden molinillo", "Hot milk (1L)", "Clay or iron comal"],
     steps: [
-      "🎯 CHALLENGE: Cook with 3 ancestral tools! AI teaches each technique.",
-      "📘 Molcajete: Season by grinding rice. Then salsa: garlic+salt → roasted chile → tomato. 🤖 Ask AI: 'How to season molcajete and make authentic salsa?'.",
-      "📘 Molinillo: Dissolve chocolate in hot milk, spin between palms until foamy. 🤖 Ask AI: 'Molinillo technique for foamy chocolate'.",
-      "📘 Comal: Roast chiles, tomatoes and onion for tatemada salsa. 🤖 Ask AI: 'How to season a new clay comal?'.",
-      "🏆 Used all 3? You cooked like 3,000 years ago!"
+      "🎯 CHALLENGE: Cook with 3 ancestral Mexican tools!",
+      "📘 Molcajete — Seasoning and Using: SEASONING (1st time) — Grind raw rice in molcajete for 15 min until rice comes out white (not gray). Repeat 3-4 times until rice doesn't change color — this removes stone dust. Wash without soap. SALSA IN MOLCAJETE — Order matters: 1st grind coarse salt + 1 garlic clove (makes abrasive paste). 2nd add 3 charred serrano chiles, grind. 3rd add 4 charred tomatoes, crush (don't pulverize — we want texture). The flavor is FAR superior to a blender because volcanic stone releases air bubbles into the salsa. Never wash with soap — it absorbs. Clean with brush and water.",
+      "📘 Molinillo — Frothy Chocolate: Chop 2 Mexican chocolate tablets. Heat 1L milk until almost boiling (small bubbles at edge). Dissolve chocolate stirring. Insert molinillo into milk, hold handle between open palms and spin rapidly (like starting fire with sticks) for 3-5 min until dense, creamy foam forms on top. The molinillo creates foam no modern whisk can replicate — it's perfect aeration. Serve in clay mug. Variation: add cinnamon, ancho chile powder (pinch) or vanilla.",
+      "📘 Comal — Charring Technique (Tatear): PREPARING NEW COMAL — Clay: wash, sun-dry, oil, heat gradually 30 min (thermal shock cracks it). Iron: wash, dry on heat, oil and heat until smoke stops, repeat 3x. CHARRING (roasting on comal) — Tomatoes: place whole on hot comal, turn with tongs every 3 min until skin is black on all sides (15-20 min). Dried chiles: 15-30s each side with spatula, become flexible and aromatic. Onion: cut in half, cut side down, 10 min until carbonized. Garlic: in skin, 8 min turning. Everything charred together = base for any authentic Mexican salsa.",
+      "🏆 Used all 3? You cooked like 3,000 years ago! These tools aren't decoration — they're Mesoamerican technology."
     ],
-    description: "🎯 CHALLENGE: Molcajete, molinillo and comal — ancient techniques with AI!"
+    description: "🎯 CHALLENGE: Master molcajete, molinillo and comal — complete ancient tools and techniques!"
   },
   "conservacao-alimentos": {
     name: "🔥 Challenge: Mexican Preservation",
-    ingredients: ["Various dried chiles", "Meat for cecina (thin cut)", "Coarse salt", "Fresh jalapeño chiles", "Vinegar and spices", "Fruits for crystallizing"],
+    ingredients: ["Mixed fresh chiles (500g)", "Lean beef thin cut (1kg)", "Coarse salt (1kg)", "Fresh jalapeño chiles (500g)", "White vinegar (1L)", "Oregano, bay leaf, pepper", "Carrots and onions"],
     steps: [
-      "🎯 CHALLENGE: 3 ancestral preservation techniques! AI guides each process.",
-      "📘 Dehydrate Chiles: Oven 80°C for 4-6h, door ajar. 🤖 Ask AI: 'Perfect dehydration point for chiles'.",
-      "📘 Salting (cecina): Thin slices + coarse salt, dry 2-3 days. 🤖 Ask AI: 'Yecapixtla-style cecina at home'.",
-      "📘 Escabeche: Boiling vinegar with spices over vegetables in jars. 🤖 Ask AI: 'Classic Mexican escabeche for 6 months'.",
-      "📘 Shelf life: Chiles 1 year, escabeche 6 months, cecina 2 weeks refrigerated.",
+      "🎯 CHALLENGE: 3 ancestral Mexican preservation techniques!",
+      "📘 Dehydrating Chiles: Wash and dry fresh chiles (jalapeño, serrano, habanero). OVEN METHOD — Place on rack in oven at 80°C with door ajar (air circulation essential). Turn every 1h. Time: jalapeño 4-6h, habanero 3-4h, ancho 6-8h. Correct point: flexible like leather, no wet spots, but not brittle. If brittle, overdone. SUN METHOD — Hang on string or spread on screen, cover with tulle (against insects), 3-5 days direct sun. Dried jalapeño = chile seco. Dried AND smoked jalapeño = chipotle! For smoking: use sawdust in closed grill, 4h at 80°C. Store in glass jar in dry place — lasts 1 year.",
+      "📘 Salting (Cecina Yecapixtla Style): Cut 1kg beef into very thin slices (3mm — ask butcher or partially freeze to slice). Cover generously with coarse salt on both sides. Stack slices alternating with salt. Refrigerate 24h. Wash off excess salt, season with guajillo chile powder + lime. Hang on line or rack and dry: SUN — 2-3 days (bring inside at night). OVEN — 60°C for 8h, door ajar. Finished cecina is dry but flexible, dark red. Quickly sear on comal to serve. Refrigerated lasts 2-3 weeks. This is original Mexican charcuterie.",
+      "📘 Classic Mexican Escabeche: Cut 500g jalapeños into rounds + 3 carrots + 2 onions + 6 garlic cloves. BRINE — Boil 500ml vinegar + 250ml water + 3 tbsp salt + 2 bay leaves + 1 tbsp oregano + 10 peppercorns + 3 cloves + 1 cinnamon stick. Place vegetables in sterilized glass jars (boil jars 10 min, dry in oven). Pour BOILING brine until covered. Seal immediately. Invert jar 5 min (creates vacuum). Shelf life: 6 months refrigerated, 1 year with proper vacuum. For gifts: decorate with label and ribbon — Mexican tradition of giving preserves.",
+      "📘 Shelf Life and Safety: Dried chiles = 1 year in dry, dark place. Escabeche = 6-12 months sealed, 1 month after opening. Cecina = 2-3 weeks refrigerated. WARNING SIGNS: mold, ammonia smell, slimy texture = discard. Always use sterilized glass jars, never plastic for acidic preserves.",
       "🏆 Mastered all 3? Preservation like the Mesoamericans!"
     ],
-    description: "🎯 CHALLENGE: Dehydrate, salt and preserve! Ancestral techniques with AI."
+    description: "🎯 CHALLENGE: Dehydrate, salt and preserve — 3 complete ancestral Mexican techniques!"
   },
   "producao-artesanal": {
     name: "🔥 Challenge: Artisanal Producer",
-    ingredients: ["Cacao beans or nibs", "Piloncillo and cinnamon", "Fresh milk for cheese", "Pork for chorizo", "Dried chiles for chorizo", "Masa harina"],
+    ingredients: ["Cacao nibs or beans (300g)", "Piloncillo (200g)", "Cinnamon sticks (3)", "Fresh whole milk (4L)", "Citric acid or lime juice", "Rennet (1 tablet)", "Pork shoulder (1kg)", "Pork fat (200g)", "Dried ancho chiles (6)", "Dried guajillo chiles (4)", "Apple cider vinegar", "Cumin, oregano, pepper, cloves"],
     steps: [
-      "🎯 CHALLENGE: 3 artisanal Mexican products from scratch! AI guides each step.",
-      "📘 Mexican Chocolate: Toast cacao 130°C/25min, grind with cinnamon and piloncillo. 🤖 Ask AI: 'Artisanal chocolate with cacao beans'.",
-      "📘 Mexican Chorizo: Meat + soaked chiles + vinegar + spices. Rest 24h. 🤖 Ask AI: 'Ideal meat/fat/chile ratio for chorizo'.",
-      "📘 Oaxaca Cheese: Milk + citric acid + rennet, heat to 70°C, stretch and roll. 🤖 Ask AI: 'Homemade Oaxaca cheese — stretching point'.",
-      "📘 Pricing: Cost + 100-150% margin. 🤖 Ask AI: 'Pricing artisanal products for sale'.",
-      "🏆 Produced all 3? True Mexican artisan!"
+      "🎯 CHALLENGE: 3 artisanal Mexican products from scratch!",
+      "📘 Artisanal Mexican Chocolate: Toast 300g cacao nibs in oven at 130°C for 25 min (stir every 10 min, intense aroma = done). If using whole beans, crack and remove shells after toasting. Grind in food processor until paste forms (15-20 min in stages — goes from flour → granules → oily paste). Add 200g grated piloncillo + 2 ground cinnamon sticks + pinch of ancho chile powder (optional). Mix well. Mold into shapes or roll into cylinders with parchment paper. Refrigerate 2h. To use: melt 50g in 250ml hot milk + whisk with molinillo. Keeps 3 months refrigerated.",
+      "📘 Homemade Mexican Chorizo: Hydrate 6 ancho + 4 guajillo chiles in hot water 20 min. Blend with 4 garlic cloves + 3 tbsp vinegar + 1 tbsp cumin + 1 tbsp oregano + ½ tbsp black pepper + 4 cloves + ½ tbsp cinnamon + salt. Mix 1kg ground pork (shoulder) + 200g diced pork fat + chile paste. Knead well by hand. CRUCIAL REST: refrigerate 24h minimum (48h ideal) — flavors meld. To stuff: use natural casing or form patties/links without casing. Fry crumbling in skillet until golden and fat turns red. Ideal ratio: 70% lean + 30% fat. Keeps 5 days refrigerated, 3 months frozen.",
+      "📘 Homemade Oaxaca Cheese: Heat 4L fresh whole milk to 35°C. Dissolve ¼ rennet tablet in 2 tbsp cold water + add 2 tbsp citric acid (or juice of 2 limes) diluted in water. Add to milk, stir 1 min, cover and wait 30-40 min (curd should be firm like gelatin when cut with knife). Cut into 2cm cubes, slowly heat to 42°C stirring gently. Drain whey (save for other recipes). STRETCHING POINT: heat curd in 70°C water until elastic. Stretch like mozzarella — should form long strings without breaking. If breaking: water hotter. Roll into ball or skein. Store in cold whey. Keeps 1 week refrigerated.",
+      "📘 Pricing for Sale: Ingredient cost + 30% (gas, water, packaging) = total cost. Sale price = total cost × 2 to 2.5. Example: chocolate costing $10 in ingredients → total cost $13 → sell for $26-33. Package with visual identity and product story. Local markets, fairs and Instagram are the best initial channels.",
+      "🏆 Produced all 3? True Mexican artisan! Each product carries millennia of tradition."
     ],
-    description: "🎯 CHALLENGE: Artisanal chocolate, chorizo and Oaxaca cheese! AI teaches each technique."
+    description: "🎯 CHALLENGE: Chocolate, chorizo and Oaxaca cheese — 3 artisanal Mexican products from scratch!"
   },
 };
