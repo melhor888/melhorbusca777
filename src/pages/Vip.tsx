@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { Crown, Lock, Wine, Beer, Snowflake, Leaf, KeyRound, Check, X, Flame, GlassWater, IceCream, Trophy, Globe, CupSoda, Martini, ArrowRight, Sparkles, ChefHat, GraduationCap, UtensilsCrossed, BookOpen } from "lucide-react";
+import { Crown, Lock, Wine, Beer, Snowflake, Leaf, KeyRound, Check, X, Flame, GlassWater, IceCream, Trophy, Globe, CupSoda, Martini, ArrowRight, Sparkles, ChefHat, GraduationCap, UtensilsCrossed, BookOpen, Wrench } from "lucide-react";
 import { validateVipKey, isVipUnlocked, setVipUnlocked } from "@/utils/vipKeys";
 import VipTrialBanner from "@/components/VipTrialBanner";
 import VipNetflixHero from "@/components/VipNetflixHero";
@@ -138,6 +138,25 @@ export default function Vip() {
             );
           })}
         </div>
+
+        {/* Ferramentas VIP */}
+        {unlocked && (
+          <div className="max-w-2xl mx-auto mt-8 mb-4">
+            <button
+              onClick={() => navigate("/vip/ferramentas")}
+              className="w-full flex items-center gap-4 rounded-2xl p-5 text-left bg-gradient-to-r from-yellow-500/10 to-amber-500/10 border border-yellow-500/20 hover:border-yellow-500/40 transition-all hover:scale-[1.01]"
+            >
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-yellow-400 to-amber-600 flex items-center justify-center flex-shrink-0">
+                <Wrench size={24} className="text-white" />
+              </div>
+              <div className="flex-1">
+                <h3 className="font-display font-bold text-foreground text-lg">Ferramentas VIP 🛠️</h3>
+                <p className="text-xs text-muted-foreground mt-1">Calculadora de ardência, lucro, gerador de cardápio, combos, preços, promoções e simulador de delivery</p>
+              </div>
+              <ArrowRight size={20} className="text-yellow-500" />
+            </button>
+          </div>
+        )}
 
         {!unlocked && (
           <div className="text-center mt-8">

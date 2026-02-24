@@ -42,7 +42,7 @@ const appFeatures = [
   {
     icon: BookOpen,
     title: "100+ Receitas Gratuitas",
-    description: "Dezenas de pratos clássicos da culinária japonesa disponíveis gratuitamente.",
+    description: "Dezenas de pratos clássicos da culinária mexicana disponíveis gratuitamente.",
   },
   {
     icon: ShoppingCart,
@@ -57,12 +57,12 @@ const appFeatures = [
   {
     icon: Lightbulb,
     title: "Dicas & Técnicas",
-    description: "Artigos sobre técnicas japonesas, utensílios e segredos profissionais.",
+    description: "Artigos sobre técnicas mexicanas, utensílios e segredos profissionais.",
   },
   {
     icon: Globe,
     title: "Quiz de Culinária",
-    description: "Teste seus conhecimentos sobre gastronomia japonesa e descubra novos sabores.",
+    description: "Teste seus conhecimentos sobre gastronomia mexicana e descubra novos sabores.",
   },
   {
     icon: Fish,
@@ -82,14 +82,14 @@ const vipCategories = [
   { name: "Sobremesa & Doces", icon: CakeSlice, color: "from-pink-400 to-fuchsia-600" },
 ];
 
-const WHATSAPP_URL = "https://wa.me/5527995055993?text=Ol%C3%A1!%20Quero%20ser%20VIP%20no%20Receitas%20Japonesas%20XP!";
+const WHATSAPP_URL = "https://wa.me/5527995055993?text=Ol%C3%A1!%20Quero%20ser%20VIP%20no%20Receitas%20MexicanasXP!";
 
 export default function QueroSerVip() {
   return (
     <>
       <Helmet>
-        <title>Quero Ser VIP | Receitas Japonesas XP</title>
-        <meta name="description" content="Desbloqueie receitas exclusivas da culinária japonesa, dicas do chef e categorias premium. Torne-se VIP no Receitas Japonesas XP." />
+        <title>Quero Ser VIP | Receitas MexicanasXP</title>
+        <meta name="description" content="Desbloqueie receitas exclusivas da culinária mexicana, dicas do chef e categorias premium. Torne-se VIP no Receitas MexicanasXP." />
       </Helmet>
 
       <main className="pb-32 lg:pb-12">
@@ -107,7 +107,7 @@ export default function QueroSerVip() {
               </span>
             </h1>
             <p className="text-muted-foreground mt-4 text-base leading-relaxed max-w-md mx-auto">
-              Desbloqueie um universo de <strong className="text-foreground">1.200+ receitas exclusivas</strong> da culinária japonesa, 
+              Desbloqueie um universo de <strong className="text-foreground">1.200+ receitas exclusivas</strong> da culinária mexicana, 
               dicas de chefs profissionais e categorias premium que você não encontra em nenhum outro lugar.
             </p>
             <a
