@@ -181,7 +181,7 @@ export default function Vip() {
         {!unlocked && (
           <div className="text-center mt-8">
             <Link
-              to="/quero-ser-vip"
+              to="/queroservip"
               className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-3 rounded-full font-semibold text-sm hover:scale-105 transition-transform"
             >
               <Crown size={18} />
