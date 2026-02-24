@@ -93,7 +93,8 @@ const dishImages: Record<string, string> = {
   "pollo-mole-verde": "/images/dish-pollo-mole-verde.jpg",
   "albondigas": "/images/dish-albondigas.jpg",
   "carnitas-michoacan": "/images/dish-carnitas-michoacan.jpg",
-  "pollo-asado-mex": "/images/dish-pollo-asado-mex.jpg",
+  "pollo-asado-mex": "/images/dish-pollo-asado.jpg",
+  "pollo-asado": "/images/dish-pollo-asado.jpg",
   "bistec-ranchero": "/images/dish-bistec-ranchero.jpg",
   "arrachera": "/images/dish-arrachera.jpg",
   "cecina-yecapixtla": "/images/dish-cecina.jpg",
@@ -377,7 +378,19 @@ const dishImages: Record<string, string> = {
   "pollo-almendras": "/images/dish-pollo-almendras.jpg",
   "carne-encebollada": "/images/dish-carne-encebollada.jpg",
   "mole-chichilo": "/images/dish-mole-chichilo.jpg",
-  "barbacoa-res-chihuahua": "/images/dish-barbacoa.jpg",
+  "barbacoa-res-chihuahua": "/images/dish-barbacoa-chihuahua.jpg",
+
+  // ============ BATCH 6 & 7 — CARNES EXTRAS ============
+  "chilorio-sinaloa": "/images/dish-chilorio-sinaloa.jpg",
+  "poc-chuc-yucatan": "/images/dish-poc-chuc.jpg",
+  "asado-de-boda": "/images/dish-asado-boda.jpg",
+  "manchamanteles-puebla": "/images/dish-manchamanteles.jpg",
+  "discada-nortena": "/images/dish-discada-nortena.jpg",
+  "chuleta-adobada": "/images/dish-chuleta-adobada.jpg",
+  "pollo-pipian": "/images/dish-pollo-pipian.jpg",
+  "mole-coloradito": "/images/dish-mole-coloradito.jpg",
+  "carne-apache": "/images/dish-carne-apache.jpg",
+  "tatemado-jalisco": "/images/dish-tatemado-jalisco.jpg",
 
   // ============ BATCH 12 — MARISCOS ============
   "pescado-talla": "/images/dish-pescado-talla.jpg",
@@ -595,6 +608,76 @@ const dishImages: Record<string, string> = {
   "birria-completa": "/images/dish-birria-caldo.jpg",
   "mole-7-oaxaca": "/images/dish-mole-negro.jpg",
   "cena-mexicana": "/images/dish-cena-mexicana.jpg",
+
+  // ============ BATCH 6 & 7 — MISSING MAPPINGS ============
+  // Sopas
+  "caldo-de-piedra": "/images/dish-sopa-piedra.jpg",
+  "sopa-de-pan-chiapas": "/images/dish-sopa-pan-chiapas.jpg",
+  "caldo-largo-oaxaca": "/images/dish-caldo-camaron.jpg",
+  "crema-elote-mexicana": "/images/dish-crema-elote.jpg",
+  "consomé-borrego": "/images/dish-consome-borrego.jpg",
+
+  // Mariscos
+  "ostiones-gratinados": "/images/dish-ostiones-gratinados.jpg",
+  "pulpo-enamorado": "/images/dish-pulpo-ajillo.jpg",
+  "callo-hacha-sonora": "/images/dish-callo-hacha.jpg",
+  "camarones-gobernador": "/images/dish-tacos-gobernador.jpg",
+  "ceviche-negro-sinaloa": "/images/dish-ceviche-negro.jpg",
+  "mojarra-frita-veracruz": "/images/dish-mojarra-frita.jpg",
+  "camarones-cucaracha": "/images/dish-camarones-cucaracha.jpg",
+  "tiritas-zihuatanejo": "/images/dish-tiritas-pescado.jpg",
+
+  // Sobremesas
+  "nieve-garrafa": "/images/dish-nieves-oaxaca.jpg",
+  "ate-membrillo": "/images/dish-ate-membrillo.jpg",
+  "glorias-linares": "/images/dish-glorias-linares.jpg",
+  "buñuelos-viento": "/images/dish-bunuelos.jpg",
+  "arroz-con-leche-mex": "/images/dish-arroz-doce.jpg",
+  "marquesitas-yucatan": "/images/dish-marquesitas.jpg",
+  "dulce-calabaza": "/images/dish-calabaza-tacha.jpg",
+  "cocada-mexicana": "/images/dish-cocada.jpg",
+  "jericalla-jalisco": "/images/dish-jericalla.jpg",
+  "camote-poblano": "/images/dish-camotes-poblanos.jpg",
+
+  // Bebidas
+  "agua-guayaba": "/images/dish-agua-guayaba.jpg",
+  "carajillo-mexicano": "/images/dish-carajillo.jpg",
+  "tejate-oaxaca": "/images/dish-tejate.jpg",
+  "mezcalita": "/images/dish-mezcalita.jpg",
+  "agua-pepino-limon": "/images/dish-agua-pepino.jpg",
+  "paloma-coctel": "/images/dish-paloma.jpg",
+  "cantarito-jalisco": "/images/dish-cantarito.jpg",
+  "tascalate-chiapas": "/images/dish-tascalate.jpg",
+
+  // Café da Manhã
+  "huevos-tirados": "/images/dish-huevos-tirados.jpg",
+  "huevos-ahogados": "/images/dish-huevos-ahogados.jpg",
+  "huevos-albanil": "/images/dish-huevos-ahogados.jpg",
+  "gorditas-nata": "/images/dish-gorditas.jpg",
+  "molletes-jamon": "/images/dish-molletes.jpg",
+
+  // Tamales
+  "tamales-canarios": "/images/dish-tamales-dulces.jpg",
+  "tamales-chipilín": "/images/dish-tamales-chipilin.jpg",
+  "tamales-de-ceniza": "/images/dish-tamales-ceniza.jpg",
+
+  // Antojitos batch6
+  "panuchos-yucatecos": "/images/dish-panuchos.jpg",
+  "tetelas-oaxaquenas": "/images/dish-tetelas.jpg",
+  "bocoles-huastecos": "/images/dish-bocoles.jpg",
+
+  // Arroz & Feijão
+  "arroz-amarillo-mex": "/images/dish-arroz-amarillo.jpg",
+  "frijoles-colados-yuc": "/images/dish-frijoles-negros.jpg",
+  
+  "arroz-con-chepil": "/images/dish-arroz-verde.jpg",
+  "esquites-cremosos": "/images/dish-esquites.jpg",
+  "corundas-michoacan": "/images/dish-corundas.jpg",
+  "uchepos-michoacan": "/images/dish-uchepos.jpg",
+
+  // Cultura
+  "mezcal-cultura": "/images/dish-pulque.jpg",
+  "mercados-mexico": "/images/dish-tacos-al-pastor.jpg",
 };
 
 export function getDishImage(dishId: string): string {
