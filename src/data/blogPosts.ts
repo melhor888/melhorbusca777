@@ -19,18 +19,31 @@ export const blogCategories = [
   { id: "ingredientes", label: "Ingredientes", icon: "🌶️" },
   { id: "regionais", label: "Cozinha Regional", icon: "🗺️" },
   { id: "receitas", label: "Receitas & Dicas", icon: "🍽️" },
+  { id: "tacos", label: "Tacos", icon: "🌮" },
+  { id: "burritos", label: "Burritos", icon: "🌯" },
+  { id: "enchiladas", label: "Enchiladas", icon: "🫔" },
+  { id: "tamales", label: "Tamales", icon: "🫕" },
+  { id: "quesadillas", label: "Quesadillas", icon: "🧀" },
+  { id: "nachos", label: "Nachos", icon: "🔺" },
+  { id: "molhos", label: "Molhos Mexicanos", icon: "🥣" },
+  { id: "sopas", label: "Sopas Mexicanas", icon: "🍲" },
+  { id: "bebidas", label: "Bebidas Típicas", icon: "🍹" },
+  { id: "doces", label: "Doces & Sobremesas", icon: "🍮" },
+  { id: "comida-rua", label: "Comida de Rua", icon: "🛒" },
+  { id: "tradicionais", label: "Pratos Tradicionais", icon: "🏛️" },
+  { id: "ancestral", label: "Cozinha Ancestral", icon: "🏺" },
+  { id: "moderna", label: "Cozinha Moderna", icon: "✨" },
+  { id: "festivos", label: "Pratos Festivos", icon: "🎉" },
+  { id: "religiosos", label: "Pratos Religiosos", icon: "⛪" },
+  { id: "street-premium", label: "Street Food Premium", icon: "🌟" },
+  { id: "tortillas", label: "Tortillas", icon: "🫓" },
 ];
 
-export function getBlogPostBySlug(slug: string): BlogPost | undefined {
-  return blogPosts.find((p) => p.slug === slug);
-}
+import { blogPostsBatch2 } from "./blogPosts-batch2";
+import { blogPostsBatch3 } from "./blogPosts-batch3";
+import { blogPostsBatch4 } from "./blogPosts-batch4";
 
-export function getBlogPostsByCategory(category: string): BlogPost[] {
-  if (category === "todos") return blogPosts;
-  return blogPosts.filter((p) => p.category === category);
-}
-
-export const blogPosts: BlogPost[] = [
+const blogPostsBase: BlogPost[] = [
   {
     id: "blog-1",
     title: "A História dos Tacos al Pastor: Da Espada ao Trompo",
@@ -338,3 +351,20 @@ export const blogPosts: BlogPost[] = [
 `
   },
 ];
+
+/** All blog posts, aggregated from all batch files */
+export const blogPosts: BlogPost[] = [
+  ...blogPostsBase,
+  ...blogPostsBatch2,
+  ...blogPostsBatch3,
+  ...blogPostsBatch4,
+];
+
+export function getBlogPostBySlug(slug: string): BlogPost | undefined {
+  return blogPosts.find((p) => p.slug === slug);
+}
+
+export function getBlogPostsByCategory(category: string): BlogPost[] {
+  if (category === "todos") return blogPosts;
+  return blogPosts.filter((p) => p.category === category);
+}
