@@ -781,6 +781,26 @@ const dedicatedImages: Record<string, string> = {
   "sopa-azteca-premium": "/images/vip-exclusiva-sopa-azteca.jpg",
   "coctel-vuelve-a-la-vida": "/images/vip-exclusiva-vuelve-vida.jpg",
   "chiles-en-nogada-clasico-puebla": "/images/vip-exclusiva-chiles-nogada-clasico.jpg",
+  // Mexican Masterclass Images
+  "mt-nixtamalizacao": "/images/vip-tecnica-nixtamalizacao.jpg",
+  "mt-molcajete": "/images/vip-tecnica-molcajete.jpg",
+  "mt-tatemado": "/images/vip-tecnica-tatemado.jpg",
+  
+  // Agave Pairing Images
+  "hs-tequila-ceviche": "/images/vip-harmonizacao-tequila.jpg",
+  "hs-mezcal-mole": "/images/vip-harmonizacao-mezcal.jpg",
+  
+  // Mexican Menus Images
+  "cc-dia-muertos": "/images/vip-menu-muertos.jpg",
+  "cc-taquiza": "/images/vip-menu-taquiza.jpg",
+  
+  // Mexican Infusions Images
+  "ci-cafe-olla": "/images/vip-infusao-cafe-olla.jpg",
+  "ci-tejate": "/images/vip-infusao-tejate.jpg",
+  
+  // Mexican Regions Images
+  "vm-jalisco": "/images/vip-regiao-jalisco.jpg",
+  "vm-oaxaca": "/images/vip-regiao-oaxaca.jpg",
 };
 
 // Simple hash to get consistent image for each drink
