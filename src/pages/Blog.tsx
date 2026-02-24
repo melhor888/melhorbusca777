@@ -24,7 +24,7 @@ export default function Blog() {
     return blogCategoryTranslations[lang]?.[catId]?.label || fallback;
   }
 
-  const seoTitle = lang === "en" ? "Blog | Mexican Recipes" : lang === "es" ? "Blog | Recetas Mexicanas" : "Blog | Receitas Mexicanas";
+  const seoTitle = lang === "en" ? "Blog | Mexi Food XP" : lang === "es" ? "Blog | Mexi Food XP" : "Blog | Mexi Food XP";
   const seoDesc = lang === "en"
     ? "In-depth articles about Mexican cuisine — history, techniques, ingredients, and recipes with 1200+ words each."
     : lang === "es"

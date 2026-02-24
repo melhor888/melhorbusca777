@@ -102,7 +102,7 @@ export default function VipCategoryPage() {
     <>
       <VipTrialBanner />
       <Helmet>
-        <title>{categoryName} VIP | Receitas Mexicanas XP</title>
+        <title>{categoryName} VIP | Mexi Food XP</title>
         <meta name="description" content={`${drinks.length} receitas VIP exclusivas de ${categoryName}.`} />
       </Helmet>
       <div className="min-h-screen pb-24">

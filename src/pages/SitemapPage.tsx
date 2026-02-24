@@ -13,8 +13,8 @@ export default function SitemapPage() {
   return (
     <>
       <Helmet>
-        <title>Sitemap - Receitas MexicanasXP | Mapa do Site</title>
-        <meta name="description" content="Mapa completo do site Receitas MexicanasXP. Encontre todas as receitas, artigos, blog e páginas." />
+        <title>Sitemap - Mexi Food XP | Mapa do Site</title>
+        <meta name="description" content="Mapa completo do site Mexi Food XP. Encontre todas as receitas, artigos, blog e páginas." />
         <link rel="canonical" href="https://receitasmexicanas.lovable.app/sitemap" />
       </Helmet>
       <div className="min-h-screen pb-20">

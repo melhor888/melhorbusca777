@@ -81,7 +81,7 @@ export default function BlogPost() {
     author: { "@type": "Person", name: post.author },
     publisher: {
       "@type": "Organization",
-      name: "Receitas MexicanasXP",
+      name: "Mexi Food XP",
       logo: { "@type": "ImageObject", url: `${baseUrl}/pwa-512x512.png` },
     },
     datePublished: post.publishedAt,

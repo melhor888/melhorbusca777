@@ -54,7 +54,7 @@ export default function Achievements() {
   return (
     <div className="min-h-screen pb-24">
       <Helmet>
-        <title>{t("achievements_page.title")} | Receitas MexicanasXP</title>
+        <title>{t("achievements_page.title")} | Mexi Food XP</title>
       </Helmet>
 
       <div className="sticky top-0 z-40 glass-card border-b border-border/50 px-4 py-3 flex items-center gap-3">

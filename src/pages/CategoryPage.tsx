@@ -46,7 +46,7 @@ export default function CategoryPage() {
   return (
     <>
       <Helmet>
-        <title>{translatedCategory} - Receitas MexicanasXP</title>
+        <title>{translatedCategory} - Mexi Food XP</title>
         <meta
           name="description"
           content={`${dishes.length} ${t("common.recipes", "receitas")} - ${translatedCategory}`}

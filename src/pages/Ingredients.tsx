@@ -66,7 +66,7 @@ export default function Ingredients() {
   return (
     <div className="min-h-screen pb-24">
       <Helmet>
-        <title>O que tenho em casa? — Ingredientes Mexicanos | Receitas MexicanasXP</title>
+        <title>O que tenho em casa? — Ingredientes Mexicanos | Mexi Food XP</title>
         <meta name="description" content="Selecione os ingredientes mexicanos que você tem em casa e descubra quais pratos pode preparar." />
       </Helmet>
 

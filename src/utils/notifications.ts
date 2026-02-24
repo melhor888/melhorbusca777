@@ -66,7 +66,7 @@ export function sendWelcomeNotification() {
   if (Notification.permission !== "granted") return;
 
   try {
-    new Notification("🎉 ¡Bienvenido ao Receitas MexicanasXP!", {
+    new Notification("🎉 ¡Bienvenido ao Mexi Food XP!", {
       body: "Você receberá 5 sugestões diárias de receitas mexicanas. ¡Buen provecho! 🌮",
       icon: "/pwa-192x192.png",
       badge: "/pwa-192x192.png",

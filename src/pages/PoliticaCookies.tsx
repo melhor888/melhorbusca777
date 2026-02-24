@@ -5,8 +5,8 @@ export default function PoliticaCookies() {
   return (
     <>
       <Helmet>
-        <title>Política de Cookies - Receitas MexicanasXP</title>
-        <meta name="description" content="Política de Cookies do Receitas MexicanasXP. Saiba quais cookies utilizamos e como gerenciá-los." />
+        <title>Política de Cookies - Mexi Food XP</title>
+        <meta name="description" content="Política de Cookies do Mexi Food XP. Saiba quais cookies utilizamos e como gerenciá-los." />
         <link rel="canonical" href="https://receitasmexicanas.lovable.app/cookies" />
       </Helmet>
       <div className="min-h-screen pb-20">
@@ -37,7 +37,7 @@ export default function PoliticaCookies() {
             </section>
             <section>
               <h2 className="text-lg font-display font-semibold text-foreground mb-2">4. Contato</h2>
-              <p>Dúvidas sobre cookies: <strong>privacidade@receitasmexicanasxp.com.br</strong></p>
+              <p>Dúvidas sobre cookies: <strong>privacidade@mexifoodxp.com.br</strong></p>
             </section>
           </div>
         </div>

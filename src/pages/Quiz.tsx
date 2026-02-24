@@ -155,7 +155,7 @@ export default function Quiz() {
   return (
     <div className="min-h-screen pb-24">
       <Helmet>
-        <title>{t("quiz.title")} | Receitas MexicanasXP</title>
+        <title>{t("quiz.title")} | Mexi Food XP</title>
       </Helmet>
       <XPToast xp={XP_QUIZ} show={showXP} onClose={() => setShowXP(false)} message={t("xp.quizCompleted")} />
 

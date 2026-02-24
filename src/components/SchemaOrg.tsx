@@ -8,7 +8,7 @@ export function WebsiteSchema() {
   const data = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: "Receitas MexicanasXP",
+    name: "Mexi Food XP",
     inLanguage: lang,
     description: "Receitas autênticas de comida mexicana, técnicas culinárias, cultura e gastronomia do México.",
     potentialAction: {
@@ -24,7 +24,7 @@ export function OrganizationSchema() {
   const data = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: "Receitas MexicanasXP",
+    name: "Mexi Food XP",
     contactPoint: {
       "@type": "ContactPoint",
       email: "contato@receitasmexicanasxp.com.br",
