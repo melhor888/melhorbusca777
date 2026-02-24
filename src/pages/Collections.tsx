@@ -14,67 +14,75 @@ interface Collection {
 
 const collections: Collection[] = [
   {
-    id: "sushi-sashimi",
-    title: "Sushi & Sashimi",
-    subtitle: "Os clássicos da culinária japonesa crua",
-    emoji: "🍣",
-    filter: (d) =>
-      /sushi|sashimi|nigiri|temaki|uramaki|hosomaki|futomaki|chirashi/i.test(d.name) ||
-      /sushi|sashimi|nigiri|temaki|uramaki|hosomaki|futomaki|chirashi/i.test(d.id),
+    id: "tacos",
+    title: "Tacos",
+    subtitle: "O rei da comida de rua mexicana em todas as variações",
+    emoji: "🌮",
+    filter: (d) => /taco/i.test(d.name) || d.category === "Tacos",
   },
   {
-    id: "ramen-massas",
-    title: "Ramen & Massas",
-    subtitle: "Tigelas quentes e reconfortantes de macarrão",
-    emoji: "🍜",
-    filter: (d) =>
-      /ramen|udon|soba|yakisoba|lamen/i.test(d.name) ||
-      /ramen|udon|soba|yakisoba|lamen/i.test(d.id),
-  },
-  {
-    id: "donburi",
-    title: "Donburi & Arroz",
-    subtitle: "Tigelas de arroz com coberturas deliciosas",
-    emoji: "🍚",
-    filter: (d) =>
-      /don$|don\b|gohan|onigiri|omurice|chahan|ochazuke/i.test(d.name) ||
-      /don$|don\b|gohan|onigiri|omurice|chahan|ochazuke/i.test(d.id),
-  },
-  {
-    id: "grelhados-fritos",
-    title: "Grelhados & Fritos",
-    subtitle: "Yakitori, tempurá, karaage e mais",
-    emoji: "🔥",
-    filter: (d) =>
-      /yakitori|karaage|tempura|tonkatsu|kushikatsu|teppanyaki|tebasaki|korokke/i.test(d.name) ||
-      /yakitori|karaage|tempura|tonkatsu|kushikatsu|teppanyaki|tebasaki|korokke/i.test(d.id),
-  },
-  {
-    id: "street-food",
-    title: "Street Food Japonesa",
-    subtitle: "Takoyaki, okonomiyaki, taiyaki e sabores de matsuri",
-    emoji: "🏮",
-    filter: (d) =>
-      /takoyaki|okonomiyaki|taiyaki|yakiimo|dango|gyoza/i.test(d.name) ||
-      /takoyaki|okonomiyaki|taiyaki|yakiimo|dango|gyoza/i.test(d.id),
-  },
-  {
-    id: "sopas",
+    id: "sopas-caldos",
     title: "Sopas & Caldos",
-    subtitle: "Missoshiru, tonjiru e outras sopas tradicionais",
+    subtitle: "Pozole, menudo, caldo de pollo e mais",
+    emoji: "🍲",
+    filter: (d) =>
+      /pozole|menudo|caldo|sopa|consomé/i.test(d.name) || d.category === "Sopas & Caldos",
+  },
+  {
+    id: "antojitos",
+    title: "Antojitos",
+    subtitle: "Quesadillas, enchiladas, chilaquiles, sopes e gorditas",
+    emoji: "🫔",
+    filter: (d) =>
+      /quesadilla|enchilada|chilaquiles|sope|gordita|tostada|elote|tamale/i.test(d.name) || d.category === "Antojitos",
+  },
+  {
+    id: "carnes",
+    title: "Carnes Mexicanas",
+    subtitle: "Mole, carnitas, barbacoa, cochinita e arrachera",
+    emoji: "🥩",
+    filter: (d) =>
+      /mole|carnitas|barbacoa|cochinita|arrachera|bistec|cecina|tasajo|suadero|carne/i.test(d.name) || d.category === "Carnes Mexicanas",
+  },
+  {
+    id: "molhos-salsas",
+    title: "Molhos & Salsas",
+    subtitle: "Guacamole, salsa roja, verde, pico de gallo e mais",
     emoji: "🥣",
     filter: (d) =>
-      /misso|tonjiru|ozoni|chawanmushi|sopa/i.test(d.name) ||
-      /misso|tonjiru|ozoni|chawanmushi/i.test(d.id),
+      /guacamole|salsa|pico de gallo|molho|mole/i.test(d.name) || d.category === "Molhos & Salsas",
+  },
+  {
+    id: "mariscos",
+    title: "Mariscos",
+    subtitle: "Ceviche, camarões, peixe e frutos do mar",
+    emoji: "🦐",
+    filter: (d) =>
+      /ceviche|camar|pescado|zarandeado|marisco/i.test(d.name) || d.category === "Mariscos",
   },
   {
     id: "sobremesas",
-    title: "Sobremesas Japonesas",
-    subtitle: "Mochi, dorayaki, matcha e doces tradicionais",
-    emoji: "🍡",
+    title: "Sobremesas Mexicanas",
+    subtitle: "Churros, flan, tres leches e doces tradicionais",
+    emoji: "🍮",
     filter: (d) =>
-      /mochi|dorayaki|dango|anmitsu|matcha|taiyaki|manju|warabi/i.test(d.name) ||
-      /mochi|dorayaki|dango|anmitsu|matcha|taiyaki|manju|warabi/i.test(d.id),
+      /churro|flan|tres leches|arroz con leche|mazapan|alegria|helado/i.test(d.name) || d.category === "Sobremesas",
+  },
+  {
+    id: "bebidas",
+    title: "Bebidas",
+    subtitle: "Horchata, jamaica, chocolate mexicano e michelada",
+    emoji: "🍹",
+    filter: (d) =>
+      /horchata|jamaica|chocolate|michelada|margarita|pulque|agua/i.test(d.name) || d.category === "Bebidas",
+  },
+  {
+    id: "cafe-da-manha",
+    title: "Café da Manhã",
+    subtitle: "Huevos rancheros, divorciados e chilaquiles matinais",
+    emoji: "🍳",
+    filter: (d) =>
+      /huevos|motuleños/i.test(d.name) || d.category === "Café da Manhã",
   },
   {
     id: "facil",
@@ -84,13 +92,21 @@ const collections: Collection[] = [
     filter: (d) => d.difficulty === "Fácil",
   },
   {
-    id: "hotpot",
-    title: "Hotpot & Nabe",
-    subtitle: "Sukiyaki, shabu-shabu e panelas quentes",
-    emoji: "🫕",
+    id: "tortillas-bases",
+    title: "Tortillas & Bases",
+    subtitle: "Tortillas de milho, trigo, sopes, tlacoyos e tostadas",
+    emoji: "🫓",
     filter: (d) =>
-      /sukiyaki|shabu|nabe|motsu/i.test(d.name) ||
-      /sukiyaki|shabu|nabe|motsu/i.test(d.id),
+      /tortilla|tlacoyo|tostada/i.test(d.name) || d.category === "Tortillas & Bases",
+  },
+  {
+    id: "picantes",
+    title: "Para os Corajosos 🔥",
+    subtitle: "As receitas mais picantes do cardápio",
+    emoji: "🌶️",
+    filter: (d) =>
+      /habanero|diabla|extra.?picante/i.test(d.name) ||
+      /habanero|diabla/i.test(d.ingredients?.join(" ") || ""),
   },
 ];
 
@@ -100,8 +116,8 @@ export default function Collections() {
   return (
     <div className="min-h-screen pb-24">
       <Helmet>
-        <title>Coleções Temáticas | Receitas Japonesas XP</title>
-        <meta name="description" content="Coleções temáticas de receitas japonesas: sushi, ramen, donburi, street food e mais." />
+        <title>Coleções Temáticas | Receitas MexicanasXP</title>
+        <meta name="description" content="Coleções temáticas de receitas mexicanas: tacos, enchiladas, moles, sopas, sobremesas e mais." />
       </Helmet>
 
       <div className="sticky top-0 z-40 glass-card border-b border-border/50 px-4 py-3 flex items-center gap-3">
