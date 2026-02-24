@@ -36,6 +36,7 @@ const dishImages: Record<string, string> = {
   "tacos-gobernador": "/images/dish-tacos-gobernador.jpg",
   "tacos-camarao": "/images/dish-tacos-camarao.jpg",
   "tacos-veganos": "/images/dish-tacos-veganos.jpg",
+  "tacos-cochinita": "/images/dish-tacos-cochinita.jpg",
   "tacos-gourmet": "/images/dish-tacos-gourmet.jpg",
 
   // ============ ANTOJITOS ============
