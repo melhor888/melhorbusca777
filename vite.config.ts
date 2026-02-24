@@ -4,7 +4,6 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 import { VitePWA } from "vite-plugin-pwa";
 
-// Vite config
 export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
@@ -25,16 +24,16 @@ export default defineConfig(({ mode }) => ({
         maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
       },
       manifest: {
-        name: "Receitas Japonesas XP",
-        short_name: "Receitas XP",
-        description: "Descubra receitas autênticas da culinária japonesa",
-        theme_color: "#0f1318",
-        background_color: "#0f1318",
+        name: "Receitas MexicanasXP",
+        short_name: "MexicanasXP",
+        description: "Descubra receitas autênticas da culinária mexicana",
+        theme_color: "#0d6832",
+        background_color: "#0d0d0d",
         lang: "pt",
         display: "standalone",
         orientation: "portrait",
         scope: "/",
-        start_url: "https://japanfood.lovable.app/",
+        start_url: "/",
         icons: [
           {
             src: "/pwa-192x192.png",
