@@ -35,14 +35,21 @@ export interface Level {
 }
 
 export const LEVELS: Level[] = [
-  { level: 1, title: "Principiante", minXP: 0, maxXP: 30 },
-  { level: 2, title: "Aprendiz", minXP: 30, maxXP: 70 },
-  { level: 3, title: "Cocinero", minXP: 70, maxXP: 130 },
-  { level: 4, title: "Taquero", minXP: 130, maxXP: 200 },
-  { level: 5, title: "Chef Mexicano", minXP: 200, maxXP: 300 },
-  { level: 6, title: "Maestro Mole", minXP: 300, maxXP: 450 },
-  { level: 7, title: "Abuela Sabia", minXP: 450, maxXP: 650 },
-  { level: 8, title: "Leyenda Culinaria", minXP: 650, maxXP: Infinity },
+  { level: 1, title: "Principiante", minXP: 0, maxXP: 20 },
+  { level: 2, title: "Curioso", minXP: 20, maxXP: 45 },
+  { level: 3, title: "Aprendiz", minXP: 45, maxXP: 75 },
+  { level: 4, title: "Cocinero", minXP: 75, maxXP: 110 },
+  { level: 5, title: "Taquero", minXP: 110, maxXP: 150 },
+  { level: 6, title: "Salsero", minXP: 150, maxXP: 200 },
+  { level: 7, title: "Parrillero", minXP: 200, maxXP: 260 },
+  { level: 8, title: "Chef Mexicano", minXP: 260, maxXP: 330 },
+  { level: 9, title: "Mole Master", minXP: 330, maxXP: 410 },
+  { level: 10, title: "Maestro Oaxaqueño", minXP: 410, maxXP: 500 },
+  { level: 11, title: "Abuela Sabia", minXP: 500, maxXP: 600 },
+  { level: 12, title: "Curandero del Sabor", minXP: 600, maxXP: 720 },
+  { level: 13, title: "Guardián del Maíz", minXP: 720, maxXP: 860 },
+  { level: 14, title: "Leyenda Culinaria", minXP: 860, maxXP: 1000 },
+  { level: 15, title: "Dios del Mole", minXP: 1000, maxXP: Infinity },
 ];
 
 export function getLevel(xp: number): Level {
