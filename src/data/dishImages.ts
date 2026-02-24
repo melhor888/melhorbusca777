@@ -149,6 +149,107 @@ import neriGomaDare from "@/assets/dishes/neri-goma-dare.jpg";
 import nanbanDare from "@/assets/dishes/nanban-dare.jpg";
 import yuzuKoshoCaseiro from "@/assets/dishes/yuzu-kosho-caseiro.jpg";
 import tsuyuConcentrado from "@/assets/dishes/tsuyu-concentrado.jpg";
+// Batch 3 imports
+import saraUdon from "@/assets/dishes/sara-udon.jpg";
+import wankoSoba from "@/assets/dishes/wanko-soba.jpg";
+import ankakeYakisoba from "@/assets/dishes/ankake-yakisoba.jpg";
+import zaruSoba from "@/assets/dishes/zaru-soba.jpg";
+import curryUdon from "@/assets/dishes/curry-udon.jpg";
+import kitsuneSoba from "@/assets/dishes/kitsune-soba.jpg";
+import tanukiUdon from "@/assets/dishes/tanuki-udon.jpg";
+import tsukimiSoba from "@/assets/dishes/tsukimi-soba.jpg";
+import torinabe from "@/assets/dishes/torinabe.jpg";
+import motsunabe from "@/assets/dishes/motsunabe.jpg";
+import mizutaki from "@/assets/dishes/mizutaki.jpg";
+import ishikariNabe from "@/assets/dishes/ishikari-nabe.jpg";
+import nikujagaYoshoku from "@/assets/dishes/nikujaga-yoshoku.jpg";
+import buriDaikon from "@/assets/dishes/buri-daikon.jpg";
+import kakuni from "@/assets/dishes/kakuni.jpg";
+import chickenNanban from "@/assets/dishes/chicken-nanban.jpg";
+import nikuDofu from "@/assets/dishes/niku-dofu.jpg";
+import karaageKun from "@/assets/dishes/karaage-kun.jpg";
+import nikuman from "@/assets/dishes/nikuman.jpg";
+import yakitoriKawa from "@/assets/dishes/yakitori-kawa.jpg";
+import crepeHarajuku from "@/assets/dishes/crepe-harajuku.jpg";
+import ageManju from "@/assets/dishes/age-manju.jpg";
+import menchiKatsu from "@/assets/dishes/menchi-katsu.jpg";
+import dangoMitarashi from "@/assets/dishes/dango-mitarashi.jpg";
+import babyCastella from "@/assets/dishes/baby-castella.jpg";
+import kakigori from "@/assets/dishes/kakigori.jpg";
+import mozukuSu from "@/assets/dishes/mozuku-su.jpg";
+import nasuNibitashi from "@/assets/dishes/nasu-nibitashi.jpg";
+import takowasa from "@/assets/dishes/takowasa.jpg";
+import tatakiKyuri from "@/assets/dishes/tataki-kyuri.jpg";
+import shirasuOroshi from "@/assets/dishes/shirasu-oroshi.jpg";
+import umeboshiKyuri from "@/assets/dishes/umeboshi-kyuri.jpg";
+import nagaimoToro from "@/assets/dishes/nagaimo-toro.jpg";
+import yubaSashimi from "@/assets/dishes/yuba-sashimi.jpg";
+import maguroYamakake from "@/assets/dishes/maguro-yamakake.jpg";
+import asariMisoshiru from "@/assets/dishes/asari-misoshiru.jpg";
+import cornPotage from "@/assets/dishes/corn-potage.jpg";
+import suiton from "@/assets/dishes/suiton.jpg";
+import noppeiJiru from "@/assets/dishes/noppei-jiru.jpg";
+import zosui from "@/assets/dishes/zosui.jpg";
+import namekoMisoshiru from "@/assets/dishes/nameko-misoshiru.jpg";
+import kakitamaJiru from "@/assets/dishes/kakitama-jiru.jpg";
+import imoni from "@/assets/dishes/imoni.jpg";
+import sumashiJiru from "@/assets/dishes/sumashi-jiru.jpg";
+import shiratamaZenzai from "@/assets/dishes/shiratama-zenzai.jpg";
+import yokan from "@/assets/dishes/yokan.jpg";
+import kinakoMochi from "@/assets/dishes/kinako-mochi.jpg";
+import kuzumochi from "@/assets/dishes/kuzumochi.jpg";
+import mitsuMame from "@/assets/dishes/mitsu-mame.jpg";
+import sakuraMochi from "@/assets/dishes/sakura-mochi.jpg";
+import kurikinton from "@/assets/dishes/kurikinton.jpg";
+import zundaMochi from "@/assets/dishes/zunda-mochi.jpg";
+import ohagi from "@/assets/dishes/ohagi.jpg";
+import namaChocolate from "@/assets/dishes/nama-chocolate.jpg";
+import maguroDon from "@/assets/dishes/maguro-don.jpg";
+import butadon from "@/assets/dishes/butadon.jpg";
+import negitoroDon from "@/assets/dishes/negitoro-don.jpg";
+import staminaDon from "@/assets/dishes/stamina-don.jpg";
+import sakeChazuke from "@/assets/dishes/sake-chazuke.jpg";
+import ikuraDon from "@/assets/dishes/ikura-don.jpg";
+import tenshindon from "@/assets/dishes/tenshindon.jpg";
+import shogayakiDon from "@/assets/dishes/shogayaki-don.jpg";
+import unaTamaDon from "@/assets/dishes/una-tama-don.jpg";
+import hijikiSalada from "@/assets/dishes/hijiki-salada.jpg";
+import hakusaiTsukemono from "@/assets/dishes/hakusai-tsukemono.jpg";
+import kabochaKorokke from "@/assets/dishes/kabocha-korokke.jpg";
+import butaKakuniTamago from "@/assets/dishes/buta-kakuni-tamago.jpg";
+import daigakuImo from "@/assets/dishes/daigaku-imo.jpg";
+import goboSalada from "@/assets/dishes/gobo-salada.jpg";
+import komatsunaOhitashi from "@/assets/dishes/komatsuna-ohitashi.jpg";
+import umeKyuri from "@/assets/dishes/ume-kyuri.jpg";
+import satsumaimoGohan from "@/assets/dishes/satsumaimo-gohan.jpg";
+import toriKawaGyoza from "@/assets/dishes/tori-kawa-gyoza.jpg";
+import tatakiGobo from "@/assets/dishes/tataki-gobo.jpg";
+import shishamo from "@/assets/dishes/shishamo.jpg";
+import potatoSalada from "@/assets/dishes/potato-salada.jpg";
+import chikuwaIsobe from "@/assets/dishes/chikuwa-isobe.jpg";
+import nasuMiso from "@/assets/dishes/nasu-miso.jpg";
+import toriwasa from "@/assets/dishes/toriwasa.jpg";
+import eihire from "@/assets/dishes/eihire.jpg";
+import hiyashiTomato from "@/assets/dishes/hiyashi-tomato.jpg";
+import negiShioDare from "@/assets/dishes/negi-shio-dare.jpg";
+import tosazu from "@/assets/dishes/tosazu.jpg";
+import gomaShoyu from "@/assets/dishes/goma-shoyu.jpg";
+import umeboshiDare from "@/assets/dishes/umeboshi-dare.jpg";
+import shioKoji from "@/assets/dishes/shio-koji.jpg";
+import mentsuyuCaseiro from "@/assets/dishes/mentsuyu-caseiro.jpg";
+import dengakuMiso from "@/assets/dishes/dengaku-miso.jpg";
+import karashiSuMiso from "@/assets/dishes/karashi-su-miso.jpg";
+import amazuShoga from "@/assets/dishes/amazu-shoga.jpg";
+import negitoriMaki from "@/assets/dishes/negitoro-maki.jpg";
+import inariSushi from "@/assets/dishes/inari-sushi.jpg";
+import kanpyoMaki from "@/assets/dishes/kanpyo-maki.jpg";
+import ebiNigiri from "@/assets/dishes/ebi-nigiri.jpg";
+import tobiuoSushi from "@/assets/dishes/tobiuo-sushi.jpg";
+import anagoSushi from "@/assets/dishes/anago-sushi.jpg";
+import futomakiDeluxe from "@/assets/dishes/futomaki-deluxe.jpg";
+import taiSashimi from "@/assets/dishes/tai-sashimi.jpg";
+import kohadaSushi from "@/assets/dishes/kohada-sushi.jpg";
+import champon from "@/assets/dishes/champon.jpg";
 
 const dishImages: Record<string, string> = {
   // Pratos Tradicionais
@@ -311,6 +412,107 @@ const dishImages: Record<string, string> = {
   "nanban-dare": nanbanDare,
   "yuzu-kosho-caseiro": yuzuKoshoCaseiro,
   "tsuyu-concentrado": tsuyuConcentrado,
+  // Batch 3
+  "negitoro-maki": negitoriMaki,
+  "inari-sushi": inariSushi,
+  "kanpyo-maki": kanpyoMaki,
+  "ebi-nigiri": ebiNigiri,
+  "tobiuo-sushi": tobiuoSushi,
+  "anago-sushi": anagoSushi,
+  "futomaki-deluxe": futomakiDeluxe,
+  "tai-sashimi": taiSashimi,
+  "kohada-sushi": kohadaSushi,
+  "champon": champon,
+  "sara-udon": saraUdon,
+  "wanko-soba": wankoSoba,
+  "ankake-yakisoba": ankakeYakisoba,
+  "zaru-soba": zaruSoba,
+  "curry-udon": curryUdon,
+  "kitsune-soba": kitsuneSoba,
+  "tanuki-udon": tanukiUdon,
+  "tsukimi-soba": tsukimiSoba,
+  "torinabe": torinabe,
+  "motsunabe": motsunabe,
+  "mizutaki": mizutaki,
+  "ishikari-nabe": ishikariNabe,
+  "nikujaga-yoshoku": nikujagaYoshoku,
+  "buri-daikon": buriDaikon,
+  "kakuni": kakuni,
+  "chicken-nanban": chickenNanban,
+  "niku-dofu": nikuDofu,
+  "karaage-kun": karaageKun,
+  "nikuman": nikuman,
+  "yakitori-kawa": yakitoriKawa,
+  "crepe-harajuku": crepeHarajuku,
+  "age-manju": ageManju,
+  "menchi-katsu": menchiKatsu,
+  "dango-mitarashi": dangoMitarashi,
+  "baby-castella": babyCastella,
+  "kakigori": kakigori,
+  "mozuku-su": mozukuSu,
+  "nasu-nibitashi": nasuNibitashi,
+  "takowasa": takowasa,
+  "tataki-kyuri": tatakiKyuri,
+  "shirasu-oroshi": shirasuOroshi,
+  "umeboshi-kyuri": umeboshiKyuri,
+  "nagaimo-toro": nagaimoToro,
+  "yuba-sashimi": yubaSashimi,
+  "maguro-yamakake": maguroYamakake,
+  "asari-misoshiru": asariMisoshiru,
+  "corn-potage": cornPotage,
+  "suiton": suiton,
+  "noppei-jiru": noppeiJiru,
+  "zosui": zosui,
+  "nameko-misoshiru": namekoMisoshiru,
+  "kakitama-jiru": kakitamaJiru,
+  "imoni": imoni,
+  "sumashi-jiru": sumashiJiru,
+  "shiratama-zenzai": shiratamaZenzai,
+  "yokan": yokan,
+  "kinako-mochi": kinakoMochi,
+  "kuzumochi": kuzumochi,
+  "mitsu-mame": mitsuMame,
+  "sakura-mochi": sakuraMochi,
+  "kurikinton": kurikinton,
+  "zunda-mochi": zundaMochi,
+  "ohagi": ohagi,
+  "nama-chocolate": namaChocolate,
+  "maguro-don": maguroDon,
+  "butadon": butadon,
+  "negitoro-don": negitoroDon,
+  "stamina-don": staminaDon,
+  "sake-chazuke": sakeChazuke,
+  "ikura-don": ikuraDon,
+  "tenshindon": tenshindon,
+  "shogayaki-don": shogayakiDon,
+  "una-tama-don": unaTamaDon,
+  "hijiki-salada": hijikiSalada,
+  "hakusai-tsukemono": hakusaiTsukemono,
+  "kabocha-korokke": kabochaKorokke,
+  "buta-kakuni-tamago": butaKakuniTamago,
+  "daigaku-imo": daigakuImo,
+  "gobo-salada": goboSalada,
+  "komatsuna-ohitashi": komatsunaOhitashi,
+  "ume-kyuri": umeKyuri,
+  "satsumaimo-gohan": satsumaimoGohan,
+  "tori-kawa-gyoza": toriKawaGyoza,
+  "tataki-gobo": tatakiGobo,
+  "shishamo": shishamo,
+  "potato-salada": potatoSalada,
+  "chikuwa-isobe": chikuwaIsobe,
+  "nasu-miso": nasuMiso,
+  "toriwasa": toriwasa,
+  "eihire": eihire,
+  "hiyashi-tomato": hiyashiTomato,
+  "negi-shio-dare": negiShioDare,
+  "tosazu": tosazu,
+  "goma-shoyu": gomaShoyu,
+  "umeboshi-dare": umeboshiDare,
+  "shio-koji": shioKoji,
+  "mentsuyu-caseiro": mentsuyuCaseiro,
+  "dengaku-miso": dengakuMiso,
+  "karashi-su-miso": karashiSuMiso,
+  "amazu-shoga": amazuShoga,
 };
 
 export function getDishImage(imageKey: string): string {
