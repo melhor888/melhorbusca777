@@ -4,18 +4,18 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 
 export default function Contato() {
   const whatsappNumber = "5527995055993";
-  const whatsappMessage = encodeURIComponent("Olá! Vim pelo Receitas Japonesas XP e gostaria de tirar uma dúvida.");
+  const whatsappMessage = encodeURIComponent("Olá! Vim pelo Receitas MexicanasXP e gostaria de tirar uma dúvida.");
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
 
   return (
     <>
       <Helmet>
-        <title>Contato - Receitas Japonesas XP | Fale Conosco</title>
-        <meta name="description" content="Entre em contato com o Receitas Japonesas XP pelo WhatsApp. Tire suas dúvidas rapidamente." />
-        <link rel="canonical" href="https://japanfood.lovable.app/contato" />
-        <meta property="og:title" content="Contato - Receitas Japonesas XP" />
+        <title>Contato - Receitas MexicanasXP | Fale Conosco</title>
+        <meta name="description" content="Entre em contato com o Receitas MexicanasXP pelo WhatsApp. Tire suas dúvidas rapidamente." />
+        <link rel="canonical" href="https://receitasmexicanas.lovable.app/contato" />
+        <meta property="og:title" content="Contato - Receitas MexicanasXP" />
         <meta property="og:description" content="Fale conosco pelo WhatsApp. Tire suas dúvidas rapidamente." />
-        <meta property="og:url" content="https://japanfood.lovable.app/contato" />
+        <meta property="og:url" content="https://receitasmexicanas.lovable.app/contato" />
       </Helmet>
       <div className="min-h-screen pb-20">
         <div className="px-4 pt-16 max-w-2xl mx-auto">
@@ -24,7 +24,7 @@ export default function Contato() {
           <h1 className="text-3xl font-display font-bold text-foreground mt-4 mb-6">Fale Conosco</h1>
 
           <div className="space-y-6 text-secondary-foreground leading-relaxed">
-            <p>Tem alguma dúvida, sugestão de receita ou interesse em parceria? Fale diretamente com a gente pelo WhatsApp! Respondemos o mais rápido possível.</p>
+            <p>Tem alguma dúvida, sugestão de receita ou interesse em parceria? Fale diretamente com a gente pelo WhatsApp!</p>
 
             <a
               href={whatsappLink}

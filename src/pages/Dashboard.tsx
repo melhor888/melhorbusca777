@@ -13,7 +13,6 @@ export default function Dashboard() {
   const level = getLevel(xpData.totalXP);
   const progress = getLevelProgress(xpData.totalXP);
 
-  // Stats by category
   const categoryStats = categories.map((cat) => {
     const catDishes = dishes.filter((d) => d.category === cat);
     const viewed = catDishes.filter((d) => xpData.viewedRecipes.includes(d.id)).length;
@@ -27,33 +26,32 @@ export default function Dashboard() {
   const readArticles = JSON.parse(localStorage.getItem("drinks-co-read-articles") || "[]") as string[];
 
   const levelEmojis: Record<string, string> = {
-    "Aprendiz": "🍙",
-    "Sushiman": "🍣",
-    "Chef Japonês": "🍜",
-    "Mestre Itamae": "🔪",
-    "Lenda da Cozinha": "🏯",
+    "Aprendiz": "🌵",
+    "Taquero": "🌮",
+    "Chef Mexicano": "🌶️",
+    "Mestre da Cocina": "🔪",
+    "Lenda da Cozinha": "🏆",
   };
 
   return (
     <div className="min-h-screen pb-24">
       <Helmet>
-        <title>Dashboard do Chef | Japan Food</title>
-        <meta name="description" content="Acompanhe seu progresso na culinária japonesa: XP, nível, conquistas e receitas exploradas." />
+        <title>Dashboard do Chef | Receitas MexicanasXP</title>
+        <meta name="description" content="Acompanhe seu progresso na culinária mexicana: XP, nível, conquistas e receitas exploradas." />
       </Helmet>
 
-      {/* Header */}
       <div className="sticky top-0 z-40 glass-card border-b border-border/50 px-4 py-3 flex items-center gap-3">
         <button onClick={() => navigate(-1)} className="w-9 h-9 rounded-full bg-secondary flex items-center justify-center">
           <ArrowLeft size={18} className="text-foreground" />
         </button>
-        <h1 className="font-display font-bold text-foreground text-lg">Dashboard do Chef 🏯</h1>
+        <h1 className="font-display font-bold text-foreground text-lg">Dashboard do Chef 🌮</h1>
       </div>
 
       <div className="px-4 pt-6 max-w-2xl mx-auto space-y-6">
         {/* Level Card */}
         <div className="glass-card rounded-2xl p-6 text-center">
           <div className="w-20 h-20 mx-auto rounded-full bg-primary/20 flex items-center justify-center mb-3">
-            <span className="text-3xl">{levelEmojis[level.title] || "🍱"}</span>
+            <span className="text-3xl">{levelEmojis[level.title] || "🌮"}</span>
           </div>
           <h2 className="font-display font-bold text-xl text-foreground">{level.title}</h2>
           <p className="text-primary text-sm font-semibold">Nível {level.level}</p>
@@ -101,10 +99,7 @@ export default function Dashboard() {
                     <span className="text-muted-foreground">{viewed}/{total}</span>
                   </div>
                   <div className="w-full bg-secondary rounded-full h-2 overflow-hidden">
-                    <div
-                      className="h-full bg-primary/80 rounded-full transition-all"
-                      style={{ width: `${pct}%` }}
-                    />
+                    <div className="h-full bg-primary/80 rounded-full transition-all" style={{ width: `${pct}%` }} />
                   </div>
                 </div>
               );
@@ -119,10 +114,7 @@ export default function Dashboard() {
               <Star size={18} className="text-primary" />
               Conquistas ({unlockedCount}/{totalAchievements})
             </h3>
-            <button
-              onClick={() => navigate("/conquistas")}
-              className="text-xs text-primary font-semibold hover:underline"
-            >
+            <button onClick={() => navigate("/conquistas")} className="text-xs text-primary font-semibold hover:underline">
               Ver todas →
             </button>
           </div>
@@ -132,15 +124,11 @@ export default function Dashboard() {
               return (
                 <div
                   key={ach.id}
-                  className={`flex flex-col items-center gap-1 p-2 rounded-lg transition-all ${
-                    unlocked ? "bg-primary/10" : "bg-secondary/50 opacity-40"
-                  }`}
+                  className={`flex flex-col items-center gap-1 p-2 rounded-lg transition-all ${unlocked ? "bg-primary/10" : "bg-secondary/50 opacity-40"}`}
                   title={`${ach.title}: ${ach.description}`}
                 >
                   <span className="text-2xl">{ach.icon}</span>
-                  <span className="text-[9px] text-center text-muted-foreground leading-tight truncate w-full">
-                    {ach.title}
-                  </span>
+                  <span className="text-[9px] text-center text-muted-foreground leading-tight truncate w-full">{ach.title}</span>
                 </div>
               );
             })}

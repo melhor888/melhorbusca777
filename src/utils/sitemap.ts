@@ -1,7 +1,7 @@
 import { drinks } from "../data/drinks";
 import { articles } from "../data/articles";
 
-const BASE = "https://japanfood.lovable.app";
+const BASE = "https://receitasmexicanas.lovable.app";
 
 const staticPages = [
   { loc: "/", priority: "1.0", changefreq: "daily" },

@@ -8,9 +8,9 @@ export default function SitemapPage() {
   return (
     <>
       <Helmet>
-        <title>Sitemap - Receitas Japonesas XP | Mapa do Site</title>
-        <meta name="description" content="Mapa completo do site Receitas Japonesas XP. Encontre todas as receitas, artigos, dicas e páginas do site." />
-        <link rel="canonical" href="https://japanfood.lovable.app/sitemap" />
+        <title>Sitemap - Receitas MexicanasXP | Mapa do Site</title>
+        <meta name="description" content="Mapa completo do site Receitas MexicanasXP. Encontre todas as receitas, artigos, dicas e páginas." />
+        <link rel="canonical" href="https://receitasmexicanas.lovable.app/sitemap" />
       </Helmet>
       <div className="min-h-screen pb-20">
         <div className="px-4 pt-16 max-w-2xl mx-auto">
@@ -22,7 +22,7 @@ export default function SitemapPage() {
               <h2 className="text-lg font-display font-semibold text-foreground mb-3">Páginas Principais</h2>
               <ul className="space-y-2 ml-2">
                 <li><Link to="/" className="text-primary hover:underline">Página Inicial</Link></li>
-                <li><Link to="/tips" className="text-primary hover:underline">Escola de Drinks</Link></li>
+                <li><Link to="/tips" className="text-primary hover:underline">Escola Mexicana</Link></li>
                 <li><Link to="/dicas" className="text-primary hover:underline">Dicas e Artigos</Link></li>
                 <li><Link to="/favorites" className="text-primary hover:underline">Favoritos</Link></li>
               </ul>

@@ -38,15 +38,15 @@ export default function Dicas() {
   return (
     <>
       <Helmet>
-        <title>Dicas & Artigos | Receitas Japonesas XP</title>
-        <meta name="description" content="Aprenda sobre culinária japonesa com artigos completos sobre técnicas, ingredientes, cultura e mais." />
+        <title>Dicas & Artigos | Receitas MexicanasXP</title>
+        <meta name="description" content="Aprenda sobre culinária mexicana com artigos completos sobre técnicas, ingredientes, cultura e mais." />
       </Helmet>
       <div className="min-h-screen pb-24 pt-4 px-4 lg:px-6 lg:max-w-4xl lg:mx-auto">
         <h1 className="text-2xl font-display font-bold text-foreground mb-1">
           Cultura & Artigos
         </h1>
         <p className="text-sm text-muted-foreground mb-4">
-          Aprenda sobre a cultura gastronômica japonesa e ganhe XP
+          Aprenda sobre a cultura gastronômica mexicana e ganhe XP
         </p>
 
         {/* Progress */}
