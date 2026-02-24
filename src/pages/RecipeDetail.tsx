@@ -1,8 +1,9 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState, useRef } from "react";
 import { Helmet } from "react-helmet-async";
+import { useTranslation } from "react-i18next";
 import { getDishById, dishes as allDishes, getSpiceLevel, getFlavorTags, spiceLevelLabels } from "@/data/dishes";
-import { getTranslatedDish } from "@/data/translations";
+import { getTranslatedDish, getTranslatedCategory, getTranslatedDifficulty } from "@/data/translations";
 import { getDishImage } from "@/data/dishImages";
 import { getChefTip } from "@/data/chefTips";
 import { getDishExtra } from "@/data/dishExtras";
@@ -21,6 +22,7 @@ import { useShoppingList } from "@/hooks/useShoppingList";
 export default function RecipeDetail() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const { isFavorite, toggleFavorite } = useFavorites();
   const { isInList, toggleDrink } = useShoppingList();
   const { addRecipeXP } = useXP();
@@ -51,27 +53,28 @@ export default function RecipeDetail() {
     }
   }, [id, addRecipeXP]);
 
-  const dish = getDishById(id || "");
+  const rawDish = getDishById(id || "");
 
-  if (!dish) {
+  if (!rawDish) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <p className="text-muted-foreground">Receita não encontrada.</p>
+        <p className="text-muted-foreground">{t("common.recipeNotFound", "Receita não encontrada.")}</p>
       </div>
     );
   }
 
+  const dish = getTranslatedDish(rawDish);
   const fav = isFavorite(dish.id);
   const inCart = isInList(dish.id);
   const chefTip = getChefTip(dish.id);
   const extra = getDishExtra(dish.id);
   const pricing = getDishPricing(dish.id);
-  const spice = getSpiceLevel(dish);
+  const spice = getSpiceLevel(rawDish);
   const spiceInfo = spiceLevelLabels[spice];
-  const tags = getFlavorTags(dish);
+  const tags = getFlavorTags(rawDish);
 
   const handleShare = async () => {
-    const text = `🌮 ${dish.name}\n\nIngredientes:\n${dish.ingredients.join("\n")}\n\nConfira no Receitas MexicanasXP!`;
+    const text = `🌮 ${dish.name}\n\n${t("recipe.ingredients")}:\n${dish.ingredients.join("\n")}\n\nReceitas MexicanasXP!`;
     if (navigator.share) {
       await navigator.share({ title: dish.name, text });
     } else {
@@ -79,19 +82,19 @@ export default function RecipeDetail() {
     }
   };
 
-  const ogDescription = `Aprenda a fazer ${dish.name}: ${dish.ingredients.slice(0, 3).join(", ")}. Receita completa no Receitas MexicanasXP.`;
+  const ogDescription = `${dish.name}: ${dish.ingredients.slice(0, 3).join(", ")}. Receitas MexicanasXP.`;
 
   return (
     <div className="min-h-screen pb-24">
       <Helmet>
-        <title>{dish.name} - Receita Mexicana | Receitas MexicanasXP</title>
+        <title>{dish.name} - Receitas MexicanasXP</title>
         <meta name="description" content={ogDescription} />
       </Helmet>
       <XPToast xp={xpGained} show={showXP} onClose={() => setShowXP(false)} />
       
       <div className="relative h-[360px] lg:h-[480px]">
         <img
-          src={getDishImage(dish.image)}
+          src={getDishImage(rawDish.image)}
           alt={dish.name}
           className="absolute inset-0 w-full h-full object-cover"
         />
@@ -101,7 +104,7 @@ export default function RecipeDetail() {
           <div className="absolute top-16 right-4 z-10 animate-fade-in">
             <div className="flex items-center gap-1.5 bg-primary/90 text-primary-foreground rounded-full px-3 py-1.5 shadow-lg">
               <Zap size={14} className="fill-primary-foreground" />
-              <span className="text-xs font-bold">XP Ganho</span>
+              <span className="text-xs font-bold">XP {t("common.gained", "Ganho")}</span>
             </div>
           </div>
         )}
@@ -155,8 +158,8 @@ export default function RecipeDetail() {
               <Clock size={14} /> {dish.time}
             </span>
             <span className={`flex items-center gap-1 font-semibold ${
-              dish.difficulty === "Fácil" ? "text-green-400" : 
-              dish.difficulty === "Médio" ? "text-yellow-400" : "text-red-400"
+              rawDish.difficulty === "Fácil" ? "text-green-400" : 
+              rawDish.difficulty === "Médio" ? "text-yellow-400" : "text-red-400"
             }`}>
               <ChefHat size={14} /> {dish.difficulty}
             </span>
@@ -197,7 +200,7 @@ export default function RecipeDetail() {
             <div className="flex items-start gap-3">
               <Sparkles size={18} className="text-primary mt-0.5 flex-shrink-0" />
               <div>
-                <p className="text-xs font-semibold text-primary uppercase tracking-wider mb-1">Curiosidade</p>
+                <p className="text-xs font-semibold text-primary uppercase tracking-wider mb-1">{t("recipe.curiosity", "Curiosidade")}</p>
                 <p className="text-secondary-foreground text-sm leading-relaxed">{extra.curiosity}</p>
               </div>
             </div>
@@ -206,7 +209,7 @@ export default function RecipeDetail() {
 
         <section>
           <h2 className="text-lg font-display font-bold text-foreground mb-4">
-            Ingredientes
+            {t("recipe.ingredients", "Ingredientes")}
           </h2>
           <ul className="space-y-3">
             {dish.ingredients.map((ingredient, i) => (
@@ -222,7 +225,7 @@ export default function RecipeDetail() {
 
         <section>
           <h2 className="text-lg font-display font-bold text-foreground mb-4">
-            Modo de Preparo
+            {t("recipe.steps", "Modo de Preparo")}
           </h2>
           <ol className="space-y-4">
             {dish.steps.map((step, i) => (
@@ -242,27 +245,27 @@ export default function RecipeDetail() {
           <section className="glass-card rounded-2xl p-5 space-y-4">
             <h2 className="text-lg font-display font-bold text-foreground flex items-center gap-2">
               <ChefHat size={20} className="text-primary" />
-              Dica do Chef
+              {t("recipe.chefTip", "Dica do Chef")}
             </h2>
             <div className="space-y-3">
               <div className="flex items-start gap-3">
                 <UtensilsCrossed size={16} className="text-primary mt-0.5 flex-shrink-0" />
                 <div>
-                  <p className="text-xs font-semibold text-primary uppercase tracking-wider mb-1">Louça Ideal</p>
+                  <p className="text-xs font-semibold text-primary uppercase tracking-wider mb-1">{t("recipe.idealDish", "Louça Ideal")}</p>
                   <p className="text-secondary-foreground text-sm leading-relaxed">{chefTip.glass}</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <Share2 size={16} className="text-primary mt-0.5 flex-shrink-0" />
                 <div>
-                  <p className="text-xs font-semibold text-primary uppercase tracking-wider mb-1">Como Servir</p>
+                  <p className="text-xs font-semibold text-primary uppercase tracking-wider mb-1">{t("recipe.howToServe", "Como Servir")}</p>
                   <p className="text-secondary-foreground text-sm leading-relaxed">{chefTip.serve}</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <Lightbulb size={16} className="text-primary mt-0.5 flex-shrink-0" />
                 <div>
-                  <p className="text-xs font-semibold text-primary uppercase tracking-wider mb-1">Segredo do Chef</p>
+                  <p className="text-xs font-semibold text-primary uppercase tracking-wider mb-1">{t("recipe.chefSecret", "Segredo do Chef")}</p>
                   <p className="text-secondary-foreground text-sm leading-relaxed">{chefTip.tip}</p>
                 </div>
               </div>
@@ -273,25 +276,25 @@ export default function RecipeDetail() {
           <section className="glass-card rounded-2xl p-5 space-y-4 border border-accent/20">
             <h2 className="text-lg font-display font-bold text-foreground flex items-center gap-2">
               <DollarSign size={20} className="text-accent" />
-              Preço de Venda no Brasil
+              {t("recipe.sellPrice", "Preço de Venda no Brasil")}
             </h2>
 
             {/* Overview cards */}
             <div className="grid grid-cols-2 gap-3">
               <div className="bg-accent/10 rounded-xl p-3 text-center">
-                <p className="text-[10px] font-semibold text-accent uppercase tracking-wider mb-1">Preço Médio de Venda</p>
+                <p className="text-[10px] font-semibold text-accent uppercase tracking-wider mb-1">{t("recipe.avgPrice", "Preço Médio de Venda")}</p>
                 <p className="text-base font-bold text-foreground">{pricing.sellPrice}</p>
               </div>
               <div className="bg-primary/10 rounded-xl p-3 text-center">
-                <p className="text-[10px] font-semibold text-primary uppercase tracking-wider mb-1">Custo de Produção</p>
+                <p className="text-[10px] font-semibold text-primary uppercase tracking-wider mb-1">{t("recipe.prodCost", "Custo de Produção")}</p>
                 <p className="text-base font-bold text-foreground">{pricing.productionCost}</p>
               </div>
               <div className="bg-green-500/10 rounded-xl p-3 text-center">
-                <p className="text-[10px] font-semibold text-green-500 uppercase tracking-wider mb-1">Margem de Lucro</p>
+                <p className="text-[10px] font-semibold text-green-500 uppercase tracking-wider mb-1">{t("recipe.margin", "Margem de Lucro")}</p>
                 <p className="text-base font-bold text-green-500">{pricing.margin}</p>
               </div>
               <div className="bg-muted rounded-xl p-3 text-center">
-                <p className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider mb-1">Rendimento</p>
+                <p className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider mb-1">{t("recipe.yield", "Rendimento")}</p>
                 <p className="text-sm font-bold text-foreground">{pricing.yield}</p>
               </div>
             </div>
@@ -300,7 +303,7 @@ export default function RecipeDetail() {
             <div>
               <p className="text-xs font-semibold text-foreground uppercase tracking-wider mb-2 flex items-center gap-1.5">
                 <MapPin size={12} className="text-accent" />
-                Preço por Região
+                {t("recipe.regionalPrice", "Preço por Região")}
               </p>
               <div className="space-y-1.5">
                 {pricing.regionalPrices.map((rp, i) => (
@@ -316,7 +319,7 @@ export default function RecipeDetail() {
             <div className="flex items-start gap-3 bg-accent/5 rounded-xl p-3 border border-accent/10">
               <TrendingUp size={16} className="text-accent mt-0.5 flex-shrink-0" />
               <div>
-                <p className="text-[10px] font-semibold text-accent uppercase tracking-wider mb-1">Dica de Precificação</p>
+                <p className="text-[10px] font-semibold text-accent uppercase tracking-wider mb-1">{t("recipe.pricingTip", "Dica de Precificação")}</p>
                 <p className="text-secondary-foreground text-sm leading-relaxed">{pricing.pricingTip}</p>
               </div>
             </div>
@@ -325,7 +328,7 @@ export default function RecipeDetail() {
 
         <AdBanner slot="recipe-bottom" className="mt-4" />
 
-        <SimilarDrinks currentDrink={dish} allDrinks={allDishes} />
+        <SimilarDrinks currentDrink={rawDish} allDrinks={allDishes} />
       </div>
     </div>
   );

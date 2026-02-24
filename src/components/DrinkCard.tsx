@@ -4,6 +4,7 @@ import { getDishImage } from "@/data/dishImages";
 import { Clock, ChefHat } from "lucide-react";
 import SpiceBadge from "@/components/SpiceBadge";
 import { useLocalizedPath } from "@/i18n/useLocalizedPath";
+import { getTranslatedDish } from "@/data/translations";
 
 interface DrinkCardProps {
   drink: Dish;
@@ -14,12 +15,18 @@ const difficultyColor: Record<string, string> = {
   "Fácil": "text-green-400",
   "Médio": "text-yellow-400",
   "Avançado": "text-red-400",
+  "Easy": "text-green-400",
+  "Medium": "text-yellow-400",
+  "Advanced": "text-red-400",
+  "Medio": "text-yellow-400",
+  "Avanzado": "text-red-400",
 };
 
 export default function DrinkCard({ drink, size = "small" }: DrinkCardProps) {
   const navigate = useNavigate();
   const { localePath } = useLocalizedPath();
   const isLarge = size === "large";
+  const translated = getTranslatedDish(drink);
   const spice = getSpiceLevel(drink);
 
   return (
@@ -31,7 +38,7 @@ export default function DrinkCard({ drink, size = "small" }: DrinkCardProps) {
     >
       <img
         src={getDishImage(drink.image)}
-        alt={drink.name}
+        alt={translated.name}
         className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
         loading="lazy"
       />
@@ -48,16 +55,16 @@ export default function DrinkCard({ drink, size = "small" }: DrinkCardProps) {
             isLarge ? "text-xl" : "text-sm"
           }`}
         >
-          {drink.name}
+          {translated.name}
         </h3>
         <div className="flex items-center gap-2 mt-1">
           <span className="flex items-center gap-1 text-muted-foreground text-[10px]">
             <Clock size={10} />
-            {drink.time}
+            {translated.time}
           </span>
-          <span className={`flex items-center gap-1 text-[10px] font-semibold ${difficultyColor[drink.difficulty] || "text-muted-foreground"}`}>
+          <span className={`flex items-center gap-1 text-[10px] font-semibold ${difficultyColor[translated.difficulty] || "text-muted-foreground"}`}>
             <ChefHat size={10} />
-            {drink.difficulty}
+            {translated.difficulty}
           </span>
         </div>
       </div>
