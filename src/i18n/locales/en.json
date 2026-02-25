@@ -443,5 +443,20 @@
     "ingredients": "Ingredients",
     "copied": "List copied!",
     "copyHeader": "🛒 Shopping List - MexicanRecipesXP"
+  },
+  "cookies": {
+    "title": "🍪 Cookies & Privacy",
+    "description": "We use cookies to improve your experience, analyze traffic, and display personalized ads. By clicking \"Accept All\", you agree to the use of all cookies as described in our",
+    "privacyPolicy": "Privacy Policy",
+    "cookiePolicy": "Cookie Policy",
+    "and": "and",
+    "essential": "Essential (required)",
+    "analytics": "Analytics & Performance",
+    "functionality": "Functionality",
+    "advertising": "Advertising & Remarketing",
+    "acceptAll": "Accept All",
+    "rejectAll": "Reject",
+    "savePrefs": "Save Preferences",
+    "configure": "Configure"
   }
 }

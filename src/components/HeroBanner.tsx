@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { dishes } from "@/data/dishes";
 import { getDishImage } from "@/data/dishImages";
+import { getTranslatedDish } from "@/data/translations";
 import { Play } from "lucide-react";
 import { useLocalizedPath } from "@/i18n/useLocalizedPath";
 
@@ -31,7 +32,8 @@ export default function HeroBanner() {
   const [index, setIndex] = useState(0);
   const [fading, setFading] = useState(false);
 
-  const featured = queue[index];
+  const rawFeatured = queue[index];
+  const featured = getTranslatedDish(rawFeatured);
   const navigate = useNavigate();
 
   const advance = useCallback(() => {
@@ -50,7 +52,7 @@ export default function HeroBanner() {
   return (
     <div className="relative h-[340px] lg:h-[400px] w-full mb-6 overflow-hidden">
       <img
-        src={getDishImage(featured.image)}
+        src={getDishImage(rawFeatured.image)}
         alt={featured.name}
         className={`absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-500 ${fading ? "opacity-0" : "opacity-100"}`}
       />
@@ -66,7 +68,7 @@ export default function HeroBanner() {
           {featured.ingredients.slice(0, 3).join(" · ")}
         </p>
         <button
-          onClick={() => navigate(localePath(`/recipe/${featured.id}`))}
+          onClick={() => navigate(localePath(`/recipe/${rawFeatured.id}`))}
           className="mt-4 flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-full font-semibold text-sm transition-transform hover:scale-105 active:scale-95"
         >
           <Play size={16} fill="currentColor" />

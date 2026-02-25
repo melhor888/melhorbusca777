@@ -443,5 +443,20 @@
     "ingredients": "Ingredientes",
     "copied": "Lista copiada!",
     "copyHeader": "🛒 Lista de Compras - Receitas MexicanasXP"
+  },
+  "cookies": {
+    "title": "🍪 Cookies e Privacidade",
+    "description": "Utilizamos cookies para melhorar sua experiência, analisar o tráfego e exibir anúncios personalizados. Ao clicar em \"Aceitar todos\", você concorda com o uso de todos os cookies conforme nossa",
+    "privacyPolicy": "Política de Privacidade",
+    "cookiePolicy": "Política de Cookies",
+    "and": "e",
+    "essential": "Essenciais (obrigatórios)",
+    "analytics": "Análise e Desempenho",
+    "functionality": "Funcionalidade",
+    "advertising": "Publicidade e Remarketing",
+    "acceptAll": "Aceitar todos",
+    "rejectAll": "Recusar",
+    "savePrefs": "Salvar preferências",
+    "configure": "Configurar"
   }
 }
