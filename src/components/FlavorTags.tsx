@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import type { FlavorTag } from "@/data/dishes";
 
 interface FlavorTagsProps {
@@ -21,17 +22,19 @@ const tagIcons: Record<FlavorTag, string> = {
 };
 
 export default function FlavorTags({ tags }: FlavorTagsProps) {
+  const { t } = useTranslation();
   if (!tags.length) return null;
   return (
     <div className="flex flex-wrap gap-1.5">
       {tags.map((tag) => {
         const style = tagStyles[tag];
+        const label = t(`flavorTags.${tag}`, tag);
         return (
           <span
             key={tag}
             className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-semibold ${style.bg} ${style.text}`}
           >
-            {tagIcons[tag]} {tag}
+            {tagIcons[tag]} {label}
           </span>
         );
       })}

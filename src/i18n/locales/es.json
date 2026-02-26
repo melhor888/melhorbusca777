@@ -458,5 +458,12 @@
     "rejectAll": "Rechazar",
     "savePrefs": "Guardar preferencias",
     "configure": "Configurar"
+  },
+  "flavorTags": {
+    "picante": "picante",
+    "não picante": "no picante",
+    "defumado": "ahumado",
+    "suave": "suave",
+    "intenso": "intenso"
   }
 }
