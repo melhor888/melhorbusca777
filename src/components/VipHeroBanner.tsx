@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { Play, Crown } from "lucide-react";
 import { VipDrink } from "@/data/vipDrinks/types";
 import { getVipDrinkImage } from "@/data/vipDrinkImages";
+import { getTranslatedVipDrink } from "@/data/vipTranslations";
 
 const INTERVAL = 6000;
 
@@ -23,7 +24,8 @@ export default function VipHeroBanner({ drinks, count = 8 }: VipHeroBannerProps)
   const [fading, setFading] = useState(false);
   const navigate = useNavigate();
 
-  const featured = queue[index];
+  const rawFeatured = queue[index];
+  const featured = rawFeatured ? getTranslatedVipDrink(rawFeatured) : null;
 
   const advance = useCallback(() => {
     setFading(true);
@@ -38,9 +40,9 @@ export default function VipHeroBanner({ drinks, count = 8 }: VipHeroBannerProps)
     return () => clearInterval(id);
   }, [advance]);
 
-  if (!featured) return null;
+  if (!featured || !rawFeatured) return null;
 
-  const image = getVipDrinkImage(featured.id, featured.category);
+  const image = getVipDrinkImage(rawFeatured.id, rawFeatured.category);
 
   return (
     <div className="relative h-[340px] lg:h-[420px] w-full mb-6 overflow-hidden">
@@ -74,7 +76,7 @@ export default function VipHeroBanner({ drinks, count = 8 }: VipHeroBannerProps)
 
         <div className="flex items-center gap-3 mt-4">
           <button
-            onClick={() => navigate(`/vip/recipe/${featured.id}`)}
+            onClick={() => navigate(`/vip/recipe/${rawFeatured.id}`)}
             className="flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-full font-semibold text-sm transition-transform hover:scale-105 active:scale-95"
           >
             <Play size={16} fill="currentColor" />

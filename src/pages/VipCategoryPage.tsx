@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { ArrowLeft, Crown, Clock, ChefHat, Lock, Search, X } from "lucide-react";
 import { getVipDrinksByCategory } from "@/data/vipDrinks";
 import { isVipUnlocked } from "@/utils/vipKeys";
+import { getTranslatedVipDrink } from "@/data/vipTranslations";
 import VipTrialBanner from "@/components/VipTrialBanner";
 import VipHeroBanner from "@/components/VipHeroBanner";
 import { useEffect, useState, useMemo } from "react";
@@ -14,6 +15,11 @@ const difficultyColor: Record<string, string> = {
   "Fácil": "text-green-400",
   "Médio": "text-yellow-400",
   "Avançado": "text-red-400",
+  "Easy": "text-green-400",
+  "Medium": "text-yellow-400",
+  "Advanced": "text-red-400",
+  "Medio": "text-yellow-400",
+  "Avanzado": "text-red-400",
 };
 
 const categoryHeroImages: Record<string, string> = {
@@ -202,12 +208,13 @@ export default function VipCategoryPage() {
             </p>
           ) : (
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 lg:gap-4">
-              {drinks.map((drink, i) => {
-                const image = getVipDrinkImage(drink.id, drink.category);
+            {drinks.map((rawDrink, i) => {
+                const drink = getTranslatedVipDrink(rawDrink);
+                const image = getVipDrinkImage(rawDrink.id, rawDrink.category);
                 return (
                   <button
-                    key={drink.id}
-                    onClick={() => navigate(`/vip/recipe/${drink.id}`)}
+                    key={rawDrink.id}
+                    onClick={() => navigate(`/vip/recipe/${rawDrink.id}`)}
                     className="relative rounded-lg overflow-hidden group cursor-pointer transition-transform duration-300 hover:scale-[1.03] active:scale-[0.97] w-full h-[220px] lg:h-[280px] animate-fade-in text-left"
                     style={{ animationDelay: `${i * 30}ms` }}
                   >

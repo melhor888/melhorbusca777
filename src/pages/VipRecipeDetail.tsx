@@ -10,11 +10,17 @@ import { useEffect, useState } from "react";
 import { getVipDrinkImage } from "@/data/vipDrinkImages";
 import { useShoppingList } from "@/hooks/useShoppingList";
 import { useFavorites } from "@/hooks/useFavorites";
+import { getTranslatedVipDrink, getTranslatedVipChefTip, getTranslatedVipCategory } from "@/data/vipTranslations";
 
 const difficultyColor: Record<string, string> = {
   "Fácil": "text-green-400",
   "Médio": "text-yellow-400",
   "Avançado": "text-red-400",
+  "Easy": "text-green-400",
+  "Medium": "text-yellow-400",
+  "Advanced": "text-red-400",
+  "Medio": "text-yellow-400",
+  "Avanzado": "text-red-400",
 };
 
 export default function VipRecipeDetail() {
@@ -29,9 +35,11 @@ export default function VipRecipeDetail() {
     setUnlocked(isVipUnlocked());
   }, [id]);
 
-  const drink = getVipDrinkById(id || "");
-  const chefTip = drink ? getVipChefTip(drink.id) : null;
-  const drinkImage = drink ? getVipDrinkImage(drink.id, drink.category) : "";
+  const rawDrink = getVipDrinkById(id || "");
+  const drink = rawDrink ? getTranslatedVipDrink(rawDrink) : null;
+  const rawChefTip = rawDrink ? getVipChefTip(rawDrink.id) : null;
+  const chefTip = rawChefTip ? getTranslatedVipChefTip(rawChefTip) : null;
+  const drinkImage = rawDrink ? getVipDrinkImage(rawDrink.id, rawDrink.category) : "";
 
   if (!unlocked) {
     return (
@@ -83,21 +91,21 @@ export default function VipRecipeDetail() {
               </button>
               <div className="flex gap-2">
                 <button
-                  onClick={() => toggleDrink(drink.id)}
+                  onClick={() => toggleDrink(rawDrink!.id)}
                   className="w-10 h-10 rounded-full bg-background/60 backdrop-blur flex items-center justify-center"
                 >
                   <ShoppingCart
                     size={20}
-                    className={isInList(drink.id) ? "text-green-400 fill-green-400/20" : "text-foreground"}
+                    className={isInList(rawDrink!.id) ? "text-green-400 fill-green-400/20" : "text-foreground"}
                   />
                 </button>
                 <button
-                  onClick={() => toggleFavorite(drink.id)}
+                  onClick={() => toggleFavorite(rawDrink!.id)}
                   className="w-10 h-10 rounded-full bg-background/60 backdrop-blur flex items-center justify-center"
                 >
                   <Heart
                     size={20}
-                    className={isFavorite(drink.id) ? "text-accent fill-accent" : "text-foreground"}
+                    className={isFavorite(rawDrink!.id) ? "text-accent fill-accent" : "text-foreground"}
                   />
                 </button>
                 <div className="flex items-center gap-1 bg-yellow-500/20 backdrop-blur px-2 py-1 rounded-full self-center">
@@ -119,7 +127,7 @@ export default function VipRecipeDetail() {
                   <ChefHat size={12} />
                   {drink.difficulty}
                 </span>
-                <span className="text-xs text-yellow-500 font-medium">{drink.category}</span>
+                <span className="text-xs text-yellow-500 font-medium">{getTranslatedVipCategory(rawDrink!.category)}</span>
               </div>
             </div>
           </div>
