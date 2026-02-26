@@ -1,5 +1,7 @@
 import i18n from "@/i18n/config";
 import { ChefTip, getChefTip } from "./chefTips";
+import { chefTipsBatch8_18EN } from "./localizedChefTipsBatch8_18-en";
+import { chefTipsBatch8_18ES } from "./localizedChefTipsBatch8_18-es";
 
 // English translations for chef tips
 const chefTipsEN: Record<string, ChefTip> = {
@@ -1170,8 +1172,8 @@ const chefTipsES: Record<string, ChefTip> = {
 };
 
 const translationMaps: Record<string, Record<string, ChefTip>> = {
-  en: chefTipsEN,
-  es: chefTipsES,
+  en: { ...chefTipsEN, ...chefTipsBatch8_18EN },
+  es: { ...chefTipsES, ...chefTipsBatch8_18ES },
 };
 
 export function getLocalizedChefTip(id: string): ChefTip | undefined {
