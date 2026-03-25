@@ -1,7 +1,7 @@
 import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Building2, Home, Landmark, Store, Key, ArrowLeft } from "lucide-react";
+import { Building2, Home, Landmark, Store, Key, ArrowLeft, ArrowRight } from "lucide-react";
 import { propertyCompanies, propertyCategories, type Company } from "@/data/companies";
 import { allProducts, formatPrice, type Product } from "@/data/products";
 
@@ -20,6 +20,14 @@ export default function PropertiesPage() {
     return allProducts.filter((p) => p.type === "imovel");
   }, []);
 
+  // Random hero product
+  const heroProduct = useMemo(() => {
+    const prods = allProducts.filter((p) => p.type === "imovel");
+    return prods[Math.floor(Math.random() * prods.length)];
+  }, []);
+
+  const heroCompany = heroProduct ? companyById[heroProduct.companyId] : undefined;
+
   const filteredProducts = useMemo(() => {
     const list = !activeCategory
       ? [...propertyProducts]
@@ -29,7 +37,6 @@ export default function PropertiesPage() {
             .map((c) => c.id);
           return companyIds.includes(p.companyId);
         });
-    // Shuffle
     for (let i = list.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [list[i], list[j]] = [list[j], list[i]];
@@ -39,28 +46,61 @@ export default function PropertiesPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Hero Banner */}
-      <div className="relative h-[340px] md:h-[420px] overflow-hidden">
+      {/* Netflix Hero Banner */}
+      <div className="relative h-[400px] md:h-[500px] overflow-hidden">
         <img
-          src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1400&h=500&fit=crop"
-          alt="Imóveis"
+          src={heroProduct?.images[0] || "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1400&h=500&fit=crop"}
+          alt={heroProduct?.title || "Imóveis"}
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
-        <div className="absolute inset-0 flex flex-col justify-end container max-w-6xl mx-auto px-4 pb-10">
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-transparent to-transparent" />
+
+        <div className="absolute top-4 left-4 z-20">
           <Link
             to="/"
-            className="inline-flex items-center gap-2 text-white/70 hover:text-white text-sm mb-4 transition-colors w-fit"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-card/60 backdrop-blur-md text-foreground text-sm font-medium hover:bg-card/80 transition-colors"
           >
             <ArrowLeft size={16} /> Voltar
           </Link>
-          <h1 className="font-display font-bold text-4xl md:text-6xl text-white drop-shadow-lg">
-            <Building2 className="inline mr-3 mb-1" size={40} />
-            Imóveis
-          </h1>
-          <p className="text-white/80 mt-2 text-lg">
-            Casas, apartamentos, terrenos e comerciais das melhores imobiliárias
-          </p>
+        </div>
+
+        <div className="absolute bottom-0 left-0 right-0 p-6 md:p-12 z-10">
+          <div className="container max-w-6xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="max-w-2xl"
+            >
+              {heroCompany && (
+                <div className="flex items-center gap-3 mb-3">
+                  <img src={heroCompany.logo} alt={heroCompany.name} className="w-10 h-10 rounded-full object-cover border-2 border-white/30" />
+                  <span className="text-sm font-semibold text-white/90">{heroCompany.name}</span>
+                </div>
+              )}
+              <h1 className="font-display font-bold text-3xl md:text-5xl text-white drop-shadow-lg leading-tight">
+                {heroProduct?.title || "Imóveis"}
+              </h1>
+              <p className="text-white/75 mt-2 text-sm md:text-base line-clamp-2 max-w-lg">
+                {heroProduct?.description || "Encontre os melhores imóveis"}
+              </p>
+              {heroProduct && (
+                <p className="font-display font-bold text-2xl md:text-3xl text-[#FFD100] mt-3 drop-shadow">
+                  {formatPrice(heroProduct.price)}
+                  {heroProduct.price < 20000 && <span className="text-base text-white/60 font-normal">/mês</span>}
+                </p>
+              )}
+              {heroProduct && (
+                <Link
+                  to={`/imoveis/produto/${heroProduct.id}`}
+                  className="inline-flex items-center gap-2 mt-4 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-bold text-sm hover:opacity-90 transition-opacity shadow-lg"
+                >
+                  Ver Anúncio <ArrowRight size={16} />
+                </Link>
+              )}
+            </motion.div>
+          </div>
         </div>
       </div>
 
