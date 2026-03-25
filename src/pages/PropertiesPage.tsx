@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Building2, Home, Landmark, Store, Key, ArrowLeft, ArrowRight, Search } from "lucide-react";
 import { propertyCompanies, propertyCategories, type Company } from "@/data/companies";
-import { allProducts, formatPrice, type Product } from "@/data/products";
+import { allProducts, formatPrice, getTagStyle, type Product } from "@/data/products";
 
 const iconMap: Record<string, React.ElementType> = { Key, Home, Building2, Landmark, Store };
 
@@ -275,7 +275,7 @@ export default function PropertiesPage() {
                         loading="lazy"
                       />
                       {product.tag && (
-                        <span className="absolute top-3 left-3 px-3 py-1 rounded-full bg-gradient-to-r from-[#00AEEF] to-[#002F6C] text-xs font-bold text-white shadow">
+                        <span className={`absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold shadow ${getTagStyle(product.tag)}`}>
                           {product.tag}
                         </span>
                       )}

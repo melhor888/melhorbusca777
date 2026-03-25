@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Car, Bike, Truck, Cog, ArrowLeft, ArrowRight, Search } from "lucide-react";
 import { vehicleCompanies, vehicleCategories, type Company } from "@/data/companies";
-import { allProducts, formatPrice, type Product } from "@/data/products";
+import { allProducts, formatPrice, getTagStyle, type Product } from "@/data/products";
 
 const iconMap: Record<string, React.ElementType> = { Car, Bike, Truck, Cog };
 
@@ -289,7 +289,7 @@ export default function VehiclesPage() {
                         loading="lazy"
                       />
                       {product.tag && (
-                        <span className="absolute top-3 left-3 px-3 py-1 rounded-full bg-gradient-to-r from-[#FFD100] to-[#e5bc00] text-xs font-bold text-[#002F6C] shadow">
+                        <span className={`absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold shadow ${getTagStyle(product.tag)}`}>
                           {product.tag}
                         </span>
                       )}

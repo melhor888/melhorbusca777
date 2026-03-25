@@ -2,7 +2,7 @@ import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowLeft, Star, MapPin, MessageCircle, Share2 } from "lucide-react";
 import { allCompanies } from "@/data/companies";
-import { getProductsByCompany, formatPrice } from "@/data/products";
+import { getProductsByCompany, formatPrice, getTagStyle } from "@/data/products";
 
 export default function CompanyProfile() {
   const { id } = useParams();
@@ -150,11 +150,7 @@ export default function CompanyProfile() {
                     loading="lazy"
                   />
                   {product.tag && (
-                    <span className={`absolute top-2 left-2 px-2 py-0.5 rounded-md text-[10px] font-bold shadow ${
-                      product.tag === "Premium" || product.tag === "Luxo"
-                        ? "bg-gradient-to-r from-[#FFD100] to-[#e5bc00] text-[#002F6C]"
-                        : "bg-primary text-primary-foreground"
-                    }`}>
+                    <span className={`absolute top-2 left-2 px-2 py-0.5 rounded-md text-[10px] font-bold shadow ${getTagStyle(product.tag)}`}>
                       {product.tag}
                     </span>
                   )}
