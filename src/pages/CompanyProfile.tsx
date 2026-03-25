@@ -1,28 +1,29 @@
 import { useState, useMemo } from "react";
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowLeft, Star, MapPin, MessageCircle, Share2, Key, Home, Building2, Landmark, Store, Warehouse, Car, Bike, Truck, Cog } from "lucide-react";
+import { ArrowLeft, Star, MapPin, MessageCircle, Share2, Key, Home, Building2, Landmark, Store, Warehouse, Car, Bike, Truck, Cog, MoreHorizontal } from "lucide-react";
 import { allCompanies } from "@/data/companies";
 import { getProductsByCompany, formatPrice, getTagStyle } from "@/data/products";
 import MapEmbed from "@/components/MapEmbed";
 
 const propertySubcategories = [
-  { slug: "todos", name: "Todos", icon: Store },
-  { slug: "aluguel", name: "Aluguéis", icon: Key },
-  { slug: "casas", name: "Casas", icon: Home },
-  { slug: "apartamentos", name: "Apartamentos", icon: Building2 },
-  { slug: "terrenos", name: "Terrenos", icon: Landmark },
-  { slug: "comerciais", name: "Comerciais", icon: Store },
-  { slug: "flats", name: "Flats", icon: Building2 },
-  { slug: "galpoes", name: "Galpões", icon: Warehouse },
+  { slug: "todos", name: "Todos", icon: Store, img: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=300&h=200&fit=crop" },
+  { slug: "aluguel", name: "Aluguéis", icon: Key, img: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=300&h=200&fit=crop" },
+  { slug: "casas", name: "Casas", icon: Home, img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=300&h=200&fit=crop" },
+  { slug: "apartamentos", name: "Apartamentos", icon: Building2, img: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=300&h=200&fit=crop" },
+  { slug: "terrenos", name: "Terrenos", icon: Landmark, img: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=300&h=200&fit=crop" },
+  { slug: "comerciais", name: "Comerciais", icon: Store, img: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=300&h=200&fit=crop" },
+  { slug: "flats", name: "Flats", icon: Building2, img: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=300&h=200&fit=crop" },
+  { slug: "galpoes", name: "Galpões", icon: Warehouse, img: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=300&h=200&fit=crop" },
 ];
 
 const vehicleSubcategories = [
-  { slug: "todos", name: "Todos", icon: Car },
-  { slug: "carros", name: "Carros", icon: Car },
-  { slug: "motos", name: "Motos", icon: Bike },
-  { slug: "caminhoes", name: "Caminhões", icon: Truck },
-  { slug: "utilitarios", name: "Utilitários", icon: Cog },
+  { slug: "todos", name: "Todos", icon: Car, img: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=300&h=200&fit=crop" },
+  { slug: "carros", name: "Carros", icon: Car, img: "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=300&h=200&fit=crop" },
+  { slug: "motos", name: "Motos", icon: Bike, img: "https://images.unsplash.com/photo-1558981806-ec527fa84c39?w=300&h=200&fit=crop" },
+  { slug: "caminhoes", name: "Caminhões", icon: Truck, img: "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=300&h=200&fit=crop" },
+  { slug: "utilitarios", name: "Utilitários", icon: Cog, img: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=300&h=200&fit=crop" },
+  { slug: "outros", name: "Outros", icon: MoreHorizontal, img: "https://images.unsplash.com/photo-1549317661-bd32c8ce0afa?w=300&h=200&fit=crop" },
 ];
 
 function classifyProduct(title: string, specs: Record<string, string>, type: string): string {
@@ -42,6 +43,7 @@ function classifyProduct(title: string, specs: Record<string, string>, type: str
     if (specType.includes("cavalo") || specType.includes("caminhão") || t.includes("caminhão") || t.includes("volvo fh") || t.includes("scania") || t.includes("actros")) return "caminhoes";
     if (specType.includes("utilitário") || t.includes("fiorino") || t.includes("kangoo") || t.includes("saveiro") || (specs["Carga útil"])) return "utilitarios";
     if (t.includes("cb ") || t.includes("mt-") || t.includes("z400") || t.includes("g310")) return "motos";
+    if (specType.includes("outro") || t.includes("quadriciclo") || t.includes("jet ski") || t.includes("barco") || t.includes("trailer")) return "outros";
     return "carros";
   }
 }
@@ -138,9 +140,9 @@ export default function CompanyProfile() {
         </div>
       </section>
 
-      {/* Category Tabs */}
+      {/* Category Carousel */}
       <section className="container max-w-6xl mx-auto px-4 py-6">
-        <div className="flex gap-2 overflow-x-auto scrollbar-hide pb-2">
+        <div className="flex gap-3 overflow-x-auto scrollbar-hide pb-2 snap-x snap-mandatory">
           {subcategories.map((cat) => {
             const Icon = cat.icon;
             const isActive = activeCategory === cat.slug;
@@ -148,14 +150,24 @@ export default function CompanyProfile() {
               <button
                 key={cat.slug}
                 onClick={() => setActiveCategory(cat.slug)}
-                className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold whitespace-nowrap transition-all ${
-                  isActive
-                    ? "bg-primary text-primary-foreground shadow-lg"
-                    : "bg-secondary text-muted-foreground hover:bg-secondary/80"
-                }`}
+                className="flex-shrink-0 w-[120px] md:w-[150px] snap-start group"
               >
-                <Icon size={16} />
-                {cat.name}
+                <div className={`relative aspect-[3/2] rounded-2xl overflow-hidden transition-all duration-300 ${
+                  isActive
+                    ? "ring-2 ring-primary ring-offset-2 ring-offset-background shadow-xl scale-105"
+                    : "shadow-md hover:shadow-lg hover:scale-[1.03]"
+                }`}>
+                  <img src={cat.img} alt={cat.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
+                  <div className={`absolute inset-0 transition-colors duration-300 ${
+                    isActive
+                      ? "bg-gradient-to-t from-primary/90 via-primary/40 to-transparent"
+                      : "bg-gradient-to-t from-black/70 via-black/20 to-transparent"
+                  }`} />
+                  <div className="absolute bottom-0 left-0 right-0 p-2.5 flex items-center gap-1.5">
+                    <Icon size={14} className="text-white" />
+                    <span className="text-white text-xs font-bold truncate">{cat.name}</span>
+                  </div>
+                </div>
               </button>
             );
           })}
