@@ -40,6 +40,7 @@ const App = () => (
             </Routes>
           </main>
           <FooterSimple />
+          <InstallPWA />
         </div>
       </BrowserRouter>
     </TooltipProvider>
