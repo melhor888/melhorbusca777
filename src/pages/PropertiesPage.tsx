@@ -140,7 +140,7 @@ export default function PropertiesPage() {
                         loading="lazy"
                       />
                       {product.tag && (
-                        <span className="absolute top-3 left-3 px-3 py-1 rounded-full bg-gradient-to-r from-[#22CBFF] to-[#0ea5e9] text-xs font-bold text-white shadow">
+                        <span className="absolute top-3 left-3 px-3 py-1 rounded-full bg-gradient-to-r from-[#00AEEF] to-[#002F6C] text-xs font-bold text-white shadow">
                           {product.tag}
                         </span>
                       )}
@@ -150,7 +150,7 @@ export default function PropertiesPage() {
                       <h3 className="font-display font-bold text-base md:text-lg text-foreground line-clamp-1">
                         {product.title}
                       </h3>
-                      <p className="text-xl font-bold text-[#22CBFF] mt-1">
+                      <p className="text-xl font-bold text-primary mt-1">
                         {formatPrice(product.price)}
                       </p>
 
