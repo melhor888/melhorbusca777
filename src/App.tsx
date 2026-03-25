@@ -8,7 +8,6 @@ import FooterSimple from "@/components/FooterSimple";
 import Index from "@/pages/Index";
 import PropertiesPage from "@/pages/PropertiesPage";
 import VehiclesPage from "@/pages/VehiclesPage";
-import ListingDetail from "@/pages/ListingDetail";
 import CreateListing from "@/pages/CreateListing";
 import SearchPage from "@/pages/SearchPage";
 import NotFound from "@/pages/NotFound";
@@ -27,9 +26,7 @@ const App = () => (
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/imoveis" element={<PropertiesPage />} />
-              <Route path="/imoveis/:id" element={<ListingDetail />} />
               <Route path="/veiculos" element={<VehiclesPage />} />
-              <Route path="/veiculos/:id" element={<ListingDetail />} />
               <Route path="/anunciar" element={<CreateListing />} />
               <Route path="/buscar" element={<SearchPage />} />
               <Route path="*" element={<NotFound />} />
