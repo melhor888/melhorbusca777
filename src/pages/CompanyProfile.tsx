@@ -142,7 +142,6 @@ export default function CompanyProfile() {
                 transition={{ delay: 0.05 + i * 0.04 }}
                 className="card-epic bg-card border border-border group"
               >
-              >
                 <div className="relative aspect-[4/3] overflow-hidden rounded-t-2xl">
                   <img
                     src={product.image}
