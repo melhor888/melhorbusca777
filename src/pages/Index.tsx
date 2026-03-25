@@ -18,19 +18,19 @@ export default function Index() {
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/20 backdrop-blur-sm text-sm font-medium text-white mb-6">
               <Sparkles size={16} />
-              Marketplace #1 do Brasil
+              Marketplace #1 de Colatina
             </div>
 
             <h1 className="font-display font-bold text-4xl md:text-6xl lg:text-7xl text-white leading-tight drop-shadow-lg">
               Encontre o que<br />
-              <span className="text-yellow-200">você precisa</span>
+              <span className="text-[#FFD100]">você precisa</span>
             </h1>
             <p className="mt-4 text-lg md:text-xl text-white/85 max-w-lg mx-auto">
               Imóveis e veículos com os melhores preços. Contato direto via WhatsApp.
             </p>
           </motion.div>
 
-          {/* Category Cards - horizontal on mobile, vertical stacking on desktop within grid */}
+          {/* Category Cards */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
@@ -40,9 +40,9 @@ export default function Index() {
             {/* Imóveis Card */}
             <Link to="/imoveis" className="group">
               <div className="card-epic relative bg-white/95 backdrop-blur-xl p-6 md:p-10 card-glow-blue">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#22CBFF]/20 to-transparent rounded-bl-full" />
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#00AEEF]/20 to-transparent rounded-bl-full" />
                 <div className="relative z-10 flex flex-col items-center text-center">
-                  <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-gradient-to-br from-[#22CBFF] to-[#0ea5e9] flex items-center justify-center mb-4 group-hover:animate-float shadow-lg">
+                  <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-gradient-to-br from-[#00AEEF] to-[#002F6C] flex items-center justify-center mb-4 group-hover:animate-float shadow-lg">
                     <Building2 size={32} className="text-white md:w-10 md:h-10" />
                   </div>
                   <h2 className="font-display font-bold text-xl md:text-3xl text-foreground">
@@ -51,7 +51,7 @@ export default function Index() {
                   <p className="text-muted-foreground text-sm md:text-base mt-1">
                     Casas, apartamentos e mais
                   </p>
-                  <div className="mt-4 flex items-center gap-2 text-[#22CBFF] font-semibold text-sm group-hover:gap-3 transition-all">
+                  <div className="mt-4 flex items-center gap-2 text-[#00AEEF] font-semibold text-sm group-hover:gap-3 transition-all">
                     Explorar <ArrowRight size={16} />
                   </div>
                 </div>
@@ -60,11 +60,11 @@ export default function Index() {
 
             {/* Veículos Card */}
             <Link to="/veiculos" className="group">
-              <div className="card-epic relative bg-white/95 backdrop-blur-xl p-6 md:p-10 card-glow-yellow">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#FFDE00]/20 to-transparent rounded-bl-full" />
+              <div className="card-epic relative bg-white/95 backdrop-blur-xl p-6 md:p-10 card-glow-gold">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#FFD100]/20 to-transparent rounded-bl-full" />
                 <div className="relative z-10 flex flex-col items-center text-center">
-                  <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-gradient-to-br from-[#FFDE00] to-[#f59e0b] flex items-center justify-center mb-4 group-hover:animate-float shadow-lg">
-                    <Car size={32} className="text-white md:w-10 md:h-10" />
+                  <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-gradient-to-br from-[#FFD100] to-[#e5bc00] flex items-center justify-center mb-4 group-hover:animate-float shadow-lg">
+                    <Car size={32} className="text-[#002F6C] md:w-10 md:h-10" />
                   </div>
                   <h2 className="font-display font-bold text-xl md:text-3xl text-foreground">
                     Veículos
@@ -72,7 +72,7 @@ export default function Index() {
                   <p className="text-muted-foreground text-sm md:text-base mt-1">
                     Carros, motos e utilitários
                   </p>
-                  <div className="mt-4 flex items-center gap-2 text-[#f59e0b] font-semibold text-sm group-hover:gap-3 transition-all">
+                  <div className="mt-4 flex items-center gap-2 text-[#e5bc00] font-semibold text-sm group-hover:gap-3 transition-all">
                     Explorar <ArrowRight size={16} />
                   </div>
                 </div>
@@ -113,11 +113,11 @@ export default function Index() {
 
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 md:gap-4">
           {[
-            { name: "Aluguel", img: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=300&h=300&fit=crop", link: "/imoveis", color: "from-[#22CBFF]/80 to-[#0ea5e9]" },
-            { name: "Casas", img: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=300&h=300&fit=crop", link: "/imoveis", color: "from-[#22CBFF]/80 to-[#0ea5e9]" },
-            { name: "Carros", img: "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=300&h=300&fit=crop", link: "/veiculos", color: "from-[#FFDE00]/80 to-[#f59e0b]" },
-            { name: "Motos", img: "https://images.unsplash.com/photo-1558981806-ec527fa84c39?w=300&h=300&fit=crop", link: "/veiculos", color: "from-[#FFDE00]/80 to-[#f59e0b]" },
-            { name: "Terrenos", img: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=300&h=300&fit=crop", link: "/imoveis", color: "from-[#22CBFF]/80 to-[#0ea5e9]" },
+            { name: "Aluguel", img: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=300&h=300&fit=crop", link: "/imoveis", color: "from-[#00AEEF]/80 to-[#002F6C]" },
+            { name: "Casas", img: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=300&h=300&fit=crop", link: "/imoveis", color: "from-[#002F6C]/80 to-[#00AEEF]" },
+            { name: "Carros", img: "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=300&h=300&fit=crop", link: "/veiculos", color: "from-[#FFD100]/80 to-[#e5bc00]" },
+            { name: "Motos", img: "https://images.unsplash.com/photo-1558981806-ec527fa84c39?w=300&h=300&fit=crop", link: "/veiculos", color: "from-[#00AEEF]/80 to-[#002F6C]" },
+            { name: "Terrenos", img: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=300&h=300&fit=crop", link: "/imoveis", color: "from-[#FFD100]/80 to-[#e5bc00]" },
           ].map((cat, i) => (
             <motion.div
               key={cat.name}
@@ -152,7 +152,7 @@ export default function Index() {
             </p>
             <Link
               to="/anunciar"
-              className="inline-flex items-center gap-2 mt-6 px-8 py-3.5 rounded-xl bg-white text-foreground font-bold text-sm hover:scale-105 transition-transform shadow-lg"
+              className="inline-flex items-center gap-2 mt-6 px-8 py-3.5 rounded-xl bg-white text-[#002F6C] font-bold text-sm hover:scale-105 transition-transform shadow-lg"
             >
               Anunciar Grátis
               <ArrowRight size={16} />

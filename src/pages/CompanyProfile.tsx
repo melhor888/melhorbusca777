@@ -24,8 +24,8 @@ export default function CompanyProfile() {
 
   const isProperty = company.segment === "imoveis";
   const gradientClass = isProperty
-    ? "from-[#22CBFF] via-[#0ea5e9] to-[#0369a1]"
-    : "from-[#FFDE00] via-[#f59e0b] to-[#d97706]";
+    ? "from-[#00AEEF] via-[#002F6C] to-[#001a3d]"
+    : "from-[#FFD100] via-[#e5bc00] to-[#002F6C]";
 
   return (
     <div className="min-h-screen bg-background">
@@ -152,7 +152,7 @@ export default function CompanyProfile() {
                   {product.tag && (
                     <span className={`absolute top-2 left-2 px-2 py-0.5 rounded-md text-[10px] font-bold shadow ${
                       product.tag === "Premium" || product.tag === "Luxo"
-                        ? "bg-gradient-to-r from-[#FFDE00] to-[#f59e0b] text-foreground"
+                        ? "bg-gradient-to-r from-[#FFD100] to-[#e5bc00] text-[#002F6C]"
                         : "bg-primary text-primary-foreground"
                     }`}>
                       {product.tag}
