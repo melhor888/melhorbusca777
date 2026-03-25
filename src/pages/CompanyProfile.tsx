@@ -132,13 +132,16 @@ export default function CompanyProfile() {
         {products.length > 0 ? (
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
             {products.map((product, i) => (
-              <motion.div
+              <Link
                 key={product.id}
+                to={`/${isProperty ? "imoveis" : "veiculos"}/produto/${product.id}`}
+              >
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.05 + i * 0.04 }}
-                className="card-epic bg-card border border-border group cursor-pointer"
-                onClick={() => window.open(whatsappUrl(product.title), "_blank")}
+                className="card-epic bg-card border border-border group"
+              >
               >
                 <div className="relative aspect-[4/3] overflow-hidden rounded-t-2xl">
                   <img
