@@ -305,7 +305,7 @@ export default function VehiclesPage() {
       </section>
 
       {/* Products listing */}
-      <section className="container max-w-6xl mx-auto px-4 py-6">
+      <section ref={itemsSectionRef} className="container max-w-6xl mx-auto px-4 py-6 scroll-mt-20">
         <div className="flex items-center justify-between mb-6">
           <h2 className="font-display font-bold text-xl md:text-2xl text-foreground">
             {activeCategory
