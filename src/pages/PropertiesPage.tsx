@@ -107,6 +107,38 @@ export default function PropertiesPage() {
         </div>
       </section>
 
+      {/* Company Logos */}
+      <section className="container max-w-6xl mx-auto px-4 pt-8 pb-2">
+        <h3 className="font-display font-semibold text-base text-muted-foreground mb-4">Imobiliárias em destaque</h3>
+        <div className="flex gap-4 overflow-x-auto scrollbar-hide pb-2">
+          {propertyCompanies.map((company, i) => (
+            <motion.div
+              key={company.id}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: i * 0.04 }}
+            >
+              <Link
+                to={`/imoveis/empresa/${company.id}`}
+                className="flex flex-col items-center gap-2 group flex-shrink-0 w-20"
+              >
+                <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-border group-hover:border-primary group-hover:shadow-lg transition-all duration-300 group-hover:scale-110">
+                  <img
+                    src={company.logo}
+                    alt={company.name}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+                <span className="text-[11px] text-center text-muted-foreground group-hover:text-foreground font-medium leading-tight line-clamp-2 transition-colors">
+                  {company.name}
+                </span>
+              </Link>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
       {/* Products listing */}
       <section className="container max-w-6xl mx-auto px-4 py-10">
         <div className="flex items-center justify-between mb-6">
