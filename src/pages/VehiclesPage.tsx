@@ -91,7 +91,7 @@ export default function VehiclesPage() {
   return (
     <div className="min-h-screen bg-background">
       {/* Netflix Hero Banner */}
-      <div className="relative h-[400px] md:h-[500px] overflow-hidden">
+      <div className="relative h-[50vh] md:h-[70vh] overflow-hidden">
         <img
           src={heroProduct?.images[0] || "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1400&h=500&fit=crop"}
           alt={heroProduct?.title || "Veículos"}
@@ -148,7 +148,7 @@ export default function VehiclesPage() {
       </div>
 
       {/* Categories - Carousel */}
-      <section className="container max-w-6xl mx-auto px-4 mt-6 relative z-10">
+      <section className="px-4 md:px-8 lg:px-12 mt-6 relative z-10">
         <div className="flex gap-3 overflow-x-auto scrollbar-hide pb-2 pl-1 pr-8 snap-x snap-mandatory md:grid md:grid-cols-4 md:overflow-visible md:pl-0 md:pr-0">
           {vehicleCategories.map((cat, i) => {
             const Icon = iconMap[cat.icon] || Car;
@@ -192,7 +192,7 @@ export default function VehiclesPage() {
       </section>
 
       {/* Featured Products Carousel */}
-      <section className="container max-w-6xl mx-auto px-4 pt-6 pb-2">
+      <section className="px-4 md:px-8 lg:px-12 pt-8 pb-2">
         <h3 className="font-display font-semibold text-base text-foreground mb-4">Destaques</h3>
         <div className="flex gap-3 overflow-x-auto scrollbar-hide pb-2 snap-x snap-mandatory">
           {vehicleProducts.slice(0, 12).map((product, i) => {
@@ -232,7 +232,7 @@ export default function VehiclesPage() {
       </section>
 
       {/* Company Logos */}
-      <section className="container max-w-6xl mx-auto px-4 pt-6 pb-2">
+      <section className="px-4 md:px-8 lg:px-12 pt-8 pb-2">
         <h3 className="font-display font-semibold text-base text-muted-foreground mb-4">Lojas em destaque</h3>
         <div className="flex gap-4 overflow-x-auto scrollbar-hide pb-2">
           {vehicleCompanies.map((company, i) => (
@@ -265,7 +265,7 @@ export default function VehiclesPage() {
       </section>
 
       {/* Search Filters */}
-      <section className="container max-w-6xl mx-auto px-4 pt-6 pb-2">
+      <section className="px-4 md:px-8 lg:px-12 pt-8 pb-2">
         <div className="bg-card border border-border rounded-2xl p-4 md:p-6 shadow-sm">
           <h3 className="font-display font-semibold text-sm text-muted-foreground mb-3 flex items-center gap-2">
             <Search size={16} /> Filtrar veículos
@@ -305,7 +305,7 @@ export default function VehiclesPage() {
       </section>
 
       {/* Products listing */}
-      <section ref={itemsSectionRef} className="container max-w-6xl mx-auto px-4 py-6 scroll-mt-20">
+      <section ref={itemsSectionRef} className="px-4 md:px-8 lg:px-12 py-8 scroll-mt-20">
         <div className="flex items-center justify-between mb-6">
           <h2 className="font-display font-bold text-xl md:text-2xl text-foreground">
             {activeCategory
@@ -317,7 +317,7 @@ export default function VehiclesPage() {
           </span>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
           {filteredProducts.map((product, i) => {
             const company = companyById[product.companyId];
             return (
