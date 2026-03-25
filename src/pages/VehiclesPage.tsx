@@ -1,40 +1,39 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Building2, Home, Landmark, Store, Key, ArrowLeft, MessageCircle, MapPin } from "lucide-react";
-import { sampleProperties, formatPrice, type PropertyListing } from "@/data/listings";
+import { Car, Bike, Truck, Cog, ArrowLeft, MessageCircle, MapPin, Calendar, Fuel } from "lucide-react";
+import { sampleCars, formatPrice, formatMileage, type CarListing } from "@/data/listings";
 
 const categories = [
-  { slug: "aluguel", name: "Aluguel", icon: Key, color: "from-[#22CBFF] to-[#0ea5e9]", img: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=400&h=250&fit=crop" },
-  { slug: "casas", name: "Casas", icon: Home, color: "from-[#06b6d4] to-[#0891b2]", img: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=400&h=250&fit=crop" },
-  { slug: "apartamentos", name: "Apartamentos", icon: Building2, color: "from-[#3b82f6] to-[#2563eb]", img: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=400&h=250&fit=crop" },
-  { slug: "terrenos", name: "Terrenos", icon: Landmark, color: "from-[#10b981] to-[#059669]", img: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=400&h=250&fit=crop" },
-  { slug: "comerciais", name: "Comerciais", icon: Store, color: "from-[#8b5cf6] to-[#7c3aed]", img: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&h=250&fit=crop" },
+  { slug: "carros", name: "Carros", icon: Car, color: "from-[#FFDE00] to-[#f59e0b]", img: "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=400&h=250&fit=crop" },
+  { slug: "motos", name: "Motos", icon: Bike, color: "from-[#f97316] to-[#ea580c]", img: "https://images.unsplash.com/photo-1558981806-ec527fa84c39?w=400&h=250&fit=crop" },
+  { slug: "caminhoes", name: "Caminhões", icon: Truck, color: "from-[#ef4444] to-[#dc2626]", img: "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=400&h=250&fit=crop" },
+  { slug: "utilitarios", name: "Utilitários", icon: Cog, color: "from-[#a855f7] to-[#9333ea]", img: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=400&h=250&fit=crop" },
 ];
 
 function openWhatsApp(whatsapp: string, title: string) {
   window.open(`https://wa.me/${whatsapp}?text=${encodeURIComponent(`Olá! Tenho interesse: ${title}`)}`, "_blank");
 }
 
-export default function PropertiesPage() {
+export default function VehiclesPage() {
   return (
     <div className="min-h-screen">
       {/* Header */}
-      <div className="bg-gradient-to-r from-[#22CBFF] to-[#0ea5e9] py-10 md:py-16">
+      <div className="bg-gradient-to-r from-[#FFDE00] to-[#f59e0b] py-10 md:py-16">
         <div className="container max-w-6xl mx-auto px-4">
-          <Link to="/" className="inline-flex items-center gap-2 text-white/80 hover:text-white text-sm mb-4 transition-colors">
+          <Link to="/" className="inline-flex items-center gap-2 text-foreground/60 hover:text-foreground text-sm mb-4 transition-colors">
             <ArrowLeft size={16} /> Voltar
           </Link>
-          <h1 className="font-display font-bold text-3xl md:text-5xl text-white">
-            <Building2 className="inline mr-3 mb-1" size={36} />
-            Imóveis
+          <h1 className="font-display font-bold text-3xl md:text-5xl text-foreground">
+            <Car className="inline mr-3 mb-1" size={36} />
+            Veículos
           </h1>
-          <p className="text-white/80 mt-2">Encontre o imóvel dos seus sonhos</p>
+          <p className="text-foreground/70 mt-2">Os melhores veículos com os melhores preços</p>
         </div>
       </div>
 
       {/* Categories Grid - iFood style */}
       <section className="container max-w-6xl mx-auto px-4 -mt-6 relative z-10">
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
           {categories.map((cat, i) => (
             <motion.div
               key={cat.slug}
@@ -61,8 +60,8 @@ export default function PropertiesPage() {
       <section className="container max-w-6xl mx-auto px-4 py-10">
         <h2 className="font-display font-bold text-xl md:text-2xl text-foreground mb-6">Anúncios Recentes</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {sampleProperties.map((prop, i) => (
-            <PropertyCard key={prop.id} property={prop} index={i} />
+          {sampleCars.map((car, i) => (
+            <VehicleCard key={car.id} car={car} index={i} />
           ))}
         </div>
       </section>
@@ -70,7 +69,7 @@ export default function PropertiesPage() {
   );
 }
 
-function PropertyCard({ property, index }: { property: PropertyListing; index: number }) {
+function VehicleCard({ car, index }: { car: CarListing; index: number }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -78,10 +77,10 @@ function PropertyCard({ property, index }: { property: PropertyListing; index: n
       transition={{ delay: 0.1 + index * 0.06 }}
       className="card-epic bg-card border border-border"
     >
-      <Link to={`/imoveis/${property.id}`} className="block">
+      <Link to={`/veiculos/${car.id}`} className="block">
         <div className="relative aspect-[16/10] overflow-hidden">
-          <img src={property.image} alt={property.title} className="w-full h-full object-cover" loading="lazy" />
-          {property.featured && (
+          <img src={car.image} alt={car.title} className="w-full h-full object-cover" loading="lazy" />
+          {car.featured && (
             <span className="absolute top-3 left-3 px-2.5 py-1 rounded-lg bg-accent text-accent-foreground text-xs font-bold shadow">
               ⭐ Destaque
             </span>
@@ -89,20 +88,20 @@ function PropertyCard({ property, index }: { property: PropertyListing; index: n
         </div>
       </Link>
       <div className="p-4">
-        <Link to={`/imoveis/${property.id}`}>
-          <h3 className="font-display font-semibold text-foreground text-base leading-tight line-clamp-2 hover:text-primary transition-colors">{property.title}</h3>
+        <Link to={`/veiculos/${car.id}`}>
+          <h3 className="font-display font-semibold text-foreground text-base leading-tight line-clamp-2 hover:text-primary transition-colors">{car.title}</h3>
         </Link>
-        <p className="font-display font-bold text-xl text-primary mt-2">{formatPrice(property.price)}</p>
+        <p className="font-display font-bold text-xl text-primary mt-2">{formatPrice(car.price)}</p>
         <div className="flex items-center gap-1.5 text-muted-foreground text-xs mt-1.5">
-          <MapPin size={12} /> {property.location}
+          <MapPin size={12} /> {car.location}
         </div>
         <div className="flex gap-2 mt-3 text-xs text-secondary-foreground flex-wrap">
-          {property.bedrooms > 0 && <span className="px-2 py-1 rounded-md bg-secondary">{property.bedrooms} quartos</span>}
-          {property.bathrooms > 0 && <span className="px-2 py-1 rounded-md bg-secondary">{property.bathrooms} ban.</span>}
-          <span className="px-2 py-1 rounded-md bg-secondary">{property.area}m²</span>
+          <span className="flex items-center gap-1 px-2 py-1 rounded-md bg-secondary"><Calendar size={11} /> {car.year}</span>
+          <span className="flex items-center gap-1 px-2 py-1 rounded-md bg-secondary"><Fuel size={11} /> {car.fuel}</span>
+          <span className="px-2 py-1 rounded-md bg-secondary">{formatMileage(car.mileage)}</span>
         </div>
         <button
-          onClick={() => openWhatsApp(property.whatsapp, property.title)}
+          onClick={() => openWhatsApp(car.whatsapp, car.title)}
           className="mt-4 w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-gradient-to-r from-[#25d366] to-[#128c7e] text-white text-sm font-bold hover:opacity-90 transition-opacity"
         >
           <MessageCircle size={16} /> WhatsApp
