@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useRef } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Building2, Home, Landmark, Store, Key, ArrowLeft, ArrowRight, Search } from "lucide-react";
