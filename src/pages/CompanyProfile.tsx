@@ -1,14 +1,64 @@
+import { useState, useMemo } from "react";
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowLeft, Star, MapPin, MessageCircle, Share2 } from "lucide-react";
+import { ArrowLeft, Star, MapPin, MessageCircle, Share2, Key, Home, Building2, Landmark, Store, Warehouse, Car, Bike, Truck, Cog } from "lucide-react";
 import { allCompanies } from "@/data/companies";
 import { getProductsByCompany, formatPrice, getTagStyle } from "@/data/products";
 import MapEmbed from "@/components/MapEmbed";
+
+const propertySubcategories = [
+  { slug: "todos", name: "Todos", icon: Store },
+  { slug: "aluguel", name: "Aluguéis", icon: Key },
+  { slug: "casas", name: "Casas", icon: Home },
+  { slug: "apartamentos", name: "Apartamentos", icon: Building2 },
+  { slug: "terrenos", name: "Terrenos", icon: Landmark },
+  { slug: "comerciais", name: "Comerciais", icon: Store },
+  { slug: "flats", name: "Flats", icon: Building2 },
+  { slug: "galpoes", name: "Galpões", icon: Warehouse },
+];
+
+const vehicleSubcategories = [
+  { slug: "todos", name: "Todos", icon: Car },
+  { slug: "carros", name: "Carros", icon: Car },
+  { slug: "motos", name: "Motos", icon: Bike },
+  { slug: "caminhoes", name: "Caminhões", icon: Truck },
+  { slug: "utilitarios", name: "Utilitários", icon: Cog },
+];
+
+function classifyProduct(title: string, specs: Record<string, string>, type: string): string {
+  const t = title.toLowerCase();
+  const specType = (specs["Tipo"] || "").toLowerCase();
+  if (type === "imovel") {
+    if (t.includes("flat") || specType.includes("flat")) return "flats";
+    if (t.includes("galpão") || t.includes("galpao") || specType.includes("galpão")) return "galpoes";
+    if (t.includes("sala comercial") || t.includes("loja") || t.includes("andar corporativo") || specType.includes("comercial") || specType.includes("loja")) return "comerciais";
+    if (t.includes("terreno") || t.includes("lote") || t.includes("chácara")) return "terrenos";
+    if (t.includes("apartamento") || t.includes("apto") || t.includes("studio") || t.includes("penthouse") || t.includes("duplex") || t.includes("cobertura")) return "apartamentos";
+    if (t.includes("casa") || t.includes("sobrado") || t.includes("mansão")) return "casas";
+    if (t.includes("aluguel") || (specs["Condomínio"] && Number(specs["Condomínio"]?.replace(/\D/g, "")) > 0)) return "aluguel";
+    return "casas";
+  } else {
+    if (specType.includes("naked") || specType.includes("moto") || t.includes("moto")) return "motos";
+    if (specType.includes("cavalo") || specType.includes("caminhão") || t.includes("caminhão") || t.includes("volvo fh") || t.includes("scania") || t.includes("actros")) return "caminhoes";
+    if (specType.includes("utilitário") || t.includes("fiorino") || t.includes("kangoo") || t.includes("saveiro") || (specs["Carga útil"])) return "utilitarios";
+    if (t.includes("cb ") || t.includes("mt-") || t.includes("z400") || t.includes("g310")) return "motos";
+    return "carros";
+  }
+}
 
 export default function CompanyProfile() {
   const { id } = useParams();
   const company = allCompanies.find((c) => c.id === id);
   const products = company ? getProductsByCompany(company.id) : [];
+  const [activeCategory, setActiveCategory] = useState("todos");
+
+  const isProperty = company?.segment === "imoveis";
+  const subcategories = isProperty ? propertySubcategories : vehicleSubcategories;
+
+  const filteredProducts = useMemo(() => {
+    if (activeCategory === "todos") return products;
+    return products.filter((p) => classifyProduct(p.title, p.specs, p.type) === activeCategory);
+  }, [products, activeCategory]);
 
   if (!company) {
     return (
@@ -23,7 +73,6 @@ export default function CompanyProfile() {
   const whatsappUrl = (title: string) =>
     `https://wa.me/${company.whatsapp}?text=${encodeURIComponent(`Olá ${company.name}! Tenho interesse: ${title}`)}`;
 
-  const isProperty = company.segment === "imoveis";
   const gradientClass = isProperty
     ? "from-[#00AEEF] via-[#002F6C] to-[#001a3d]"
     : "from-[#FFD100] via-[#e5bc00] to-[#002F6C]";
@@ -41,7 +90,7 @@ export default function CompanyProfile() {
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent" />
 
         <div className="absolute top-4 left-4 z-20">
-          <Link to={isProperty ? "/imoveis" : "/veiculos"} className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-card/60 backdrop-blur-md text-foreground text-sm font-medium hover:bg-card/80 transition-colors">
+          <Link to={isProperty ? "/imoveis" : "/veiculos"} className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white/10 backdrop-blur-md text-white text-sm font-medium hover:bg-white/20 transition-colors">
             <ArrowLeft size={16} /> Voltar
           </Link>
         </div>
@@ -50,17 +99,17 @@ export default function CompanyProfile() {
           <div className="container max-w-6xl mx-auto">
             <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="max-w-2xl">
               <div className="flex items-center gap-4 mb-4">
-                <img src={company.logo} alt={company.name} className="w-16 h-16 md:w-20 md:h-20 rounded-2xl object-cover border-2 border-card shadow-xl" />
+                <img src={company.logo} alt={company.name} className="w-16 h-16 md:w-20 md:h-20 rounded-2xl object-cover border-2 border-white/30 shadow-xl" />
                 <div>
-                  <h1 className="font-display font-bold text-2xl md:text-4xl text-foreground leading-tight">{company.name}</h1>
+                  <h1 className="font-display font-bold text-2xl md:text-4xl text-white leading-tight">{company.name}</h1>
                   <div className="flex items-center gap-3 mt-1">
                     <div className="flex items-center gap-1">
-                      <Star size={14} className="text-accent fill-accent" />
-                      <span className="text-sm font-semibold text-foreground">{company.rating}</span>
-                      <span className="text-xs text-muted-foreground">({company.reviewCount})</span>
+                      <Star size={14} className="text-[#FFD100] fill-[#FFD100]" />
+                      <span className="text-sm font-semibold text-white">{company.rating}</span>
+                      <span className="text-xs text-white/60">({company.reviewCount})</span>
                     </div>
-                    <span className="text-muted-foreground">·</span>
-                    <div className="flex items-center gap-1 text-muted-foreground text-xs">
+                    <span className="text-white/40">·</span>
+                    <div className="flex items-center gap-1 text-white/70 text-xs">
                       <MapPin size={12} />
                       <span>{company.address}</span>
                     </div>
@@ -70,9 +119,9 @@ export default function CompanyProfile() {
 
               {heroProduct && (
                 <div className="mt-2">
-                  <p className="text-sm text-muted-foreground">Em destaque</p>
-                  <p className="font-display font-semibold text-lg text-foreground">{heroProduct.title}</p>
-                  <p className="font-display font-bold text-2xl text-primary mt-1">{formatPrice(heroProduct.price)}</p>
+                  <p className="text-sm text-white/60">Em destaque</p>
+                  <p className="font-display font-semibold text-lg text-white">{heroProduct.title}</p>
+                  <p className="font-display font-bold text-2xl text-[#25d366] mt-1">{formatPrice(heroProduct.price)}</p>
                 </div>
               )}
 
@@ -80,7 +129,7 @@ export default function CompanyProfile() {
                 <a href={whatsappUrl(heroProduct?.title || company.name)} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-[#25d366] to-[#128c7e] text-white font-bold text-sm hover:opacity-90 transition-opacity shadow-lg">
                   <MessageCircle size={18} /> WhatsApp
                 </a>
-                <button onClick={() => navigator.share?.({ title: company.name, url: window.location.href })} className="flex items-center gap-2 px-5 py-3 rounded-xl bg-card/60 backdrop-blur-md text-foreground font-medium text-sm hover:bg-card/80 transition-colors">
+                <button onClick={() => navigator.share?.({ title: company.name, url: window.location.href })} className="flex items-center gap-2 px-5 py-3 rounded-xl bg-white/10 backdrop-blur-md text-white font-medium text-sm hover:bg-white/20 transition-colors">
                   <Share2 size={16} /> Compartilhar
                 </button>
               </div>
@@ -89,8 +138,32 @@ export default function CompanyProfile() {
         </div>
       </section>
 
+      {/* Category Tabs */}
+      <section className="container max-w-6xl mx-auto px-4 py-6">
+        <div className="flex gap-2 overflow-x-auto scrollbar-hide pb-2">
+          {subcategories.map((cat) => {
+            const Icon = cat.icon;
+            const isActive = activeCategory === cat.slug;
+            return (
+              <button
+                key={cat.slug}
+                onClick={() => setActiveCategory(cat.slug)}
+                className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold whitespace-nowrap transition-all ${
+                  isActive
+                    ? "bg-primary text-primary-foreground shadow-lg"
+                    : "bg-secondary text-muted-foreground hover:bg-secondary/80"
+                }`}
+              >
+                <Icon size={16} />
+                {cat.name}
+              </button>
+            );
+          })}
+        </div>
+      </section>
+
       {/* Company Map */}
-      <section className="container max-w-6xl mx-auto px-4 py-8">
+      <section className="container max-w-6xl mx-auto px-4 pb-6">
         <h2 className="font-display font-bold text-xl text-foreground mb-4 flex items-center gap-2">
           <MapPin size={20} className="text-primary" />
           Localização da Empresa
@@ -101,12 +174,12 @@ export default function CompanyProfile() {
       {/* Products Grid */}
       <section className="container max-w-6xl mx-auto px-4 pb-8">
         <h2 className="font-display font-bold text-xl md:text-2xl text-foreground mb-6">
-          Todos os Anúncios ({products.length})
+          {activeCategory === "todos" ? `Todos os Anúncios (${filteredProducts.length})` : `${subcategories.find(c => c.slug === activeCategory)?.name} (${filteredProducts.length})`}
         </h2>
 
-        {products.length > 0 ? (
+        {filteredProducts.length > 0 ? (
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-            {products.map((product, i) => (
+            {filteredProducts.map((product, i) => (
               <Link key={product.id} to={`/${isProperty ? "imoveis" : "veiculos"}/produto/${product.id}`}>
                 <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.05 + i * 0.04 }} className="card-epic bg-card border border-border group">
                   <div className="relative aspect-[4/3] overflow-hidden rounded-t-2xl">
@@ -130,7 +203,8 @@ export default function CompanyProfile() {
           </div>
         ) : (
           <div className="text-center py-20">
-            <p className="text-muted-foreground text-lg">Nenhum produto cadastrado ainda</p>
+            <p className="text-muted-foreground text-lg">Nenhum produto nesta categoria</p>
+            <button onClick={() => setActiveCategory("todos")} className="text-primary text-sm mt-2 hover:underline">Ver todos</button>
           </div>
         )}
       </section>
