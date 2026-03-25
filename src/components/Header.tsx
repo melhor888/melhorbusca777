@@ -21,7 +21,7 @@ export default function Header() {
             <Sparkles size={18} className="text-white" />
           </div>
           <span className="font-display font-bold text-xl text-foreground">
-            Auto<span className="text-primary">Imóvel</span>
+            Melhor<span className="text-primary">Busca</span>
           </span>
         </Link>
 
