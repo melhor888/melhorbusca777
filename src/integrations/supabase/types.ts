@@ -14,7 +14,158 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      profiles: {
+        Row: {
+          address: string | null
+          city: string | null
+          company_name: string | null
+          created_at: string
+          email: string
+          full_name: string
+          id: string
+          logo_url: string | null
+          phone: string | null
+          seller_type: Database["public"]["Enums"]["seller_type"]
+          state: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          address?: string | null
+          city?: string | null
+          company_name?: string | null
+          created_at?: string
+          email: string
+          full_name: string
+          id?: string
+          logo_url?: string | null
+          phone?: string | null
+          seller_type?: Database["public"]["Enums"]["seller_type"]
+          state?: string | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          address?: string | null
+          city?: string | null
+          company_name?: string | null
+          created_at?: string
+          email?: string
+          full_name?: string
+          id?: string
+          logo_url?: string | null
+          phone?: string | null
+          seller_type?: Database["public"]["Enums"]["seller_type"]
+          state?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      seller_items: {
+        Row: {
+          address: string | null
+          area: number | null
+          bathrooms: number | null
+          bedrooms: number | null
+          brand: string | null
+          category: Database["public"]["Enums"]["item_category"]
+          city: string | null
+          color: string | null
+          created_at: string
+          description: string | null
+          fuel: string | null
+          id: string
+          mileage: number | null
+          model: string | null
+          neighborhood: string | null
+          parking_spots: number | null
+          photos: string[] | null
+          price: number | null
+          seller_id: string
+          seller_type: Database["public"]["Enums"]["seller_type"]
+          state: string | null
+          status: Database["public"]["Enums"]["item_status"]
+          tags: Database["public"]["Enums"]["item_tag"][] | null
+          title: string
+          transmission: string | null
+          updated_at: string
+          user_id: string
+          views_count: number | null
+          year: number | null
+        }
+        Insert: {
+          address?: string | null
+          area?: number | null
+          bathrooms?: number | null
+          bedrooms?: number | null
+          brand?: string | null
+          category: Database["public"]["Enums"]["item_category"]
+          city?: string | null
+          color?: string | null
+          created_at?: string
+          description?: string | null
+          fuel?: string | null
+          id?: string
+          mileage?: number | null
+          model?: string | null
+          neighborhood?: string | null
+          parking_spots?: number | null
+          photos?: string[] | null
+          price?: number | null
+          seller_id: string
+          seller_type: Database["public"]["Enums"]["seller_type"]
+          state?: string | null
+          status?: Database["public"]["Enums"]["item_status"]
+          tags?: Database["public"]["Enums"]["item_tag"][] | null
+          title: string
+          transmission?: string | null
+          updated_at?: string
+          user_id: string
+          views_count?: number | null
+          year?: number | null
+        }
+        Update: {
+          address?: string | null
+          area?: number | null
+          bathrooms?: number | null
+          bedrooms?: number | null
+          brand?: string | null
+          category?: Database["public"]["Enums"]["item_category"]
+          city?: string | null
+          color?: string | null
+          created_at?: string
+          description?: string | null
+          fuel?: string | null
+          id?: string
+          mileage?: number | null
+          model?: string | null
+          neighborhood?: string | null
+          parking_spots?: number | null
+          photos?: string[] | null
+          price?: number | null
+          seller_id?: string
+          seller_type?: Database["public"]["Enums"]["seller_type"]
+          state?: string | null
+          status?: Database["public"]["Enums"]["item_status"]
+          tags?: Database["public"]["Enums"]["item_tag"][] | null
+          title?: string
+          transmission?: string | null
+          updated_at?: string
+          user_id?: string
+          views_count?: number | null
+          year?: number | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "seller_items_seller_id_fkey"
+            columns: ["seller_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never
@@ -23,7 +174,37 @@ export type Database = {
       [_ in never]: never
     }
     Enums: {
-      [_ in never]: never
+      item_category:
+        | "casa"
+        | "apartamento"
+        | "terreno"
+        | "comercial"
+        | "galpao"
+        | "flat"
+        | "aluguel"
+        | "carro"
+        | "moto"
+        | "caminhao"
+        | "van"
+        | "utilitario"
+        | "outros"
+      item_status: "ativo" | "inativo"
+      item_tag:
+        | "premium"
+        | "luxo"
+        | "prime"
+        | "novo"
+        | "em_destaque"
+        | "oferta"
+        | "exclusivo"
+        | "top"
+        | "limited"
+        | "lancamento"
+        | "pronto_para_morar"
+        | "cobertura"
+        | "vista_panoramica"
+        | "aluguel_flex"
+      seller_type: "imoveis" | "automoveis"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +331,40 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      item_category: [
+        "casa",
+        "apartamento",
+        "terreno",
+        "comercial",
+        "galpao",
+        "flat",
+        "aluguel",
+        "carro",
+        "moto",
+        "caminhao",
+        "van",
+        "utilitario",
+        "outros",
+      ],
+      item_status: ["ativo", "inativo"],
+      item_tag: [
+        "premium",
+        "luxo",
+        "prime",
+        "novo",
+        "em_destaque",
+        "oferta",
+        "exclusivo",
+        "top",
+        "limited",
+        "lancamento",
+        "pronto_para_morar",
+        "cobertura",
+        "vista_panoramica",
+        "aluguel_flex",
+      ],
+      seller_type: ["imoveis", "automoveis"],
+    },
   },
 } as const
