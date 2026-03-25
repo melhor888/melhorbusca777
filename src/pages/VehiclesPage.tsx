@@ -162,7 +162,7 @@ export default function VehiclesPage() {
                 className="flex-shrink-0 w-[140px] md:w-auto snap-start"
               >
                 <button
-                  onClick={() => setActiveCategory(isActive ? null : cat.slug)}
+                  onClick={() => { setActiveCategory(isActive ? null : cat.slug); if (!isActive) scrollToItems(); }}
                   className={`w-full group ${isActive ? "ring-4 ring-white/60 rounded-2xl" : ""}`}
                 >
                   <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg">
