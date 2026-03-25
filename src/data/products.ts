@@ -231,3 +231,19 @@ export function getProductById(id: string): Product | undefined {
 export function formatPrice(price: number): string {
   return price.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
 }
+
+export function getTagStyle(tag: string): string {
+  const styles: Record<string, string> = {
+    "Limpo": "bg-emerald-500 text-white",
+    "Premium": "bg-gradient-to-r from-[#FFD100] to-[#e5bc00] text-[#002F6C]",
+    "Luxo": "bg-gradient-to-r from-purple-600 to-purple-800 text-white",
+    "Prime": "bg-gradient-to-r from-[#002F6C] to-[#00AEEF] text-white",
+    "Novo": "bg-green-500 text-white",
+    "Em destaque": "bg-gradient-to-r from-orange-500 to-red-500 text-white",
+    "Oferta": "bg-red-600 text-white",
+    "Exclusivo": "bg-gradient-to-r from-indigo-600 to-violet-600 text-white",
+    "Top": "bg-[#00AEEF] text-white",
+    "Limited": "bg-gradient-to-r from-rose-600 to-pink-600 text-white",
+  };
+  return styles[tag] || "bg-primary text-primary-foreground";
+}
