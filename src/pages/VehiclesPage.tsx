@@ -1,7 +1,7 @@
 import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Car, Bike, Truck, Cog, ArrowLeft, ArrowRight } from "lucide-react";
+import { Car, Bike, Truck, Cog, ArrowLeft, ArrowRight, Search } from "lucide-react";
 import { vehicleCompanies, vehicleCategories, type Company } from "@/data/companies";
 import { allProducts, formatPrice, type Product } from "@/data/products";
 
@@ -9,6 +9,9 @@ const iconMap: Record<string, React.ElementType> = { Car, Bike, Truck, Cog };
 
 export default function VehiclesPage() {
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
+  const [filterCity, setFilterCity] = useState("");
+  const [filterBrand, setFilterBrand] = useState("");
+  const [filterModel, setFilterModel] = useState("");
 
   // Map company category to its products
   const companyById = useMemo(() => {
@@ -29,8 +32,24 @@ export default function VehiclesPage() {
 
   const heroCompany = heroProduct ? companyById[heroProduct.companyId] : undefined;
 
+  // Extract unique brands from specs
+  const availableBrands = useMemo(() => {
+    const brands = new Set<string>();
+    vehicleProducts.forEach((p) => { if (p.specs["Marca"]) brands.add(p.specs["Marca"]); });
+    return Array.from(brands).sort();
+  }, [vehicleProducts]);
+
+  const availableCities = useMemo(() => {
+    const cities = new Set<string>();
+    vehicleCompanies.forEach((c) => {
+      const city = c.address.split(" - ").pop()?.trim();
+      if (city) cities.add(city);
+    });
+    return Array.from(cities).sort();
+  }, []);
+
   const filteredProducts = useMemo(() => {
-    const list = !activeCategory
+    let list = !activeCategory
       ? [...vehicleProducts]
       : vehicleProducts.filter((p) => {
           const companyIds = vehicleCompanies
@@ -38,12 +57,29 @@ export default function VehiclesPage() {
             .map((c) => c.id);
           return companyIds.includes(p.companyId);
         });
+
+    // Apply filters
+    if (filterCity) {
+      const cityCompanyIds = vehicleCompanies
+        .filter((c) => c.address.includes(filterCity))
+        .map((c) => c.id);
+      list = list.filter((p) => cityCompanyIds.includes(p.companyId));
+    }
+    if (filterBrand) {
+      list = list.filter((p) => p.specs["Marca"] === filterBrand);
+    }
+    if (filterModel) {
+      const q = filterModel.toLowerCase();
+      list = list.filter((p) => p.title.toLowerCase().includes(q) || (p.specs["Modelo"] || "").toLowerCase().includes(q));
+    }
+
+    // Shuffle
     for (let i = list.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [list[i], list[j]] = [list[j], list[i]];
     }
     return list;
-  }, [activeCategory, vehicleProducts]);
+  }, [activeCategory, vehicleProducts, filterCity, filterBrand, filterModel]);
 
   return (
     <div className="min-h-screen bg-background">
@@ -179,8 +215,48 @@ export default function VehiclesPage() {
         </div>
       </section>
 
+      {/* Search Filters */}
+      <section className="container max-w-6xl mx-auto px-4 pt-6 pb-2">
+        <div className="bg-card border border-border rounded-2xl p-4 md:p-6 shadow-sm">
+          <h3 className="font-display font-semibold text-sm text-muted-foreground mb-3 flex items-center gap-2">
+            <Search size={16} /> Filtrar veículos
+          </h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
+            <select
+              value={filterCity}
+              onChange={(e) => setFilterCity(e.target.value)}
+              className="w-full px-4 py-2.5 rounded-xl bg-secondary text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/50"
+            >
+              <option value="">Todas as cidades</option>
+              {availableCities.map((c) => <option key={c} value={c}>{c}</option>)}
+            </select>
+            <select
+              value={filterBrand}
+              onChange={(e) => setFilterBrand(e.target.value)}
+              className="w-full px-4 py-2.5 rounded-xl bg-secondary text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/50"
+            >
+              <option value="">Todas as marcas</option>
+              {availableBrands.map((b) => <option key={b} value={b}>{b}</option>)}
+            </select>
+            <input
+              type="text"
+              value={filterModel}
+              onChange={(e) => setFilterModel(e.target.value)}
+              placeholder="Buscar modelo..."
+              className="w-full px-4 py-2.5 rounded-xl bg-secondary text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
+            />
+            <button
+              onClick={() => { setFilterCity(""); setFilterBrand(""); setFilterModel(""); setActiveCategory(null); }}
+              className="w-full px-4 py-2.5 rounded-xl bg-gradient-to-r from-[#002F6C] to-[#00AEEF] text-white font-bold text-sm hover:opacity-90 transition-opacity shadow"
+            >
+              Limpar Filtros
+            </button>
+          </div>
+        </div>
+      </section>
+
       {/* Products listing */}
-      <section className="container max-w-6xl mx-auto px-4 py-10">
+      <section className="container max-w-6xl mx-auto px-4 py-6">
         <div className="flex items-center justify-between mb-6">
           <h2 className="font-display font-bold text-xl md:text-2xl text-foreground">
             {activeCategory
