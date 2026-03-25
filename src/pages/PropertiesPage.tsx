@@ -11,6 +11,13 @@ export default function PropertiesPage() {
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
   const [filterCity, setFilterCity] = useState("");
   const [filterType, setFilterType] = useState("");
+  const itemsSectionRef = useRef<HTMLDivElement>(null);
+
+  const scrollToItems = () => {
+    setTimeout(() => {
+      itemsSectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 100);
+  };
 
   const companyById = useMemo(() => {
     const map: Record<string, Company> = {};

@@ -12,6 +12,13 @@ export default function VehiclesPage() {
   const [filterCity, setFilterCity] = useState("");
   const [filterBrand, setFilterBrand] = useState("");
   const [filterModel, setFilterModel] = useState("");
+  const itemsSectionRef = useRef<HTMLDivElement>(null);
+
+  const scrollToItems = () => {
+    setTimeout(() => {
+      itemsSectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 100);
+  };
 
   // Map company category to its products
   const companyById = useMemo(() => {
