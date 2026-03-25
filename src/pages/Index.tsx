@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Building2, Car, ArrowRight, Sparkles } from "lucide-react";
+import { Building2, Car, ArrowRight, Sparkles, Zap, Shield, Trophy } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function Index() {
@@ -30,29 +30,29 @@ export default function Index() {
             </p>
           </motion.div>
 
-          {/* Category Cards */}
+          {/* Category Cards - SIDE BY SIDE */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3 }}
-            className="mt-12 grid grid-cols-2 md:grid-cols-1 md:max-w-md md:mx-auto gap-4 md:gap-6"
+            className="mt-12 grid grid-cols-2 max-w-3xl mx-auto gap-4 md:gap-8"
           >
             {/* Imóveis Card */}
             <Link to="/imoveis" className="group">
-              <div className="card-epic relative bg-white/95 backdrop-blur-xl p-6 md:p-10 card-glow-blue">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#00AEEF]/20 to-transparent rounded-bl-full" />
+              <div className="relative overflow-hidden rounded-3xl border-2 border-white/20 bg-gradient-to-br from-[#00AEEF]/30 to-[#002F6C]/50 backdrop-blur-xl p-6 md:p-10 transition-all duration-500 hover:border-[#00AEEF] hover:shadow-[0_0_60px_rgba(0,174,239,0.4)] hover:scale-[1.03]">
+                <div className="absolute -top-20 -right-20 w-40 h-40 bg-[#00AEEF]/30 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#00AEEF] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
                 <div className="relative z-10 flex flex-col items-center text-center">
-                  <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-gradient-to-br from-[#00AEEF] to-[#002F6C] flex items-center justify-center mb-4 group-hover:animate-float shadow-lg">
-                    <Building2 size={32} className="text-white md:w-10 md:h-10" />
+                  <div className="w-16 h-16 md:w-24 md:h-24 rounded-2xl md:rounded-3xl bg-gradient-to-br from-[#00AEEF] to-[#002F6C] flex items-center justify-center mb-4 md:mb-6 group-hover:animate-float shadow-[0_10px_40px_rgba(0,174,239,0.4)]">
+                    <Building2 className="w-8 h-8 md:w-12 md:h-12 text-white" />
                   </div>
-                  <h2 className="font-display font-bold text-xl md:text-3xl text-foreground">
-                    Imóveis
-                  </h2>
-                  <p className="text-muted-foreground text-sm md:text-base mt-1">
-                    Casas, apartamentos e mais
-                  </p>
-                  <div className="mt-4 flex items-center gap-2 text-[#00AEEF] font-semibold text-sm group-hover:gap-3 transition-all">
-                    Explorar <ArrowRight size={16} />
+                  <h2 className="font-display font-bold text-xl md:text-4xl text-white">Imóveis</h2>
+                  <p className="text-white/70 text-xs md:text-base mt-1 md:mt-2">Casas, apartamentos e mais</p>
+                  <div className="mt-3 md:mt-6 flex items-center gap-2 px-4 md:px-8 py-2 md:py-3 rounded-xl md:rounded-2xl bg-[#00AEEF] text-white font-bold text-xs md:text-sm group-hover:bg-white group-hover:text-[#002F6C] transition-all duration-300 shadow-lg">
+                    <Zap size={14} />
+                    Explorar
+                    <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                   </div>
                 </div>
               </div>
@@ -60,20 +60,20 @@ export default function Index() {
 
             {/* Veículos Card */}
             <Link to="/veiculos" className="group">
-              <div className="card-epic relative bg-white/95 backdrop-blur-xl p-6 md:p-10 card-glow-gold">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#FFD100]/20 to-transparent rounded-bl-full" />
+              <div className="relative overflow-hidden rounded-3xl border-2 border-white/20 bg-gradient-to-br from-[#FFD100]/30 to-[#e5bc00]/20 backdrop-blur-xl p-6 md:p-10 transition-all duration-500 hover:border-[#FFD100] hover:shadow-[0_0_60px_rgba(255,209,0,0.4)] hover:scale-[1.03]">
+                <div className="absolute -top-20 -right-20 w-40 h-40 bg-[#FFD100]/30 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#FFD100] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
                 <div className="relative z-10 flex flex-col items-center text-center">
-                  <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-gradient-to-br from-[#FFD100] to-[#e5bc00] flex items-center justify-center mb-4 group-hover:animate-float shadow-lg">
-                    <Car size={32} className="text-[#002F6C] md:w-10 md:h-10" />
+                  <div className="w-16 h-16 md:w-24 md:h-24 rounded-2xl md:rounded-3xl bg-gradient-to-br from-[#FFD100] to-[#e5bc00] flex items-center justify-center mb-4 md:mb-6 group-hover:animate-float shadow-[0_10px_40px_rgba(255,209,0,0.4)]">
+                    <Car className="w-8 h-8 md:w-12 md:h-12 text-[#002F6C]" />
                   </div>
-                  <h2 className="font-display font-bold text-xl md:text-3xl text-foreground">
-                    Veículos
-                  </h2>
-                  <p className="text-muted-foreground text-sm md:text-base mt-1">
-                    Carros, motos e utilitários
-                  </p>
-                  <div className="mt-4 flex items-center gap-2 text-[#e5bc00] font-semibold text-sm group-hover:gap-3 transition-all">
-                    Explorar <ArrowRight size={16} />
+                  <h2 className="font-display font-bold text-xl md:text-4xl text-white">Veículos</h2>
+                  <p className="text-white/70 text-xs md:text-base mt-1 md:mt-2">Carros, motos e utilitários</p>
+                  <div className="mt-3 md:mt-6 flex items-center gap-2 px-4 md:px-8 py-2 md:py-3 rounded-xl md:rounded-2xl bg-[#FFD100] text-[#002F6C] font-bold text-xs md:text-sm group-hover:bg-white transition-all duration-300 shadow-lg">
+                    <Zap size={14} />
+                    Explorar
+                    <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                   </div>
                 </div>
               </div>
@@ -86,9 +86,9 @@ export default function Index() {
       <section className="container max-w-6xl mx-auto px-4 -mt-6 relative z-10">
         <div className="grid grid-cols-3 gap-3 md:gap-4">
           {[
-            { value: "500+", label: "Anúncios" },
-            { value: "2.5K", label: "Usuários" },
-            { value: "98%", label: "Satisfação" },
+            { value: "500+", label: "Anúncios", icon: Trophy },
+            { value: "2.5K", label: "Usuários", icon: Shield },
+            { value: "98%", label: "Satisfação", icon: Sparkles },
           ].map((stat, i) => (
             <motion.div
               key={stat.label}
@@ -144,9 +144,7 @@ export default function Index() {
         <div className="gradient-hero rounded-3xl p-8 md:p-14 text-center relative overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(255,255,255,0.15),transparent_50%)]" />
           <div className="relative z-10">
-            <h2 className="font-display font-bold text-2xl md:text-4xl text-white">
-              Quer anunciar?
-            </h2>
+            <h2 className="font-display font-bold text-2xl md:text-4xl text-white">Quer anunciar?</h2>
             <p className="text-white/80 mt-2 max-w-md mx-auto text-sm md:text-base">
               Publique seu imóvel ou veículo gratuitamente e receba contatos via WhatsApp.
             </p>
