@@ -43,6 +43,7 @@ function classifyProduct(title: string, specs: Record<string, string>, type: str
     if (specType.includes("cavalo") || specType.includes("caminhão") || t.includes("caminhão") || t.includes("volvo fh") || t.includes("scania") || t.includes("actros")) return "caminhoes";
     if (specType.includes("utilitário") || t.includes("fiorino") || t.includes("kangoo") || t.includes("saveiro") || (specs["Carga útil"])) return "utilitarios";
     if (t.includes("cb ") || t.includes("mt-") || t.includes("z400") || t.includes("g310")) return "motos";
+    if (specType.includes("outro") || t.includes("quadriciclo") || t.includes("jet ski") || t.includes("barco") || t.includes("trailer")) return "outros";
     return "carros";
   }
 }
