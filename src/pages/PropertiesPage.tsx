@@ -179,7 +179,7 @@ export default function PropertiesPage() {
       {/* Featured Products Carousel */}
       <section className="container max-w-6xl mx-auto px-4 pt-6 pb-2">
         <h3 className="font-display font-semibold text-base text-foreground mb-4">Destaques</h3>
-        <div className="flex gap-3 overflow-x-auto scrollbar-hide pb-2 pl-1 pr-8 snap-x snap-mandatory md:pr-0">
+        <div className="flex gap-3 overflow-x-auto scrollbar-hide pb-2 snap-x snap-mandatory">
           {propertyProducts.slice(0, 12).map((product, i) => {
             const company = companyById[product.companyId];
             return (
@@ -212,13 +212,14 @@ export default function PropertiesPage() {
               </motion.div>
             );
           })}
+          <div className="flex-shrink-0 w-4" aria-hidden="true" />
         </div>
       </section>
 
       {/* Company Logos */}
       <section className="container max-w-6xl mx-auto px-4 pt-6 pb-2">
         <h3 className="font-display font-semibold text-base text-muted-foreground mb-4">Imobiliárias em destaque</h3>
-        <div className="flex gap-4 overflow-x-auto scrollbar-hide pb-2 pl-1 pr-8 md:pr-0">
+        <div className="flex gap-4 overflow-x-auto scrollbar-hide pb-2">
           {propertyCompanies.map((company, i) => (
             <motion.div
               key={company.id}
@@ -244,6 +245,7 @@ export default function PropertiesPage() {
               </Link>
             </motion.div>
           ))}
+          <div className="flex-shrink-0 w-4" aria-hidden="true" />
         </div>
       </section>
 
