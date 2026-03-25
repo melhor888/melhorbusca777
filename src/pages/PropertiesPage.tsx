@@ -21,11 +21,20 @@ export default function PropertiesPage() {
   }, []);
 
   const filteredProducts = useMemo(() => {
-    if (!activeCategory) return propertyProducts;
-    const companyIds = propertyCompanies
-      .filter((c) => c.category === activeCategory)
-      .map((c) => c.id);
-    return propertyProducts.filter((p) => companyIds.includes(p.companyId));
+    const list = !activeCategory
+      ? [...propertyProducts]
+      : propertyProducts.filter((p) => {
+          const companyIds = propertyCompanies
+            .filter((c) => c.category === activeCategory)
+            .map((c) => c.id);
+          return companyIds.includes(p.companyId);
+        });
+    // Shuffle
+    for (let i = list.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [list[i], list[j]] = [list[j], list[i]];
+    }
+    return list;
   }, [activeCategory, propertyProducts]);
 
   return (
