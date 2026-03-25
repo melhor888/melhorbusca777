@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useRef } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Car, Bike, Truck, Cog, ArrowLeft, ArrowRight, Search } from "lucide-react";
@@ -12,6 +12,13 @@ export default function VehiclesPage() {
   const [filterCity, setFilterCity] = useState("");
   const [filterBrand, setFilterBrand] = useState("");
   const [filterModel, setFilterModel] = useState("");
+  const itemsSectionRef = useRef<HTMLDivElement>(null);
+
+  const scrollToItems = () => {
+    setTimeout(() => {
+      itemsSectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 100);
+  };
 
   // Map company category to its products
   const companyById = useMemo(() => {
@@ -155,7 +162,7 @@ export default function VehiclesPage() {
                 className="flex-shrink-0 w-[140px] md:w-auto snap-start"
               >
                 <button
-                  onClick={() => setActiveCategory(isActive ? null : cat.slug)}
+                  onClick={() => { setActiveCategory(isActive ? null : cat.slug); if (!isActive) scrollToItems(); }}
                   className={`w-full group ${isActive ? "ring-4 ring-white/60 rounded-2xl" : ""}`}
                 >
                   <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg">
@@ -298,7 +305,7 @@ export default function VehiclesPage() {
       </section>
 
       {/* Products listing */}
-      <section className="container max-w-6xl mx-auto px-4 py-6">
+      <section ref={itemsSectionRef} className="container max-w-6xl mx-auto px-4 py-6 scroll-mt-20">
         <div className="flex items-center justify-between mb-6">
           <h2 className="font-display font-bold text-xl md:text-2xl text-foreground">
             {activeCategory
