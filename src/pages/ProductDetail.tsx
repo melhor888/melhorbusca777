@@ -67,7 +67,7 @@ export default function ProductDetail() {
           <div className="absolute top-4 right-4 z-20">
             <span className={`px-3 py-1.5 rounded-lg text-xs font-bold shadow-lg ${
               product.tag === "Premium" || product.tag === "Luxo"
-                ? "bg-gradient-to-r from-[#FFDE00] to-[#f59e0b] text-foreground"
+                ? "bg-gradient-to-r from-[#FFD100] to-[#e5bc00] text-[#002F6C]"
                 : "bg-primary text-primary-foreground"
             }`}>
               <Tag size={12} className="inline mr-1 mb-0.5" />
@@ -118,7 +118,7 @@ export default function ProductDetail() {
           {/* Main Info */}
           <div className="lg:col-span-2 space-y-6">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-              <p className={`text-xs font-bold uppercase tracking-wider ${isProperty ? "text-[#22CBFF]" : "text-[#f59e0b]"}`}>
+              <p className={`text-xs font-bold uppercase tracking-wider ${isProperty ? "text-primary" : "text-accent"}`}>
                 {isProperty ? "Imóvel" : "Veículo"}
               </p>
               <h1 className="font-display font-bold text-2xl md:text-4xl text-foreground mt-1 leading-tight">

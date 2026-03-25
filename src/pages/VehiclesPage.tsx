@@ -142,7 +142,7 @@ export default function VehiclesPage() {
                         loading="lazy"
                       />
                       {product.tag && (
-                        <span className="absolute top-3 left-3 px-3 py-1 rounded-full bg-gradient-to-r from-[#FFDE00] to-[#f59e0b] text-xs font-bold text-foreground shadow">
+                        <span className="absolute top-3 left-3 px-3 py-1 rounded-full bg-gradient-to-r from-[#FFD100] to-[#e5bc00] text-xs font-bold text-[#002F6C] shadow">
                           {product.tag}
                         </span>
                       )}
@@ -153,7 +153,7 @@ export default function VehiclesPage() {
                       <h3 className="font-display font-bold text-base md:text-lg text-foreground line-clamp-1">
                         {product.title}
                       </h3>
-                      <p className="text-xl font-bold text-[#22CBFF] mt-1">
+                      <p className="text-xl font-bold text-primary mt-1">
                         {formatPrice(product.price)}
                       </p>
 
