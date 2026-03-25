@@ -133,8 +133,8 @@ export default function PropertiesPage() {
       </div>
 
       {/* Categories - Carousel */}
-      <section className="container max-w-6xl mx-auto px-4 -mt-8 relative z-10">
-        <div className="flex gap-3 overflow-x-auto scrollbar-hide pb-2 snap-x snap-mandatory md:grid md:grid-cols-5 md:overflow-visible">
+      <section className="container max-w-6xl mx-auto px-4 mt-6 relative z-10">
+        <div className="flex gap-3 overflow-x-auto scrollbar-hide pb-2 pl-1 pr-8 snap-x snap-mandatory md:grid md:grid-cols-5 md:overflow-visible md:pl-0 md:pr-0">
           {propertyCategories.map((cat, i) => {
             const Icon = iconMap[cat.icon] || Building2;
             const isActive = activeCategory === cat.slug;
