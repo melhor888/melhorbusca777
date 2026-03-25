@@ -1,7 +1,7 @@
 import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Building2, Home, Landmark, Store, Key, ArrowLeft, ArrowRight } from "lucide-react";
+import { Building2, Home, Landmark, Store, Key, ArrowLeft, ArrowRight, Search } from "lucide-react";
 import { propertyCompanies, propertyCategories, type Company } from "@/data/companies";
 import { allProducts, formatPrice, type Product } from "@/data/products";
 
@@ -9,6 +9,8 @@ const iconMap: Record<string, React.ElementType> = { Key, Home, Building2, Landm
 
 export default function PropertiesPage() {
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
+  const [filterCity, setFilterCity] = useState("");
+  const [filterType, setFilterType] = useState("");
 
   const companyById = useMemo(() => {
     const map: Record<string, Company> = {};
@@ -28,21 +30,47 @@ export default function PropertiesPage() {
 
   const heroCompany = heroProduct ? companyById[heroProduct.companyId] : undefined;
 
+  const availableCities = useMemo(() => {
+    const cities = new Set<string>();
+    propertyCompanies.forEach((c) => {
+      const city = c.address.split(" - ").pop()?.trim();
+      if (city) cities.add(city);
+    });
+    return Array.from(cities).sort();
+  }, []);
+
+  const propertyTypes = [
+    { value: "aluguel", label: "Aluguel" },
+    { value: "casas", label: "Casas" },
+    { value: "apartamentos", label: "Apartamentos" },
+    { value: "terrenos", label: "Terrenos" },
+    { value: "comerciais", label: "Comerciais" },
+  ];
+
   const filteredProducts = useMemo(() => {
-    const list = !activeCategory
+    const effectiveCategory = filterType || activeCategory;
+    let list = !effectiveCategory
       ? [...propertyProducts]
       : propertyProducts.filter((p) => {
           const companyIds = propertyCompanies
-            .filter((c) => c.category === activeCategory)
+            .filter((c) => c.category === effectiveCategory)
             .map((c) => c.id);
           return companyIds.includes(p.companyId);
         });
+
+    if (filterCity) {
+      const cityCompanyIds = propertyCompanies
+        .filter((c) => c.address.includes(filterCity))
+        .map((c) => c.id);
+      list = list.filter((p) => cityCompanyIds.includes(p.companyId));
+    }
+
     for (let i = list.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [list[i], list[j]] = [list[j], list[i]];
     }
     return list;
-  }, [activeCategory, propertyProducts]);
+  }, [activeCategory, propertyProducts, filterCity, filterType]);
 
   return (
     <div className="min-h-screen bg-background">
@@ -179,12 +207,47 @@ export default function PropertiesPage() {
         </div>
       </section>
 
+      {/* Search Filters */}
+      <section className="container max-w-6xl mx-auto px-4 pt-6 pb-2">
+        <div className="bg-card border border-border rounded-2xl p-4 md:p-6 shadow-sm">
+          <h3 className="font-display font-semibold text-sm text-muted-foreground mb-3 flex items-center gap-2">
+            <Search size={16} /> Filtrar imóveis
+          </h3>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <select
+              value={filterCity}
+              onChange={(e) => setFilterCity(e.target.value)}
+              className="w-full px-4 py-2.5 rounded-xl bg-secondary text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/50"
+            >
+              <option value="">Todas as cidades</option>
+              {availableCities.map((c) => <option key={c} value={c}>{c}</option>)}
+            </select>
+            <select
+              value={filterType}
+              onChange={(e) => { setFilterType(e.target.value); setActiveCategory(null); }}
+              className="w-full px-4 py-2.5 rounded-xl bg-secondary text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/50"
+            >
+              <option value="">Todos os tipos</option>
+              {propertyTypes.map((t) => <option key={t.value} value={t.value}>{t.label}</option>)}
+            </select>
+            <button
+              onClick={() => { setFilterCity(""); setFilterType(""); setActiveCategory(null); }}
+              className="w-full px-4 py-2.5 rounded-xl bg-gradient-to-r from-[#002F6C] to-[#00AEEF] text-white font-bold text-sm hover:opacity-90 transition-opacity shadow"
+            >
+              Limpar Filtros
+            </button>
+          </div>
+        </div>
+      </section>
+
       {/* Products listing */}
-      <section className="container max-w-6xl mx-auto px-4 py-10">
+      <section className="container max-w-6xl mx-auto px-4 py-6">
         <div className="flex items-center justify-between mb-6">
           <h2 className="font-display font-bold text-xl md:text-2xl text-foreground">
             {activeCategory
               ? propertyCategories.find((c) => c.slug === activeCategory)?.name
+              : filterType
+              ? propertyTypes.find((t) => t.value === filterType)?.label
               : "Todos os Imóveis"}
           </h2>
           <span className="text-sm text-muted-foreground">
