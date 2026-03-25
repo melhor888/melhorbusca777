@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowLeft, ChevronLeft, ChevronRight, MessageCircle, Share2, Star, MapPin, Tag } from "lucide-react";
+import { ArrowLeft, ChevronLeft, ChevronRight, MessageCircle, Share2, Star, MapPin, Tag, Store } from "lucide-react";
 import { getProductById, formatPrice, getProductsByCompany, getTagStyle } from "@/data/products";
 import { allCompanies } from "@/data/companies";
 import MapEmbed from "@/components/MapEmbed";
@@ -151,6 +151,10 @@ export default function ProductDetail() {
               <button onClick={() => navigator.share?.({ title: product.title, url: window.location.href })} className="mt-3 w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-secondary text-secondary-foreground font-medium text-sm hover:bg-secondary/80 transition-colors">
                 <Share2 size={16} /> Compartilhar
               </button>
+
+              <Link to={companyUrl} className="mt-3 w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-gradient-to-r from-[#002F6C] to-[#00AEEF] text-white font-bold text-sm hover:opacity-90 transition-opacity shadow-md">
+                <Store size={16} /> Ver Loja Completa
+              </Link>
             </motion.div>
           </div>
         </div>
