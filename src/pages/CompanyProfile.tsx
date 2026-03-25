@@ -162,15 +162,6 @@ export default function CompanyProfile() {
         </div>
       </section>
 
-      {/* Company Map */}
-      <section className="container max-w-6xl mx-auto px-4 pb-6">
-        <h2 className="font-display font-bold text-xl text-foreground mb-4 flex items-center gap-2">
-          <MapPin size={20} className="text-primary" />
-          Localização da Empresa
-        </h2>
-        <MapEmbed address={company.address} />
-      </section>
-
       {/* Products Grid */}
       <section className="container max-w-6xl mx-auto px-4 pb-8">
         <h2 className="font-display font-bold text-xl md:text-2xl text-foreground mb-6">
@@ -181,14 +172,14 @@ export default function CompanyProfile() {
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
             {filteredProducts.map((product, i) => (
               <Link key={product.id} to={`/${isProperty ? "imoveis" : "veiculos"}/produto/${product.id}`}>
-                <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.05 + i * 0.04 }} className="card-epic bg-card border border-border group">
-                  <div className="relative aspect-[4/3] overflow-hidden rounded-t-2xl">
+                <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.05 + i * 0.04 }} className="card-epic bg-card border border-border group rounded-2xl overflow-hidden">
+                  <div className="relative aspect-[4/3] overflow-hidden">
                     <img src={product.image} alt={product.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
                     {product.tag && (
                       <span className={`absolute top-2 left-2 px-2 py-0.5 rounded-md text-[10px] font-bold shadow ${getTagStyle(product.tag)}`}>{product.tag}</span>
                     )}
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-3">
-                      <span className="text-xs font-medium text-primary flex items-center gap-1">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-3">
+                      <span className="text-xs font-medium text-white flex items-center gap-1">
                         <MessageCircle size={12} /> Falar no WhatsApp
                       </span>
                     </div>
@@ -207,6 +198,22 @@ export default function CompanyProfile() {
             <button onClick={() => setActiveCategory("todos")} className="text-primary text-sm mt-2 hover:underline">Ver todos</button>
           </div>
         )}
+      </section>
+
+      {/* Company Location - Bottom */}
+      <section className="container max-w-6xl mx-auto px-4 pb-10">
+        <div className="rounded-2xl overflow-hidden border border-border bg-card">
+          <div className="px-5 py-4 border-b border-border flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+              <MapPin size={20} className="text-primary" />
+            </div>
+            <div>
+              <h2 className="font-display font-bold text-lg text-foreground">Localização</h2>
+              <p className="text-xs text-muted-foreground">{company.address}</p>
+            </div>
+          </div>
+          <MapEmbed address={company.address} className="border-0 rounded-none" />
+        </div>
       </section>
     </div>
   );
