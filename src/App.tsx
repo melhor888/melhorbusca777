@@ -9,6 +9,7 @@ import Index from "@/pages/Index";
 import PropertiesPage from "@/pages/PropertiesPage";
 import VehiclesPage from "@/pages/VehiclesPage";
 import CompanyProfile from "@/pages/CompanyProfile";
+import ProductDetail from "@/pages/ProductDetail";
 import CreateListing from "@/pages/CreateListing";
 import SearchPage from "@/pages/SearchPage";
 import NotFound from "@/pages/NotFound";
@@ -28,8 +29,10 @@ const App = () => (
               <Route path="/" element={<Index />} />
               <Route path="/imoveis" element={<PropertiesPage />} />
               <Route path="/imoveis/empresa/:id" element={<CompanyProfile />} />
+              <Route path="/imoveis/produto/:productId" element={<ProductDetail />} />
               <Route path="/veiculos" element={<VehiclesPage />} />
               <Route path="/veiculos/empresa/:id" element={<CompanyProfile />} />
+              <Route path="/veiculos/produto/:productId" element={<ProductDetail />} />
               <Route path="/anunciar" element={<CreateListing />} />
               <Route path="/buscar" element={<SearchPage />} />
               <Route path="*" element={<NotFound />} />
