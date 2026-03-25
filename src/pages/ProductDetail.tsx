@@ -2,7 +2,7 @@ import { useState, useRef } from "react";
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowLeft, ChevronLeft, ChevronRight, MessageCircle, Share2, Star, MapPin, Tag } from "lucide-react";
-import { getProductById, formatPrice, getProductsByCompany } from "@/data/products";
+import { getProductById, formatPrice, getProductsByCompany, getTagStyle } from "@/data/products";
 import { allCompanies } from "@/data/companies";
 
 export default function ProductDetail() {
@@ -65,11 +65,7 @@ export default function ProductDetail() {
         {/* Tag */}
         {product.tag && (
           <div className="absolute top-4 right-4 z-20">
-            <span className={`px-3 py-1.5 rounded-lg text-xs font-bold shadow-lg ${
-              product.tag === "Premium" || product.tag === "Luxo"
-                ? "bg-gradient-to-r from-[#FFD100] to-[#e5bc00] text-[#002F6C]"
-                : "bg-primary text-primary-foreground"
-            }`}>
+            <span className={`px-3 py-1.5 rounded-lg text-xs font-bold shadow-lg ${getTagStyle(product.tag)}`}>
               <Tag size={12} className="inline mr-1 mb-0.5" />
               {product.tag}
             </span>
