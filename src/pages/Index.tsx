@@ -1,202 +1,101 @@
-import { useState, useEffect } from "react";
-import { useNavigate, useSearchParams } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
-import { Search, SlidersHorizontal, X } from "lucide-react";
-import { useTranslation } from "react-i18next";
-import HeroBanner from "@/components/HeroBanner";
-import CategoryRow from "@/components/CategoryRow";
-import XPBar from "@/components/XPBar";
-import DrinkCard from "@/components/DrinkCard";
-import ThemeToggle from "@/components/ThemeToggle";
-import NotificationToggle from "@/components/NotificationToggle";
-import LanguageSelector from "@/components/LanguageSelector";
-import { categories, getDishesByCategory, searchDishes, getAllDishes, getSpiceLevel, type SpiceLevel } from "@/data/dishes";
-import { useLocalizedPath } from "@/i18n/useLocalizedPath";
-
-function slugify(text: string): string {
-  return text
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/(^-|-$)/g, "");
-}
+import { Link } from "react-router-dom";
+import { ArrowRight, Car, Home, TrendingUp, Shield } from "lucide-react";
+import ListingCard from "@/components/ListingCard";
+import { sampleCars, sampleProperties, type Listing } from "@/data/listings";
 
 export default function Index() {
-  const { t } = useTranslation();
-  const { localePath } = useLocalizedPath();
-  const [searchParams] = useSearchParams();
-  const [query, setQuery] = useState(searchParams.get("q") || "");
-  const [activeFilter, setActiveFilter] = useState<string | null>(null);
-  const [activeSpice, setActiveSpice] = useState<SpiceLevel | null>(null);
-  const [showFilters, setShowFilters] = useState(false);
-  const navigate = useNavigate();
-
-  const difficulties = [
-    { key: "Fácil", label: t("filters.easy") },
-    { key: "Médio", label: t("filters.medium") },
-    { key: "Avançado", label: t("filters.advanced") },
-  ];
-
-  const spiceFilters = [
-    { level: 0 as const, label: t("filters.mild"), color: "text-green-400", ring: "ring-green-500/50", bg: "bg-green-500/20" },
-    { level: 1 as const, label: t("filters.mediumSpice"), color: "text-yellow-400", ring: "ring-yellow-500/50", bg: "bg-yellow-500/20" },
-    { level: 2 as const, label: t("filters.hot"), color: "text-orange-400", ring: "ring-orange-500/50", bg: "bg-orange-500/20" },
-    { level: 3 as const, label: t("filters.extreme"), color: "text-red-500", ring: "ring-red-500/50", bg: "bg-red-500/20" },
-  ];
-
-  useEffect(() => {
-    const q = searchParams.get("q");
-    if (q) setQuery(q);
-  }, [searchParams]);
-
-  const results = query.length >= 2 ? searchDishes(query) : [];
-
-  const filteredResults = (() => {
-    let base = query.length >= 2 ? results : (activeFilter || activeSpice !== null ? getAllDishes() : []);
-    if (activeFilter) base = base.filter((d) => d.difficulty === activeFilter);
-    if (activeSpice !== null) base = base.filter((d) => getSpiceLevel(d) === activeSpice);
-    return base;
-  })();
-
-  const showFilteredGrid = query.length >= 2 || activeFilter || activeSpice !== null;
+  const featuredListings: Listing[] = [...sampleCars, ...sampleProperties]
+    .filter((l) => l.featured)
+    .slice(0, 6);
 
   return (
-    <>
-      <Helmet>
-        <title>{t("seo.title")}</title>
-        <meta name="description" content={t("seo.description")} />
-      </Helmet>
-      <div className="min-h-screen pb-20">
-        <header className="fixed top-0 left-0 right-0 z-40 px-4 py-3 flex items-center justify-end gap-2 bg-gradient-to-b from-background via-background/90 to-transparent lg:hidden">
-          <LanguageSelector compact />
-          <NotificationToggle />
-          <ThemeToggle />
-          <XPBar compact />
-        </header>
-
-        <HeroBanner />
-
-        <div className="px-4 lg:px-6 mb-4 -mt-2 lg:max-w-2xl lg:mx-auto">
-          <div className="flex gap-2">
-            <div className="relative flex-1">
-              <Search size={18} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
-              <input
-                type="text"
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-                placeholder={t("search.placeholder")}
-                className="w-full pl-10 pr-4 py-3 rounded-xl bg-secondary text-foreground placeholder:text-muted-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/50"
-              />
-              {query && (
-                <button
-                  onClick={() => setQuery("")}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
-                >
-                  <X size={16} />
-                </button>
-              )}
+    <div className="min-h-screen">
+      {/* Hero */}
+      <section className="relative overflow-hidden py-20 md:py-32">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-accent/5" />
+        <div className="container max-w-7xl mx-auto px-4 relative">
+          <div className="max-w-2xl">
+            <h1 className="font-display font-bold text-4xl md:text-6xl text-foreground leading-tight">
+              Encontre seu próximo{" "}
+              <span className="text-primary">carro</span> ou{" "}
+              <span className="text-primary">imóvel</span>
+            </h1>
+            <p className="mt-4 text-lg text-muted-foreground max-w-lg">
+              Marketplace moderno com os melhores anúncios de carros e imóveis. Contato direto via WhatsApp.
+            </p>
+            <div className="flex flex-wrap gap-3 mt-8">
+              <Link
+                to="/carros"
+                className="flex items-center gap-2 px-6 py-3 rounded-lg bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 transition-opacity"
+              >
+                <Car size={18} />
+                Ver Carros
+                <ArrowRight size={16} />
+              </Link>
+              <Link
+                to="/imoveis"
+                className="flex items-center gap-2 px-6 py-3 rounded-lg bg-secondary text-secondary-foreground font-semibold text-sm hover:bg-secondary/80 transition-colors"
+              >
+                <Home size={18} />
+                Ver Imóveis
+                <ArrowRight size={16} />
+              </Link>
             </div>
-            <button
-              onClick={() => setShowFilters(!showFilters)}
-              className={`flex items-center justify-center w-12 rounded-xl transition-colors ${
-                showFilters || activeFilter || activeSpice !== null
-                  ? "bg-primary text-primary-foreground"
-                  : "bg-secondary text-muted-foreground"
-              }`}
-            >
-              <SlidersHorizontal size={18} />
-            </button>
           </div>
-
-          {showFilters && (
-            <>
-              <div className="flex gap-2 mt-3 animate-fade-in flex-wrap">
-                {difficulties.map((diff) => (
-                  <button
-                    key={diff.key}
-                    onClick={() =>
-                      setActiveFilter(activeFilter === diff.key ? null : diff.key)
-                    }
-                    className={`px-4 py-1.5 rounded-full text-xs font-semibold transition-all ${
-                      activeFilter === diff.key
-                        ? diff.key === "Fácil"
-                          ? "bg-green-500/20 text-green-400 ring-1 ring-green-500/50"
-                          : diff.key === "Médio"
-                          ? "bg-yellow-500/20 text-yellow-400 ring-1 ring-yellow-500/50"
-                          : "bg-red-500/20 text-red-400 ring-1 ring-red-500/50"
-                        : "bg-secondary text-muted-foreground hover:text-foreground"
-                    }`}
-                  >
-                    {diff.label}
-                  </button>
-                ))}
-                {(activeFilter || activeSpice !== null) && (
-                  <button
-                    onClick={() => { setActiveFilter(null); setActiveSpice(null); }}
-                    className="px-3 py-1.5 rounded-full text-xs text-muted-foreground hover:text-foreground bg-secondary"
-                  >
-                    {t("search.clear")}
-                  </button>
-                )}
-              </div>
-              <div className="flex gap-2 mt-2 animate-fade-in overflow-x-auto scrollbar-hide">
-                {spiceFilters.map((sf) => (
-                  <button
-                    key={sf.level}
-                    onClick={() => setActiveSpice(activeSpice === sf.level ? null : sf.level)}
-                    className={`flex-shrink-0 px-3 py-1.5 rounded-full text-xs font-semibold transition-all ${
-                      activeSpice === sf.level
-                        ? `${sf.bg} ${sf.color} ring-1 ${sf.ring}`
-                        : "bg-secondary text-muted-foreground hover:text-foreground"
-                    }`}
-                  >
-                    {sf.label}
-                  </button>
-                ))}
-              </div>
-            </>
-          )}
         </div>
+      </section>
 
-        {showFilteredGrid ? (
-          <div className="px-4 lg:px-6">
-            {filteredResults.length > 0 ? (
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 lg:gap-4">
-                {filteredResults.map((dish, i) => (
-                  <div
-                    key={dish.id}
-                    className="animate-fade-in"
-                    style={{ animationDelay: `${i * 40}ms` }}
-                  >
-                    <DrinkCard drink={dish} />
-                  </div>
-                ))}
-              </div>
-            ) : (
-              <p className="text-muted-foreground text-center mt-12">
-                {t("search.noResults")}
-              </p>
-            )}
+      {/* Stats */}
+      <section className="container max-w-7xl mx-auto px-4 -mt-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          {[
+            { icon: Car, label: "Carros disponíveis", value: "150+" },
+            { icon: Home, label: "Imóveis à venda", value: "200+" },
+            { icon: TrendingUp, label: "Negócios fechados", value: "500+" },
+            { icon: Shield, label: "Anúncios verificados", value: "100%" },
+          ].map((stat) => (
+            <div key={stat.label} className="bg-card border border-border rounded-xl p-4 text-center">
+              <stat.icon size={24} className="mx-auto text-primary mb-2" />
+              <p className="font-display font-bold text-2xl text-foreground">{stat.value}</p>
+              <p className="text-xs text-muted-foreground mt-1">{stat.label}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Featured */}
+      <section className="container max-w-7xl mx-auto px-4 py-16">
+        <div className="flex items-center justify-between mb-8">
+          <div>
+            <h2 className="font-display font-bold text-2xl text-foreground">Destaques</h2>
+            <p className="text-sm text-muted-foreground mt-1">Os melhores anúncios selecionados</p>
           </div>
-        ) : (
-          <div className="space-y-2">
-            {categories.map((cat) => {
-              const catDishes = getDishesByCategory(cat);
-              const shuffled = [...catDishes].sort(() => Math.random() - 0.5);
-              return (
-                <div key={cat}>
-                  <CategoryRow
-                    title={t(`categories.${cat}`, cat)}
-                    drinks={shuffled}
-                    categorySlug={slugify(cat)}
-                  />
-                </div>
-              );
-            })}
-          </div>
-        )}
-      </div>
-    </>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {featuredListings.map((listing) => (
+            <ListingCard key={listing.id} listing={listing} />
+          ))}
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="container max-w-7xl mx-auto px-4 pb-16">
+        <div className="bg-gradient-to-r from-primary to-primary/80 rounded-2xl p-8 md:p-12 text-center">
+          <h2 className="font-display font-bold text-2xl md:text-3xl text-primary-foreground">
+            Quer vender seu carro ou imóvel?
+          </h2>
+          <p className="text-primary-foreground/80 mt-2 max-w-md mx-auto">
+            Cadastre seu anúncio gratuitamente e alcance milhares de compradores.
+          </p>
+          <Link
+            to="/anunciar"
+            className="inline-flex items-center gap-2 mt-6 px-8 py-3 rounded-lg bg-card text-foreground font-semibold text-sm hover:opacity-90 transition-opacity"
+          >
+            Anunciar Agora
+            <ArrowRight size={16} />
+          </Link>
+        </div>
+      </section>
+    </div>
   );
 }
