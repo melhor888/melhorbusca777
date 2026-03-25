@@ -22,12 +22,20 @@ export default function VehiclesPage() {
   }, []);
 
   const filteredProducts = useMemo(() => {
-    if (!activeCategory) return vehicleProducts;
-    // Get company IDs that belong to the active category
-    const companyIds = vehicleCompanies
-      .filter((c) => c.category === activeCategory)
-      .map((c) => c.id);
-    return vehicleProducts.filter((p) => companyIds.includes(p.companyId));
+    const list = !activeCategory
+      ? [...vehicleProducts]
+      : vehicleProducts.filter((p) => {
+          const companyIds = vehicleCompanies
+            .filter((c) => c.category === activeCategory)
+            .map((c) => c.id);
+          return companyIds.includes(p.companyId);
+        });
+    // Shuffle
+    for (let i = list.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [list[i], list[j]] = [list[j], list[i]];
+    }
+    return list;
   }, [activeCategory, vehicleProducts]);
 
   return (
