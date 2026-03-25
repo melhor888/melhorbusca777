@@ -9,6 +9,7 @@ export interface Product {
   description: string;
   type: "imovel" | "veiculo";
   specs: Record<string, string>;
+  location?: string;
 }
 
 const propertyProducts: Product[] = [
