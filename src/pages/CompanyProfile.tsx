@@ -177,6 +177,7 @@ export default function CompanyProfile() {
                   </p>
                 </div>
               </motion.div>
+              </Link>
             ))}
           </div>
         ) : (
