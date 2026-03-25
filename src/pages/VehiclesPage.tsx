@@ -140,9 +140,9 @@ export default function VehiclesPage() {
         </div>
       </div>
 
-      {/* Categories */}
+      {/* Categories - Carousel */}
       <section className="container max-w-6xl mx-auto px-4 -mt-8 relative z-10">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <div className="flex gap-3 overflow-x-auto scrollbar-hide pb-2 snap-x snap-mandatory md:grid md:grid-cols-4 md:overflow-visible">
           {vehicleCategories.map((cat, i) => {
             const Icon = iconMap[cat.icon] || Car;
             const isActive = activeCategory === cat.slug;
@@ -152,6 +152,7 @@ export default function VehiclesPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.06 }}
+                className="flex-shrink-0 w-[140px] md:w-auto snap-start"
               >
                 <button
                   onClick={() => setActiveCategory(isActive ? null : cat.slug)}
