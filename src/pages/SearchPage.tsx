@@ -1,103 +1,52 @@
 import { useState, useMemo } from "react";
 import { Search } from "lucide-react";
-import { useTranslation } from "react-i18next";
-import { searchDishes, categories, getAllDishes } from "@/data/dishes";
-import { getDishImage } from "@/data/dishImages";
-import { getTranslatedDish, getTranslatedCategory } from "@/data/translations";
-import DrinkCard from "@/components/DrinkCard";
-import { useNavigate } from "react-router-dom";
-import { useLocalizedPath } from "@/i18n/useLocalizedPath";
+import ListingCard from "@/components/ListingCard";
+import { allListings } from "@/data/listings";
 
 export default function SearchPage() {
   const [query, setQuery] = useState("");
-  const { t } = useTranslation();
-  const { localePath } = useLocalizedPath();
-  const navigate = useNavigate();
-  const results = query.length >= 2 ? searchDishes(query) : [];
 
-  const allDishes = getAllDishes();
-  const randomDish = useMemo(() => {
-    return allDishes[Math.floor(Math.random() * allDishes.length)];
-  }, []);
-
-  const translatedRandom = getTranslatedDish(randomDish);
+  const results = useMemo(() => {
+    if (query.length < 2) return [];
+    const q = query.toLowerCase();
+    return allListings.filter(
+      (l) =>
+        l.title.toLowerCase().includes(q) ||
+        l.description.toLowerCase().includes(q) ||
+        l.location.toLowerCase().includes(q)
+    );
+  }, [query]);
 
   return (
-    <div className="min-h-screen pb-20 pt-4">
-      {query.length < 2 && (
-        <div className="px-4 mb-4">
-          <button
-            onClick={() => navigate(localePath(`/recipe/${randomDish.id}`))}
-            className="relative w-full h-48 rounded-2xl overflow-hidden group"
-          >
-            <img
-              src={getDishImage(randomDish.image)}
-              alt={translatedRandom.name}
-              className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-            />
-            <div className="absolute inset-0 hero-overlay" />
-            <div className="absolute bottom-0 left-0 right-0 p-4">
-              <span className="text-[10px] uppercase tracking-wider text-primary font-semibold">
-                {t("search.dishOfMoment", "Prato do momento")}
-              </span>
-              <h2 className="font-display font-bold text-foreground text-xl leading-tight">
-                {translatedRandom.name}
-              </h2>
-              <p className="text-muted-foreground text-xs mt-1">
-                {translatedRandom.category} · {translatedRandom.difficulty} · {translatedRandom.time}
-              </p>
-            </div>
-          </button>
-        </div>
-      )}
+    <div className="container max-w-7xl mx-auto px-4 py-8">
+      <h1 className="font-display font-bold text-3xl text-foreground mb-6">Buscar</h1>
 
-      {query.length < 2 && (
-        <div className="mb-4 overflow-x-auto scrollbar-hide">
-          <div className="flex gap-2 px-4 whitespace-nowrap">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setQuery(cat)}
-                className="px-4 py-2 rounded-full bg-secondary text-secondary-foreground text-sm font-medium transition-colors hover:bg-primary hover:text-primary-foreground flex-shrink-0"
-              >
-                {getTranslatedCategory(cat)}
-              </button>
-            ))}
-          </div>
-        </div>
-      )}
-
-      <div className="px-4 mb-6">
-        <div className="relative">
-          <Search
-            size={18}
-            className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground"
-          />
-          <input
-            type="text"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder={t("search.placeholder", "Buscar pratos, ingredientes...")}
-            className="w-full pl-10 pr-4 py-3 rounded-xl bg-secondary text-foreground placeholder:text-muted-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/50"
-          />
-        </div>
+      <div className="relative max-w-xl">
+        <Search size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground" />
+        <input
+          type="text"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          placeholder="Buscar carros, imóveis, localização..."
+          className="w-full pl-11 pr-4 py-3 rounded-xl bg-secondary text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
+          autoFocus
+        />
       </div>
 
-      {query.length >= 2 && (
-        <div className="px-4">
-          {results.length > 0 ? (
-            <div className="grid grid-cols-2 gap-3">
-              {results.map((dish) => (
-                <DrinkCard key={dish.id} drink={dish} />
-              ))}
+      <div className="mt-8">
+        {query.length < 2 ? (
+          <p className="text-muted-foreground text-center py-16">Digite pelo menos 2 caracteres para buscar</p>
+        ) : results.length > 0 ? (
+          <>
+            <p className="text-sm text-muted-foreground mb-4">{results.length} resultado(s) para "{query}"</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+              {results.map((l) => <ListingCard key={l.id} listing={l} />)}
             </div>
-          ) : (
-            <p className="text-muted-foreground text-center mt-12">
-              {t("search.noResults", "Nenhum resultado")} "{query}"
-            </p>
-          )}
-        </div>
-      )}
+          </>
+        ) : (
+          <p className="text-muted-foreground text-center py-16">Nenhum resultado para "{query}"</p>
+        )}
+      </div>
     </div>
   );
 }
