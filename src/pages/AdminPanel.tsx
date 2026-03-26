@@ -727,6 +727,37 @@ export default function AdminPanel() {
         )}
         </main>
       </div>
+
+      {/* Reject Reason Dialog */}
+      {rejectDialogOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
+          <div className="bg-card border border-border rounded-2xl p-6 w-full max-w-md mx-4 shadow-xl">
+            <h3 className="font-display font-bold text-lg text-foreground mb-2">Motivo da Rejeição</h3>
+            <p className="text-sm text-muted-foreground mb-4">Informe o motivo para que o solicitante possa visualizar.</p>
+            <textarea
+              value={rejectReason}
+              onChange={(e) => setRejectReason(e.target.value)}
+              placeholder="Ex: Sua loja não atende aos requisitos mínimos para campanhas..."
+              className="w-full px-4 py-3 rounded-xl bg-secondary text-foreground text-sm border border-border focus:outline-none focus:ring-2 focus:ring-primary/50 resize-none h-28"
+              maxLength={500}
+            />
+            <div className="flex justify-end gap-2 mt-4">
+              <button
+                onClick={() => { setRejectDialogOpen(false); setRejectAdId(null); }}
+                className="px-4 py-2 rounded-xl text-sm font-medium text-muted-foreground hover:bg-secondary transition-colors"
+              >
+                Cancelar
+              </button>
+              <button
+                onClick={confirmReject}
+                className="px-4 py-2 rounded-xl bg-destructive text-destructive-foreground text-sm font-bold hover:opacity-90 transition-opacity"
+              >
+                Confirmar Rejeição
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
