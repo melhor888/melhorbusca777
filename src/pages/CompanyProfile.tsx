@@ -657,7 +657,7 @@ export default function CompanyProfile() {
                       transition={{ duration: 1.4, ease: [0.25, 0.46, 0.45, 0.94] }}
                       src={lbImg}
                       alt={lbProduct.title}
-                      className="absolute inset-0 w-full h-full object-cover animate-[zoomout_12s_ease-in-out_infinite_alternate]"
+                      className="absolute inset-0 w-full h-full object-contain md:object-cover animate-[zoomout_12s_ease-in-out_infinite_alternate]"
                     />
                   </AnimatePresence>
 
