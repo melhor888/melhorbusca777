@@ -48,7 +48,7 @@ export const PACKAGE_CONFIG = {
   premium: {
     name: "Premium",
     price: 11.99,
-    maxItems: 200,
+    maxItems: 50,
     color: "from-amber-500 to-orange-600",
     borderColor: "border-amber-400",
     badgeColor: "bg-gradient-to-r from-amber-500 to-orange-500 text-white",
@@ -64,7 +64,7 @@ export const PACKAGE_CONFIG = {
   vip: {
     name: "VIP",
     price: 22.99,
-    maxItems: 999,
+    maxItems: 200,
     color: "from-purple-600 to-indigo-700",
     borderColor: "border-purple-500",
     badgeColor: "bg-gradient-to-r from-purple-600 to-indigo-600 text-white",
