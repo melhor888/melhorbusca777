@@ -90,6 +90,7 @@ export default function SellerProfile() {
     } else {
       await refreshProfile();
       toast({ title: "Perfil atualizado!" });
+      navigate("/painel");
     }
     setSaving(false);
   };
