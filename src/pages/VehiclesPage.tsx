@@ -30,6 +30,13 @@ export default function VehiclesPage() {
     if (nextCity !== filterCity) setFilterCity(nextCity);
   }, [cidade]);
 
+  // Sync filter when detected city loads async
+  useEffect(() => {
+    if (!cidade && detectedCity && !filterCity) {
+      setFilterCity(detectedCity);
+    }
+  }, [detectedCity]);
+
   const scrollToItems = () => {
     setTimeout(() => {
       itemsSectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
