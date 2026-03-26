@@ -38,6 +38,7 @@ const AppLayout = () => {
       <main className="flex-1">
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/:cidade" element={<Index />} />
           <Route path="/imoveis" element={<PropertiesPage />} />
           <Route path="/imoveis/:cidade" element={<PropertiesPage />} />
           <Route path="/imoveis/empresa/:id" element={<CompanyProfile />} />
