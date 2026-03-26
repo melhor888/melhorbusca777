@@ -164,7 +164,7 @@ export default function SellerProfile() {
             <span className="text-sm text-foreground">Mostrar localização no perfil da loja</span>
           </label>
         </div>
-          type="submit"
+          <button
           disabled={saving}
           className="w-full py-4 rounded-xl bg-primary text-primary-foreground font-bold text-sm hover:bg-primary/90 transition-colors disabled:opacity-50 flex items-center justify-center gap-2 shadow-lg"
         >
