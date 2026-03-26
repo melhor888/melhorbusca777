@@ -665,7 +665,7 @@ export default function SellerDashboard() {
                     </div>
                     <div>
                       <h2 className="font-display font-bold text-lg text-foreground">Fazer ADS</h2>
-                      <p className="text-xs text-muted-foreground">Solicite campanhas de anúncios para sua loja</p>
+                      <p className="text-xs text-muted-foreground">Solicite campanhas de anúncios para sua loja. Entrarei em contato com você através do seu WhatsApp para fecharmos o negócio.</p>
                     </div>
                   </div>
 
