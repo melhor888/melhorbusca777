@@ -53,7 +53,7 @@ export const PACKAGE_CONFIG = {
     borderColor: "border-amber-400",
     badgeColor: "bg-gradient-to-r from-amber-500 to-orange-500 text-white",
     benefits: [
-      "Até 200 anúncios ativos",
+      "Até 50 anúncios ativos",
       "Loja estilo Netflix",
       "Selo Premium nos anúncios",
       "Destaque no topo da listagem",
@@ -69,7 +69,7 @@ export const PACKAGE_CONFIG = {
     borderColor: "border-purple-500",
     badgeColor: "bg-gradient-to-r from-purple-600 to-indigo-600 text-white",
     benefits: [
-      "Anúncios ilimitados",
+      "Até 200 anúncios ativos",
       "Loja estilo Netflix",
       "Selo VIP exclusivo",
       "Destaque no topo da listagem",
