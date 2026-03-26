@@ -280,7 +280,7 @@ export default function CompanyProfile() {
                     <MessageCircle size={16} /> WhatsApp
                   </button>
                 )}
-                {(company as any).instagram && (
+                {(company as any).instagram && ["vip", "essencial_empresa", "premium_empresa"].includes(sellerTier || "") && (
                   <a href={`https://instagram.com/${(company as any).instagram.replace(/^@/, "")}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#833AB4] via-[#E1306C] to-[#F77737] text-white font-bold text-sm hover:opacity-90 transition-opacity shadow-lg">
                     <Instagram size={16} /> Instagram
                   </a>
@@ -392,7 +392,7 @@ export default function CompanyProfile() {
                         <MessageCircle size={14} /> Falar no WhatsApp
                       </button>
                     )}
-                    {(company as any).instagram && (
+                    {(company as any).instagram && ["vip", "essencial_empresa", "premium_empresa"].includes(sellerTier || "") && (
                       <a
                         href={`https://instagram.com/${(company as any).instagram.replace(/^@/, "")}`}
                         target="_blank"
