@@ -879,15 +879,9 @@ export default function CompanyProfile() {
                       </AnimatePresence>
                     </div>
 
-                    {/* Counter + company */}
-                    <div className="absolute top-5 left-5 z-50 flex items-center gap-3">
-                      {company.logo && (
-                        <img src={company.logo} alt="" className="w-10 h-10 rounded-xl object-cover border-2 border-white/20" />
-                      )}
-                      <div>
-                        <p className="text-white font-bold text-sm">{company.name}</p>
-                        <p className="text-white/40 text-xs">{galleryLightbox + 1} de {total}</p>
-                      </div>
+                    {/* Counter */}
+                    <div className="absolute top-5 left-5 z-50">
+                      <p className="text-white/40 text-xs">{galleryLightbox + 1} de {total}</p>
                     </div>
 
                     {/* Progress bar */}
