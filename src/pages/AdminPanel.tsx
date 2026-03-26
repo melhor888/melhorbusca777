@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Shield, Users, Package, DollarSign, Search, Check, X, RefreshCw, ArrowLeft, Crown, Star, Zap, Globe, Plus, Trash2, ExternalLink, Copy } from "lucide-react";
+import { Shield, Users, Package, DollarSign, Search, Check, X, RefreshCw, ArrowLeft, Crown, Star, Zap, Globe, Plus, Trash2, ExternalLink, Copy, Megaphone } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
 import { useIsAdmin, PACKAGE_CONFIG } from "@/hooks/useSubscription";
@@ -43,7 +43,9 @@ export default function AdminPanel() {
   const [sellers, setSellers] = useState<SellerWithSub[]>([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
-  const [tab, setTab] = useState<"sellers" | "billing" | "domains">("sellers");
+  const [tab, setTab] = useState<"sellers" | "billing" | "domains" | "ads">("sellers");
+  const [adRequests, setAdRequests] = useState<any[]>([]);
+  const [adsLoading, setAdsLoading] = useState(false);
 
   // Domain management state
   const [domains, setDomains] = useState<StoreDomain[]>([]);
@@ -61,8 +63,26 @@ export default function AdminPanel() {
     if (isAdmin) {
       fetchSellers();
       fetchDomains();
+      fetchAdRequests();
     }
   }, [isAdmin]);
+
+  const fetchAdRequests = async () => {
+    setAdsLoading(true);
+    const { data } = await supabase.from("ad_requests").select("*").order("created_at", { ascending: false });
+    setAdRequests(data || []);
+    setAdsLoading(false);
+  };
+
+  const updateAdStatus = async (id: string, status: string) => {
+    const { error } = await supabase.from("ad_requests").update({ status, updated_at: new Date().toISOString() }).eq("id", id);
+    if (error) {
+      toast({ title: "Erro ao atualizar", variant: "destructive" });
+    } else {
+      toast({ title: `Solicitação ${status}` });
+      fetchAdRequests();
+    }
+  };
 
   const fetchSellers = async () => {
     setLoading(true);
@@ -254,9 +274,18 @@ export default function AdminPanel() {
             className={`px-4 py-2 rounded-xl text-sm font-semibold transition-all ${tab === "billing" ? "bg-primary text-primary-foreground" : "bg-secondary text-secondary-foreground"}`}>
             <DollarSign size={14} className="inline mr-1" /> Faturamento
           </button>
-          <button onClick={() => setTab("domains")}
+           <button onClick={() => setTab("domains")}
             className={`px-4 py-2 rounded-xl text-sm font-semibold transition-all ${tab === "domains" ? "bg-primary text-primary-foreground" : "bg-secondary text-secondary-foreground"}`}>
             <Globe size={14} className="inline mr-1" /> Domínios
+          </button>
+          <button onClick={() => setTab("ads")}
+            className={`px-4 py-2 rounded-xl text-sm font-semibold transition-all ${tab === "ads" ? "bg-primary text-primary-foreground" : "bg-secondary text-secondary-foreground"}`}>
+            <Megaphone size={14} className="inline mr-1" /> Solicitações ADS
+            {adRequests.filter(a => a.status === "pendente").length > 0 && (
+              <span className="ml-1.5 bg-destructive text-destructive-foreground text-[10px] px-1.5 py-0.5 rounded-full font-bold">
+                {adRequests.filter(a => a.status === "pendente").length}
+              </span>
+            )}
           </button>
         </div>
 
@@ -460,6 +489,81 @@ export default function AdminPanel() {
                 </div>
               )}
             </div>
+          </div>
+        )}
+
+        {tab === "ads" && (
+          <div className="space-y-3">
+            {adsLoading ? (
+              <div className="text-center py-8 text-muted-foreground text-sm">Carregando...</div>
+            ) : adRequests.length === 0 ? (
+              <div className="text-center py-8 text-muted-foreground text-sm">Nenhuma solicitação de ADS ainda.</div>
+            ) : (
+              adRequests.map((ad) => {
+                const seller = sellers.find(s => s.id === ad.seller_id || s.user_id === ad.user_id);
+                return (
+                  <div key={ad.id} className="bg-card border border-border rounded-2xl p-4">
+                    <div className="flex flex-col md:flex-row md:items-start justify-between gap-3">
+                      <div className="flex-1 space-y-1">
+                        <div className="flex items-center gap-2">
+                          <h3 className="font-display font-bold text-foreground">
+                            {seller?.company_name || seller?.full_name || "Vendedor"}
+                          </h3>
+                          <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold ${
+                            ad.status === "pendente" ? "bg-amber-500/10 text-amber-500" :
+                            ad.status === "aprovado" ? "bg-green-500/10 text-green-500" :
+                            "bg-destructive/10 text-destructive"
+                          }`}>
+                            {ad.status}
+                          </span>
+                        </div>
+                        <p className="text-xs text-muted-foreground">
+                          Plataforma: <strong className="text-foreground">{ad.platform === "google" ? "Google Ads" : "Facebook Ads"}</strong>
+                        </p>
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 mt-2">
+                          <div className="bg-secondary rounded-lg p-2 text-center">
+                            <p className="text-[10px] text-muted-foreground">Diário</p>
+                            <p className="text-sm font-bold text-foreground">R$ {Number(ad.daily_budget).toFixed(2)}</p>
+                          </div>
+                          <div className="bg-secondary rounded-lg p-2 text-center">
+                            <p className="text-[10px] text-muted-foreground">Dias</p>
+                            <p className="text-sm font-bold text-foreground">{ad.duration_days}</p>
+                          </div>
+                          <div className="bg-secondary rounded-lg p-2 text-center">
+                            <p className="text-[10px] text-muted-foreground">Impostos</p>
+                            <p className="text-sm font-bold text-foreground">R$ {Number(ad.tax_amount).toFixed(2)}</p>
+                          </div>
+                          <div className="bg-secondary rounded-lg p-2 text-center">
+                            <p className="text-[10px] text-muted-foreground">Total</p>
+                            <p className="text-sm font-bold text-green-500">R$ {Number(ad.total).toFixed(2)}</p>
+                          </div>
+                        </div>
+                        {ad.details && (
+                          <p className="text-xs text-muted-foreground mt-2 bg-secondary/50 p-2 rounded-lg">
+                            💬 {ad.details}
+                          </p>
+                        )}
+                        <p className="text-[10px] text-muted-foreground mt-1">
+                          {new Date(ad.created_at).toLocaleDateString("pt-BR")} às {new Date(ad.created_at).toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" })}
+                        </p>
+                      </div>
+                      {ad.status === "pendente" && (
+                        <div className="flex gap-1.5">
+                          <button onClick={() => updateAdStatus(ad.id, "aprovado")}
+                            className="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-green-500/10 text-green-600 text-xs font-semibold hover:bg-green-500/20">
+                            <Check size={12} /> Aprovar
+                          </button>
+                          <button onClick={() => updateAdStatus(ad.id, "rejeitado")}
+                            className="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-destructive/10 text-destructive text-xs font-semibold hover:bg-destructive/20">
+                            <X size={12} /> Rejeitar
+                          </button>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                );
+              })
+            )}
           </div>
         )}
       </div>
