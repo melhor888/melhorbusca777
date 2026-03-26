@@ -251,7 +251,7 @@ export default function PropertiesPage() {
         <h3 className="font-display font-semibold text-base text-foreground mb-4 px-4 md:px-8 lg:px-12">Destaques</h3>
         <div className="flex gap-3 overflow-x-auto md:overflow-visible scrollbar-hide pb-2 snap-x snap-mandatory md:snap-none px-4 md:px-8 lg:px-12 md:grid md:grid-cols-7">
           {featuredProducts.map((product, i) => {
-            const company = companyById[product.companyId];
+            const company = allSellers[product.companyId];
             return (
               <motion.div
                 key={product.id}
@@ -337,7 +337,7 @@ export default function PropertiesPage() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
           {filteredProducts.map((product, i) => {
-            const company = companyById[product.companyId];
+            const company = allSellers[product.companyId];
             return (
               <motion.div
                 key={product.id}
