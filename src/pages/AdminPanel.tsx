@@ -550,6 +550,14 @@ export default function AdminPanel() {
                           </span>
                         </div>
                         <p className="text-xs text-muted-foreground">
+                          {seller?.email || "—"} • {seller?.city || "—"} • {seller?.seller_type || "—"}
+                        </p>
+                        {seller?.phone && (
+                          <p className="text-xs text-muted-foreground">
+                            📞 {seller.phone}
+                          </p>
+                        )}
+                        <p className="text-xs text-muted-foreground">
                           Plataforma: <strong className="text-foreground">{ad.platform === "google" ? "Google Ads" : "Facebook Ads"}</strong>
                         </p>
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-2 mt-2">
