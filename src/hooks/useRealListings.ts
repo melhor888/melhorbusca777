@@ -6,6 +6,7 @@ export interface RealSeller {
   name: string;
   logo: string;
   address: string;
+  city: string;
   phone: string;
   segment: "imoveis" | "automoveis";
   show_location: boolean;
@@ -90,6 +91,7 @@ export function useRealListings(segment: "imoveis" | "automoveis") {
           name: p.company_name || p.full_name,
           logo: p.logo_url || "",
           address: [p.address, p.city, p.state].filter(Boolean).join(", "),
+          city: p.city || "",
           phone: p.phone || "",
           segment: p.seller_type,
           show_location: p.show_location ?? true,

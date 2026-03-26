@@ -56,7 +56,7 @@ export default function PropertiesPage() {
   // Filter sellers by city
   const filteredSellers = useMemo(() => {
     if (!filterCity) return realSellers;
-    return realSellers.filter((s) => s.address.toLowerCase().includes(filterCity.toLowerCase()));
+    return realSellers.filter((s) => s.city.toLowerCase() === filterCity.toLowerCase());
   }, [realSellers, filterCity]);
 
   const featuredProducts = useMemo(() => {
