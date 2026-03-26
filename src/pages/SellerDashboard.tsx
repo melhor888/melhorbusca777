@@ -2,12 +2,14 @@ import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
 import { supabase } from "@/integrations/supabase/client";
-import { Package, Eye, Plus, Settings, Edit, Trash2, Copy, ToggleLeft, ToggleRight, Search, Building2, Car, Image, LogOut, BarChart3, Star, Crown, Zap, AlertTriangle, Shield } from "lucide-react";
+import { Package, Eye, Plus, Settings, Edit, Trash2, Copy, ToggleLeft, ToggleRight, Search, Building2, Car, Image, LogOut, BarChart3, Star, Crown, Zap, AlertTriangle, Shield, MessageCircle } from "lucide-react";
 import { getTagStyle, getTagLabel } from "@/data/products";
 import { useToast } from "@/hooks/use-toast";
 import { motion } from "framer-motion";
 import { useSubscription, useIsAdmin, PACKAGE_CONFIG } from "@/hooks/useSubscription";
 import PackageBadge from "@/components/PackageBadge";
+import { useSellerAnalytics } from "@/hooks/useSellerAnalytics";
+import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer, BarChart, Bar, CartesianGrid } from "recharts";
 
 type SellerItem = {
   id: string;
