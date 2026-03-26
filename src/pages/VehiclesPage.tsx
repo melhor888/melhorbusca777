@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Car, Bike, Truck, Cog, ArrowLeft, ArrowRight, Search } from "lucide-react";
 import { vehicleCompanies, vehicleCategories, type Company } from "@/data/companies";
-import { allProducts, formatPrice, getTagStyle, type Product } from "@/data/products";
+import { allProducts, formatPrice, getTagStyle, getTagLabel, type Product } from "@/data/products";
+import { useRealListings } from "@/hooks/useRealListings";
 
 const iconMap: Record<string, React.ElementType> = { Car, Bike, Truck, Cog };
 
@@ -14,30 +15,50 @@ export default function VehiclesPage() {
   const [filterModel, setFilterModel] = useState("");
   const itemsSectionRef = useRef<HTMLDivElement>(null);
 
+  const { sellers: realSellers, items: realItems } = useRealListings("automoveis");
+
   const scrollToItems = () => {
     setTimeout(() => {
       itemsSectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
     }, 100);
   };
 
-  // Map company category to its products
-  const companyById = useMemo(() => {
-    const map: Record<string, Company> = {};
-    vehicleCompanies.forEach((c) => (map[c.id] = c));
+  // Build unified seller map
+  const allSellers = useMemo(() => {
+    const map: Record<string, { id: string; name: string; logo: string; address: string; isReal: boolean }> = {};
+    vehicleCompanies.forEach((c) => { map[c.id] = { id: c.id, name: c.name, logo: c.logo, address: c.address, isReal: false }; });
+    realSellers.forEach((s) => { map[s.id] = { id: s.id, name: s.name, logo: s.logo, address: s.address, isReal: true }; });
     return map;
-  }, []);
+  }, [realSellers]);
 
   const vehicleProducts = useMemo(() => {
-    return allProducts.filter((p) => p.type === "veiculo");
-  }, []);
+    const staticProds = allProducts.filter((p) => p.type === "veiculo");
+    const realProds: Product[] = realItems.map((item) => ({
+      id: item.id,
+      companyId: item.sellerId,
+      title: item.title,
+      price: item.price,
+      image: item.image,
+      images: item.images,
+      tag: item.tags?.[0] ? getTagLabel(item.tags[0]) : undefined,
+      description: item.description || "",
+      type: "veiculo" as const,
+      specs: {
+        ...(item.brand ? { Marca: item.brand } : {}),
+        ...(item.model ? { Modelo: item.model } : {}),
+      },
+      location: item.city || "",
+    }));
+    return [...realProds, ...staticProds];
+  }, [realItems]);
 
   // Random hero product
   const heroProduct = useMemo(() => {
-    const prods = allProducts.filter((p) => p.type === "veiculo");
+    const prods = vehicleProducts.length ? vehicleProducts : allProducts.filter((p) => p.type === "veiculo");
     return prods[Math.floor(Math.random() * prods.length)];
-  }, []);
+  }, [vehicleProducts]);
 
-  const heroCompany = heroProduct ? companyById[heroProduct.companyId] : undefined;
+  const heroCompany = heroProduct ? allSellers[heroProduct.companyId] : undefined;
 
   // Extract unique brands from specs
   const availableBrands = useMemo(() => {
@@ -52,8 +73,14 @@ export default function VehiclesPage() {
       const city = c.address.split(" - ").pop()?.trim();
       if (city) cities.add(city);
     });
+    realSellers.forEach((s) => {
+      if (s.address) {
+        const parts = s.address.split(",").map((p) => p.trim());
+        parts.forEach((p) => { if (p && p.length > 1) cities.add(p); });
+      }
+    });
     return Array.from(cities).sort();
-  }, []);
+  }, [realSellers]);
 
   const filteredProducts = useMemo(() => {
     let list = !activeCategory
@@ -196,7 +223,7 @@ export default function VehiclesPage() {
         <h3 className="font-display font-semibold text-base text-foreground mb-4 px-4 md:px-8 lg:px-12">Destaques</h3>
         <div className="flex gap-3 overflow-x-auto scrollbar-hide pb-2 snap-x snap-mandatory px-4 md:px-8 lg:px-12">
           {vehicleProducts.slice(0, 12).map((product, i) => {
-            const company = companyById[product.companyId];
+            const company = allSellers[product.companyId];
             return (
               <motion.div
                 key={product.id}
@@ -235,24 +262,41 @@ export default function VehiclesPage() {
       <section className="pt-8 pb-2">
         <h3 className="font-display font-semibold text-base text-muted-foreground mb-4 px-4 md:px-8 lg:px-12">Lojas em destaque</h3>
         <div className="flex gap-4 overflow-x-auto scrollbar-hide pb-2 px-4 md:px-8 lg:px-12">
+          {/* Real sellers first */}
+          {realSellers.filter((s) => s.logo).map((seller, i) => (
+            <motion.div
+              key={`real-${seller.id}`}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: i * 0.04 }}
+            >
+              <Link
+                to={`/veiculos/empresa/${seller.id}`}
+                className="flex flex-col items-center gap-2 group flex-shrink-0 w-20"
+              >
+                <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-accent group-hover:border-primary group-hover:shadow-lg transition-all duration-300">
+                  <img src={seller.logo} alt={seller.name} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" loading="lazy" />
+                </div>
+                <span className="text-[11px] text-center text-muted-foreground group-hover:text-foreground font-medium leading-tight line-clamp-2 transition-colors">
+                  {seller.name}
+                </span>
+              </Link>
+            </motion.div>
+          ))}
+          {/* Static companies */}
           {vehicleCompanies.map((company, i) => (
             <motion.div
               key={company.id}
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: i * 0.04 }}
+              transition={{ delay: (realSellers.length + i) * 0.04 }}
             >
               <Link
                 to={`/veiculos/empresa/${company.id}`}
                 className="flex flex-col items-center gap-2 group flex-shrink-0 w-20"
               >
                 <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-border group-hover:border-primary group-hover:shadow-lg transition-all duration-300">
-                  <img
-                    src={company.logo}
-                    alt={company.name}
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                    loading="lazy"
-                  />
+                  <img src={company.logo} alt={company.name} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" loading="lazy" />
                 </div>
                 <span className="text-[11px] text-center text-muted-foreground group-hover:text-foreground font-medium leading-tight line-clamp-2 transition-colors">
                   {company.name}
@@ -319,7 +363,7 @@ export default function VehiclesPage() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
           {filteredProducts.map((product, i) => {
-            const company = companyById[product.companyId];
+            const company = allSellers[product.companyId];
             return (
               <motion.div
                 key={product.id}

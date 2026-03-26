@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Building2, Home, Landmark, Store, Key, ArrowLeft, ArrowRight, Search } from "lucide-react";
 import { propertyCompanies, propertyCategories, type Company } from "@/data/companies";
-import { allProducts, formatPrice, getTagStyle, type Product } from "@/data/products";
+import { allProducts, formatPrice, getTagStyle, getTagLabel, type Product } from "@/data/products";
+import { useRealListings } from "@/hooks/useRealListings";
 
 const iconMap: Record<string, React.ElementType> = { Key, Home, Building2, Landmark, Store };
 
@@ -13,21 +14,40 @@ export default function PropertiesPage() {
   const [filterType, setFilterType] = useState("");
   const itemsSectionRef = useRef<HTMLDivElement>(null);
 
+  const { sellers: realSellers, items: realItems } = useRealListings("imoveis");
+
   const scrollToItems = () => {
     setTimeout(() => {
       itemsSectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
     }, 100);
   };
 
-  const companyById = useMemo(() => {
-    const map: Record<string, Company> = {};
-    propertyCompanies.forEach((c) => (map[c.id] = c));
+  // Build unified seller map (real + static)
+  const allSellers = useMemo(() => {
+    const map: Record<string, { id: string; name: string; logo: string; address: string; isReal: boolean }> = {};
+    propertyCompanies.forEach((c) => { map[c.id] = { id: c.id, name: c.name, logo: c.logo, address: c.address, isReal: false }; });
+    realSellers.forEach((s) => { map[s.id] = { id: s.id, name: s.name, logo: s.logo, address: s.address, isReal: true }; });
     return map;
-  }, []);
+  }, [realSellers]);
 
+  // Merge real items into unified product format
   const propertyProducts = useMemo(() => {
-    return allProducts.filter((p) => p.type === "imovel");
-  }, []);
+    const staticProds = allProducts.filter((p) => p.type === "imovel");
+    const realProds: Product[] = realItems.map((item) => ({
+      id: item.id,
+      companyId: item.sellerId,
+      title: item.title,
+      price: item.price,
+      image: item.image,
+      images: item.images,
+      tag: item.tags?.[0] ? getTagLabel(item.tags[0]) : undefined,
+      description: item.description || "",
+      type: "imovel" as const,
+      specs: {},
+      location: item.city || "",
+    }));
+    return [...realProds, ...staticProds];
+  }, [realItems]);
 
   const featuredProducts = useMemo(() => {
     const shuffled = [...propertyProducts].sort(() => Math.random() - 0.5);
@@ -36,11 +56,11 @@ export default function PropertiesPage() {
 
   // Random hero product
   const heroProduct = useMemo(() => {
-    const prods = allProducts.filter((p) => p.type === "imovel");
+    const prods = propertyProducts.length ? propertyProducts : allProducts.filter((p) => p.type === "imovel");
     return prods[Math.floor(Math.random() * prods.length)];
-  }, []);
+  }, [propertyProducts]);
 
-  const heroCompany = heroProduct ? companyById[heroProduct.companyId] : undefined;
+  const heroCompany = heroProduct ? allSellers[heroProduct.companyId] : undefined;
 
   const availableCities = useMemo(() => {
     const cities = new Set<string>();
@@ -48,8 +68,14 @@ export default function PropertiesPage() {
       const city = c.address.split(" - ").pop()?.trim();
       if (city) cities.add(city);
     });
+    realSellers.forEach((s) => {
+      if (s.address) {
+        const parts = s.address.split(",").map((p) => p.trim());
+        parts.forEach((p) => { if (p && p.length > 1) cities.add(p); });
+      }
+    });
     return Array.from(cities).sort();
-  }, []);
+  }, [realSellers]);
 
   const propertyTypes = [
     { value: "aluguel", label: "Aluguel" },
@@ -148,24 +174,41 @@ export default function PropertiesPage() {
       <section className="pt-6 pb-2">
         <h3 className="font-display font-semibold text-base text-muted-foreground mb-4 text-center">Imobiliárias em destaque</h3>
         <div className="flex gap-4 overflow-x-auto scrollbar-hide pb-2 justify-center px-4 md:px-8 lg:px-12">
+          {/* Real sellers first */}
+          {realSellers.filter((s) => s.logo).map((seller, i) => (
+            <motion.div
+              key={`real-${seller.id}`}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: i * 0.04 }}
+            >
+              <Link
+                to={`/imoveis/empresa/${seller.id}`}
+                className="flex flex-col items-center gap-2 group flex-shrink-0 w-20"
+              >
+                <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-accent group-hover:border-primary group-hover:shadow-lg transition-all duration-300">
+                  <img src={seller.logo} alt={seller.name} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" loading="lazy" />
+                </div>
+                <span className="text-[11px] text-center text-muted-foreground group-hover:text-foreground font-medium leading-tight line-clamp-2 transition-colors">
+                  {seller.name}
+                </span>
+              </Link>
+            </motion.div>
+          ))}
+          {/* Static companies */}
           {propertyCompanies.map((company, i) => (
             <motion.div
               key={`top-${company.id}`}
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: i * 0.04 }}
+              transition={{ delay: (realSellers.length + i) * 0.04 }}
             >
               <Link
                 to={`/imoveis/empresa/${company.id}`}
                 className="flex flex-col items-center gap-2 group flex-shrink-0 w-20"
               >
                 <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-border group-hover:border-primary group-hover:shadow-lg transition-all duration-300">
-                  <img
-                    src={company.logo}
-                    alt={company.name}
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                    loading="lazy"
-                  />
+                  <img src={company.logo} alt={company.name} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" loading="lazy" />
                 </div>
                 <span className="text-[11px] text-center text-muted-foreground group-hover:text-foreground font-medium leading-tight line-clamp-2 transition-colors">
                   {company.name}
@@ -225,7 +268,7 @@ export default function PropertiesPage() {
         <h3 className="font-display font-semibold text-base text-foreground mb-4 px-4 md:px-8 lg:px-12">Destaques</h3>
         <div className="flex gap-3 overflow-x-auto md:overflow-visible scrollbar-hide pb-2 snap-x snap-mandatory md:snap-none px-4 md:px-8 lg:px-12 md:grid md:grid-cols-7">
           {featuredProducts.map((product, i) => {
-            const company = companyById[product.companyId];
+            const company = allSellers[product.companyId];
             return (
               <motion.div
                 key={product.id}
@@ -311,7 +354,7 @@ export default function PropertiesPage() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
           {filteredProducts.map((product, i) => {
-            const company = companyById[product.companyId];
+            const company = allSellers[product.companyId];
             return (
               <motion.div
                 key={product.id}
