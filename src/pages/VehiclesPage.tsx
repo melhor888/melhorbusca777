@@ -278,7 +278,7 @@ export default function VehiclesPage() {
             <select
               value={filterCity}
               onChange={(e) => { const v = e.target.value; setFilterCity(v); navigate(v ? `/veiculos/${v.toLowerCase().replace(/\s+/g, "-")}` : "/veiculos", { replace: true }); }}
-              className="w-full px-4 py-2.5 rounded-xl bg-secondary text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/50"
+              className="w-full px-4 py-2.5 rounded-xl bg-secondary text-foreground text-base focus:outline-none focus:ring-2 focus:ring-primary/50"
             >
               <option value="">Todas as cidades</option>
               {availableCities.map((c) => <option key={c} value={c}>{c}</option>)}
@@ -286,7 +286,7 @@ export default function VehiclesPage() {
             <select
               value={filterBrand}
               onChange={(e) => setFilterBrand(e.target.value)}
-              className="w-full px-4 py-2.5 rounded-xl bg-secondary text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/50"
+              className="w-full px-4 py-2.5 rounded-xl bg-secondary text-foreground text-base focus:outline-none focus:ring-2 focus:ring-primary/50"
             >
               <option value="">Todas as marcas</option>
               {availableBrands.map((b) => <option key={b} value={b}>{b}</option>)}

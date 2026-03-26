@@ -303,7 +303,7 @@ export default function PropertiesPage() {
             <select
               value={filterCity}
               onChange={(e) => { const v = e.target.value; setFilterCity(v); navigate(v ? `/imoveis/${v.toLowerCase().replace(/\s+/g, "-")}` : "/imoveis", { replace: true }); }}
-              className="w-full px-4 py-2.5 rounded-xl bg-secondary text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/50"
+              className="w-full px-4 py-2.5 rounded-xl bg-secondary text-foreground text-base focus:outline-none focus:ring-2 focus:ring-primary/50"
             >
               <option value="">Todas as cidades</option>
               {availableCities.map((c) => <option key={c} value={c}>{c}</option>)}
@@ -311,7 +311,7 @@ export default function PropertiesPage() {
             <select
               value={filterType}
               onChange={(e) => { setFilterType(e.target.value); setActiveCategory(null); }}
-              className="w-full px-4 py-2.5 rounded-xl bg-secondary text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/50"
+              className="w-full px-4 py-2.5 rounded-xl bg-secondary text-foreground text-base focus:outline-none focus:ring-2 focus:ring-primary/50"
             >
               <option value="">Todos os tipos</option>
               {propertyTypes.map((t) => <option key={t.value} value={t.value}>{t.label}</option>)}
