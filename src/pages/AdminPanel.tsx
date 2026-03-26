@@ -14,6 +14,7 @@ interface SellerWithSub {
   full_name: string;
   company_name: string | null;
   email: string;
+  phone: string | null;
   seller_type: string;
   city: string | null;
   subscription?: {
