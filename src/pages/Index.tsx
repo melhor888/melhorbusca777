@@ -57,6 +57,7 @@ export default function Index() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [searchQuery, setSearchQuery] = useState("");
   const intervalRef = useRef<ReturnType<typeof setInterval>>(null);
+  const heroBanners = getHeroBanners(displayCity, citySlug);
 
   useEffect(() => {
     intervalRef.current = setInterval(() => {
