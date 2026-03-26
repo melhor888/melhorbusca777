@@ -104,7 +104,8 @@ export default function ProductDetail() {
   const formattedPrice = isDb
     ? price ? `R$ ${Number(price).toLocaleString("pt-BR")}` : ""
     : formatPrice(price);
-  const whatsappUrl = `https://wa.me/${company.whatsapp}?text=${encodeURIComponent(`Olá ${company.name}! Tenho interesse: ${title} - ${formattedPrice}`)}`;
+  const productUrl = window.location.href;
+  const whatsappUrl = `https://wa.me/${company.whatsapp}?text=${encodeURIComponent(`Olá ${company.name}! Tenho interesse: ${title} - ${formattedPrice}\n\n🔗 ${productUrl}`)}`;
   const handleWhatsAppClick = () => {
     if (isDb && dbItem) trackSellerEvent(dbItem.seller_id, "whatsapp_click", dbItem.id);
   };
