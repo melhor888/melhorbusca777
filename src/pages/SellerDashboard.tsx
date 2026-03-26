@@ -2,10 +2,12 @@ import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
 import { supabase } from "@/integrations/supabase/client";
-import { Package, Eye, Plus, Settings, Edit, Trash2, Copy, ToggleLeft, ToggleRight, Search, Building2, Car, Image, LogOut, BarChart3, Star } from "lucide-react";
+import { Package, Eye, Plus, Settings, Edit, Trash2, Copy, ToggleLeft, ToggleRight, Search, Building2, Car, Image, LogOut, BarChart3, Star, Crown, Zap, AlertTriangle, Shield } from "lucide-react";
 import { getTagStyle, getTagLabel } from "@/data/products";
 import { useToast } from "@/hooks/use-toast";
 import { motion } from "framer-motion";
+import { useSubscription, useIsAdmin, PACKAGE_CONFIG } from "@/hooks/useSubscription";
+import PackageBadge from "@/components/PackageBadge";
 
 type SellerItem = {
   id: string;
@@ -29,6 +31,8 @@ export default function SellerDashboard() {
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState("");
   const [statusFilter, setStatusFilter] = useState<string>("todos");
+  const { subscription, currentTier, config: pkgConfig, daysUntilExpiry, isExpiringSoon, isExpired } = useSubscription(user?.id);
+  const { isAdmin } = useIsAdmin(user?.id);
 
   useEffect(() => {
     if (!authLoading && !user) navigate("/entrar");
