@@ -707,7 +707,7 @@ export default function AdminPanel() {
                               className="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-green-500/10 text-green-600 text-xs font-semibold hover:bg-green-500/20">
                               <Check size={12} /> Aprovar
                             </button>
-                            <button onClick={() => updateAdStatus(ad.id, "rejeitado")}
+                            <button onClick={() => handleRejectClick(ad.id)}
                               className="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-destructive/10 text-destructive text-xs font-semibold hover:bg-destructive/20">
                               <X size={12} /> Rejeitar
                             </button>
