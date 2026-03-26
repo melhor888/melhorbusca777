@@ -631,6 +631,48 @@ export default function CompanyProfile() {
         </div>
       </div>
 
+      {/* ═══════════ MOBILE: SOBRE A EMPRESA ═══════════ */}
+      <section className="lg:hidden px-4 mt-6 mb-6">
+        <div className="container max-w-7xl mx-auto">
+          <div className="bg-card border border-border rounded-2xl p-5">
+            <h3 className="font-display font-bold text-base text-foreground mb-3 flex items-center gap-2">
+              <BadgeCheck size={16} className="text-primary" /> Sobre a empresa
+            </h3>
+            {dbProfile?.bio && (
+              <p className="text-sm text-foreground mb-3 whitespace-pre-line">{dbProfile.bio}</p>
+            )}
+            <div className="space-y-3 text-xs text-muted-foreground">
+              <div className="flex items-center gap-2">
+                <Store size={13} className="flex-shrink-0" />
+                <span>
+                  {dbProfile?.seller_category
+                    ? ({ imobiliaria: "Imobiliária", corretor: "Corretor(a) de Imóveis", proprietario: "Proprietário", loja_veiculos: "Loja de Veículos", autonomo: "Vendedor Autônomo", concessionaria: "Concessionária" } as Record<string, string>)[dbProfile.seller_category] || (isProperty ? "Especialista em imóveis" : "Especialista em veículos")
+                    : isProperty ? "Especialista em imóveis" : "Especialista em veículos"}
+                </span>
+              </div>
+              {dbProfile?.seller_category === "corretor" && dbProfile?.creci && (
+                <div className="flex items-center gap-2">
+                  <Shield size={13} className="flex-shrink-0 text-primary" />
+                  <span className="font-semibold text-primary">CRECI - {dbProfile.creci}</span>
+                </div>
+              )}
+              <div className="flex items-center gap-2">
+                <Zap size={13} className="flex-shrink-0" />
+                <span>Contato direto via WhatsApp</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Shield size={13} className="flex-shrink-0" />
+                <span>{isPaid ? "Vendedor verificado e premium" : "Vendedor ativo na plataforma"}</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Clock size={13} className="flex-shrink-0" />
+                <span>Atendimento em horário comercial</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ═══════════ LOCATION ═══════════ */}
       {company.address && (!isDbProfile || (company as any).show_location) && (
         <section className="container max-w-7xl mx-auto px-4 pb-10">
