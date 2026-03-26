@@ -17,6 +17,7 @@ export default function VehiclesPage() {
   const [filterCity, setFilterCity] = useState(cidade ? cidade.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()) : "");
   const [filterBrand, setFilterBrand] = useState("");
   const [filterModel, setFilterModel] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
   const itemsSectionRef = useRef<HTMLDivElement>(null);
 
   const { sellers: realSellers, items: realItems } = useRealListings("automoveis");
@@ -216,7 +217,7 @@ export default function VehiclesPage() {
                 className="flex-shrink-0 w-[140px] md:w-auto snap-start"
               >
                 <button
-                  onClick={() => { setActiveCategory(isActive ? null : cat.slug); if (!isActive) scrollToItems(); }}
+                  onClick={() => { setActiveCategory(isActive ? null : cat.slug); setCurrentPage(1); if (!isActive) scrollToItems(); }}
                   className={`w-full group rounded-2xl transition-all ${isActive ? "scale-95 brightness-110" : ""}`}
                 >
                   <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg">
@@ -289,7 +290,7 @@ export default function VehiclesPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
             <select
               value={filterCity}
-              onChange={(e) => { const v = e.target.value; setFilterCity(v); navigate(v ? `/veiculos/${v.toLowerCase().replace(/\s+/g, "-")}` : "/veiculos", { replace: true }); }}
+              onChange={(e) => { const v = e.target.value; setFilterCity(v); setCurrentPage(1); navigate(v ? `/veiculos/${v.toLowerCase().replace(/\s+/g, "-")}` : "/veiculos", { replace: true }); }}
               className="w-full px-4 py-2.5 rounded-xl bg-secondary text-foreground text-base focus:outline-none focus:ring-2 focus:ring-primary/50"
             >
               <option value="">Todas as cidades</option>
@@ -297,7 +298,7 @@ export default function VehiclesPage() {
             </select>
             <select
               value={filterBrand}
-              onChange={(e) => setFilterBrand(e.target.value)}
+              onChange={(e) => { setFilterBrand(e.target.value); setCurrentPage(1); }}
               className="w-full px-4 py-2.5 rounded-xl bg-secondary text-foreground text-base focus:outline-none focus:ring-2 focus:ring-primary/50"
             >
               <option value="">Todas as marcas</option>
@@ -306,12 +307,12 @@ export default function VehiclesPage() {
             <input
               type="text"
               value={filterModel}
-              onChange={(e) => setFilterModel(e.target.value)}
+              onChange={(e) => { setFilterModel(e.target.value); setCurrentPage(1); }}
               placeholder="Buscar modelo..."
               className="w-full px-4 py-2.5 rounded-xl bg-secondary text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
             />
             <button
-              onClick={() => { setFilterCity(""); setFilterBrand(""); setFilterModel(""); setActiveCategory(null); }}
+              onClick={() => { setFilterCity(""); setFilterBrand(""); setFilterModel(""); setActiveCategory(null); setCurrentPage(1); }}
               className="w-full px-4 py-2.5 rounded-xl bg-gradient-to-r from-[#002F6C] to-[#00AEEF] text-white font-bold text-sm hover:opacity-90 transition-opacity shadow"
             >
               Limpar Filtros
@@ -334,7 +335,7 @@ export default function VehiclesPage() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-          {filteredProducts.map((product, i) => {
+          {filteredProducts.slice((currentPage - 1) * 50, currentPage * 50).map((product, i) => {
             const company = allSellers[product.companyId];
             return (
               <motion.div
@@ -407,6 +408,29 @@ export default function VehiclesPage() {
           <p className="text-center text-muted-foreground py-16">
             Nenhum veículo encontrado nesta categoria
           </p>
+        )}
+
+        {/* Pagination */}
+        {filteredProducts.length > 50 && (
+          <div className="flex items-center justify-center gap-2 mt-8">
+            <button
+              onClick={() => { setCurrentPage((p) => Math.max(1, p - 1)); itemsSectionRef.current?.scrollIntoView({ behavior: "smooth" }); }}
+              disabled={currentPage === 1}
+              className="px-4 py-2 rounded-xl bg-secondary text-foreground text-sm font-medium disabled:opacity-40 hover:bg-secondary/80 transition-colors"
+            >
+              Anterior
+            </button>
+            <span className="text-sm text-muted-foreground">
+              Página {currentPage} de {Math.ceil(filteredProducts.length / 50)}
+            </span>
+            <button
+              onClick={() => { setCurrentPage((p) => Math.min(Math.ceil(filteredProducts.length / 50), p + 1)); itemsSectionRef.current?.scrollIntoView({ behavior: "smooth" }); }}
+              disabled={currentPage >= Math.ceil(filteredProducts.length / 50)}
+              className="px-4 py-2 rounded-xl bg-secondary text-foreground text-sm font-medium disabled:opacity-40 hover:bg-secondary/80 transition-colors"
+            >
+              Próxima
+            </button>
+          </div>
         )}
       </section>
     </div>
