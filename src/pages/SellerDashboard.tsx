@@ -158,6 +158,10 @@ export default function SellerDashboard() {
 
   const submitAdRequest = async () => {
     if (!user || !profile || adSubtotal <= 0) return;
+    if (adBudget < 40) {
+      toast({ title: "Valor mínimo é R$ 40,00/dia", variant: "destructive" });
+      return;
+    }
     setAdSubmitting(true);
     const { error } = await supabase.from("ad_requests").insert({
       seller_id: profile.id,
@@ -666,8 +670,8 @@ export default function SellerDashboard() {
                     <div className="grid grid-cols-2 gap-3">
                       <div>
                         <label className="text-sm font-semibold text-foreground mb-1.5 block">Valor diário (R$)</label>
-                        <input type="number" min="1" value={adDailyBudget} onChange={(e) => setAdDailyBudget(e.target.value)}
-                          placeholder="Ex: 50" className="w-full px-4 py-3 rounded-xl border border-input bg-background text-foreground text-sm focus:ring-2 focus:ring-ring focus:outline-none" />
+                        <input type="number" min="40" value={adDailyBudget} onChange={(e) => setAdDailyBudget(e.target.value)}
+                          placeholder="Mínimo R$ 40" className="w-full px-4 py-3 rounded-xl border border-input bg-background text-foreground text-sm focus:ring-2 focus:ring-ring focus:outline-none" />
                       </div>
                       <div>
                         <label className="text-sm font-semibold text-foreground mb-1.5 block">Durante quantos dias?</label>
