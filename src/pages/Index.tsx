@@ -220,7 +220,7 @@ export default function Index() {
         <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-3">
           {[
             { icon: Shield, title: "Contato Direto", desc: "Fale via WhatsApp" },
-            { icon: MapPin, title: "Colatina e Região", desc: "Foco na sua cidade" },
+            { icon: MapPin, title: `${displayCity} e Região`, desc: "Foco na sua cidade" },
             { icon: Star, title: "Vendedores Verificados", desc: "Lojas confiáveis" },
             { icon: Zap, title: "Anuncie Grátis", desc: "Cadastre seus itens" },
           ].map((item, i) => (
