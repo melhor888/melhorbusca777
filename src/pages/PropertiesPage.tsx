@@ -21,6 +21,13 @@ export default function PropertiesPage() {
   const [filterType, setFilterType] = useState("");
   const itemsSectionRef = useRef<HTMLDivElement>(null);
 
+  // Sync filter when detected city loads async
+  useEffect(() => {
+    if (!cidade && detectedCity && !filterCity) {
+      setFilterCity(detectedCity);
+    }
+  }, [detectedCity]);
+
   const { sellers: realSellers, items: realItems } = useRealListings("imoveis");
 
   const scrollToItems = () => {
