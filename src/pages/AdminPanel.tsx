@@ -47,6 +47,9 @@ export default function AdminPanel() {
   const [tab, setTab] = useState<"sellers" | "billing" | "domains" | "ads">("sellers");
   const [adRequests, setAdRequests] = useState<any[]>([]);
   const [adsLoading, setAdsLoading] = useState(false);
+  const [rejectDialogOpen, setRejectDialogOpen] = useState(false);
+  const [rejectAdId, setRejectAdId] = useState<string | null>(null);
+  const [rejectReason, setRejectReason] = useState("");
 
   // Domain management state
   const [domains, setDomains] = useState<StoreDomain[]>([]);
@@ -75,14 +78,33 @@ export default function AdminPanel() {
     setAdsLoading(false);
   };
 
-  const updateAdStatus = async (id: string, status: string) => {
-    const { error } = await supabase.from("ad_requests").update({ status, updated_at: new Date().toISOString() }).eq("id", id);
+  const updateAdStatus = async (id: string, status: string, reason?: string) => {
+    const updateData: any = { status, updated_at: new Date().toISOString() };
+    if (reason) updateData.details = reason;
+    const { error } = await supabase.from("ad_requests").update(updateData).eq("id", id);
     if (error) {
       toast({ title: "Erro ao atualizar", variant: "destructive" });
     } else {
       toast({ title: `Solicitação ${status}` });
       fetchAdRequests();
     }
+  };
+
+  const handleRejectClick = (adId: string) => {
+    setRejectAdId(adId);
+    setRejectReason("");
+    setRejectDialogOpen(true);
+  };
+
+  const confirmReject = async () => {
+    if (!rejectAdId || !rejectReason.trim()) {
+      toast({ title: "Informe o motivo da rejeição", variant: "destructive" });
+      return;
+    }
+    await updateAdStatus(rejectAdId, "rejeitado", rejectReason.trim());
+    setRejectDialogOpen(false);
+    setRejectAdId(null);
+    setRejectReason("");
   };
 
   const deleteAdRequest = async (id: string) => {
@@ -595,7 +617,8 @@ export default function AdminPanel() {
                               
                               const msgAprovado = `Olá ${nome}! 🎉 É com grande alegria que viemos lhe informar que a sua solicitação de anúncio foi *APROVADA*! ✅\n\n📋 *Detalhes do seu pedido:*\n🏪 Loja: ${loja}\n📍 Cidade: ${cidade}\n🏷️ Nicho: ${nicho}\n📣 Plataforma: ${plataforma}\n💰 Valor total: ${total}\n\nEntraremos em contato em breve para dar início à sua campanha. Obrigado por confiar na Manufature! 🚀`;
                               const msgPendente = `Olá ${nome}! 👋 Recebemos a sua solicitação de anúncio.\n\n📋 *Detalhes:*\n🏪 Loja: ${loja}\n📍 Cidade: ${cidade}\n🏷️ Nicho: ${nicho}\n📣 Plataforma: ${plataforma}\n💰 Valor total: ${total}\n\nEstamos analisando o seu pedido e em breve retornaremos com uma resposta. 😊`;
-                              const msgRejeitado = `Olá ${nome}! 👋 Infelizmente sua solicitação de anúncio não foi aprovada desta vez.\n\n📋 *Detalhes:*\n🏪 Loja: ${loja}\n📣 Plataforma: ${plataforma}\n💰 Valor: ${total}\n\nEntre em contato conosco para mais informações. Estamos à disposição! 🤝`;
+                              const motivoRejeicao = ad.details ? `\n\n📝 *Motivo:* ${ad.details}` : "";
+                              const msgRejeitado = `Olá ${nome}! 👋 Infelizmente sua solicitação de anúncio não foi aprovada desta vez.\n\n📋 *Detalhes:*\n🏪 Loja: ${loja}\n📣 Plataforma: ${plataforma}\n💰 Valor: ${total}${motivoRejeicao}\n\nEntre em contato conosco para mais informações. Estamos à disposição! 🤝`;
                               
                               const msg = ad.status === "aprovado" ? msgAprovado : ad.status === "rejeitado" ? msgRejeitado : msgPendente;
                               const phone = seller.phone.replace(/\D/g, '');
@@ -685,7 +708,7 @@ export default function AdminPanel() {
                               className="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-green-500/10 text-green-600 text-xs font-semibold hover:bg-green-500/20">
                               <Check size={12} /> Aprovar
                             </button>
-                            <button onClick={() => updateAdStatus(ad.id, "rejeitado")}
+                            <button onClick={() => handleRejectClick(ad.id)}
                               className="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-destructive/10 text-destructive text-xs font-semibold hover:bg-destructive/20">
                               <X size={12} /> Rejeitar
                             </button>
@@ -705,6 +728,37 @@ export default function AdminPanel() {
         )}
         </main>
       </div>
+
+      {/* Reject Reason Dialog */}
+      {rejectDialogOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
+          <div className="bg-card border border-border rounded-2xl p-6 w-full max-w-md mx-4 shadow-xl">
+            <h3 className="font-display font-bold text-lg text-foreground mb-2">Motivo da Rejeição</h3>
+            <p className="text-sm text-muted-foreground mb-4">Informe o motivo para que o solicitante possa visualizar.</p>
+            <textarea
+              value={rejectReason}
+              onChange={(e) => setRejectReason(e.target.value)}
+              placeholder="Ex: Sua loja não atende aos requisitos mínimos para campanhas..."
+              className="w-full px-4 py-3 rounded-xl bg-secondary text-foreground text-sm border border-border focus:outline-none focus:ring-2 focus:ring-primary/50 resize-none h-28"
+              maxLength={500}
+            />
+            <div className="flex justify-end gap-2 mt-4">
+              <button
+                onClick={() => { setRejectDialogOpen(false); setRejectAdId(null); }}
+                className="px-4 py-2 rounded-xl text-sm font-medium text-muted-foreground hover:bg-secondary transition-colors"
+              >
+                Cancelar
+              </button>
+              <button
+                onClick={confirmReject}
+                className="px-4 py-2 rounded-xl bg-destructive text-destructive-foreground text-sm font-bold hover:opacity-90 transition-opacity"
+              >
+                Confirmar Rejeição
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
