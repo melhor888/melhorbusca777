@@ -202,23 +202,6 @@ export default function HeroBannerCarousel({
             <ChevronRight size={20} />
           </button>
 
-          {/* Dots — hidden on mobile */}
-          <div className="hidden md:flex absolute bottom-6 right-12 z-20 items-center gap-1.5">
-            {heroItems.slice(0, 10).map((_, i) => (
-              <button
-                key={i}
-                onClick={() => setActiveIndex(i)}
-                className={`h-1.5 rounded-full transition-all ${
-                  activeIndex === i
-                    ? "w-6 bg-white"
-                    : "w-1.5 bg-white/40 hover:bg-white/60"
-                }`}
-              />
-            ))}
-            {heroItems.length > 10 && (
-              <span className="text-white/50 text-[10px] ml-1">+{heroItems.length - 10}</span>
-            )}
-          </div>
         </>
       )}
     </div>
