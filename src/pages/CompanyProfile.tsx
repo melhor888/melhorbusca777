@@ -843,19 +843,19 @@ export default function CompanyProfile() {
                             </p>
                           )}
 
-                          <div className="flex items-center gap-3 mt-6 flex-wrap">
+                          <div className="flex items-center gap-2 mt-4 flex-wrap">
                             <Link
                               to={`/${seg}/produto/${lbProduct.id}`}
-                              className="inline-flex items-center gap-1.5 px-4 py-2.5 md:px-6 md:py-3.5 rounded-xl bg-white text-black font-bold text-xs md:text-sm hover:bg-white/90 transition-all shadow-lg hover:scale-105"
+                              className="inline-flex items-center gap-1.5 px-3 py-2 md:px-6 md:py-3.5 rounded-lg md:rounded-xl bg-white text-black font-bold text-[11px] md:text-sm hover:bg-white/90 transition-all shadow-lg hover:scale-105"
                             >
-                              <Eye size={14} /> Ver Produto
+                              <Eye size={12} className="md:w-4 md:h-4" /> Ver Produto
                             </Link>
                             {company.whatsapp && (
                               <button
                                 onClick={() => handleWhatsApp(lbProduct.title, lbProduct.id)}
-                                className="inline-flex items-center gap-1.5 px-4 py-2.5 md:px-6 md:py-3.5 rounded-xl bg-[#25d366] text-white font-bold text-xs md:text-sm hover:bg-[#22c55e] transition-all shadow-lg hover:scale-105"
+                                className="inline-flex items-center gap-1.5 px-3 py-2 md:px-6 md:py-3.5 rounded-lg md:rounded-xl bg-[#25d366] text-white font-bold text-[11px] md:text-sm hover:bg-[#22c55e] transition-all shadow-lg hover:scale-105"
                               >
-                                <MessageCircle size={14} /> WhatsApp
+                                <MessageCircle size={12} className="md:w-4 md:h-4" /> WhatsApp
                               </button>
                             )}
                           </div>
