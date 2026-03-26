@@ -56,6 +56,10 @@ export default function SellerDashboard() {
     if (user) fetchItems();
   }, [user]);
 
+  useEffect(() => {
+    if (user) fetchAdHistory();
+  }, [user]);
+
   const fetchItems = async () => {
     const { data, error } = await supabase
       .from("seller_items")
