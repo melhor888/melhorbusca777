@@ -15,30 +15,50 @@ export default function VehiclesPage() {
   const [filterModel, setFilterModel] = useState("");
   const itemsSectionRef = useRef<HTMLDivElement>(null);
 
+  const { sellers: realSellers, items: realItems } = useRealListings("automoveis");
+
   const scrollToItems = () => {
     setTimeout(() => {
       itemsSectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
     }, 100);
   };
 
-  // Map company category to its products
-  const companyById = useMemo(() => {
-    const map: Record<string, Company> = {};
-    vehicleCompanies.forEach((c) => (map[c.id] = c));
+  // Build unified seller map
+  const allSellers = useMemo(() => {
+    const map: Record<string, { id: string; name: string; logo: string; address: string; isReal: boolean }> = {};
+    vehicleCompanies.forEach((c) => { map[c.id] = { id: c.id, name: c.name, logo: c.logo, address: c.address, isReal: false }; });
+    realSellers.forEach((s) => { map[s.id] = { id: s.id, name: s.name, logo: s.logo, address: s.address, isReal: true }; });
     return map;
-  }, []);
+  }, [realSellers]);
 
   const vehicleProducts = useMemo(() => {
-    return allProducts.filter((p) => p.type === "veiculo");
-  }, []);
+    const staticProds = allProducts.filter((p) => p.type === "veiculo");
+    const realProds: Product[] = realItems.map((item) => ({
+      id: item.id,
+      companyId: item.sellerId,
+      title: item.title,
+      price: item.price,
+      image: item.image,
+      images: item.images,
+      tag: item.tags?.[0] ? getTagLabel(item.tags[0]) : undefined,
+      description: item.description || "",
+      type: "veiculo" as const,
+      specs: {
+        ...(item.brand ? { Marca: item.brand } : {}),
+        ...(item.model ? { Modelo: item.model } : {}),
+      },
+      location: item.city || "",
+    }));
+    return [...realProds, ...staticProds];
+  }, [realItems]);
 
   // Random hero product
   const heroProduct = useMemo(() => {
-    const prods = allProducts.filter((p) => p.type === "veiculo");
+    const prods = vehicleProducts.length ? vehicleProducts : allProducts.filter((p) => p.type === "veiculo");
     return prods[Math.floor(Math.random() * prods.length)];
-  }, []);
+  }, [vehicleProducts]);
 
-  const heroCompany = heroProduct ? companyById[heroProduct.companyId] : undefined;
+  const heroCompany = heroProduct ? allSellers[heroProduct.companyId] : undefined;
 
   // Extract unique brands from specs
   const availableBrands = useMemo(() => {
@@ -53,8 +73,14 @@ export default function VehiclesPage() {
       const city = c.address.split(" - ").pop()?.trim();
       if (city) cities.add(city);
     });
+    realSellers.forEach((s) => {
+      if (s.address) {
+        const parts = s.address.split(",").map((p) => p.trim());
+        parts.forEach((p) => { if (p && p.length > 1) cities.add(p); });
+      }
+    });
     return Array.from(cities).sort();
-  }, []);
+  }, [realSellers]);
 
   const filteredProducts = useMemo(() => {
     let list = !activeCategory
