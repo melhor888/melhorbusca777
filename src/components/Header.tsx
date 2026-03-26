@@ -12,18 +12,21 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-const navLinks = [
-  { to: "/", label: "Início" },
-  { to: "/imoveis", label: "Imóveis", icon: Building2 },
-  { to: "/veiculos", label: "Veículos", icon: Car },
-  { to: "/anunciar", label: "Anunciar", icon: Plus },
-];
-
 export default function Header() {
   const location = useLocation();
   const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
   const { detectedCity, setCity } = useCityDetection();
+  const { user } = useAuth();
+
+  const navLinks = [
+    { to: "/", label: "Início" },
+    { to: "/imoveis", label: "Imóveis", icon: Building2 },
+    { to: "/veiculos", label: "Veículos", icon: Car },
+    ...(user
+      ? [{ to: "/painel", label: "Painel", icon: LayoutDashboard, highlight: true }]
+      : [{ to: "/anunciar", label: "Anunciar", icon: Plus }]),
+  ];
 
   const handleCitySelect = (city: string) => {
     setCity(city);
