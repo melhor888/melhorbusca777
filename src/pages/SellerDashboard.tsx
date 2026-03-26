@@ -604,18 +604,18 @@ export default function SellerDashboard() {
                       <BarChart3 size={20} className="text-primary" />
                       <h2 className="font-display font-bold text-lg text-foreground">Estatísticas</h2>
                     </div>
-                    <div className="flex items-center gap-4">
-                      <div className="flex items-center gap-3 text-sm">
+                    <div className="flex flex-col sm:flex-row sm:items-center gap-3">
+                      <div className="flex items-center gap-3 text-sm flex-wrap">
                         <span className="flex items-center gap-1.5">
                           <Eye size={14} className="text-primary" />
-                          <span className="text-muted-foreground">{analyticsTotals.views} visitas</span>
+                          <span className="text-muted-foreground text-xs">{analyticsTotals.views} visitas</span>
                         </span>
                         <span className="flex items-center gap-1.5">
                           <MessageCircle size={14} className="text-green-500" />
-                          <span className="text-muted-foreground">{analyticsTotals.whatsapp_clicks} cliques WhatsApp</span>
+                          <span className="text-muted-foreground text-xs">{analyticsTotals.whatsapp_clicks} cliques WhatsApp</span>
                         </span>
                       </div>
-                      <div className="flex rounded-lg border border-input overflow-hidden">
+                      <div className="flex rounded-lg border border-input overflow-hidden self-start">
                         <button onClick={() => setChartView("diario")}
                           className={`px-3 py-1.5 text-xs font-medium transition-colors ${chartView === "diario" ? "bg-primary text-primary-foreground" : "bg-background text-muted-foreground hover:text-foreground"}`}>
                           Diário
