@@ -168,7 +168,7 @@ export default function Index() {
       <section className="px-4 md:px-8 mt-6">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4">
           {/* Imóveis Banner */}
-          <Link to="/imoveis" className="group relative overflow-hidden rounded-2xl h-[180px] md:h-[200px]">
+          <Link to={citySlug ? `/${citySlug}/imoveis` : "/imoveis"} className="group relative overflow-hidden rounded-2xl h-[180px] md:h-[200px]">
             <img src={heroImoveis} alt="Imóveis" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" width={700} height={200} />
             <div className="absolute inset-0 bg-gradient-to-r from-[hsl(var(--primary)/0.9)] to-transparent" />
             <div className="absolute inset-0 flex flex-col justify-center px-6 md:px-8">
