@@ -221,7 +221,7 @@ export default function ProductDetail() {
                   {Object.entries(displaySpecs).map(([key, value], i) => (
                     <div key={key} className={`flex items-center justify-between px-5 py-3.5 ${i % 2 === 0 ? "bg-card" : "bg-muted/50"} ${i < Object.entries(displaySpecs).length - 1 ? "border-b border-border" : ""}`}>
                       <span className="text-sm text-muted-foreground font-medium">{key}</span>
-                      <span className="text-sm text-foreground font-semibold">{value}</span>
+                      <span className="text-sm text-foreground font-semibold">{String(value)}</span>
                     </div>
                   ))}
                 </div>
