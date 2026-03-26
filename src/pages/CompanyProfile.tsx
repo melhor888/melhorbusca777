@@ -699,27 +699,27 @@ export default function CompanyProfile() {
                     )}
 
                     {/* Buttons */}
-                    <div className="flex items-center gap-3 mt-5 flex-wrap">
+                    <div className="flex items-center gap-2 mt-4 flex-wrap">
                       <Link
                         to={`/${seg}/produto/${current?.id}`}
-                        className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white text-black font-bold text-sm hover:bg-white/90 transition-all shadow-lg hover:scale-105 active:scale-95"
+                        className="inline-flex items-center gap-1.5 px-3 py-2 md:px-5 md:py-3 rounded-lg md:rounded-xl bg-white text-black font-bold text-[11px] md:text-sm hover:bg-white/90 transition-all shadow-lg hover:scale-105 active:scale-95"
                         onClick={(e) => e.stopPropagation()}
                       >
-                        <Eye size={16} /> Ver Produto
+                        <Eye size={12} className="md:w-4 md:h-4" /> Ver Produto
                       </Link>
                       {company.whatsapp && (
                         <button
                           onClick={(e) => { e.stopPropagation(); handleWhatsApp(current?.title, current?.id); }}
-                          className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#25d366] text-white font-bold text-sm hover:bg-[#22c55e] transition-all shadow-lg hover:scale-105 active:scale-95"
+                          className="inline-flex items-center gap-1.5 px-3 py-2 md:px-5 md:py-3 rounded-lg md:rounded-xl bg-[#25d366] text-white font-bold text-[11px] md:text-sm hover:bg-[#22c55e] transition-all shadow-lg hover:scale-105 active:scale-95"
                         >
-                          <MessageCircle size={16} /> WhatsApp
+                          <MessageCircle size={12} className="md:w-4 md:h-4" /> WhatsApp
                         </button>
                       )}
                       <button
                         onClick={(e) => { e.stopPropagation(); setGalleryLightbox(gallerySlide); }}
-                        className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white/10 backdrop-blur text-white font-bold text-sm hover:bg-white/20 transition-all"
+                        className="inline-flex items-center gap-1.5 px-3 py-2 md:px-5 md:py-3 rounded-lg md:rounded-xl bg-white/10 backdrop-blur text-white font-bold text-[11px] md:text-sm hover:bg-white/20 transition-all"
                       >
-                        <Image size={16} /> Modo Cinema
+                        <Image size={12} className="md:w-4 md:h-4" /> Modo Cinema
                       </button>
                     </div>
                   </motion.div>
