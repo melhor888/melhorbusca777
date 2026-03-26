@@ -37,7 +37,7 @@ export default function VehiclesPage() {
 
   const vehicleProducts = useMemo(() => {
     const staticProds = allProducts.filter((p) => p.type === "veiculo");
-    const realProds: (Product & { sellerTier?: string })[] = realItems.map((item) => ({
+    const realProds: (Product & { sellerTier?: string; realCategory?: string })[] = realItems.map((item) => ({
       id: item.id,
       companyId: item.sellerId,
       title: item.title,
@@ -53,6 +53,7 @@ export default function VehiclesPage() {
       },
       location: item.city || "",
       sellerTier: item.sellerTier || "basico",
+      realCategory: item.category,
     }));
     return [...realProds, ...staticProds];
   }, [realItems]);
@@ -97,9 +98,23 @@ export default function VehiclesPage() {
   }, [realItems]);
 
   const filteredProducts = useMemo(() => {
+    // Map category slugs to real DB categories
+    const categoryMap: Record<string, string[]> = {
+      carros: ["carro"],
+      motos: ["moto"],
+      caminhoes: ["caminhao"],
+      utilitarios: ["van", "utilitario"],
+    };
     let list = !activeCategory
       ? [...vehicleProducts]
       : vehicleProducts.filter((p) => {
+          // Match real items by their actual category
+          const realCat = (p as any).realCategory;
+          if (realCat) {
+            const matchCats = categoryMap[activeCategory] || [];
+            return matchCats.includes(realCat);
+          }
+          // Match static items by company category
           const companyIds = vehicleCompanies
             .filter((c) => c.category === activeCategory)
             .map((c) => c.id);
