@@ -35,6 +35,8 @@ export default function SellerDashboard() {
   const [statusFilter, setStatusFilter] = useState<string>("todos");
   const { subscription, currentTier, config: pkgConfig, daysUntilExpiry, isExpiringSoon, isExpired } = useSubscription(user?.id);
   const { isAdmin } = useIsAdmin(user?.id);
+  const { dailyData, weeklyData, totals: analyticsTotals, loading: analyticsLoading } = useSellerAnalytics(profile?.id);
+  const [chartView, setChartView] = useState<"diario" | "semanal">("diario");
 
   useEffect(() => {
     if (!authLoading && !user) navigate("/entrar");
