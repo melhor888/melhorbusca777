@@ -29,6 +29,11 @@ export default function PropertiesPage() {
     return allProducts.filter((p) => p.type === "imovel");
   }, []);
 
+  const featuredProducts = useMemo(() => {
+    const shuffled = [...propertyProducts].sort(() => Math.random() - 0.5);
+    return shuffled.slice(0, 7);
+  }, [propertyProducts]);
+
   // Random hero product
   const heroProduct = useMemo(() => {
     const prods = allProducts.filter((p) => p.type === "imovel");
@@ -186,8 +191,8 @@ export default function PropertiesPage() {
       {/* Featured Products Carousel */}
       <section className="pt-8 pb-2">
         <h3 className="font-display font-semibold text-base text-foreground mb-4 px-4 md:px-8 lg:px-12">Destaques</h3>
-        <div className="flex gap-3 overflow-x-auto scrollbar-hide pb-2 snap-x snap-mandatory px-4 md:px-8 lg:px-12">
-          {propertyProducts.slice(0, 12).map((product, i) => {
+        <div className="flex gap-3 overflow-x-auto md:overflow-visible scrollbar-hide pb-2 snap-x snap-mandatory md:snap-none px-4 md:px-8 lg:px-12 md:grid md:grid-cols-7">
+          {featuredProducts.map((product, i) => {
             const company = companyById[product.companyId];
             return (
               <motion.div
@@ -195,7 +200,7 @@ export default function PropertiesPage() {
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: i * 0.05 }}
-                className="flex-shrink-0 w-[200px] md:w-[240px] snap-start"
+                className="flex-shrink-0 w-[200px] md:w-auto snap-start"
               >
                 <Link to={`/imoveis/produto/${product.id}`} className="group block">
                   <div className="relative aspect-[3/2] rounded-2xl overflow-hidden shadow-md">
