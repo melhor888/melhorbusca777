@@ -5,7 +5,7 @@ export interface Subscription {
   id: string;
   user_id: string;
   seller_id: string;
-  tier: "start" | "basico" | "premium" | "vip" | "essencial_empresa";
+  tier: "start" | "basico" | "premium" | "vip" | "essencial_empresa" | "premium_empresa";
   max_items: number;
   started_at: string;
   expires_at: string;
@@ -94,6 +94,25 @@ export const PACKAGE_CONFIG = {
       "Suporte VIP dedicado",
     ],
   },
+  premium_empresa: {
+    name: "Premium Empresa",
+    price: 1804.99,
+    maxItems: 9999,
+    color: "from-sky-600 to-blue-800",
+    borderColor: "border-sky-500",
+    badgeColor: "bg-gradient-to-r from-sky-600 to-blue-700 text-white",
+    benefits: [
+      "Anúncios ilimitados",
+      "Selo Empresa Verificada",
+      "Destaque na homepage",
+      "Destaque no topo da listagem",
+      "Estatísticas completas",
+      "Campanha Google Ads ampliada",
+      "Banner exclusivo na homepage",
+      "Gerente de conta dedicado",
+      "Suporte VIP dedicado",
+    ],
+  },
 } as const;
 
 export function useSubscription(userId?: string) {
@@ -157,7 +176,7 @@ export function useSubscription(userId?: string) {
 }
 
 export function useSellerSubscription(sellerId?: string) {
-  const [tier, setTier] = useState<"start" | "basico" | "premium" | "vip" | "essencial_empresa">("basico");
+  const [tier, setTier] = useState<"start" | "basico" | "premium" | "vip" | "essencial_empresa" | "premium_empresa">("basico");
 
   useEffect(() => {
     if (!sellerId) return;

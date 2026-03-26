@@ -8,8 +8,8 @@ import { useSubscription, PACKAGE_CONFIG } from "@/hooks/useSubscription";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 
-const tiers = ["basico", "start", "premium", "vip", "essencial_empresa"] as const;
-const tierIcons = { basico: Zap, start: Zap, premium: Star, vip: Crown, essencial_empresa: Building };
+const tiers = ["basico", "start", "premium", "vip", "essencial_empresa", "premium_empresa"] as const;
+const tierIcons = { basico: Zap, start: Zap, premium: Star, vip: Crown, essencial_empresa: Building, premium_empresa: Building };
 
 export default function PackagesPage() {
   const { user, profile } = useAuth();
@@ -18,7 +18,7 @@ export default function PackagesPage() {
   const { toast } = useToast();
   const [selecting, setSelecting] = useState<string | null>(null);
 
-  const handleSelect = async (tier: "basico" | "start" | "premium" | "vip" | "essencial_empresa") => {
+  const handleSelect = async (tier: "basico" | "start" | "premium" | "vip" | "essencial_empresa" | "premium_empresa") => {
     if (!user || !profile) {
       navigate("/entrar");
       return;
