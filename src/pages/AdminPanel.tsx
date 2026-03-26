@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Shield, Users, Package, DollarSign, Search, Check, X, RefreshCw, ArrowLeft, Crown, Star, Zap, Globe, Plus, Trash2, ExternalLink, Copy, Megaphone, LayoutDashboard, Building2, Rocket } from "lucide-react";
+import { Shield, Users, Package, DollarSign, Search, Check, X, RefreshCw, ArrowLeft, Crown, Star, Zap, Globe, Plus, Trash2, ExternalLink, Copy, Megaphone, LayoutDashboard, Building2, Rocket, FileText } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
 import { useIsAdmin, PACKAGE_CONFIG } from "@/hooks/useSubscription";
@@ -657,6 +657,26 @@ export default function AdminPanel() {
                               className="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-primary/10 text-primary text-xs font-semibold hover:bg-primary/20">
                               <ExternalLink size={12} /> Ver Loja
                             </Link>
+                          );
+                        })()}
+                        {ad.status === "aprovado" && seller && (() => {
+                          const sitemapFormat = ad.platform === "google" ? "google" : "facebook";
+                          const sitemapUrl = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/seller-sitemap?seller_id=${seller.id}&format=${sitemapFormat}`;
+                          const label = ad.platform === "google" ? "Sitemap XML" : "Feed Facebook";
+                          return (
+                            <>
+                              <a href={sitemapUrl} target="_blank" rel="noopener noreferrer"
+                                className="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-amber-500/10 text-amber-600 text-xs font-semibold hover:bg-amber-500/20">
+                                <FileText size={12} /> {label}
+                              </a>
+                              <button onClick={() => {
+                                navigator.clipboard.writeText(sitemapUrl);
+                                toast({ title: "URL do sitemap copiada!" });
+                              }}
+                                className="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-secondary text-foreground text-xs font-semibold hover:bg-secondary/80">
+                                <Copy size={12} /> Copiar URL
+                              </button>
+                            </>
                           );
                         })()}
                         {ad.status === "pendente" && (
