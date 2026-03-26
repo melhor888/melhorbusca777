@@ -5,6 +5,7 @@ import { Building2, Home, Landmark, Store, Key, ArrowLeft, ArrowRight, Search } 
 import { propertyCompanies, propertyCategories, type Company } from "@/data/companies";
 import { allProducts, formatPrice, getTagStyle, getTagLabel, type Product } from "@/data/products";
 import { useRealListings } from "@/hooks/useRealListings";
+import PackageBadge from "@/components/PackageBadge";
 
 const iconMap: Record<string, React.ElementType> = { Key, Home, Building2, Landmark, Store };
 
@@ -33,7 +34,7 @@ export default function PropertiesPage() {
   // Merge real items into unified product format
   const propertyProducts = useMemo(() => {
     const staticProds = allProducts.filter((p) => p.type === "imovel");
-    const realProds: Product[] = realItems.map((item) => ({
+    const realProds: (Product & { sellerTier?: string })[] = realItems.map((item) => ({
       id: item.id,
       companyId: item.sellerId,
       title: item.title,
@@ -45,6 +46,7 @@ export default function PropertiesPage() {
       type: "imovel" as const,
       specs: {},
       location: item.city || "",
+      sellerTier: item.sellerTier || "basico",
     }));
     return [...realProds, ...staticProds];
   }, [realItems]);
@@ -366,7 +368,10 @@ export default function PropertiesPage() {
                 transition={{ delay: i * 0.04 }}
               >
                 <Link to={`/imoveis/produto/${product.id}`}>
-                  <div className="group bg-card border border-border rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                  <div className={`group bg-card border rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ${
+                    (product as any).sellerTier === "vip" ? "border-purple-500/50 ring-1 ring-purple-500/20" :
+                    (product as any).sellerTier === "premium" ? "border-amber-400/50 ring-1 ring-amber-400/20" : "border-border"
+                  }`}>
                     <div className="relative aspect-[4/3] overflow-hidden">
                       <img
                         src={product.image}
@@ -378,6 +383,11 @@ export default function PropertiesPage() {
                         <span className={`absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold shadow ${getTagStyle(product.tag)}`}>
                           {product.tag}
                         </span>
+                      )}
+                      {(product as any).sellerTier && (product as any).sellerTier !== "basico" && (
+                        <div className="absolute top-3 right-3">
+                          <PackageBadge tier={(product as any).sellerTier} />
+                        </div>
                       )}
                     </div>
 

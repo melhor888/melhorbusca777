@@ -21,6 +21,8 @@ import AuthPage from "@/pages/AuthPage";
 import SellerDashboard from "@/pages/SellerDashboard";
 import SellerItemForm from "@/pages/SellerItemForm";
 import SellerProfile from "@/pages/SellerProfile";
+import PackagesPage from "@/pages/PackagesPage";
+import AdminPanel from "@/pages/AdminPanel";
 import NotFound from "@/pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -53,6 +55,8 @@ const App = () => (
                   <Route path="/painel/novo" element={<SellerItemForm />} />
                   <Route path="/painel/editar/:id" element={<SellerItemForm />} />
                   <Route path="/painel/perfil" element={<SellerProfile />} />
+                  <Route path="/pacotes" element={<PackagesPage />} />
+                  <Route path="/admin" element={<AdminPanel />} />
                   <Route path="*" element={<NotFound />} />
                 </Routes>
               </main>

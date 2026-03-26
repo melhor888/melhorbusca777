@@ -2,10 +2,12 @@ import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
 import { supabase } from "@/integrations/supabase/client";
-import { Package, Eye, Plus, Settings, Edit, Trash2, Copy, ToggleLeft, ToggleRight, Search, Building2, Car, Image, LogOut, BarChart3, Star } from "lucide-react";
+import { Package, Eye, Plus, Settings, Edit, Trash2, Copy, ToggleLeft, ToggleRight, Search, Building2, Car, Image, LogOut, BarChart3, Star, Crown, Zap, AlertTriangle, Shield } from "lucide-react";
 import { getTagStyle, getTagLabel } from "@/data/products";
 import { useToast } from "@/hooks/use-toast";
 import { motion } from "framer-motion";
+import { useSubscription, useIsAdmin, PACKAGE_CONFIG } from "@/hooks/useSubscription";
+import PackageBadge from "@/components/PackageBadge";
 
 type SellerItem = {
   id: string;
@@ -29,6 +31,8 @@ export default function SellerDashboard() {
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState("");
   const [statusFilter, setStatusFilter] = useState<string>("todos");
+  const { subscription, currentTier, config: pkgConfig, daysUntilExpiry, isExpiringSoon, isExpired } = useSubscription(user?.id);
+  const { isAdmin } = useIsAdmin(user?.id);
 
   useEffect(() => {
     if (!authLoading && !user) navigate("/entrar");
@@ -178,6 +182,53 @@ export default function SellerDashboard() {
             </motion.div>
           ))}
         </div>
+
+        {/* Package Info */}
+        <div className={`mb-6 rounded-2xl border-2 p-4 ${
+          isExpired ? "border-red-500 bg-red-500/5" : isExpiringSoon ? "border-amber-400 bg-amber-400/5" : "border-border bg-card"
+        }`}>
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div className="flex items-center gap-3">
+              <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${pkgConfig.color} flex items-center justify-center`}>
+                {currentTier === "vip" ? <Crown size={20} className="text-white" /> : currentTier === "premium" ? <Star size={20} className="text-white" /> : <Zap size={20} className="text-white" />}
+              </div>
+              <div>
+                <div className="flex items-center gap-2">
+                  <span className="font-display font-bold text-foreground">Pacote {pkgConfig.name}</span>
+                  <PackageBadge tier={currentTier} />
+                </div>
+                {subscription ? (
+                  <p className="text-xs text-muted-foreground">
+                    {isExpired ? (
+                      <span className="text-red-500 font-semibold">Expirado!</span>
+                    ) : (
+                      <>Expira em {daysUntilExpiry} dias • {totalActive}/{pkgConfig.maxItems === 999 ? "∞" : pkgConfig.maxItems} anúncios</>
+                    )}
+                  </p>
+                ) : (
+                  <p className="text-xs text-muted-foreground">{totalActive}/{pkgConfig.maxItems} anúncios ativos</p>
+                )}
+              </div>
+            </div>
+            <div className="flex gap-2">
+              {(isExpired || isExpiringSoon) && (
+                <Link to="/pacotes" className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-amber-500 text-white text-xs font-bold hover:bg-amber-600 transition-colors">
+                  <AlertTriangle size={14} /> Renovar
+                </Link>
+              )}
+              <Link to="/pacotes" className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-primary/10 text-primary text-xs font-bold hover:bg-primary/20 transition-colors">
+                <Package size={14} /> {subscription ? "Alterar Plano" : "Ver Pacotes"}
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        {/* Admin Link */}
+        {isAdmin && (
+          <Link to="/admin" className="flex items-center gap-2 mb-6 px-4 py-3 rounded-2xl bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-bold text-sm hover:opacity-90 transition-opacity shadow-lg">
+            <Shield size={16} /> Painel Administrativo
+          </Link>
+        )}
 
         {/* Actions */}
         <div className="flex flex-col sm:flex-row gap-3 mb-6">

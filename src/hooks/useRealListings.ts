@@ -30,6 +30,7 @@ export interface RealItem {
   area?: number;
   year?: number;
   mileage?: number;
+  sellerTier?: "basico" | "premium" | "vip";
 }
 
 const vehicleCategories = ["carro", "moto", "caminhao", "van", "utilitario"];
@@ -65,7 +66,7 @@ export function useRealListings(segment: "imoveis" | "automoveis") {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetch = async () => {
+    const fetchData = async () => {
       // Fetch sellers of this segment
       const { data: profiles } = await supabase
         .from("profiles")
@@ -83,6 +84,14 @@ export function useRealListings(segment: "imoveis" | "automoveis") {
       }));
       setSellers(mappedSellers);
 
+      // Fetch subscriptions for tier info
+      const { data: subs } = await supabase
+        .from("seller_subscriptions")
+        .select("seller_id, tier")
+        .eq("is_active", true);
+      const tierMap = new Map<string, string>();
+      (subs || []).forEach((s: any) => tierMap.set(s.seller_id, s.tier));
+
       // Fetch active items from these sellers
       if (mappedSellers.length > 0) {
         const sellerIds = mappedSellers.map((s) => s.id);
@@ -93,13 +102,22 @@ export function useRealListings(segment: "imoveis" | "automoveis") {
           .eq("status", "ativo")
           .order("created_at", { ascending: false });
 
-        setItems((rawItems || []).map(mapItem));
+        const mapped = (rawItems || []).map((item: any) => ({
+          ...mapItem(item),
+          sellerTier: (tierMap.get(item.seller_id) as any) || "basico",
+        }));
+
+        // Sort: VIP first, then Premium, then Basico
+        const tierOrder = { vip: 0, premium: 1, basico: 2 };
+        mapped.sort((a: any, b: any) => (tierOrder[a.sellerTier as keyof typeof tierOrder] ?? 2) - (tierOrder[b.sellerTier as keyof typeof tierOrder] ?? 2));
+
+        setItems(mapped);
       }
 
       setLoading(false);
     };
 
-    fetch();
+    fetchData();
   }, [segment]);
 
   return { sellers, items, loading };
