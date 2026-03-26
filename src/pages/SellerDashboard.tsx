@@ -937,102 +937,100 @@ export default function SellerDashboard() {
         </div>
       </nav>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Menu Popup */}
       {mobileMenuOpen && (
-        <div className="lg:hidden fixed inset-0 z-40 bg-background/95 backdrop-blur-sm animate-fade-in overflow-y-auto" style={{ paddingBottom: "5rem" }}>
-          <div className="pt-20 px-4 pb-4 space-y-6">
-            {/* Painel items */}
-            <div>
-              <p className="text-xs font-bold text-muted-foreground uppercase tracking-wider mb-2 px-2">Painel</p>
-              <div className="space-y-1">
-                {sidebarNav.map((nav) => (
-                  <button
-                    key={nav.id}
-                    onClick={() => { handleTabClick(nav.id); setMobileMenuOpen(false); }}
-                    className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all ${
-                      nav.locked
-                        ? "text-muted-foreground/50"
-                        : activeTab === nav.id
-                          ? "bg-primary text-primary-foreground"
-                          : "text-foreground hover:bg-secondary"
-                    }`}
-                  >
-                    {nav.locked ? <Lock size={18} /> : <nav.icon size={18} />}
-                    {nav.label}
-                  </button>
-                ))}
-                <Link to="/painel/novo" onClick={() => setMobileMenuOpen(false)}
-                  className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-foreground hover:bg-secondary transition-all">
-                  <Plus size={18} /> Novo Anúncio
-                </Link>
-                {profile?.id && (
-                  <Link to={`/${profile.seller_type === "automoveis" ? "veiculos" : "imoveis"}/empresa/${profile.id}`} onClick={() => setMobileMenuOpen(false)}
-                    className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-foreground hover:bg-secondary transition-all">
-                    <Eye size={18} /> Ver Minha Loja
+        <>
+          <div className="lg:hidden fixed inset-0 z-40 bg-black/40" onClick={() => setMobileMenuOpen(false)} />
+          <div className="lg:hidden fixed bottom-16 left-2 right-2 z-50 bg-card rounded-2xl border border-border shadow-2xl animate-fade-in overflow-hidden safe-area-bottom max-h-[70vh] overflow-y-auto">
+            <div className="p-3 space-y-3">
+              {/* Remaining dashboard tabs */}
+              <div>
+                <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider mb-1.5 px-2">Painel</p>
+                <div className="space-y-0.5">
+                  {sidebarNav.slice(3).map((nav) => (
+                    <button
+                      key={nav.id}
+                      onClick={() => { handleTabClick(nav.id); setMobileMenuOpen(false); }}
+                      className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all ${
+                        nav.locked
+                          ? "text-muted-foreground/50"
+                          : activeTab === nav.id
+                            ? "bg-primary text-primary-foreground"
+                            : "text-foreground hover:bg-secondary"
+                      }`}
+                    >
+                      {nav.locked ? <Lock size={16} /> : <nav.icon size={16} />}
+                      {nav.label}
+                    </button>
+                  ))}
+                  <Link to="/painel/novo" onClick={() => setMobileMenuOpen(false)}
+                    className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-foreground hover:bg-secondary transition-all">
+                    <Plus size={16} /> Novo Anúncio
                   </Link>
-                )}
-                <Link to="/painel/perfil" onClick={() => setMobileMenuOpen(false)}
-                  className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-foreground hover:bg-secondary transition-all">
-                  <UserCircle size={18} /> Meu Perfil
-                </Link>
-                <Link to="/pacotes" onClick={() => setMobileMenuOpen(false)}
-                  className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-foreground hover:bg-secondary transition-all">
-                  <Package size={18} /> Pacotes
-                </Link>
-                {isAdmin && (
-                  <Link to="/admin" onClick={() => setMobileMenuOpen(false)}
-                    className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-purple-500 hover:bg-purple-500/10 transition-all">
-                    <Shield size={18} /> Painel Admin
+                  {profile?.id && (
+                    <Link to={`/${profile.seller_type === "automoveis" ? "veiculos" : "imoveis"}/empresa/${profile.id}`} onClick={() => setMobileMenuOpen(false)}
+                      className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-foreground hover:bg-secondary transition-all">
+                      <Eye size={16} /> Ver Minha Loja
+                    </Link>
+                  )}
+                  <Link to="/painel/perfil" onClick={() => setMobileMenuOpen(false)}
+                    className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-foreground hover:bg-secondary transition-all">
+                    <UserCircle size={16} /> Meu Perfil
                   </Link>
-                )}
-              </div>
-            </div>
-
-            {/* Site categories */}
-            <div>
-              <p className="text-xs font-bold text-muted-foreground uppercase tracking-wider mb-2 px-2">Navegar</p>
-              <div className="space-y-1">
-                <Link to="/" onClick={() => setMobileMenuOpen(false)}
-                  className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-foreground hover:bg-secondary transition-all">
-                  <Home size={18} /> Início
-                </Link>
-                <Link to="/imoveis" onClick={() => setMobileMenuOpen(false)}
-                  className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-foreground hover:bg-secondary transition-all">
-                  <Building2 size={18} /> Imóveis
-                </Link>
-                <Link to="/veiculos" onClick={() => setMobileMenuOpen(false)}
-                  className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-foreground hover:bg-secondary transition-all">
-                  <Car size={18} /> Veículos
-                </Link>
-                <Link to="/buscar" onClick={() => setMobileMenuOpen(false)}
-                  className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-foreground hover:bg-secondary transition-all">
-                  <Search size={18} /> Buscar
-                </Link>
-              </div>
-            </div>
-
-            {/* Gerente Card */}
-            <div className="bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl p-4">
-              <div className="flex items-center gap-3 mb-3">
-                <img src={gabrielImg} alt="Gabriel" className="w-10 h-10 rounded-full object-cover ring-2 ring-primary/30" width={40} height={40} />
-                <div>
-                  <p className="text-xs font-bold text-foreground">Gabriel</p>
-                  <p className="text-[10px] text-muted-foreground">Seu Gerente de Conta</p>
+                  <Link to="/pacotes" onClick={() => setMobileMenuOpen(false)}
+                    className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-foreground hover:bg-secondary transition-all">
+                    <Package size={16} /> Pacotes
+                  </Link>
+                  {isAdmin && (
+                    <Link to="/admin" onClick={() => setMobileMenuOpen(false)}
+                      className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-purple-500 hover:bg-purple-500/10 transition-all">
+                      <Shield size={16} /> Painel Admin
+                    </Link>
+                  )}
                 </div>
               </div>
-              <a href="https://wa.me/5527995055993?text=Olá%20Gabriel!%20Preciso%20de%20ajuda%20com%20minha%20loja." target="_blank" rel="noopener noreferrer"
-                className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-green-500 text-white text-xs font-bold hover:bg-green-600 transition-colors">
-                <Headphones size={14} /> Falar com seu Gerente
-              </a>
-            </div>
 
-            {/* Logout */}
-            <button onClick={() => { signOut(); navigate("/"); setMobileMenuOpen(false); }}
-              className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-destructive hover:bg-destructive/10 transition-all">
-              <LogOut size={18} /> Sair
-            </button>
+              <div className="border-t border-border" />
+
+              {/* Site categories */}
+              <div>
+                <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider mb-1.5 px-2">Navegar</p>
+                <div className="space-y-0.5">
+                  <Link to="/" onClick={() => setMobileMenuOpen(false)}
+                    className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-foreground hover:bg-secondary transition-all">
+                    <Home size={16} /> Início
+                  </Link>
+                  <Link to="/imoveis" onClick={() => setMobileMenuOpen(false)}
+                    className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-foreground hover:bg-secondary transition-all">
+                    <Building2 size={16} /> Imóveis
+                  </Link>
+                  <Link to="/veiculos" onClick={() => setMobileMenuOpen(false)}
+                    className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-foreground hover:bg-secondary transition-all">
+                    <Car size={16} /> Veículos
+                  </Link>
+                  <Link to="/buscar" onClick={() => setMobileMenuOpen(false)}
+                    className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-foreground hover:bg-secondary transition-all">
+                    <Search size={16} /> Buscar
+                  </Link>
+                </div>
+              </div>
+
+              <div className="border-t border-border" />
+
+              {/* Gerente + Logout */}
+              <div className="flex items-center gap-2">
+                <a href="https://wa.me/5527995055993?text=Olá%20Gabriel!%20Preciso%20de%20ajuda%20com%20minha%20loja." target="_blank" rel="noopener noreferrer"
+                  className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl bg-green-500 text-white text-xs font-bold hover:bg-green-600 transition-colors">
+                  <Headphones size={14} /> Falar com Gerente
+                </a>
+                <button onClick={() => { signOut(); navigate("/"); setMobileMenuOpen(false); }}
+                  className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-medium text-destructive hover:bg-destructive/10 transition-all">
+                  <LogOut size={14} /> Sair
+                </button>
+              </div>
+            </div>
           </div>
-        </div>
+        </>
       )}
 
       {/* Spacer for bottom nav on mobile */}
