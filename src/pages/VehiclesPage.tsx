@@ -5,6 +5,7 @@ import { Car, Bike, Truck, Cog, ArrowLeft, ArrowRight, Search } from "lucide-rea
 import { vehicleCompanies, vehicleCategories, type Company } from "@/data/companies";
 import { allProducts, formatPrice, getTagStyle, getTagLabel, type Product } from "@/data/products";
 import { useRealListings } from "@/hooks/useRealListings";
+import PackageBadge from "@/components/PackageBadge";
 
 const iconMap: Record<string, React.ElementType> = { Car, Bike, Truck, Cog };
 
