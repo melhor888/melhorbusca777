@@ -5,7 +5,7 @@ export interface Subscription {
   id: string;
   user_id: string;
   seller_id: string;
-  tier: "start" | "basico" | "premium" | "vip";
+  tier: "start" | "basico" | "premium" | "vip" | "essencial_empresa";
   max_items: number;
   started_at: string;
   expires_at: string;
@@ -74,6 +74,24 @@ export const PACKAGE_CONFIG = {
       "Estatísticas completas",
       "Suporte VIP dedicado",
       "Anúncios via Google Ads",
+    ],
+  },
+  essencial_empresa: {
+    name: "Essencial Empresa",
+    price: 968.99,
+    maxItems: 9999,
+    color: "from-rose-600 to-red-700",
+    borderColor: "border-rose-500",
+    badgeColor: "bg-gradient-to-r from-rose-600 to-red-600 text-white",
+    benefits: [
+      "Anúncios ilimitados",
+      "Selo Empresa Verificada",
+      "Destaque na homepage",
+      "Destaque no topo da listagem",
+      "Estatísticas completas",
+      "Campanha dedicada de Google Ads",
+      "Gerente de conta dedicado",
+      "Suporte VIP dedicado",
     ],
   },
 } as const;
