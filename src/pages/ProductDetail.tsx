@@ -271,8 +271,8 @@ export default function ProductDetail() {
               )}
 
               {company.whatsapp && (
-                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl bg-gradient-to-r from-[#25d366] to-[#128c7e] text-white font-bold text-sm hover:opacity-90 transition-opacity shadow-lg">
-                  <MessageCircle size={18} /> Chamar no WhatsApp
+                <a href={whatsappUrl} onClick={handleWhatsAppClick} target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl bg-gradient-to-r from-[#25d366] to-[#128c7e] text-white font-bold text-sm hover:opacity-90 transition-opacity shadow-lg">
+                   <MessageCircle size={18} /> Chamar no WhatsApp
                 </a>
               )}
 
