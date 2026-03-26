@@ -169,7 +169,7 @@ export default function CompanyProfile() {
     : "from-[#FFD100] via-[#e5bc00] to-[#002F6C]";
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-muted">
       {/* Netflix Hero Banner */}
       <section className="relative h-[45vh] md:h-[55vh] overflow-hidden">
         {heroProduct && heroProduct.image ? (
