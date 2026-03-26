@@ -5,6 +5,7 @@ import { Building2, Home, Landmark, Store, Key, ArrowLeft, ArrowRight, Search } 
 import { propertyCompanies, propertyCategories, type Company } from "@/data/companies";
 import { allProducts, formatPrice, getTagStyle, getTagLabel, type Product } from "@/data/products";
 import { useRealListings } from "@/hooks/useRealListings";
+import PackageBadge from "@/components/PackageBadge";
 
 const iconMap: Record<string, React.ElementType> = { Key, Home, Building2, Landmark, Store };
 
