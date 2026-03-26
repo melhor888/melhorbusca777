@@ -14,14 +14,14 @@ function getHeroBanners(city: string, prefix: string) {
   return [
     {
       image: heroImoveis,
-      title: `Imóveis em ${city}`,
+      title: `Imóveis ${city.includes("Espírito") ? "no" : "em"} ${city}`,
       subtitle: "Encontre casas, apartamentos e terrenos com os melhores preços",
       link: imoveisLink,
       accent: "from-primary to-[hsl(212,100%,21%)]",
     },
     {
       image: heroVeiculos,
-      title: `Veículos em ${city}`,
+      title: `Veículos ${city.includes("Espírito") ? "no" : "em"} ${city}`,
       subtitle: "Carros, motos e utilitários com contato direto via WhatsApp",
       link: veiculosLink,
       accent: "from-accent to-[hsl(49,100%,42%)]",
@@ -61,7 +61,7 @@ export default function Index() {
   const { cidade } = useParams<{ cidade?: string }>();
   const navigate = useNavigate();
   const cityName = cidade ? slugToCity(cidade) : null;
-  const displayCity = cityName || "Colatina";
+  const displayCity = cityName || "Espírito Santo";
   const citySlug = cityName ? cityToSlug(cityName) : "";
   const [currentSlide, setCurrentSlide] = useState(0);
   const [searchQuery, setSearchQuery] = useState("");
@@ -89,8 +89,8 @@ export default function Index() {
   return (
     <div className="min-h-screen bg-secondary/50">
       <Helmet>
-        <title>{`Imóveis e Veículos em ${displayCity} | MelhorBusca`}</title>
-        <meta name="description" content={`Marketplace de imóveis e veículos em ${displayCity}, ES. Casas, apartamentos, carros, motos e mais com contato direto via WhatsApp.`} />
+        <title>{`Imóveis e Veículos ${displayCity.includes("Espírito") ? "no" : "em"} ${displayCity} | MelhorBusca`}</title>
+        <meta name="description" content={`Marketplace de imóveis e veículos ${displayCity.includes("Espírito") ? "no" : "em"} ${displayCity}. Casas, apartamentos, carros, motos e mais com contato direto via WhatsApp.`} />
         <link rel="canonical" href={`https://redeimoveisgb.lovable.app${cidade ? `/${cidade}` : '/'}`} />
       </Helmet>
       {/* Hero Banner Carousel — full width like ML */}
@@ -230,7 +230,7 @@ export default function Index() {
         <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-3">
           {[
             { icon: Shield, title: "Contato Direto", desc: "Fale via WhatsApp" },
-            { icon: MapPin, title: `${displayCity} e Região`, desc: "Foco na sua cidade" },
+            { icon: MapPin, title: displayCity.includes("Espírito") ? "Todo o ES" : `${displayCity} e Região`, desc: displayCity.includes("Espírito") ? "Cobertura estadual" : "Foco na sua cidade" },
             { icon: Star, title: "Vendedores Verificados", desc: "Lojas confiáveis" },
             { icon: Zap, title: "Anuncie Grátis", desc: "Cadastre seus itens" },
           ].map((item, i) => (
