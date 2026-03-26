@@ -516,29 +516,6 @@ export default function CompanyProfile() {
               </div>
             </div>
 
-            {/* Gallery Row — top products photos */}
-            {products.length >= 3 && (
-              <div className="mb-6">
-                <h3 className="font-display font-semibold text-sm text-muted-foreground mb-3">Galeria</h3>
-                <div className="grid grid-cols-4 md:grid-cols-6 gap-2">
-                  {products.filter((p: any) => p.image).slice(0, 6).map((p: any, i: number) => (
-                    <Link key={p.id} to={`/${p.type === "veiculo" ? "veiculos" : "imoveis"}/produto/${p.id}`}>
-                      <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: i * 0.05 }}
-                        className="relative aspect-square rounded-xl overflow-hidden group cursor-pointer"
-                      >
-                        <img src={p.image} alt={p.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
-                        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors flex items-center justify-center">
-                          <Eye size={20} className="text-white opacity-0 group-hover:opacity-100 transition-opacity" />
-                        </div>
-                      </motion.div>
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            )}
 
             {/* Products Header */}
             <div className="flex items-center justify-between mb-4">
