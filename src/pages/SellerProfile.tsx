@@ -27,6 +27,7 @@ export default function SellerProfile() {
     state: "ES",
     show_location: true,
     instagram: "",
+    bio: "",
   });
 
   useEffect(() => {
@@ -47,6 +48,7 @@ export default function SellerProfile() {
         state: profile.state || "ES",
         show_location: profile.show_location ?? true,
         instagram: (profile as any).instagram || "",
+        bio: (profile as any).bio || "",
       });
     }
   }, [profile]);
