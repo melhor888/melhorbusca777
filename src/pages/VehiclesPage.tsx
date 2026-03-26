@@ -6,6 +6,7 @@ import { vehicleCompanies, vehicleCategories, type Company } from "@/data/compan
 import { allProducts, formatPrice, getTagStyle, getTagLabel, type Product } from "@/data/products";
 import { useRealListings } from "@/hooks/useRealListings";
 import PackageBadge from "@/components/PackageBadge";
+import HeroBannerCarousel from "@/components/HeroBannerCarousel";
 
 const iconMap: Record<string, React.ElementType> = { Car, Bike, Truck, Cog };
 
@@ -56,11 +57,12 @@ export default function VehiclesPage() {
     return [...realProds, ...staticProds];
   }, [realItems]);
 
-  // Random hero product
-  const heroProduct = useMemo(() => {
-    const prods = vehicleProducts.length ? vehicleProducts : allProducts.filter((p) => p.type === "veiculo");
-    return prods[Math.floor(Math.random() * prods.length)];
-  }, [vehicleProducts]);
+  // Hero carousel sellers map
+  const heroSellersMap = useMemo(() => {
+    const map: Record<string, { id: string; name: string; logo: string }> = {};
+    Object.entries(allSellers).forEach(([id, s]) => { map[id] = { id: s.id, name: s.name, logo: s.logo }; });
+    return map;
+  }, [allSellers]);
 
   // Filter sellers by city
   const filteredSellers = useMemo(() => {
@@ -75,9 +77,6 @@ export default function VehiclesPage() {
     const shuffled = [...base].sort(() => Math.random() - 0.5);
     return shuffled.slice(0, 7);
   }, [vehicleProducts, filterCity]);
-
-  const heroCompany = heroProduct ? allSellers[heroProduct.companyId] : undefined;
-
   // Extract unique brands from specs
   const availableBrands = useMemo(() => {
     const brands = new Set<string>();
@@ -133,62 +132,14 @@ export default function VehiclesPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Netflix Hero Banner */}
-      <div className="relative h-[50vh] md:h-[70vh] overflow-hidden">
-        <img
-          src={heroProduct?.images[0] || "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1400&h=500&fit=crop"}
-          alt={heroProduct?.title || "Veículos"}
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent" />
-
-        <div className="absolute top-4 left-4 z-20">
-          <Link
-            to="/"
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-card/60 backdrop-blur-md text-foreground text-sm font-medium hover:bg-card/80 transition-colors"
-          >
-            <ArrowLeft size={16} /> Voltar
-          </Link>
-        </div>
-
-        <div className="absolute bottom-0 left-0 right-0 p-6 md:p-12 z-10">
-          <div className="container max-w-6xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="max-w-2xl"
-            >
-              {heroCompany && (
-                <div className="flex items-center gap-3 mb-3">
-                  <img src={heroCompany.logo} alt={heroCompany.name} className="w-10 h-10 rounded-full object-cover border-2 border-white/30" />
-                  <span className="text-sm font-semibold text-white/90">{heroCompany.name}</span>
-                </div>
-              )}
-              <h1 className="font-display font-bold text-3xl md:text-5xl text-white drop-shadow-lg leading-tight">
-                {heroProduct?.title || "Veículos"}
-              </h1>
-              <p className="text-white/75 mt-2 text-sm md:text-base line-clamp-2 max-w-lg">
-                {heroProduct?.description || "Encontre os melhores veículos"}
-              </p>
-              {heroProduct && (
-                <p className="font-display font-bold text-2xl md:text-3xl text-[#FFD100] mt-3 drop-shadow">
-                  {formatPrice(heroProduct.price)}
-                </p>
-              )}
-              {heroProduct && (
-                <Link
-                  to={`/veiculos/produto/${heroProduct.id}`}
-                  className="inline-flex items-center gap-2 mt-4 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-bold text-sm hover:opacity-90 transition-opacity shadow-lg"
-                >
-                  Ver Anúncio <ArrowRight size={16} />
-                </Link>
-              )}
-            </motion.div>
-          </div>
-        </div>
-      </div>
+      <HeroBannerCarousel
+        items={vehicleProducts as any}
+        sellers={heroSellersMap}
+        type="veiculos"
+        filterCity={filterCity}
+        fallbackImage="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1400&h=500&fit=crop"
+        accentColor="text-[#FFD100]"
+      />
 
       {/* City filter + Company Logos */}
       <section className="pt-6 pb-2 px-4 md:px-8 lg:px-12">
