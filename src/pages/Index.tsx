@@ -73,6 +73,10 @@ export default function Index() {
 
   return (
     <div className="min-h-screen bg-secondary/50">
+      <Helmet>
+        <title>{`Imóveis e Veículos em ${displayCity} - AutoImóvel`}</title>
+        <meta name="description" content={`Marketplace de imóveis e veículos em ${displayCity}, ES. Casas, apartamentos, carros, motos e mais.`} />
+      </Helmet>
       {/* Hero Banner Carousel — full width like ML */}
       <section className="relative w-full h-[280px] md:h-[400px] overflow-hidden">
         {heroBanners.map((banner, i) => (
