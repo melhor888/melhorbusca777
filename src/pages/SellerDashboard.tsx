@@ -736,10 +736,10 @@ export default function SellerDashboard() {
                         <div key={req.id} className="p-3 rounded-xl bg-muted">
                           <div className="flex items-center justify-between">
                             <div className="flex items-center gap-3">
-                              <span className="text-lg">{req.platform === "google" ? "🔍" : "📘"}</span>
+                              <span className="text-lg">📢</span>
                               <div>
                                 <p className="text-sm font-semibold text-foreground">
-                                  {req.platform === "google" ? "Google" : "Facebook"} Ads — {req.duration_days} dias
+                                  Campanha ADS — {req.duration_days} dias
                                 </p>
                                 <p className="text-xs text-muted-foreground">
                                   R$ {Number(req.daily_budget).toFixed(2)}/dia • Total: R$ {Number(req.total).toFixed(2)}
