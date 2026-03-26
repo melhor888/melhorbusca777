@@ -6,6 +6,7 @@ import { vehicleCompanies, vehicleCategories, type Company } from "@/data/compan
 import { allProducts, formatPrice, getTagStyle, getTagLabel, type Product } from "@/data/products";
 import { useRealListings } from "@/hooks/useRealListings";
 import PackageBadge from "@/components/PackageBadge";
+import HeroBannerCarousel from "@/components/HeroBannerCarousel";
 
 const iconMap: Record<string, React.ElementType> = { Car, Bike, Truck, Cog };
 
@@ -56,11 +57,12 @@ export default function VehiclesPage() {
     return [...realProds, ...staticProds];
   }, [realItems]);
 
-  // Random hero product
-  const heroProduct = useMemo(() => {
-    const prods = vehicleProducts.length ? vehicleProducts : allProducts.filter((p) => p.type === "veiculo");
-    return prods[Math.floor(Math.random() * prods.length)];
-  }, [vehicleProducts]);
+  // Hero carousel sellers map
+  const heroSellersMap = useMemo(() => {
+    const map: Record<string, { id: string; name: string; logo: string }> = {};
+    Object.entries(allSellers).forEach(([id, s]) => { map[id] = { id: s.id, name: s.name, logo: s.logo }; });
+    return map;
+  }, [allSellers]);
 
   // Filter sellers by city
   const filteredSellers = useMemo(() => {
@@ -75,9 +77,6 @@ export default function VehiclesPage() {
     const shuffled = [...base].sort(() => Math.random() - 0.5);
     return shuffled.slice(0, 7);
   }, [vehicleProducts, filterCity]);
-
-  const heroCompany = heroProduct ? allSellers[heroProduct.companyId] : undefined;
-
   // Extract unique brands from specs
   const availableBrands = useMemo(() => {
     const brands = new Set<string>();
