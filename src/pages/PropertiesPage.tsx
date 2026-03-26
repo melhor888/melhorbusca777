@@ -97,10 +97,14 @@ export default function PropertiesPage() {
         });
 
     if (filterCity) {
-      const cityCompanyIds = propertyCompanies
+      const staticCityIds = propertyCompanies
         .filter((c) => c.address.includes(filterCity))
         .map((c) => c.id);
-      list = list.filter((p) => cityCompanyIds.includes(p.companyId));
+      const realCityIds = realSellers
+        .filter((s) => s.address.toLowerCase().includes(filterCity.toLowerCase()))
+        .map((s) => s.id);
+      const cityIds = new Set([...staticCityIds, ...realCityIds]);
+      list = list.filter((p) => cityIds.has(p.companyId));
     }
 
     for (let i = list.length - 1; i > 0; i--) {
@@ -108,7 +112,7 @@ export default function PropertiesPage() {
       [list[i], list[j]] = [list[j], list[i]];
     }
     return list;
-  }, [activeCategory, propertyProducts, filterCity, filterType]);
+  }, [activeCategory, propertyProducts, filterCity, filterType, realSellers]);
 
   return (
     <div className="min-h-screen bg-background">
