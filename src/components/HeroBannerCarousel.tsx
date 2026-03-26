@@ -52,11 +52,11 @@ export default function HeroBannerCarousel({
     let filtered = items.filter((item) => {
       const tier = item.sellerTier || "basico";
       if (!PAID_TIERS.includes(tier)) return false;
-      // Only show items marked as featured (starred) by their seller
+      // If there are featured items, only show those; otherwise show all paid
       if (featuredItemIds && featuredItemIds.size > 0) {
         return featuredItemIds.has(item.id);
       }
-      return false;
+      return true;
     });
 
     if (filterCity) {
