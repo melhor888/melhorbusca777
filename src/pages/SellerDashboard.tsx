@@ -41,7 +41,7 @@ export default function SellerDashboard() {
   const { dailyData, weeklyData, totals: analyticsTotals, loading: analyticsLoading } = useSellerAnalytics(profile?.id);
   const [chartView, setChartView] = useState<"diario" | "semanal">("diario");
   const [activeTab, setActiveTab] = useState<DashboardTab>("overview");
-  const [adPlatform, setAdPlatform] = useState<"google" | "facebook">("google");
+  const [adDailyBudget, setAdDailyBudget] = useState<string>("10");
   const [adDailyBudget, setAdDailyBudget] = useState<string>("10");
   const [adDuration, setAdDuration] = useState<string>("4");
   const [adDetails, setAdDetails] = useState("");
