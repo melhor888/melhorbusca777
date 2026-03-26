@@ -377,31 +377,39 @@ export default function SellerItemForm() {
           <h2 className="font-display font-bold text-foreground flex items-center gap-2">
             <MapPin size={16} className="text-primary" /> Localização
           </h2>
-          <div className="grid grid-cols-2 gap-3">
-            <select
-              value={form.city}
-              onChange={(e) => setForm((f) => ({ ...f, city: e.target.value }))}
-              className="px-4 py-3 rounded-xl border border-input bg-background text-foreground text-sm focus:ring-2 focus:ring-ring focus:outline-none"
-            >
-              <option value="">Selecione a cidade</option>
-              {ES_CITIES.map((c) => (
-                <option key={c} value={c}>{c}</option>
-              ))}
-            </select>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div>
+              <label className="text-xs text-muted-foreground mb-1 block">Cidade</label>
+              <select
+                value={form.city}
+                onChange={(e) => setForm((f) => ({ ...f, city: e.target.value }))}
+                className="w-full px-4 py-3 rounded-xl border border-input bg-background text-foreground text-sm focus:ring-2 focus:ring-ring focus:outline-none appearance-none"
+              >
+                <option value="">Selecione a cidade</option>
+                {ES_CITIES.map((c) => (
+                  <option key={c} value={c}>{c}</option>
+                ))}
+              </select>
+            </div>
+            <div>
+              <label className="text-xs text-muted-foreground mb-1 block">Estado</label>
+              <input
+                value={form.state}
+                className="w-full px-4 py-3 rounded-xl border border-input bg-background text-foreground text-sm focus:ring-2 focus:ring-ring focus:outline-none"
+                placeholder="Estado"
+                readOnly
+              />
+            </div>
+          </div>
+          <div>
+            <label className="text-xs text-muted-foreground mb-1 block">Bairro</label>
             <input
-              value={form.state}
-              onChange={(e) => setForm((f) => ({ ...f, state: e.target.value }))}
-              className="px-4 py-3 rounded-xl border border-input bg-background text-foreground text-sm focus:ring-2 focus:ring-ring focus:outline-none"
-              placeholder="Estado"
-              readOnly
+              value={form.neighborhood}
+              onChange={(e) => setForm((f) => ({ ...f, neighborhood: e.target.value }))}
+              className="w-full px-4 py-3 rounded-xl border border-input bg-background text-foreground text-sm focus:ring-2 focus:ring-ring focus:outline-none"
+              placeholder="Bairro"
             />
           </div>
-          <input
-            value={form.neighborhood}
-            onChange={(e) => setForm((f) => ({ ...f, neighborhood: e.target.value }))}
-            className="w-full px-4 py-3 rounded-xl border border-input bg-background text-foreground text-sm focus:ring-2 focus:ring-ring focus:outline-none"
-            placeholder="Bairro"
-          />
           <div className="grid grid-cols-3 gap-3">
             <input
               value={form.address}
