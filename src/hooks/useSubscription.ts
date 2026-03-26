@@ -73,7 +73,7 @@ export const PACKAGE_CONFIG = {
       "Destaque no topo da listagem",
       "Estatísticas completas",
       "Suporte VIP dedicado",
-      "Newsletter e notificações push",
+      "Anúncios via Google Ads",
     ],
   },
 } as const;
