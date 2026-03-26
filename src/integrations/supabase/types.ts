@@ -24,6 +24,7 @@ export type Database = {
           featured_item_id: string | null
           full_name: string
           id: string
+          instagram: string | null
           logo_url: string | null
           phone: string | null
           seller_type: Database["public"]["Enums"]["seller_type"]
@@ -41,6 +42,7 @@ export type Database = {
           featured_item_id?: string | null
           full_name: string
           id?: string
+          instagram?: string | null
           logo_url?: string | null
           phone?: string | null
           seller_type?: Database["public"]["Enums"]["seller_type"]
@@ -58,6 +60,7 @@ export type Database = {
           featured_item_id?: string | null
           full_name?: string
           id?: string
+          instagram?: string | null
           logo_url?: string | null
           phone?: string | null
           seller_type?: Database["public"]["Enums"]["seller_type"]
