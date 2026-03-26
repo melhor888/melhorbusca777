@@ -1,6 +1,7 @@
-import { Car, Building2, Plus, Search, Menu, X, Sparkles } from "lucide-react";
+import { Car, Building2, Plus, Search, Menu, X, MapPin } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
+import { useCityDetection } from "@/hooks/useCityDetection";
 
 const navLinks = [
   { to: "/", label: "Início" },
@@ -12,6 +13,7 @@ const navLinks = [
 export default function Header() {
   const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
+  const { detectedCity } = useCityDetection();
 
   return (
     <header className="sticky top-0 z-50 bg-card/90 backdrop-blur-xl border-b border-border">
@@ -37,6 +39,12 @@ export default function Header() {
               {link.label}
             </Link>
           ))}
+          {detectedCity && (
+            <span className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-muted-foreground">
+              <MapPin size={14} className="text-primary" />
+              {detectedCity}
+            </span>
+          )}
         </nav>
 
         <Link
