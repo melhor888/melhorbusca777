@@ -34,7 +34,7 @@ export default function PropertiesPage() {
   // Merge real items into unified product format
   const propertyProducts = useMemo(() => {
     const staticProds = allProducts.filter((p) => p.type === "imovel");
-    const realProds: Product[] = realItems.map((item) => ({
+    const realProds: (Product & { sellerTier?: string })[] = realItems.map((item) => ({
       id: item.id,
       companyId: item.sellerId,
       title: item.title,
@@ -46,6 +46,7 @@ export default function PropertiesPage() {
       type: "imovel" as const,
       specs: {},
       location: item.city || "",
+      sellerTier: item.sellerTier || "basico",
     }));
     return [...realProds, ...staticProds];
   }, [realItems]);
