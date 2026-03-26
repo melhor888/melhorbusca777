@@ -641,12 +641,24 @@ export default function AdminPanel() {
                         </p>
                       </div>
                       <div className="flex gap-1.5 flex-wrap">
-                        {seller && (
-                          <Link to={`/loja/${seller.id}`} target="_blank"
-                            className="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-primary/10 text-primary text-xs font-semibold hover:bg-primary/20">
-                            <ExternalLink size={12} /> Ver Loja
-                          </Link>
-                        )}
+                        {seller && (() => {
+                          const customDomain = domains.find(d => d.seller_id === seller.id && d.is_active);
+                          const storeUrl = customDomain 
+                            ? `https://${customDomain.domain}` 
+                            : `/loja/${seller.id}`;
+                          const isExternal = !!customDomain;
+                          return isExternal ? (
+                            <a href={storeUrl} target="_blank" rel="noopener noreferrer"
+                              className="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-primary/10 text-primary text-xs font-semibold hover:bg-primary/20">
+                              <ExternalLink size={12} /> Ver Loja ({customDomain.domain})
+                            </a>
+                          ) : (
+                            <Link to={storeUrl} target="_blank"
+                              className="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-primary/10 text-primary text-xs font-semibold hover:bg-primary/20">
+                              <ExternalLink size={12} /> Ver Loja
+                            </Link>
+                          );
+                        })()}
                         {ad.status === "pendente" && (
                           <>
                             <button onClick={() => updateAdStatus(ad.id, "aprovado")}
