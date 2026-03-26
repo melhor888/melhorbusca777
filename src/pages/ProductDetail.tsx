@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
-import { motion } from "framer-motion";
-import { ArrowLeft, ChevronLeft, ChevronRight, MessageCircle, Share2, Star, MapPin, Tag, Store, Image } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowLeft, ChevronLeft, ChevronRight, MessageCircle, Share2, Star, MapPin, Tag, Store, Image, X, ZoomIn } from "lucide-react";
 import { getProductById, formatPrice, getProductsByCompany, getTagStyle, getTagLabel } from "@/data/products";
 import { allCompanies } from "@/data/companies";
 import { supabase } from "@/integrations/supabase/client";
@@ -15,13 +15,13 @@ function isUUID(str: string) {
 export default function ProductDetail() {
   const { productId } = useParams();
   const [activeImage, setActiveImage] = useState(0);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
   const carouselRef = useRef<HTMLDivElement>(null);
   const [dbItem, setDbItem] = useState<any>(null);
   const [dbSeller, setDbSeller] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [isDb, setIsDb] = useState(false);
 
-  // Static data
   const staticProduct = productId ? getProductById(productId) : undefined;
   const staticCompany = staticProduct ? allCompanies.find((c) => c.id === staticProduct.companyId) : undefined;
 
@@ -36,25 +36,27 @@ export default function ProductDetail() {
   }, [productId]);
 
   const fetchDbItem = async (id: string) => {
-    const { data: item } = await supabase
-      .from("seller_items")
-      .select("*")
-      .eq("id", id)
-      .maybeSingle();
-
+    const { data: item } = await supabase.from("seller_items").select("*").eq("id", id).maybeSingle();
     if (item) {
       setDbItem(item);
-      const { data: seller } = await supabase
-        .from("profiles")
-        .select("*")
-        .eq("id", item.seller_id)
-        .maybeSingle();
+      const { data: seller } = await supabase.from("profiles").select("*").eq("id", item.seller_id).maybeSingle();
       setDbSeller(seller);
-      // Track view
       trackSellerEvent(item.seller_id, "view", item.id);
     }
     setLoading(false);
   };
+
+  // Keyboard navigation for lightbox
+  useEffect(() => {
+    if (!lightboxOpen) return;
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setLightboxOpen(false);
+      if (e.key === "ArrowRight") setActiveImage((p) => (p + 1) % images.length);
+      if (e.key === "ArrowLeft") setActiveImage((p) => (p - 1 + images.length) % images.length);
+    };
+    window.addEventListener("keydown", handleKey);
+    return () => window.removeEventListener("keydown", handleKey);
+  }, [lightboxOpen]);
 
   if (loading) {
     return (
@@ -64,7 +66,6 @@ export default function ProductDetail() {
     );
   }
 
-  // Determine which data to use
   const product = isDb ? dbItem : staticProduct;
   const company = isDb
     ? dbSeller
@@ -90,33 +91,27 @@ export default function ProductDetail() {
     );
   }
 
-  // Normalize data
   const isProperty = isDb
     ? ["casa", "apartamento", "terreno", "comercial", "galpao", "flat", "aluguel"].includes(product.category)
     : product.type === "imovel";
 
-  const images = isDb ? (product.photos?.length > 0 ? product.photos : []) : product.images;
+  const images: string[] = isDb ? (product.photos?.length > 0 ? product.photos : []) : product.images;
   const title = product.title;
-  const price = isDb ? product.price : product.price;
-  const description = isDb ? product.description : product.description;
+  const price = product.price;
+  const description = product.description;
   const tag = isDb ? product.tags?.[0] : product.tag;
-
   const companyUrl = `/${isProperty ? "imoveis" : "veiculos"}/empresa/${company.id}`;
-
   const formattedPrice = isDb
     ? price ? `R$ ${Number(price).toLocaleString("pt-BR")}` : ""
     : formatPrice(price);
-
   const whatsappUrl = `https://wa.me/${company.whatsapp}?text=${encodeURIComponent(`Olá ${company.name}! Tenho interesse: ${title} - ${formattedPrice}`)}`;
   const handleWhatsAppClick = () => {
     if (isDb && dbItem) trackSellerEvent(dbItem.seller_id, "whatsapp_click", dbItem.id);
   };
-
   const mapAddress = isDb
     ? [product.address, product.neighborhood, product.city, product.state].filter(Boolean).join(", ") || company.address
     : (isProperty && product.location ? product.location : company.address);
 
-  // Specs for db items
   const specs: Record<string, string> = {};
   if (isDb) {
     if (product.brand) specs["Marca"] = product.brand;
@@ -133,10 +128,7 @@ export default function ProductDetail() {
     if (product.city) specs["Cidade"] = product.city;
     if (product.neighborhood) specs["Bairro"] = product.neighborhood;
   }
-
   const displaySpecs = isDb ? specs : product.specs;
-
-  // Related products (only for static)
   const relatedProducts = isDb ? [] : getProductsByCompany(company.id).filter((p: any) => p.id !== product.id).slice(0, 4);
 
   const scrollCarousel = (dir: "left" | "right") => {
@@ -147,11 +139,22 @@ export default function ProductDetail() {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Hero Image */}
+      {/* Hero Banner - always shows active image */}
       <section className="relative">
         <div className="aspect-[16/9] md:aspect-[21/9] overflow-hidden bg-muted">
           {images.length > 0 ? (
-            <motion.img key={activeImage} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.4 }} src={images[activeImage]} alt={title} className="w-full h-full object-cover" />
+            <AnimatePresence mode="wait">
+              <motion.img
+                key={activeImage}
+                initial={{ opacity: 0, scale: 1.02 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.4 }}
+                src={images[activeImage]}
+                alt={title}
+                className="w-full h-full object-cover"
+              />
+            </AnimatePresence>
           ) : (
             <div className="w-full h-full flex items-center justify-center bg-muted">
               <Image size={64} className="text-muted-foreground" />
@@ -171,33 +174,108 @@ export default function ProductDetail() {
             </span>
           </div>
         )}
-      </section>
-
-      {/* Thumbnail Carousel */}
-      {images.length > 1 && (
-        <div className="relative container max-w-6xl mx-auto px-4 -mt-10 z-10">
-          <div className="relative">
-            <button onClick={() => scrollCarousel("left")} className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-card/80 backdrop-blur flex items-center justify-center text-foreground hover:bg-card transition-colors shadow">
+        {/* Hero image counter */}
+        {images.length > 1 && (
+          <div className="absolute bottom-4 right-4 z-20 flex items-center gap-2">
+            <button onClick={() => setActiveImage((p) => (p - 1 + images.length) % images.length)}
+              className="w-9 h-9 rounded-full bg-card/70 backdrop-blur-md flex items-center justify-center text-foreground hover:bg-card/90 transition-colors">
               <ChevronLeft size={18} />
             </button>
-            <div ref={carouselRef} className="flex gap-2 overflow-x-auto scrollbar-hide px-10 py-2">
-              {images.map((img: string, i: number) => (
-                <button key={i} onClick={() => setActiveImage(i)} className={`flex-shrink-0 w-20 h-14 md:w-28 md:h-20 rounded-xl overflow-hidden border-2 transition-all ${activeImage === i ? "border-primary shadow-lg scale-105" : "border-transparent opacity-70 hover:opacity-100"}`}>
-                  <img src={img} alt={`Foto ${i + 1}`} className="w-full h-full object-cover" />
-                </button>
-              ))}
-            </div>
-            <button onClick={() => scrollCarousel("right")} className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-card/80 backdrop-blur flex items-center justify-center text-foreground hover:bg-card transition-colors shadow">
+            <span className="px-3 py-1.5 rounded-lg bg-card/70 backdrop-blur-md text-xs font-bold text-foreground">
+              {activeImage + 1} / {images.length}
+            </span>
+            <button onClick={() => setActiveImage((p) => (p + 1) % images.length)}
+              className="w-9 h-9 rounded-full bg-card/70 backdrop-blur-md flex items-center justify-center text-foreground hover:bg-card/90 transition-colors">
               <ChevronRight size={18} />
             </button>
+          </div>
+        )}
+      </section>
+
+      {/* Gallery Grid - full quality photos */}
+      {images.length > 0 && (
+        <div className="container max-w-6xl mx-auto px-4 -mt-8 z-10 relative">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2">
+            {images.map((img: string, i: number) => (
+              <motion.button
+                key={i}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.05 }}
+                onClick={() => { setActiveImage(i); setLightboxOpen(true); }}
+                className={`relative aspect-square rounded-xl overflow-hidden border-2 transition-all group ${
+                  activeImage === i
+                    ? "border-primary shadow-lg ring-2 ring-primary/30"
+                    : "border-border hover:border-primary/50"
+                }`}
+              >
+                <img src={img} alt={`Foto ${i + 1}`} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
+                <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/10 transition-colors flex items-center justify-center">
+                  <ZoomIn size={20} className="text-white opacity-0 group-hover:opacity-100 transition-opacity drop-shadow-lg" />
+                </div>
+                {activeImage === i && (
+                  <div className="absolute bottom-1.5 left-1.5 px-2 py-0.5 rounded-md bg-primary text-primary-foreground text-[10px] font-bold">
+                    Exibindo
+                  </div>
+                )}
+              </motion.button>
+            ))}
           </div>
         </div>
       )}
 
+      {/* Lightbox - fullscreen photo viewer */}
+      <AnimatePresence>
+        {lightboxOpen && images.length > 0 && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 bg-foreground/95 flex items-center justify-center"
+            onClick={() => setLightboxOpen(false)}
+          >
+            <button className="absolute top-4 right-4 z-50 w-10 h-10 rounded-full bg-card/20 backdrop-blur flex items-center justify-center text-white hover:bg-card/40 transition-colors">
+              <X size={20} />
+            </button>
+            <button
+              onClick={(e) => { e.stopPropagation(); setActiveImage((p) => (p - 1 + images.length) % images.length); }}
+              className="absolute left-4 top-1/2 -translate-y-1/2 z-50 w-12 h-12 rounded-full bg-card/20 backdrop-blur flex items-center justify-center text-white hover:bg-card/40 transition-colors"
+            >
+              <ChevronLeft size={24} />
+            </button>
+            <button
+              onClick={(e) => { e.stopPropagation(); setActiveImage((p) => (p + 1) % images.length); }}
+              className="absolute right-4 top-1/2 -translate-y-1/2 z-50 w-12 h-12 rounded-full bg-card/20 backdrop-blur flex items-center justify-center text-white hover:bg-card/40 transition-colors"
+            >
+              <ChevronRight size={24} />
+            </button>
+            <motion.img
+              key={activeImage}
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              src={images[activeImage]}
+              alt={title}
+              className="max-w-[90vw] max-h-[85vh] object-contain rounded-lg"
+              onClick={(e) => e.stopPropagation()}
+            />
+            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-2">
+              {images.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={(e) => { e.stopPropagation(); setActiveImage(i); }}
+                  className={`w-2.5 h-2.5 rounded-full transition-all ${activeImage === i ? "bg-white scale-125" : "bg-white/40 hover:bg-white/70"}`}
+                />
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* Content */}
       <div className="container max-w-6xl mx-auto px-4 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Main Info */}
           <div className="lg:col-span-2 space-y-6">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
               <p className={`text-xs font-bold uppercase tracking-wider ${isProperty ? "text-primary" : "text-accent"}`}>
@@ -205,13 +283,10 @@ export default function ProductDetail() {
               </p>
               <h1 className="font-display font-bold text-2xl md:text-4xl text-foreground mt-1 leading-tight">{title}</h1>
               {formattedPrice && (
-                <p className="font-display font-bold text-3xl md:text-4xl text-primary mt-3">
-                  {formattedPrice}
-                </p>
+                <p className="font-display font-bold text-3xl md:text-4xl text-primary mt-3">{formattedPrice}</p>
               )}
             </motion.div>
 
-            {/* Description */}
             {description && (
               <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}>
                 <h2 className="font-display font-semibold text-lg text-foreground mb-2">Descrição</h2>
@@ -219,7 +294,6 @@ export default function ProductDetail() {
               </motion.div>
             )}
 
-            {/* Specs */}
             {Object.keys(displaySpecs).length > 0 && (
               <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}>
                 <h2 className="font-display font-semibold text-lg text-foreground mb-3">Especificações</h2>
@@ -234,7 +308,6 @@ export default function ProductDetail() {
               </motion.div>
             )}
 
-            {/* Map */}
             {mapAddress && (
               <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}>
                 <h2 className="font-display font-semibold text-lg text-foreground mb-3 flex items-center gap-2">
@@ -246,7 +319,6 @@ export default function ProductDetail() {
             )}
           </div>
 
-          {/* Sidebar */}
           <div className="space-y-4">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 }} className="bg-card border border-border rounded-2xl p-6 sticky top-20">
               <Link to={companyUrl} className="flex items-center gap-3 mb-5 group">
@@ -271,23 +343,25 @@ export default function ProductDetail() {
               )}
 
               {company.whatsapp && (
-                <a href={whatsappUrl} onClick={handleWhatsAppClick} target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl bg-gradient-to-r from-[#25d366] to-[#128c7e] text-white font-bold text-sm hover:opacity-90 transition-opacity shadow-lg">
-                   <MessageCircle size={18} /> Chamar no WhatsApp
+                <a href={whatsappUrl} onClick={handleWhatsAppClick} target="_blank" rel="noopener noreferrer"
+                  className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl bg-green-500 hover:bg-green-600 text-white font-bold text-sm transition-colors shadow-lg">
+                  <MessageCircle size={18} /> Chamar no WhatsApp
                 </a>
               )}
 
-              <button onClick={() => navigator.share?.({ title, url: window.location.href })} className="mt-3 w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-secondary text-secondary-foreground font-medium text-sm hover:bg-secondary/80 transition-colors">
+              <button onClick={() => navigator.share?.({ title, url: window.location.href })}
+                className="mt-3 w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-secondary text-secondary-foreground font-medium text-sm hover:bg-secondary/80 transition-colors">
                 <Share2 size={16} /> Compartilhar
               </button>
 
-              <Link to={companyUrl} className="mt-3 w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-gradient-to-r from-[#002F6C] to-[#00AEEF] text-white font-bold text-sm hover:opacity-90 transition-opacity shadow-md">
+              <Link to={companyUrl}
+                className="mt-3 w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-primary text-primary-foreground font-bold text-sm hover:bg-primary/90 transition-colors shadow-md">
                 <Store size={16} /> Ver Loja Completa
               </Link>
             </motion.div>
           </div>
         </div>
 
-        {/* Related Products (static only) */}
         {relatedProducts.length > 0 && (
           <motion.section initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }} className="mt-16">
             <h2 className="font-display font-bold text-xl text-foreground mb-6">Mais de {company.name}</h2>
