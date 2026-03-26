@@ -595,7 +595,8 @@ export default function CompanyProfile() {
                                 e.preventDefault();
                                 e.stopPropagation();
                                 if (isDbProfile && id) trackSellerEvent(id, "whatsapp_click");
-                                const url = `https://wa.me/${company.whatsapp}?text=${encodeURIComponent(`Olá ${company.name}! Tenho interesse: ${product.title}\n\n🔗 ${window.location.origin}/${segment}/produto/${product.id}`)}`;
+                                const seg = isProperty ? "imoveis" : "veiculos";
+                                const url = `https://wa.me/${company.whatsapp}?text=${encodeURIComponent(`Olá ${company.name}! Tenho interesse: ${product.title}\n\n🔗 ${window.location.origin}/${seg}/produto/${product.id}`)}`;
                                 window.location.href = url;
                               }}
                               className="absolute bottom-2 right-2 w-9 h-9 rounded-full bg-[#25d366] text-white flex items-center justify-center shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-300 hover:scale-110"
