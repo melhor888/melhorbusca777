@@ -38,7 +38,6 @@ const AppLayout = () => {
       <main className="flex-1">
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/:cidade" element={<Index />} />
           <Route path="/imoveis" element={<PropertiesPage />} />
           <Route path="/imoveis/:cidade" element={<PropertiesPage />} />
           <Route path="/imoveis/empresa/:id" element={<CompanyProfile />} />
@@ -58,6 +57,7 @@ const AppLayout = () => {
           <Route path="/painel/perfil" element={<SellerProfile />} />
           <Route path="/pacotes" element={<PackagesPage />} />
           <Route path="/admin" element={<AdminPanel />} />
+          <Route path="/:cidade" element={<Index />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
