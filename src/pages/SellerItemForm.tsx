@@ -2,9 +2,10 @@ import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
 import { supabase } from "@/integrations/supabase/client";
-import { Save, ArrowLeft, Upload, X, MapPin } from "lucide-react";
+import { Save, ArrowLeft, Upload, X, MapPin, Lock } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import type { Database } from "@/integrations/supabase/types";
+import { useSubscription, PACKAGE_CONFIG } from "@/hooks/useSubscription";
 
 type ItemCategory = Database["public"]["Enums"]["item_category"];
 type ItemTag = Database["public"]["Enums"]["item_tag"];
@@ -54,6 +55,8 @@ export default function SellerItemForm() {
   const { toast } = useToast();
   const [saving, setSaving] = useState(false);
   const [uploading, setUploading] = useState(false);
+  const [activeItemCount, setActiveItemCount] = useState(0);
+  const { subscription, currentTier, config: pkgConfig, isExpired } = useSubscription(user?.id);
 
   const [sellerType, setSellerType] = useState<SellerType>("imoveis");
   const [form, setForm] = useState({
@@ -127,6 +130,26 @@ export default function SellerItemForm() {
     }
   }, [isEdit, id, user]);
 
+  // Fetch active item count for limit enforcement
+  useEffect(() => {
+    if (user) {
+      supabase
+        .from("seller_items")
+        .select("id", { count: "exact", head: true })
+        .eq("user_id", user.id)
+        .eq("status", "ativo")
+        .then(({ count }) => setActiveItemCount(count || 0));
+    }
+  }, [user]);
+
+  const isAtLimit = !isEdit && activeItemCount >= pkgConfig.maxItems;
+
+  // Tags restricted by tier
+  const premiumOnlyTags: ItemTag[] = ["premium", "luxo", "prime", "exclusivo"];
+  const availableTags = currentTier === "basico"
+    ? allTags.filter((t) => !premiumOnlyTags.includes(t.value))
+    : allTags;
+
   const handlePhotoUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!e.target.files?.length || !user) return;
     setUploading(true);
@@ -160,6 +183,27 @@ export default function SellerItemForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!user || !profile || !form.category) return;
+
+    // Check item limit
+    if (!isEdit && activeItemCount >= pkgConfig.maxItems) {
+      toast({
+        title: "Limite de anúncios atingido!",
+        description: `Seu plano ${pkgConfig.name} permite até ${pkgConfig.maxItems} anúncios ativos. Faça upgrade para adicionar mais.`,
+        variant: "destructive",
+      });
+      return;
+    }
+
+    // Check if subscription is expired
+    if (isExpired && subscription) {
+      toast({
+        title: "Assinatura expirada!",
+        description: "Renove seu plano para continuar publicando anúncios.",
+        variant: "destructive",
+      });
+      return;
+    }
+
     setSaving(true);
 
     const payload = {
@@ -222,6 +266,34 @@ export default function SellerItemForm() {
       </div>
 
       <form onSubmit={handleSubmit} className="container max-w-3xl mx-auto px-4 py-6 space-y-6">
+        {/* Limit Warning */}
+        {isAtLimit && (
+          <div className="bg-red-500/10 border-2 border-red-500/30 rounded-2xl p-4 flex flex-col sm:flex-row items-center gap-3">
+            <Lock size={20} className="text-red-500 flex-shrink-0" />
+            <div className="flex-1 text-center sm:text-left">
+              <p className="font-bold text-red-600 text-sm">Limite de anúncios atingido!</p>
+              <p className="text-xs text-muted-foreground">Seu plano {pkgConfig.name} permite até {pkgConfig.maxItems} anúncios. Faça upgrade para continuar.</p>
+            </div>
+            <a href="/pacotes" className="px-4 py-2 rounded-xl bg-primary text-primary-foreground text-xs font-bold hover:bg-primary/90">
+              Ver Pacotes
+            </a>
+          </div>
+        )}
+
+        {/* Expired Warning */}
+        {isExpired && subscription && (
+          <div className="bg-amber-500/10 border-2 border-amber-500/30 rounded-2xl p-4 flex flex-col sm:flex-row items-center gap-3">
+            <Lock size={20} className="text-amber-500 flex-shrink-0" />
+            <div className="flex-1 text-center sm:text-left">
+              <p className="font-bold text-amber-600 text-sm">Sua assinatura expirou!</p>
+              <p className="text-xs text-muted-foreground">Renove para continuar publicando anúncios.</p>
+            </div>
+            <a href="/pacotes" className="px-4 py-2 rounded-xl bg-amber-500 text-white text-xs font-bold hover:bg-amber-600">
+              Renovar
+            </a>
+          </div>
+        )}
+
         {/* Seller Type */}
         <div className="bg-card border border-border rounded-2xl p-5">
           <label className="block text-sm font-bold text-foreground mb-3">Tipo de anúncio</label>
@@ -358,9 +430,14 @@ export default function SellerItemForm() {
 
         {/* Tags */}
         <div className="bg-card border border-border rounded-2xl p-5">
-          <h2 className="font-display font-bold text-foreground mb-3">Tags de Destaque</h2>
+          <h2 className="font-display font-bold text-foreground mb-1">Tags de Destaque</h2>
+          {currentTier === "basico" && (
+            <p className="text-xs text-muted-foreground mb-3 flex items-center gap-1">
+              <Lock size={10} /> Algumas tags são exclusivas para planos Premium e VIP
+            </p>
+          )}
           <div className="flex flex-wrap gap-2">
-            {allTags.map((tag) => (
+            {availableTags.map((tag) => (
               <button
                 key={tag.value}
                 type="button"
@@ -410,7 +487,7 @@ export default function SellerItemForm() {
         {/* Submit */}
         <button
           type="submit"
-          disabled={saving}
+          disabled={saving || (isAtLimit && !isEdit) || (isExpired && !!subscription)}
           className="w-full py-4 rounded-xl bg-primary text-primary-foreground font-bold text-sm hover:bg-primary/90 transition-colors disabled:opacity-50 flex items-center justify-center gap-2 shadow-lg"
         >
           {saving ? (
