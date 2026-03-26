@@ -72,6 +72,7 @@ export type Database = {
           city: string | null
           company_name: string | null
           created_at: string
+          creci: string | null
           email: string
           featured_item_id: string | null
           full_name: string
@@ -79,6 +80,7 @@ export type Database = {
           instagram: string | null
           logo_url: string | null
           phone: string | null
+          seller_category: Database["public"]["Enums"]["seller_category"] | null
           seller_type: Database["public"]["Enums"]["seller_type"]
           show_location: boolean
           state: string | null
@@ -91,6 +93,7 @@ export type Database = {
           city?: string | null
           company_name?: string | null
           created_at?: string
+          creci?: string | null
           email: string
           featured_item_id?: string | null
           full_name: string
@@ -98,6 +101,9 @@ export type Database = {
           instagram?: string | null
           logo_url?: string | null
           phone?: string | null
+          seller_category?:
+            | Database["public"]["Enums"]["seller_category"]
+            | null
           seller_type?: Database["public"]["Enums"]["seller_type"]
           show_location?: boolean
           state?: string | null
@@ -110,6 +116,7 @@ export type Database = {
           city?: string | null
           company_name?: string | null
           created_at?: string
+          creci?: string | null
           email?: string
           featured_item_id?: string | null
           full_name?: string
@@ -117,6 +124,9 @@ export type Database = {
           instagram?: string | null
           logo_url?: string | null
           phone?: string | null
+          seller_category?:
+            | Database["public"]["Enums"]["seller_category"]
+            | null
           seller_type?: Database["public"]["Enums"]["seller_type"]
           show_location?: boolean
           state?: string | null
@@ -406,6 +416,13 @@ export type Database = {
         | "vip"
         | "essencial_empresa"
         | "premium_empresa"
+      seller_category:
+        | "imobiliaria"
+        | "corretor"
+        | "proprietario"
+        | "loja_veiculos"
+        | "autonomo"
+        | "concessionaria"
       seller_type: "imoveis" | "automoveis"
     }
     CompositeTypes: {
@@ -574,6 +591,14 @@ export const Constants = {
         "vip",
         "essencial_empresa",
         "premium_empresa",
+      ],
+      seller_category: [
+        "imobiliaria",
+        "corretor",
+        "proprietario",
+        "loja_veiculos",
+        "autonomo",
+        "concessionaria",
       ],
       seller_type: ["imoveis", "automoveis"],
     },
