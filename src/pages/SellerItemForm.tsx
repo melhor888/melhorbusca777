@@ -130,6 +130,26 @@ export default function SellerItemForm() {
     }
   }, [isEdit, id, user]);
 
+  // Fetch active item count for limit enforcement
+  useEffect(() => {
+    if (user) {
+      supabase
+        .from("seller_items")
+        .select("id", { count: "exact", head: true })
+        .eq("user_id", user.id)
+        .eq("status", "ativo")
+        .then(({ count }) => setActiveItemCount(count || 0));
+    }
+  }, [user]);
+
+  const isAtLimit = !isEdit && activeItemCount >= pkgConfig.maxItems;
+
+  // Tags restricted by tier
+  const premiumOnlyTags: ItemTag[] = ["premium", "luxo", "prime", "exclusivo"];
+  const availableTags = currentTier === "basico"
+    ? allTags.filter((t) => !premiumOnlyTags.includes(t.value))
+    : allTags;
+
   const handlePhotoUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!e.target.files?.length || !user) return;
     setUploading(true);
