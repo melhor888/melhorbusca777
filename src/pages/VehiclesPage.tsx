@@ -394,6 +394,11 @@ export default function VehiclesPage() {
                           {product.tag}
                         </span>
                       )}
+                      {(product as any).sellerTier && (product as any).sellerTier !== "basico" && (
+                        <div className="absolute top-3 right-3">
+                          <PackageBadge tier={(product as any).sellerTier} />
+                        </div>
+                      )}
                     </div>
 
                     {/* Info */}
