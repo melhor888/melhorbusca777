@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
 import { supabase } from "@/integrations/supabase/client";
-import { ArrowLeft, Save, Upload, User } from "lucide-react";
+import { ArrowLeft, Save, Upload, User, Instagram } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import type { Database } from "@/integrations/supabase/types";
 
@@ -26,6 +26,7 @@ export default function SellerProfile() {
     city: "",
     state: "ES",
     show_location: true,
+    instagram: "",
   });
 
   useEffect(() => {
@@ -45,6 +46,7 @@ export default function SellerProfile() {
         city: profile.city || "",
         state: profile.state || "ES",
         show_location: profile.show_location ?? true,
+        instagram: (profile as any).instagram || "",
       });
     }
   }, [profile]);
@@ -123,6 +125,10 @@ export default function SellerProfile() {
           <input value={form.email} disabled className="w-full px-4 py-3 rounded-xl border border-input bg-muted text-muted-foreground text-sm" placeholder="E-mail" />
           <input value={form.phone} onChange={(e) => setForm((f) => ({ ...f, phone: e.target.value }))} className="w-full px-4 py-3 rounded-xl border border-input bg-background text-foreground text-sm focus:ring-2 focus:ring-ring focus:outline-none" placeholder="Telefone" />
           <input value={form.company_name} onChange={(e) => setForm((f) => ({ ...f, company_name: e.target.value }))} className="w-full px-4 py-3 rounded-xl border border-input bg-background text-foreground text-sm focus:ring-2 focus:ring-ring focus:outline-none" placeholder="Nome da empresa" />
+          <div className="relative">
+            <Instagram size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
+            <input value={form.instagram} onChange={(e) => setForm((f) => ({ ...f, instagram: e.target.value }))} className="w-full pl-10 pr-4 py-3 rounded-xl border border-input bg-background text-foreground text-sm focus:ring-2 focus:ring-ring focus:outline-none" placeholder="Instagram (ex: @sualoja)" />
+          </div>
         </div>
 
         {/* Seller Type */}
