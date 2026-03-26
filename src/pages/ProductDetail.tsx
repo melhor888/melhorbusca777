@@ -6,6 +6,7 @@ import { getProductById, formatPrice, getProductsByCompany, getTagStyle, getTagL
 import { allCompanies } from "@/data/companies";
 import { supabase } from "@/integrations/supabase/client";
 import { trackSellerEvent } from "@/hooks/useSellerAnalytics";
+import { useToast } from "@/hooks/use-toast";
 import MapEmbed from "@/components/MapEmbed";
 
 function isUUID(str: string) {
@@ -14,6 +15,7 @@ function isUUID(str: string) {
 
 export default function ProductDetail() {
   const { productId } = useParams();
+  const { toast } = useToast();
   const [activeImage, setActiveImage] = useState(0);
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const carouselRef = useRef<HTMLDivElement>(null);
@@ -350,7 +352,19 @@ export default function ProductDetail() {
                 </a>
               )}
 
-              <button onClick={() => navigator.share?.({ title, url: window.location.href })}
+              <button onClick={async () => {
+                try {
+                  if (navigator.share) {
+                    await navigator.share({ title, url: window.location.href });
+                  } else {
+                    await navigator.clipboard.writeText(window.location.href);
+                    toast({ title: "Link copiado!" });
+                  }
+                } catch {
+                  await navigator.clipboard.writeText(window.location.href);
+                  toast({ title: "Link copiado!" });
+                }
+              }}
                 className="mt-3 w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-secondary text-secondary-foreground font-medium text-sm hover:bg-secondary/80 transition-colors">
                 <Share2 size={16} /> Compartilhar
               </button>
