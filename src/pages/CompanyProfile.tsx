@@ -282,9 +282,6 @@ export default function CompanyProfile() {
                         <MapPin size={12} /> {company.address}
                       </span>
                     )}
-                    <span className="flex items-center gap-1 text-white/60 text-xs">
-                      <Store size={12} /> {products.length} anúncios
-                    </span>
                   </div>
                 </div>
               </div>
