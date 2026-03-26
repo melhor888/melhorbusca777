@@ -99,6 +99,7 @@ export default function AdminPanel() {
       full_name: p.full_name,
       company_name: p.company_name,
       email: p.email,
+      phone: p.phone,
       seller_type: p.seller_type,
       city: p.city,
       subscription: subsMap.get(p.user_id)
