@@ -286,7 +286,6 @@ export default function PropertiesPage() {
                     )}
                     <div className="absolute bottom-0 left-0 right-0 p-3">
                       <p className="text-white font-semibold text-sm line-clamp-1 drop-shadow">{product.title}</p>
-                      <p className="text-[#FFD100] font-bold text-sm mt-0.5">{formatPrice(product.price)}</p>
                       {company && (
                         <div className="flex items-center gap-1.5 mt-1">
                           <img src={company.logo} alt={company.name} className="w-5 h-5 rounded-full object-cover border border-white/30" />
