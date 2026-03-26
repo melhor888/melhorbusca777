@@ -607,116 +607,209 @@ export default function CompanyProfile() {
         </div>
       </div>
 
-      {/* ═══════════ CINEMATIC GALLERY ═══════════ */}
+      {/* ═══════════ CINEMATIC GALLERY — Netflix Style ═══════════ */}
       {(() => {
-        const allPhotos = products
-          .flatMap((p: any) => (p.images?.length ? p.images : p.image ? [p.image] : []))
-          .filter(Boolean);
-        const uniquePhotos = [...new Set(allPhotos)].slice(0, 12);
-        if (uniquePhotos.length < 3) return null;
-
-        // Masonry-style heights
-        const heights = ["aspect-[4/5]", "aspect-square", "aspect-[3/4]", "aspect-[5/4]", "aspect-[4/3]", "aspect-[3/5]"];
+        const galleryProducts = products.filter((p: any) => p.image || p.images?.length);
+        if (galleryProducts.length < 2) return null;
+        const seg = isProperty ? "imoveis" : "veiculos";
 
         return (
-          <section className="container max-w-7xl mx-auto px-4 py-8">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
-                <Image size={20} className="text-primary" />
+          <section className="bg-black py-10">
+            <div className="container max-w-7xl mx-auto px-4">
+              <div className="flex items-center gap-3 mb-8">
+                <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center">
+                  <Image size={20} className="text-white" />
+                </div>
+                <div>
+                  <h2 className="font-display font-bold text-xl text-white">Galeria</h2>
+                  <p className="text-xs text-white/50">{galleryProducts.length} destaques</p>
+                </div>
               </div>
-              <div>
-                <h2 className="font-display font-bold text-lg text-foreground">Galeria</h2>
-                <p className="text-xs text-muted-foreground">{uniquePhotos.length} fotos</p>
-              </div>
-            </div>
 
-            {/* Masonry Grid */}
-            <div className="columns-2 md:columns-3 lg:columns-4 gap-3 space-y-3">
-              {uniquePhotos.map((photo: string, i: number) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  transition={{ duration: 0.6, delay: i * 0.08, ease: [0.25, 0.46, 0.45, 0.94] }}
-                  className="break-inside-avoid group cursor-pointer relative overflow-hidden rounded-2xl"
-                  onClick={() => setGalleryLightbox(i)}
-                >
-                  <div className={heights[i % heights.length]}>
-                    <img
-                      src={photo}
-                      alt={`Foto ${i + 1}`}
-                      className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-110"
-                      loading="lazy"
-                    />
-                  </div>
-                  {/* Cinematic overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out">
-                    <div className="flex items-center gap-2">
-                      <Eye size={14} className="text-white/80" />
-                      <span className="text-white/90 text-xs font-medium">Ver foto</span>
-                    </div>
-                  </div>
-                  {/* Top shine effect */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
-                </motion.div>
-              ))}
+              <div className="space-y-6">
+                {galleryProducts.slice(0, 8).map((product: any, i: number) => {
+                  const mainImg = product.images?.[0] || product.image;
+                  const isEven = i % 2 === 0;
+
+                  return (
+                    <motion.div
+                      key={product.id}
+                      initial={{ opacity: 0, y: 60 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, margin: "-80px" }}
+                      transition={{ duration: 0.8, delay: i * 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
+                      className={`relative rounded-3xl overflow-hidden group cursor-pointer ${
+                        i === 0 ? "h-[50vh] md:h-[70vh]" : "h-[40vh] md:h-[55vh]"
+                      }`}
+                      onClick={() => setGalleryLightbox(i)}
+                    >
+                      {/* Background Image with Ken Burns */}
+                      <img
+                        src={mainImg}
+                        alt={product.title}
+                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-[2s] ease-out group-hover:scale-110"
+                        loading="lazy"
+                      />
+
+                      {/* Cinematic gradients */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+                      <div className={`absolute inset-0 bg-gradient-to-r ${isEven ? "from-black/70 via-black/20 to-transparent" : "from-transparent via-black/20 to-black/70"}`} />
+                      {/* Vignette */}
+                      <div className="absolute inset-0 shadow-[inset_0_0_150px_rgba(0,0,0,0.5)]" />
+
+                      {/* Content overlay */}
+                      <div className={`absolute bottom-0 ${isEven ? "left-0" : "right-0"} p-6 md:p-10 z-10 max-w-xl ${!isEven ? "text-right" : ""}`}>
+                        {/* Tag */}
+                        {product.tag && (
+                          <motion.span
+                            initial={{ opacity: 0, x: isEven ? -20 : 20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.3 }}
+                            className="inline-block px-3 py-1 rounded-full bg-primary text-primary-foreground text-[10px] font-bold uppercase tracking-wider mb-3"
+                          >
+                            {product.tag}
+                          </motion.span>
+                        )}
+
+                        {/* Title */}
+                        <motion.h3
+                          initial={{ opacity: 0, y: 20 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: 0.2, duration: 0.6 }}
+                          className="font-display font-bold text-2xl md:text-4xl text-white leading-tight drop-shadow-lg"
+                        >
+                          {product.title}
+                        </motion.h3>
+
+                        {/* Description */}
+                        {product.description && (
+                          <motion.p
+                            initial={{ opacity: 0 }}
+                            whileInView={{ opacity: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.4 }}
+                            className="text-white/60 text-sm md:text-base mt-2 line-clamp-2 max-w-md"
+                          >
+                            {product.description}
+                          </motion.p>
+                        )}
+
+                        {/* Price */}
+                        {product.price > 0 && (
+                          <motion.p
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.3, type: "spring" }}
+                            className="font-display font-bold text-xl md:text-3xl text-primary mt-3 drop-shadow-lg"
+                          >
+                            {isDbProfile ? `R$ ${product.price.toLocaleString("pt-BR")}` : formatPrice(product.price)}
+                          </motion.p>
+                        )}
+
+                        {/* Location */}
+                        {product.city && (
+                          <p className="text-white/50 text-xs mt-2 flex items-center gap-1.5">
+                            <MapPin size={12} /> {product.city}
+                          </p>
+                        )}
+
+                        {/* Buttons */}
+                        <motion.div
+                          initial={{ opacity: 0, y: 10 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: 0.5, duration: 0.5 }}
+                          className={`flex items-center gap-3 mt-5 flex-wrap ${!isEven ? "justify-end" : ""}`}
+                        >
+                          <Link
+                            to={`/${seg}/produto/${product.id}`}
+                            className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white text-black font-bold text-sm hover:bg-white/90 transition-all shadow-lg hover:shadow-xl hover:scale-105 active:scale-95"
+                            onClick={(e) => e.stopPropagation()}
+                          >
+                            <Eye size={16} /> Ver Produto
+                          </Link>
+                          {company.whatsapp && (
+                            <button
+                              onClick={(e) => { e.stopPropagation(); handleWhatsApp(product.title, product.id); }}
+                              className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#25d366] text-white font-bold text-sm hover:bg-[#22c55e] transition-all shadow-lg hover:shadow-xl hover:scale-105 active:scale-95"
+                            >
+                              <MessageCircle size={16} /> WhatsApp
+                            </button>
+                          )}
+                          <Link
+                            to={`/${seg}/empresa/${id}`}
+                            className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white/10 backdrop-blur text-white font-bold text-sm hover:bg-white/20 transition-all"
+                            onClick={(e) => e.stopPropagation()}
+                          >
+                            <Store size={16} /> Ir à Loja
+                          </Link>
+                        </motion.div>
+                      </div>
+
+                      {/* Company logo watermark */}
+                      {company.logo && (
+                        <div className={`absolute top-5 ${isEven ? "right-5" : "left-5"} z-10`}>
+                          <img src={company.logo} alt="" className="w-10 h-10 md:w-14 md:h-14 rounded-xl object-cover border-2 border-white/20 shadow-xl opacity-70 group-hover:opacity-100 transition-opacity" />
+                        </div>
+                      )}
+                    </motion.div>
+                  );
+                })}
+              </div>
             </div>
 
             {/* Lightbox */}
             <AnimatePresence>
-              {galleryLightbox !== null && (
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  className="fixed inset-0 z-50 bg-black/95 backdrop-blur-xl flex items-center justify-center p-4"
-                  onClick={() => setGalleryLightbox(null)}
-                >
-                  {/* Close */}
-                  <button
+              {galleryLightbox !== null && galleryProducts[galleryLightbox] && (() => {
+                const lbProduct = galleryProducts[galleryLightbox];
+                const lbPhotos = lbProduct.images?.length ? lbProduct.images : [lbProduct.image];
+                return (
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    className="fixed inset-0 z-50 bg-black/95 backdrop-blur-xl flex items-center justify-center p-4"
                     onClick={() => setGalleryLightbox(null)}
-                    className="absolute top-4 right-4 z-50 w-10 h-10 rounded-full bg-white/10 backdrop-blur flex items-center justify-center text-white hover:bg-white/20 transition-colors"
                   >
-                    ✕
-                  </button>
-
-                  {/* Prev */}
-                  <button
-                    onClick={(e) => { e.stopPropagation(); setGalleryLightbox((prev) => (prev! - 1 + uniquePhotos.length) % uniquePhotos.length); }}
-                    className="absolute left-4 top-1/2 -translate-y-1/2 z-50 w-12 h-12 rounded-full bg-white/10 backdrop-blur flex items-center justify-center text-white hover:bg-white/20 transition-colors"
-                  >
-                    <ChevronLeft size={24} />
-                  </button>
-
-                  {/* Image */}
-                  <motion.img
-                    key={galleryLightbox}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.9 }}
-                    transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
-                    src={uniquePhotos[galleryLightbox]}
-                    alt=""
-                    className="max-w-[90vw] max-h-[85vh] object-contain rounded-lg shadow-2xl"
-                    onClick={(e) => e.stopPropagation()}
-                  />
-
-                  {/* Next */}
-                  <button
-                    onClick={(e) => { e.stopPropagation(); setGalleryLightbox((prev) => (prev! + 1) % uniquePhotos.length); }}
-                    className="absolute right-4 top-1/2 -translate-y-1/2 z-50 w-12 h-12 rounded-full bg-white/10 backdrop-blur flex items-center justify-center text-white hover:bg-white/20 transition-colors"
-                  >
-                    <ChevronRight size={24} />
-                  </button>
-
-                  {/* Counter */}
-                  <div className="absolute bottom-6 left-1/2 -translate-x-1/2 px-4 py-2 rounded-full bg-white/10 backdrop-blur text-white text-sm font-medium">
-                    {galleryLightbox + 1} / {uniquePhotos.length}
-                  </div>
-                </motion.div>
-              )}
+                    <button
+                      onClick={() => setGalleryLightbox(null)}
+                      className="absolute top-4 right-4 z-50 w-10 h-10 rounded-full bg-white/10 backdrop-blur flex items-center justify-center text-white hover:bg-white/20 transition-colors"
+                    >
+                      ✕
+                    </button>
+                    <button
+                      onClick={(e) => { e.stopPropagation(); setGalleryLightbox((prev) => (prev! - 1 + galleryProducts.length) % galleryProducts.length); }}
+                      className="absolute left-4 top-1/2 -translate-y-1/2 z-50 w-12 h-12 rounded-full bg-white/10 backdrop-blur flex items-center justify-center text-white hover:bg-white/20 transition-colors"
+                    >
+                      <ChevronLeft size={24} />
+                    </button>
+                    <motion.img
+                      key={galleryLightbox}
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.9 }}
+                      transition={{ duration: 0.4 }}
+                      src={lbPhotos[0]}
+                      alt=""
+                      className="max-w-[90vw] max-h-[85vh] object-contain rounded-lg shadow-2xl"
+                      onClick={(e) => e.stopPropagation()}
+                    />
+                    <button
+                      onClick={(e) => { e.stopPropagation(); setGalleryLightbox((prev) => (prev! + 1) % galleryProducts.length); }}
+                      className="absolute right-4 top-1/2 -translate-y-1/2 z-50 w-12 h-12 rounded-full bg-white/10 backdrop-blur flex items-center justify-center text-white hover:bg-white/20 transition-colors"
+                    >
+                      <ChevronRight size={24} />
+                    </button>
+                    <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-center">
+                      <p className="text-white font-bold text-lg">{lbProduct.title}</p>
+                      <p className="text-white/50 text-sm">{galleryLightbox + 1} / {galleryProducts.length}</p>
+                    </div>
+                  </motion.div>
+                );
+              })()}
             </AnimatePresence>
           </section>
         );
