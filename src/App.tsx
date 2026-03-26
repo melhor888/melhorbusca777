@@ -28,6 +28,44 @@ import NotFound from "@/pages/NotFound";
 
 const queryClient = new QueryClient();
 
+const AppLayout = () => {
+  const location = useLocation();
+  const isStorePage = location.pathname.includes("/empresa/");
+
+  return (
+    <div className="min-h-screen flex flex-col">
+      {!isStorePage && <Header />}
+      <main className="flex-1">
+        <Routes>
+          <Route path="/" element={<Index />} />
+          <Route path="/imoveis" element={<PropertiesPage />} />
+          <Route path="/imoveis/:cidade" element={<PropertiesPage />} />
+          <Route path="/imoveis/empresa/:id" element={<CompanyProfile />} />
+          <Route path="/imoveis/produto/:productId" element={<ProductDetail />} />
+          <Route path="/veiculos" element={<VehiclesPage />} />
+          <Route path="/veiculos/:cidade" element={<VehiclesPage />} />
+          <Route path="/veiculos/empresa/:id" element={<CompanyProfile />} />
+          <Route path="/veiculos/produto/:productId" element={<ProductDetail />} />
+          <Route path="/:cidade/imoveis" element={<CityPropertiesPage />} />
+          <Route path="/:cidade/veiculos" element={<CityVehiclesPage />} />
+          <Route path="/anunciar" element={<CreateListing />} />
+          <Route path="/buscar" element={<SearchPage />} />
+          <Route path="/entrar" element={<AuthPage />} />
+          <Route path="/painel" element={<SellerDashboard />} />
+          <Route path="/painel/novo" element={<SellerItemForm />} />
+          <Route path="/painel/editar/:id" element={<SellerItemForm />} />
+          <Route path="/painel/perfil" element={<SellerProfile />} />
+          <Route path="/pacotes" element={<PackagesPage />} />
+          <Route path="/admin" element={<AdminPanel />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </main>
+      {!isStorePage && <FooterSimple />}
+      <InstallPWA />
+    </div>
+  );
+};
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <HelmetProvider>
@@ -37,36 +75,7 @@ const App = () => (
           <Sonner />
           <BrowserRouter>
             <ScrollToTop />
-            <div className="min-h-screen flex flex-col">
-              <Header />
-              <main className="flex-1">
-                <Routes>
-                  <Route path="/" element={<Index />} />
-                  <Route path="/imoveis" element={<PropertiesPage />} />
-                  <Route path="/imoveis/:cidade" element={<PropertiesPage />} />
-                  <Route path="/imoveis/empresa/:id" element={<CompanyProfile />} />
-                  <Route path="/imoveis/produto/:productId" element={<ProductDetail />} />
-                  <Route path="/veiculos" element={<VehiclesPage />} />
-                  <Route path="/veiculos/:cidade" element={<VehiclesPage />} />
-                  <Route path="/veiculos/empresa/:id" element={<CompanyProfile />} />
-                  <Route path="/veiculos/produto/:productId" element={<ProductDetail />} />
-                  <Route path="/:cidade/imoveis" element={<CityPropertiesPage />} />
-                  <Route path="/:cidade/veiculos" element={<CityVehiclesPage />} />
-                  <Route path="/anunciar" element={<CreateListing />} />
-                  <Route path="/buscar" element={<SearchPage />} />
-                  <Route path="/entrar" element={<AuthPage />} />
-                  <Route path="/painel" element={<SellerDashboard />} />
-                  <Route path="/painel/novo" element={<SellerItemForm />} />
-                  <Route path="/painel/editar/:id" element={<SellerItemForm />} />
-                  <Route path="/painel/perfil" element={<SellerProfile />} />
-                  <Route path="/pacotes" element={<PackagesPage />} />
-                  <Route path="/admin" element={<AdminPanel />} />
-                  <Route path="*" element={<NotFound />} />
-                </Routes>
-              </main>
-              <FooterSimple />
-              <InstallPWA />
-            </div>
+            <AppLayout />
           </BrowserRouter>
         </TooltipProvider>
       </AuthProvider>
