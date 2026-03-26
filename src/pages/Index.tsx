@@ -1,5 +1,6 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { Building2, Car, ArrowRight, Search, Home, Key, Bike, Truck, MapPin, Shield, Zap, Star, ChevronRight, Plus } from "lucide-react";
+import NotFoundPage from "@/pages/NotFound";
 import { motion } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
 import { Helmet } from "react-helmet-async";
