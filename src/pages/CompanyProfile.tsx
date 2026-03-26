@@ -624,268 +624,144 @@ export default function CompanyProfile() {
         </div>
       </div>
 
-      {/* ═══════════ CINEMATIC GALLERY — One at a time, auto-play ═══════════ */}
+      {/* ═══ FULLSCREEN CINEMA MODE ═══ */}
       {(() => {
         const galleryProducts = products.filter((p: any) => p.image || p.images?.length);
         if (galleryProducts.length < 2) return null;
         const seg = isProperty ? "imoveis" : "veiculos";
-        const current = galleryProducts[gallerySlide % galleryProducts.length];
-        const currentImg = current?.images?.[0] || current?.image;
         const total = galleryProducts.length;
 
         return (
-          <section className="relative bg-black">
-            {/* Preview Banner — one product at a time */}
-            <div
-              className="relative h-[45vh] md:h-[65vh] overflow-hidden cursor-pointer group"
-              onClick={() => setGalleryLightbox(gallerySlide)}
-              onMouseEnter={() => setGalleryPaused(true)}
-              onMouseLeave={() => setGalleryPaused(false)}
-            >
-              <AnimatePresence mode="wait">
-                <motion.img
-                  key={current?.id}
-                  initial={{ opacity: 0, scale: 1.08 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] }}
-                  src={currentImg}
-                  alt={current?.title}
-                  className="absolute inset-0 w-full h-full object-cover"
-                  loading="lazy"
-                />
-              </AnimatePresence>
+          <AnimatePresence>
+            {galleryLightbox !== null && galleryProducts[galleryLightbox] && (() => {
+              const lbProduct = galleryProducts[galleryLightbox];
+              const lbImg = lbProduct.images?.[0] || lbProduct.image;
 
-              {/* Cinematic gradients */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-black/10" />
-              <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-transparent" />
-              <div className="absolute inset-0 shadow-[inset_0_0_120px_rgba(0,0,0,0.4)]" />
-
-              {/* Header */}
-              <div className="absolute top-5 left-5 z-20 flex items-center gap-3">
-                {company.logo ? (
-                  <img src={company.logo} alt={company.name} className="w-9 h-9 rounded-xl object-cover border border-white/20 shadow-lg" />
-                ) : (
-                  <div className="w-9 h-9 rounded-xl bg-white/10 backdrop-blur flex items-center justify-center">
-                    <Image size={16} className="text-white" />
-                  </div>
-                )}
-                <div>
-                  <h2 className="font-display font-bold text-sm text-white">{company.name}</h2>
-                  <p className="text-[10px] text-white/40">{company.address}</p>
-                  <p className="text-[10px] text-white/50">{gallerySlide + 1} de {total}</p>
-                </div>
-              </div>
-
-              {/* Content */}
-              <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10 z-10">
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={current?.id}
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -15 }}
-                    transition={{ duration: 0.6 }}
-                    className="max-w-2xl"
-                  >
-
-                    {current?.tag && (
-                      <span className={`inline-block px-3 py-1 rounded-full text-[10px] font-bold shadow mb-3 ${getTagStyle(getTagLabel(current.tag))}`}>
-                        {getTagLabel(current.tag)}
-                      </span>
-                    )}
-                    <h3 className="font-display font-bold text-2xl md:text-5xl text-white leading-tight drop-shadow-lg">
-                      {current?.title}
-                    </h3>
-                    {current?.description && (
-                      <p className="text-white/50 text-sm md:text-base mt-2 line-clamp-2 max-w-lg">{current.description}</p>
-                    )}
-                    {current?.price > 0 && (
-                      <p className="font-display font-bold text-xl md:text-3xl text-primary mt-3 drop-shadow-lg">
-                        {isDbProfile ? `R$ ${current.price.toLocaleString("pt-BR")}` : formatPrice(current.price)}
-                      </p>
-                    )}
-
-                    {/* Buttons */}
-                    <div className="flex items-center gap-2 mt-4 flex-wrap">
-                      <Link
-                        to={`/${seg}/produto/${current?.id}`}
-                        className="inline-flex items-center gap-1.5 px-3 py-2 md:px-5 md:py-3 rounded-lg md:rounded-xl bg-white text-black font-bold text-[11px] md:text-sm hover:bg-white/90 transition-all shadow-lg hover:scale-105 active:scale-95"
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        <Eye size={12} className="md:w-4 md:h-4" /> Ver Produto
-                      </Link>
-                      {company.whatsapp && (
-                        <button
-                          onClick={(e) => { e.stopPropagation(); handleWhatsApp(current?.title, current?.id); }}
-                          className="inline-flex items-center gap-1.5 px-3 py-2 md:px-5 md:py-3 rounded-lg md:rounded-xl bg-[#25d366] text-white font-bold text-[11px] md:text-sm hover:bg-[#22c55e] transition-all shadow-lg hover:scale-105 active:scale-95"
-                        >
-                          <MessageCircle size={12} className="md:w-4 md:h-4" /> WhatsApp
-                        </button>
-                      )}
-                    </div>
-                  </motion.div>
-                </AnimatePresence>
-              </div>
-
-              {/* Navigation arrows */}
-              <button
-                onClick={(e) => { e.stopPropagation(); setGallerySlide((prev) => (prev - 1 + total) % total); }}
-                className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white/10 backdrop-blur flex items-center justify-center text-white hover:bg-white/20 transition-colors"
-              >
-                <ChevronLeft size={22} />
-              </button>
-              <button
-                onClick={(e) => { e.stopPropagation(); setGallerySlide((prev) => (prev + 1) % total); }}
-                className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white/10 backdrop-blur flex items-center justify-center text-white hover:bg-white/20 transition-colors"
-              >
-                <ChevronRight size={22} />
-              </button>
-
-              {/* Progress bar */}
-              <div className="absolute bottom-0 left-0 right-0 h-1 bg-white/10 z-30">
+              return (
                 <motion.div
-                  key={`progress-${gallerySlide}-${galleryPaused}`}
-                  className="h-full bg-primary"
-                  initial={{ width: "0%" }}
-                  animate={{ width: galleryPaused ? undefined : "100%" }}
-                  transition={{ duration: 6, ease: "linear" }}
-                />
-              </div>
-            </div>
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  className="fixed inset-0 z-50 bg-black"
+                >
+                  {/* Background */}
+                  <AnimatePresence mode="wait">
+                    <motion.img
+                      key={lbProduct.id}
+                      initial={{ opacity: 0, filter: "blur(8px) brightness(0.6)" }}
+                      animate={{ opacity: 1, filter: "blur(0px) brightness(1)" }}
+                      exit={{ opacity: 0, filter: "blur(4px) brightness(0.5)" }}
+                      transition={{ duration: 1.4, ease: [0.25, 0.46, 0.45, 0.94] }}
+                      src={lbImg}
+                      alt={lbProduct.title}
+                      className="absolute inset-[-20%] w-[140%] h-[140%] object-cover animate-[cinemapan_8s_ease-in-out_infinite_alternate] md:inset-0 md:w-full md:h-full md:animate-[kenburns_8s_ease-in-out_infinite_alternate]"
+                    />
+                  </AnimatePresence>
 
-            {/* ═══ FULLSCREEN CINEMA MODE ═══ */}
-            <AnimatePresence>
-              {galleryLightbox !== null && galleryProducts[galleryLightbox] && (() => {
-                const lbProduct = galleryProducts[galleryLightbox];
-                const lbImg = lbProduct.images?.[0] || lbProduct.image;
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/20" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-transparent" />
 
-                return (
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    className="fixed inset-0 z-50 bg-black"
+                  {/* Close */}
+                  <button
+                    onClick={() => setGalleryLightbox(null)}
+                    className="absolute top-4 right-4 z-50 w-9 h-9 md:w-11 md:h-11 rounded-full bg-white/10 backdrop-blur flex items-center justify-center text-white text-sm md:text-base hover:bg-white/20 transition-colors"
                   >
-                    {/* Background */}
+                    ✕
+                  </button>
+
+                  {/* Arrows */}
+                  <button
+                    onClick={() => setGalleryLightbox((prev) => (prev! - 1 + total) % total)}
+                    className="absolute left-3 top-1/2 -translate-y-1/2 z-50 w-10 h-10 md:w-14 md:h-14 rounded-full bg-white/10 backdrop-blur flex items-center justify-center text-white hover:bg-white/20 transition-colors"
+                  >
+                    <ChevronLeft size={20} className="md:hidden" /><ChevronLeft size={28} className="hidden md:block" />
+                  </button>
+                  <button
+                    onClick={() => setGalleryLightbox((prev) => (prev! + 1) % total)}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 z-50 w-10 h-10 md:w-14 md:h-14 rounded-full bg-white/10 backdrop-blur flex items-center justify-center text-white hover:bg-white/20 transition-colors"
+                  >
+                    <ChevronLeft size={20} className="md:hidden rotate-180" /><ChevronRight size={28} className="hidden md:block" />
+                  </button>
+
+                  {/* Content */}
+                  <div className="absolute bottom-0 left-0 right-0 p-5 md:p-14 z-10">
                     <AnimatePresence mode="wait">
-                      <motion.img
-                        key={lbProduct.id}
-                        initial={{ opacity: 0, filter: "blur(8px) brightness(0.6)" }}
-                        animate={{ opacity: 1, filter: "blur(0px) brightness(1)" }}
-                        exit={{ opacity: 0, filter: "blur(4px) brightness(0.5)" }}
-                        transition={{ duration: 1.4, ease: [0.25, 0.46, 0.45, 0.94] }}
-                        src={lbImg}
-                        alt={lbProduct.title}
-                        className="absolute inset-[-20%] w-[140%] h-[140%] object-cover animate-[cinemapan_8s_ease-in-out_infinite_alternate] md:inset-0 md:w-full md:h-full md:animate-[kenburns_8s_ease-in-out_infinite_alternate]"
-                      />
-                    </AnimatePresence>
-
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/20" />
-                    <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-transparent" />
-
-                    {/* Close */}
-                    <button
-                      onClick={() => setGalleryLightbox(null)}
-                      className="absolute top-4 right-4 z-50 w-9 h-9 md:w-11 md:h-11 rounded-full bg-white/10 backdrop-blur flex items-center justify-center text-white text-sm md:text-base hover:bg-white/20 transition-colors"
-                    >
-                      ✕
-                    </button>
-
-                    {/* Arrows */}
-                    <button
-                      onClick={() => setGalleryLightbox((prev) => (prev! - 1 + total) % total)}
-                      className="absolute left-3 top-1/2 -translate-y-1/2 z-50 w-10 h-10 md:w-14 md:h-14 rounded-full bg-white/10 backdrop-blur flex items-center justify-center text-white hover:bg-white/20 transition-colors"
-                    >
-                      <ChevronLeft size={20} className="md:hidden" /><ChevronLeft size={28} className="hidden md:block" />
-                    </button>
-                    <button
-                      onClick={() => setGalleryLightbox((prev) => (prev! + 1) % total)}
-                      className="absolute right-3 top-1/2 -translate-y-1/2 z-50 w-10 h-10 md:w-14 md:h-14 rounded-full bg-white/10 backdrop-blur flex items-center justify-center text-white hover:bg-white/20 transition-colors"
-                    >
-                      <ChevronLeft size={20} className="md:hidden rotate-180" /><ChevronRight size={28} className="hidden md:block" />
-                    </button>
-
-                    {/* Content */}
-                    <div className="absolute bottom-0 left-0 right-0 p-5 md:p-14 z-10">
-                      <AnimatePresence mode="wait">
-                        <motion.div
-                          key={lbProduct.id}
-                          initial={{ opacity: 0, y: 40 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          exit={{ opacity: 0, y: -20 }}
-                          transition={{ duration: 0.6 }}
-                          className="max-w-3xl"
-                        >
-                          {/* Store info */}
-                          <div className="flex items-center gap-3 mb-4">
-                            {company.logo && (
-                              <img src={company.logo} alt="" className="w-9 h-9 rounded-lg object-cover border border-white/20" />
-                            )}
-                            <div>
-                              <p className="font-display font-bold text-sm text-white/90">{company.name}</p>
-                              <p className="text-[11px] text-white/40">{company.address}</p>
-                            </div>
-                          </div>
-
-                          {lbProduct.tag && (
-                            <span className={`inline-block px-3 py-1 rounded-full text-xs font-bold shadow mb-3 ${getTagStyle(getTagLabel(lbProduct.tag))}`}>
-                              {getTagLabel(lbProduct.tag)}
-                            </span>
-                          )}
-                          <h2 className="font-display font-bold text-3xl md:text-6xl text-white leading-tight drop-shadow-2xl">
-                            {lbProduct.title}
-                          </h2>
-                          {lbProduct.description && (
-                            <p className="text-white/50 text-sm md:text-lg mt-3 line-clamp-3 max-w-xl">{lbProduct.description}</p>
-                          )}
-                          {lbProduct.price > 0 && (
-                            <p className="font-display font-bold text-2xl md:text-4xl text-primary mt-4 drop-shadow-lg">
-                              {isDbProfile ? `R$ ${lbProduct.price.toLocaleString("pt-BR")}` : formatPrice(lbProduct.price)}
-                            </p>
-                          )}
-
-                          <div className="flex items-center gap-2 mt-4 flex-wrap">
-                            <Link
-                              to={`/${seg}/produto/${lbProduct.id}`}
-                              className="inline-flex items-center gap-1.5 px-3 py-2 md:px-6 md:py-3.5 rounded-lg md:rounded-xl bg-white text-black font-bold text-[11px] md:text-sm hover:bg-white/90 transition-all shadow-lg hover:scale-105"
-                            >
-                              <Eye size={12} className="md:w-4 md:h-4" /> Ver Produto
-                            </Link>
-                            {company.whatsapp && (
-                              <button
-                                onClick={() => handleWhatsApp(lbProduct.title, lbProduct.id)}
-                                className="inline-flex items-center gap-1.5 px-3 py-2 md:px-6 md:py-3.5 rounded-lg md:rounded-xl bg-[#25d366] text-white font-bold text-[11px] md:text-sm hover:bg-[#22c55e] transition-all shadow-lg hover:scale-105"
-                              >
-                                <MessageCircle size={12} className="md:w-4 md:h-4" /> WhatsApp
-                              </button>
-                            )}
-                          </div>
-                        </motion.div>
-                      </AnimatePresence>
-                    </div>
-
-                    {/* Counter */}
-                    <div className="absolute top-5 left-5 z-50">
-                      <p className="text-white/40 text-xs">{galleryLightbox + 1} de {total}</p>
-                    </div>
-
-                    {/* Progress bar */}
-                    <div className="absolute bottom-0 left-0 right-0 h-1 bg-white/10 z-30">
                       <motion.div
-                        key={`cinema-progress-${galleryLightbox}`}
-                        className="h-full bg-primary"
-                        initial={{ width: "0%" }}
-                        animate={{ width: "100%" }}
-                        transition={{ duration: 8, ease: "linear" }}
-                        onAnimationComplete={() => setGalleryLightbox((prev) => (prev! + 1) % total)}
-                      />
-                    </div>
-                  </motion.div>
-                );
-              })()}
-            </AnimatePresence>
-          </section>
+                        key={lbProduct.id}
+                        initial={{ opacity: 0, y: 40 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -20 }}
+                        transition={{ duration: 0.6 }}
+                        className="max-w-3xl"
+                      >
+                        {/* Store info */}
+                        <div className="flex items-center gap-3 mb-4">
+                          {company.logo && (
+                            <img src={company.logo} alt="" className="w-9 h-9 rounded-lg object-cover border border-white/20" />
+                          )}
+                          <div>
+                            <p className="font-display font-bold text-sm text-white/90">{company.name}</p>
+                            <p className="text-[11px] text-white/40">{company.address}</p>
+                          </div>
+                        </div>
+
+                        {lbProduct.tag && (
+                          <span className={`inline-block px-3 py-1 rounded-full text-xs font-bold shadow mb-3 ${getTagStyle(getTagLabel(lbProduct.tag))}`}>
+                            {getTagLabel(lbProduct.tag)}
+                          </span>
+                        )}
+                        <h2 className="font-display font-bold text-3xl md:text-6xl text-white leading-tight drop-shadow-2xl">
+                          {lbProduct.title}
+                        </h2>
+                        {lbProduct.description && (
+                          <p className="text-white/50 text-sm md:text-lg mt-3 line-clamp-3 max-w-xl">{lbProduct.description}</p>
+                        )}
+                        {lbProduct.price > 0 && (
+                          <p className="font-display font-bold text-2xl md:text-4xl text-primary mt-4 drop-shadow-lg">
+                            {isDbProfile ? `R$ ${lbProduct.price.toLocaleString("pt-BR")}` : formatPrice(lbProduct.price)}
+                          </p>
+                        )}
+
+                        <div className="flex items-center gap-2 mt-4 flex-wrap">
+                          <Link
+                            to={`/${seg}/produto/${lbProduct.id}`}
+                            className="inline-flex items-center gap-1.5 px-3 py-2 md:px-6 md:py-3.5 rounded-lg md:rounded-xl bg-white text-black font-bold text-[11px] md:text-sm hover:bg-white/90 transition-all shadow-lg hover:scale-105"
+                          >
+                            <Eye size={12} className="md:w-4 md:h-4" /> Ver Produto
+                          </Link>
+                          {company.whatsapp && (
+                            <button
+                              onClick={() => handleWhatsApp(lbProduct.title, lbProduct.id)}
+                              className="inline-flex items-center gap-1.5 px-3 py-2 md:px-6 md:py-3.5 rounded-lg md:rounded-xl bg-[#25d366] text-white font-bold text-[11px] md:text-sm hover:bg-[#22c55e] transition-all shadow-lg hover:scale-105"
+                            >
+                              <MessageCircle size={12} className="md:w-4 md:h-4" /> WhatsApp
+                            </button>
+                          )}
+                        </div>
+                      </motion.div>
+                    </AnimatePresence>
+                  </div>
+
+                  {/* Counter */}
+                  <div className="absolute top-5 left-5 z-50">
+                    <p className="text-white/40 text-xs">{galleryLightbox + 1} de {total}</p>
+                  </div>
+
+                  {/* Progress bar */}
+                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-white/10 z-30">
+                    <motion.div
+                      key={`cinema-progress-${galleryLightbox}`}
+                      className="h-full bg-primary"
+                      initial={{ width: "0%" }}
+                      animate={{ width: "100%" }}
+                      transition={{ duration: 8, ease: "linear" }}
+                      onAnimationComplete={() => setGalleryLightbox((prev) => (prev! + 1) % total)}
+                    />
+                  </div>
+                </motion.div>
+              );
+            })()}
+          </AnimatePresence>
         );
       })()}
       <section className="lg:hidden px-4 mt-6 mb-6">
