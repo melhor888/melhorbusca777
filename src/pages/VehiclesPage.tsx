@@ -246,11 +246,11 @@ export default function VehiclesPage() {
                 to={`/veiculos/empresa/${company.id}`}
                 className="flex flex-col items-center gap-2 group flex-shrink-0 w-20"
               >
-                <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-border group-hover:border-primary group-hover:shadow-lg transition-all duration-300 group-hover:scale-110">
+                <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-border group-hover:border-primary group-hover:shadow-lg transition-all duration-300">
                   <img
                     src={company.logo}
                     alt={company.name}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                     loading="lazy"
                   />
                 </div>
