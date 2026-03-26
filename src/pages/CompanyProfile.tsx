@@ -273,7 +273,7 @@ export default function CompanyProfile() {
                         </div>
                       )}
                       {product.tag && (
-                        <span className={`absolute top-2 left-2 px-2 py-0.5 rounded-md text-[10px] font-bold shadow ${isDbProfile ? "bg-accent text-accent-foreground" : getTagStyle(product.tag)}`}>{product.tag}</span>
+                        <span className={`absolute top-2 left-2 px-2 py-0.5 rounded-md text-[10px] font-bold shadow ${getTagStyle(product.tag)}`}>{product.tag}</span>
                       )}
                     </div>
                     <div className="p-3">
