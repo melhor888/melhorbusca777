@@ -28,6 +28,7 @@ interface HeroBannerCarouselProps {
   featuredItemIds?: Set<string>;
   type: "imoveis" | "veiculos";
   filterCity?: string;
+  filterCategory?: string;
   fallbackImage: string;
   accentColor?: string;
 }
@@ -41,6 +42,7 @@ export default function HeroBannerCarousel({
   featuredItemIds,
   type,
   filterCity,
+  filterCategory,
   fallbackImage,
   accentColor = "text-primary",
 }: HeroBannerCarouselProps) {
@@ -66,10 +68,15 @@ export default function HeroBannerCarousel({
       );
     }
 
+    // Filter by category if active
+    if (filterCategory) {
+      filtered = filtered.filter((item) => item.realCategory === filterCategory);
+    }
+
     // Shuffle
     const shuffled = [...filtered].sort(() => Math.random() - 0.5);
     return shuffled.slice(0, 20);
-  }, [items, filterCity, featuredItemIds]);
+  }, [items, filterCity, filterCategory, featuredItemIds]);
 
   // Auto-rotate
   useEffect(() => {

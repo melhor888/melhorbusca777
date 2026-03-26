@@ -89,13 +89,32 @@ export default function PropertiesPage() {
     return propertyCompanies.filter((company) => getStaticCompanyCity(company) === selectedCity);
   }, [filterCity]);
 
+  // Category mapping for filtering
+  const categoryMap: Record<string, string[]> = {
+    casas: ["casa"],
+    apartamentos: ["apartamento", "flat"],
+    terrenos: ["terreno"],
+    comerciais: ["comercial", "galpao"],
+    aluguel: ["aluguel"],
+  };
+
+  const effectiveCategory = filterType || activeCategory;
+
   const featuredProducts = useMemo(() => {
-    const base = filterCity
+    let base = filterCity
       ? propertyProducts.filter((p) => normalizeCityValue((p as any).location) === normalizeCityValue(filterCity))
-      : propertyProducts;
+      : [...propertyProducts];
+    // Filter by category
+    if (effectiveCategory) {
+      const matchCats = categoryMap[effectiveCategory] || [];
+      base = base.filter((p) => {
+        const realCat = (p as any).realCategory;
+        return realCat && matchCats.includes(realCat);
+      });
+    }
     const shuffled = [...base].sort(() => Math.random() - 0.5);
     return shuffled.slice(0, 7);
-  }, [propertyProducts, filterCity]);
+  }, [propertyProducts, filterCity, effectiveCategory]);
 
   // Hero carousel sellers map
   const heroSellersMap = useMemo(() => {
@@ -132,25 +151,14 @@ export default function PropertiesPage() {
   ];
 
   const filteredProducts = useMemo(() => {
-    const effectiveCategory = filterType || activeCategory;
-    // Map filter values to real DB categories
-    const categoryMap: Record<string, string[]> = {
-      casas: ["casa"],
-      apartamentos: ["apartamento", "flat"],
-      terrenos: ["terreno"],
-      comerciais: ["comercial", "galpao"],
-      aluguel: ["aluguel"],
-    };
     let list = !effectiveCategory
       ? [...propertyProducts]
       : propertyProducts.filter((p) => {
-          // Match real items by their actual category
           const realCat = (p as any).realCategory;
           if (realCat) {
             const matchCats = categoryMap[effectiveCategory] || [];
             return matchCats.includes(realCat);
           }
-          // Match static items by company category
           const companyIds = propertyCompanies
             .filter((c) => c.category === effectiveCategory)
             .map((c) => c.id);
@@ -181,6 +189,7 @@ export default function PropertiesPage() {
         featuredItemIds={featuredItemIds}
         type="imoveis"
         filterCity={filterCity}
+        filterCategory={effectiveCategory ? (categoryMap[effectiveCategory]?.[0] || undefined) : undefined}
         fallbackImage="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1400&h=500&fit=crop"
         accentColor="text-emerald-400"
       />
