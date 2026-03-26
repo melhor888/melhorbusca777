@@ -13,6 +13,7 @@ const navLinks = [
 export default function Header() {
   const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
+  const { detectedCity } = useCityDetection();
 
   return (
     <header className="sticky top-0 z-50 bg-card/90 backdrop-blur-xl border-b border-border">
