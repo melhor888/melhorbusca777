@@ -846,16 +846,16 @@ export default function CompanyProfile() {
                           <div className="flex items-center gap-3 mt-6 flex-wrap">
                             <Link
                               to={`/${seg}/produto/${lbProduct.id}`}
-                              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white text-black font-bold text-sm hover:bg-white/90 transition-all shadow-lg hover:scale-105"
+                              className="inline-flex items-center gap-1.5 px-4 py-2.5 md:px-6 md:py-3.5 rounded-xl bg-white text-black font-bold text-xs md:text-sm hover:bg-white/90 transition-all shadow-lg hover:scale-105"
                             >
-                              <Eye size={16} /> Ver Produto
+                              <Eye size={14} /> Ver Produto
                             </Link>
                             {company.whatsapp && (
                               <button
                                 onClick={() => handleWhatsApp(lbProduct.title, lbProduct.id)}
-                                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#25d366] text-white font-bold text-sm hover:bg-[#22c55e] transition-all shadow-lg hover:scale-105"
+                                className="inline-flex items-center gap-1.5 px-4 py-2.5 md:px-6 md:py-3.5 rounded-xl bg-[#25d366] text-white font-bold text-xs md:text-sm hover:bg-[#22c55e] transition-all shadow-lg hover:scale-105"
                               >
-                                <MessageCircle size={16} /> WhatsApp
+                                <MessageCircle size={14} /> WhatsApp
                               </button>
                             )}
                           </div>
