@@ -1,6 +1,7 @@
-import { Car, Building2, Plus, Search, Menu, X, Sparkles } from "lucide-react";
+import { Car, Building2, Plus, Search, Menu, X, MapPin } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
+import { useCityDetection } from "@/hooks/useCityDetection";
 
 const navLinks = [
   { to: "/", label: "Início" },
