@@ -98,13 +98,29 @@ export default function VehiclesPage() {
     return paid.filter((s) => s.address.toLowerCase().includes(filterCity.toLowerCase()));
   }, [realSellers, filterCity]);
 
+  // Category mapping for filtering
+  const categoryMap: Record<string, string[]> = {
+    carros: ["carro"],
+    motos: ["moto"],
+    caminhoes: ["caminhao"],
+    utilitarios: ["van", "utilitario"],
+  };
+
   const featuredProducts = useMemo(() => {
-    const base = filterCity
+    let base = filterCity
       ? vehicleProducts.filter((p) => (p as any).location?.toLowerCase().includes(filterCity.toLowerCase()))
-      : vehicleProducts;
+      : [...vehicleProducts];
+    // Filter by category
+    if (activeCategory) {
+      const matchCats = categoryMap[activeCategory] || [];
+      base = base.filter((p) => {
+        const realCat = (p as any).realCategory;
+        return realCat && matchCats.includes(realCat);
+      });
+    }
     const shuffled = [...base].sort(() => Math.random() - 0.5);
     return shuffled.slice(0, 7);
-  }, [vehicleProducts, filterCity]);
+  }, [vehicleProducts, filterCity, activeCategory]);
   // Extract unique brands from specs
   const availableBrands = useMemo(() => {
     const brands = new Set<string>();
@@ -177,6 +193,7 @@ export default function VehiclesPage() {
         featuredItemIds={featuredItemIds}
         type="veiculos"
         filterCity={filterCity}
+        filterCategory={activeCategory ? (categoryMap[activeCategory]?.[0] || undefined) : undefined}
         fallbackImage="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1400&h=500&fit=crop"
         accentColor="text-[#FFD100]"
       />
