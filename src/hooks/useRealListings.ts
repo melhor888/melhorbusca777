@@ -110,9 +110,9 @@ export function useRealListings(segment: "imoveis" | "automoveis") {
         sellerTier: (tierMap.get(item.seller_id) as any) || "basico",
       }));
 
-      // Sort: VIP first, then Premium, then Basico
-      const tierOrder = { vip: 0, premium: 1, basico: 2 };
-      mapped.sort((a: any, b: any) => (tierOrder[a.sellerTier as keyof typeof tierOrder] ?? 2) - (tierOrder[b.sellerTier as keyof typeof tierOrder] ?? 2));
+      // Sort: VIP first, then Premium, then Start, then Basico
+      const tierOrder = { vip: 0, premium: 1, start: 2, basico: 3 };
+      mapped.sort((a: any, b: any) => (tierOrder[a.sellerTier as keyof typeof tierOrder] ?? 3) - (tierOrder[b.sellerTier as keyof typeof tierOrder] ?? 3));
 
       setItems(mapped);
 
