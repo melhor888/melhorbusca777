@@ -682,6 +682,17 @@ export default function CompanyProfile() {
                     transition={{ duration: 0.6 }}
                     className="max-w-2xl"
                   >
+                    {/* Store info */}
+                    <div className="flex items-center gap-3 mb-4">
+                      {company.logo && (
+                        <img src={company.logo} alt="" className="w-8 h-8 rounded-lg object-cover border border-white/20" />
+                      )}
+                      <div>
+                        <p className="font-display font-bold text-sm text-white/90">{company.name}</p>
+                        <p className="text-[11px] text-white/40">{company.address}</p>
+                      </div>
+                    </div>
+
                     {current?.tag && (
                       <span className="inline-block px-3 py-1 rounded-full bg-primary text-primary-foreground text-[10px] font-bold uppercase tracking-wider mb-3">
                         {current.tag}
