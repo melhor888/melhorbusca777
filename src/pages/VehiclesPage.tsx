@@ -60,10 +60,19 @@ export default function VehiclesPage() {
     return prods[Math.floor(Math.random() * prods.length)];
   }, [vehicleProducts]);
 
+  // Filter sellers by city
+  const filteredSellers = useMemo(() => {
+    if (!filterCity) return realSellers;
+    return realSellers.filter((s) => s.address.toLowerCase().includes(filterCity.toLowerCase()));
+  }, [realSellers, filterCity]);
+
   const featuredProducts = useMemo(() => {
-    const shuffled = [...vehicleProducts].sort(() => Math.random() - 0.5);
+    const base = filterCity
+      ? vehicleProducts.filter((p) => (p as any).location?.toLowerCase().includes(filterCity.toLowerCase()))
+      : vehicleProducts;
+    const shuffled = [...base].sort(() => Math.random() - 0.5);
     return shuffled.slice(0, 7);
-  }, [vehicleProducts]);
+  }, [vehicleProducts, filterCity]);
 
   const heroCompany = heroProduct ? allSellers[heroProduct.companyId] : undefined;
 
@@ -76,18 +85,15 @@ export default function VehiclesPage() {
 
   const availableCities = useMemo(() => {
     const cities = new Set<string>();
+    realItems.forEach((item) => {
+      if (item.city) cities.add(item.city.trim());
+    });
     vehicleCompanies.forEach((c) => {
       const city = c.address.split(" - ").pop()?.trim();
       if (city) cities.add(city);
     });
-    realSellers.forEach((s) => {
-      if (s.address) {
-        const parts = s.address.split(",").map((p) => p.trim());
-        parts.forEach((p) => { if (p && p.length > 1) cities.add(p); });
-      }
-    });
     return Array.from(cities).sort();
-  }, [realSellers]);
+  }, [realItems]);
 
   const filteredProducts = useMemo(() => {
     let list = !activeCategory
