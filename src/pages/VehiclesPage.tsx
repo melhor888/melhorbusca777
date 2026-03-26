@@ -109,10 +109,11 @@ export default function VehiclesPage() {
 
     // Apply filters
     if (filterCity) {
+      const cityLower = filterCity.toLowerCase();
       const cityCompanyIds = vehicleCompanies
-        .filter((c) => c.address.includes(filterCity))
+        .filter((c) => c.address.toLowerCase().includes(cityLower))
         .map((c) => c.id);
-      list = list.filter((p) => cityCompanyIds.includes(p.companyId));
+      list = list.filter((p) => cityCompanyIds.includes(p.companyId) || (p as any).location?.toLowerCase().includes(cityLower));
     }
     if (filterBrand) {
       list = list.filter((p) => p.specs["Marca"] === filterBrand);

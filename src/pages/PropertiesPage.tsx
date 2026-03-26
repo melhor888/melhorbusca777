@@ -107,14 +107,15 @@ export default function PropertiesPage() {
         });
 
     if (filterCity) {
+      const cityLower = filterCity.toLowerCase();
       const staticCityIds = propertyCompanies
-        .filter((c) => c.address.includes(filterCity))
+        .filter((c) => c.address.toLowerCase().includes(cityLower))
         .map((c) => c.id);
       const realCityIds = realSellers
-        .filter((s) => s.address.toLowerCase().includes(filterCity.toLowerCase()))
+        .filter((s) => s.address.toLowerCase().includes(cityLower))
         .map((s) => s.id);
       const cityIds = new Set([...staticCityIds, ...realCityIds]);
-      list = list.filter((p) => cityIds.has(p.companyId));
+      list = list.filter((p) => cityIds.has(p.companyId) || (p as any).location?.toLowerCase().includes(cityLower));
     }
 
     for (let i = list.length - 1; i > 0; i--) {
