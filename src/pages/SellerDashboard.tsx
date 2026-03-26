@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
 import { supabase } from "@/integrations/supabase/client";
-import { Package, Eye, Plus, Settings, Edit, Trash2, Copy, ToggleLeft, ToggleRight, Search, Image, LogOut, BarChart3, Star, Crown, Zap, AlertTriangle, Shield, MessageCircle, Home, UserCircle, Headphones, Globe, ExternalLink, CheckCircle2, ClipboardCopy, Megaphone, Send, Calculator } from "lucide-react";
+import { Package, Eye, Plus, Settings, Edit, Trash2, Copy, ToggleLeft, ToggleRight, Search, Image, LogOut, BarChart3, Star, Crown, Zap, AlertTriangle, Shield, MessageCircle, Home, UserCircle, Headphones, Globe, ExternalLink, CheckCircle2, ClipboardCopy, Megaphone, Send, Calculator, Lock } from "lucide-react";
 import { getTagStyle, getTagLabel } from "@/data/products";
 import { useToast } from "@/hooks/use-toast";
 import { motion } from "framer-motion";
@@ -191,13 +191,29 @@ export default function SellerDashboard() {
     }
   };
 
+  const isFreePlan = currentTier === "basico";
+  const lockedTabs: DashboardTab[] = isFreePlan ? ["domain", "ads"] : [];
+
   const sidebarNav = [
     { id: "overview" as const, label: "Visão Geral", icon: Home },
     { id: "items" as const, label: "Meus Anúncios", icon: Package },
     { id: "stats" as const, label: "Estatísticas", icon: BarChart3 },
-    { id: "ads" as const, label: "Fazer ADS", icon: Megaphone },
-    { id: "domain" as const, label: "Meu Domínio", icon: Globe },
+    { id: "ads" as const, label: "Fazer ADS", icon: Megaphone, locked: lockedTabs.includes("ads") },
+    { id: "domain" as const, label: "Meu Domínio", icon: Globe, locked: lockedTabs.includes("domain") },
   ];
+
+  const handleTabClick = (tabId: DashboardTab) => {
+    if (lockedTabs.includes(tabId)) {
+      toast({
+        title: "Recurso bloqueado 🔒",
+        description: "Faça upgrade do seu plano para acessar este recurso.",
+        variant: "destructive",
+      });
+      navigate("/pacotes");
+      return;
+    }
+    setActiveTab(tabId);
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -236,9 +252,9 @@ export default function SellerDashboard() {
           {/* Mobile Tabs */}
           <div className="flex gap-2 mt-4">
             {sidebarNav.map((nav) => (
-              <button key={nav.id} onClick={() => setActiveTab(nav.id)}
-                className={`flex-1 flex items-center justify-center gap-1.5 py-2 rounded-xl text-xs font-semibold transition-all ${activeTab === nav.id ? "bg-white/25 text-white" : "text-white/60 hover:text-white/80"}`}>
-                <nav.icon size={14} /> {nav.label}
+              <button key={nav.id} onClick={() => handleTabClick(nav.id)}
+                className={`flex-1 flex items-center justify-center gap-1.5 py-2 rounded-xl text-xs font-semibold transition-all ${nav.locked ? "text-white/40" : activeTab === nav.id ? "bg-white/25 text-white" : "text-white/60 hover:text-white/80"}`}>
+                {nav.locked ? <Lock size={12} /> : <nav.icon size={14} />} {nav.label}
               </button>
             ))}
           </div>
@@ -271,9 +287,10 @@ export default function SellerDashboard() {
           {/* Nav */}
           <nav className="flex-1 p-3 space-y-1">
             {sidebarNav.map((nav) => (
-              <button key={nav.id} onClick={() => setActiveTab(nav.id)}
-                className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all ${activeTab === nav.id ? "bg-primary text-primary-foreground shadow-sm" : "text-muted-foreground hover:text-foreground hover:bg-secondary"}`}>
+              <button key={nav.id} onClick={() => handleTabClick(nav.id)}
+                className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all ${nav.locked ? "text-muted-foreground/50 cursor-not-allowed" : activeTab === nav.id ? "bg-primary text-primary-foreground shadow-sm" : "text-muted-foreground hover:text-foreground hover:bg-secondary"}`}>
                 <nav.icon size={18} /> {nav.label}
+                {nav.locked && <Lock size={14} className="ml-auto text-muted-foreground/50" />}
               </button>
             ))}
 
