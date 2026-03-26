@@ -319,6 +319,14 @@ export default function CompanyProfile() {
                     </DropdownMenuItem>
                   </DropdownMenuContent>
                 </DropdownMenu>
+                <button
+                  onClick={() => setGalleryLightbox(0)}
+                  className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/10 backdrop-blur-md text-white text-sm font-medium hover:bg-white/20 transition-colors"
+                  title="Modo Cinema"
+                >
+                  <Clapperboard size={14} />
+                  <span className="hidden sm:inline">Modo Cinema</span>
+                </button>
               </div>
             </motion.div>
           </div>
@@ -715,13 +723,6 @@ export default function CompanyProfile() {
                           <MessageCircle size={12} className="md:w-4 md:h-4" /> WhatsApp
                         </button>
                       )}
-                      <button
-                        onClick={(e) => { e.stopPropagation(); setGalleryLightbox(gallerySlide); }}
-                        className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-white/10 backdrop-blur flex items-center justify-center text-white hover:bg-white/20 transition-all"
-                        title="Modo Cinema"
-                      >
-                        <Clapperboard size={14} className="md:w-[18px] md:h-[18px]" />
-                      </button>
                     </div>
                   </motion.div>
                 </AnimatePresence>
