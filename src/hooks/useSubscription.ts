@@ -76,6 +76,7 @@ export const PACKAGE_CONFIG = {
       "Estatísticas completas",
       "Suporte VIP dedicado",
       "Anúncios via Google Ads",
+      "Instagram na loja",
     ],
   },
   essencial_empresa: {
@@ -95,6 +96,7 @@ export const PACKAGE_CONFIG = {
       "Campanha dedicada de Google Ads",
       "Gerente de conta dedicado",
       "Suporte VIP dedicado",
+      "Instagram na loja",
     ],
   },
   premium_empresa: {
@@ -115,6 +117,7 @@ export const PACKAGE_CONFIG = {
       "Banner exclusivo na homepage",
       "Gerente de conta dedicado",
       "Suporte VIP dedicado",
+      "Instagram na loja",
     ],
   },
 } as const;
