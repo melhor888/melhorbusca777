@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
 import { supabase } from "@/integrations/supabase/client";
-import { Package, Eye, Plus, Settings, Edit, Trash2, Copy, ToggleLeft, ToggleRight, Search, Building2, Car, Image, LogOut, BarChart3, Star, Crown, Zap, AlertTriangle, Shield, MessageCircle } from "lucide-react";
+import { Package, Eye, Plus, Settings, Edit, Trash2, Copy, ToggleLeft, ToggleRight, Search, Image, LogOut, BarChart3, Star, Crown, Zap, AlertTriangle, Shield, MessageCircle, Home, UserCircle, Headphones } from "lucide-react";
 import { getTagStyle, getTagLabel } from "@/data/products";
 import { useToast } from "@/hooks/use-toast";
 import { motion } from "framer-motion";
@@ -10,6 +10,7 @@ import { useSubscription, useIsAdmin, PACKAGE_CONFIG } from "@/hooks/useSubscrip
 import PackageBadge from "@/components/PackageBadge";
 import { useSellerAnalytics } from "@/hooks/useSellerAnalytics";
 import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer, BarChart, Bar, CartesianGrid } from "recharts";
+import gabrielImg from "@/assets/gabriel-gerente.jpg";
 
 type SellerItem = {
   id: string;
@@ -25,6 +26,8 @@ type SellerItem = {
   seller_type: string;
 };
 
+type DashboardTab = "overview" | "items" | "stats";
+
 export default function SellerDashboard() {
   const { user, profile, signOut, refreshProfile, loading: authLoading } = useAuth();
   const navigate = useNavigate();
@@ -37,6 +40,7 @@ export default function SellerDashboard() {
   const { isAdmin } = useIsAdmin(user?.id);
   const { dailyData, weeklyData, totals: analyticsTotals, loading: analyticsLoading } = useSellerAnalytics(profile?.id);
   const [chartView, setChartView] = useState<"diario" | "semanal">("diario");
+  const [activeTab, setActiveTab] = useState<DashboardTab>("overview");
 
   useEffect(() => {
     if (!authLoading && !user) navigate("/entrar");
@@ -113,344 +117,452 @@ export default function SellerDashboard() {
     );
   }
 
+  const sidebarNav = [
+    { id: "overview" as const, label: "Visão Geral", icon: Home },
+    { id: "items" as const, label: "Meus Anúncios", icon: Package },
+    { id: "stats" as const, label: "Estatísticas", icon: BarChart3 },
+  ];
+
   return (
     <div className="min-h-screen bg-background">
-      {/* Header */}
-      <div className="gradient-hero py-8">
-        <div className="container max-w-6xl mx-auto px-4">
+      {/* Mobile Header */}
+      <div className="gradient-hero py-6 lg:py-4">
+        <div className="container max-w-6xl mx-auto px-4 lg:hidden">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-4">
-              <div className="w-14 h-14 rounded-2xl bg-white/20 backdrop-blur-sm flex items-center justify-center overflow-hidden">
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 rounded-2xl bg-white/20 backdrop-blur-sm flex items-center justify-center overflow-hidden">
                 {profile?.logo_url ? (
                   <img src={profile.logo_url} alt="" className="w-full h-full object-cover" />
                 ) : (
-                  <span className="text-white font-bold text-xl">
-                    {profile?.full_name?.charAt(0) || "V"}
-                  </span>
+                  <span className="text-white font-bold text-lg">{profile?.full_name?.charAt(0) || "V"}</span>
                 )}
               </div>
               <div>
-                <h1 className="font-display font-bold text-xl text-white">
-                  Olá, {profile?.full_name || "Vendedor"}!
-                </h1>
-                <p className="text-white/70 text-sm">{profile?.company_name || profile?.email}</p>
+                <h1 className="font-display font-bold text-lg text-white">Olá, {profile?.full_name || "Vendedor"}!</h1>
+                <p className="text-white/70 text-xs">{profile?.company_name || profile?.email}</p>
               </div>
             </div>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1.5">
               {profile?.id && (
-                <Link
-                  to={`/${profile.seller_type === "automoveis" ? "veiculos" : "imoveis"}/empresa/${profile.id}`}
-                  className="flex items-center gap-1.5 px-3 py-2.5 rounded-xl bg-white/20 text-white hover:bg-white/30 transition-colors text-sm font-medium"
-                >
-                  <Eye size={16} /> <span className="hidden sm:inline">Ver Loja</span>
+                <Link to={`/${profile.seller_type === "automoveis" ? "veiculos" : "imoveis"}/empresa/${profile.id}`}
+                  className="p-2.5 rounded-xl bg-white/20 text-white hover:bg-white/30 transition-colors">
+                  <Eye size={16} />
                 </Link>
               )}
-              <Link
-                to="/painel/perfil"
-                className="p-2.5 rounded-xl bg-white/20 text-white hover:bg-white/30 transition-colors"
-              >
-                <Settings size={18} />
+              <Link to="/painel/perfil" className="p-2.5 rounded-xl bg-white/20 text-white hover:bg-white/30 transition-colors">
+                <Settings size={16} />
               </Link>
-              <button
-                onClick={() => { signOut(); navigate("/"); }}
-                className="p-2.5 rounded-xl bg-white/20 text-white hover:bg-white/30 transition-colors"
-              >
-                <LogOut size={18} />
+              <button onClick={() => { signOut(); navigate("/"); }} className="p-2.5 rounded-xl bg-white/20 text-white hover:bg-white/30 transition-colors">
+                <LogOut size={16} />
               </button>
             </div>
+          </div>
+          {/* Mobile Tabs */}
+          <div className="flex gap-2 mt-4">
+            {sidebarNav.map((nav) => (
+              <button key={nav.id} onClick={() => setActiveTab(nav.id)}
+                className={`flex-1 flex items-center justify-center gap-1.5 py-2 rounded-xl text-xs font-semibold transition-all ${activeTab === nav.id ? "bg-white/25 text-white" : "text-white/60 hover:text-white/80"}`}>
+                <nav.icon size={14} /> {nav.label}
+              </button>
+            ))}
           </div>
         </div>
       </div>
 
-      <div className="container max-w-6xl mx-auto px-4 -mt-6 relative z-10">
-        {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
-          {[
-            { label: "Total", value: items.length, icon: Package, color: "text-primary" },
-            { label: "Ativos", value: totalActive, icon: ToggleRight, color: "text-green-500" },
-            { label: "Inativos", value: totalInactive, icon: ToggleLeft, color: "text-muted-foreground" },
-            { label: "Visualizações", value: totalViews, icon: Eye, color: "text-accent" },
-          ].map((s, i) => (
-            <motion.div
-              key={s.label}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.1 }}
-              className="bg-card border border-border rounded-2xl p-4"
-            >
-              <div className="flex items-center gap-2 mb-1">
-                <s.icon size={16} className={s.color} />
-                <span className="text-xs text-muted-foreground">{s.label}</span>
-              </div>
-              <p className="font-display font-bold text-2xl text-foreground">{s.value}</p>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Package Info */}
-        <div className={`mb-6 rounded-2xl border-2 p-4 ${
-          isExpired ? "border-red-500 bg-red-500/5" : isExpiringSoon ? "border-amber-400 bg-amber-400/5" : "border-border bg-card"
-        }`}>
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+      <div className="flex">
+        {/* Desktop Sidebar */}
+        <aside className="hidden lg:flex flex-col w-[260px] min-h-[calc(100vh-64px)] bg-card border-r border-border sticky top-16 flex-shrink-0">
+          {/* Profile */}
+          <div className="p-5 border-b border-border">
             <div className="flex items-center gap-3">
-              <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${pkgConfig.color} flex items-center justify-center`}>
-                {currentTier === "vip" ? <Crown size={20} className="text-white" /> : currentTier === "premium" ? <Star size={20} className="text-white" /> : <Zap size={20} className="text-white" />}
-              </div>
-              <div>
-                <div className="flex items-center gap-2">
-                  <span className="font-display font-bold text-foreground">Pacote {pkgConfig.name}</span>
-                  <PackageBadge tier={currentTier} />
-                </div>
-                {subscription ? (
-                  <p className="text-xs text-muted-foreground">
-                    {isExpired ? (
-                      <span className="text-red-500 font-semibold">Expirado!</span>
-                    ) : (
-                      <>Expira em {daysUntilExpiry} dias • {totalActive}/{pkgConfig.maxItems === 999 ? "∞" : pkgConfig.maxItems} anúncios</>
-                    )}
-                  </p>
+              <div className="w-12 h-12 rounded-2xl bg-muted flex items-center justify-center overflow-hidden">
+                {profile?.logo_url ? (
+                  <img src={profile.logo_url} alt="" className="w-full h-full object-cover" />
                 ) : (
-                  <p className="text-xs text-muted-foreground">{totalActive}/{pkgConfig.maxItems} anúncios ativos</p>
+                  <span className="text-foreground font-bold text-lg">{profile?.full_name?.charAt(0) || "V"}</span>
                 )}
               </div>
+              <div className="flex-1 min-w-0">
+                <h2 className="font-display font-bold text-sm text-foreground truncate">{profile?.full_name || "Vendedor"}</h2>
+                <p className="text-xs text-muted-foreground truncate">{profile?.company_name || profile?.email}</p>
+              </div>
             </div>
-            <div className="flex gap-2">
-              {(isExpired || isExpiringSoon) && (
-                <Link to="/pacotes" className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-amber-500 text-white text-xs font-bold hover:bg-amber-600 transition-colors">
-                  <AlertTriangle size={14} /> Renovar
+            <div className="mt-3">
+              <PackageBadge tier={currentTier} />
+            </div>
+          </div>
+
+          {/* Nav */}
+          <nav className="flex-1 p-3 space-y-1">
+            {sidebarNav.map((nav) => (
+              <button key={nav.id} onClick={() => setActiveTab(nav.id)}
+                className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all ${activeTab === nav.id ? "bg-primary text-primary-foreground shadow-sm" : "text-muted-foreground hover:text-foreground hover:bg-secondary"}`}>
+                <nav.icon size={18} /> {nav.label}
+              </button>
+            ))}
+
+            <div className="pt-2 border-t border-border mt-3">
+              <Link to="/painel/novo"
+                className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-all">
+                <Plus size={18} /> Novo Anúncio
+              </Link>
+              {profile?.id && (
+                <Link to={`/${profile.seller_type === "automoveis" ? "veiculos" : "imoveis"}/empresa/${profile.id}`}
+                  className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-all">
+                  <Eye size={18} /> Ver Minha Loja
                 </Link>
               )}
-              <Link to="/pacotes" className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-primary/10 text-primary text-xs font-bold hover:bg-primary/20 transition-colors">
-                <Package size={14} /> {subscription ? "Alterar Plano" : "Ver Pacotes"}
+              <Link to="/painel/perfil"
+                className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-all">
+                <UserCircle size={18} /> Meu Perfil
               </Link>
+              <Link to="/pacotes"
+                className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-all">
+                <Package size={18} /> Pacotes
+              </Link>
+              {isAdmin && (
+                <Link to="/admin"
+                  className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-purple-500 hover:bg-purple-500/10 transition-all">
+                  <Shield size={18} /> Painel Admin
+                </Link>
+              )}
             </div>
-          </div>
-        </div>
+          </nav>
 
-        {/* Admin Link */}
-        {isAdmin && (
-          <Link to="/admin" className="flex items-center gap-2 mb-6 px-4 py-3 rounded-2xl bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-bold text-sm hover:opacity-90 transition-opacity shadow-lg">
-            <Shield size={16} /> Painel Administrativo
-          </Link>
-        )}
-
-        {/* Analytics Charts */}
-        <div className="mb-6 bg-card border border-border rounded-2xl p-5">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
-            <div className="flex items-center gap-2">
-              <BarChart3 size={20} className="text-primary" />
-              <h2 className="font-display font-bold text-lg text-foreground">Estatísticas</h2>
-            </div>
-            <div className="flex items-center gap-4">
-              <div className="flex items-center gap-3 text-sm">
-                <span className="flex items-center gap-1.5">
-                  <Eye size={14} className="text-primary" />
-                  <span className="text-muted-foreground">{analyticsTotals.views} visitas</span>
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <MessageCircle size={14} className="text-green-500" />
-                  <span className="text-muted-foreground">{analyticsTotals.whatsapp_clicks} cliques WhatsApp</span>
-                </span>
+          {/* Gerente Card */}
+          <div className="p-4 border-t border-border">
+            <div className="bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl p-4">
+              <div className="flex items-center gap-3 mb-3">
+                <img src={gabrielImg} alt="Gabriel" className="w-10 h-10 rounded-full object-cover ring-2 ring-primary/30" width={40} height={40} />
+                <div>
+                  <p className="text-xs font-bold text-foreground">Gabriel</p>
+                  <p className="text-[10px] text-muted-foreground">Seu Gerente de Conta</p>
+                </div>
               </div>
-              <div className="flex rounded-lg border border-input overflow-hidden">
-                <button
-                  onClick={() => setChartView("diario")}
-                  className={`px-3 py-1.5 text-xs font-medium transition-colors ${chartView === "diario" ? "bg-primary text-primary-foreground" : "bg-background text-muted-foreground hover:text-foreground"}`}
-                >
-                  Diário
-                </button>
-                <button
-                  onClick={() => setChartView("semanal")}
-                  className={`px-3 py-1.5 text-xs font-medium transition-colors ${chartView === "semanal" ? "bg-primary text-primary-foreground" : "bg-background text-muted-foreground hover:text-foreground"}`}
-                >
-                  Semanal
-                </button>
-              </div>
-            </div>
-          </div>
-
-          {analyticsLoading ? (
-            <div className="h-[250px] flex items-center justify-center">
-              <div className="w-8 h-8 border-4 border-primary/30 border-t-primary rounded-full animate-spin" />
-            </div>
-          ) : (
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-              {/* Visitors Chart */}
-              <div>
-                <p className="text-xs font-medium text-muted-foreground mb-2">Visitantes (últimos 30 dias)</p>
-                <ResponsiveContainer width="100%" height={220}>
-                  <AreaChart data={chartView === "diario" ? dailyData : weeklyData}>
-                    <defs>
-                      <linearGradient id="viewsGrad" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="5%" stopColor="hsl(var(--primary))" stopOpacity={0.3} />
-                        <stop offset="95%" stopColor="hsl(var(--primary))" stopOpacity={0} />
-                      </linearGradient>
-                    </defs>
-                    <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
-                    <XAxis dataKey="date" tick={{ fontSize: 10, fill: "hsl(var(--muted-foreground))" }} interval={chartView === "diario" ? 4 : 0} />
-                    <YAxis tick={{ fontSize: 10, fill: "hsl(var(--muted-foreground))" }} allowDecimals={false} />
-                    <Tooltip contentStyle={{ backgroundColor: "hsl(var(--card))", border: "1px solid hsl(var(--border))", borderRadius: "12px", fontSize: "12px" }} />
-                    <Area type="monotone" dataKey="views" name="Visitas" stroke="hsl(var(--primary))" fill="url(#viewsGrad)" strokeWidth={2} />
-                  </AreaChart>
-                </ResponsiveContainer>
-              </div>
-
-              {/* WhatsApp Clicks Chart */}
-              <div>
-                <p className="text-xs font-medium text-muted-foreground mb-2">Cliques no WhatsApp (últimos 30 dias)</p>
-                <ResponsiveContainer width="100%" height={220}>
-                  <BarChart data={chartView === "diario" ? dailyData : weeklyData}>
-                    <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
-                    <XAxis dataKey="date" tick={{ fontSize: 10, fill: "hsl(var(--muted-foreground))" }} interval={chartView === "diario" ? 4 : 0} />
-                    <YAxis tick={{ fontSize: 10, fill: "hsl(var(--muted-foreground))" }} allowDecimals={false} />
-                    <Tooltip contentStyle={{ backgroundColor: "hsl(var(--card))", border: "1px solid hsl(var(--border))", borderRadius: "12px", fontSize: "12px" }} />
-                    <Bar dataKey="whatsapp_clicks" name="WhatsApp" fill="#25d366" radius={[4, 4, 0, 0]} />
-                  </BarChart>
-                </ResponsiveContainer>
-              </div>
-            </div>
-          )}
-        </div>
-
-        {/* Actions */}
-        <div className="flex flex-col sm:flex-row gap-3 mb-6">
-          <Link
-            to="/painel/novo"
-            className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl bg-primary text-primary-foreground font-bold text-sm hover:bg-primary/90 transition-colors shadow-md"
-          >
-            <Plus size={16} /> Adicionar Novo Item
-          </Link>
-          <div className="flex-1 relative">
-            <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
-            <input
-              type="text"
-              value={filter}
-              onChange={(e) => setFilter(e.target.value)}
-              placeholder="Buscar itens..."
-              className="w-full pl-10 pr-4 py-3 rounded-xl border border-input bg-background text-foreground text-sm focus:ring-2 focus:ring-ring focus:outline-none"
-            />
-          </div>
-          <select
-            value={statusFilter}
-            onChange={(e) => setStatusFilter(e.target.value)}
-            className="px-4 py-3 rounded-xl border border-input bg-background text-foreground text-sm focus:ring-2 focus:ring-ring focus:outline-none"
-          >
-            <option value="todos">Todos</option>
-            <option value="ativo">Ativos</option>
-            <option value="inativo">Inativos</option>
-          </select>
-        </div>
-
-        {/* Items Grid */}
-        {filtered.length === 0 ? (
-          <div className="bg-card border border-border rounded-2xl p-12 text-center">
-            <Package size={48} className="mx-auto text-muted-foreground mb-4" />
-            <h3 className="font-display font-bold text-lg text-foreground mb-2">Nenhum item encontrado</h3>
-            <p className="text-muted-foreground text-sm mb-4">Comece adicionando seu primeiro item!</p>
-            <Link
-              to="/painel/novo"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-bold text-sm"
-            >
-              <Plus size={16} /> Adicionar Item
-            </Link>
-          </div>
-        ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 pb-10">
-            {filtered.map((item, i) => (
-              <motion.div
-                key={item.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.05 }}
-                className="bg-card border border-border rounded-2xl overflow-hidden group hover:shadow-lg transition-shadow"
+              <a
+                href="https://wa.me/5527995055993?text=Olá%20Gabriel!%20Preciso%20de%20ajuda%20com%20minha%20loja."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-green-500 text-white text-xs font-bold hover:bg-green-600 transition-colors"
               >
-                <div className="relative aspect-video bg-muted">
-                  {item.photos && item.photos.length > 0 ? (
-                    <img src={item.photos[0]} alt={item.title} className="w-full h-full object-cover" />
-                  ) : (
-                    <div className="w-full h-full flex items-center justify-center">
-                      <Image size={32} className="text-muted-foreground" />
-                    </div>
-                  )}
-                  <div className="absolute top-2 right-2 flex gap-1">
-                    <span
-                      className={`px-2 py-0.5 rounded-full text-xs font-bold ${
-                        item.status === "ativo"
-                          ? "bg-green-500/90 text-white"
-                          : "bg-muted-foreground/80 text-white"
-                      }`}
-                    >
-                      {item.status === "ativo" ? "Ativo" : "Inativo"}
-                    </span>
-                  </div>
-                  {item.tags && item.tags.length > 0 && (
-                    <div className="absolute top-2 left-2 flex gap-1 flex-wrap">
-                      {item.tags.slice(0, 2).map((tag) => (
-                        <span key={tag} className={`px-2 py-0.5 rounded-full text-xs font-bold ${getTagStyle(tag)}`}>
-                          {getTagLabel(tag)}
-                        </span>
-                      ))}
-                    </div>
-                  )}
-                </div>
-
-                <div className="p-4">
-                  <div className="flex items-start justify-between gap-2">
-                    <div>
-                      <h3 className="font-display font-bold text-foreground line-clamp-1">{item.title}</h3>
-                      <p className="text-xs text-muted-foreground mt-0.5">
-                        {item.category} • {item.city || "Sem cidade"}
-                      </p>
-                    </div>
-                    {item.price && (
-                      <span className="font-bold text-green-600 text-sm whitespace-nowrap">
-                        R$ {item.price.toLocaleString("pt-BR")}
-                      </span>
-                    )}
-                  </div>
-
-                  <div className="flex items-center gap-1 mt-3 pt-3 border-t border-border">
-                    <Link
-                      to={`/painel/editar/${item.id}`}
-                      className="flex-1 flex items-center justify-center gap-1 py-2 rounded-lg bg-primary/10 text-primary text-xs font-medium hover:bg-primary/20 transition-colors"
-                    >
-                      <Edit size={12} /> Editar
-                    </Link>
-                    <button
-                      onClick={() => duplicateItem(item)}
-                      className="flex-1 flex items-center justify-center gap-1 py-2 rounded-lg bg-secondary text-secondary-foreground text-xs font-medium hover:bg-secondary/80 transition-colors"
-                    >
-                      <Copy size={12} /> Duplicar
-                    </button>
-                    <button
-                      onClick={() => toggleStatus(item.id, item.status)}
-                      className="p-2 rounded-lg bg-secondary text-secondary-foreground hover:bg-secondary/80 transition-colors"
-                    >
-                      {item.status === "ativo" ? <ToggleRight size={14} /> : <ToggleLeft size={14} />}
-                    </button>
-                    <button
-                      onClick={() => setFeatured(item.id)}
-                      title="Definir como destaque do banner"
-                      className={`p-2 rounded-lg transition-colors ${
-                        profile?.featured_item_id === item.id
-                          ? "bg-yellow-500/20 text-yellow-500"
-                          : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
-                      }`}
-                    >
-                      <Star size={14} fill={profile?.featured_item_id === item.id ? "currentColor" : "none"} />
-                    </button>
-                    <button
-                      onClick={() => deleteItem(item.id)}
-                      className="p-2 rounded-lg bg-destructive/10 text-destructive hover:bg-destructive/20 transition-colors"
-                    >
-                      <Trash2 size={14} />
-                    </button>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
+                <Headphones size={14} /> Falar com seu Gerente
+              </a>
+            </div>
           </div>
-        )}
+
+          {/* Logout */}
+          <div className="p-3 border-t border-border">
+            <button onClick={() => { signOut(); navigate("/"); }}
+              className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-destructive hover:bg-destructive/10 transition-all">
+              <LogOut size={18} /> Sair
+            </button>
+          </div>
+        </aside>
+
+        {/* Main Content */}
+        <main className="flex-1 min-w-0">
+          <div className="max-w-5xl mx-auto px-4 py-6">
+            {/* Overview Tab */}
+            {activeTab === "overview" && (
+              <div className="space-y-6">
+                {/* Stats */}
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                  {[
+                    { label: "Total", value: items.length, icon: Package, color: "text-primary" },
+                    { label: "Ativos", value: totalActive, icon: ToggleRight, color: "text-green-500" },
+                    { label: "Inativos", value: totalInactive, icon: ToggleLeft, color: "text-muted-foreground" },
+                    { label: "Visualizações", value: totalViews, icon: Eye, color: "text-accent" },
+                  ].map((s, i) => (
+                    <motion.div key={s.label} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }}
+                      className="bg-card border border-border rounded-2xl p-4">
+                      <div className="flex items-center gap-2 mb-1">
+                        <s.icon size={16} className={s.color} />
+                        <span className="text-xs text-muted-foreground">{s.label}</span>
+                      </div>
+                      <p className="font-display font-bold text-2xl text-foreground">{s.value}</p>
+                    </motion.div>
+                  ))}
+                </div>
+
+                {/* Package Info */}
+                <div className={`rounded-2xl border-2 p-4 ${isExpired ? "border-destructive bg-destructive/5" : isExpiringSoon ? "border-amber-400 bg-amber-400/5" : "border-border bg-card"}`}>
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                    <div className="flex items-center gap-3">
+                      <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${pkgConfig.color} flex items-center justify-center`}>
+                        {currentTier === "vip" ? <Crown size={20} className="text-white" /> : currentTier === "premium" ? <Star size={20} className="text-white" /> : <Zap size={20} className="text-white" />}
+                      </div>
+                      <div>
+                        <div className="flex items-center gap-2">
+                          <span className="font-display font-bold text-foreground">Pacote {pkgConfig.name}</span>
+                          <PackageBadge tier={currentTier} />
+                        </div>
+                        {subscription ? (
+                          <p className="text-xs text-muted-foreground">
+                            {isExpired ? (
+                              <span className="text-destructive font-semibold">Expirado!</span>
+                            ) : (
+                              <>Expira em {daysUntilExpiry} dias • {totalActive}/{pkgConfig.maxItems === 999 ? "∞" : pkgConfig.maxItems} anúncios</>
+                            )}
+                          </p>
+                        ) : (
+                          <p className="text-xs text-muted-foreground">{totalActive}/{pkgConfig.maxItems} anúncios ativos</p>
+                        )}
+                      </div>
+                    </div>
+                    <div className="flex gap-2">
+                      {(isExpired || isExpiringSoon) && (
+                        <Link to="/pacotes" className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-amber-500 text-white text-xs font-bold hover:bg-amber-600 transition-colors">
+                          <AlertTriangle size={14} /> Renovar
+                        </Link>
+                      )}
+                      <Link to="/pacotes" className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-primary/10 text-primary text-xs font-bold hover:bg-primary/20 transition-colors">
+                        <Package size={14} /> {subscription ? "Alterar Plano" : "Ver Pacotes"}
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Admin Link - mobile */}
+                {isAdmin && (
+                  <Link to="/admin" className="lg:hidden flex items-center gap-2 px-4 py-3 rounded-2xl bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-bold text-sm hover:opacity-90 transition-opacity shadow-lg">
+                    <Shield size={16} /> Painel Administrativo
+                  </Link>
+                )}
+
+                {/* Quick Actions */}
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <Link to="/painel/novo"
+                    className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl bg-primary text-primary-foreground font-bold text-sm hover:bg-primary/90 transition-colors shadow-md">
+                    <Plus size={16} /> Adicionar Novo Item
+                  </Link>
+                  <button onClick={() => setActiveTab("items")}
+                    className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl bg-secondary text-secondary-foreground font-bold text-sm hover:bg-secondary/80 transition-colors">
+                    <Package size={16} /> Ver Meus Anúncios
+                  </button>
+                </div>
+
+                {/* Mini Chart */}
+                <div className="bg-card border border-border rounded-2xl p-5">
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center gap-2">
+                      <BarChart3 size={18} className="text-primary" />
+                      <h3 className="font-display font-bold text-foreground">Resumo Rápido</h3>
+                    </div>
+                    <button onClick={() => setActiveTab("stats")} className="text-xs text-primary font-semibold hover:underline">
+                      Ver completo →
+                    </button>
+                  </div>
+                  <div className="grid grid-cols-2 gap-4 mb-4">
+                    <div className="p-3 rounded-xl bg-secondary/50">
+                      <div className="flex items-center gap-1.5 mb-1">
+                        <Eye size={14} className="text-primary" />
+                        <span className="text-xs text-muted-foreground">Visitas</span>
+                      </div>
+                      <p className="font-display font-bold text-xl text-foreground">{analyticsTotals.views}</p>
+                    </div>
+                    <div className="p-3 rounded-xl bg-secondary/50">
+                      <div className="flex items-center gap-1.5 mb-1">
+                        <MessageCircle size={14} className="text-green-500" />
+                        <span className="text-xs text-muted-foreground">WhatsApp</span>
+                      </div>
+                      <p className="font-display font-bold text-xl text-foreground">{analyticsTotals.whatsapp_clicks}</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Mobile Gerente Card */}
+                <div className="lg:hidden bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl p-4">
+                  <div className="flex items-center gap-3 mb-3">
+                    <img src={gabrielImg} alt="Gabriel" className="w-10 h-10 rounded-full object-cover ring-2 ring-primary/30" width={40} height={40} />
+                    <div>
+                      <p className="text-sm font-bold text-foreground">Gabriel</p>
+                      <p className="text-xs text-muted-foreground">Seu Gerente de Conta</p>
+                    </div>
+                  </div>
+                  <a
+                    href="https://wa.me/5527995055993?text=Olá%20Gabriel!%20Preciso%20de%20ajuda%20com%20minha%20loja."
+                    target="_blank" rel="noopener noreferrer"
+                    className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-green-500 text-white text-xs font-bold hover:bg-green-600 transition-colors">
+                    <Headphones size={14} /> Falar com seu Gerente
+                  </a>
+                </div>
+              </div>
+            )}
+
+            {/* Items Tab */}
+            {activeTab === "items" && (
+              <div className="space-y-4">
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <Link to="/painel/novo"
+                    className="flex items-center justify-center gap-2 py-3 px-6 rounded-xl bg-primary text-primary-foreground font-bold text-sm hover:bg-primary/90 transition-colors shadow-md">
+                    <Plus size={16} /> Novo Item
+                  </Link>
+                  <div className="flex-1 relative">
+                    <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
+                    <input type="text" value={filter} onChange={(e) => setFilter(e.target.value)} placeholder="Buscar itens..."
+                      className="w-full pl-10 pr-4 py-3 rounded-xl border border-input bg-background text-foreground text-sm focus:ring-2 focus:ring-ring focus:outline-none" />
+                  </div>
+                  <select value={statusFilter} onChange={(e) => setStatusFilter(e.target.value)}
+                    className="px-4 py-3 rounded-xl border border-input bg-background text-foreground text-sm focus:ring-2 focus:ring-ring focus:outline-none">
+                    <option value="todos">Todos</option>
+                    <option value="ativo">Ativos</option>
+                    <option value="inativo">Inativos</option>
+                  </select>
+                </div>
+
+                {filtered.length === 0 ? (
+                  <div className="bg-card border border-border rounded-2xl p-12 text-center">
+                    <Package size={48} className="mx-auto text-muted-foreground mb-4" />
+                    <h3 className="font-display font-bold text-lg text-foreground mb-2">Nenhum item encontrado</h3>
+                    <p className="text-muted-foreground text-sm mb-4">Comece adicionando seu primeiro item!</p>
+                    <Link to="/painel/novo" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-bold text-sm">
+                      <Plus size={16} /> Adicionar Item
+                    </Link>
+                  </div>
+                ) : (
+                  <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 pb-10">
+                    {filtered.map((item, i) => (
+                      <motion.div key={item.id} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.05 }}
+                        className="bg-card border border-border rounded-2xl overflow-hidden group hover:shadow-lg transition-shadow">
+                        <div className="relative aspect-video bg-muted">
+                          {item.photos && item.photos.length > 0 ? (
+                            <img src={item.photos[0]} alt={item.title} className="w-full h-full object-cover" />
+                          ) : (
+                            <div className="w-full h-full flex items-center justify-center">
+                              <Image size={32} className="text-muted-foreground" />
+                            </div>
+                          )}
+                          <div className="absolute top-2 right-2 flex gap-1">
+                            <span className={`px-2 py-0.5 rounded-full text-xs font-bold ${item.status === "ativo" ? "bg-green-500/90 text-white" : "bg-muted-foreground/80 text-white"}`}>
+                              {item.status === "ativo" ? "Ativo" : "Inativo"}
+                            </span>
+                          </div>
+                          {item.tags && item.tags.length > 0 && (
+                            <div className="absolute top-2 left-2 flex gap-1 flex-wrap">
+                              {item.tags.slice(0, 2).map((tag) => (
+                                <span key={tag} className={`px-2 py-0.5 rounded-full text-xs font-bold ${getTagStyle(tag)}`}>
+                                  {getTagLabel(tag)}
+                                </span>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                        <div className="p-4">
+                          <div className="flex items-start justify-between gap-2">
+                            <div>
+                              <h3 className="font-display font-bold text-foreground line-clamp-1">{item.title}</h3>
+                              <p className="text-xs text-muted-foreground mt-0.5">{item.category} • {item.city || "Sem cidade"}</p>
+                            </div>
+                            {item.price && (
+                              <span className="font-bold text-green-600 text-sm whitespace-nowrap">R$ {item.price.toLocaleString("pt-BR")}</span>
+                            )}
+                          </div>
+                          <div className="flex items-center gap-1 mt-3 pt-3 border-t border-border">
+                            <Link to={`/painel/editar/${item.id}`}
+                              className="flex-1 flex items-center justify-center gap-1 py-2 rounded-lg bg-primary/10 text-primary text-xs font-medium hover:bg-primary/20 transition-colors">
+                              <Edit size={12} /> Editar
+                            </Link>
+                            <button onClick={() => duplicateItem(item)}
+                              className="flex-1 flex items-center justify-center gap-1 py-2 rounded-lg bg-secondary text-secondary-foreground text-xs font-medium hover:bg-secondary/80 transition-colors">
+                              <Copy size={12} /> Duplicar
+                            </button>
+                            <button onClick={() => toggleStatus(item.id, item.status)}
+                              className="p-2 rounded-lg bg-secondary text-secondary-foreground hover:bg-secondary/80 transition-colors">
+                              {item.status === "ativo" ? <ToggleRight size={14} /> : <ToggleLeft size={14} />}
+                            </button>
+                            <button onClick={() => setFeatured(item.id)} title="Definir como destaque do banner"
+                              className={`p-2 rounded-lg transition-colors ${profile?.featured_item_id === item.id ? "bg-yellow-500/20 text-yellow-500" : "bg-secondary text-secondary-foreground hover:bg-secondary/80"}`}>
+                              <Star size={14} fill={profile?.featured_item_id === item.id ? "currentColor" : "none"} />
+                            </button>
+                            <button onClick={() => deleteItem(item.id)}
+                              className="p-2 rounded-lg bg-destructive/10 text-destructive hover:bg-destructive/20 transition-colors">
+                              <Trash2 size={14} />
+                            </button>
+                          </div>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            )}
+
+            {/* Stats Tab */}
+            {activeTab === "stats" && (
+              <div className="space-y-4">
+                <div className="bg-card border border-border rounded-2xl p-5">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
+                    <div className="flex items-center gap-2">
+                      <BarChart3 size={20} className="text-primary" />
+                      <h2 className="font-display font-bold text-lg text-foreground">Estatísticas</h2>
+                    </div>
+                    <div className="flex items-center gap-4">
+                      <div className="flex items-center gap-3 text-sm">
+                        <span className="flex items-center gap-1.5">
+                          <Eye size={14} className="text-primary" />
+                          <span className="text-muted-foreground">{analyticsTotals.views} visitas</span>
+                        </span>
+                        <span className="flex items-center gap-1.5">
+                          <MessageCircle size={14} className="text-green-500" />
+                          <span className="text-muted-foreground">{analyticsTotals.whatsapp_clicks} cliques WhatsApp</span>
+                        </span>
+                      </div>
+                      <div className="flex rounded-lg border border-input overflow-hidden">
+                        <button onClick={() => setChartView("diario")}
+                          className={`px-3 py-1.5 text-xs font-medium transition-colors ${chartView === "diario" ? "bg-primary text-primary-foreground" : "bg-background text-muted-foreground hover:text-foreground"}`}>
+                          Diário
+                        </button>
+                        <button onClick={() => setChartView("semanal")}
+                          className={`px-3 py-1.5 text-xs font-medium transition-colors ${chartView === "semanal" ? "bg-primary text-primary-foreground" : "bg-background text-muted-foreground hover:text-foreground"}`}>
+                          Semanal
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  {analyticsLoading ? (
+                    <div className="h-[250px] flex items-center justify-center">
+                      <div className="w-8 h-8 border-4 border-primary/30 border-t-primary rounded-full animate-spin" />
+                    </div>
+                  ) : (
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                      <div>
+                        <p className="text-xs font-medium text-muted-foreground mb-2">Visitantes (últimos 30 dias)</p>
+                        <ResponsiveContainer width="100%" height={220}>
+                          <AreaChart data={chartView === "diario" ? dailyData : weeklyData}>
+                            <defs>
+                              <linearGradient id="viewsGrad" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="5%" stopColor="hsl(var(--primary))" stopOpacity={0.3} />
+                                <stop offset="95%" stopColor="hsl(var(--primary))" stopOpacity={0} />
+                              </linearGradient>
+                            </defs>
+                            <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+                            <XAxis dataKey="date" tick={{ fontSize: 10, fill: "hsl(var(--muted-foreground))" }} interval={chartView === "diario" ? 4 : 0} />
+                            <YAxis tick={{ fontSize: 10, fill: "hsl(var(--muted-foreground))" }} allowDecimals={false} />
+                            <Tooltip contentStyle={{ backgroundColor: "hsl(var(--card))", border: "1px solid hsl(var(--border))", borderRadius: "12px", fontSize: "12px" }} />
+                            <Area type="monotone" dataKey="views" name="Visitas" stroke="hsl(var(--primary))" fill="url(#viewsGrad)" strokeWidth={2} />
+                          </AreaChart>
+                        </ResponsiveContainer>
+                      </div>
+                      <div>
+                        <p className="text-xs font-medium text-muted-foreground mb-2">Cliques no WhatsApp (últimos 30 dias)</p>
+                        <ResponsiveContainer width="100%" height={220}>
+                          <BarChart data={chartView === "diario" ? dailyData : weeklyData}>
+                            <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+                            <XAxis dataKey="date" tick={{ fontSize: 10, fill: "hsl(var(--muted-foreground))" }} interval={chartView === "diario" ? 4 : 0} />
+                            <YAxis tick={{ fontSize: 10, fill: "hsl(var(--muted-foreground))" }} allowDecimals={false} />
+                            <Tooltip contentStyle={{ backgroundColor: "hsl(var(--card))", border: "1px solid hsl(var(--border))", borderRadius: "12px", fontSize: "12px" }} />
+                            <Bar dataKey="whatsapp_clicks" name="WhatsApp" fill="hsl(142 71% 45%)" radius={[4, 4, 0, 0]} />
+                          </BarChart>
+                        </ResponsiveContainer>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
+            )}
+          </div>
+        </main>
       </div>
     </div>
   );
