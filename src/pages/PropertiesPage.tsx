@@ -82,13 +82,12 @@ export default function PropertiesPage() {
     return shuffled.slice(0, 7);
   }, [propertyProducts, filterCity]);
 
-  // Random hero product
-  const heroProduct = useMemo(() => {
-    const prods = propertyProducts.length ? propertyProducts : allProducts.filter((p) => p.type === "imovel");
-    return prods[Math.floor(Math.random() * prods.length)];
-  }, [propertyProducts]);
-
-  const heroCompany = heroProduct ? allSellers[heroProduct.companyId] : undefined;
+  // Hero carousel sellers map
+  const heroSellersMap = useMemo(() => {
+    const map: Record<string, { id: string; name: string; logo: string }> = {};
+    Object.entries(allSellers).forEach(([id, s]) => { map[id] = { id: s.id, name: s.name, logo: s.logo }; });
+    return map;
+  }, [allSellers]);
 
   const availableCities = useMemo(() => {
     const cities = new Set<string>();
