@@ -195,7 +195,7 @@ export default function ProductDetail() {
       {/* Gallery Grid - full quality photos */}
       {images.length > 0 && (
         <div className="container max-w-6xl mx-auto px-4 -mt-8 z-10 relative">
-          <div className="flex flex-col gap-2 md:grid md:grid-cols-4 lg:grid-cols-5 md:gap-2">
+          <div className="flex gap-2 overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-2 md:grid md:grid-cols-5 md:overflow-visible md:snap-none md:pb-0">
             {images.map((img: string, i: number) => (
               <motion.button
                 key={i}
@@ -203,7 +203,7 @@ export default function ProductDetail() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.05 }}
                 onClick={() => { setActiveImage(i); setLightboxOpen(true); }}
-                className={`relative aspect-video md:aspect-square rounded-xl overflow-hidden border-2 transition-all group ${
+                className={`relative flex-shrink-0 w-20 h-20 md:w-auto md:h-auto md:aspect-square snap-start rounded-xl overflow-hidden border-2 transition-all group ${
                   activeImage === i
                     ? "border-primary shadow-lg ring-2 ring-primary/30"
                     : "border-border hover:border-primary/50"
