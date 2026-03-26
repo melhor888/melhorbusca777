@@ -75,18 +75,15 @@ export default function PropertiesPage() {
 
   const availableCities = useMemo(() => {
     const cities = new Set<string>();
+    realItems.forEach((item) => {
+      if (item.city) cities.add(item.city.trim());
+    });
     propertyCompanies.forEach((c) => {
       const city = c.address.split(" - ").pop()?.trim();
       if (city) cities.add(city);
     });
-    realSellers.forEach((s) => {
-      if (s.address) {
-        const parts = s.address.split(",").map((p) => p.trim());
-        parts.forEach((p) => { if (p && p.length > 1) cities.add(p); });
-      }
-    });
     return Array.from(cities).sort();
-  }, [realSellers]);
+  }, [realItems]);
 
   const propertyTypes = [
     { value: "aluguel", label: "Aluguel" },
