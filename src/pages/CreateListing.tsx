@@ -19,11 +19,9 @@ export default function CreateListing() {
   const navigate = useNavigate();
   const { toast } = useToast();
 
-  // If already logged in, redirect to dashboard
-  if (user) {
-    navigate("/painel");
-    return null;
-  }
+  useEffect(() => {
+    if (user) navigate("/painel");
+  }, [user, navigate]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
