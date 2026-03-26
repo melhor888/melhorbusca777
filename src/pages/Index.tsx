@@ -182,7 +182,7 @@ export default function Index() {
           </Link>
 
           {/* Veículos Banner */}
-          <Link to="/veiculos" className="group relative overflow-hidden rounded-2xl h-[180px] md:h-[200px]">
+          <Link to={citySlug ? `/${citySlug}/veiculos` : "/veiculos"} className="group relative overflow-hidden rounded-2xl h-[180px] md:h-[200px]">
             <img src={heroVeiculos} alt="Veículos" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" width={700} height={200} />
             <div className="absolute inset-0 bg-gradient-to-r from-[hsl(var(--foreground)/0.85)] to-transparent" />
             <div className="absolute inset-0 flex flex-col justify-center px-6 md:px-8">
