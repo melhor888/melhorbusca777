@@ -76,7 +76,7 @@ export default function HeroBannerCarousel({
   }, [heroItems.length]);
 
   const currentItem = heroItems[activeIndex];
-  const currentSeller = currentItem ? sellers[currentItem.sellerId] : undefined;
+  const currentSeller = currentItem ? sellers[currentItem.sellerId || currentItem.companyId || ""] : undefined;
 
   const goNext = () => setActiveIndex((prev) => (prev + 1) % heroItems.length);
   const goPrev = () => setActiveIndex((prev) => (prev - 1 + heroItems.length) % heroItems.length);
