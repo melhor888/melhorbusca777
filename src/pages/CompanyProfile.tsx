@@ -691,8 +691,8 @@ export default function CompanyProfile() {
                         {isDbProfile ? `R$ ${current.price.toLocaleString("pt-BR")}` : formatPrice(current.price)}
                       </p>
                     )}
-                    {current?.city && (
-                      <p className="text-white/40 text-xs mt-2 flex items-center gap-1.5"><MapPin size={12} /> {current.city}</p>
+                    {(current as any)?.city && (
+                      <p className="text-white/40 text-xs mt-2 flex items-center gap-1.5"><MapPin size={12} /> {(current as any).city}</p>
                     )}
 
                     {/* Buttons */}
@@ -828,8 +828,8 @@ export default function CompanyProfile() {
                               {isDbProfile ? `R$ ${lbProduct.price.toLocaleString("pt-BR")}` : formatPrice(lbProduct.price)}
                             </p>
                           )}
-                          {lbProduct.city && (
-                            <p className="text-white/40 text-sm mt-2 flex items-center gap-2"><MapPin size={14} /> {lbProduct.city}</p>
+                          {(lbProduct as any).city && (
+                            <p className="text-white/40 text-sm mt-2 flex items-center gap-2"><MapPin size={14} /> {(lbProduct as any).city}</p>
                           )}
 
                           <div className="flex items-center gap-3 mt-6 flex-wrap">
