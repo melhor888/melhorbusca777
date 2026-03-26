@@ -382,7 +382,7 @@ export default function PropertiesPage() {
                       <h3 className="font-display font-bold text-base md:text-lg text-foreground line-clamp-1">
                         {product.title}
                       </h3>
-                      <p className="text-xl font-bold text-primary mt-1">
+                      <p className="text-xl font-bold text-emerald-500 mt-1">
                         {formatPrice(product.price)}
                       </p>
 
