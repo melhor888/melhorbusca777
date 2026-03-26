@@ -713,9 +713,6 @@ export default function CompanyProfile() {
                         {isDbProfile ? `R$ ${current.price.toLocaleString("pt-BR")}` : formatPrice(current.price)}
                       </p>
                     )}
-                    {(current as any)?.city && (
-                      <p className="text-white/40 text-xs mt-2 flex items-center gap-1.5"><MapPin size={12} /> {(current as any).city}</p>
-                    )}
 
                     {/* Buttons */}
                     <div className="flex items-center gap-3 mt-5 flex-wrap">
