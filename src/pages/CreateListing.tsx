@@ -1,106 +1,236 @@
 import { useState } from "react";
-import { Car, Home, MessageCircle } from "lucide-react";
-import { toast } from "sonner";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "@/hooks/useAuth";
+import { Eye, EyeOff, LogIn, UserPlus, Building2, Car, Shield, Sparkles } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
+import { motion } from "framer-motion";
+import heroImg from "@/assets/hero-anunciar.jpg";
 
 export default function CreateListing() {
-  const [type, setType] = useState<"car" | "property">("car");
-  const [title, setTitle] = useState("");
-  const [price, setPrice] = useState("");
-  const [location, setLocation] = useState("");
-  const [whatsapp, setWhatsapp] = useState("");
-  const [description, setDescription] = useState("");
+  const [isLogin, setIsLogin] = useState(true);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [fullName, setFullName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [sellerType, setSellerType] = useState<"imoveis" | "automoveis">("imoveis");
+  const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const { user, signIn, signUp } = useAuth();
+  const navigate = useNavigate();
+  const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // If already logged in, redirect to dashboard
+  if (user) {
+    navigate("/painel");
+    return null;
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!title || !price || !location || !whatsapp) {
-      toast.error("Preencha todos os campos obrigatórios");
-      return;
+    setLoading(true);
+
+    if (isLogin) {
+      const { error } = await signIn(email, password);
+      if (error) {
+        toast({ title: "Erro ao entrar", description: error.message, variant: "destructive" });
+      } else {
+        navigate("/painel");
+      }
+    } else {
+      const { error } = await signUp(email, password, fullName, phone);
+      if (error) {
+        toast({ title: "Erro ao cadastrar", description: error.message, variant: "destructive" });
+      } else {
+        toast({ title: "Cadastro realizado!", description: "Bem-vindo ao Melhor Busca!" });
+        navigate("/painel");
+      }
     }
-    toast.success("Anúncio criado com sucesso! Em breve estará disponível.");
-    setTitle("");
-    setPrice("");
-    setLocation("");
-    setWhatsapp("");
-    setDescription("");
+    setLoading(false);
   };
 
   return (
-    <div className="container max-w-2xl mx-auto px-4 py-8">
-      <h1 className="font-display font-bold text-3xl text-foreground mb-2">Criar Anúncio</h1>
-      <p className="text-muted-foreground text-sm mb-8">Preencha os dados do seu carro ou imóvel</p>
+    <div className="min-h-screen flex flex-col lg:flex-row bg-[hsl(212,100%,8%)]">
+      {/* Image Panel */}
+      <div className="relative w-full lg:w-1/2 h-[40vh] lg:h-auto lg:min-h-screen overflow-hidden">
+        <img
+          src={heroImg}
+          alt="Imóveis e veículos de luxo"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b lg:bg-gradient-to-r from-transparent via-transparent to-[hsl(212,100%,8%)]" />
+        <div className="absolute inset-0 bg-black/30" />
 
-      <form onSubmit={handleSubmit} className="space-y-6">
-        {/* Type selector */}
-        <div className="flex gap-3">
-          <button
-            type="button"
-            onClick={() => setType("car")}
-            className={`flex-1 flex items-center justify-center gap-2 py-4 rounded-xl border-2 font-semibold text-sm transition-all ${
-              type === "car" ? "border-primary bg-primary/10 text-primary" : "border-border text-muted-foreground hover:border-muted-foreground"
-            }`}
+        {/* Text overlay */}
+        <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-12 lg:bottom-auto lg:top-1/2 lg:-translate-y-1/2">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
           >
-            <Car size={20} />
-            Carro
-          </button>
-          <button
-            type="button"
-            onClick={() => setType("property")}
-            className={`flex-1 flex items-center justify-center gap-2 py-4 rounded-xl border-2 font-semibold text-sm transition-all ${
-              type === "property" ? "border-primary bg-primary/10 text-primary" : "border-border text-muted-foreground hover:border-muted-foreground"
-            }`}
-          >
-            <Home size={20} />
-            Imóvel
-          </button>
-        </div>
-
-        <div className="space-y-4">
-          <Field label="Título *" placeholder={type === "car" ? "Ex: Honda Civic 2023 Touring" : "Ex: Apartamento 3 quartos - Vila Mariana"} value={title} onChange={setTitle} />
-          <Field label="Preço (R$) *" placeholder="Ex: 150000" value={price} onChange={setPrice} type="number" />
-          <Field label="Localização *" placeholder="Ex: São Paulo, SP" value={location} onChange={setLocation} />
-          <Field label="WhatsApp *" placeholder="Ex: 5511999999999" value={whatsapp} onChange={setWhatsapp}>
-            <p className="text-xs text-muted-foreground mt-1 flex items-center gap-1">
-              <MessageCircle size={12} />
-              Formato: código do país + DDD + número (sem espaços)
+            <div className="flex items-center gap-2 mb-4">
+              <Sparkles size={20} className="text-accent" />
+              <span className="text-accent font-semibold text-sm uppercase tracking-wider">
+                Melhor Busca
+              </span>
+            </div>
+            <h1 className="font-display font-bold text-3xl lg:text-5xl text-white leading-tight mb-3">
+              Anuncie seu<br />
+              <span className="text-accent">imóvel</span> ou{" "}
+              <span className="text-accent">veículo</span>
+            </h1>
+            <p className="text-white/60 text-sm lg:text-base max-w-md">
+              O maior marketplace de Colatina. Cadastre-se e comece a vender hoje mesmo.
             </p>
-          </Field>
-          <div>
-            <label className="text-sm font-medium text-foreground mb-1.5 block">Descrição</label>
-            <textarea
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-              placeholder="Descreva seu anúncio..."
-              rows={4}
-              className="w-full px-4 py-3 rounded-lg bg-secondary text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 resize-none"
-            />
-          </div>
+          </motion.div>
         </div>
+      </div>
 
-        <button
-          type="submit"
-          className="w-full py-3.5 rounded-lg bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 transition-opacity"
+      {/* Form Panel */}
+      <div className="w-full lg:w-1/2 flex items-center justify-center px-6 py-10 lg:py-12">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="w-full max-w-md"
         >
-          Publicar Anúncio
-        </button>
-      </form>
-    </div>
-  );
-}
+          <div className="mb-8">
+            <h2 className="font-display font-bold text-2xl lg:text-3xl text-white">
+              {isLogin ? "Acesse sua conta" : "Crie sua conta"}
+            </h2>
+            <p className="text-white/50 mt-2 text-sm">
+              {isLogin
+                ? "Entre para gerenciar seus anúncios"
+                : "Cadastre-se gratuitamente como corretor"}
+            </p>
+          </div>
 
-function Field({ label, placeholder, value, onChange, type = "text", children }: {
-  label: string; placeholder: string; value: string; onChange: (v: string) => void; type?: string; children?: React.ReactNode;
-}) {
-  return (
-    <div>
-      <label className="text-sm font-medium text-foreground mb-1.5 block">{label}</label>
-      <input
-        type={type}
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        placeholder={placeholder}
-        className="w-full px-4 py-3 rounded-lg bg-secondary text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
-      />
-      {children}
+          <form onSubmit={handleSubmit} className="space-y-4">
+            {!isLogin && (
+              <>
+                <div>
+                  <label className="block text-sm font-medium text-white/80 mb-1.5">
+                    Nome completo
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    value={fullName}
+                    onChange={(e) => setFullName(e.target.value)}
+                    className="w-full px-4 py-3 rounded-xl border border-white/10 bg-white/5 text-white text-sm placeholder:text-white/30 focus:ring-2 focus:ring-accent/50 focus:border-accent/50 focus:outline-none transition-all backdrop-blur-sm"
+                    placeholder="Seu nome completo"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-white/80 mb-1.5">
+                    Telefone
+                  </label>
+                  <input
+                    type="tel"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    className="w-full px-4 py-3 rounded-xl border border-white/10 bg-white/5 text-white text-sm placeholder:text-white/30 focus:ring-2 focus:ring-accent/50 focus:border-accent/50 focus:outline-none transition-all backdrop-blur-sm"
+                    placeholder="(27) 99999-9999"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-white/80 mb-1.5">
+                    Tipo de corretor
+                  </label>
+                  <div className="grid grid-cols-2 gap-3">
+                    <button
+                      type="button"
+                      onClick={() => setSellerType("imoveis")}
+                      className={`flex items-center justify-center gap-2 py-3 rounded-xl border-2 text-sm font-medium transition-all ${
+                        sellerType === "imoveis"
+                          ? "border-accent bg-accent/10 text-accent"
+                          : "border-white/10 bg-white/5 text-white/50 hover:border-white/30"
+                      }`}
+                    >
+                      <Building2 size={18} />
+                      Imóveis
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setSellerType("automoveis")}
+                      className={`flex items-center justify-center gap-2 py-3 rounded-xl border-2 text-sm font-medium transition-all ${
+                        sellerType === "automoveis"
+                          ? "border-accent bg-accent/10 text-accent"
+                          : "border-white/10 bg-white/5 text-white/50 hover:border-white/30"
+                      }`}
+                    >
+                      <Car size={18} />
+                      Veículos
+                    </button>
+                  </div>
+                </div>
+              </>
+            )}
+
+            <div>
+              <label className="block text-sm font-medium text-white/80 mb-1.5">E-mail</label>
+              <input
+                type="email"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="w-full px-4 py-3 rounded-xl border border-white/10 bg-white/5 text-white text-sm placeholder:text-white/30 focus:ring-2 focus:ring-accent/50 focus:border-accent/50 focus:outline-none transition-all backdrop-blur-sm"
+                placeholder="seu@email.com"
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-white/80 mb-1.5">Senha</label>
+              <div className="relative">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  required
+                  minLength={6}
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className="w-full px-4 py-3 rounded-xl border border-white/10 bg-white/5 text-white text-sm placeholder:text-white/30 focus:ring-2 focus:ring-accent/50 focus:border-accent/50 focus:outline-none transition-all backdrop-blur-sm pr-12"
+                  placeholder="Mínimo 6 caracteres"
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-white/40 hover:text-white/70 transition-colors"
+                >
+                  {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+                </button>
+              </div>
+            </div>
+
+            <button
+              type="submit"
+              disabled={loading}
+              className="w-full py-3.5 rounded-xl bg-accent text-accent-foreground font-bold text-sm hover:bg-accent/90 transition-all disabled:opacity-50 flex items-center justify-center gap-2 shadow-lg shadow-accent/20 mt-2"
+            >
+              {loading ? (
+                <div className="w-5 h-5 border-2 border-accent-foreground/30 border-t-accent-foreground rounded-full animate-spin" />
+              ) : isLogin ? (
+                <>
+                  <LogIn size={16} /> Entrar no Painel
+                </>
+              ) : (
+                <>
+                  <UserPlus size={16} /> Criar Conta Grátis
+                </>
+              )}
+            </button>
+          </form>
+
+          <p className="text-center text-sm text-white/40 mt-8">
+            {isLogin ? "Não tem conta?" : "Já tem conta?"}{" "}
+            <button
+              onClick={() => setIsLogin(!isLogin)}
+              className="text-accent font-semibold hover:underline"
+            >
+              {isLogin ? "Cadastre-se grátis" : "Entrar"}
+            </button>
+          </p>
+        </motion.div>
+      </div>
     </div>
   );
 }
