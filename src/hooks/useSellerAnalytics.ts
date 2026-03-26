@@ -24,6 +24,27 @@ export function useSellerAnalytics(sellerId?: string) {
   useEffect(() => {
     if (!sellerId) { setLoading(false); return; }
     fetchAnalytics(sellerId);
+
+    // Realtime subscription
+    const channel = supabase
+      .channel(`seller-analytics-${sellerId}`)
+      .on(
+        "postgres_changes",
+        {
+          event: "INSERT",
+          schema: "public",
+          table: "seller_analytics",
+          filter: `seller_id=eq.${sellerId}`,
+        },
+        () => {
+          fetchAnalytics(sellerId);
+        }
+      )
+      .subscribe();
+
+    return () => {
+      supabase.removeChannel(channel);
+    };
   }, [sellerId]);
 
   const fetchAnalytics = async (sid: string) => {
