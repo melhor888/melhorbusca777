@@ -62,11 +62,13 @@ export default function PropertiesPage() {
     return normalizeCityValue(city);
   };
 
-  // Filter sellers by city
+  // Filter sellers by city + only paid plans
+  const paidTiers = ["start", "premium", "vip", "essencial_empresa", "premium_empresa"];
   const filteredSellers = useMemo(() => {
-    if (!filterCity) return realSellers;
+    const paid = realSellers.filter((s) => paidTiers.includes(s.tier));
+    if (!filterCity) return paid;
     const selectedCity = normalizeCityValue(filterCity);
-    return realSellers.filter((seller) => normalizeCityValue(seller.city) === selectedCity);
+    return paid.filter((seller) => normalizeCityValue(seller.city) === selectedCity);
   }, [realSellers, filterCity]);
 
   const filteredStaticCompanies = useMemo(() => {

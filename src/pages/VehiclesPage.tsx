@@ -72,9 +72,11 @@ export default function VehiclesPage() {
   }, [allSellers]);
 
   // Filter sellers by city
+  const paidTiers = ["start", "premium", "vip", "essencial_empresa", "premium_empresa"];
   const filteredSellers = useMemo(() => {
-    if (!filterCity) return realSellers;
-    return realSellers.filter((s) => s.address.toLowerCase().includes(filterCity.toLowerCase()));
+    const paid = realSellers.filter((s) => paidTiers.includes(s.tier));
+    if (!filterCity) return paid;
+    return paid.filter((s) => s.address.toLowerCase().includes(filterCity.toLowerCase()));
   }, [realSellers, filterCity]);
 
   const featuredProducts = useMemo(() => {
