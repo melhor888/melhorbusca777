@@ -192,9 +192,9 @@ export default function VehiclesPage() {
       </section>
 
       {/* Featured Products Carousel */}
-      <section className="px-4 md:px-8 lg:px-12 pt-8 pb-2">
-        <h3 className="font-display font-semibold text-base text-foreground mb-4">Destaques</h3>
-        <div className="flex gap-3 overflow-x-auto scrollbar-hide pb-2 snap-x snap-mandatory">
+      <section className="pt-8 pb-2">
+        <h3 className="font-display font-semibold text-base text-foreground mb-4 px-4 md:px-8 lg:px-12">Destaques</h3>
+        <div className="flex gap-3 overflow-x-auto scrollbar-hide pb-2 snap-x snap-mandatory px-4 md:px-8 lg:px-12">
           {vehicleProducts.slice(0, 12).map((product, i) => {
             const company = companyById[product.companyId];
             return (
@@ -232,9 +232,9 @@ export default function VehiclesPage() {
       </section>
 
       {/* Company Logos */}
-      <section className="px-4 md:px-8 lg:px-12 pt-8 pb-2">
-        <h3 className="font-display font-semibold text-base text-muted-foreground mb-4">Lojas em destaque</h3>
-        <div className="flex gap-4 overflow-x-auto scrollbar-hide pb-2">
+      <section className="pt-8 pb-2">
+        <h3 className="font-display font-semibold text-base text-muted-foreground mb-4 px-4 md:px-8 lg:px-12">Lojas em destaque</h3>
+        <div className="flex gap-4 overflow-x-auto scrollbar-hide pb-2 px-4 md:px-8 lg:px-12">
           {vehicleCompanies.map((company, i) => (
             <motion.div
               key={company.id}
