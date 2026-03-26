@@ -45,7 +45,11 @@ const categories = [
 ];
 
 export default function Index() {
+  const { cidade } = useParams<{ cidade?: string }>();
   const navigate = useNavigate();
+  const cityName = cidade ? slugToCity(cidade) : null;
+  const displayCity = cityName || "Colatina";
+  const citySlug = cityName ? cityToSlug(cityName) : "";
   const [currentSlide, setCurrentSlide] = useState(0);
   const [searchQuery, setSearchQuery] = useState("");
   const intervalRef = useRef<ReturnType<typeof setInterval>>(null);
