@@ -251,13 +251,9 @@ export default function VehiclesPage() {
                   <div className="relative aspect-[3/2] rounded-2xl overflow-hidden shadow-md">
                     <img src={product.image} alt={product.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-                    {product.tag && (
-                      <span className={`absolute top-2 left-2 px-2 py-0.5 rounded-md text-[10px] font-bold shadow ${getTagStyle(product.tag)}`}>{product.tag}</span>
-                    )}
                     <div className="absolute bottom-0 left-0 right-0 p-3">
-                      <p className="text-white font-semibold text-sm line-clamp-1 drop-shadow">{product.title}</p>
                       {company && (
-                        <div className="flex items-center gap-1.5 mt-1">
+                        <div className="flex items-center gap-1.5">
                           <img src={company.logo} alt={company.name} className="w-5 h-5 rounded-full object-cover border border-white/30" />
                           <span className="text-white/80 text-[10px] truncate">{company.name}</span>
                         </div>
