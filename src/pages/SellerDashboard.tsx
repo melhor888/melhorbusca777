@@ -752,25 +752,33 @@ export default function SellerDashboard() {
                     <h3 className="font-display font-bold text-foreground mb-4">Histórico de Solicitações</h3>
                     <div className="space-y-3">
                       {adHistory.map((req) => (
-                        <div key={req.id} className="flex items-center justify-between p-3 rounded-xl bg-muted">
-                          <div className="flex items-center gap-3">
-                            <span className="text-lg">{req.platform === "google" ? "🔍" : "📘"}</span>
-                            <div>
-                              <p className="text-sm font-semibold text-foreground">
-                                {req.platform === "google" ? "Google" : "Facebook"} Ads — {req.duration_days} dias
-                              </p>
-                              <p className="text-xs text-muted-foreground">
-                                R$ {Number(req.daily_budget).toFixed(2)}/dia • Total: R$ {Number(req.total).toFixed(2)}
-                              </p>
+                        <div key={req.id} className="p-3 rounded-xl bg-muted">
+                          <div className="flex items-center justify-between">
+                            <div className="flex items-center gap-3">
+                              <span className="text-lg">{req.platform === "google" ? "🔍" : "📘"}</span>
+                              <div>
+                                <p className="text-sm font-semibold text-foreground">
+                                  {req.platform === "google" ? "Google" : "Facebook"} Ads — {req.duration_days} dias
+                                </p>
+                                <p className="text-xs text-muted-foreground">
+                                  R$ {Number(req.daily_budget).toFixed(2)}/dia • Total: R$ {Number(req.total).toFixed(2)}
+                                </p>
+                              </div>
                             </div>
+                            <span className={`px-2.5 py-1 rounded-full text-xs font-bold ${
+                              req.status === "aprovado" ? "bg-green-500/20 text-green-600" :
+                              req.status === "rejeitado" ? "bg-destructive/20 text-destructive" :
+                              "bg-amber-500/20 text-amber-600"
+                            }`}>
+                              {req.status === "aprovado" ? "Aprovado" : req.status === "rejeitado" ? "Rejeitado" : "Pendente"}
+                            </span>
                           </div>
-                          <span className={`px-2.5 py-1 rounded-full text-xs font-bold ${
-                            req.status === "aprovado" ? "bg-green-500/20 text-green-600" :
-                            req.status === "rejeitado" ? "bg-destructive/20 text-destructive" :
-                            "bg-amber-500/20 text-amber-600"
-                          }`}>
-                            {req.status === "aprovado" ? "Aprovado" : req.status === "rejeitado" ? "Rejeitado" : "Pendente"}
-                          </span>
+                          {req.status === "rejeitado" && req.details && (
+                            <div className="mt-2 p-2.5 rounded-lg bg-destructive/5 border border-destructive/20">
+                              <p className="text-xs font-semibold text-destructive mb-0.5">Motivo da rejeição:</p>
+                              <p className="text-xs text-muted-foreground">{req.details}</p>
+                            </div>
+                          )}
                         </div>
                       ))}
                     </div>
