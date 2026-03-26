@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
 import { supabase } from "@/integrations/supabase/client";
-import { Package, Eye, Plus, Settings, Edit, Trash2, Copy, ToggleLeft, ToggleRight, Search, Building2, Car, Image, LogOut, BarChart3 } from "lucide-react";
+import { Package, Eye, Plus, Settings, Edit, Trash2, Copy, ToggleLeft, ToggleRight, Search, Building2, Car, Image, LogOut, BarChart3, Star } from "lucide-react";
 import { getTagStyle, getTagLabel } from "@/data/products";
 import { useToast } from "@/hooks/use-toast";
 import { motion } from "framer-motion";
@@ -22,7 +22,7 @@ type SellerItem = {
 };
 
 export default function SellerDashboard() {
-  const { user, profile, signOut, loading: authLoading } = useAuth();
+  const { user, profile, signOut, refreshProfile, loading: authLoading } = useAuth();
   const navigate = useNavigate();
   const { toast } = useToast();
   const [items, setItems] = useState<SellerItem[]>([]);
@@ -63,6 +63,16 @@ export default function SellerDashboard() {
     if (!error) {
       setItems((prev) => prev.filter((i) => i.id !== id));
       toast({ title: "Item excluído" });
+    }
+  };
+
+  const setFeatured = async (itemId: string) => {
+    if (!user || !profile) return;
+    const newId = profile.featured_item_id === itemId ? null : itemId;
+    const { error } = await supabase.from("profiles").update({ featured_item_id: newId } as any).eq("user_id", user.id);
+    if (!error) {
+      await refreshProfile();
+      toast({ title: newId ? "Destaque definido!" : "Destaque removido" });
     }
   };
 
@@ -284,6 +294,17 @@ export default function SellerDashboard() {
                       className="p-2 rounded-lg bg-secondary text-secondary-foreground hover:bg-secondary/80 transition-colors"
                     >
                       {item.status === "ativo" ? <ToggleRight size={14} /> : <ToggleLeft size={14} />}
+                    </button>
+                    <button
+                      onClick={() => setFeatured(item.id)}
+                      title="Definir como destaque do banner"
+                      className={`p-2 rounded-lg transition-colors ${
+                        profile?.featured_item_id === item.id
+                          ? "bg-yellow-500/20 text-yellow-500"
+                          : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
+                      }`}
+                    >
+                      <Star size={14} fill={profile?.featured_item_id === item.id ? "currentColor" : "none"} />
                     </button>
                     <button
                       onClick={() => deleteItem(item.id)}

@@ -136,7 +136,10 @@ export default function CompanyProfile() {
     );
   }
 
-  const heroProduct = products[0];
+  const featuredItemId = isDbProfile ? dbProfile?.featured_item_id : null;
+  const heroProduct = featuredItemId
+    ? products.find((p: any) => p.id === featuredItemId) || products[0]
+    : products[0];
   const whatsappUrl = (title: string) =>
     `https://wa.me/${company.whatsapp}?text=${encodeURIComponent(`Olá ${company.name}! Tenho interesse: ${title}`)}`;
 
