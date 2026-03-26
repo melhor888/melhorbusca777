@@ -174,6 +174,7 @@ export default function VehiclesPage() {
       <HeroBannerCarousel
         items={vehicleProducts as any}
         sellers={heroSellersMap}
+        featuredItemIds={featuredItemIds}
         type="veiculos"
         filterCity={filterCity}
         fallbackImage="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1400&h=500&fit=crop"

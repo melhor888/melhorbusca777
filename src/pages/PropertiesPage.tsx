@@ -178,6 +178,7 @@ export default function PropertiesPage() {
       <HeroBannerCarousel
         items={propertyProducts as any}
         sellers={heroSellersMap}
+        featuredItemIds={featuredItemIds}
         type="imoveis"
         filterCity={filterCity}
         fallbackImage="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1400&h=500&fit=crop"
