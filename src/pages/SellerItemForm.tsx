@@ -402,9 +402,14 @@ export default function SellerItemForm() {
 
         {/* Tags */}
         <div className="bg-card border border-border rounded-2xl p-5">
-          <h2 className="font-display font-bold text-foreground mb-3">Tags de Destaque</h2>
+          <h2 className="font-display font-bold text-foreground mb-1">Tags de Destaque</h2>
+          {currentTier === "basico" && (
+            <p className="text-xs text-muted-foreground mb-3 flex items-center gap-1">
+              <Lock size={10} /> Algumas tags são exclusivas para planos Premium e VIP
+            </p>
+          )}
           <div className="flex flex-wrap gap-2">
-            {allTags.map((tag) => (
+            {availableTags.map((tag) => (
               <button
                 key={tag.value}
                 type="button"
