@@ -227,7 +227,7 @@ export default function SellerDashboard() {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background overflow-x-hidden">
       {/* Mobile Header */}
       <div className="gradient-hero py-6 lg:py-4">
         <div className="container max-w-6xl mx-auto px-4 lg:hidden">
