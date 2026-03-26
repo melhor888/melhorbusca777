@@ -377,17 +377,22 @@ export default function SellerItemForm() {
             <MapPin size={16} className="text-primary" /> Localização
           </h2>
           <div className="grid grid-cols-2 gap-3">
-            <input
+            <select
               value={form.city}
               onChange={(e) => setForm((f) => ({ ...f, city: e.target.value }))}
               className="px-4 py-3 rounded-xl border border-input bg-background text-foreground text-sm focus:ring-2 focus:ring-ring focus:outline-none"
-              placeholder="Cidade"
-            />
+            >
+              <option value="">Selecione a cidade</option>
+              {ES_CITIES.map((c) => (
+                <option key={c} value={c}>{c}</option>
+              ))}
+            </select>
             <input
               value={form.state}
               onChange={(e) => setForm((f) => ({ ...f, state: e.target.value }))}
               className="px-4 py-3 rounded-xl border border-input bg-background text-foreground text-sm focus:ring-2 focus:ring-ring focus:outline-none"
               placeholder="Estado"
+              readOnly
             />
           </div>
           <input
