@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
 import { supabase } from "@/integrations/supabase/client";
-import { Package, Eye, Plus, Settings, Edit, Trash2, Copy, ToggleLeft, ToggleRight, Search, Image, LogOut, BarChart3, Star, Crown, Zap, AlertTriangle, Shield, MessageCircle, Home, UserCircle, Headphones, Globe, ExternalLink, CheckCircle2, ClipboardCopy, Megaphone, Send, Calculator } from "lucide-react";
+import { Package, Eye, Plus, Settings, Edit, Trash2, Copy, ToggleLeft, ToggleRight, Search, Image, LogOut, BarChart3, Star, Crown, Zap, AlertTriangle, Shield, MessageCircle, Home, UserCircle, Headphones, Globe, ExternalLink, CheckCircle2, ClipboardCopy, Megaphone, Send, Calculator, Lock } from "lucide-react";
 import { getTagStyle, getTagLabel } from "@/data/products";
 import { useToast } from "@/hooks/use-toast";
 import { motion } from "framer-motion";
@@ -191,13 +191,29 @@ export default function SellerDashboard() {
     }
   };
 
+  const isFreePlan = currentTier === "basico";
+  const lockedTabs: DashboardTab[] = isFreePlan ? ["domain", "ads"] : [];
+
   const sidebarNav = [
     { id: "overview" as const, label: "Visão Geral", icon: Home },
     { id: "items" as const, label: "Meus Anúncios", icon: Package },
     { id: "stats" as const, label: "Estatísticas", icon: BarChart3 },
-    { id: "ads" as const, label: "Fazer ADS", icon: Megaphone },
-    { id: "domain" as const, label: "Meu Domínio", icon: Globe },
+    { id: "ads" as const, label: "Fazer ADS", icon: Megaphone, locked: lockedTabs.includes("ads") },
+    { id: "domain" as const, label: "Meu Domínio", icon: Globe, locked: lockedTabs.includes("domain") },
   ];
+
+  const handleTabClick = (tabId: DashboardTab) => {
+    if (lockedTabs.includes(tabId)) {
+      toast({
+        title: "Recurso bloqueado 🔒",
+        description: "Faça upgrade do seu plano para acessar este recurso.",
+        variant: "destructive",
+      });
+      navigate("/pacotes");
+      return;
+    }
+    setActiveTab(tabId);
+  };
 
   return (
     <div className="min-h-screen bg-background">
