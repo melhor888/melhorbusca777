@@ -29,4 +29,5 @@ export const vehicleCategories = [
   { slug: "motos", name: "Motos", icon: "Bike", color: "from-[#002F6C] to-[#00AEEF]", img: "https://images.unsplash.com/photo-1558981806-ec527fa84c39?w=400&h=250&fit=crop" },
   { slug: "caminhoes", name: "Caminhões", icon: "Truck", color: "from-[#00AEEF] to-[#0090c5]", img: "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=400&h=250&fit=crop" },
   { slug: "utilitarios", name: "Utilitários", icon: "Cog", color: "from-[#002F6C] to-[#004a9f]", img: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=400&h=250&fit=crop" },
+  { slug: "outros", name: "Outros", icon: "Cog", color: "from-[#666] to-[#444]", img: "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=400&h=250&fit=crop" },
 ];
