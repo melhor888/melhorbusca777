@@ -34,8 +34,8 @@ export default function AuthPage() {
       if (error) {
         toast({ title: "Erro ao cadastrar", description: error.message, variant: "destructive" });
       } else {
-        toast({ title: "Cadastro realizado!", description: "Bem-vindo ao Melhor Busca!" });
-        navigate("/painel");
+        toast({ title: "Cadastro realizado!", description: "Complete seu perfil para começar!" });
+        navigate("/painel/perfil");
       }
     }
     setLoading(false);
