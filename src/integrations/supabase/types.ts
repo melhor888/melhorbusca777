@@ -14,6 +14,57 @@ export type Database = {
   }
   public: {
     Tables: {
+      ad_requests: {
+        Row: {
+          created_at: string
+          daily_budget: number
+          details: string | null
+          duration_days: number
+          id: string
+          platform: string
+          seller_id: string
+          service_fee: number
+          status: string
+          subtotal: number
+          tax_amount: number
+          total: number
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          daily_budget: number
+          details?: string | null
+          duration_days: number
+          id?: string
+          platform: string
+          seller_id: string
+          service_fee?: number
+          status?: string
+          subtotal: number
+          tax_amount?: number
+          total: number
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          daily_budget?: number
+          details?: string | null
+          duration_days?: number
+          id?: string
+          platform?: string
+          seller_id?: string
+          service_fee?: number
+          status?: string
+          subtotal?: number
+          tax_amount?: number
+          total?: number
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           address: string | null
