@@ -67,21 +67,34 @@ export function useRealListings(segment: "imoveis" | "automoveis") {
 
   useEffect(() => {
     const fetchData = async () => {
-      // Fetch sellers of this segment
-      const { data: profiles } = await supabase
-        .from("profiles")
+      // Fetch active items of this segment
+      const { data: rawItems } = await supabase
+        .from("seller_items")
         .select("*")
-        .eq("seller_type", segment);
+        .eq("seller_type", segment)
+        .eq("status", "ativo")
+        .order("created_at", { ascending: false });
 
-      const mappedSellers: RealSeller[] = (profiles || []).map((p: any) => ({
-        id: p.id,
-        name: p.company_name || p.full_name,
-        logo: p.logo_url || "",
-        address: [p.address, p.city, p.state].filter(Boolean).join(", "),
-        phone: p.phone || "",
-        segment: p.seller_type,
-        show_location: p.show_location ?? true,
-      }));
+      const sellerIds = [...new Set((rawItems || []).map((i: any) => i.seller_id))];
+
+      // Fetch profiles for these sellers
+      let mappedSellers: RealSeller[] = [];
+      if (sellerIds.length > 0) {
+        const { data: profiles } = await supabase
+          .from("profiles")
+          .select("*")
+          .in("id", sellerIds);
+
+        mappedSellers = (profiles || []).map((p: any) => ({
+          id: p.id,
+          name: p.company_name || p.full_name,
+          logo: p.logo_url || "",
+          address: [p.address, p.city, p.state].filter(Boolean).join(", "),
+          phone: p.phone || "",
+          segment: p.seller_type,
+          show_location: p.show_location ?? true,
+        }));
+      }
       setSellers(mappedSellers);
 
       // Fetch subscriptions for tier info
@@ -92,27 +105,16 @@ export function useRealListings(segment: "imoveis" | "automoveis") {
       const tierMap = new Map<string, string>();
       (subs || []).forEach((s: any) => tierMap.set(s.seller_id, s.tier));
 
-      // Fetch active items from these sellers
-      if (mappedSellers.length > 0) {
-        const sellerIds = mappedSellers.map((s) => s.id);
-        const { data: rawItems } = await supabase
-          .from("seller_items")
-          .select("*")
-          .in("seller_id", sellerIds)
-          .eq("status", "ativo")
-          .order("created_at", { ascending: false });
+      const mapped = (rawItems || []).map((item: any) => ({
+        ...mapItem(item),
+        sellerTier: (tierMap.get(item.seller_id) as any) || "basico",
+      }));
 
-        const mapped = (rawItems || []).map((item: any) => ({
-          ...mapItem(item),
-          sellerTier: (tierMap.get(item.seller_id) as any) || "basico",
-        }));
+      // Sort: VIP first, then Premium, then Basico
+      const tierOrder = { vip: 0, premium: 1, basico: 2 };
+      mapped.sort((a: any, b: any) => (tierOrder[a.sellerTier as keyof typeof tierOrder] ?? 2) - (tierOrder[b.sellerTier as keyof typeof tierOrder] ?? 2));
 
-        // Sort: VIP first, then Premium, then Basico
-        const tierOrder = { vip: 0, premium: 1, basico: 2 };
-        mapped.sort((a: any, b: any) => (tierOrder[a.sellerTier as keyof typeof tierOrder] ?? 2) - (tierOrder[b.sellerTier as keyof typeof tierOrder] ?? 2));
-
-        setItems(mapped);
-      }
+      setItems(mapped);
 
       setLoading(false);
     };
