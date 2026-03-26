@@ -61,7 +61,8 @@ export default function SellerItemForm() {
   const { subscription, currentTier, config: pkgConfig, isExpired } = useSubscription(user?.id);
 
   const [sellerType, setSellerType] = useState<SellerType>("imoveis");
-  const { cities: stateCities, loading: citiesLoading } = useCitiesByState(form?.state || "ES");
+  const [selectedUF, setSelectedUF] = useState("ES");
+  const { cities: stateCities, loading: citiesLoading } = useCitiesByState(selectedUF);
   const [form, setForm] = useState({
     title: "",
     description: "",
@@ -381,26 +382,35 @@ export default function SellerItemForm() {
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
-              <label className="text-xs text-muted-foreground mb-1 block">Cidade</label>
+              <label className="text-xs text-muted-foreground mb-1 block">Estado</label>
               <select
-                value={form.city}
-                onChange={(e) => setForm((f) => ({ ...f, city: e.target.value }))}
-                className="w-full px-4 py-3 rounded-xl border border-input bg-background text-foreground text-sm focus:ring-2 focus:ring-ring focus:outline-none appearance-none"
+                value={form.state}
+                onChange={(e) => {
+                  const uf = e.target.value;
+                  setSelectedUF(uf);
+                  setForm((f) => ({ ...f, state: uf, city: "" }));
+                }}
+                className="w-full px-4 py-3 rounded-xl border border-input bg-background text-foreground text-sm focus:ring-2 focus:ring-ring focus:outline-none"
               >
-                <option value="">Selecione a cidade</option>
-                {ES_CITIES.map((c) => (
-                  <option key={c} value={c}>{c}</option>
+                <option value="">Selecione o estado</option>
+                {BRAZIL_STATES.map((s) => (
+                  <option key={s.uf} value={s.uf}>{s.name}</option>
                 ))}
               </select>
             </div>
             <div>
-              <label className="text-xs text-muted-foreground mb-1 block">Estado</label>
-              <input
-                value={form.state}
+              <label className="text-xs text-muted-foreground mb-1 block">Cidade</label>
+              <select
+                value={form.city}
+                onChange={(e) => setForm((f) => ({ ...f, city: e.target.value }))}
                 className="w-full px-4 py-3 rounded-xl border border-input bg-background text-foreground text-sm focus:ring-2 focus:ring-ring focus:outline-none"
-                placeholder="Estado"
-                readOnly
-              />
+                disabled={!form.state || citiesLoading}
+              >
+                <option value="">{citiesLoading ? "Carregando cidades..." : "Selecione a cidade"}</option>
+                {stateCities.map((c) => (
+                  <option key={c} value={c}>{c}</option>
+                ))}
+              </select>
             </div>
           </div>
           <div>
