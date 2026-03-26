@@ -51,10 +51,19 @@ export default function PropertiesPage() {
     return [...realProds, ...staticProds];
   }, [realItems]);
 
+  // Filter sellers by city
+  const filteredSellers = useMemo(() => {
+    if (!filterCity) return realSellers;
+    return realSellers.filter((s) => s.address.toLowerCase().includes(filterCity.toLowerCase()));
+  }, [realSellers, filterCity]);
+
   const featuredProducts = useMemo(() => {
-    const shuffled = [...propertyProducts].sort(() => Math.random() - 0.5);
+    const base = filterCity
+      ? propertyProducts.filter((p) => (p as any).location?.toLowerCase().includes(filterCity.toLowerCase()))
+      : propertyProducts;
+    const shuffled = [...base].sort(() => Math.random() - 0.5);
     return shuffled.slice(0, 7);
-  }, [propertyProducts]);
+  }, [propertyProducts, filterCity]);
 
   // Random hero product
   const heroProduct = useMemo(() => {
