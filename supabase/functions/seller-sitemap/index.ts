@@ -13,7 +13,7 @@ Deno.serve(async (req) => {
 
   const url = new URL(req.url);
   const sellerId = url.searchParams.get("seller_id");
-  const format = url.searchParams.get("format") || "google"; // "google" or "facebook"
+  const format = url.searchParams.get("format") || "google";
 
   if (!sellerId) {
     return new Response("Missing seller_id", { status: 400, headers: corsHeaders });
@@ -23,7 +23,6 @@ Deno.serve(async (req) => {
   const supabaseKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
   const supabase = createClient(supabaseUrl, supabaseKey);
 
-  // Get seller profile
   const { data: profile } = await supabase
     .from("profiles")
     .select("*")
@@ -34,14 +33,12 @@ Deno.serve(async (req) => {
     return new Response("Seller not found", { status: 404, headers: corsHeaders });
   }
 
-  // Get seller items
   const { data: items } = await supabase
     .from("seller_items")
     .select("*")
     .eq("seller_id", sellerId)
     .eq("status", "ativo");
 
-  // Check for custom domain
   const { data: domainData } = await supabase
     .from("store_domains")
     .select("domain")
@@ -71,23 +68,59 @@ function generateGoogleSitemap(
   storeUrl: string
 ) {
   const now = new Date().toISOString().split("T")[0];
+  const storeName = profile.company_name || profile.full_name || "Loja";
+  const city = profile.city || "";
+  const state = profile.state || "ES";
+  const nicho = profile.seller_type === "automoveis" ? "Automóveis" : "Imóveis";
+  const phone = profile.phone || "";
+  const email = profile.email || "";
 
   let xml = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<!-- Sitemap gerado para: ${esc(storeName)} -->
+<!-- Responsável: ${esc(profile.full_name || "")} -->
+<!-- Contato: ${esc(phone)} | ${esc(email)} -->
+<!-- Cidade: ${esc(city)} - ${esc(state)} -->
+<!-- Nicho: ${esc(nicho)} -->
+<!-- Total de anúncios ativos: ${items.length} -->
+<!-- Gerado em: ${new Date().toISOString()} -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>${storeUrl}</loc>
     <lastmod>${now}</lastmod>
     <changefreq>daily</changefreq>
-    <priority>1.0</priority>
+    <priority>1.0</priority>${profile.logo_url ? `
+    <image:image>
+      <image:loc>${esc(profile.logo_url)}</image:loc>
+      <image:title>Logo - ${esc(storeName)}</image:title>
+    </image:image>` : ""}
   </url>`;
 
   for (const item of items) {
+    const price = item.price ? `R$ ${Number(item.price).toFixed(2).replace(".", ",")}` : "";
+    const itemCity = item.city || city;
+    const categoryLabel = getCategoryLabel(item.category, item.seller_type);
+
     xml += `
+  <!-- ${esc(item.title)} | ${price} | ${esc(itemCity)} | ${esc(categoryLabel)} -->
   <url>
     <loc>${baseUrl}/anuncio/${item.id}</loc>
     <lastmod>${item.updated_at?.split("T")[0] || now}</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.8</priority>`;
+
+    if (item.photos && item.photos.length > 0) {
+      for (const photo of item.photos.slice(0, 10)) {
+        xml += `
+    <image:image>
+      <image:loc>${esc(photo)}</image:loc>
+      <image:title>${esc(item.title)} - ${esc(storeName)}</image:title>
+      <image:caption>${esc(item.description || item.title)} - ${esc(itemCity)}, ${esc(state)}</image:caption>
+    </image:image>`;
+      }
+    }
+
+    xml += `
   </url>`;
   }
 
@@ -95,10 +128,7 @@ function generateGoogleSitemap(
 </urlset>`;
 
   return new Response(xml, {
-    headers: {
-      ...corsHeaders,
-      "Content-Type": "application/xml; charset=utf-8",
-    },
+    headers: { ...corsHeaders, "Content-Type": "application/xml; charset=utf-8" },
   });
 }
 
@@ -109,44 +139,59 @@ function generateFacebookFeed(
   sellerId: string
 ) {
   const storeName = profile.company_name || profile.full_name || "Loja";
+  const city = profile.city || "";
+  const state = profile.state || "ES";
+  const phone = profile.phone || "";
 
   let xml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:g="http://base.google.com/ns/1.0">
 <channel>
-  <title>${escapeXml(storeName)}</title>
+  <title>${esc(storeName)}</title>
   <link>${baseUrl}/loja/${sellerId}</link>
-  <description>Catálogo de produtos - ${escapeXml(storeName)}</description>`;
+  <description>Catálogo de produtos - ${esc(storeName)} - ${esc(city)}, ${esc(state)} - Tel: ${esc(phone)}</description>`;
 
   for (const item of items) {
     const photo = item.photos?.[0] || "";
     const price = item.price ? `${Number(item.price).toFixed(2)} BRL` : "0.00 BRL";
     const category = getCategoryLabel(item.category, item.seller_type);
     const condition = item.seller_type === "automoveis" ? "used" : "new";
-    const availability = "in stock";
+    const itemCity = item.city || city;
+
+    let desc = item.description || item.title;
+    if (item.seller_type === "automoveis") {
+      const parts = [item.brand, item.model, item.year, item.fuel, item.transmission, item.color, item.mileage ? `${item.mileage}km` : ""].filter(Boolean);
+      if (parts.length) desc += ` | ${parts.join(" | ")}`;
+    } else {
+      const parts = [item.bedrooms ? `${item.bedrooms} quartos` : "", item.bathrooms ? `${item.bathrooms} banheiros` : "", item.area ? `${item.area}m²` : "", item.parking_spots ? `${item.parking_spots} vagas` : ""].filter(Boolean);
+      if (parts.length) desc += ` | ${parts.join(" | ")}`;
+    }
 
     xml += `
   <item>
     <g:id>${item.id}</g:id>
-    <g:title>${escapeXml(item.title)}</g:title>
-    <g:description>${escapeXml(item.description || item.title)}</g:description>
+    <g:title>${esc(item.title)} - ${esc(storeName)}</g:title>
+    <g:description>${esc(desc)}</g:description>
     <g:link>${baseUrl}/anuncio/${item.id}</g:link>
-    <g:image_link>${escapeXml(photo)}</g:image_link>
+    <g:image_link>${esc(photo)}</g:image_link>
     <g:price>${price}</g:price>
     <g:condition>${condition}</g:condition>
-    <g:availability>${availability}</g:availability>
-    <g:brand>${escapeXml(item.brand || storeName)}</g:brand>
-    <g:google_product_category>${escapeXml(category)}</g:google_product_category>`;
+    <g:availability>in stock</g:availability>
+    <g:brand>${esc(item.brand || storeName)}</g:brand>
+    <g:google_product_category>${esc(category)}</g:google_product_category>
+    <g:custom_label_0>${esc(itemCity)}</g:custom_label_0>
+    <g:custom_label_1>${esc(storeName)}</g:custom_label_1>
+    <g:custom_label_2>${esc(profile.full_name || "")}</g:custom_label_2>`;
 
     if (item.photos && item.photos.length > 1) {
       for (let i = 1; i < Math.min(item.photos.length, 10); i++) {
         xml += `
-    <g:additional_image_link>${escapeXml(item.photos[i])}</g:additional_image_link>`;
+    <g:additional_image_link>${esc(item.photos[i])}</g:additional_image_link>`;
       }
     }
 
-    if (item.city) {
+    if (item.neighborhood) {
       xml += `
-    <g:custom_label_0>${escapeXml(item.city)}</g:custom_label_0>`;
+    <g:custom_label_3>${esc(item.neighborhood)}</g:custom_label_3>`;
     }
 
     xml += `
@@ -158,14 +203,11 @@ function generateFacebookFeed(
 </rss>`;
 
   return new Response(xml, {
-    headers: {
-      ...corsHeaders,
-      "Content-Type": "application/xml; charset=utf-8",
-    },
+    headers: { ...corsHeaders, "Content-Type": "application/xml; charset=utf-8" },
   });
 }
 
-function escapeXml(str: string): string {
+function esc(str: string): string {
   if (!str) return "";
   return str
     .replace(/&/g, "&amp;")
