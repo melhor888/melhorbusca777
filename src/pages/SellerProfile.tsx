@@ -27,6 +27,7 @@ export default function SellerProfile() {
     state: "ES",
     show_location: true,
     instagram: "",
+    bio: "",
   });
 
   useEffect(() => {
@@ -47,6 +48,7 @@ export default function SellerProfile() {
         state: profile.state || "ES",
         show_location: profile.show_location ?? true,
         instagram: (profile as any).instagram || "",
+        bio: (profile as any).bio || "",
       });
     }
   }, [profile]);
@@ -131,7 +133,20 @@ export default function SellerProfile() {
           </div>
         </div>
 
-        {/* Seller Type */}
+        {/* Sobre a empresa */}
+        <div className="bg-card border border-border rounded-2xl p-5 space-y-4">
+          <h2 className="font-display font-bold text-foreground">Sobre a Empresa</h2>
+          <p className="text-xs text-muted-foreground">Descreva sua empresa, diferenciais, horário de funcionamento, etc. Esse texto aparece na sua loja pública.</p>
+          <textarea
+            value={form.bio}
+            onChange={(e) => setForm((f) => ({ ...f, bio: e.target.value }))}
+            rows={5}
+            maxLength={1000}
+            className="w-full px-4 py-3 rounded-xl border border-input bg-background text-foreground text-sm focus:ring-2 focus:ring-ring focus:outline-none resize-none"
+            placeholder="Ex: Somos uma empresa especializada em veículos seminovos com mais de 10 anos de experiência..."
+          />
+          <span className="text-xs text-muted-foreground">{form.bio.length}/1000</span>
+        </div>
         <div className="bg-card border border-border rounded-2xl p-5">
           <h2 className="font-display font-bold text-foreground mb-3">Tipo de vendedor</h2>
           <div className="grid grid-cols-2 gap-3">

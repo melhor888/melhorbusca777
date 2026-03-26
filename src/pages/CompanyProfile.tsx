@@ -411,6 +411,9 @@ export default function CompanyProfile() {
                 <h3 className="font-display font-bold text-sm text-foreground mb-3 flex items-center gap-2">
                   <BadgeCheck size={14} className="text-primary" /> Sobre a empresa
                 </h3>
+                {dbProfile?.bio && (
+                  <p className="text-sm text-foreground mb-3 whitespace-pre-line">{dbProfile.bio}</p>
+                )}
                 <div className="space-y-3 text-xs text-muted-foreground">
                   <div className="flex items-center gap-2">
                     <Store size={13} className="flex-shrink-0" />
