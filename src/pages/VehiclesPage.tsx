@@ -83,6 +83,13 @@ export default function VehiclesPage() {
     return map;
   }, [allSellers]);
 
+  // Featured item IDs for hero banner
+  const featuredItemIds = useMemo(() => {
+    const ids = new Set<string>();
+    realSellers.forEach((s) => { if (s.featured_item_id) ids.add(s.featured_item_id); });
+    return ids;
+  }, [realSellers]);
+
   // Filter sellers by city
   const paidTiers = ["start", "premium", "vip", "essencial_empresa", "premium_empresa"];
   const filteredSellers = useMemo(() => {
@@ -167,6 +174,7 @@ export default function VehiclesPage() {
       <HeroBannerCarousel
         items={vehicleProducts as any}
         sellers={heroSellersMap}
+        featuredItemIds={featuredItemIds}
         type="veiculos"
         filterCity={filterCity}
         fallbackImage="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1400&h=500&fit=crop"

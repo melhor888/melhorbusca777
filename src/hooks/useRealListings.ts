@@ -11,6 +11,7 @@ export interface RealSeller {
   segment: "imoveis" | "automoveis";
   show_location: boolean;
   tier: string;
+  featured_item_id?: string | null;
 }
 
 export interface RealItem {
@@ -105,6 +106,7 @@ export function useRealListings(segment: "imoveis" | "automoveis") {
           segment: p.seller_type,
           show_location: p.show_location ?? true,
           tier: tierMap.get(p.id) || "basico",
+          featured_item_id: p.featured_item_id || null,
         }));
       }
       setSellers(mappedSellers);

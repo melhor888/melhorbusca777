@@ -104,6 +104,13 @@ export default function PropertiesPage() {
     return map;
   }, [allSellers]);
 
+  // Featured item IDs for hero banner
+  const featuredItemIds = useMemo(() => {
+    const ids = new Set<string>();
+    realSellers.forEach((s) => { if (s.featured_item_id) ids.add(s.featured_item_id); });
+    return ids;
+  }, [realSellers]);
+
   const availableCities = useMemo(() => {
     const cities = new Set<string>();
     realItems.forEach((item) => {
@@ -171,6 +178,7 @@ export default function PropertiesPage() {
       <HeroBannerCarousel
         items={propertyProducts as any}
         sellers={heroSellersMap}
+        featuredItemIds={featuredItemIds}
         type="imoveis"
         filterCity={filterCity}
         fallbackImage="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1400&h=500&fit=crop"
