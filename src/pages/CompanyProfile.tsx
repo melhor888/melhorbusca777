@@ -609,205 +609,270 @@ export default function CompanyProfile() {
         </div>
       </div>
 
-      {/* ═══════════ CINEMATIC GALLERY — Netflix Style ═══════════ */}
+      {/* ═══════════ CINEMATIC GALLERY — One at a time, auto-play ═══════════ */}
       {(() => {
         const galleryProducts = products.filter((p: any) => p.image || p.images?.length);
         if (galleryProducts.length < 2) return null;
         const seg = isProperty ? "imoveis" : "veiculos";
+        const current = galleryProducts[gallerySlide % galleryProducts.length];
+        const currentImg = current?.images?.[0] || current?.image;
+        const total = galleryProducts.length;
 
         return (
-          <section className="bg-black py-10">
-            <div className="container max-w-7xl mx-auto px-4">
-              <div className="flex items-center gap-3 mb-8">
-                <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center">
-                  <Image size={20} className="text-white" />
+          <section className="relative bg-black">
+            {/* Preview Banner — one product at a time */}
+            <div
+              className="relative h-[45vh] md:h-[65vh] overflow-hidden cursor-pointer group"
+              onClick={() => setGalleryLightbox(gallerySlide)}
+              onMouseEnter={() => setGalleryPaused(true)}
+              onMouseLeave={() => setGalleryPaused(false)}
+            >
+              <AnimatePresence mode="wait">
+                <motion.img
+                  key={current?.id}
+                  initial={{ opacity: 0, scale: 1.08 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+                  src={currentImg}
+                  alt={current?.title}
+                  className="absolute inset-0 w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </AnimatePresence>
+
+              {/* Cinematic gradients */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-black/10" />
+              <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-transparent" />
+              <div className="absolute inset-0 shadow-[inset_0_0_120px_rgba(0,0,0,0.4)]" />
+
+              {/* Header */}
+              <div className="absolute top-5 left-5 z-20 flex items-center gap-3">
+                <div className="w-9 h-9 rounded-xl bg-white/10 backdrop-blur flex items-center justify-center">
+                  <Image size={16} className="text-white" />
                 </div>
                 <div>
-                  <h2 className="font-display font-bold text-xl text-white">Galeria</h2>
-                  <p className="text-xs text-white/50">{galleryProducts.length} destaques</p>
+                  <h2 className="font-display font-bold text-sm text-white">Galeria</h2>
+                  <p className="text-[10px] text-white/50">{gallerySlide + 1} de {total}</p>
                 </div>
               </div>
 
-              <div className="space-y-6">
-                {galleryProducts.slice(0, 8).map((product: any, i: number) => {
-                  const mainImg = product.images?.[0] || product.image;
-                  const isEven = i % 2 === 0;
+              {/* Company logo */}
+              {company.logo && (
+                <div className="absolute top-5 right-5 z-20">
+                  <img src={company.logo} alt="" className="w-10 h-10 md:w-12 md:h-12 rounded-xl object-cover border-2 border-white/20 shadow-xl opacity-60 group-hover:opacity-100 transition-opacity" />
+                </div>
+              )}
 
-                  return (
-                    <motion.div
-                      key={product.id}
-                      initial={{ opacity: 0, y: 60 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true, margin: "-80px" }}
-                      transition={{ duration: 0.8, delay: i * 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
-                      className={`relative rounded-3xl overflow-hidden group cursor-pointer ${
-                        i === 0 ? "h-[50vh] md:h-[70vh]" : "h-[40vh] md:h-[55vh]"
-                      }`}
-                      onClick={() => setGalleryLightbox(i)}
-                    >
-                      {/* Background Image with Ken Burns */}
-                      <img
-                        src={mainImg}
-                        alt={product.title}
-                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-[2s] ease-out group-hover:scale-110"
-                        loading="lazy"
-                      />
+              {/* Content */}
+              <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10 z-10">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={current?.id}
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -15 }}
+                    transition={{ duration: 0.6 }}
+                    className="max-w-2xl"
+                  >
+                    {current?.tag && (
+                      <span className="inline-block px-3 py-1 rounded-full bg-primary text-primary-foreground text-[10px] font-bold uppercase tracking-wider mb-3">
+                        {current.tag}
+                      </span>
+                    )}
+                    <h3 className="font-display font-bold text-2xl md:text-5xl text-white leading-tight drop-shadow-lg">
+                      {current?.title}
+                    </h3>
+                    {current?.description && (
+                      <p className="text-white/50 text-sm md:text-base mt-2 line-clamp-2 max-w-lg">{current.description}</p>
+                    )}
+                    {current?.price > 0 && (
+                      <p className="font-display font-bold text-xl md:text-3xl text-primary mt-3 drop-shadow-lg">
+                        {isDbProfile ? `R$ ${current.price.toLocaleString("pt-BR")}` : formatPrice(current.price)}
+                      </p>
+                    )}
+                    {current?.city && (
+                      <p className="text-white/40 text-xs mt-2 flex items-center gap-1.5"><MapPin size={12} /> {current.city}</p>
+                    )}
 
-                      {/* Cinematic gradients */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
-                      <div className={`absolute inset-0 bg-gradient-to-r ${isEven ? "from-black/70 via-black/20 to-transparent" : "from-transparent via-black/20 to-black/70"}`} />
-                      {/* Vignette */}
-                      <div className="absolute inset-0 shadow-[inset_0_0_150px_rgba(0,0,0,0.5)]" />
-
-                      {/* Content overlay */}
-                      <div className={`absolute bottom-0 ${isEven ? "left-0" : "right-0"} p-6 md:p-10 z-10 max-w-xl ${!isEven ? "text-right" : ""}`}>
-                        {/* Tag */}
-                        {product.tag && (
-                          <motion.span
-                            initial={{ opacity: 0, x: isEven ? -20 : 20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.3 }}
-                            className="inline-block px-3 py-1 rounded-full bg-primary text-primary-foreground text-[10px] font-bold uppercase tracking-wider mb-3"
-                          >
-                            {product.tag}
-                          </motion.span>
-                        )}
-
-                        {/* Title */}
-                        <motion.h3
-                          initial={{ opacity: 0, y: 20 }}
-                          whileInView={{ opacity: 1, y: 0 }}
-                          viewport={{ once: true }}
-                          transition={{ delay: 0.2, duration: 0.6 }}
-                          className="font-display font-bold text-2xl md:text-4xl text-white leading-tight drop-shadow-lg"
+                    {/* Buttons */}
+                    <div className="flex items-center gap-3 mt-5 flex-wrap">
+                      <Link
+                        to={`/${seg}/produto/${current?.id}`}
+                        className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white text-black font-bold text-sm hover:bg-white/90 transition-all shadow-lg hover:scale-105 active:scale-95"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <Eye size={16} /> Ver Produto
+                      </Link>
+                      {company.whatsapp && (
+                        <button
+                          onClick={(e) => { e.stopPropagation(); handleWhatsApp(current?.title, current?.id); }}
+                          className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#25d366] text-white font-bold text-sm hover:bg-[#22c55e] transition-all shadow-lg hover:scale-105 active:scale-95"
                         >
-                          {product.title}
-                        </motion.h3>
-
-                        {/* Description */}
-                        {product.description && (
-                          <motion.p
-                            initial={{ opacity: 0 }}
-                            whileInView={{ opacity: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.4 }}
-                            className="text-white/60 text-sm md:text-base mt-2 line-clamp-2 max-w-md"
-                          >
-                            {product.description}
-                          </motion.p>
-                        )}
-
-                        {/* Price */}
-                        {product.price > 0 && (
-                          <motion.p
-                            initial={{ opacity: 0, scale: 0.8 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.3, type: "spring" }}
-                            className="font-display font-bold text-xl md:text-3xl text-primary mt-3 drop-shadow-lg"
-                          >
-                            {isDbProfile ? `R$ ${product.price.toLocaleString("pt-BR")}` : formatPrice(product.price)}
-                          </motion.p>
-                        )}
-
-                        {/* Location */}
-                        {product.city && (
-                          <p className="text-white/50 text-xs mt-2 flex items-center gap-1.5">
-                            <MapPin size={12} /> {product.city}
-                          </p>
-                        )}
-
-                        {/* Buttons */}
-                        <motion.div
-                          initial={{ opacity: 0, y: 10 }}
-                          whileInView={{ opacity: 1, y: 0 }}
-                          viewport={{ once: true }}
-                          transition={{ delay: 0.5, duration: 0.5 }}
-                          className={`flex items-center gap-3 mt-5 flex-wrap ${!isEven ? "justify-end" : ""}`}
-                        >
-                          <Link
-                            to={`/${seg}/produto/${product.id}`}
-                            className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white text-black font-bold text-sm hover:bg-white/90 transition-all shadow-lg hover:shadow-xl hover:scale-105 active:scale-95"
-                            onClick={(e) => e.stopPropagation()}
-                          >
-                            <Eye size={16} /> Ver Produto
-                          </Link>
-                          {company.whatsapp && (
-                            <button
-                              onClick={(e) => { e.stopPropagation(); handleWhatsApp(product.title, product.id); }}
-                              className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#25d366] text-white font-bold text-sm hover:bg-[#22c55e] transition-all shadow-lg hover:shadow-xl hover:scale-105 active:scale-95"
-                            >
-                              <MessageCircle size={16} /> WhatsApp
-                            </button>
-                          )}
-                          <Link
-                            to={`/${seg}/empresa/${id}`}
-                            className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white/10 backdrop-blur text-white font-bold text-sm hover:bg-white/20 transition-all"
-                            onClick={(e) => e.stopPropagation()}
-                          >
-                            <Store size={16} /> Ir à Loja
-                          </Link>
-                        </motion.div>
-                      </div>
-
-                      {/* Company logo watermark */}
-                      {company.logo && (
-                        <div className={`absolute top-5 ${isEven ? "right-5" : "left-5"} z-10`}>
-                          <img src={company.logo} alt="" className="w-10 h-10 md:w-14 md:h-14 rounded-xl object-cover border-2 border-white/20 shadow-xl opacity-70 group-hover:opacity-100 transition-opacity" />
-                        </div>
+                          <MessageCircle size={16} /> WhatsApp
+                        </button>
                       )}
-                    </motion.div>
-                  );
-                })}
+                      <button
+                        onClick={(e) => { e.stopPropagation(); setGalleryLightbox(gallerySlide); }}
+                        className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white/10 backdrop-blur text-white font-bold text-sm hover:bg-white/20 transition-all"
+                      >
+                        <Image size={16} /> Modo Cinema
+                      </button>
+                    </div>
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+
+              {/* Navigation arrows */}
+              <button
+                onClick={(e) => { e.stopPropagation(); setGallerySlide((prev) => (prev - 1 + total) % total); }}
+                className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white/10 backdrop-blur flex items-center justify-center text-white hover:bg-white/20 transition-colors"
+              >
+                <ChevronLeft size={22} />
+              </button>
+              <button
+                onClick={(e) => { e.stopPropagation(); setGallerySlide((prev) => (prev + 1) % total); }}
+                className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white/10 backdrop-blur flex items-center justify-center text-white hover:bg-white/20 transition-colors"
+              >
+                <ChevronRight size={22} />
+              </button>
+
+              {/* Progress bar */}
+              <div className="absolute bottom-0 left-0 right-0 h-1 bg-white/10 z-30">
+                <motion.div
+                  key={`progress-${gallerySlide}-${galleryPaused}`}
+                  className="h-full bg-primary"
+                  initial={{ width: "0%" }}
+                  animate={{ width: galleryPaused ? undefined : "100%" }}
+                  transition={{ duration: 6, ease: "linear" }}
+                />
               </div>
             </div>
 
-            {/* Lightbox */}
+            {/* ═══ FULLSCREEN CINEMA MODE ═══ */}
             <AnimatePresence>
               {galleryLightbox !== null && galleryProducts[galleryLightbox] && (() => {
                 const lbProduct = galleryProducts[galleryLightbox];
-                const lbPhotos = lbProduct.images?.length ? lbProduct.images : [lbProduct.image];
+                const lbImg = lbProduct.images?.[0] || lbProduct.image;
+
                 return (
                   <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    className="fixed inset-0 z-50 bg-black/95 backdrop-blur-xl flex items-center justify-center p-4"
-                    onClick={() => setGalleryLightbox(null)}
+                    className="fixed inset-0 z-50 bg-black"
                   >
+                    {/* Background */}
+                    <AnimatePresence mode="wait">
+                      <motion.img
+                        key={lbProduct.id}
+                        initial={{ opacity: 0, scale: 1.05 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 1 }}
+                        src={lbImg}
+                        alt={lbProduct.title}
+                        className="absolute inset-0 w-full h-full object-cover"
+                      />
+                    </AnimatePresence>
+
+                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/20" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-transparent" />
+
+                    {/* Close */}
                     <button
                       onClick={() => setGalleryLightbox(null)}
-                      className="absolute top-4 right-4 z-50 w-10 h-10 rounded-full bg-white/10 backdrop-blur flex items-center justify-center text-white hover:bg-white/20 transition-colors"
+                      className="absolute top-5 right-5 z-50 w-11 h-11 rounded-full bg-white/10 backdrop-blur flex items-center justify-center text-white hover:bg-white/20 transition-colors"
                     >
                       ✕
                     </button>
+
+                    {/* Arrows */}
                     <button
-                      onClick={(e) => { e.stopPropagation(); setGalleryLightbox((prev) => (prev! - 1 + galleryProducts.length) % galleryProducts.length); }}
-                      className="absolute left-4 top-1/2 -translate-y-1/2 z-50 w-12 h-12 rounded-full bg-white/10 backdrop-blur flex items-center justify-center text-white hover:bg-white/20 transition-colors"
+                      onClick={() => setGalleryLightbox((prev) => (prev! - 1 + total) % total)}
+                      className="absolute left-5 top-1/2 -translate-y-1/2 z-50 w-14 h-14 rounded-full bg-white/10 backdrop-blur flex items-center justify-center text-white hover:bg-white/20 transition-colors"
                     >
-                      <ChevronLeft size={24} />
+                      <ChevronLeft size={28} />
                     </button>
-                    <motion.img
-                      key={galleryLightbox}
-                      initial={{ opacity: 0, scale: 0.9 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      exit={{ opacity: 0, scale: 0.9 }}
-                      transition={{ duration: 0.4 }}
-                      src={lbPhotos[0]}
-                      alt=""
-                      className="max-w-[90vw] max-h-[85vh] object-contain rounded-lg shadow-2xl"
-                      onClick={(e) => e.stopPropagation()}
-                    />
                     <button
-                      onClick={(e) => { e.stopPropagation(); setGalleryLightbox((prev) => (prev! + 1) % galleryProducts.length); }}
-                      className="absolute right-4 top-1/2 -translate-y-1/2 z-50 w-12 h-12 rounded-full bg-white/10 backdrop-blur flex items-center justify-center text-white hover:bg-white/20 transition-colors"
+                      onClick={() => setGalleryLightbox((prev) => (prev! + 1) % total)}
+                      className="absolute right-5 top-1/2 -translate-y-1/2 z-50 w-14 h-14 rounded-full bg-white/10 backdrop-blur flex items-center justify-center text-white hover:bg-white/20 transition-colors"
                     >
-                      <ChevronRight size={24} />
+                      <ChevronRight size={28} />
                     </button>
-                    <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-center">
-                      <p className="text-white font-bold text-lg">{lbProduct.title}</p>
-                      <p className="text-white/50 text-sm">{galleryLightbox + 1} / {galleryProducts.length}</p>
+
+                    {/* Content */}
+                    <div className="absolute bottom-0 left-0 right-0 p-8 md:p-14 z-10">
+                      <AnimatePresence mode="wait">
+                        <motion.div
+                          key={lbProduct.id}
+                          initial={{ opacity: 0, y: 40 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -20 }}
+                          transition={{ duration: 0.6 }}
+                          className="max-w-3xl"
+                        >
+                          {lbProduct.tag && (
+                            <span className="inline-block px-3 py-1 rounded-full bg-primary text-primary-foreground text-xs font-bold uppercase tracking-wider mb-3">
+                              {lbProduct.tag}
+                            </span>
+                          )}
+                          <h2 className="font-display font-bold text-3xl md:text-6xl text-white leading-tight drop-shadow-2xl">
+                            {lbProduct.title}
+                          </h2>
+                          {lbProduct.description && (
+                            <p className="text-white/50 text-sm md:text-lg mt-3 line-clamp-3 max-w-xl">{lbProduct.description}</p>
+                          )}
+                          {lbProduct.price > 0 && (
+                            <p className="font-display font-bold text-2xl md:text-4xl text-primary mt-4 drop-shadow-lg">
+                              {isDbProfile ? `R$ ${lbProduct.price.toLocaleString("pt-BR")}` : formatPrice(lbProduct.price)}
+                            </p>
+                          )}
+                          {lbProduct.city && (
+                            <p className="text-white/40 text-sm mt-2 flex items-center gap-2"><MapPin size={14} /> {lbProduct.city}</p>
+                          )}
+
+                          <div className="flex items-center gap-3 mt-6 flex-wrap">
+                            <Link
+                              to={`/${seg}/produto/${lbProduct.id}`}
+                              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white text-black font-bold text-sm hover:bg-white/90 transition-all shadow-lg hover:scale-105"
+                            >
+                              <Eye size={16} /> Ver Produto
+                            </Link>
+                            {company.whatsapp && (
+                              <button
+                                onClick={() => handleWhatsApp(lbProduct.title, lbProduct.id)}
+                                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#25d366] text-white font-bold text-sm hover:bg-[#22c55e] transition-all shadow-lg hover:scale-105"
+                              >
+                                <MessageCircle size={16} /> WhatsApp
+                              </button>
+                            )}
+                          </div>
+                        </motion.div>
+                      </AnimatePresence>
+                    </div>
+
+                    {/* Counter + company */}
+                    <div className="absolute top-5 left-5 z-50 flex items-center gap-3">
+                      {company.logo && (
+                        <img src={company.logo} alt="" className="w-10 h-10 rounded-xl object-cover border-2 border-white/20" />
+                      )}
+                      <div>
+                        <p className="text-white font-bold text-sm">{company.name}</p>
+                        <p className="text-white/40 text-xs">{galleryLightbox + 1} de {total}</p>
+                      </div>
+                    </div>
+
+                    {/* Progress bar */}
+                    <div className="absolute bottom-0 left-0 right-0 h-1 bg-white/10 z-30">
+                      <motion.div
+                        key={`cinema-progress-${galleryLightbox}`}
+                        className="h-full bg-primary"
+                        initial={{ width: "0%" }}
+                        animate={{ width: "100%" }}
+                        transition={{ duration: 8, ease: "linear" }}
+                        onAnimationComplete={() => setGalleryLightbox((prev) => (prev! + 1) % total)}
+                      />
                     </div>
                   </motion.div>
                 );
