@@ -583,12 +583,31 @@ export default function AdminPanel() {
                           {seller?.email || "—"} • {seller?.city || "—"} • {seller?.seller_type || "—"}
                         </p>
                         {seller?.phone && (
-                          <p className="text-xs text-muted-foreground flex items-center gap-2">
+                          <p className="text-xs text-muted-foreground flex items-center gap-2 flex-wrap">
                             📞 {seller.phone}
-                            <a href={`https://wa.me/55${seller.phone.replace(/\D/g, '')}`} target="_blank" rel="noopener noreferrer"
-                              className="inline-flex items-center gap-1 px-2 py-0.5 rounded-lg bg-green-500/10 text-green-600 text-[10px] font-semibold hover:bg-green-500/20">
-                              WhatsApp
-                            </a>
+                            {(() => {
+                              const nome = seller.full_name || "cliente";
+                              const loja = seller.company_name || "";
+                              const plataforma = ad.platform === "google" ? "Google Ads" : "Facebook Ads";
+                              const cidade = seller.city || "";
+                              const nicho = seller.seller_type === "automoveis" ? "Automóveis" : "Imóveis";
+                              const total = `R$ ${Number(ad.total).toFixed(2).replace(".", ",")}`;
+                              
+                              const msgAprovado = `Olá ${nome}! 🎉 É com grande alegria que viemos lhe informar que a sua solicitação de anúncio foi *APROVADA*! ✅\n\n📋 *Detalhes do seu pedido:*\n🏪 Loja: ${loja}\n📍 Cidade: ${cidade}\n🏷️ Nicho: ${nicho}\n📣 Plataforma: ${plataforma}\n💰 Valor total: ${total}\n\nEntraremos em contato em breve para dar início à sua campanha. Obrigado por confiar na Manufature! 🚀`;
+                              const msgPendente = `Olá ${nome}! 👋 Recebemos a sua solicitação de anúncio.\n\n📋 *Detalhes:*\n🏪 Loja: ${loja}\n📍 Cidade: ${cidade}\n🏷️ Nicho: ${nicho}\n📣 Plataforma: ${plataforma}\n💰 Valor total: ${total}\n\nEstamos analisando o seu pedido e em breve retornaremos com uma resposta. 😊`;
+                              const msgRejeitado = `Olá ${nome}! 👋 Infelizmente sua solicitação de anúncio não foi aprovada desta vez.\n\n📋 *Detalhes:*\n🏪 Loja: ${loja}\n📣 Plataforma: ${plataforma}\n💰 Valor: ${total}\n\nEntre em contato conosco para mais informações. Estamos à disposição! 🤝`;
+                              
+                              const msg = ad.status === "aprovado" ? msgAprovado : ad.status === "rejeitado" ? msgRejeitado : msgPendente;
+                              const phone = seller.phone.replace(/\D/g, '');
+                              const waUrl = `https://wa.me/55${phone}?text=${encodeURIComponent(msg)}`;
+                              
+                              return (
+                                <a href={waUrl} target="_blank" rel="noopener noreferrer"
+                                  className="inline-flex items-center gap-1 px-2 py-0.5 rounded-lg bg-green-500/10 text-green-600 text-[10px] font-semibold hover:bg-green-500/20">
+                                  WhatsApp
+                                </a>
+                              );
+                            })()}
                           </p>
                         )}
                         <p className="text-xs text-muted-foreground">
