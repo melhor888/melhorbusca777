@@ -18,7 +18,7 @@ export interface Subscription {
 export const PACKAGE_CONFIG = {
   start: {
     name: "Start",
-    price: 3.31,
+    price: 5.00,
     maxItems: 25,
     color: "from-emerald-500 to-teal-600",
     borderColor: "border-emerald-400",
@@ -47,7 +47,7 @@ export const PACKAGE_CONFIG = {
   },
   premium: {
     name: "Premium",
-    price: 11.07,
+    price: 11.99,
     maxItems: 200,
     color: "from-amber-500 to-orange-600",
     borderColor: "border-amber-400",
@@ -63,7 +63,7 @@ export const PACKAGE_CONFIG = {
   },
   vip: {
     name: "VIP",
-    price: 22.15,
+    price: 22.99,
     maxItems: 999,
     color: "from-purple-600 to-indigo-700",
     borderColor: "border-purple-500",
@@ -80,7 +80,7 @@ export const PACKAGE_CONFIG = {
   },
   essencial_empresa: {
     name: "Essencial Empresa",
-    price: 107.37,
+    price: 107.99,
     maxItems: 9999,
     color: "from-rose-600 to-red-700",
     borderColor: "border-rose-500",
