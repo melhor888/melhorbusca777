@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Shield, Users, Package, DollarSign, Search, Check, X, RefreshCw, ArrowLeft, Crown, Star, Zap, Globe, Plus, Trash2, ExternalLink, Copy, Megaphone, LayoutDashboard } from "lucide-react";
+import { Shield, Users, Package, DollarSign, Search, Check, X, RefreshCw, ArrowLeft, Crown, Star, Zap, Globe, Plus, Trash2, ExternalLink, Copy, Megaphone, LayoutDashboard, Building2, Rocket } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
 import { useIsAdmin, PACKAGE_CONFIG } from "@/hooks/useSubscription";
@@ -263,9 +263,12 @@ export default function AdminPanel() {
           <div className="grid grid-cols-2 gap-2 mb-4">
             {[
               { label: "Total", value: sellers.length, icon: Users, color: "text-primary" },
+              { label: "Start", value: totalByTier.start, icon: Rocket, color: "text-emerald-500" },
               { label: "Básico", value: totalByTier.basico, icon: Zap, color: "text-muted-foreground" },
               { label: "Premium", value: totalByTier.premium, icon: Star, color: "text-amber-500" },
               { label: "VIP", value: totalByTier.vip, icon: Crown, color: "text-purple-500" },
+              { label: "Ess. Empresa", value: totalByTier.essencial_empresa, icon: Building2, color: "text-blue-500" },
+              { label: "Prem. Empresa", value: totalByTier.premium_empresa, icon: Building2, color: "text-indigo-500" },
             ].map((s) => (
               <div key={s.label} className="bg-secondary rounded-xl p-2.5 text-center">
                 <s.icon size={14} className={`${s.color} mx-auto mb-0.5`} />
@@ -398,7 +401,7 @@ export default function AdminPanel() {
           <div className="bg-card border border-border rounded-2xl p-6">
             <h3 className="font-display font-bold text-lg text-foreground mb-4">Resumo de Faturamento</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              {(["basico", "premium", "vip"] as const).map((tier) => {
+              {(["start", "basico", "premium", "vip", "essencial_empresa", "premium_empresa"] as const).map((tier) => {
                 const config = PACKAGE_CONFIG[tier];
                 const count = totalByTier[tier];
                 const revenue = count * config.price;
@@ -417,7 +420,13 @@ export default function AdminPanel() {
               <p className="text-sm text-foreground">
                 <strong>Receita mensal total estimada: </strong>
                 <span className="text-green-500 font-bold text-lg">
-                  R$ {(totalByTier.premium * PACKAGE_CONFIG.premium.price + totalByTier.vip * PACKAGE_CONFIG.vip.price).toFixed(2).replace(".", ",")}
+                  R$ {(
+                    totalByTier.start * PACKAGE_CONFIG.start.price +
+                    totalByTier.premium * PACKAGE_CONFIG.premium.price +
+                    totalByTier.vip * PACKAGE_CONFIG.vip.price +
+                    totalByTier.essencial_empresa * PACKAGE_CONFIG.essencial_empresa.price +
+                    totalByTier.premium_empresa * PACKAGE_CONFIG.premium_empresa.price
+                  ).toFixed(2).replace(".", ",")}
                 </span>
               </p>
             </div>
