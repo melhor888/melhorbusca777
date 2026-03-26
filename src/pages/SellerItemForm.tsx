@@ -394,12 +394,20 @@ export default function SellerItemForm() {
             className="w-full px-4 py-3 rounded-xl border border-input bg-background text-foreground text-sm focus:ring-2 focus:ring-ring focus:outline-none"
             placeholder="Bairro"
           />
-          <input
-            value={form.address}
-            onChange={(e) => setForm((f) => ({ ...f, address: e.target.value }))}
-            className="w-full px-4 py-3 rounded-xl border border-input bg-background text-foreground text-sm focus:ring-2 focus:ring-ring focus:outline-none"
-            placeholder="Endereço completo"
-          />
+          <div className="grid grid-cols-3 gap-3">
+            <input
+              value={form.address}
+              onChange={(e) => setForm((f) => ({ ...f, address: e.target.value }))}
+              className="col-span-2 px-4 py-3 rounded-xl border border-input bg-background text-foreground text-sm focus:ring-2 focus:ring-ring focus:outline-none"
+              placeholder="Endereço (Rua, Av...)"
+            />
+            <input
+              value={form.addressNumber}
+              onChange={(e) => setForm((f) => ({ ...f, addressNumber: e.target.value }))}
+              className="px-4 py-3 rounded-xl border border-input bg-background text-foreground text-sm focus:ring-2 focus:ring-ring focus:outline-none"
+              placeholder="Número"
+            />
+          </div>
         </div>
 
         {/* Specific Fields */}
