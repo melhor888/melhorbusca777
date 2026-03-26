@@ -141,7 +141,7 @@ export default function ProductDetail() {
     <div className="min-h-screen bg-background">
       {/* Hero Banner - always shows active image */}
       <section className="relative">
-        <div className="aspect-[16/9] md:aspect-[21/9] overflow-hidden bg-muted">
+        <div className="aspect-[4/3] md:aspect-[21/9] overflow-hidden bg-muted">
           {images.length > 0 ? (
             <AnimatePresence mode="wait">
               <motion.img
@@ -195,7 +195,7 @@ export default function ProductDetail() {
       {/* Gallery Grid - full quality photos */}
       {images.length > 0 && (
         <div className="container max-w-6xl mx-auto px-4 -mt-8 z-10 relative">
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2">
+          <div className="flex flex-col gap-2 md:grid md:grid-cols-4 lg:grid-cols-5 md:gap-2">
             {images.map((img: string, i: number) => (
               <motion.button
                 key={i}
@@ -203,7 +203,7 @@ export default function ProductDetail() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.05 }}
                 onClick={() => { setActiveImage(i); setLightboxOpen(true); }}
-                className={`relative aspect-square rounded-xl overflow-hidden border-2 transition-all group ${
+                className={`relative aspect-video md:aspect-square rounded-xl overflow-hidden border-2 transition-all group ${
                   activeImage === i
                     ? "border-primary shadow-lg ring-2 ring-primary/30"
                     : "border-border hover:border-primary/50"
