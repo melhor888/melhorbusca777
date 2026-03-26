@@ -224,7 +224,7 @@ export default function PropertiesPage() {
               </motion.div>
             );
           })}
-          <div className="flex-shrink-0 w-4" aria-hidden="true" />
+          <div className="flex-shrink-0 w-4 md:hidden" aria-hidden="true" />
         </div>
       </section>
 
