@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Building2, Home, Landmark, Store, Key, ArrowLeft, ArrowRight, Search } from "lucide-react";
 import { propertyCompanies, propertyCategories, type Company } from "@/data/companies";
-import { allProducts, formatPrice, getTagStyle, type Product } from "@/data/products";
+import { allProducts, formatPrice, getTagStyle, getTagLabel, type Product } from "@/data/products";
+import { useRealListings } from "@/hooks/useRealListings";
 
 const iconMap: Record<string, React.ElementType> = { Key, Home, Building2, Landmark, Store };
 
@@ -13,21 +14,40 @@ export default function PropertiesPage() {
   const [filterType, setFilterType] = useState("");
   const itemsSectionRef = useRef<HTMLDivElement>(null);
 
+  const { sellers: realSellers, items: realItems } = useRealListings("imoveis");
+
   const scrollToItems = () => {
     setTimeout(() => {
       itemsSectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
     }, 100);
   };
 
-  const companyById = useMemo(() => {
-    const map: Record<string, Company> = {};
-    propertyCompanies.forEach((c) => (map[c.id] = c));
+  // Build unified seller map (real + static)
+  const allSellers = useMemo(() => {
+    const map: Record<string, { id: string; name: string; logo: string; address: string; isReal: boolean }> = {};
+    propertyCompanies.forEach((c) => { map[c.id] = { id: c.id, name: c.name, logo: c.logo, address: c.address, isReal: false }; });
+    realSellers.forEach((s) => { map[s.id] = { id: s.id, name: s.name, logo: s.logo, address: s.address, isReal: true }; });
     return map;
-  }, []);
+  }, [realSellers]);
 
+  // Merge real items into unified product format
   const propertyProducts = useMemo(() => {
-    return allProducts.filter((p) => p.type === "imovel");
-  }, []);
+    const staticProds = allProducts.filter((p) => p.type === "imovel");
+    const realProds: Product[] = realItems.map((item) => ({
+      id: item.id,
+      companyId: item.sellerId,
+      title: item.title,
+      price: item.price,
+      image: item.image,
+      images: item.images,
+      tag: item.tags?.[0] ? getTagLabel(item.tags[0]) : undefined,
+      description: item.description || "",
+      type: "imovel" as const,
+      specs: {},
+      location: item.city || "",
+    }));
+    return [...realProds, ...staticProds];
+  }, [realItems]);
 
   const featuredProducts = useMemo(() => {
     const shuffled = [...propertyProducts].sort(() => Math.random() - 0.5);
@@ -36,11 +56,11 @@ export default function PropertiesPage() {
 
   // Random hero product
   const heroProduct = useMemo(() => {
-    const prods = allProducts.filter((p) => p.type === "imovel");
+    const prods = propertyProducts.length ? propertyProducts : allProducts.filter((p) => p.type === "imovel");
     return prods[Math.floor(Math.random() * prods.length)];
-  }, []);
+  }, [propertyProducts]);
 
-  const heroCompany = heroProduct ? companyById[heroProduct.companyId] : undefined;
+  const heroCompany = heroProduct ? allSellers[heroProduct.companyId] : undefined;
 
   const availableCities = useMemo(() => {
     const cities = new Set<string>();
@@ -48,8 +68,14 @@ export default function PropertiesPage() {
       const city = c.address.split(" - ").pop()?.trim();
       if (city) cities.add(city);
     });
+    realSellers.forEach((s) => {
+      if (s.address) {
+        const parts = s.address.split(",").map((p) => p.trim());
+        parts.forEach((p) => { if (p && p.length > 1) cities.add(p); });
+      }
+    });
     return Array.from(cities).sort();
-  }, []);
+  }, [realSellers]);
 
   const propertyTypes = [
     { value: "aluguel", label: "Aluguel" },
