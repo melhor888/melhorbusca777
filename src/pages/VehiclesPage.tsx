@@ -22,6 +22,11 @@ export default function VehiclesPage() {
 
   const { sellers: realSellers, items: realItems } = useRealListings("automoveis");
 
+  useEffect(() => {
+    const nextCity = cidade ? cidade.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()) : "";
+    if (nextCity !== filterCity) setFilterCity(nextCity);
+  }, [cidade]);
+
   const scrollToItems = () => {
     setTimeout(() => {
       itemsSectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -290,7 +295,7 @@ export default function VehiclesPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
             <select
               value={filterCity}
-              onChange={(e) => { const v = e.target.value; setFilterCity(v); setCurrentPage(1); navigate(v ? `/veiculos/${v.toLowerCase().replace(/\s+/g, "-")}` : "/veiculos", { replace: true }); }}
+              onChange={(e) => { const v = e.target.value; setFilterCity(v); setCurrentPage(1); }}
               className="w-full px-4 py-2.5 rounded-xl bg-secondary text-foreground text-base focus:outline-none focus:ring-2 focus:ring-primary/50"
             >
               <option value="">Todas as cidades</option>
