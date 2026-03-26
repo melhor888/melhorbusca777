@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
 import { supabase } from "@/integrations/supabase/client";
-import { Package, Eye, Plus, Settings, Edit, Trash2, Copy, ToggleLeft, ToggleRight, Search, Image, LogOut, BarChart3, Star, Crown, Zap, AlertTriangle, Shield, MessageCircle, Home, UserCircle, Headphones, Globe, ExternalLink, CheckCircle2, ClipboardCopy } from "lucide-react";
+import { Package, Eye, Plus, Settings, Edit, Trash2, Copy, ToggleLeft, ToggleRight, Search, Image, LogOut, BarChart3, Star, Crown, Zap, AlertTriangle, Shield, MessageCircle, Home, UserCircle, Headphones, Globe, ExternalLink, CheckCircle2, ClipboardCopy, Megaphone, Send, Calculator } from "lucide-react";
 import { getTagStyle, getTagLabel } from "@/data/products";
 import { useToast } from "@/hooks/use-toast";
 import { motion } from "framer-motion";
@@ -26,7 +26,7 @@ type SellerItem = {
   seller_type: string;
 };
 
-type DashboardTab = "overview" | "items" | "stats" | "domain";
+type DashboardTab = "overview" | "items" | "stats" | "domain" | "ads";
 
 export default function SellerDashboard() {
   const { user, profile, signOut, refreshProfile, loading: authLoading } = useAuth();
@@ -41,6 +41,12 @@ export default function SellerDashboard() {
   const { dailyData, weeklyData, totals: analyticsTotals, loading: analyticsLoading } = useSellerAnalytics(profile?.id);
   const [chartView, setChartView] = useState<"diario" | "semanal">("diario");
   const [activeTab, setActiveTab] = useState<DashboardTab>("overview");
+  const [adPlatform, setAdPlatform] = useState<"google" | "facebook">("google");
+  const [adDailyBudget, setAdDailyBudget] = useState<string>("");
+  const [adDuration, setAdDuration] = useState<string>("");
+  const [adDetails, setAdDetails] = useState("");
+  const [adSubmitting, setAdSubmitting] = useState(false);
+  const [adHistory, setAdHistory] = useState<any[]>([]);
 
   useEffect(() => {
     if (!authLoading && !user) navigate("/entrar");
@@ -48,6 +54,10 @@ export default function SellerDashboard() {
 
   useEffect(() => {
     if (user) fetchItems();
+  }, [user]);
+
+  useEffect(() => {
+    if (user) fetchAdHistory();
   }, [user]);
 
   const fetchItems = async () => {
@@ -126,10 +136,58 @@ export default function SellerDashboard() {
     toast({ title: "URL copiada!", description: storeUrl });
   };
 
+
+  const fetchAdHistory = async () => {
+    if (!user) return;
+    const { data } = await supabase
+      .from("ad_requests")
+      .select("*")
+      .eq("user_id", user.id)
+      .order("created_at", { ascending: false });
+    if (data) setAdHistory(data);
+  };
+
+  const adBudget = parseFloat(adDailyBudget) || 0;
+  const adDays = parseInt(adDuration) || 0;
+  const adSubtotal = adBudget * adDays;
+  const adTaxRate = adPlatform === "facebook" ? 0.10 : 0;
+  const adTaxAmount = adSubtotal * adTaxRate;
+  const adAfterTax = adSubtotal + adTaxAmount;
+  const adServiceFee = adAfterTax * 0.30;
+  const adTotal = adAfterTax + adServiceFee;
+
+  const submitAdRequest = async () => {
+    if (!user || !profile || adSubtotal <= 0) return;
+    setAdSubmitting(true);
+    const { error } = await supabase.from("ad_requests").insert({
+      seller_id: profile.id,
+      user_id: user.id,
+      platform: adPlatform,
+      daily_budget: adBudget,
+      duration_days: adDays,
+      details: adDetails || null,
+      subtotal: adSubtotal,
+      tax_amount: adTaxAmount,
+      service_fee: adServiceFee,
+      total: adTotal,
+    } as any);
+    setAdSubmitting(false);
+    if (!error) {
+      toast({ title: "Solicitação enviada!", description: "O admin receberá sua solicitação de ADS." });
+      setAdDailyBudget("");
+      setAdDuration("");
+      setAdDetails("");
+      fetchAdHistory();
+    } else {
+      toast({ title: "Erro ao enviar", description: error.message, variant: "destructive" });
+    }
+  };
+
   const sidebarNav = [
     { id: "overview" as const, label: "Visão Geral", icon: Home },
     { id: "items" as const, label: "Meus Anúncios", icon: Package },
     { id: "stats" as const, label: "Estatísticas", icon: BarChart3 },
+    { id: "ads" as const, label: "Fazer ADS", icon: Megaphone },
     { id: "domain" as const, label: "Meu Domínio", icon: Globe },
   ];
 
@@ -569,6 +627,130 @@ export default function SellerDashboard() {
                     </div>
                   )}
                 </div>
+              </div>
+            )}
+
+            {/* ADS Tab */}
+            {activeTab === "ads" && (
+              <div className="space-y-6">
+                <div className="bg-card border border-border rounded-2xl p-6">
+                  <div className="flex items-center gap-3 mb-5">
+                    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                      <Megaphone size={20} className="text-primary" />
+                    </div>
+                    <div>
+                      <h2 className="font-display font-bold text-lg text-foreground">Fazer ADS</h2>
+                      <p className="text-xs text-muted-foreground">Solicite campanhas de anúncios para sua loja</p>
+                    </div>
+                  </div>
+
+                  {/* Platform */}
+                  <div className="space-y-4">
+                    <div>
+                      <label className="text-sm font-semibold text-foreground mb-2 block">Onde quer anunciar?</label>
+                      <div className="grid grid-cols-2 gap-3">
+                        <button onClick={() => setAdPlatform("google")}
+                          className={`flex items-center justify-center gap-2 py-4 rounded-xl border-2 font-bold text-sm transition-all ${adPlatform === "google" ? "border-primary bg-primary/10 text-primary" : "border-border bg-card text-muted-foreground hover:border-primary/50"}`}>
+                          🔍 Google Ads
+                          <span className="text-[10px] font-normal bg-green-500/20 text-green-600 px-1.5 py-0.5 rounded-full">0% imposto</span>
+                        </button>
+                        <button onClick={() => setAdPlatform("facebook")}
+                          className={`flex items-center justify-center gap-2 py-4 rounded-xl border-2 font-bold text-sm transition-all ${adPlatform === "facebook" ? "border-primary bg-primary/10 text-primary" : "border-border bg-card text-muted-foreground hover:border-primary/50"}`}>
+                          📘 Facebook Ads
+                          <span className="text-[10px] font-normal bg-amber-500/20 text-amber-600 px-1.5 py-0.5 rounded-full">10% imposto</span>
+                        </button>
+                      </div>
+                    </div>
+
+                    {/* Budget & Duration */}
+                    <div className="grid grid-cols-2 gap-3">
+                      <div>
+                        <label className="text-sm font-semibold text-foreground mb-1.5 block">Valor diário (R$)</label>
+                        <input type="number" min="1" value={adDailyBudget} onChange={(e) => setAdDailyBudget(e.target.value)}
+                          placeholder="Ex: 50" className="w-full px-4 py-3 rounded-xl border border-input bg-background text-foreground text-sm focus:ring-2 focus:ring-ring focus:outline-none" />
+                      </div>
+                      <div>
+                        <label className="text-sm font-semibold text-foreground mb-1.5 block">Durante quantos dias?</label>
+                        <input type="number" min="1" value={adDuration} onChange={(e) => setAdDuration(e.target.value)}
+                          placeholder="Ex: 30" className="w-full px-4 py-3 rounded-xl border border-input bg-background text-foreground text-sm focus:ring-2 focus:ring-ring focus:outline-none" />
+                      </div>
+                    </div>
+
+                    {/* Details */}
+                    <div>
+                      <label className="text-sm font-semibold text-foreground mb-1.5 block">Detalhes (opcional)</label>
+                      <textarea value={adDetails} onChange={(e) => setAdDetails(e.target.value)} rows={3} maxLength={500}
+                        placeholder="Descreva o que deseja divulgar, público-alvo, região..."
+                        className="w-full px-4 py-3 rounded-xl border border-input bg-background text-foreground text-sm focus:ring-2 focus:ring-ring focus:outline-none resize-none" />
+                    </div>
+
+                    {/* Pricing Breakdown */}
+                    {adSubtotal > 0 && (
+                      <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
+                        className="bg-muted rounded-2xl p-5 space-y-3">
+                        <div className="flex items-center gap-2 mb-2">
+                          <Calculator size={16} className="text-primary" />
+                          <span className="font-display font-bold text-foreground">Resumo do Investimento</span>
+                        </div>
+                        <div className="space-y-2 text-sm">
+                          <div className="flex justify-between">
+                            <span className="text-muted-foreground">Subtotal (R$ {adBudget.toFixed(2)} × {adDays} dias)</span>
+                            <span className="text-foreground font-medium">R$ {adSubtotal.toFixed(2)}</span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span className="text-muted-foreground">Impostos ({adPlatform === "facebook" ? "10%" : "0%"} - {adPlatform === "facebook" ? "Facebook" : "Google"})</span>
+                            <span className="text-foreground font-medium">R$ {adTaxAmount.toFixed(2)}</span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span className="text-muted-foreground">Taxa de serviço (30%)</span>
+                            <span className="text-foreground font-medium">R$ {adServiceFee.toFixed(2)}</span>
+                          </div>
+                          <div className="border-t border-border pt-2 flex justify-between">
+                            <span className="font-display font-bold text-foreground">Total</span>
+                            <span className="font-display font-bold text-xl text-primary">R$ {adTotal.toFixed(2)}</span>
+                          </div>
+                        </div>
+                      </motion.div>
+                    )}
+
+                    {/* Submit */}
+                    <button onClick={submitAdRequest} disabled={adSubmitting || adSubtotal <= 0}
+                      className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl bg-primary text-primary-foreground font-bold text-sm hover:bg-primary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed shadow-md">
+                      <Send size={16} /> {adSubmitting ? "Enviando..." : "Enviar Solicitação"}
+                    </button>
+                  </div>
+                </div>
+
+                {/* History */}
+                {adHistory.length > 0 && (
+                  <div className="bg-card border border-border rounded-2xl p-6">
+                    <h3 className="font-display font-bold text-foreground mb-4">Histórico de Solicitações</h3>
+                    <div className="space-y-3">
+                      {adHistory.map((req) => (
+                        <div key={req.id} className="flex items-center justify-between p-3 rounded-xl bg-muted">
+                          <div className="flex items-center gap-3">
+                            <span className="text-lg">{req.platform === "google" ? "🔍" : "📘"}</span>
+                            <div>
+                              <p className="text-sm font-semibold text-foreground">
+                                {req.platform === "google" ? "Google" : "Facebook"} Ads — {req.duration_days} dias
+                              </p>
+                              <p className="text-xs text-muted-foreground">
+                                R$ {Number(req.daily_budget).toFixed(2)}/dia • Total: R$ {Number(req.total).toFixed(2)}
+                              </p>
+                            </div>
+                          </div>
+                          <span className={`px-2.5 py-1 rounded-full text-xs font-bold ${
+                            req.status === "aprovado" ? "bg-green-500/20 text-green-600" :
+                            req.status === "rejeitado" ? "bg-destructive/20 text-destructive" :
+                            "bg-amber-500/20 text-amber-600"
+                          }`}>
+                            {req.status === "aprovado" ? "Aprovado" : req.status === "rejeitado" ? "Rejeitado" : "Pendente"}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
             )}
 
