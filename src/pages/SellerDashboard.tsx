@@ -42,7 +42,6 @@ export default function SellerDashboard() {
   const [chartView, setChartView] = useState<"diario" | "semanal">("diario");
   const [activeTab, setActiveTab] = useState<DashboardTab>("overview");
   const [adDailyBudget, setAdDailyBudget] = useState<string>("10");
-  const [adDailyBudget, setAdDailyBudget] = useState<string>("10");
   const [adDuration, setAdDuration] = useState<string>("4");
   const [adDetails, setAdDetails] = useState("");
   const [adSubmitting, setAdSubmitting] = useState(false);
