@@ -84,8 +84,15 @@ export default function HeroBannerCarousel({
   const goNext = () => setActiveIndex((prev) => (prev + 1) % heroItems.length);
   const goPrev = () => setActiveIndex((prev) => (prev - 1 + heroItems.length) % heroItems.length);
 
+  // Determine correct segment based on item's actual category
+  const getItemSegment = (item: HeroItem) => {
+    if (item.realCategory && VEHICLE_CATEGORIES.includes(item.realCategory)) return "veiculos";
+    if (item.realCategory) return "imoveis";
+    return type;
+  };
+
   const productUrl = currentItem
-    ? `/${type}/produto/${currentItem.id}`
+    ? `/${getItemSegment(currentItem)}/produto/${currentItem.id}`
     : "";
 
   return (
