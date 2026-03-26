@@ -1,7 +1,7 @@
 import { Crown, Star, Zap } from "lucide-react";
 
 interface PackageBadgeProps {
-  tier: "start" | "basico" | "premium" | "vip";
+  tier: "start" | "basico" | "premium" | "vip" | "essencial_empresa";
   size?: "sm" | "md";
 }
 

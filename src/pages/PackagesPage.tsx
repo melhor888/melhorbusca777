@@ -1,15 +1,15 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Check, Crown, Star, Zap, ArrowLeft } from "lucide-react";
+import { Check, Crown, Star, Zap, ArrowLeft, Building } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
 import { useSubscription, PACKAGE_CONFIG } from "@/hooks/useSubscription";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 
-const tiers = ["basico", "start", "premium", "vip"] as const;
-const tierIcons = { basico: Zap, start: Zap, premium: Star, vip: Crown };
+const tiers = ["basico", "start", "premium", "vip", "essencial_empresa"] as const;
+const tierIcons = { basico: Zap, start: Zap, premium: Star, vip: Crown, essencial_empresa: Building };
 
 export default function PackagesPage() {
   const { user, profile } = useAuth();
@@ -18,7 +18,7 @@ export default function PackagesPage() {
   const { toast } = useToast();
   const [selecting, setSelecting] = useState<string | null>(null);
 
-  const handleSelect = async (tier: "basico" | "start" | "premium" | "vip") => {
+  const handleSelect = async (tier: "basico" | "start" | "premium" | "vip" | "essencial_empresa") => {
     if (!user || !profile) {
       navigate("/entrar");
       return;
@@ -73,7 +73,7 @@ export default function PackagesPage() {
       </div>
 
       <div className="container max-w-5xl mx-auto px-4 -mt-8 relative z-10 pb-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
           {tiers.map((tier, i) => {
             const config = PACKAGE_CONFIG[tier];
             const Icon = tierIcons[tier];
