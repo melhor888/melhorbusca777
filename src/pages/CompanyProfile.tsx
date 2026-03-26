@@ -698,8 +698,8 @@ export default function CompanyProfile() {
                     </div>
 
                     {current?.tag && (
-                      <span className="inline-block px-3 py-1 rounded-full bg-primary text-primary-foreground text-[10px] font-bold uppercase tracking-wider mb-3">
-                        {current.tag}
+                      <span className={`inline-block px-3 py-1 rounded-full text-[10px] font-bold shadow mb-3 ${getTagStyle(getTagLabel(current.tag))}`}>
+                        {getTagLabel(current.tag)}
                       </span>
                     )}
                     <h3 className="font-display font-bold text-2xl md:text-5xl text-white leading-tight drop-shadow-lg">
