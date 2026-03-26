@@ -56,6 +56,16 @@ export default function SellerDashboard() {
     if (user) fetchItems();
   }, [user]);
 
+  const fetchAdHistory = async () => {
+    if (!user) return;
+    const { data } = await supabase
+      .from("ad_requests")
+      .select("*")
+      .eq("user_id", user.id)
+      .order("created_at", { ascending: false });
+    if (data) setAdHistory(data);
+  };
+
   useEffect(() => {
     if (user) fetchAdHistory();
   }, [user]);
@@ -136,16 +146,6 @@ export default function SellerDashboard() {
     toast({ title: "URL copiada!", description: storeUrl });
   };
 
-
-  const fetchAdHistory = async () => {
-    if (!user) return;
-    const { data } = await supabase
-      .from("ad_requests")
-      .select("*")
-      .eq("user_id", user.id)
-      .order("created_at", { ascending: false });
-    if (data) setAdHistory(data);
-  };
 
   const adBudget = parseFloat(adDailyBudget) || 0;
   const adDays = parseInt(adDuration) || 0;
