@@ -47,6 +47,9 @@ export default function AdminPanel() {
   const [tab, setTab] = useState<"sellers" | "billing" | "domains" | "ads">("sellers");
   const [adRequests, setAdRequests] = useState<any[]>([]);
   const [adsLoading, setAdsLoading] = useState(false);
+  const [rejectDialogOpen, setRejectDialogOpen] = useState(false);
+  const [rejectAdId, setRejectAdId] = useState<string | null>(null);
+  const [rejectReason, setRejectReason] = useState("");
 
   // Domain management state
   const [domains, setDomains] = useState<StoreDomain[]>([]);
@@ -75,14 +78,33 @@ export default function AdminPanel() {
     setAdsLoading(false);
   };
 
-  const updateAdStatus = async (id: string, status: string) => {
-    const { error } = await supabase.from("ad_requests").update({ status, updated_at: new Date().toISOString() }).eq("id", id);
+  const updateAdStatus = async (id: string, status: string, reason?: string) => {
+    const updateData: any = { status, updated_at: new Date().toISOString() };
+    if (reason) updateData.details = reason;
+    const { error } = await supabase.from("ad_requests").update(updateData).eq("id", id);
     if (error) {
       toast({ title: "Erro ao atualizar", variant: "destructive" });
     } else {
       toast({ title: `Solicitação ${status}` });
       fetchAdRequests();
     }
+  };
+
+  const handleRejectClick = (adId: string) => {
+    setRejectAdId(adId);
+    setRejectReason("");
+    setRejectDialogOpen(true);
+  };
+
+  const confirmReject = async () => {
+    if (!rejectAdId || !rejectReason.trim()) {
+      toast({ title: "Informe o motivo da rejeição", variant: "destructive" });
+      return;
+    }
+    await updateAdStatus(rejectAdId, "rejeitado", rejectReason.trim());
+    setRejectDialogOpen(false);
+    setRejectAdId(null);
+    setRejectReason("");
   };
 
   const deleteAdRequest = async (id: string) => {
