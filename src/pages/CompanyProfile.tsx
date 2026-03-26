@@ -241,8 +241,8 @@ export default function CompanyProfile() {
                   </Link>
                 )}
                 {company.whatsapp && (
-                  <button onClick={() => handleWhatsApp(heroProduct?.title || company.name)} className="flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-[#25d366] to-[#128c7e] text-white font-bold text-sm hover:opacity-90 transition-opacity shadow-lg">
-                    <MessageCircle size={18} /> WhatsApp
+                  <button onClick={() => handleWhatsApp(heroProduct?.title || company.name)} className="flex items-center gap-2 px-4 py-2.5 md:px-6 md:py-3 rounded-xl bg-gradient-to-r from-[#25d366] to-[#128c7e] text-white font-bold text-xs md:text-sm hover:opacity-90 transition-opacity shadow-lg">
+                    <MessageCircle size={16} /> WhatsApp
                   </button>
                 )}
                 {(company as any).instagram && (
@@ -250,13 +250,13 @@ export default function CompanyProfile() {
                     href={`https://instagram.com/${(company as any).instagram.replace(/^@/, "")}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-[#833AB4] via-[#E1306C] to-[#F77737] text-white font-bold text-sm hover:opacity-90 transition-opacity shadow-lg"
+                    className="flex items-center gap-2 px-4 py-2.5 md:px-6 md:py-3 rounded-xl bg-gradient-to-r from-[#833AB4] via-[#E1306C] to-[#F77737] text-white font-bold text-xs md:text-sm hover:opacity-90 transition-opacity shadow-lg"
                   >
-                    <Instagram size={18} /> Instagram
+                    <Instagram size={16} /> Instagram
                   </a>
                 )}
-                <button onClick={() => navigator.share?.({ title: company.name, url: window.location.href })} className="flex items-center gap-2 px-5 py-3 rounded-xl bg-white/10 backdrop-blur-md text-white font-medium text-sm hover:bg-white/20 transition-colors">
-                  <Share2 size={16} /> Compartilhar
+                <button onClick={() => navigator.share?.({ title: company.name, url: window.location.href })} className="flex items-center justify-center w-10 h-10 md:w-auto md:h-auto md:px-5 md:py-3 rounded-xl bg-white/10 backdrop-blur-md text-white font-medium text-sm hover:bg-white/20 transition-colors">
+                  <Share2 size={16} /> <span className="hidden md:inline ml-2">Compartilhar</span>
                 </button>
               </div>
             </motion.div>
