@@ -202,8 +202,8 @@ export default function HeroBannerCarousel({
             <ChevronRight size={20} />
           </button>
 
-          {/* Dots */}
-          <div className="absolute bottom-4 right-6 md:bottom-6 md:right-12 z-20 flex items-center gap-1.5">
+          {/* Dots — hidden on mobile */}
+          <div className="hidden md:flex absolute bottom-6 right-12 z-20 items-center gap-1.5">
             {heroItems.slice(0, 10).map((_, i) => (
               <button
                 key={i}
