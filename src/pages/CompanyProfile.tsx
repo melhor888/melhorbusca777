@@ -5,6 +5,7 @@ import { ArrowLeft, Star, MapPin, MessageCircle, Share2, Key, Home, Building2, L
 import { allCompanies } from "@/data/companies";
 import { getProductsByCompany, formatPrice, getTagStyle, getTagLabel } from "@/data/products";
 import { supabase } from "@/integrations/supabase/client";
+import { trackSellerEvent } from "@/hooks/useSellerAnalytics";
 import MapEmbed from "@/components/MapEmbed";
 
 const propertySubcategories = [
@@ -72,6 +73,11 @@ export default function CompanyProfile() {
       setDbItems(items || []);
     }
     setLoading(false);
+
+    // Track profile view
+    if (profile) {
+      trackSellerEvent(profileId, "view");
+    }
   };
 
   // Normalize data for rendering
@@ -141,8 +147,10 @@ export default function CompanyProfile() {
   const heroProduct = featuredItemId
     ? products.find((p: any) => p.id === featuredItemId) || products[0]
     : products[0];
-  const whatsappUrl = (title: string) =>
-    `https://wa.me/${company.whatsapp}?text=${encodeURIComponent(`Olá ${company.name}! Tenho interesse: ${title}`)}`;
+  const whatsappUrl = (title: string) => {
+    if (isDbProfile && id) trackSellerEvent(id, "whatsapp_click");
+    return `https://wa.me/${company.whatsapp}?text=${encodeURIComponent(`Olá ${company.name}! Tenho interesse: ${title}`)}`;
+  };
 
   const gradientClass = isProperty
     ? "from-[#00AEEF] via-[#002F6C] to-[#001a3d]"

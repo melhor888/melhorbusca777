@@ -2,12 +2,14 @@ import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
 import { supabase } from "@/integrations/supabase/client";
-import { Package, Eye, Plus, Settings, Edit, Trash2, Copy, ToggleLeft, ToggleRight, Search, Building2, Car, Image, LogOut, BarChart3, Star, Crown, Zap, AlertTriangle, Shield } from "lucide-react";
+import { Package, Eye, Plus, Settings, Edit, Trash2, Copy, ToggleLeft, ToggleRight, Search, Building2, Car, Image, LogOut, BarChart3, Star, Crown, Zap, AlertTriangle, Shield, MessageCircle } from "lucide-react";
 import { getTagStyle, getTagLabel } from "@/data/products";
 import { useToast } from "@/hooks/use-toast";
 import { motion } from "framer-motion";
 import { useSubscription, useIsAdmin, PACKAGE_CONFIG } from "@/hooks/useSubscription";
 import PackageBadge from "@/components/PackageBadge";
+import { useSellerAnalytics } from "@/hooks/useSellerAnalytics";
+import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer, BarChart, Bar, CartesianGrid } from "recharts";
 
 type SellerItem = {
   id: string;
@@ -33,6 +35,8 @@ export default function SellerDashboard() {
   const [statusFilter, setStatusFilter] = useState<string>("todos");
   const { subscription, currentTier, config: pkgConfig, daysUntilExpiry, isExpiringSoon, isExpired } = useSubscription(user?.id);
   const { isAdmin } = useIsAdmin(user?.id);
+  const { dailyData, weeklyData, totals: analyticsTotals, loading: analyticsLoading } = useSellerAnalytics(profile?.id);
+  const [chartView, setChartView] = useState<"diario" | "semanal">("diario");
 
   useEffect(() => {
     if (!authLoading && !user) navigate("/entrar");
@@ -229,6 +233,84 @@ export default function SellerDashboard() {
             <Shield size={16} /> Painel Administrativo
           </Link>
         )}
+
+        {/* Analytics Charts */}
+        <div className="mb-6 bg-card border border-border rounded-2xl p-5">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
+            <div className="flex items-center gap-2">
+              <BarChart3 size={20} className="text-primary" />
+              <h2 className="font-display font-bold text-lg text-foreground">Estatísticas</h2>
+            </div>
+            <div className="flex items-center gap-4">
+              <div className="flex items-center gap-3 text-sm">
+                <span className="flex items-center gap-1.5">
+                  <Eye size={14} className="text-primary" />
+                  <span className="text-muted-foreground">{analyticsTotals.views} visitas</span>
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <MessageCircle size={14} className="text-green-500" />
+                  <span className="text-muted-foreground">{analyticsTotals.whatsapp_clicks} cliques WhatsApp</span>
+                </span>
+              </div>
+              <div className="flex rounded-lg border border-input overflow-hidden">
+                <button
+                  onClick={() => setChartView("diario")}
+                  className={`px-3 py-1.5 text-xs font-medium transition-colors ${chartView === "diario" ? "bg-primary text-primary-foreground" : "bg-background text-muted-foreground hover:text-foreground"}`}
+                >
+                  Diário
+                </button>
+                <button
+                  onClick={() => setChartView("semanal")}
+                  className={`px-3 py-1.5 text-xs font-medium transition-colors ${chartView === "semanal" ? "bg-primary text-primary-foreground" : "bg-background text-muted-foreground hover:text-foreground"}`}
+                >
+                  Semanal
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {analyticsLoading ? (
+            <div className="h-[250px] flex items-center justify-center">
+              <div className="w-8 h-8 border-4 border-primary/30 border-t-primary rounded-full animate-spin" />
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+              {/* Visitors Chart */}
+              <div>
+                <p className="text-xs font-medium text-muted-foreground mb-2">Visitantes (últimos 30 dias)</p>
+                <ResponsiveContainer width="100%" height={220}>
+                  <AreaChart data={chartView === "diario" ? dailyData : weeklyData}>
+                    <defs>
+                      <linearGradient id="viewsGrad" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="5%" stopColor="hsl(var(--primary))" stopOpacity={0.3} />
+                        <stop offset="95%" stopColor="hsl(var(--primary))" stopOpacity={0} />
+                      </linearGradient>
+                    </defs>
+                    <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+                    <XAxis dataKey="date" tick={{ fontSize: 10, fill: "hsl(var(--muted-foreground))" }} interval={chartView === "diario" ? 4 : 0} />
+                    <YAxis tick={{ fontSize: 10, fill: "hsl(var(--muted-foreground))" }} allowDecimals={false} />
+                    <Tooltip contentStyle={{ backgroundColor: "hsl(var(--card))", border: "1px solid hsl(var(--border))", borderRadius: "12px", fontSize: "12px" }} />
+                    <Area type="monotone" dataKey="views" name="Visitas" stroke="hsl(var(--primary))" fill="url(#viewsGrad)" strokeWidth={2} />
+                  </AreaChart>
+                </ResponsiveContainer>
+              </div>
+
+              {/* WhatsApp Clicks Chart */}
+              <div>
+                <p className="text-xs font-medium text-muted-foreground mb-2">Cliques no WhatsApp (últimos 30 dias)</p>
+                <ResponsiveContainer width="100%" height={220}>
+                  <BarChart data={chartView === "diario" ? dailyData : weeklyData}>
+                    <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+                    <XAxis dataKey="date" tick={{ fontSize: 10, fill: "hsl(var(--muted-foreground))" }} interval={chartView === "diario" ? 4 : 0} />
+                    <YAxis tick={{ fontSize: 10, fill: "hsl(var(--muted-foreground))" }} allowDecimals={false} />
+                    <Tooltip contentStyle={{ backgroundColor: "hsl(var(--card))", border: "1px solid hsl(var(--border))", borderRadius: "12px", fontSize: "12px" }} />
+                    <Bar dataKey="whatsapp_clicks" name="WhatsApp" fill="#25d366" radius={[4, 4, 0, 0]} />
+                  </BarChart>
+                </ResponsiveContainer>
+              </div>
+            </div>
+          )}
+        </div>
 
         {/* Actions */}
         <div className="flex flex-col sm:flex-row gap-3 mb-6">

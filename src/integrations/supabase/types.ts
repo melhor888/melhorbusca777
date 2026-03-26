@@ -79,6 +79,30 @@ export type Database = {
           },
         ]
       }
+      seller_analytics: {
+        Row: {
+          created_at: string
+          event_type: string
+          id: string
+          item_id: string | null
+          seller_id: string
+        }
+        Insert: {
+          created_at?: string
+          event_type: string
+          id?: string
+          item_id?: string | null
+          seller_id: string
+        }
+        Update: {
+          created_at?: string
+          event_type?: string
+          id?: string
+          item_id?: string | null
+          seller_id?: string
+        }
+        Relationships: []
+      }
       seller_items: {
         Row: {
           address: string | null
