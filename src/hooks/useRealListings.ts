@@ -11,6 +11,7 @@ export interface RealSeller {
   segment: "imoveis" | "automoveis";
   show_location: boolean;
   tier: string;
+  featured_item_id?: string | null;
 }
 
 export interface RealItem {
