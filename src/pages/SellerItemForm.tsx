@@ -31,6 +31,29 @@ const propertyCategories: { value: ItemCategory; label: string }[] = [
   { value: "aluguel", label: "Aluguel" },
 ];
 
+const CAR_BRANDS = [
+  "Audi", "BMW", "BYD", "Caoa Chery", "Chevrolet", "Citroën", "Dodge", "Fiat", "Ford",
+  "Honda", "Hyundai", "JAC", "Jeep", "Kia", "Land Rover", "Mercedes-Benz", "Mitsubishi",
+  "Nissan", "Peugeot", "Porsche", "RAM", "Renault", "Subaru", "Suzuki", "Toyota",
+  "Volkswagen", "Volvo",
+];
+
+const MOTO_BRANDS = [
+  "BMW", "Dafra", "Ducati", "Haojue", "Harley-Davidson", "Honda", "Husqvarna",
+  "Kawasaki", "KTM", "Royal Enfield", "Shineray", "Suzuki", "Triumph", "Yamaha",
+];
+
+const TRUCK_BRANDS = [
+  "DAF", "Ford", "Iveco", "MAN", "Mercedes-Benz", "Scania", "Volkswagen", "Volvo",
+];
+
+function getBrandsForCategory(category: string): string[] {
+  if (category === "moto") return MOTO_BRANDS;
+  if (category === "caminhao") return TRUCK_BRANDS;
+  if (category === "van" || category === "utilitario") return [...new Set([...CAR_BRANDS, ...TRUCK_BRANDS])].sort();
+  return CAR_BRANDS;
+}
+
 const commonTags: { value: ItemTag; label: string }[] = [
   { value: "premium", label: "Premium" },
   { value: "luxo", label: "Luxo" },
@@ -438,7 +461,12 @@ export default function SellerItemForm() {
 
           {isVehicle ? (
             <div className="grid grid-cols-2 gap-3">
-              <input value={form.brand} onChange={(e) => setForm((f) => ({ ...f, brand: e.target.value }))} className="px-4 py-3 rounded-xl border border-input bg-background text-foreground text-sm focus:ring-2 focus:ring-ring focus:outline-none" placeholder="Marca" />
+              <select value={form.brand} onChange={(e) => setForm((f) => ({ ...f, brand: e.target.value }))} className="px-4 py-3 rounded-xl border border-input bg-background text-foreground text-sm focus:ring-2 focus:ring-ring focus:outline-none">
+                <option value="">Marca</option>
+                {getBrandsForCategory(form.category).map((b) => (
+                  <option key={b} value={b}>{b}</option>
+                ))}
+              </select>
               <input value={form.model} onChange={(e) => setForm((f) => ({ ...f, model: e.target.value }))} className="px-4 py-3 rounded-xl border border-input bg-background text-foreground text-sm focus:ring-2 focus:ring-ring focus:outline-none" placeholder="Modelo" />
               <input type="number" value={form.year} onChange={(e) => setForm((f) => ({ ...f, year: e.target.value }))} className="px-4 py-3 rounded-xl border border-input bg-background text-foreground text-sm focus:ring-2 focus:ring-ring focus:outline-none" placeholder="Ano" />
               <input type="number" value={form.mileage} onChange={(e) => setForm((f) => ({ ...f, mileage: e.target.value }))} className="px-4 py-3 rounded-xl border border-input bg-background text-foreground text-sm focus:ring-2 focus:ring-ring focus:outline-none" placeholder="Quilometragem" />
