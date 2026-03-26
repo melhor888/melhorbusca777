@@ -104,6 +104,13 @@ export default function PropertiesPage() {
     return map;
   }, [allSellers]);
 
+  // Featured item IDs for hero banner
+  const featuredItemIds = useMemo(() => {
+    const ids = new Set<string>();
+    realSellers.forEach((s) => { if (s.featured_item_id) ids.add(s.featured_item_id); });
+    return ids;
+  }, [realSellers]);
+
   const availableCities = useMemo(() => {
     const cities = new Set<string>();
     realItems.forEach((item) => {
