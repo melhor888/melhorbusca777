@@ -2,9 +2,10 @@ import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
 import { supabase } from "@/integrations/supabase/client";
-import { Save, ArrowLeft, Upload, X, MapPin } from "lucide-react";
+import { Save, ArrowLeft, Upload, X, MapPin, Lock } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import type { Database } from "@/integrations/supabase/types";
+import { useSubscription, PACKAGE_CONFIG } from "@/hooks/useSubscription";
 
 type ItemCategory = Database["public"]["Enums"]["item_category"];
 type ItemTag = Database["public"]["Enums"]["item_tag"];
@@ -54,6 +55,8 @@ export default function SellerItemForm() {
   const { toast } = useToast();
   const [saving, setSaving] = useState(false);
   const [uploading, setUploading] = useState(false);
+  const [activeItemCount, setActiveItemCount] = useState(0);
+  const { subscription, currentTier, config: pkgConfig, isExpired } = useSubscription(user?.id);
 
   const [sellerType, setSellerType] = useState<SellerType>("imoveis");
   const [form, setForm] = useState({
