@@ -1,9 +1,10 @@
-import { Car, Building2, Plus, Search, Menu, X, MapPin, ChevronDown } from "lucide-react";
+import { Car, Building2, Plus, Search, Menu, X, MapPin, ChevronDown, LayoutDashboard } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useCityDetection } from "@/hooks/useCityDetection";
 import { ES_CITIES } from "@/data/esCities";
 import { cityToSlug } from "@/lib/citySlug";
+import { useAuth } from "@/hooks/useAuth";
 import {
   DropdownMenu,
   DropdownMenuContent,
