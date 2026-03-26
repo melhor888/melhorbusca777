@@ -266,6 +266,12 @@ export default function CompanyProfile() {
                     {isPaid && <BadgeCheck size={22} className="text-primary" />}
                   </div>
                   <div className="flex items-center gap-3 mt-1 flex-wrap">
+                    {dbProfile?.seller_category && (
+                      <span className="flex items-center gap-1 text-white/80 text-xs font-medium bg-white/10 px-2 py-0.5 rounded-full">
+                        {({ imobiliaria: "🏢 Imobiliária", corretor: "📋 Corretor(a)", proprietario: "🏠 Proprietário", loja_veiculos: "🏪 Loja de Veículos", autonomo: "👤 Autônomo", concessionaria: "🚗 Concessionária" } as Record<string, string>)[dbProfile.seller_category]}
+                        {dbProfile.seller_category === "corretor" && dbProfile.creci && ` • ${dbProfile.creci}`}
+                      </span>
+                    )}
                     {company.address && (
                       <span className="flex items-center gap-1 text-white/70 text-xs">
                         <MapPin size={12} /> {company.address}
