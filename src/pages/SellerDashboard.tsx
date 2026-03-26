@@ -377,7 +377,7 @@ export default function SellerDashboard() {
                             {isExpired ? (
                               <span className="text-destructive font-semibold">Expirado!</span>
                             ) : (
-                              <>Expira em {daysUntilExpiry} dias • {totalActive}/{pkgConfig.maxItems === 999 ? "∞" : pkgConfig.maxItems} anúncios</>
+                              <>Expira em {daysUntilExpiry} dias • {totalActive}/{pkgConfig.maxItems >= 9999 ? "∞" : pkgConfig.maxItems} anúncios</>
                             )}
                           </p>
                         ) : (
