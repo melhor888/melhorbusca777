@@ -1,5 +1,5 @@
-import { useState, useMemo, useRef } from "react";
-import { Link } from "react-router-dom";
+import { useState, useMemo, useRef, useEffect } from "react";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Car, Bike, Truck, Cog, ArrowLeft, ArrowRight, Search } from "lucide-react";
 import { vehicleCompanies, vehicleCategories, type Company } from "@/data/companies";
@@ -10,8 +10,10 @@ import PackageBadge from "@/components/PackageBadge";
 const iconMap: Record<string, React.ElementType> = { Car, Bike, Truck, Cog };
 
 export default function VehiclesPage() {
+  const { cidade } = useParams();
+  const navigate = useNavigate();
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
-  const [filterCity, setFilterCity] = useState("");
+  const [filterCity, setFilterCity] = useState(cidade ? cidade.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()) : "");
   const [filterBrand, setFilterBrand] = useState("");
   const [filterModel, setFilterModel] = useState("");
   const itemsSectionRef = useRef<HTMLDivElement>(null);
@@ -192,7 +194,7 @@ export default function VehiclesPage() {
         <div className="flex items-center justify-center gap-3 mb-4">
           <select
             value={filterCity}
-            onChange={(e) => setFilterCity(e.target.value)}
+            onChange={(e) => { const v = e.target.value; setFilterCity(v); navigate(v ? `/veiculos/${v.toLowerCase().replace(/\s+/g, "-")}` : "/veiculos", { replace: true }); }}
             className="px-4 py-2 rounded-xl bg-secondary text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 min-w-[200px]"
           >
             <option value="">Todas as cidades</option>
@@ -337,7 +339,7 @@ export default function VehiclesPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
             <select
               value={filterCity}
-              onChange={(e) => setFilterCity(e.target.value)}
+              onChange={(e) => { const v = e.target.value; setFilterCity(v); navigate(v ? `/veiculos/${v.toLowerCase().replace(/\s+/g, "-")}` : "/veiculos", { replace: true }); }}
               className="w-full px-4 py-2.5 rounded-xl bg-secondary text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/50"
             >
               <option value="">Todas as cidades</option>
