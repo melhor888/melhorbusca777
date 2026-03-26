@@ -48,7 +48,7 @@ export const PACKAGE_CONFIG = {
   premium: {
     name: "Premium",
     price: 99.90,
-    maxItems: 50,
+    maxItems: 200,
     color: "from-amber-500 to-orange-600",
     borderColor: "border-amber-400",
     badgeColor: "bg-gradient-to-r from-amber-500 to-orange-500 text-white",
