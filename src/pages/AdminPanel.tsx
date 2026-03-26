@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Shield, Users, Package, DollarSign, Search, Check, X, RefreshCw, ArrowLeft, Crown, Star, Zap } from "lucide-react";
+import { Shield, Users, Package, DollarSign, Search, Check, X, RefreshCw, ArrowLeft, Crown, Star, Zap, Globe, Plus, Trash2, ExternalLink, Copy } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
 import { useIsAdmin, PACKAGE_CONFIG } from "@/hooks/useSubscription";
@@ -25,6 +25,14 @@ interface SellerWithSub {
   };
 }
 
+interface StoreDomain {
+  id: string;
+  seller_id: string;
+  domain: string;
+  is_active: boolean;
+  created_at: string;
+}
+
 const tierIcons: Record<string, React.ElementType> = { basico: Zap, premium: Star, vip: Crown };
 
 export default function AdminPanel() {
@@ -35,7 +43,13 @@ export default function AdminPanel() {
   const [sellers, setSellers] = useState<SellerWithSub[]>([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
-  const [tab, setTab] = useState<"sellers" | "billing">("sellers");
+  const [tab, setTab] = useState<"sellers" | "billing" | "domains">("sellers");
+
+  // Domain management state
+  const [domains, setDomains] = useState<StoreDomain[]>([]);
+  const [domainsLoading, setDomainsLoading] = useState(false);
+  const [newDomain, setNewDomain] = useState("");
+  const [selectedSellerId, setSelectedSellerId] = useState("");
 
   useEffect(() => {
     if (!authLoading && !adminLoading) {
@@ -44,7 +58,10 @@ export default function AdminPanel() {
   }, [user, isAdmin, authLoading, adminLoading]);
 
   useEffect(() => {
-    if (isAdmin) fetchSellers();
+    if (isAdmin) {
+      fetchSellers();
+      fetchDomains();
+    }
   }, [isAdmin]);
 
   const fetchSellers = async () => {
@@ -76,6 +93,60 @@ export default function AdminPanel() {
 
     setSellers(mapped);
     setLoading(false);
+  };
+
+  const fetchDomains = async () => {
+    setDomainsLoading(true);
+    const { data } = await supabase.from("store_domains").select("*").order("created_at", { ascending: false });
+    setDomains((data as StoreDomain[]) || []);
+    setDomainsLoading(false);
+  };
+
+  const addDomain = async () => {
+    if (!newDomain.trim() || !selectedSellerId) {
+      toast({ title: "Preencha o domínio e selecione um vendedor", variant: "destructive" });
+      return;
+    }
+    const cleanDomain = newDomain.trim().toLowerCase().replace(/^https?:\/\//, "").replace(/\/$/, "");
+    const { error } = await supabase.from("store_domains").insert({
+      seller_id: selectedSellerId,
+      domain: cleanDomain,
+    } as any);
+    if (error) {
+      toast({ title: "Erro ao adicionar domínio", description: error.message, variant: "destructive" });
+    } else {
+      toast({ title: "Domínio adicionado!" });
+      setNewDomain("");
+      setSelectedSellerId("");
+      fetchDomains();
+    }
+  };
+
+  const removeDomain = async (id: string) => {
+    const { error } = await supabase.from("store_domains").delete().eq("id", id);
+    if (!error) {
+      toast({ title: "Domínio removido" });
+      fetchDomains();
+    }
+  };
+
+  const toggleDomain = async (id: string, currentActive: boolean) => {
+    const { error } = await supabase.from("store_domains").update({ is_active: !currentActive } as any).eq("id", id);
+    if (!error) {
+      fetchDomains();
+    }
+  };
+
+  const getSellerStoreUrl = (seller: SellerWithSub) => {
+    const type = seller.seller_type === "automoveis" ? "veiculos" : "imoveis";
+    return `/${type}/empresa/${seller.id}`;
+  };
+
+  const copyRedirectUrl = (seller: SellerWithSub) => {
+    const baseUrl = window.location.origin;
+    const storeUrl = `${baseUrl}${getSellerStoreUrl(seller)}`;
+    navigator.clipboard.writeText(storeUrl);
+    toast({ title: "URL copiada!", description: storeUrl });
   };
 
   const approvePayment = async (subId: string) => {
@@ -124,6 +195,11 @@ export default function AdminPanel() {
     premium: sellers.filter((s) => s.subscription?.tier === "premium").length,
     vip: sellers.filter((s) => s.subscription?.tier === "vip").length,
     sem_pacote: sellers.filter((s) => !s.subscription).length,
+  };
+
+  const getSellerName = (sellerId: string) => {
+    const s = sellers.find((s) => s.id === sellerId);
+    return s?.company_name || s?.full_name || "Desconhecido";
   };
 
   if (authLoading || adminLoading || loading) {
@@ -178,14 +254,20 @@ export default function AdminPanel() {
             className={`px-4 py-2 rounded-xl text-sm font-semibold transition-all ${tab === "billing" ? "bg-primary text-primary-foreground" : "bg-secondary text-secondary-foreground"}`}>
             <DollarSign size={14} className="inline mr-1" /> Faturamento
           </button>
+          <button onClick={() => setTab("domains")}
+            className={`px-4 py-2 rounded-xl text-sm font-semibold transition-all ${tab === "domains" ? "bg-primary text-primary-foreground" : "bg-secondary text-secondary-foreground"}`}>
+            <Globe size={14} className="inline mr-1" /> Domínios
+          </button>
         </div>
 
         {/* Search */}
-        <div className="relative mb-4">
-          <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
-          <input value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Buscar vendedor..."
-            className="w-full pl-10 pr-4 py-3 rounded-xl border border-input bg-background text-foreground text-sm focus:ring-2 focus:ring-ring focus:outline-none" />
-        </div>
+        {tab !== "domains" && (
+          <div className="relative mb-4">
+            <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
+            <input value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Buscar vendedor..."
+              className="w-full pl-10 pr-4 py-3 rounded-xl border border-input bg-background text-foreground text-sm focus:ring-2 focus:ring-ring focus:outline-none" />
+          </div>
+        )}
 
         {tab === "sellers" && (
           <div className="space-y-3">
@@ -275,6 +357,108 @@ export default function AdminPanel() {
                   R$ {(totalByTier.premium * PACKAGE_CONFIG.premium.price + totalByTier.vip * PACKAGE_CONFIG.vip.price).toFixed(2).replace(".", ",")}
                 </span>
               </p>
+            </div>
+          </div>
+        )}
+
+        {tab === "domains" && (
+          <div className="space-y-4">
+            {/* Add domain form */}
+            <div className="bg-card border border-border rounded-2xl p-6">
+              <h3 className="font-display font-bold text-lg text-foreground mb-4 flex items-center gap-2">
+                <Globe size={20} className="text-primary" /> Adicionar Domínio Custom
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                <div>
+                  <label className="text-xs text-muted-foreground font-semibold mb-1 block">Domínio</label>
+                  <input
+                    value={newDomain}
+                    onChange={(e) => setNewDomain(e.target.value)}
+                    placeholder="manufature.com.br"
+                    className="w-full px-4 py-2.5 rounded-xl border border-input bg-background text-foreground text-sm focus:ring-2 focus:ring-ring focus:outline-none"
+                  />
+                </div>
+                <div>
+                  <label className="text-xs text-muted-foreground font-semibold mb-1 block">Vendedor</label>
+                  <select
+                    value={selectedSellerId}
+                    onChange={(e) => setSelectedSellerId(e.target.value)}
+                    className="w-full px-4 py-2.5 rounded-xl border border-input bg-background text-foreground text-sm focus:ring-2 focus:ring-ring focus:outline-none"
+                  >
+                    <option value="">Selecione o vendedor...</option>
+                    {sellers.map((s) => (
+                      <option key={s.id} value={s.id}>
+                        {s.company_name || s.full_name} ({s.seller_type})
+                      </option>
+                    ))}
+                  </select>
+                </div>
+                <div className="flex items-end">
+                  <button
+                    onClick={addDomain}
+                    className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground text-sm font-semibold hover:bg-primary/90 transition-all"
+                  >
+                    <Plus size={16} /> Adicionar
+                  </button>
+                </div>
+              </div>
+              <p className="text-xs text-muted-foreground mt-3">
+                💡 Configure o DNS do domínio externo para redirecionar (301) para a URL da loja do vendedor.
+              </p>
+            </div>
+
+            {/* Domain list */}
+            <div className="bg-card border border-border rounded-2xl p-6">
+              <h3 className="font-display font-bold text-lg text-foreground mb-4">Domínios Configurados</h3>
+              {domainsLoading ? (
+                <div className="text-center py-8 text-muted-foreground text-sm">Carregando...</div>
+              ) : domains.length === 0 ? (
+                <div className="text-center py-8 text-muted-foreground text-sm">Nenhum domínio configurado ainda.</div>
+              ) : (
+                <div className="space-y-3">
+                  {domains.map((d) => {
+                    const seller = sellers.find((s) => s.id === d.seller_id);
+                    return (
+                      <div key={d.id} className="flex flex-col md:flex-row md:items-center justify-between gap-3 p-4 rounded-xl bg-secondary/50 border border-border">
+                        <div className="flex-1">
+                          <div className="flex items-center gap-2">
+                            <Globe size={16} className={d.is_active ? "text-green-500" : "text-muted-foreground"} />
+                            <span className="font-semibold text-foreground">{d.domain}</span>
+                            <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold ${d.is_active ? "bg-green-500/10 text-green-500" : "bg-muted text-muted-foreground"}`}>
+                              {d.is_active ? "Ativo" : "Inativo"}
+                            </span>
+                          </div>
+                          <p className="text-xs text-muted-foreground mt-1">
+                            → {seller?.company_name || seller?.full_name || "Vendedor não encontrado"}
+                          </p>
+                        </div>
+                        <div className="flex gap-1.5">
+                          {seller && (
+                            <button
+                              onClick={() => copyRedirectUrl(seller)}
+                              className="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-primary/10 text-primary text-xs font-semibold hover:bg-primary/20"
+                            >
+                              <Copy size={12} /> Copiar URL
+                            </button>
+                          )}
+                          <button
+                            onClick={() => toggleDomain(d.id, d.is_active)}
+                            className="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-amber-500/10 text-amber-600 text-xs font-semibold hover:bg-amber-500/20"
+                          >
+                            {d.is_active ? "Desativar" : "Ativar"}
+                          </button>
+                          <button
+                            onClick={() => removeDomain(d.id)}
+                            className="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-destructive/10 text-destructive text-xs font-semibold hover:bg-destructive/20"
+                          >
+                            <Trash2 size={12} /> Remover
+                          </button>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
             </div>
           </div>
         )}
