@@ -51,7 +51,12 @@ export default function HeroBannerCarousel({
   const heroItems = useMemo(() => {
     let filtered = items.filter((item) => {
       const tier = item.sellerTier || "basico";
-      return PAID_TIERS.includes(tier);
+      if (!PAID_TIERS.includes(tier)) return false;
+      // Only show items marked as featured (starred) by their seller
+      if (featuredItemIds && featuredItemIds.size > 0) {
+        return featuredItemIds.has(item.id);
+      }
+      return false;
     });
 
     if (filterCity) {
@@ -64,7 +69,7 @@ export default function HeroBannerCarousel({
     // Shuffle
     const shuffled = [...filtered].sort(() => Math.random() - 0.5);
     return shuffled.slice(0, 20);
-  }, [items, filterCity]);
+  }, [items, filterCity, featuredItemIds]);
 
   // Auto-rotate
   useEffect(() => {
