@@ -41,7 +41,6 @@ export const PACKAGE_CONFIG = {
     benefits: [
       "Até 10 anúncios ativos",
       "Loja estilo Netflix",
-      "Destaque normal na listagem",
       "Painel do vendedor completo",
       "Estatísticas básicas",
     ],
