@@ -12,5 +12,8 @@ Allow: /
 
 User-agent: *
 Allow: /
+Disallow: /painel/
+Disallow: /admin
+Disallow: /entrar
 
-Sitemap: https://receitasmexicanas.lovable.app/sitemap.xml
+Sitemap: https://redeimoveisgb.lovable.app/sitemap.xml
