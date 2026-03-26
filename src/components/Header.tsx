@@ -1,9 +1,10 @@
-import { Car, Building2, Plus, Search, Menu, X, MapPin, ChevronDown } from "lucide-react";
+import { Car, Building2, Plus, Search, Menu, X, MapPin, ChevronDown, LayoutDashboard } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useCityDetection } from "@/hooks/useCityDetection";
 import { ES_CITIES } from "@/data/esCities";
 import { cityToSlug } from "@/lib/citySlug";
+import { useAuth } from "@/hooks/useAuth";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -11,18 +12,21 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-const navLinks = [
-  { to: "/", label: "Início" },
-  { to: "/imoveis", label: "Imóveis", icon: Building2 },
-  { to: "/veiculos", label: "Veículos", icon: Car },
-  { to: "/anunciar", label: "Anunciar", icon: Plus },
-];
-
 export default function Header() {
   const location = useLocation();
   const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
   const { detectedCity, setCity } = useCityDetection();
+  const { user } = useAuth();
+
+  const navLinks = [
+    { to: "/", label: "Início" },
+    { to: "/imoveis", label: "Imóveis", icon: Building2 },
+    { to: "/veiculos", label: "Veículos", icon: Car },
+    ...(user
+      ? [{ to: "/painel", label: "Painel", icon: LayoutDashboard, highlight: true }]
+      : [{ to: "/anunciar", label: "Anunciar", icon: Plus }]),
+  ];
 
   const handleCitySelect = (city: string) => {
     setCity(city);
@@ -46,9 +50,11 @@ export default function Header() {
               key={link.to}
               to={link.to}
               className={`px-4 py-2 rounded-xl text-sm font-medium transition-all ${
-                location.pathname === link.to
+                link.highlight
                   ? "bg-primary text-primary-foreground shadow-md"
-                  : "text-muted-foreground hover:text-foreground hover:bg-secondary"
+                  : location.pathname === link.to
+                    ? "bg-primary text-primary-foreground shadow-md"
+                    : "text-muted-foreground hover:text-foreground hover:bg-secondary"
               }`}
             >
               {link.label}
