@@ -561,10 +561,16 @@ export default function AdminPanel() {
                   <div key={ad.id} className="bg-card border border-border rounded-2xl p-4">
                     <div className="flex flex-col md:flex-row md:items-start justify-between gap-3">
                       <div className="flex-1 space-y-1">
-                        <div className="flex items-center gap-2">
+                        <div className="flex items-center gap-2 flex-wrap">
                           <h3 className="font-display font-bold text-foreground">
-                            {seller?.company_name || seller?.full_name || "Vendedor"}
+                            {seller?.company_name || "Vendedor"}
                           </h3>
+                          {seller?.company_name && seller?.full_name && (
+                            <span className="text-xs text-muted-foreground">({seller.full_name})</span>
+                          )}
+                          {!seller?.company_name && seller?.full_name && (
+                            <h3 className="font-display font-bold text-foreground">{seller.full_name}</h3>
+                          )}
                           <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold ${
                             ad.status === "pendente" ? "bg-amber-500/10 text-amber-500" :
                             ad.status === "aprovado" ? "bg-green-500/10 text-green-500" :
