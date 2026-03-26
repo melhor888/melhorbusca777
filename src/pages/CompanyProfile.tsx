@@ -45,6 +45,7 @@ export default function CompanyProfile() {
   const [loading, setLoading] = useState(true);
   const [isDbProfile, setIsDbProfile] = useState(false);
   const [heroSlide, setHeroSlide] = useState(0);
+  const [galleryLightbox, setGalleryLightbox] = useState<number | null>(null);
 
   const staticCompany = allCompanies.find((c) => c.id === id);
   const staticProducts = staticCompany ? getProductsByCompany(staticCompany.id) : [];
