@@ -729,7 +729,7 @@ export default function SellerDashboard() {
                             <span className="text-foreground font-medium">R$ {adSubtotal.toFixed(2)}</span>
                           </div>
                           <div className="flex justify-between">
-                            <span className="text-muted-foreground">Imposto e Taxa de serviço (R$10 a cada R$44)</span>
+                            <span className="text-muted-foreground">Imposto e Taxa de serviço</span>
                             <span className="text-foreground font-medium">R$ {adServiceFee.toFixed(2)}</span>
                           </div>
                           <div className="border-t border-border pt-2 flex justify-between">
