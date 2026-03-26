@@ -106,6 +106,7 @@ export function useRealListings(segment: "imoveis" | "automoveis") {
           segment: p.seller_type,
           show_location: p.show_location ?? true,
           tier: tierMap.get(p.id) || "basico",
+          featured_item_id: p.featured_item_id || null,
         }));
       }
       setSellers(mappedSellers);
