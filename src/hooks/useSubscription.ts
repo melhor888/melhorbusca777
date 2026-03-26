@@ -5,7 +5,7 @@ export interface Subscription {
   id: string;
   user_id: string;
   seller_id: string;
-  tier: "basico" | "premium" | "vip";
+  tier: "start" | "basico" | "premium" | "vip";
   max_items: number;
   started_at: string;
   expires_at: string;
@@ -16,6 +16,20 @@ export interface Subscription {
 }
 
 export const PACKAGE_CONFIG = {
+  start: {
+    name: "Start",
+    price: 29.90,
+    maxItems: 25,
+    color: "from-emerald-500 to-teal-600",
+    borderColor: "border-emerald-400",
+    badgeColor: "bg-gradient-to-r from-emerald-500 to-teal-500 text-white",
+    benefits: [
+      "Até 25 anúncios ativos",
+      "Destaque normal na listagem",
+      "Painel do vendedor completo",
+      "Estatísticas básicas",
+    ],
+  },
   basico: {
     name: "Básico",
     price: 0,
@@ -125,7 +139,7 @@ export function useSubscription(userId?: string) {
 }
 
 export function useSellerSubscription(sellerId?: string) {
-  const [tier, setTier] = useState<"basico" | "premium" | "vip">("basico");
+  const [tier, setTier] = useState<"start" | "basico" | "premium" | "vip">("basico");
 
   useEffect(() => {
     if (!sellerId) return;

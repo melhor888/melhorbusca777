@@ -291,7 +291,7 @@ export type Database = {
         | "cobertura"
         | "vista_panoramica"
         | "aluguel_flex"
-      package_tier: "basico" | "premium" | "vip"
+      package_tier: "start" | "basico" | "premium" | "vip"
       seller_type: "imoveis" | "automoveis"
     }
     CompositeTypes: {
@@ -453,7 +453,7 @@ export const Constants = {
         "vista_panoramica",
         "aluguel_flex",
       ],
-      package_tier: ["basico", "premium", "vip"],
+      package_tier: ["start", "basico", "premium", "vip"],
       seller_type: ["imoveis", "automoveis"],
     },
   },

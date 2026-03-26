@@ -1,7 +1,7 @@
-import { Crown, Star } from "lucide-react";
+import { Crown, Star, Zap } from "lucide-react";
 
 interface PackageBadgeProps {
-  tier: "basico" | "premium" | "vip";
+  tier: "start" | "basico" | "premium" | "vip";
   size?: "sm" | "md";
 }
 
@@ -9,6 +9,11 @@ export default function PackageBadge({ tier, size = "sm" }: PackageBadgeProps) {
   if (tier === "basico") return null;
 
   const styles = {
+    start: {
+      bg: "bg-gradient-to-r from-emerald-500 to-teal-500",
+      icon: Zap,
+      label: "Start",
+    },
     premium: {
       bg: "bg-gradient-to-r from-amber-500 to-orange-500",
       icon: Star,
@@ -22,6 +27,7 @@ export default function PackageBadge({ tier, size = "sm" }: PackageBadgeProps) {
   };
 
   const config = styles[tier];
+  if (!config) return null;
   const Icon = config.icon;
   const sizeClasses = size === "sm" ? "px-1.5 py-0.5 text-[9px]" : "px-2.5 py-1 text-xs";
 
