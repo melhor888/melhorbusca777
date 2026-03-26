@@ -610,15 +610,15 @@ export default function AdminPanel() {
                             {(() => {
                               const nome = seller.full_name || "cliente";
                               const loja = seller.company_name || "";
-                              const plataforma = ad.platform === "google" ? "Google Ads" : "Facebook Ads";
+                              const plataforma = "ADS Interno";
                               const cidade = seller.city || "";
                               const nicho = seller.seller_type === "automoveis" ? "Automóveis" : "Imóveis";
                               const total = `R$ ${Number(ad.total).toFixed(2).replace(".", ",")}`;
                               
-                              const msgAprovado = `Olá ${nome}! 🎉 É com grande alegria que viemos lhe informar que a sua solicitação de anúncio foi *APROVADA*! ✅\n\n📋 *Detalhes do seu pedido:*\n🏪 Loja: ${loja}\n📍 Cidade: ${cidade}\n🏷️ Nicho: ${nicho}\n📣 Plataforma: ${plataforma}\n💰 Valor total: ${total}\n\nEntraremos em contato em breve para dar início à sua campanha. Obrigado por confiar na Manufature! 🚀`;
-                              const msgPendente = `Olá ${nome}! 👋 Recebemos a sua solicitação de anúncio.\n\n📋 *Detalhes:*\n🏪 Loja: ${loja}\n📍 Cidade: ${cidade}\n🏷️ Nicho: ${nicho}\n📣 Plataforma: ${plataforma}\n💰 Valor total: ${total}\n\nEstamos analisando o seu pedido e em breve retornaremos com uma resposta. 😊`;
+                              const msgAprovado = `Olá ${nome}! 🎉 É com grande alegria que viemos lhe informar que a sua solicitação de anúncio foi *APROVADA*! ✅\n\n📋 *Detalhes do seu pedido:*\n🏪 Loja: ${loja}\n📍 Cidade: ${cidade}\n🏷️ Nicho: ${nicho}\n💰 Valor total: ${total}\n\nEntraremos em contato em breve para dar início à sua campanha. Obrigado por confiar na Manufature! 🚀`;
+                              const msgPendente = `Olá ${nome}! 👋 Recebemos a sua solicitação de anúncio.\n\n📋 *Detalhes:*\n🏪 Loja: ${loja}\n📍 Cidade: ${cidade}\n🏷️ Nicho: ${nicho}\n💰 Valor total: ${total}\n\nEstamos analisando o seu pedido e em breve retornaremos com uma resposta. 😊`;
                               const motivoRejeicao = ad.details ? `\n\n📝 *Motivo:* ${ad.details}` : "";
-                              const msgRejeitado = `Olá ${nome}! 👋 Infelizmente sua solicitação de anúncio não foi aprovada desta vez.\n\n📋 *Detalhes:*\n🏪 Loja: ${loja}\n📣 Plataforma: ${plataforma}\n💰 Valor: ${total}${motivoRejeicao}\n\nEntre em contato conosco para mais informações. Estamos à disposição! 🤝`;
+                              const msgRejeitado = `Olá ${nome}! 👋 Infelizmente sua solicitação de anúncio não foi aprovada desta vez.\n\n📋 *Detalhes:*\n🏪 Loja: ${loja}\n💰 Valor: ${total}${motivoRejeicao}\n\nEntre em contato conosco para mais informações. Estamos à disposição! 🤝`;
                               
                               const msg = ad.status === "aprovado" ? msgAprovado : ad.status === "rejeitado" ? msgRejeitado : msgPendente;
                               const phone = seller.phone.replace(/\D/g, '');
@@ -633,10 +633,7 @@ export default function AdminPanel() {
                             })()}
                           </p>
                         )}
-                        <p className="text-xs text-muted-foreground">
-                          Plataforma: <strong className="text-foreground">{ad.platform === "google" ? "Google Ads" : "Facebook Ads"}</strong>
-                        </p>
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 mt-2">
+                        <div className="grid grid-cols-2 md:grid-cols-3 gap-2 mt-2">
                           <div className="bg-secondary rounded-lg p-2 text-center">
                             <p className="text-[10px] text-muted-foreground">Diário</p>
                             <p className="text-sm font-bold text-foreground">R$ {Number(ad.daily_budget).toFixed(2)}</p>
@@ -644,10 +641,6 @@ export default function AdminPanel() {
                           <div className="bg-secondary rounded-lg p-2 text-center">
                             <p className="text-[10px] text-muted-foreground">Dias</p>
                             <p className="text-sm font-bold text-foreground">{ad.duration_days}</p>
-                          </div>
-                          <div className="bg-secondary rounded-lg p-2 text-center">
-                            <p className="text-[10px] text-muted-foreground">Impostos</p>
-                            <p className="text-sm font-bold text-foreground">R$ {Number(ad.tax_amount).toFixed(2)}</p>
                           </div>
                           <div className="bg-secondary rounded-lg p-2 text-center">
                             <p className="text-[10px] text-muted-foreground">Total</p>
@@ -683,14 +676,12 @@ export default function AdminPanel() {
                           );
                         })()}
                         {ad.status === "aprovado" && seller && (() => {
-                          const sitemapFormat = ad.platform === "google" ? "google" : "facebook";
-                          const sitemapUrl = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/seller-sitemap?seller_id=${seller.id}&format=${sitemapFormat}`;
-                          const label = ad.platform === "google" ? "Sitemap XML" : "Feed Facebook";
+                          const sitemapUrl = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/seller-sitemap?seller_id=${seller.id}&format=google`;
                           return (
                             <>
                               <a href={sitemapUrl} target="_blank" rel="noopener noreferrer"
                                 className="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-amber-500/10 text-amber-600 text-xs font-semibold hover:bg-amber-500/20">
-                                <FileText size={12} /> {label}
+                                <FileText size={12} /> Sitemap
                               </a>
                               <button onClick={() => {
                                 navigator.clipboard.writeText(sitemapUrl);

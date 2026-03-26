@@ -41,7 +41,6 @@ export default function SellerDashboard() {
   const { dailyData, weeklyData, totals: analyticsTotals, loading: analyticsLoading } = useSellerAnalytics(profile?.id);
   const [chartView, setChartView] = useState<"diario" | "semanal">("diario");
   const [activeTab, setActiveTab] = useState<DashboardTab>("overview");
-  const [adPlatform, setAdPlatform] = useState<"google" | "facebook">("google");
   const [adDailyBudget, setAdDailyBudget] = useState<string>("10");
   const [adDuration, setAdDuration] = useState<string>("4");
   const [adDetails, setAdDetails] = useState("");
@@ -150,11 +149,10 @@ export default function SellerDashboard() {
   const adBudget = parseFloat(adDailyBudget) || 0;
   const adDays = parseInt(adDuration) || 0;
   const adSubtotal = adBudget * adDays;
-  const adTaxRate = adPlatform === "facebook" ? 0.10 : 0;
-  const adTaxAmount = adSubtotal * adTaxRate;
-  const adAfterTax = adSubtotal + adTaxAmount;
-  const adServiceFee = adAfterTax * 0.30;
-  const adTotal = adAfterTax + adServiceFee;
+  const adServiceFee = adSubtotal * 0.10;
+  const adTotal = adSubtotal + adServiceFee;
+  // Estimativa: a cada R$8.64 = 1.661 impressões
+  const adEstimatedImpressions = Math.floor((adSubtotal / 8.64) * 1661);
 
   const submitAdRequest = async () => {
     if (!user || !profile || adSubtotal <= 0) return;
@@ -170,12 +168,12 @@ export default function SellerDashboard() {
     const { error } = await supabase.from("ad_requests").insert({
       seller_id: profile.id,
       user_id: user.id,
-      platform: adPlatform,
+      platform: "ads_interno",
       daily_budget: adBudget,
       duration_days: adDays,
       details: adDetails || null,
       subtotal: adSubtotal,
-      tax_amount: adTaxAmount,
+      tax_amount: 0,
       service_fee: adServiceFee,
       total: adTotal,
     } as any);
@@ -665,28 +663,11 @@ export default function SellerDashboard() {
                     </div>
                     <div>
                       <h2 className="font-display font-bold text-lg text-foreground">Fazer ADS</h2>
-                      <p className="text-xs text-muted-foreground">Solicite campanhas de anúncios para sua loja. Entrarei em contato com você através do seu WhatsApp para fecharmos o negócio.</p>
+                      <p className="text-xs text-muted-foreground">Iremos procurar clientes selecionados para o seu negócio e trazê-los para a sua Loja. Entrarei em contato com você através do seu WhatsApp para fecharmos o negócio.</p>
                     </div>
                   </div>
 
-                  {/* Platform */}
                   <div className="space-y-4">
-                    <div>
-                      <label className="text-sm font-semibold text-foreground mb-2 block">Onde quer anunciar?</label>
-                      <div className="grid grid-cols-2 gap-3">
-                        <button onClick={() => setAdPlatform("google")}
-                          className={`flex items-center justify-center gap-2 py-4 rounded-xl border-2 font-bold text-sm transition-all ${adPlatform === "google" ? "border-primary bg-primary/10 text-primary" : "border-border bg-card text-muted-foreground hover:border-primary/50"}`}>
-                          🔍 Google Ads
-                          <span className="text-[10px] font-normal bg-green-500/20 text-green-600 px-1.5 py-0.5 rounded-full">0% imposto</span>
-                        </button>
-                        <button onClick={() => setAdPlatform("facebook")}
-                          className={`flex items-center justify-center gap-2 py-4 rounded-xl border-2 font-bold text-sm transition-all ${adPlatform === "facebook" ? "border-primary bg-primary/10 text-primary" : "border-border bg-card text-muted-foreground hover:border-primary/50"}`}>
-                          📘 Facebook Ads
-                          <span className="text-[10px] font-normal bg-amber-500/20 text-amber-600 px-1.5 py-0.5 rounded-full">10% imposto</span>
-                        </button>
-                      </div>
-                    </div>
-
                     {/* Budget & Duration */}
                     <div className="grid grid-cols-2 gap-3">
                       <div>
@@ -723,16 +704,16 @@ export default function SellerDashboard() {
                             <span className="text-foreground font-medium">R$ {adSubtotal.toFixed(2)}</span>
                           </div>
                           <div className="flex justify-between">
-                            <span className="text-muted-foreground">Impostos ({adPlatform === "facebook" ? "10%" : "0%"} - {adPlatform === "facebook" ? "Facebook" : "Google"})</span>
-                            <span className="text-foreground font-medium">R$ {adTaxAmount.toFixed(2)}</span>
-                          </div>
-                          <div className="flex justify-between">
-                            <span className="text-muted-foreground">Taxa de serviço (30%)</span>
+                            <span className="text-muted-foreground">Taxa de serviço (10%)</span>
                             <span className="text-foreground font-medium">R$ {adServiceFee.toFixed(2)}</span>
                           </div>
                           <div className="border-t border-border pt-2 flex justify-between">
                             <span className="font-display font-bold text-foreground">Total</span>
                             <span className="font-display font-bold text-xl text-primary">R$ {adTotal.toFixed(2)}</span>
+                          </div>
+                          <div className="flex items-center gap-2 pt-2 text-xs text-muted-foreground bg-primary/5 rounded-xl p-3">
+                            <Zap size={14} className="text-primary" />
+                            <span>Estimativa: <strong className="text-foreground">~{adEstimatedImpressions.toLocaleString("pt-BR")} impressões</strong></span>
                           </div>
                         </div>
                       </motion.div>
@@ -755,10 +736,10 @@ export default function SellerDashboard() {
                         <div key={req.id} className="p-3 rounded-xl bg-muted">
                           <div className="flex items-center justify-between">
                             <div className="flex items-center gap-3">
-                              <span className="text-lg">{req.platform === "google" ? "🔍" : "📘"}</span>
+                              <span className="text-lg">📢</span>
                               <div>
                                 <p className="text-sm font-semibold text-foreground">
-                                  {req.platform === "google" ? "Google" : "Facebook"} Ads — {req.duration_days} dias
+                                  Campanha ADS — {req.duration_days} dias
                                 </p>
                                 <p className="text-xs text-muted-foreground">
                                   R$ {Number(req.daily_budget).toFixed(2)}/dia • Total: R$ {Number(req.total).toFixed(2)}
