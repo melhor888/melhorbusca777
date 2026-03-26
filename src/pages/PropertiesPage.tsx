@@ -7,16 +7,26 @@ import { allProducts, formatPrice, getTagStyle, getTagLabel, type Product } from
 import { useRealListings } from "@/hooks/useRealListings";
 import PackageBadge from "@/components/PackageBadge";
 import HeroBannerCarousel from "@/components/HeroBannerCarousel";
+import { useCityDetection } from "@/hooks/useCityDetection";
 
 const iconMap: Record<string, React.ElementType> = { Key, Home, Building2, Landmark, Store };
 
 export default function PropertiesPage() {
   const { cidade } = useParams();
   const navigate = useNavigate();
+  const { detectedCity } = useCityDetection();
+  const initialCity = cidade ? cidade.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()) : (detectedCity || "");
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
-  const [filterCity, setFilterCity] = useState(cidade ? cidade.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()) : "");
+  const [filterCity, setFilterCity] = useState(initialCity);
   const [filterType, setFilterType] = useState("");
   const itemsSectionRef = useRef<HTMLDivElement>(null);
+
+  // Sync filter when detected city loads async
+  useEffect(() => {
+    if (!cidade && detectedCity && !filterCity) {
+      setFilterCity(detectedCity);
+    }
+  }, [detectedCity]);
 
   const { sellers: realSellers, items: realItems } = useRealListings("imoveis");
 
