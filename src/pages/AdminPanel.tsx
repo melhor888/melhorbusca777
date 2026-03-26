@@ -555,8 +555,12 @@ export default function AdminPanel() {
                           {seller?.email || "—"} • {seller?.city || "—"} • {seller?.seller_type || "—"}
                         </p>
                         {seller?.phone && (
-                          <p className="text-xs text-muted-foreground">
+                          <p className="text-xs text-muted-foreground flex items-center gap-2">
                             📞 {seller.phone}
+                            <a href={`https://wa.me/55${seller.phone.replace(/\D/g, '')}`} target="_blank" rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1 px-2 py-0.5 rounded-lg bg-green-500/10 text-green-600 text-[10px] font-semibold hover:bg-green-500/20">
+                              WhatsApp
+                            </a>
                           </p>
                         )}
                         <p className="text-xs text-muted-foreground">
