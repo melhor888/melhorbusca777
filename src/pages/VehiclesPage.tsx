@@ -262,24 +262,41 @@ export default function VehiclesPage() {
       <section className="pt-8 pb-2">
         <h3 className="font-display font-semibold text-base text-muted-foreground mb-4 px-4 md:px-8 lg:px-12">Lojas em destaque</h3>
         <div className="flex gap-4 overflow-x-auto scrollbar-hide pb-2 px-4 md:px-8 lg:px-12">
+          {/* Real sellers first */}
+          {realSellers.filter((s) => s.logo).map((seller, i) => (
+            <motion.div
+              key={`real-${seller.id}`}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: i * 0.04 }}
+            >
+              <Link
+                to={`/veiculos/empresa/${seller.id}`}
+                className="flex flex-col items-center gap-2 group flex-shrink-0 w-20"
+              >
+                <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-accent group-hover:border-primary group-hover:shadow-lg transition-all duration-300">
+                  <img src={seller.logo} alt={seller.name} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" loading="lazy" />
+                </div>
+                <span className="text-[11px] text-center text-muted-foreground group-hover:text-foreground font-medium leading-tight line-clamp-2 transition-colors">
+                  {seller.name}
+                </span>
+              </Link>
+            </motion.div>
+          ))}
+          {/* Static companies */}
           {vehicleCompanies.map((company, i) => (
             <motion.div
               key={company.id}
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: i * 0.04 }}
+              transition={{ delay: (realSellers.length + i) * 0.04 }}
             >
               <Link
                 to={`/veiculos/empresa/${company.id}`}
                 className="flex flex-col items-center gap-2 group flex-shrink-0 w-20"
               >
                 <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-border group-hover:border-primary group-hover:shadow-lg transition-all duration-300">
-                  <img
-                    src={company.logo}
-                    alt={company.name}
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                    loading="lazy"
-                  />
+                  <img src={company.logo} alt={company.name} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" loading="lazy" />
                 </div>
                 <span className="text-[11px] text-center text-muted-foreground group-hover:text-foreground font-medium leading-tight line-clamp-2 transition-colors">
                   {company.name}
