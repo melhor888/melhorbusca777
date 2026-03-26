@@ -182,7 +182,6 @@ export default function CompanyProfile() {
     const link = productId ? `\n\n🔗 ${window.location.origin}/${seg}/produto/${productId}` : `\n\n🔗 ${window.location.href}`;
     window.location.href = `https://wa.me/${company.whatsapp}?text=${encodeURIComponent(`Olá ${company.name}! Tenho interesse: ${title}${link}`)}`;
   };
-  };
 
   const isPaid = sellerTier !== "basico";
 
