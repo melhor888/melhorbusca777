@@ -1,9 +1,11 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { Building2, Car, ArrowRight, Search, Home, Key, Bike, Truck, MapPin, Shield, Zap, Star, ChevronRight, Plus } from "lucide-react";
 import { motion } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
+import { Helmet } from "react-helmet-async";
 import heroImoveis from "@/assets/hero-imoveis.jpg";
 import heroVeiculos from "@/assets/hero-veiculos.jpg";
+import { slugToCity, cityToSlug } from "@/lib/citySlug";
 
 const heroBanners = [
   {
