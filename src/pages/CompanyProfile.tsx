@@ -1,7 +1,7 @@
 import { useState, useMemo, useEffect } from "react";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { toast } from "@/hooks/use-toast";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, Star, MapPin, MessageCircle, Share2, Key, Home, Building2, Landmark, Store, Warehouse, Car, Bike, Truck, Cog, MoreHorizontal, Image, Eye, Instagram, Phone, ExternalLink, Clock, Shield, Zap, ChevronLeft, ChevronRight, Heart, BadgeCheck } from "lucide-react";
 import { allCompanies } from "@/data/companies";
@@ -38,6 +38,7 @@ function isUUID(str: string) {
 
 export default function CompanyProfile() {
   const { id } = useParams();
+  const location = useLocation();
   const [activeCategory, setActiveCategory] = useState("todos");
   const [dbProfile, setDbProfile] = useState<any>(null);
   const [dbItems, setDbItems] = useState<any[]>([]);
@@ -101,7 +102,11 @@ export default function CompanyProfile() {
       : null
     : staticCompany;
 
-  const isProperty = company?.segment === "imoveis";
+  // Determine segment from URL path first, then fallback to seller_type
+  const vehicleCategories = ["carro", "moto", "caminhao", "van", "utilitario"];
+  const urlIsProperty = location.pathname.startsWith("/imoveis");
+  const urlIsVehicle = location.pathname.startsWith("/veiculos");
+  const isProperty = urlIsProperty ? true : urlIsVehicle ? false : company?.segment === "imoveis";
   const subcategories = isProperty ? propertySubcategories : vehicleSubcategories;
 
   const dbDisplayItems = dbItems.map((item) => ({
@@ -115,7 +120,7 @@ export default function CompanyProfile() {
     city: item.city,
     description: item.description,
     specs: {} as Record<string, string>,
-    type: isProperty ? "imovel" : "veiculo",
+    type: vehicleCategories.includes(item.category) ? "veiculo" : "imovel",
   }));
 
   const products = isDbProfile ? dbDisplayItems : staticProducts;
