@@ -114,7 +114,6 @@ export default function SellerItemForm() {
               price: data.price?.toString() || "",
               city: data.city || "",
               state: data.state || "ES",
-              setSelectedUF(data.state || "ES");
               neighborhood: data.neighborhood || "",
               address: data.address?.replace(/,\s*\d+$/, '') || "",
               addressNumber: data.address?.match(/,\s*(\d+)$/)?.[1] || "",
