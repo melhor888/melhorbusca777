@@ -655,11 +655,15 @@ export default function CompanyProfile() {
 
               {/* Header */}
               <div className="absolute top-5 left-5 z-20 flex items-center gap-3">
-                <div className="w-9 h-9 rounded-xl bg-white/10 backdrop-blur flex items-center justify-center">
-                  <Image size={16} className="text-white" />
-                </div>
+                {company.logo ? (
+                  <img src={company.logo} alt={company.name} className="w-9 h-9 rounded-xl object-cover border border-white/20 shadow-lg" />
+                ) : (
+                  <div className="w-9 h-9 rounded-xl bg-white/10 backdrop-blur flex items-center justify-center">
+                    <Image size={16} className="text-white" />
+                  </div>
+                )}
                 <div>
-                  <h2 className="font-display font-bold text-sm text-white">Galeria</h2>
+                  <h2 className="font-display font-bold text-sm text-white">{company.name}</h2>
                   <p className="text-[10px] text-white/50">{gallerySlide + 1} de {total}</p>
                 </div>
               </div>
