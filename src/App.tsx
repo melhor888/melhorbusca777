@@ -8,6 +8,7 @@ import { AuthProvider } from "@/hooks/useAuth";
 import Header from "@/components/Header";
 import FooterSimple from "@/components/FooterSimple";
 import InstallPWA from "@/components/InstallPWA";
+import ScrollToTop from "@/components/ScrollToTop";
 import Index from "@/pages/Index";
 import PropertiesPage from "@/pages/PropertiesPage";
 import VehiclesPage from "@/pages/VehiclesPage";
@@ -35,6 +36,7 @@ const App = () => (
           <Toaster />
           <Sonner />
           <BrowserRouter>
+            <ScrollToTop />
             <div className="min-h-screen flex flex-col">
               <Header />
               <main className="flex-1">
