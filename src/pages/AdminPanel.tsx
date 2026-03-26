@@ -213,9 +213,12 @@ export default function AdminPanel() {
   );
 
   const totalByTier = {
+    start: sellers.filter((s) => s.subscription?.tier === "start").length,
     basico: sellers.filter((s) => s.subscription?.tier === "basico").length,
     premium: sellers.filter((s) => s.subscription?.tier === "premium").length,
     vip: sellers.filter((s) => s.subscription?.tier === "vip").length,
+    essencial_empresa: sellers.filter((s) => s.subscription?.tier === "essencial_empresa").length,
+    premium_empresa: sellers.filter((s) => s.subscription?.tier === "premium_empresa").length,
     sem_pacote: sellers.filter((s) => !s.subscription).length,
   };
 
