@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
 import { Eye, EyeOff, LogIn, UserPlus, Building2, Car, Shield, Sparkles } from "lucide-react";
@@ -19,11 +19,9 @@ export default function CreateListing() {
   const navigate = useNavigate();
   const { toast } = useToast();
 
-  // If already logged in, redirect to dashboard
-  if (user) {
-    navigate("/painel");
-    return null;
-  }
+  useEffect(() => {
+    if (user) navigate("/painel");
+  }, [user, navigate]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
