@@ -255,9 +255,28 @@ export default function CompanyProfile() {
                     <Instagram size={16} /> Instagram
                   </a>
                 )}
-                <button onClick={() => navigator.share?.({ title: company.name, url: window.location.href })} className="flex items-center justify-center w-10 h-10 md:w-auto md:h-auto md:px-5 md:py-3 rounded-xl bg-white/10 backdrop-blur-md text-white font-medium text-sm hover:bg-white/20 transition-colors">
-                  <Share2 size={16} /> <span className="hidden md:inline ml-2">Compartilhar</span>
-                </button>
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <button className="flex items-center justify-center w-10 h-10 md:w-auto md:h-auto md:px-5 md:py-3 rounded-xl bg-white/10 backdrop-blur-md text-white font-medium text-sm hover:bg-white/20 transition-colors">
+                      <Share2 size={16} /> <span className="hidden md:inline ml-2">Compartilhar</span>
+                    </button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="end" className="w-48">
+                    <DropdownMenuItem onClick={() => {
+                      const url = window.location.href;
+                      const text = `Confira ${company.name} no AutoImóvel: ${url}`;
+                      window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, "_blank");
+                    }}>
+                      <MessageCircle size={16} className="mr-2 text-[#25d366]" /> Enviar via WhatsApp
+                    </DropdownMenuItem>
+                    <DropdownMenuItem onClick={() => {
+                      navigator.clipboard.writeText(window.location.href);
+                      toast({ title: "Link copiado!", description: "O link da loja foi copiado." });
+                    }}>
+                      <ExternalLink size={16} className="mr-2" /> Copiar link
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
               </div>
             </motion.div>
           </div>
