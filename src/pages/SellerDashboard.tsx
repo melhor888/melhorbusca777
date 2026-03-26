@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
 import { supabase } from "@/integrations/supabase/client";
-import { Package, Eye, Plus, Settings, Edit, Trash2, Copy, ToggleLeft, ToggleRight, Search, Image, LogOut, BarChart3, Star, Crown, Zap, AlertTriangle, Shield, MessageCircle, Home, UserCircle, Headphones } from "lucide-react";
+import { Package, Eye, Plus, Settings, Edit, Trash2, Copy, ToggleLeft, ToggleRight, Search, Image, LogOut, BarChart3, Star, Crown, Zap, AlertTriangle, Shield, MessageCircle, Home, UserCircle, Headphones, Globe, ExternalLink, CheckCircle2, ClipboardCopy } from "lucide-react";
 import { getTagStyle, getTagLabel } from "@/data/products";
 import { useToast } from "@/hooks/use-toast";
 import { motion } from "framer-motion";
@@ -26,7 +26,7 @@ type SellerItem = {
   seller_type: string;
 };
 
-type DashboardTab = "overview" | "items" | "stats";
+type DashboardTab = "overview" | "items" | "stats" | "domain";
 
 export default function SellerDashboard() {
   const { user, profile, signOut, refreshProfile, loading: authLoading } = useAuth();
@@ -117,10 +117,20 @@ export default function SellerDashboard() {
     );
   }
 
+  const storeUrl = profile?.id
+    ? `${window.location.origin}/${profile.seller_type === "automoveis" ? "veiculos" : "imoveis"}/empresa/${profile.id}`
+    : "";
+
+  const copyStoreUrl = () => {
+    navigator.clipboard.writeText(storeUrl);
+    toast({ title: "URL copiada!", description: storeUrl });
+  };
+
   const sidebarNav = [
     { id: "overview" as const, label: "Visão Geral", icon: Home },
     { id: "items" as const, label: "Meus Anúncios", icon: Package },
     { id: "stats" as const, label: "Estatísticas", icon: BarChart3 },
+    { id: "domain" as const, label: "Meu Domínio", icon: Globe },
   ];
 
   return (
@@ -558,6 +568,126 @@ export default function SellerDashboard() {
                       </div>
                     </div>
                   )}
+                </div>
+              </div>
+            )}
+
+            {/* Domain Tab */}
+            {activeTab === "domain" && (
+              <div className="space-y-6">
+                <div className="bg-card border border-border rounded-2xl p-6">
+                  <div className="flex items-center gap-3 mb-5">
+                    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                      <Globe size={20} className="text-primary" />
+                    </div>
+                    <div>
+                      <h2 className="font-display font-bold text-lg text-foreground">Domínio Personalizado</h2>
+                      <p className="text-xs text-muted-foreground">Aponte seu domínio para sua loja</p>
+                    </div>
+                  </div>
+
+                  {/* Store URL */}
+                  <div className="bg-muted rounded-xl p-4 mb-6">
+                    <p className="text-xs font-semibold text-muted-foreground mb-2">URL da sua loja:</p>
+                    <div className="flex items-center gap-2">
+                      <code className="flex-1 bg-background px-3 py-2 rounded-lg text-xs text-foreground border border-border break-all">
+                        {storeUrl}
+                      </code>
+                      <button onClick={copyStoreUrl}
+                        className="flex-shrink-0 p-2.5 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors">
+                        <ClipboardCopy size={14} />
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Instructions */}
+                  <h3 className="font-display font-bold text-foreground mb-4 flex items-center gap-2">
+                    📋 Como configurar na Hostinger
+                  </h3>
+
+                  <div className="space-y-4">
+                    <div className="flex gap-3">
+                      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-sm font-bold">1</div>
+                      <div>
+                        <p className="font-semibold text-sm text-foreground">Acesse o painel da Hostinger</p>
+                        <p className="text-xs text-muted-foreground mt-1">
+                          Entre em{" "}
+                          <a href="https://hpanel.hostinger.com" target="_blank" rel="noopener noreferrer" className="text-primary underline">
+                            hpanel.hostinger.com
+                          </a>{" "}
+                          e selecione o domínio que deseja configurar.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="flex gap-3">
+                      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-sm font-bold">2</div>
+                      <div>
+                        <p className="font-semibold text-sm text-foreground">Vá em Redirecionamentos</p>
+                        <p className="text-xs text-muted-foreground mt-1">
+                          No menu lateral, clique em <strong>"Avançado"</strong> → <strong>"Redirecionamentos"</strong>.<br />
+                          Ou pesquise "Redirecionamentos" na barra de busca do painel.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="flex gap-3">
+                      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-sm font-bold">3</div>
+                      <div>
+                        <p className="font-semibold text-sm text-foreground">Crie o redirecionamento</p>
+                        <p className="text-xs text-muted-foreground mt-1">Preencha os campos:</p>
+                        <div className="mt-2 bg-muted rounded-lg p-3 space-y-2">
+                          <div className="flex items-center justify-between">
+                            <span className="text-xs text-muted-foreground">Redirecionar de:</span>
+                            <code className="text-xs font-mono text-foreground bg-background px-2 py-1 rounded">seudominio.com.br</code>
+                          </div>
+                          <div className="flex items-center justify-between">
+                            <span className="text-xs text-muted-foreground">Redirecionar para:</span>
+                            <code className="text-xs font-mono text-primary bg-primary/10 px-2 py-1 rounded break-all text-right max-w-[200px]">
+                              {storeUrl.length > 40 ? storeUrl.substring(0, 40) + "..." : storeUrl}
+                            </code>
+                          </div>
+                          <div className="flex items-center justify-between">
+                            <span className="text-xs text-muted-foreground">Tipo:</span>
+                            <code className="text-xs font-mono text-foreground bg-background px-2 py-1 rounded">301 (Permanente)</code>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="flex gap-3">
+                      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-sm font-bold">4</div>
+                      <div>
+                        <p className="font-semibold text-sm text-foreground">Salve e teste</p>
+                        <p className="text-xs text-muted-foreground mt-1">
+                          Clique em <strong>"Criar"</strong>. O redirecionamento pode levar até <strong>24 horas</strong> para funcionar completamente.<br />
+                          Depois é só acessar seu domínio e ele vai direto para sua loja!
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Tips */}
+                  <div className="mt-6 p-4 rounded-xl bg-primary/5 border border-primary/20">
+                    <p className="text-sm font-bold text-foreground flex items-center gap-2 mb-2">
+                      <CheckCircle2 size={16} className="text-green-500" /> Dicas importantes
+                    </p>
+                    <ul className="text-xs text-muted-foreground space-y-1.5">
+                      <li>• Use redirecionamento <strong>301 (Permanente)</strong> para melhor SEO</li>
+                      <li>• Redirecione também o <strong>www</strong> (ex: www.seudominio.com.br)</li>
+                      <li>• Compartilhe o seu domínio nas redes sociais e cartão de visita</li>
+                      <li>• Se tiver dúvidas, fale com seu gerente clicando no botão abaixo</li>
+                    </ul>
+                  </div>
+
+                  {/* CTA Gerente */}
+                  <a
+                    href="https://wa.me/5527995055993?text=Olá%20Gabriel!%20Preciso%20de%20ajuda%20para%20configurar%20meu%20domínio%20personalizado."
+                    target="_blank" rel="noopener noreferrer"
+                    className="mt-4 w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-green-500 text-white font-bold text-sm hover:bg-green-600 transition-colors"
+                  >
+                    <Headphones size={16} /> Precisa de ajuda? Fale com Gabriel
+                  </a>
                 </div>
               </div>
             )}
