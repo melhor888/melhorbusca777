@@ -76,6 +76,7 @@ export type Database = {
           email: string
           featured_item_id: string | null
           full_name: string
+          hero_item_ids: string[] | null
           id: string
           instagram: string | null
           logo_url: string | null
@@ -97,6 +98,7 @@ export type Database = {
           email: string
           featured_item_id?: string | null
           full_name: string
+          hero_item_ids?: string[] | null
           id?: string
           instagram?: string | null
           logo_url?: string | null
@@ -120,6 +122,7 @@ export type Database = {
           email?: string
           featured_item_id?: string | null
           full_name?: string
+          hero_item_ids?: string[] | null
           id?: string
           instagram?: string | null
           logo_url?: string | null

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
 import { supabase } from "@/integrations/supabase/client";
-import { Package, Eye, Plus, Settings, Edit, Trash2, Copy, ToggleLeft, ToggleRight, Search, Image, LogOut, BarChart3, Star, Crown, Zap, AlertTriangle, Shield, MessageCircle, Home, UserCircle, Headphones, Globe, ExternalLink, CheckCircle2, ClipboardCopy, Megaphone, Send, Calculator, Lock } from "lucide-react";
+import { Package, Eye, Plus, Settings, Edit, Trash2, Copy, ToggleLeft, ToggleRight, Search, Image, LogOut, BarChart3, Star, Crown, Zap, AlertTriangle, Shield, MessageCircle, Home, UserCircle, Headphones, Globe, ExternalLink, CheckCircle2, ClipboardCopy, Megaphone, Send, Calculator, Lock, Clapperboard } from "lucide-react";
 import { getTagStyle, getTagLabel } from "@/data/products";
 import { useToast } from "@/hooks/use-toast";
 import { motion } from "framer-motion";
@@ -104,6 +104,18 @@ export default function SellerDashboard() {
     if (!error) {
       await refreshProfile();
       toast({ title: newId ? "Destaque definido!" : "Destaque removido" });
+    }
+  };
+
+  const toggleHeroCover = async (itemId: string) => {
+    if (!user || !profile) return;
+    const current: string[] = (profile as any).hero_item_ids || [];
+    const isSelected = current.includes(itemId);
+    const updated = isSelected ? current.filter((id: string) => id !== itemId) : [...current, itemId];
+    const { error } = await supabase.from("profiles").update({ hero_item_ids: updated } as any).eq("user_id", user.id);
+    if (!error) {
+      await refreshProfile();
+      toast({ title: isSelected ? "Removido da capa da loja" : "Adicionado à capa da loja!" });
     }
   };
 
@@ -565,6 +577,10 @@ export default function SellerDashboard() {
                             <button onClick={() => setFeatured(item.id)} title="Definir como destaque do banner"
                               className={`p-2 rounded-lg transition-colors ${profile?.featured_item_id === item.id ? "bg-yellow-500/20 text-yellow-500" : "bg-secondary text-secondary-foreground hover:bg-secondary/80"}`}>
                               <Star size={14} fill={profile?.featured_item_id === item.id ? "currentColor" : "none"} />
+                            </button>
+                            <button onClick={() => toggleHeroCover(item.id)} title="Capa da Loja"
+                              className={`p-2 rounded-lg transition-colors ${((profile as any)?.hero_item_ids || []).includes(item.id) ? "bg-primary/20 text-primary" : "bg-secondary text-secondary-foreground hover:bg-secondary/80"}`}>
+                              <Clapperboard size={14} />
                             </button>
                             <button onClick={() => deleteItem(item.id)}
                               className="p-2 rounded-lg bg-destructive/10 text-destructive hover:bg-destructive/20 transition-colors">

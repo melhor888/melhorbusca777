@@ -145,10 +145,14 @@ export default function CompanyProfile() {
     return counts;
   }, [products, isDbProfile]);
 
-  // Hero images from top products
+  // Hero images: prioritize seller-chosen hero_item_ids, fallback to all products
   const heroImages = useMemo(() => {
-    return products.filter((p: any) => p.image).slice(0, 5).map((p: any) => ({ image: p.image, title: p.title, price: p.price, id: p.id }));
-  }, [products]);
+    const heroIds: string[] = (dbProfile as any)?.hero_item_ids || [];
+    const pool = heroIds.length > 0
+      ? products.filter((p: any) => p.image && heroIds.includes(p.id))
+      : products.filter((p: any) => p.image).slice(0, 5);
+    return pool.map((p: any) => ({ image: p.image, title: p.title, price: p.price, id: p.id }));
+  }, [products, dbProfile]);
 
   // Auto-slide hero
   useEffect(() => {
