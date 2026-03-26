@@ -201,16 +201,6 @@ export default function PropertiesPage() {
 
       {/* City filter for sellers & highlights */}
       <section className="pt-6 pb-2 px-4 md:px-8 lg:px-12">
-        <div className="flex items-center justify-center gap-3 mb-4">
-          <select
-            value={filterCity}
-            onChange={(e) => { const v = e.target.value; setFilterCity(v); navigate(v ? `/imoveis/${v.toLowerCase().replace(/\s+/g, "-")}` : "/imoveis", { replace: true }); }}
-            className="px-4 py-2 rounded-xl bg-secondary text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 min-w-[200px]"
-          >
-            <option value="">Todas as cidades</option>
-            {availableCities.map((c) => <option key={c} value={c}>{c}</option>)}
-          </select>
-        </div>
         <h3 className="font-display font-semibold text-base text-muted-foreground mb-4 text-center">Corretores de imóveis</h3>
         <div className="flex gap-4 overflow-x-auto scrollbar-hide pb-2 justify-center">
           {filteredSellers.filter((s) => s.logo).map((seller, i) => (
