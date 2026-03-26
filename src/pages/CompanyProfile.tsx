@@ -86,6 +86,7 @@ export default function CompanyProfile() {
           reviewCount: 0,
           whatsapp: dbProfile.phone || "",
           segment: dbProfile.seller_type,
+          show_location: dbProfile.show_location ?? true,
         }
       : null
     : staticCompany;
@@ -305,7 +306,7 @@ export default function CompanyProfile() {
       </section>
 
       {/* Company Location */}
-      {company.address && (
+      {company.address && (!isDbProfile || (company as any).show_location) && (
         <section className="container max-w-6xl mx-auto px-4 pb-10">
           <div className="rounded-2xl overflow-hidden border border-border bg-card">
             <div className="px-5 py-4 border-b border-border flex items-center gap-3">

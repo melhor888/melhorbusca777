@@ -26,6 +26,7 @@ export type Database = {
           logo_url: string | null
           phone: string | null
           seller_type: Database["public"]["Enums"]["seller_type"]
+          show_location: boolean
           state: string | null
           updated_at: string
           user_id: string
@@ -41,6 +42,7 @@ export type Database = {
           logo_url?: string | null
           phone?: string | null
           seller_type?: Database["public"]["Enums"]["seller_type"]
+          show_location?: boolean
           state?: string | null
           updated_at?: string
           user_id: string
@@ -56,6 +58,7 @@ export type Database = {
           logo_url?: string | null
           phone?: string | null
           seller_type?: Database["public"]["Enums"]["seller_type"]
+          show_location?: boolean
           state?: string | null
           updated_at?: string
           user_id?: string

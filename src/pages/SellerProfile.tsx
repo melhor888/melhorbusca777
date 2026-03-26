@@ -25,6 +25,7 @@ export default function SellerProfile() {
     address: "",
     city: "",
     state: "ES",
+    show_location: true,
   });
 
   useEffect(() => {
@@ -43,6 +44,7 @@ export default function SellerProfile() {
         address: profile.address || "",
         city: profile.city || "",
         state: profile.state || "ES",
+        show_location: profile.show_location ?? true,
       });
     }
   }, [profile]);
@@ -152,10 +154,17 @@ export default function SellerProfile() {
             <input value={form.state} onChange={(e) => setForm((f) => ({ ...f, state: e.target.value }))} className="px-4 py-3 rounded-xl border border-input bg-background text-foreground text-sm focus:ring-2 focus:ring-ring focus:outline-none" placeholder="Estado" />
           </div>
           <input value={form.address} onChange={(e) => setForm((f) => ({ ...f, address: e.target.value }))} className="w-full px-4 py-3 rounded-xl border border-input bg-background text-foreground text-sm focus:ring-2 focus:ring-ring focus:outline-none" placeholder="Endereço completo" />
+          <label className="flex items-center gap-3 cursor-pointer select-none">
+            <input
+              type="checkbox"
+              checked={form.show_location}
+              onChange={(e) => setForm((f) => ({ ...f, show_location: e.target.checked }))}
+              className="w-5 h-5 rounded border-input text-primary focus:ring-ring accent-primary cursor-pointer"
+            />
+            <span className="text-sm text-foreground">Mostrar localização no perfil da loja</span>
+          </label>
         </div>
-
-        <button
-          type="submit"
+          <button
           disabled={saving}
           className="w-full py-4 rounded-xl bg-primary text-primary-foreground font-bold text-sm hover:bg-primary/90 transition-colors disabled:opacity-50 flex items-center justify-center gap-2 shadow-lg"
         >
