@@ -5,8 +5,22 @@ import { ArrowLeft, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { formatPrice } from "@/data/products";
 import type { RealItem, RealSeller } from "@/hooks/useRealListings";
 
+interface HeroItem {
+  id: string;
+  sellerTier?: string;
+  sellerId?: string;
+  companyId?: string;
+  city?: string;
+  location?: string;
+  title?: string;
+  description?: string;
+  price?: number;
+  image?: string;
+  images?: string[];
+}
+
 interface HeroBannerCarouselProps {
-  items: (RealItem & { sellerTier?: string })[];
+  items: HeroItem[];
   sellers: Record<string, { id: string; name: string; logo: string }>;
   type: "imoveis" | "veiculos";
   filterCity?: string;
@@ -38,13 +52,13 @@ export default function HeroBannerCarousel({
     if (filterCity) {
       const cityLower = filterCity.toLowerCase();
       filtered = filtered.filter(
-        (item) => item.city?.toLowerCase() === cityLower
+        (item) => (item.city || (item as any).location || "").toLowerCase() === cityLower
       );
     }
 
     // Shuffle
     const shuffled = [...filtered].sort(() => Math.random() - 0.5);
-    return shuffled.slice(0, 20); // max 20 for performance
+    return shuffled.slice(0, 20);
   }, [items, filterCity]);
 
   // Auto-rotate
