@@ -152,7 +152,8 @@ export default function SellerDashboard() {
   const adServiceFee = adSubtotal * 0.10;
   const adTotal = adSubtotal + adServiceFee;
   // Estimativa: a cada R$8.64 = 1.661 impressões
-  const adEstimatedImpressions = Math.floor((adSubtotal / 8.64) * 1661);
+  const adDailyImpressions = Math.floor((adBudget / 8.64) * 1661);
+  const adTotalImpressions = adDailyImpressions * adDays;
 
   const submitAdRequest = async () => {
     if (!user || !profile || adSubtotal <= 0) return;
@@ -700,7 +701,15 @@ export default function SellerDashboard() {
                         </div>
                         <div className="space-y-2 text-sm">
                           <div className="flex justify-between">
-                            <span className="text-muted-foreground">Subtotal (R$ {adBudget.toFixed(2)} × {adDays} dias)</span>
+                            <span className="text-muted-foreground">Valor por dia</span>
+                            <span className="text-foreground font-medium">R$ {adBudget.toFixed(2)}</span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span className="text-muted-foreground">Impressões estimadas/dia</span>
+                            <span className="text-foreground font-medium">~{adDailyImpressions.toLocaleString("pt-BR")}</span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span className="text-muted-foreground">Subtotal ({adDays} dias)</span>
                             <span className="text-foreground font-medium">R$ {adSubtotal.toFixed(2)}</span>
                           </div>
                           <div className="flex justify-between">
@@ -713,7 +722,7 @@ export default function SellerDashboard() {
                           </div>
                           <div className="flex items-center gap-2 pt-2 text-xs text-muted-foreground bg-primary/5 rounded-xl p-3">
                             <Zap size={14} className="text-primary" />
-                            <span>Estimativa: <strong className="text-foreground">~{adEstimatedImpressions.toLocaleString("pt-BR")} impressões</strong></span>
+                            <span>Estimativa total: <strong className="text-foreground">~{adTotalImpressions.toLocaleString("pt-BR")} impressões</strong> em {adDays} dias</span>
                           </div>
                         </div>
                       </motion.div>
