@@ -698,8 +698,8 @@ export default function CompanyProfile() {
                     </div>
 
                     {current?.tag && (
-                      <span className="inline-block px-3 py-1 rounded-full bg-primary text-primary-foreground text-[10px] font-bold uppercase tracking-wider mb-3">
-                        {current.tag}
+                      <span className={`inline-block px-3 py-1 rounded-full text-[10px] font-bold shadow mb-3 ${getTagStyle(getTagLabel(current.tag))}`}>
+                        {getTagLabel(current.tag)}
                       </span>
                     )}
                     <h3 className="font-display font-bold text-2xl md:text-5xl text-white leading-tight drop-shadow-lg">
@@ -831,9 +831,20 @@ export default function CompanyProfile() {
                           transition={{ duration: 0.6 }}
                           className="max-w-3xl"
                         >
+                          {/* Store info */}
+                          <div className="flex items-center gap-3 mb-4">
+                            {company.logo && (
+                              <img src={company.logo} alt="" className="w-9 h-9 rounded-lg object-cover border border-white/20" />
+                            )}
+                            <div>
+                              <p className="font-display font-bold text-sm text-white/90">{company.name}</p>
+                              <p className="text-[11px] text-white/40">{company.address}</p>
+                            </div>
+                          </div>
+
                           {lbProduct.tag && (
-                            <span className="inline-block px-3 py-1 rounded-full bg-primary text-primary-foreground text-xs font-bold uppercase tracking-wider mb-3">
-                              {lbProduct.tag}
+                            <span className={`inline-block px-3 py-1 rounded-full text-xs font-bold shadow mb-3 ${getTagStyle(getTagLabel(lbProduct.tag))}`}>
+                              {getTagLabel(lbProduct.tag)}
                             </span>
                           )}
                           <h2 className="font-display font-bold text-3xl md:text-6xl text-white leading-tight drop-shadow-2xl">
@@ -846,9 +857,6 @@ export default function CompanyProfile() {
                             <p className="font-display font-bold text-2xl md:text-4xl text-primary mt-4 drop-shadow-lg">
                               {isDbProfile ? `R$ ${lbProduct.price.toLocaleString("pt-BR")}` : formatPrice(lbProduct.price)}
                             </p>
-                          )}
-                          {(lbProduct as any).city && (
-                            <p className="text-white/40 text-sm mt-2 flex items-center gap-2"><MapPin size={14} /> {(lbProduct as any).city}</p>
                           )}
 
                           <div className="flex items-center gap-3 mt-6 flex-wrap">
