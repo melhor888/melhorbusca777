@@ -261,15 +261,6 @@ export default function SellerDashboard() {
               </button>
             </div>
           </div>
-          {/* Mobile Tabs */}
-          <div className="flex gap-1.5 mt-4 overflow-x-auto scrollbar-hide pb-1">
-            {sidebarNav.map((nav) => (
-              <button key={nav.id} onClick={() => handleTabClick(nav.id)}
-                className={`flex-shrink-0 flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-[11px] font-semibold transition-all whitespace-nowrap ${nav.locked ? "text-white/40" : activeTab === nav.id ? "bg-white/25 text-white" : "text-white/60 hover:text-white/80"}`}>
-                {nav.locked ? <Lock size={11} /> : <nav.icon size={13} />} {nav.label}
-              </button>
-            ))}
-          </div>
         </div>
       </div>
 
