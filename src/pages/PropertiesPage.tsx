@@ -112,7 +112,7 @@ export default function PropertiesPage() {
       [list[i], list[j]] = [list[j], list[i]];
     }
     return list;
-  }, [activeCategory, propertyProducts, filterCity, filterType]);
+  }, [activeCategory, propertyProducts, filterCity, filterType, realSellers]);
 
   return (
     <div className="min-h-screen bg-background">
