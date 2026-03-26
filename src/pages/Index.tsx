@@ -66,6 +66,8 @@ export default function Index() {
   const [searchQuery, setSearchQuery] = useState("");
   const intervalRef = useRef<ReturnType<typeof setInterval>>(null);
   const heroBanners = getHeroBanners(displayCity, citySlug);
+  const quickActions = getQuickActions(citySlug);
+  const categories = getCategories(citySlug);
 
   useEffect(() => {
     intervalRef.current = setInterval(() => {
