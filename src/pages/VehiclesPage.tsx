@@ -58,6 +58,11 @@ export default function VehiclesPage() {
     return prods[Math.floor(Math.random() * prods.length)];
   }, [vehicleProducts]);
 
+  const featuredProducts = useMemo(() => {
+    const shuffled = [...vehicleProducts].sort(() => Math.random() - 0.5);
+    return shuffled.slice(0, 7);
+  }, [vehicleProducts]);
+
   const heroCompany = heroProduct ? allSellers[heroProduct.companyId] : undefined;
 
   // Extract unique brands from specs
