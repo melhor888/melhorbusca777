@@ -115,12 +115,6 @@ export default function Index() {
             </div>
           </Link>
         ))}
-        {/* Dots */}
-        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex gap-2">
-          {heroBanners.map((_, i) => (
-            <button key={i} onClick={() => setCurrentSlide(i)} className={`w-2.5 h-2.5 rounded-full transition-all ${i === currentSlide ? "bg-white w-6" : "bg-white/50"}`} />
-          ))}
-        </div>
       </section>
 
       {/* Search Bar — prominent like ML */}

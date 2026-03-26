@@ -238,14 +238,6 @@ export default function CompanyProfile() {
           </>
         )}
 
-        {/* Hero slide dots */}
-        {heroImages.length > 1 && (
-          <div className="absolute bottom-28 md:bottom-36 left-1/2 -translate-x-1/2 z-20 flex gap-2">
-            {heroImages.map((_, i) => (
-              <button key={i} onClick={() => setHeroSlide(i)} className={`w-2 h-2 rounded-full transition-all ${i === heroSlide ? "bg-white w-6" : "bg-white/40"}`} />
-            ))}
-          </div>
-        )}
 
         {/* Company info overlay */}
         <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10 z-10">
