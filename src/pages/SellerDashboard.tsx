@@ -161,7 +161,7 @@ export default function SellerDashboard() {
   const adBudget = parseFloat(adDailyBudget) || 0;
   const adDays = parseInt(adDuration) || 0;
   const adSubtotal = adBudget * adDays;
-  const adServiceFee = adSubtotal * 0.10;
+  const adServiceFee = Math.ceil(adSubtotal / 44) * 10;
   const adTotal = adSubtotal + adServiceFee;
   // Estimativa: a cada R$8.64 = 1.661 impressões
   const adDailyImpressions = Math.floor((adBudget / 8.64) * 1661);
@@ -729,7 +729,7 @@ export default function SellerDashboard() {
                             <span className="text-foreground font-medium">R$ {adSubtotal.toFixed(2)}</span>
                           </div>
                           <div className="flex justify-between">
-                            <span className="text-muted-foreground">Taxa de serviço (10%)</span>
+                            <span className="text-muted-foreground">Imposto e Taxa de serviço (R$10 a cada R$44)</span>
                             <span className="text-foreground font-medium">R$ {adServiceFee.toFixed(2)}</span>
                           </div>
                           <div className="border-t border-border pt-2 flex justify-between">
