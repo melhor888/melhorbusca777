@@ -132,16 +132,6 @@ export default function SellerDashboard() {
     toast({ title: "URL copiada!", description: storeUrl });
   };
 
-  const [adPlatform, setAdPlatform] = useState<"google" | "facebook">("google");
-  const [adDailyBudget, setAdDailyBudget] = useState<string>("");
-  const [adDuration, setAdDuration] = useState<string>("");
-  const [adDetails, setAdDetails] = useState("");
-  const [adSubmitting, setAdSubmitting] = useState(false);
-  const [adHistory, setAdHistory] = useState<any[]>([]);
-
-  useEffect(() => {
-    if (user) fetchAdHistory();
-  }, [user]);
 
   const fetchAdHistory = async () => {
     if (!user) return;
