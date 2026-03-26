@@ -38,6 +38,7 @@ const INTERVAL = 6000;
 export default function HeroBannerCarousel({
   items,
   sellers,
+  featuredItemIds,
   type,
   filterCity,
   fallbackImage,
