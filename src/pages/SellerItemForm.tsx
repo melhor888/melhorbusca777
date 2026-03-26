@@ -31,7 +31,7 @@ const propertyCategories: { value: ItemCategory; label: string }[] = [
   { value: "aluguel", label: "Aluguel" },
 ];
 
-const allTags: { value: ItemTag; label: string }[] = [
+const commonTags: { value: ItemTag; label: string }[] = [
   { value: "premium", label: "Premium" },
   { value: "luxo", label: "Luxo" },
   { value: "prime", label: "Prime" },
@@ -42,6 +42,9 @@ const allTags: { value: ItemTag; label: string }[] = [
   { value: "top", label: "Top" },
   { value: "limited", label: "Limited" },
   { value: "lancamento", label: "Lançamento" },
+];
+
+const propertyOnlyTags: { value: ItemTag; label: string }[] = [
   { value: "pronto_para_morar", label: "Pronto p/ Morar" },
   { value: "cobertura", label: "Cobertura" },
   { value: "vista_panoramica", label: "Vista Panorâmica" },
