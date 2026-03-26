@@ -506,7 +506,7 @@ export default function CompanyProfile() {
                 <h3 className="font-display font-semibold text-sm text-muted-foreground mb-3">Galeria</h3>
                 <div className="grid grid-cols-4 md:grid-cols-6 gap-2">
                   {products.filter((p: any) => p.image).slice(0, 6).map((p: any, i: number) => (
-                    <Link key={p.id} to={`/${isProperty ? "imoveis" : "veiculos"}/produto/${p.id}`}>
+                    <Link key={p.id} to={`/${p.type === "veiculo" ? "veiculos" : "imoveis"}/produto/${p.id}`}>
                       <motion.div
                         initial={{ opacity: 0, scale: 0.9 }}
                         animate={{ opacity: 1, scale: 1 }}
