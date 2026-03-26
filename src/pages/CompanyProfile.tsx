@@ -805,7 +805,7 @@ export default function CompanyProfile() {
                     </button>
 
                     {/* Content */}
-                    <div className="absolute bottom-0 left-0 right-0 p-8 md:p-14 z-10">
+                    <div className="absolute bottom-0 left-0 right-0 p-5 md:p-14 z-10">
                       <AnimatePresence mode="wait">
                         <motion.div
                           key={lbProduct.id}
