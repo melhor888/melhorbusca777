@@ -266,6 +266,34 @@ export default function SellerItemForm() {
       </div>
 
       <form onSubmit={handleSubmit} className="container max-w-3xl mx-auto px-4 py-6 space-y-6">
+        {/* Limit Warning */}
+        {isAtLimit && (
+          <div className="bg-red-500/10 border-2 border-red-500/30 rounded-2xl p-4 flex flex-col sm:flex-row items-center gap-3">
+            <Lock size={20} className="text-red-500 flex-shrink-0" />
+            <div className="flex-1 text-center sm:text-left">
+              <p className="font-bold text-red-600 text-sm">Limite de anúncios atingido!</p>
+              <p className="text-xs text-muted-foreground">Seu plano {pkgConfig.name} permite até {pkgConfig.maxItems} anúncios. Faça upgrade para continuar.</p>
+            </div>
+            <a href="/pacotes" className="px-4 py-2 rounded-xl bg-primary text-primary-foreground text-xs font-bold hover:bg-primary/90">
+              Ver Pacotes
+            </a>
+          </div>
+        )}
+
+        {/* Expired Warning */}
+        {isExpired && subscription && (
+          <div className="bg-amber-500/10 border-2 border-amber-500/30 rounded-2xl p-4 flex flex-col sm:flex-row items-center gap-3">
+            <Lock size={20} className="text-amber-500 flex-shrink-0" />
+            <div className="flex-1 text-center sm:text-left">
+              <p className="font-bold text-amber-600 text-sm">Sua assinatura expirou!</p>
+              <p className="text-xs text-muted-foreground">Renove para continuar publicando anúncios.</p>
+            </div>
+            <a href="/pacotes" className="px-4 py-2 rounded-xl bg-amber-500 text-white text-xs font-bold hover:bg-amber-600">
+              Renovar
+            </a>
+          </div>
+        )}
+
         {/* Seller Type */}
         <div className="bg-card border border-border rounded-2xl p-5">
           <label className="block text-sm font-bold text-foreground mb-3">Tipo de anúncio</label>
