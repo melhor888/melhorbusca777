@@ -633,10 +633,7 @@ export default function AdminPanel() {
                             })()}
                           </p>
                         )}
-                        <p className="text-xs text-muted-foreground">
-                          Plataforma: <strong className="text-foreground">{ad.platform === "google" ? "Google Ads" : "Facebook Ads"}</strong>
-                        </p>
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 mt-2">
+                        <div className="grid grid-cols-2 md:grid-cols-3 gap-2 mt-2">
                           <div className="bg-secondary rounded-lg p-2 text-center">
                             <p className="text-[10px] text-muted-foreground">Diário</p>
                             <p className="text-sm font-bold text-foreground">R$ {Number(ad.daily_budget).toFixed(2)}</p>
@@ -644,10 +641,6 @@ export default function AdminPanel() {
                           <div className="bg-secondary rounded-lg p-2 text-center">
                             <p className="text-[10px] text-muted-foreground">Dias</p>
                             <p className="text-sm font-bold text-foreground">{ad.duration_days}</p>
-                          </div>
-                          <div className="bg-secondary rounded-lg p-2 text-center">
-                            <p className="text-[10px] text-muted-foreground">Impostos</p>
-                            <p className="text-sm font-bold text-foreground">R$ {Number(ad.tax_amount).toFixed(2)}</p>
                           </div>
                           <div className="bg-secondary rounded-lg p-2 text-center">
                             <p className="text-[10px] text-muted-foreground">Total</p>
