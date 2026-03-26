@@ -73,7 +73,6 @@ export const PACKAGE_CONFIG = {
       "Loja estilo Netflix",
       "Selo VIP exclusivo",
       "Destaque no topo da listagem",
-      "Destaque no topo da listagem",
       "Estatísticas completas",
       "Suporte VIP dedicado",
       "Anúncios via Google Ads",
