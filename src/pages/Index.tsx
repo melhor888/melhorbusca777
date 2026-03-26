@@ -61,7 +61,7 @@ export default function Index() {
   const { cidade } = useParams<{ cidade?: string }>();
   const navigate = useNavigate();
   const cityName = cidade ? slugToCity(cidade) : null;
-  const displayCity = cityName || "Colatina";
+  const displayCity = cityName || "Espírito Santo";
   const citySlug = cityName ? cityToSlug(cityName) : "";
   const [currentSlide, setCurrentSlide] = useState(0);
   const [searchQuery, setSearchQuery] = useState("");
