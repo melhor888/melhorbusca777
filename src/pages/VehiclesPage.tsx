@@ -34,7 +34,7 @@ export default function VehiclesPage() {
 
   const vehicleProducts = useMemo(() => {
     const staticProds = allProducts.filter((p) => p.type === "veiculo");
-    const realProds: Product[] = realItems.map((item) => ({
+    const realProds: (Product & { sellerTier?: string })[] = realItems.map((item) => ({
       id: item.id,
       companyId: item.sellerId,
       title: item.title,
@@ -49,6 +49,7 @@ export default function VehiclesPage() {
         ...(item.model ? { Modelo: item.model } : {}),
       },
       location: item.city || "",
+      sellerTier: item.sellerTier || "basico",
     }));
     return [...realProds, ...staticProds];
   }, [realItems]);
@@ -376,7 +377,10 @@ export default function VehiclesPage() {
                 transition={{ delay: i * 0.04 }}
               >
                 <Link to={`/veiculos/produto/${product.id}`}>
-                  <div className="group bg-card border border-border rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                  <div className={`group bg-card border rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ${
+                    (product as any).sellerTier === "vip" ? "border-purple-500/50 ring-1 ring-purple-500/20" :
+                    (product as any).sellerTier === "premium" ? "border-amber-400/50 ring-1 ring-amber-400/20" : "border-border"
+                  }`}>
                     {/* Image */}
                     <div className="relative aspect-[4/3] overflow-hidden">
                       <img
