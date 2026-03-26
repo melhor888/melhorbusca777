@@ -7,22 +7,26 @@ import heroImoveis from "@/assets/hero-imoveis.jpg";
 import heroVeiculos from "@/assets/hero-veiculos.jpg";
 import { slugToCity, cityToSlug } from "@/lib/citySlug";
 
-const heroBanners = [
-  {
-    image: heroImoveis,
-    title: "Imóveis em Colatina",
-    subtitle: "Encontre casas, apartamentos e terrenos com os melhores preços",
-    link: "/imoveis",
-    accent: "from-primary to-[hsl(212,100%,21%)]",
-  },
-  {
-    image: heroVeiculos,
-    title: "Veículos em Colatina",
-    subtitle: "Carros, motos e utilitários com contato direto via WhatsApp",
-    link: "/veiculos",
-    accent: "from-accent to-[hsl(49,100%,42%)]",
-  },
-];
+function getHeroBanners(city: string, prefix: string) {
+  const imoveisLink = prefix ? `/${prefix}/imoveis` : "/imoveis";
+  const veiculosLink = prefix ? `/${prefix}/veiculos` : "/veiculos";
+  return [
+    {
+      image: heroImoveis,
+      title: `Imóveis em ${city}`,
+      subtitle: "Encontre casas, apartamentos e terrenos com os melhores preços",
+      link: imoveisLink,
+      accent: "from-primary to-[hsl(212,100%,21%)]",
+    },
+    {
+      image: heroVeiculos,
+      title: `Veículos em ${city}`,
+      subtitle: "Carros, motos e utilitários com contato direto via WhatsApp",
+      link: veiculosLink,
+      accent: "from-accent to-[hsl(49,100%,42%)]",
+    },
+  ];
+}
 
 const quickActions = [
   { icon: Home, label: "Casas", desc: "Encontre a casa ideal", link: "/imoveis", color: "text-primary" },
