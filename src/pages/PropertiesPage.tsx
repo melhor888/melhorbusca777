@@ -172,7 +172,7 @@ export default function PropertiesPage() {
 
       {/* Company Logos - Imobiliárias em destaque */}
       <section className="pt-6 pb-2">
-        <h3 className="font-display font-semibold text-base text-muted-foreground mb-4 text-center">Imobiliárias em destaque</h3>
+        <h3 className="font-display font-semibold text-base text-muted-foreground mb-4 text-center">Imobiliárias e corretores em destaque</h3>
         <div className="flex gap-4 overflow-x-auto scrollbar-hide pb-2 justify-center px-4 md:px-8 lg:px-12">
           {/* Real sellers first */}
           {realSellers.filter((s) => s.logo).map((seller, i) => (
