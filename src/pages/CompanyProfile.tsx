@@ -785,7 +785,7 @@ export default function CompanyProfile() {
                     {/* Close */}
                     <button
                       onClick={() => setGalleryLightbox(null)}
-                      className="absolute top-5 right-5 z-50 w-11 h-11 rounded-full bg-white/10 backdrop-blur flex items-center justify-center text-white hover:bg-white/20 transition-colors"
+                      className="absolute top-4 right-4 z-50 w-9 h-9 md:w-11 md:h-11 rounded-full bg-white/10 backdrop-blur flex items-center justify-center text-white text-sm md:text-base hover:bg-white/20 transition-colors"
                     >
                       ✕
                     </button>
@@ -793,15 +793,15 @@ export default function CompanyProfile() {
                     {/* Arrows */}
                     <button
                       onClick={() => setGalleryLightbox((prev) => (prev! - 1 + total) % total)}
-                      className="absolute left-5 top-1/2 -translate-y-1/2 z-50 w-14 h-14 rounded-full bg-white/10 backdrop-blur flex items-center justify-center text-white hover:bg-white/20 transition-colors"
+                      className="absolute left-3 top-1/2 -translate-y-1/2 z-50 w-10 h-10 md:w-14 md:h-14 rounded-full bg-white/10 backdrop-blur flex items-center justify-center text-white hover:bg-white/20 transition-colors"
                     >
-                      <ChevronLeft size={28} />
+                      <ChevronLeft size={20} className="md:hidden" /><ChevronLeft size={28} className="hidden md:block" />
                     </button>
                     <button
                       onClick={() => setGalleryLightbox((prev) => (prev! + 1) % total)}
-                      className="absolute right-5 top-1/2 -translate-y-1/2 z-50 w-14 h-14 rounded-full bg-white/10 backdrop-blur flex items-center justify-center text-white hover:bg-white/20 transition-colors"
+                      className="absolute right-3 top-1/2 -translate-y-1/2 z-50 w-10 h-10 md:w-14 md:h-14 rounded-full bg-white/10 backdrop-blur flex items-center justify-center text-white hover:bg-white/20 transition-colors"
                     >
-                      <ChevronRight size={28} />
+                      <ChevronLeft size={20} className="md:hidden rotate-180" /><ChevronRight size={28} className="hidden md:block" />
                     </button>
 
                     {/* Content */}
