@@ -24,6 +24,8 @@ import SellerItemForm from "@/pages/SellerItemForm";
 import SellerProfile from "@/pages/SellerProfile";
 import PackagesPage from "@/pages/PackagesPage";
 import AdminPanel from "@/pages/AdminPanel";
+import PrivacyPage from "@/pages/PrivacyPage";
+import TermsPage from "@/pages/TermsPage";
 import NotFound from "@/pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -57,6 +59,8 @@ const AppLayout = () => {
           <Route path="/painel/perfil" element={<SellerProfile />} />
           <Route path="/pacotes" element={<PackagesPage />} />
           <Route path="/admin" element={<AdminPanel />} />
+          <Route path="/privacidade" element={<PrivacyPage />} />
+          <Route path="/termos" element={<TermsPage />} />
           <Route path="/:cidade" element={<Index />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
