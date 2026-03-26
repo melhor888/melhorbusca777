@@ -261,11 +261,11 @@ export default function SellerDashboard() {
             </div>
           </div>
           {/* Mobile Tabs */}
-          <div className="flex gap-2 mt-4">
+          <div className="flex gap-1.5 mt-4 overflow-x-auto scrollbar-hide pb-1">
             {sidebarNav.map((nav) => (
               <button key={nav.id} onClick={() => handleTabClick(nav.id)}
-                className={`flex-1 flex items-center justify-center gap-1.5 py-2 rounded-xl text-xs font-semibold transition-all ${nav.locked ? "text-white/40" : activeTab === nav.id ? "bg-white/25 text-white" : "text-white/60 hover:text-white/80"}`}>
-                {nav.locked ? <Lock size={12} /> : <nav.icon size={14} />} {nav.label}
+                className={`flex-shrink-0 flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-[11px] font-semibold transition-all whitespace-nowrap ${nav.locked ? "text-white/40" : activeTab === nav.id ? "bg-white/25 text-white" : "text-white/60 hover:text-white/80"}`}>
+                {nav.locked ? <Lock size={11} /> : <nav.icon size={13} />} {nav.label}
               </button>
             ))}
           </div>
@@ -561,7 +561,7 @@ export default function SellerDashboard() {
                               <span className="font-bold text-green-600 text-sm whitespace-nowrap">R$ {item.price.toLocaleString("pt-BR")}</span>
                             )}
                           </div>
-                          <div className="flex items-center gap-1 mt-3 pt-3 border-t border-border">
+                          <div className="flex items-center gap-1 mt-3 pt-3 border-t border-border flex-wrap">
                             <Link to={`/painel/editar/${item.id}`}
                               className="flex-1 flex items-center justify-center gap-1 py-2 rounded-lg bg-primary/10 text-primary text-xs font-medium hover:bg-primary/20 transition-colors">
                               <Edit size={12} /> Editar
