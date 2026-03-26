@@ -152,7 +152,7 @@ export default function PropertiesPage() {
                 {heroProduct?.description || "Encontre os melhores imóveis"}
               </p>
               {heroProduct && (
-                <p className="font-display font-bold text-2xl md:text-3xl text-[#FFD100] mt-3 drop-shadow">
+                <p className="font-display font-bold text-2xl md:text-3xl text-emerald-400 mt-3 drop-shadow">
                   {formatPrice(heroProduct.price)}
                   {heroProduct.price < 20000 && <span className="text-base text-white/60 font-normal">/mês</span>}
                 </p>
