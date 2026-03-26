@@ -204,6 +204,11 @@ export default function CompanyProfile() {
               )}
 
               <div className="flex gap-3 mt-5">
+                {heroProduct && (
+                  <Link to={`/${isProperty ? "imoveis" : "veiculos"}/produto/${heroProduct.id}`} className="flex items-center gap-2 px-6 py-3 rounded-xl bg-white text-black font-bold text-sm hover:bg-white/90 transition-opacity shadow-lg">
+                    <Eye size={18} /> Ver Mais
+                  </Link>
+                )}
                 {company.whatsapp && (
                   <a href={whatsappUrl(heroProduct?.title || company.name)} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-[#25d366] to-[#128c7e] text-white font-bold text-sm hover:opacity-90 transition-opacity shadow-lg">
                     <MessageCircle size={18} /> WhatsApp
