@@ -25,6 +25,7 @@ export default function SellerProfile() {
     address: "",
     city: "",
     state: "ES",
+    show_location: true,
   });
 
   useEffect(() => {
@@ -43,6 +44,7 @@ export default function SellerProfile() {
         address: profile.address || "",
         city: profile.city || "",
         state: profile.state || "ES",
+        show_location: profile.show_location ?? true,
       });
     }
   }, [profile]);
