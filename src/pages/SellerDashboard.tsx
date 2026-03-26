@@ -149,11 +149,10 @@ export default function SellerDashboard() {
   const adBudget = parseFloat(adDailyBudget) || 0;
   const adDays = parseInt(adDuration) || 0;
   const adSubtotal = adBudget * adDays;
-  const adTaxRate = adPlatform === "facebook" ? 0.10 : 0;
-  const adTaxAmount = adSubtotal * adTaxRate;
-  const adAfterTax = adSubtotal + adTaxAmount;
-  const adServiceFee = adAfterTax * 0.30;
-  const adTotal = adAfterTax + adServiceFee;
+  const adServiceFee = adSubtotal * 0.10;
+  const adTotal = adSubtotal + adServiceFee;
+  // Estimativa: a cada R$8.64 = 1.661 impressões
+  const adEstimatedImpressions = Math.floor((adSubtotal / 8.64) * 1661);
 
   const submitAdRequest = async () => {
     if (!user || !profile || adSubtotal <= 0) return;
