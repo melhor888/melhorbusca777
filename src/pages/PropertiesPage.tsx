@@ -6,6 +6,7 @@ import { propertyCompanies, propertyCategories, type Company } from "@/data/comp
 import { allProducts, formatPrice, getTagStyle, getTagLabel, type Product } from "@/data/products";
 import { useRealListings } from "@/hooks/useRealListings";
 import PackageBadge from "@/components/PackageBadge";
+import HeroBannerCarousel from "@/components/HeroBannerCarousel";
 
 const iconMap: Record<string, React.ElementType> = { Key, Home, Building2, Landmark, Store };
 
