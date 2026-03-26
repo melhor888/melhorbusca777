@@ -22,6 +22,11 @@ export default function VehiclesPage() {
 
   const { sellers: realSellers, items: realItems } = useRealListings("automoveis");
 
+  useEffect(() => {
+    const nextCity = cidade ? cidade.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()) : "";
+    if (nextCity !== filterCity) setFilterCity(nextCity);
+  }, [cidade]);
+
   const scrollToItems = () => {
     setTimeout(() => {
       itemsSectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
