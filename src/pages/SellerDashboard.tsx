@@ -168,12 +168,12 @@ export default function SellerDashboard() {
     const { error } = await supabase.from("ad_requests").insert({
       seller_id: profile.id,
       user_id: user.id,
-      platform: adPlatform,
+      platform: "ads_interno",
       daily_budget: adBudget,
       duration_days: adDays,
       details: adDetails || null,
       subtotal: adSubtotal,
-      tax_amount: adTaxAmount,
+      tax_amount: 0,
       service_fee: adServiceFee,
       total: adTotal,
     } as any);
