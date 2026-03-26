@@ -42,8 +42,8 @@ export default function SellerDashboard() {
   const [chartView, setChartView] = useState<"diario" | "semanal">("diario");
   const [activeTab, setActiveTab] = useState<DashboardTab>("overview");
   const [adPlatform, setAdPlatform] = useState<"google" | "facebook">("google");
-  const [adDailyBudget, setAdDailyBudget] = useState<string>("");
-  const [adDuration, setAdDuration] = useState<string>("");
+  const [adDailyBudget, setAdDailyBudget] = useState<string>("10");
+  const [adDuration, setAdDuration] = useState<string>("4");
   const [adDetails, setAdDetails] = useState("");
   const [adSubmitting, setAdSubmitting] = useState(false);
   const [adHistory, setAdHistory] = useState<any[]>([]);
@@ -158,8 +158,12 @@ export default function SellerDashboard() {
 
   const submitAdRequest = async () => {
     if (!user || !profile || adSubtotal <= 0) return;
-    if (adBudget < 40) {
-      toast({ title: "Valor mínimo é R$ 40,00/dia", variant: "destructive" });
+    if (adBudget < 10) {
+      toast({ title: "Valor mínimo é R$ 10,00/dia", variant: "destructive" });
+      return;
+    }
+    if (adDays < 4) {
+      toast({ title: "Mínimo de 4 dias (depósito mínimo R$ 40,00)", variant: "destructive" });
       return;
     }
     setAdSubmitting(true);
@@ -670,13 +674,13 @@ export default function SellerDashboard() {
                     <div className="grid grid-cols-2 gap-3">
                       <div>
                         <label className="text-sm font-semibold text-foreground mb-1.5 block">Valor diário (R$)</label>
-                        <input type="number" min="40" value={adDailyBudget} onChange={(e) => setAdDailyBudget(e.target.value)}
-                          placeholder="Mínimo R$ 40" className="w-full px-4 py-3 rounded-xl border border-input bg-background text-foreground text-sm focus:ring-2 focus:ring-ring focus:outline-none" />
+                        <input type="number" min="10" value={adDailyBudget} onChange={(e) => setAdDailyBudget(e.target.value)}
+                          placeholder="Mínimo R$ 10" className="w-full px-4 py-3 rounded-xl border border-input bg-background text-foreground text-sm focus:ring-2 focus:ring-ring focus:outline-none" />
                       </div>
                       <div>
                         <label className="text-sm font-semibold text-foreground mb-1.5 block">Durante quantos dias?</label>
-                        <input type="number" min="1" value={adDuration} onChange={(e) => setAdDuration(e.target.value)}
-                          placeholder="Ex: 30" className="w-full px-4 py-3 rounded-xl border border-input bg-background text-foreground text-sm focus:ring-2 focus:ring-ring focus:outline-none" />
+                        <input type="number" min="4" value={adDuration} onChange={(e) => setAdDuration(e.target.value)}
+                          placeholder="Mínimo 4 dias" className="w-full px-4 py-3 rounded-xl border border-input bg-background text-foreground text-sm focus:ring-2 focus:ring-ring focus:outline-none" />
                       </div>
                     </div>
 
