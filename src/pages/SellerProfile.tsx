@@ -28,6 +28,8 @@ export default function SellerProfile() {
     show_location: true,
     instagram: "",
     bio: "",
+    seller_category: "" as string,
+    creci: "",
   });
 
   useEffect(() => {
@@ -49,6 +51,8 @@ export default function SellerProfile() {
         show_location: profile.show_location ?? true,
         instagram: (profile as any).instagram || "",
         bio: (profile as any).bio || "",
+        seller_category: (profile as any).seller_category || "",
+        creci: (profile as any).creci || "",
       });
     }
   }, [profile]);
@@ -72,9 +76,13 @@ export default function SellerProfile() {
     if (!user) return;
     setSaving(true);
 
+    const updateData: any = { ...form };
+    if (!updateData.seller_category) delete updateData.seller_category;
+    if (!updateData.creci) delete updateData.creci;
+
     const { error } = await supabase
       .from("profiles")
-      .update(form)
+      .update(updateData)
       .eq("user_id", user.id);
 
     if (error) {
@@ -154,7 +162,7 @@ export default function SellerProfile() {
               <button
                 key={type}
                 type="button"
-                onClick={() => setForm((f) => ({ ...f, seller_type: type }))}
+                onClick={() => setForm((f) => ({ ...f, seller_type: type, seller_category: "" }))}
                 className={`py-3 rounded-xl border-2 font-bold text-sm transition-all ${
                   form.seller_type === type
                     ? "border-primary bg-primary/10 text-primary"
@@ -165,6 +173,53 @@ export default function SellerProfile() {
               </button>
             ))}
           </div>
+        </div>
+
+        {/* Categoria do vendedor */}
+        <div className="bg-card border border-border rounded-2xl p-5 space-y-4">
+          <h2 className="font-display font-bold text-foreground">Categoria</h2>
+          <p className="text-xs text-muted-foreground">Selecione o tipo que melhor descreve você ou sua empresa.</p>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            {(form.seller_type === "imoveis"
+              ? [
+                  { value: "imobiliaria", label: "🏢 Imobiliária" },
+                  { value: "corretor", label: "📋 Corretor(a)" },
+                  { value: "proprietario", label: "🏠 Proprietário" },
+                ]
+              : [
+                  { value: "loja_veiculos", label: "🏪 Loja de Veículos" },
+                  { value: "autonomo", label: "👤 Autônomo" },
+                  { value: "concessionaria", label: "🚗 Concessionária" },
+                ]
+            ).map((cat) => (
+              <button
+                key={cat.value}
+                type="button"
+                onClick={() => setForm((f) => ({ ...f, seller_category: cat.value }))}
+                className={`py-3 rounded-xl border-2 font-bold text-sm transition-all ${
+                  form.seller_category === cat.value
+                    ? "border-primary bg-primary/10 text-primary"
+                    : "border-border text-muted-foreground hover:border-primary/50"
+                }`}
+              >
+                {cat.label}
+              </button>
+            ))}
+          </div>
+
+          {/* CRECI field — only for corretor */}
+          {form.seller_category === "corretor" && (
+            <div className="mt-4">
+              <label className="text-sm font-medium text-foreground mb-1 block">Número do CRECI</label>
+              <input
+                value={form.creci}
+                onChange={(e) => setForm((f) => ({ ...f, creci: e.target.value }))}
+                className="w-full px-4 py-3 rounded-xl border border-input bg-background text-foreground text-sm focus:ring-2 focus:ring-ring focus:outline-none"
+                placeholder="Ex: CRECI 12345-ES"
+              />
+              <p className="text-xs text-muted-foreground mt-1">O CRECI será exibido no perfil da sua loja.</p>
+            </div>
+          )}
         </div>
 
         {/* Location */}
