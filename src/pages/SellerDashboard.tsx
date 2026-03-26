@@ -663,28 +663,11 @@ export default function SellerDashboard() {
                     </div>
                     <div>
                       <h2 className="font-display font-bold text-lg text-foreground">Fazer ADS</h2>
-                      <p className="text-xs text-muted-foreground">Solicite campanhas de anúncios para sua loja. Entrarei em contato com você através do seu WhatsApp para fecharmos o negócio.</p>
+                      <p className="text-xs text-muted-foreground">Iremos procurar clientes selecionados para o seu negócio e trazê-los para a sua Loja. Entrarei em contato com você através do seu WhatsApp para fecharmos o negócio.</p>
                     </div>
                   </div>
 
-                  {/* Platform */}
                   <div className="space-y-4">
-                    <div>
-                      <label className="text-sm font-semibold text-foreground mb-2 block">Onde quer anunciar?</label>
-                      <div className="grid grid-cols-2 gap-3">
-                        <button onClick={() => setAdPlatform("google")}
-                          className={`flex items-center justify-center gap-2 py-4 rounded-xl border-2 font-bold text-sm transition-all ${adPlatform === "google" ? "border-primary bg-primary/10 text-primary" : "border-border bg-card text-muted-foreground hover:border-primary/50"}`}>
-                          🔍 Google Ads
-                          <span className="text-[10px] font-normal bg-green-500/20 text-green-600 px-1.5 py-0.5 rounded-full">0% imposto</span>
-                        </button>
-                        <button onClick={() => setAdPlatform("facebook")}
-                          className={`flex items-center justify-center gap-2 py-4 rounded-xl border-2 font-bold text-sm transition-all ${adPlatform === "facebook" ? "border-primary bg-primary/10 text-primary" : "border-border bg-card text-muted-foreground hover:border-primary/50"}`}>
-                          📘 Facebook Ads
-                          <span className="text-[10px] font-normal bg-amber-500/20 text-amber-600 px-1.5 py-0.5 rounded-full">10% imposto</span>
-                        </button>
-                      </div>
-                    </div>
-
                     {/* Budget & Duration */}
                     <div className="grid grid-cols-2 gap-3">
                       <div>
@@ -721,16 +704,16 @@ export default function SellerDashboard() {
                             <span className="text-foreground font-medium">R$ {adSubtotal.toFixed(2)}</span>
                           </div>
                           <div className="flex justify-between">
-                            <span className="text-muted-foreground">Impostos ({adPlatform === "facebook" ? "10%" : "0%"} - {adPlatform === "facebook" ? "Facebook" : "Google"})</span>
-                            <span className="text-foreground font-medium">R$ {adTaxAmount.toFixed(2)}</span>
-                          </div>
-                          <div className="flex justify-between">
-                            <span className="text-muted-foreground">Taxa de serviço (30%)</span>
+                            <span className="text-muted-foreground">Taxa de serviço (10%)</span>
                             <span className="text-foreground font-medium">R$ {adServiceFee.toFixed(2)}</span>
                           </div>
                           <div className="border-t border-border pt-2 flex justify-between">
                             <span className="font-display font-bold text-foreground">Total</span>
                             <span className="font-display font-bold text-xl text-primary">R$ {adTotal.toFixed(2)}</span>
+                          </div>
+                          <div className="flex items-center gap-2 pt-2 text-xs text-muted-foreground bg-primary/5 rounded-xl p-3">
+                            <Zap size={14} className="text-primary" />
+                            <span>Estimativa: <strong className="text-foreground">~{adEstimatedImpressions.toLocaleString("pt-BR")} impressões</strong></span>
                           </div>
                         </div>
                       </motion.div>
