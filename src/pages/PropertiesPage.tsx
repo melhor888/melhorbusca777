@@ -112,9 +112,24 @@ export default function PropertiesPage() {
 
   const filteredProducts = useMemo(() => {
     const effectiveCategory = filterType || activeCategory;
+    // Map filter values to real DB categories
+    const categoryMap: Record<string, string[]> = {
+      casas: ["casa"],
+      apartamentos: ["apartamento", "flat"],
+      terrenos: ["terreno"],
+      comerciais: ["comercial", "galpao"],
+      aluguel: ["aluguel"],
+    };
     let list = !effectiveCategory
       ? [...propertyProducts]
       : propertyProducts.filter((p) => {
+          // Match real items by their actual category
+          const realCat = (p as any).realCategory;
+          if (realCat) {
+            const matchCats = categoryMap[effectiveCategory] || [];
+            return matchCats.includes(realCat);
+          }
+          // Match static items by company category
           const companyIds = propertyCompanies
             .filter((c) => c.category === effectiveCategory)
             .map((c) => c.id);
