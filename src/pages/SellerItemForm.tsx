@@ -31,6 +31,29 @@ const propertyCategories: { value: ItemCategory; label: string }[] = [
   { value: "aluguel", label: "Aluguel" },
 ];
 
+const CAR_BRANDS = [
+  "Audi", "BMW", "BYD", "Caoa Chery", "Chevrolet", "Citroën", "Dodge", "Fiat", "Ford",
+  "Honda", "Hyundai", "JAC", "Jeep", "Kia", "Land Rover", "Mercedes-Benz", "Mitsubishi",
+  "Nissan", "Peugeot", "Porsche", "RAM", "Renault", "Subaru", "Suzuki", "Toyota",
+  "Volkswagen", "Volvo",
+];
+
+const MOTO_BRANDS = [
+  "BMW", "Dafra", "Ducati", "Haojue", "Harley-Davidson", "Honda", "Husqvarna",
+  "Kawasaki", "KTM", "Royal Enfield", "Shineray", "Suzuki", "Triumph", "Yamaha",
+];
+
+const TRUCK_BRANDS = [
+  "DAF", "Ford", "Iveco", "MAN", "Mercedes-Benz", "Scania", "Volkswagen", "Volvo",
+];
+
+function getBrandsForCategory(category: string): string[] {
+  if (category === "moto") return MOTO_BRANDS;
+  if (category === "caminhao") return TRUCK_BRANDS;
+  if (category === "van" || category === "utilitario") return [...new Set([...CAR_BRANDS, ...TRUCK_BRANDS])].sort();
+  return CAR_BRANDS;
+}
+
 const commonTags: { value: ItemTag; label: string }[] = [
   { value: "premium", label: "Premium" },
   { value: "luxo", label: "Luxo" },
