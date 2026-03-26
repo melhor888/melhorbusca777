@@ -6,6 +6,7 @@ import { Save, ArrowLeft, Upload, X, MapPin, Lock } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import type { Database } from "@/integrations/supabase/types";
 import { useSubscription, PACKAGE_CONFIG } from "@/hooks/useSubscription";
+import { ES_CITIES } from "@/data/esCities";
 
 type ItemCategory = Database["public"]["Enums"]["item_category"];
 type ItemTag = Database["public"]["Enums"]["item_tag"];
