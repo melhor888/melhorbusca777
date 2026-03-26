@@ -53,15 +53,29 @@ export default function PropertiesPage() {
     return [...realProds, ...staticProds];
   }, [realItems]);
 
+  const normalizeCityValue = (value?: string | null) => value?.trim().toLowerCase() ?? "";
+
+  const getStaticCompanyCity = (company: Company) => {
+    const city = company.address.split(" - ").pop()?.trim();
+    return normalizeCityValue(city);
+  };
+
   // Filter sellers by city
   const filteredSellers = useMemo(() => {
     if (!filterCity) return realSellers;
-    return realSellers.filter((s) => s.city.toLowerCase() === filterCity.toLowerCase());
+    const selectedCity = normalizeCityValue(filterCity);
+    return realSellers.filter((seller) => normalizeCityValue(seller.city) === selectedCity);
   }, [realSellers, filterCity]);
+
+  const filteredStaticCompanies = useMemo(() => {
+    if (!filterCity) return propertyCompanies;
+    const selectedCity = normalizeCityValue(filterCity);
+    return propertyCompanies.filter((company) => getStaticCompanyCity(company) === selectedCity);
+  }, [filterCity]);
 
   const featuredProducts = useMemo(() => {
     const base = filterCity
-      ? propertyProducts.filter((p) => (p as any).location?.toLowerCase().includes(filterCity.toLowerCase()))
+      ? propertyProducts.filter((p) => normalizeCityValue((p as any).location) === normalizeCityValue(filterCity))
       : propertyProducts;
     const shuffled = [...base].sort(() => Math.random() - 0.5);
     return shuffled.slice(0, 7);
@@ -80,8 +94,8 @@ export default function PropertiesPage() {
     realItems.forEach((item) => {
       if (item.city) cities.add(item.city.trim());
     });
-    propertyCompanies.forEach((c) => {
-      const city = c.address.split(" - ").pop()?.trim();
+    propertyCompanies.forEach((company) => {
+      const city = company.address.split(" - ").pop()?.trim();
       if (city) cities.add(city);
     });
     return Array.from(cities).sort();
@@ -107,15 +121,15 @@ export default function PropertiesPage() {
         });
 
     if (filterCity) {
-      const cityLower = filterCity.toLowerCase();
+      const selectedCity = normalizeCityValue(filterCity);
       const staticCityIds = propertyCompanies
-        .filter((c) => c.address.toLowerCase().includes(cityLower))
-        .map((c) => c.id);
+        .filter((company) => getStaticCompanyCity(company) === selectedCity)
+        .map((company) => company.id);
       const realCityIds = realSellers
-        .filter((s) => s.address.toLowerCase().includes(cityLower))
-        .map((s) => s.id);
+        .filter((seller) => normalizeCityValue(seller.city) === selectedCity)
+        .map((seller) => seller.id);
       const cityIds = new Set([...staticCityIds, ...realCityIds]);
-      list = list.filter((p) => cityIds.has(p.companyId) || (p as any).location?.toLowerCase().includes(cityLower));
+      list = list.filter((product) => cityIds.has(product.companyId) || normalizeCityValue((product as any).location) === selectedCity);
     }
 
     for (let i = list.length - 1; i > 0; i--) {
@@ -219,13 +233,12 @@ export default function PropertiesPage() {
               </Link>
             </motion.div>
           ))}
-          {/* Static companies */}
-          {propertyCompanies.map((company, i) => (
+          {filteredStaticCompanies.map((company, i) => (
             <motion.div
               key={`top-${company.id}`}
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: (realSellers.length + i) * 0.04 }}
+              transition={{ delay: (filteredSellers.length + i) * 0.04 }}
             >
               <Link
                 to={`/imoveis/empresa/${company.id}`}
