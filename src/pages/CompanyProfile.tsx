@@ -86,6 +86,7 @@ export default function CompanyProfile() {
           reviewCount: 0,
           whatsapp: dbProfile.phone || "",
           segment: dbProfile.seller_type,
+          show_location: dbProfile.show_location ?? true,
         }
       : null
     : staticCompany;
