@@ -217,7 +217,7 @@ export default function VehiclesPage() {
                 className="flex-shrink-0 w-[140px] md:w-auto snap-start"
               >
                 <button
-                  onClick={() => { setActiveCategory(isActive ? null : cat.slug); if (!isActive) scrollToItems(); }}
+                  onClick={() => { setActiveCategory(isActive ? null : cat.slug); setCurrentPage(1); if (!isActive) scrollToItems(); }}
                   className={`w-full group rounded-2xl transition-all ${isActive ? "scale-95 brightness-110" : ""}`}
                 >
                   <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg">
