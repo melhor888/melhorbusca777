@@ -286,21 +286,21 @@ export default function CompanyProfile() {
               </div>
 
               {/* Action buttons */}
-              <div className="flex flex-wrap gap-2 mt-4">
+              <div className="flex flex-nowrap gap-1.5 md:gap-2 mt-4 overflow-x-auto scrollbar-hide">
                 {company.whatsapp && (
-                  <button onClick={() => handleWhatsApp(heroProduct?.title || company.name)} className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#25d366] text-white font-bold text-sm hover:bg-[#22c55e] transition-colors shadow-lg">
-                    <MessageCircle size={16} /> WhatsApp
+                  <button onClick={() => handleWhatsApp(heroProduct?.title || company.name)} className="flex items-center gap-1.5 px-3 py-2 md:px-5 md:py-2.5 rounded-xl bg-[#25d366] text-white font-bold text-[11px] md:text-sm hover:bg-[#22c55e] transition-colors shadow-lg whitespace-nowrap flex-shrink-0">
+                    <MessageCircle size={14} /> WhatsApp
                   </button>
                 )}
                 {(company as any).instagram && ["vip", "essencial_empresa", "premium_empresa"].includes(sellerTier || "") && (
-                  <a href={`https://instagram.com/${(company as any).instagram.replace(/^@/, "")}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#833AB4] via-[#E1306C] to-[#F77737] text-white font-bold text-sm hover:opacity-90 transition-opacity shadow-lg">
-                    <Instagram size={16} /> Instagram
+                  <a href={`https://instagram.com/${(company as any).instagram.replace(/^@/, "")}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 px-3 py-2 md:px-5 md:py-2.5 rounded-xl bg-gradient-to-r from-[#833AB4] via-[#E1306C] to-[#F77737] text-white font-bold text-[11px] md:text-sm hover:opacity-90 transition-opacity shadow-lg whitespace-nowrap flex-shrink-0">
+                    <Instagram size={14} /> Instagram
                   </a>
                 )}
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
-                    <button className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/10 backdrop-blur-md text-white text-sm font-medium hover:bg-white/20 transition-colors">
-                      <Share2 size={14} />
+                    <button className="flex items-center gap-1.5 px-3 py-2 md:px-4 md:py-2.5 rounded-xl bg-white/10 backdrop-blur-md text-white text-[11px] md:text-sm font-medium hover:bg-white/20 transition-colors whitespace-nowrap flex-shrink-0">
+                      <Share2 size={13} />
                       <span className="hidden sm:inline">Compartilhar</span>
                     </button>
                   </DropdownMenuTrigger>
@@ -321,10 +321,10 @@ export default function CompanyProfile() {
                 </DropdownMenu>
                 <button
                   onClick={() => setGalleryLightbox(0)}
-                  className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/10 backdrop-blur-md text-white text-sm font-medium hover:bg-white/20 transition-colors"
+                  className="flex items-center gap-1.5 px-3 py-2 md:px-4 md:py-2.5 rounded-xl bg-white/10 backdrop-blur-md text-white text-[11px] md:text-sm font-medium hover:bg-white/20 transition-colors whitespace-nowrap flex-shrink-0"
                   title="Modo Cinema"
                 >
-                  <Clapperboard size={14} />
+                  <Clapperboard size={13} />
                   <span className="hidden sm:inline">Modo Cinema</span>
                 </button>
               </div>
