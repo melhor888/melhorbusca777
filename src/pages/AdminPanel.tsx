@@ -610,15 +610,15 @@ export default function AdminPanel() {
                             {(() => {
                               const nome = seller.full_name || "cliente";
                               const loja = seller.company_name || "";
-                              const plataforma = ad.platform === "google" ? "Google Ads" : "Facebook Ads";
+                              const plataforma = "ADS Interno";
                               const cidade = seller.city || "";
                               const nicho = seller.seller_type === "automoveis" ? "Automóveis" : "Imóveis";
                               const total = `R$ ${Number(ad.total).toFixed(2).replace(".", ",")}`;
                               
-                              const msgAprovado = `Olá ${nome}! 🎉 É com grande alegria que viemos lhe informar que a sua solicitação de anúncio foi *APROVADA*! ✅\n\n📋 *Detalhes do seu pedido:*\n🏪 Loja: ${loja}\n📍 Cidade: ${cidade}\n🏷️ Nicho: ${nicho}\n📣 Plataforma: ${plataforma}\n💰 Valor total: ${total}\n\nEntraremos em contato em breve para dar início à sua campanha. Obrigado por confiar na Manufature! 🚀`;
-                              const msgPendente = `Olá ${nome}! 👋 Recebemos a sua solicitação de anúncio.\n\n📋 *Detalhes:*\n🏪 Loja: ${loja}\n📍 Cidade: ${cidade}\n🏷️ Nicho: ${nicho}\n📣 Plataforma: ${plataforma}\n💰 Valor total: ${total}\n\nEstamos analisando o seu pedido e em breve retornaremos com uma resposta. 😊`;
+                              const msgAprovado = `Olá ${nome}! 🎉 É com grande alegria que viemos lhe informar que a sua solicitação de anúncio foi *APROVADA*! ✅\n\n📋 *Detalhes do seu pedido:*\n🏪 Loja: ${loja}\n📍 Cidade: ${cidade}\n🏷️ Nicho: ${nicho}\n💰 Valor total: ${total}\n\nEntraremos em contato em breve para dar início à sua campanha. Obrigado por confiar na Manufature! 🚀`;
+                              const msgPendente = `Olá ${nome}! 👋 Recebemos a sua solicitação de anúncio.\n\n📋 *Detalhes:*\n🏪 Loja: ${loja}\n📍 Cidade: ${cidade}\n🏷️ Nicho: ${nicho}\n💰 Valor total: ${total}\n\nEstamos analisando o seu pedido e em breve retornaremos com uma resposta. 😊`;
                               const motivoRejeicao = ad.details ? `\n\n📝 *Motivo:* ${ad.details}` : "";
-                              const msgRejeitado = `Olá ${nome}! 👋 Infelizmente sua solicitação de anúncio não foi aprovada desta vez.\n\n📋 *Detalhes:*\n🏪 Loja: ${loja}\n📣 Plataforma: ${plataforma}\n💰 Valor: ${total}${motivoRejeicao}\n\nEntre em contato conosco para mais informações. Estamos à disposição! 🤝`;
+                              const msgRejeitado = `Olá ${nome}! 👋 Infelizmente sua solicitação de anúncio não foi aprovada desta vez.\n\n📋 *Detalhes:*\n🏪 Loja: ${loja}\n💰 Valor: ${total}${motivoRejeicao}\n\nEntre em contato conosco para mais informações. Estamos à disposição! 🤝`;
                               
                               const msg = ad.status === "aprovado" ? msgAprovado : ad.status === "rejeitado" ? msgRejeitado : msgPendente;
                               const phone = seller.phone.replace(/\D/g, '');
