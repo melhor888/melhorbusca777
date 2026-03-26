@@ -131,6 +131,7 @@ export default function SellerItemForm() {
               area: data.area?.toString() || "",
               parking_spots: data.parking_spots?.toString() || "",
             });
+            setSelectedUF(data.state || "ES");
           }
         });
     }
