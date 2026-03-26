@@ -2,8 +2,8 @@ import { useState, useMemo, useEffect } from "react";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { toast } from "@/hooks/use-toast";
 import { useParams, Link } from "react-router-dom";
-import { motion } from "framer-motion";
-import { ArrowLeft, Star, MapPin, MessageCircle, Share2, Key, Home, Building2, Landmark, Store, Warehouse, Car, Bike, Truck, Cog, MoreHorizontal, Image, Eye, Instagram, Phone, ExternalLink } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowLeft, Star, MapPin, MessageCircle, Share2, Key, Home, Building2, Landmark, Store, Warehouse, Car, Bike, Truck, Cog, MoreHorizontal, Image, Eye, Instagram, Phone, ExternalLink, Clock, Shield, Zap, ChevronLeft, ChevronRight, Heart, BadgeCheck } from "lucide-react";
 import { allCompanies } from "@/data/companies";
 import { getProductsByCompany, formatPrice, getTagStyle, getTagLabel } from "@/data/products";
 import { supabase } from "@/integrations/supabase/client";
@@ -43,6 +43,7 @@ export default function CompanyProfile() {
   const [dbItems, setDbItems] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [isDbProfile, setIsDbProfile] = useState(false);
+  const [heroSlide, setHeroSlide] = useState(0);
 
   const staticCompany = allCompanies.find((c) => c.id === id);
   const staticProducts = staticCompany ? getProductsByCompany(staticCompany.id) : [];
@@ -107,6 +108,7 @@ export default function CompanyProfile() {
     id: item.id,
     title: item.title,
     image: item.photos?.[0] || "",
+    images: item.photos || [],
     price: item.price || 0,
     tag: item.tags?.[0] || null,
     category: item.category,
@@ -126,7 +128,6 @@ export default function CompanyProfile() {
     });
   }, [products, activeCategory, isDbProfile]);
 
-  // Count items per category
   const categoryCounts = useMemo(() => {
     const counts: Record<string, number> = { todos: products.length };
     products.forEach((p: any) => {
@@ -136,10 +137,22 @@ export default function CompanyProfile() {
     return counts;
   }, [products, isDbProfile]);
 
+  // Hero images from top products
+  const heroImages = useMemo(() => {
+    return products.filter((p: any) => p.image).slice(0, 5).map((p: any) => ({ image: p.image, title: p.title, price: p.price, id: p.id }));
+  }, [products]);
+
+  // Auto-slide hero
+  useEffect(() => {
+    if (heroImages.length <= 1) return;
+    const timer = setInterval(() => setHeroSlide((p) => (p + 1) % heroImages.length), 5000);
+    return () => clearInterval(timer);
+  }, [heroImages.length]);
+
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="w-10 h-10 border-4 border-primary/30 border-t-primary rounded-full animate-spin" />
+      <div className="min-h-screen flex items-center justify-center bg-background">
+        <div className="w-12 h-12 border-4 border-primary/30 border-t-primary rounded-full animate-spin" />
       </div>
     );
   }
@@ -166,107 +179,122 @@ export default function CompanyProfile() {
     );
   };
 
-  const gradientClass = isProperty
-    ? "from-[#00AEEF] via-[#002F6C] to-[#001a3d]"
-    : "from-[#FFD100] via-[#e5bc00] to-[#002F6C]";
+  const isPaid = sellerTier !== "basico";
 
   return (
-    <div className="min-h-screen bg-muted">
-      {/* Netflix Hero Banner */}
-      <section className="relative h-[45vh] md:h-[55vh] overflow-hidden">
-        {heroProduct && heroProduct.image ? (
-          <img src={heroProduct.image} alt={heroProduct.title} className="absolute inset-0 w-full h-full object-cover" />
-        ) : (
-          <div className={`absolute inset-0 bg-gradient-to-br ${gradientClass}`} />
+    <div className="min-h-screen bg-background">
+      {/* ═══════════ HERO BANNER ═══════════ */}
+      <section className="relative h-[50vh] md:h-[60vh] overflow-hidden">
+        {/* Sliding background images */}
+        <AnimatePresence mode="wait">
+          {heroImages.length > 0 && (
+            <motion.img
+              key={heroSlide}
+              src={heroImages[heroSlide].image}
+              alt={heroImages[heroSlide].title}
+              initial={{ opacity: 0, scale: 1.05 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.8 }}
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+          )}
+        </AnimatePresence>
+        {heroImages.length === 0 && (
+          <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary/80 to-accent" />
         )}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent" />
 
+        {/* Overlays */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-black/10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-transparent" />
+
+        {/* Back button */}
         <div className="absolute top-4 left-4 z-20">
           <Link to={isProperty ? "/imoveis" : "/veiculos"} className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white/10 backdrop-blur-md text-white text-sm font-medium hover:bg-white/20 transition-colors">
             <ArrowLeft size={16} /> Voltar
           </Link>
         </div>
 
-        {/* Tier Badge on hero */}
-        {sellerTier !== "basico" && (
+        {/* Tier Badge */}
+        {isPaid && (
           <div className="absolute top-4 right-4 z-20">
             <PackageBadge tier={sellerTier} size="lg" />
           </div>
         )}
 
-        <div className="absolute bottom-0 left-0 right-0 p-6 md:p-12 z-10">
+        {/* Hero slide arrows */}
+        {heroImages.length > 1 && (
+          <>
+            <button onClick={() => setHeroSlide((p) => (p - 1 + heroImages.length) % heroImages.length)} className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/30 backdrop-blur-sm flex items-center justify-center text-white hover:bg-black/50 transition-colors">
+              <ChevronLeft size={20} />
+            </button>
+            <button onClick={() => setHeroSlide((p) => (p + 1) % heroImages.length)} className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/30 backdrop-blur-sm flex items-center justify-center text-white hover:bg-black/50 transition-colors">
+              <ChevronRight size={20} />
+            </button>
+          </>
+        )}
+
+        {/* Hero slide dots */}
+        {heroImages.length > 1 && (
+          <div className="absolute bottom-28 md:bottom-36 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+            {heroImages.map((_, i) => (
+              <button key={i} onClick={() => setHeroSlide(i)} className={`w-2 h-2 rounded-full transition-all ${i === heroSlide ? "bg-white w-6" : "bg-white/40"}`} />
+            ))}
+          </div>
+        )}
+
+        {/* Company info overlay */}
+        <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10 z-10">
           <div className="container max-w-7xl mx-auto">
-            <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="max-w-2xl">
-              <div className="flex items-center gap-4 mb-4">
+            <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="max-w-3xl">
+              <div className="flex items-center gap-4 mb-3">
                 {company.logo ? (
-                  <img src={company.logo} alt={company.name} className="w-16 h-16 md:w-20 md:h-20 rounded-2xl object-cover border-2 border-white/30 shadow-xl" />
+                  <img src={company.logo} alt={company.name} className="w-16 h-16 md:w-20 md:h-20 rounded-2xl object-cover border-2 border-white/30 shadow-2xl" />
                 ) : (
-                  <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-white/20 flex items-center justify-center border-2 border-white/30">
+                  <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center border-2 border-white/30">
                     <span className="text-white font-bold text-2xl">{company.name?.charAt(0)}</span>
                   </div>
                 )}
                 <div>
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-2">
                     <h1 className="font-display font-bold text-2xl md:text-4xl text-white leading-tight">{company.name}</h1>
-                    {sellerTier !== "basico" && <PackageBadge tier={sellerTier} size="md" />}
+                    {isPaid && <BadgeCheck size={22} className="text-primary" />}
                   </div>
-                  <div className="flex items-center gap-3 mt-1">
+                  <div className="flex items-center gap-3 mt-1 flex-wrap">
                     {company.address && (
-                      <div className="flex items-center gap-1 text-white/70 text-xs">
-                        <MapPin size={12} />
-                        <span>{company.address}</span>
-                      </div>
+                      <span className="flex items-center gap-1 text-white/70 text-xs">
+                        <MapPin size={12} /> {company.address}
+                      </span>
                     )}
+                    <span className="flex items-center gap-1 text-white/60 text-xs">
+                      <Store size={12} /> {products.length} anúncios
+                    </span>
                   </div>
                 </div>
               </div>
 
-              {heroProduct && (
-                <div className="mt-2">
-                  <p className="text-sm text-white/60">Em destaque</p>
-                  <p className="font-display font-semibold text-lg text-white">{heroProduct.title}</p>
-                  {heroProduct.price > 0 && (
-                    <p className="font-display font-bold text-2xl text-[#25d366] mt-1">
-                      {isDbProfile
-                        ? `R$ ${heroProduct.price.toLocaleString("pt-BR")}`
-                        : formatPrice(heroProduct.price)}
-                    </p>
-                  )}
-                </div>
-              )}
-
-              <div className="flex gap-3 mt-5">
-                {heroProduct && (
-                  <Link to={`/${isProperty ? "imoveis" : "veiculos"}/produto/${heroProduct.id}`} className="flex items-center gap-2 px-6 py-3 rounded-xl bg-white text-black font-bold text-sm hover:bg-white/90 transition-opacity shadow-lg">
-                    <Eye size={18} /> Ver Mais
-                  </Link>
-                )}
+              {/* Action buttons */}
+              <div className="flex flex-wrap gap-2 mt-4">
                 {company.whatsapp && (
-                  <button onClick={() => handleWhatsApp(heroProduct?.title || company.name)} className="flex items-center gap-2 px-4 py-2.5 md:px-6 md:py-3 rounded-xl bg-gradient-to-r from-[#25d366] to-[#128c7e] text-white font-bold text-xs md:text-sm hover:opacity-90 transition-opacity shadow-lg">
+                  <button onClick={() => handleWhatsApp(heroProduct?.title || company.name)} className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#25d366] text-white font-bold text-sm hover:bg-[#22c55e] transition-colors shadow-lg">
                     <MessageCircle size={16} /> WhatsApp
                   </button>
                 )}
                 {(company as any).instagram && (
-                  <a
-                    href={`https://instagram.com/${(company as any).instagram.replace(/^@/, "")}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-4 py-2.5 md:px-6 md:py-3 rounded-xl bg-gradient-to-r from-[#833AB4] via-[#E1306C] to-[#F77737] text-white font-bold text-xs md:text-sm hover:opacity-90 transition-opacity shadow-lg"
-                  >
+                  <a href={`https://instagram.com/${(company as any).instagram.replace(/^@/, "")}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#833AB4] via-[#E1306C] to-[#F77737] text-white font-bold text-sm hover:opacity-90 transition-opacity shadow-lg">
                     <Instagram size={16} /> Instagram
                   </a>
                 )}
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
-                    <button className="flex items-center justify-center w-10 h-10 md:w-auto md:h-auto md:px-5 md:py-3 rounded-xl bg-white/10 backdrop-blur-md text-white font-medium text-sm hover:bg-white/20 transition-colors">
-                      <Share2 size={16} /> <span className="hidden md:inline ml-2">Compartilhar</span>
+                    <button className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/10 backdrop-blur-md text-white text-sm font-medium hover:bg-white/20 transition-colors">
+                      <Share2 size={14} />
+                      <span className="hidden sm:inline">Compartilhar</span>
                     </button>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent align="end" className="w-48">
                     <DropdownMenuItem onClick={() => {
-                      const url = window.location.href;
-                      const text = `Confira ${company.name} no AutoImóvel: ${url}`;
+                      const text = `Confira ${company.name} no MelhorBusca: ${window.location.href}`;
                       window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, "_blank");
                     }}>
                       <MessageCircle size={16} className="mr-2 text-[#25d366]" /> Enviar via WhatsApp
@@ -285,60 +313,121 @@ export default function CompanyProfile() {
         </div>
       </section>
 
-      {/* Desktop: Sidebar + Content | Mobile: Normal flow */}
+      {/* ═══════════ STATS BAR ═══════════ */}
+      <section className="border-b border-border bg-card">
+        <div className="container max-w-7xl mx-auto px-4">
+          <div className="flex items-center gap-6 py-3 overflow-x-auto scrollbar-hide">
+            <div className="flex items-center gap-2 text-sm flex-shrink-0">
+              <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
+                <Store size={16} className="text-primary" />
+              </div>
+              <div>
+                <p className="font-bold text-foreground">{products.length}</p>
+                <p className="text-[10px] text-muted-foreground">Anúncios</p>
+              </div>
+            </div>
+            <div className="w-px h-8 bg-border flex-shrink-0" />
+            <div className="flex items-center gap-2 text-sm flex-shrink-0">
+              <div className="w-8 h-8 rounded-lg bg-[#25d366]/10 flex items-center justify-center">
+                <MessageCircle size={16} className="text-[#25d366]" />
+              </div>
+              <div>
+                <p className="font-bold text-foreground">Direto</p>
+                <p className="text-[10px] text-muted-foreground">WhatsApp</p>
+              </div>
+            </div>
+            <div className="w-px h-8 bg-border flex-shrink-0" />
+            <div className="flex items-center gap-2 text-sm flex-shrink-0">
+              <div className="w-8 h-8 rounded-lg bg-accent/20 flex items-center justify-center">
+                <Shield size={16} className="text-accent-foreground" />
+              </div>
+              <div>
+                <p className="font-bold text-foreground">{isPaid ? "Verificado" : "Ativo"}</p>
+                <p className="text-[10px] text-muted-foreground">Vendedor</p>
+              </div>
+            </div>
+            {isPaid && (
+              <>
+                <div className="w-px h-8 bg-border flex-shrink-0" />
+                <div className="flex items-center gap-2 text-sm flex-shrink-0">
+                  <PackageBadge tier={sellerTier} size="sm" />
+                </div>
+              </>
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════ MAIN LAYOUT ═══════════ */}
       <div className="container max-w-7xl mx-auto px-4 py-6">
         <div className="flex gap-6">
-          {/* Desktop Sidebar */}
-          <aside className="hidden lg:block w-[260px] flex-shrink-0">
+          {/* ═══════════ DESKTOP SIDEBAR ═══════════ */}
+          <aside className="hidden lg:block w-[280px] flex-shrink-0">
             <div className="sticky top-20 space-y-4">
               {/* Company Card */}
-              <div className="bg-card border border-border rounded-2xl p-5">
-                <div className="flex items-center gap-3 mb-4">
-                  {company.logo ? (
-                    <img src={company.logo} alt={company.name} className="w-12 h-12 rounded-xl object-cover border border-border" />
-                  ) : (
-                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center border border-border">
-                      <span className="font-bold text-primary text-lg">{company.name?.charAt(0)}</span>
+              <div className="bg-card border border-border rounded-2xl overflow-hidden">
+                {/* Mini banner */}
+                <div className="h-20 bg-gradient-to-r from-primary to-primary/60 relative">
+                  {company.logo && (
+                    <img src={company.logo} alt="" className="absolute -bottom-6 left-4 w-14 h-14 rounded-xl object-cover border-3 border-card shadow-lg" />
+                  )}
+                </div>
+                <div className="p-4 pt-8">
+                  <h3 className="font-display font-bold text-foreground text-sm">{company.name}</h3>
+                  <p className="text-xs text-muted-foreground mt-0.5">{isProperty ? "Imobiliária" : "Loja de Veículos"}</p>
+                  
+                  {company.address && (
+                    <div className="flex items-start gap-2 text-xs text-muted-foreground mt-3">
+                      <MapPin size={12} className="mt-0.5 flex-shrink-0 text-primary" />
+                      <span>{company.address}</span>
                     </div>
                   )}
-                  <div className="min-w-0">
-                    <p className="font-display font-bold text-foreground text-sm truncate">{company.name}</p>
-                    <p className="text-xs text-muted-foreground">{isProperty ? "Imobiliária" : "Revenda"}</p>
+
+                  <div className="mt-4 space-y-2">
+                    {company.whatsapp && (
+                      <button
+                        onClick={() => handleWhatsApp(company.name)}
+                        className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-[#25d366] text-white font-bold text-xs hover:bg-[#22c55e] transition-colors"
+                      >
+                        <MessageCircle size={14} /> Falar no WhatsApp
+                      </button>
+                    )}
+                    {(company as any).instagram && (
+                      <a
+                        href={`https://instagram.com/${(company as any).instagram.replace(/^@/, "")}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-gradient-to-r from-[#833AB4] via-[#E1306C] to-[#F77737] text-white font-bold text-xs hover:opacity-90 transition-opacity"
+                      >
+                        <Instagram size={14} /> Instagram
+                      </a>
+                    )}
                   </div>
                 </div>
+              </div>
 
-                {sellerTier !== "basico" && (
-                  <div className="mb-4">
-                    <PackageBadge tier={sellerTier} size="md" />
+              {/* About Section */}
+              <div className="bg-card border border-border rounded-2xl p-4">
+                <h3 className="font-display font-bold text-sm text-foreground mb-3 flex items-center gap-2">
+                  <BadgeCheck size={14} className="text-primary" /> Sobre a empresa
+                </h3>
+                <div className="space-y-3 text-xs text-muted-foreground">
+                  <div className="flex items-center gap-2">
+                    <Store size={13} className="flex-shrink-0" />
+                    <span>{isProperty ? "Especialista em imóveis" : "Especialista em veículos"}</span>
                   </div>
-                )}
-
-                {company.address && (
-                  <div className="flex items-start gap-2 text-xs text-muted-foreground mb-3">
-                    <MapPin size={13} className="mt-0.5 flex-shrink-0" />
-                    <span>{company.address}</span>
+                  <div className="flex items-center gap-2">
+                    <Zap size={13} className="flex-shrink-0" />
+                    <span>Contato direto via WhatsApp</span>
                   </div>
-                )}
-
-                <div className="space-y-2">
-                  {company.whatsapp && (
-                    <button
-                      onClick={() => handleWhatsApp(company.name)}
-                      className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-gradient-to-r from-[#25d366] to-[#128c7e] text-white font-bold text-xs hover:opacity-90 transition-opacity shadow-md"
-                    >
-                      <MessageCircle size={14} /> WhatsApp
-                    </button>
-                  )}
-                  {(company as any).instagram && (
-                    <a
-                      href={`https://instagram.com/${(company as any).instagram.replace(/^@/, "")}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-gradient-to-r from-[#833AB4] via-[#E1306C] to-[#F77737] text-white font-bold text-xs hover:opacity-90 transition-opacity shadow-md"
-                    >
-                      <Instagram size={14} /> Instagram
-                    </a>
-                  )}
+                  <div className="flex items-center gap-2">
+                    <Shield size={13} className="flex-shrink-0" />
+                    <span>{isPaid ? "Vendedor verificado e premium" : "Vendedor ativo na plataforma"}</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Clock size={13} className="flex-shrink-0" />
+                    <span>Atendimento em horário comercial</span>
+                  </div>
                 </div>
               </div>
 
@@ -372,108 +461,136 @@ export default function CompanyProfile() {
                   })}
                 </nav>
               </div>
-
-              {/* Stats */}
-              <div className="bg-card border border-border rounded-2xl p-4">
-                <h3 className="font-display font-bold text-sm text-foreground mb-2">Sobre</h3>
-                <div className="space-y-2 text-xs text-muted-foreground">
-                  <div className="flex justify-between">
-                    <span>Anúncios ativos</span>
-                    <span className="font-bold text-foreground">{products.length}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>Segmento</span>
-                    <span className="font-bold text-foreground">{isProperty ? "Imóveis" : "Veículos"}</span>
-                  </div>
-                </div>
-              </div>
             </div>
           </aside>
 
-          {/* Main Content */}
+          {/* ═══════════ MAIN CONTENT ═══════════ */}
           <div className="flex-1 min-w-0">
             {/* Mobile Category Carousel */}
             <div className="lg:hidden mb-6">
-              <div className="flex gap-3 overflow-x-auto scrollbar-hide pb-2 snap-x snap-mandatory">
+              <div className="flex gap-2 overflow-x-auto scrollbar-hide pb-2 snap-x snap-mandatory">
                 {subcategories.map((cat) => {
                   const Icon = cat.icon;
                   const isActive = activeCategory === cat.slug;
+                  const count = cat.slug === "todos" ? products.length : (categoryCounts[cat.slug] || 0);
                   return (
                     <button
                       key={cat.slug}
                       onClick={() => setActiveCategory(cat.slug)}
-                      className="flex-shrink-0 w-[120px] snap-start group"
-                    >
-                      <div className={`relative aspect-[3/2] rounded-2xl overflow-hidden transition-all duration-300 ${
+                      className={`flex-shrink-0 snap-start flex items-center gap-1.5 px-4 py-2.5 rounded-full text-xs font-semibold transition-all border ${
                         isActive
-                          ? "ring-2 ring-primary ring-offset-2 ring-offset-background shadow-xl"
-                          : "shadow-md hover:shadow-lg"
-                      }`}>
-                        <img src={cat.img} alt={cat.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
-                        <div className={`absolute inset-0 transition-colors duration-300 ${
-                          isActive
-                            ? "bg-gradient-to-t from-primary/90 via-primary/40 to-transparent"
-                            : "bg-gradient-to-t from-black/70 via-black/20 to-transparent"
-                        }`} />
-                        <div className="absolute bottom-0 left-0 right-0 p-2.5 flex items-center gap-1.5">
-                          <Icon size={14} className="text-white" />
-                          <span className="text-white text-xs font-bold truncate">{cat.name}</span>
-                        </div>
-                      </div>
+                          ? "bg-primary text-primary-foreground border-primary shadow-md"
+                          : "bg-card text-muted-foreground border-border hover:border-primary/30"
+                      }`}
+                    >
+                      <Icon size={14} />
+                      {cat.name}
+                      {count > 0 && <span className={`text-[10px] px-1.5 py-0.5 rounded-full ${isActive ? "bg-white/20" : "bg-muted"}`}>{count}</span>}
                     </button>
                   );
                 })}
               </div>
             </div>
 
-            {/* Products Header */}
-            <h2 className="font-display font-bold text-xl md:text-2xl text-foreground mb-6">
-              {activeCategory === "todos" ? `Todos os Anúncios (${filteredProducts.length})` : `${subcategories.find(c => c.slug === activeCategory)?.name} (${filteredProducts.length})`}
-            </h2>
+            {/* Gallery Row — top products photos */}
+            {products.length >= 3 && (
+              <div className="mb-6">
+                <h3 className="font-display font-semibold text-sm text-muted-foreground mb-3">Galeria</h3>
+                <div className="grid grid-cols-4 md:grid-cols-6 gap-2">
+                  {products.filter((p: any) => p.image).slice(0, 6).map((p: any, i: number) => (
+                    <Link key={p.id} to={`/${isProperty ? "imoveis" : "veiculos"}/produto/${p.id}`}>
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: i * 0.05 }}
+                        className="relative aspect-square rounded-xl overflow-hidden group cursor-pointer"
+                      >
+                        <img src={p.image} alt={p.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
+                        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors flex items-center justify-center">
+                          <Eye size={20} className="text-white opacity-0 group-hover:opacity-100 transition-opacity" />
+                        </div>
+                      </motion.div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
 
-            {/* Products Grid */}
+            {/* Products Header */}
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="font-display font-bold text-lg md:text-xl text-foreground">
+                {activeCategory === "todos"
+                  ? `Todos os Anúncios`
+                  : subcategories.find(c => c.slug === activeCategory)?.name}
+                <span className="text-muted-foreground font-normal text-sm ml-2">({filteredProducts.length})</span>
+              </h2>
+            </div>
+
+            {/* Products Grid — Premium cards */}
             {filteredProducts.length > 0 ? (
-              <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
                 {filteredProducts.map((product: any, i: number) => {
                   const productLink = `/${isProperty ? "imoveis" : "veiculos"}/produto/${product.id}`;
                   return (
-                    <Link key={product.id} to={productLink}>
-                      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.05 + i * 0.04 }} className="card-epic bg-card border border-border group rounded-2xl overflow-hidden">
+                    <motion.div
+                      key={product.id}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.03 + i * 0.03 }}
+                    >
+                      <Link to={productLink} className="group block bg-card border border-border rounded-2xl overflow-hidden hover:shadow-lg hover:border-primary/20 transition-all duration-300">
                         <div className="relative aspect-[4/3] overflow-hidden bg-muted">
                           {product.image ? (
-                            <img src={product.image} alt={product.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
+                            <img src={product.image} alt={product.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
                           ) : (
                             <div className="w-full h-full flex items-center justify-center">
                               <Image size={32} className="text-muted-foreground" />
                             </div>
                           )}
+                          {/* Gradient overlay on hover */}
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                          {/* Tag */}
                           {product.tag && (
-                            <span className={`absolute top-2 left-2 px-2 py-0.5 rounded-md text-[10px] font-bold shadow ${getTagStyle(product.tag)}`}>{getTagLabel(product.tag)}</span>
+                            <span className={`absolute top-2 left-2 px-2.5 py-1 rounded-lg text-[10px] font-bold shadow-md ${getTagStyle(product.tag)}`}>
+                              {getTagLabel(product.tag)}
+                            </span>
+                          )}
+                          {/* Quick WhatsApp on hover */}
+                          {company.whatsapp && (
+                            <button
+                              onClick={(e) => { e.preventDefault(); e.stopPropagation(); handleWhatsApp(product.title); }}
+                              className="absolute bottom-2 right-2 w-9 h-9 rounded-full bg-[#25d366] text-white flex items-center justify-center shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-300 hover:scale-110"
+                            >
+                              <MessageCircle size={16} />
+                            </button>
                           )}
                         </div>
-                        <div className="p-3">
-                          <h3 className="font-display font-semibold text-foreground text-sm leading-tight line-clamp-2">{product.title}</h3>
+                        <div className="p-3 md:p-4">
+                          <h3 className="font-display font-semibold text-foreground text-sm leading-tight line-clamp-2 group-hover:text-primary transition-colors">
+                            {product.title}
+                          </h3>
                           {product.price > 0 && (
-                            <p className="font-display font-bold text-primary text-base mt-1.5">
+                            <p className="font-display font-bold text-primary text-base md:text-lg mt-1.5">
                               {isDbProfile
                                 ? `R$ ${product.price.toLocaleString("pt-BR")}`
                                 : formatPrice(product.price)}
                             </p>
                           )}
                           {product.city && (
-                            <p className="text-xs text-muted-foreground mt-1 flex items-center gap-1">
+                            <p className="text-[11px] text-muted-foreground mt-1.5 flex items-center gap-1">
                               <MapPin size={10} /> {product.city}
                             </p>
                           )}
                         </div>
-                      </motion.div>
-                    </Link>
+                      </Link>
+                    </motion.div>
                   );
                 })}
               </div>
             ) : (
-              <div className="text-center py-20">
-                <p className="text-muted-foreground text-lg">Nenhum anúncio nesta categoria</p>
+              <div className="text-center py-20 bg-card border border-border rounded-2xl">
+                <Image size={48} className="text-muted-foreground mx-auto mb-3" />
+                <p className="text-muted-foreground text-lg font-medium">Nenhum anúncio nesta categoria</p>
                 <button onClick={() => setActiveCategory("todos")} className="text-primary text-sm mt-2 hover:underline">Ver todos</button>
               </div>
             )}
@@ -481,7 +598,7 @@ export default function CompanyProfile() {
         </div>
       </div>
 
-      {/* Company Location */}
+      {/* ═══════════ LOCATION ═══════════ */}
       {company.address && (!isDbProfile || (company as any).show_location) && (
         <section className="container max-w-7xl mx-auto px-4 pb-10">
           <div className="rounded-2xl overflow-hidden border border-border bg-card">
