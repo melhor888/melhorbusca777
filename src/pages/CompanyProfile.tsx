@@ -664,16 +664,10 @@ export default function CompanyProfile() {
                 )}
                 <div>
                   <h2 className="font-display font-bold text-sm text-white">{company.name}</h2>
+                  <p className="text-[10px] text-white/40">{company.address}</p>
                   <p className="text-[10px] text-white/50">{gallerySlide + 1} de {total}</p>
                 </div>
               </div>
-
-              {/* Company logo */}
-              {company.logo && (
-                <div className="absolute top-5 right-5 z-20">
-                  <img src={company.logo} alt="" className="w-10 h-10 md:w-12 md:h-12 rounded-xl object-cover border-2 border-white/20 shadow-xl opacity-60 group-hover:opacity-100 transition-opacity" />
-                </div>
-              )}
 
               {/* Content */}
               <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10 z-10">
@@ -686,16 +680,6 @@ export default function CompanyProfile() {
                     transition={{ duration: 0.6 }}
                     className="max-w-2xl"
                   >
-                    {/* Store info */}
-                    <div className="flex items-center gap-3 mb-4">
-                      {company.logo && (
-                        <img src={company.logo} alt="" className="w-8 h-8 rounded-lg object-cover border border-white/20" />
-                      )}
-                      <div>
-                        <p className="font-display font-bold text-sm text-white/90">{company.name}</p>
-                        <p className="text-[11px] text-white/40">{company.address}</p>
-                      </div>
-                    </div>
 
                     {current?.tag && (
                       <span className={`inline-block px-3 py-1 rounded-full text-[10px] font-bold shadow mb-3 ${getTagStyle(getTagLabel(current.tag))}`}>
