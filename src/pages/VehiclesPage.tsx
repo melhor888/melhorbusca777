@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Car, Bike, Truck, Cog, ArrowLeft, ArrowRight, Search } from "lucide-react";
 import { vehicleCompanies, vehicleCategories, type Company } from "@/data/companies";
-import { allProducts, formatPrice, getTagStyle, type Product } from "@/data/products";
+import { allProducts, formatPrice, getTagStyle, getTagLabel, type Product } from "@/data/products";
+import { useRealListings } from "@/hooks/useRealListings";
 
 const iconMap: Record<string, React.ElementType> = { Car, Bike, Truck, Cog };
 
