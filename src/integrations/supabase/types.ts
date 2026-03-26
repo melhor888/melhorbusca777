@@ -180,14 +180,87 @@ export type Database = {
           },
         ]
       }
+      seller_subscriptions: {
+        Row: {
+          created_at: string
+          expires_at: string
+          id: string
+          is_active: boolean
+          max_items: number
+          notes: string | null
+          payment_method: string | null
+          payment_status: string | null
+          seller_id: string
+          started_at: string
+          tier: Database["public"]["Enums"]["package_tier"]
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          expires_at?: string
+          id?: string
+          is_active?: boolean
+          max_items?: number
+          notes?: string | null
+          payment_method?: string | null
+          payment_status?: string | null
+          seller_id: string
+          started_at?: string
+          tier?: Database["public"]["Enums"]["package_tier"]
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          expires_at?: string
+          id?: string
+          is_active?: boolean
+          max_items?: number
+          notes?: string | null
+          payment_method?: string | null
+          payment_status?: string | null
+          seller_id?: string
+          started_at?: string
+          tier?: Database["public"]["Enums"]["package_tier"]
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      user_roles: {
+        Row: {
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          id?: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      has_role: {
+        Args: {
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
     }
     Enums: {
+      app_role: "admin" | "moderator" | "user"
       item_category:
         | "casa"
         | "apartamento"
@@ -218,6 +291,7 @@ export type Database = {
         | "cobertura"
         | "vista_panoramica"
         | "aluguel_flex"
+      package_tier: "basico" | "premium" | "vip"
       seller_type: "imoveis" | "automoveis"
     }
     CompositeTypes: {
@@ -346,6 +420,7 @@ export type CompositeTypes<
 export const Constants = {
   public: {
     Enums: {
+      app_role: ["admin", "moderator", "user"],
       item_category: [
         "casa",
         "apartamento",
@@ -378,6 +453,7 @@ export const Constants = {
         "vista_panoramica",
         "aluguel_flex",
       ],
+      package_tier: ["basico", "premium", "vip"],
       seller_type: ["imoveis", "automoveis"],
     },
   },
