@@ -379,7 +379,16 @@ export default function CompanyProfile() {
                 </div>
                 <div className="p-4 pt-8">
                   <h3 className="font-display font-bold text-foreground text-sm">{company.name}</h3>
-                  <p className="text-xs text-muted-foreground mt-0.5">{isProperty ? "Imobiliária" : "Loja de Veículos"}</p>
+                  <p className="text-xs text-muted-foreground mt-0.5">
+                    {dbProfile?.seller_category
+                      ? ({ imobiliaria: "Imobiliária", corretor: "Corretor(a) de Imóveis", proprietario: "Proprietário", loja_veiculos: "Loja de Veículos", autonomo: "Autônomo", concessionaria: "Concessionária" } as Record<string, string>)[dbProfile.seller_category] || (isProperty ? "Imobiliária" : "Loja de Veículos")
+                      : isProperty ? "Imobiliária" : "Loja de Veículos"}
+                  </p>
+                  {dbProfile?.seller_category === "corretor" && dbProfile?.creci && (
+                    <p className="text-xs text-primary font-semibold mt-1 flex items-center gap-1">
+                      <Shield size={12} /> {dbProfile.creci}
+                    </p>
+                  )}
                   
                   {company.address && (
                     <div className="flex items-start gap-2 text-xs text-muted-foreground mt-3">
@@ -422,8 +431,18 @@ export default function CompanyProfile() {
                 <div className="space-y-3 text-xs text-muted-foreground">
                   <div className="flex items-center gap-2">
                     <Store size={13} className="flex-shrink-0" />
-                    <span>{isProperty ? "Especialista em imóveis" : "Especialista em veículos"}</span>
+                    <span>
+                      {dbProfile?.seller_category
+                        ? ({ imobiliaria: "Imobiliária", corretor: "Corretor(a) de Imóveis", proprietario: "Proprietário", loja_veiculos: "Loja de Veículos", autonomo: "Vendedor Autônomo", concessionaria: "Concessionária" } as Record<string, string>)[dbProfile.seller_category] || (isProperty ? "Especialista em imóveis" : "Especialista em veículos")
+                        : isProperty ? "Especialista em imóveis" : "Especialista em veículos"}
+                    </span>
                   </div>
+                  {dbProfile?.seller_category === "corretor" && dbProfile?.creci && (
+                    <div className="flex items-center gap-2">
+                      <Shield size={13} className="flex-shrink-0 text-primary" />
+                      <span className="font-semibold text-primary">{dbProfile.creci}</span>
+                    </div>
+                  )}
                   <div className="flex items-center gap-2">
                     <Zap size={13} className="flex-shrink-0" />
                     <span>Contato direto via WhatsApp</span>
