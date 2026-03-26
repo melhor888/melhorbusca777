@@ -1,7 +1,15 @@
-import { Car, Building2, Plus, Search, Menu, X, MapPin } from "lucide-react";
-import { Link, useLocation } from "react-router-dom";
+import { Car, Building2, Plus, Search, Menu, X, MapPin, ChevronDown } from "lucide-react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useCityDetection } from "@/hooks/useCityDetection";
+import { ES_CITIES } from "@/data/esCities";
+import { cityToSlug } from "@/lib/citySlug";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const navLinks = [
   { to: "/", label: "Início" },
@@ -12,8 +20,15 @@ const navLinks = [
 
 export default function Header() {
   const location = useLocation();
+  const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
-  const { detectedCity } = useCityDetection();
+  const { detectedCity, setCity } = useCityDetection();
+
+  const handleCitySelect = (city: string) => {
+    setCity(city);
+    const slug = cityToSlug(city);
+    navigate(`/${slug}`);
+  };
 
   return (
     <header className="sticky top-0 z-50 bg-card/90 backdrop-blur-xl border-b border-border">
@@ -39,12 +54,26 @@ export default function Header() {
               {link.label}
             </Link>
           ))}
-          {detectedCity && (
-            <span className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-muted-foreground">
-              <MapPin size={14} className="text-primary" />
-              {detectedCity}
-            </span>
-          )}
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <button className="flex items-center gap-1 px-3 py-2 rounded-xl text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors">
+                <MapPin size={14} className="text-primary" />
+                {detectedCity || "Selecionar cidade"}
+                <ChevronDown size={12} />
+              </button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="max-h-[300px] overflow-y-auto w-56">
+              {ES_CITIES.map((city) => (
+                <DropdownMenuItem
+                  key={city}
+                  onClick={() => handleCitySelect(city)}
+                  className={detectedCity === city ? "bg-primary/10 font-semibold" : ""}
+                >
+                  {city}
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
         </nav>
 
         <Link
@@ -80,6 +109,22 @@ export default function Header() {
               {link.label}
             </Link>
           ))}
+          {/* City selector mobile */}
+          <div className="px-4 py-2">
+            <label className="flex items-center gap-2 text-sm font-medium text-muted-foreground mb-2">
+              <MapPin size={14} className="text-primary" /> Cidade
+            </label>
+            <select
+              value={detectedCity || ""}
+              onChange={(e) => { handleCitySelect(e.target.value); setMenuOpen(false); }}
+              className="w-full px-3 py-2.5 rounded-xl bg-secondary text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/50"
+            >
+              <option value="">Selecionar cidade</option>
+              {ES_CITIES.map((city) => (
+                <option key={city} value={city}>{city}</option>
+              ))}
+            </select>
+          </div>
           <Link
             to="/buscar"
             onClick={() => setMenuOpen(false)}
