@@ -60,6 +60,10 @@ export default function Index() {
   const { cidade } = useParams<{ cidade?: string }>();
   const navigate = useNavigate();
   const cityName = cidade ? slugToCity(cidade) : null;
+  // If a cidade param is given but doesn't match any city, render nothing (NotFound will catch it)
+  if (cidade && !cityName) {
+    return null;
+  }
   const displayCity = cityName || "Colatina";
   const citySlug = cityName ? cityToSlug(cityName) : "";
   const [currentSlide, setCurrentSlide] = useState(0);
