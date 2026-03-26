@@ -261,11 +261,11 @@ export default function SellerDashboard() {
             </div>
           </div>
           {/* Mobile Tabs */}
-          <div className="flex gap-2 mt-4">
+          <div className="flex gap-1.5 mt-4 overflow-x-auto scrollbar-hide pb-1">
             {sidebarNav.map((nav) => (
               <button key={nav.id} onClick={() => handleTabClick(nav.id)}
-                className={`flex-1 flex items-center justify-center gap-1.5 py-2 rounded-xl text-xs font-semibold transition-all ${nav.locked ? "text-white/40" : activeTab === nav.id ? "bg-white/25 text-white" : "text-white/60 hover:text-white/80"}`}>
-                {nav.locked ? <Lock size={12} /> : <nav.icon size={14} />} {nav.label}
+                className={`flex-shrink-0 flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-[11px] font-semibold transition-all whitespace-nowrap ${nav.locked ? "text-white/40" : activeTab === nav.id ? "bg-white/25 text-white" : "text-white/60 hover:text-white/80"}`}>
+                {nav.locked ? <Lock size={11} /> : <nav.icon size={13} />} {nav.label}
               </button>
             ))}
           </div>
@@ -365,7 +365,7 @@ export default function SellerDashboard() {
 
         {/* Main Content */}
         <main className="flex-1 min-w-0">
-          <div className="max-w-5xl mx-auto px-4 py-6">
+          <div className="max-w-5xl mx-auto px-3 md:px-4 py-4 md:py-6">
             {/* Overview Tab */}
             {activeTab === "overview" && (
               <div className="space-y-6">
@@ -561,7 +561,7 @@ export default function SellerDashboard() {
                               <span className="font-bold text-green-600 text-sm whitespace-nowrap">R$ {item.price.toLocaleString("pt-BR")}</span>
                             )}
                           </div>
-                          <div className="flex items-center gap-1 mt-3 pt-3 border-t border-border">
+                          <div className="flex items-center gap-1 mt-3 pt-3 border-t border-border flex-wrap">
                             <Link to={`/painel/editar/${item.id}`}
                               className="flex-1 flex items-center justify-center gap-1 py-2 rounded-lg bg-primary/10 text-primary text-xs font-medium hover:bg-primary/20 transition-colors">
                               <Edit size={12} /> Editar
@@ -604,18 +604,18 @@ export default function SellerDashboard() {
                       <BarChart3 size={20} className="text-primary" />
                       <h2 className="font-display font-bold text-lg text-foreground">Estatísticas</h2>
                     </div>
-                    <div className="flex items-center gap-4">
-                      <div className="flex items-center gap-3 text-sm">
+                    <div className="flex flex-col sm:flex-row sm:items-center gap-3">
+                      <div className="flex items-center gap-3 text-sm flex-wrap">
                         <span className="flex items-center gap-1.5">
                           <Eye size={14} className="text-primary" />
-                          <span className="text-muted-foreground">{analyticsTotals.views} visitas</span>
+                          <span className="text-muted-foreground text-xs">{analyticsTotals.views} visitas</span>
                         </span>
                         <span className="flex items-center gap-1.5">
                           <MessageCircle size={14} className="text-green-500" />
-                          <span className="text-muted-foreground">{analyticsTotals.whatsapp_clicks} cliques WhatsApp</span>
+                          <span className="text-muted-foreground text-xs">{analyticsTotals.whatsapp_clicks} cliques WhatsApp</span>
                         </span>
                       </div>
-                      <div className="flex rounded-lg border border-input overflow-hidden">
+                      <div className="flex rounded-lg border border-input overflow-hidden self-start">
                         <button onClick={() => setChartView("diario")}
                           className={`px-3 py-1.5 text-xs font-medium transition-colors ${chartView === "diario" ? "bg-primary text-primary-foreground" : "bg-background text-muted-foreground hover:text-foreground"}`}>
                           Diário
