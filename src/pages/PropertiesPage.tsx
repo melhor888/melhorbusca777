@@ -189,7 +189,7 @@ export default function PropertiesPage() {
         <div className="flex items-center justify-center gap-3 mb-4">
           <select
             value={filterCity}
-            onChange={(e) => setFilterCity(e.target.value)}
+            onChange={(e) => { const v = e.target.value; setFilterCity(v); navigate(v ? `/imoveis/${v.toLowerCase().replace(/\s+/g, "-")}` : "/imoveis", { replace: true }); }}
             className="px-4 py-2 rounded-xl bg-secondary text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 min-w-[200px]"
           >
             <option value="">Todas as cidades</option>
@@ -335,7 +335,7 @@ export default function PropertiesPage() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             <select
               value={filterCity}
-              onChange={(e) => setFilterCity(e.target.value)}
+              onChange={(e) => { const v = e.target.value; setFilterCity(v); navigate(v ? `/imoveis/${v.toLowerCase().replace(/\s+/g, "-")}` : "/imoveis", { replace: true }); }}}
               className="w-full px-4 py-2.5 rounded-xl bg-secondary text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/50"
             >
               <option value="">Todas as cidades</option>
