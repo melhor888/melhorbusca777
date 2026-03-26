@@ -21,6 +21,7 @@ export type Database = {
           company_name: string | null
           created_at: string
           email: string
+          featured_item_id: string | null
           full_name: string
           id: string
           logo_url: string | null
@@ -37,6 +38,7 @@ export type Database = {
           company_name?: string | null
           created_at?: string
           email: string
+          featured_item_id?: string | null
           full_name: string
           id?: string
           logo_url?: string | null
@@ -53,6 +55,7 @@ export type Database = {
           company_name?: string | null
           created_at?: string
           email?: string
+          featured_item_id?: string | null
           full_name?: string
           id?: string
           logo_url?: string | null
@@ -63,7 +66,15 @@ export type Database = {
           updated_at?: string
           user_id?: string
         }
-        Relationships: []
+        Relationships: [
+          {
+            foreignKeyName: "profiles_featured_item_id_fkey"
+            columns: ["featured_item_id"]
+            isOneToOne: false
+            referencedRelation: "seller_items"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       seller_items: {
         Row: {

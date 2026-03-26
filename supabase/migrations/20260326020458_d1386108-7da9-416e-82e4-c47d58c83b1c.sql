@@ -1,0 +1,1 @@
+ALTER TABLE public.profiles ADD COLUMN featured_item_id uuid REFERENCES public.seller_items(id) ON DELETE SET NULL DEFAULT NULL;
