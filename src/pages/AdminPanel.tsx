@@ -676,14 +676,12 @@ export default function AdminPanel() {
                           );
                         })()}
                         {ad.status === "aprovado" && seller && (() => {
-                          const sitemapFormat = ad.platform === "google" ? "google" : "facebook";
-                          const sitemapUrl = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/seller-sitemap?seller_id=${seller.id}&format=${sitemapFormat}`;
-                          const label = ad.platform === "google" ? "Sitemap XML" : "Feed Facebook";
+                          const sitemapUrl = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/seller-sitemap?seller_id=${seller.id}&format=google`;
                           return (
                             <>
                               <a href={sitemapUrl} target="_blank" rel="noopener noreferrer"
                                 className="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-amber-500/10 text-amber-600 text-xs font-semibold hover:bg-amber-500/20">
-                                <FileText size={12} /> {label}
+                                <FileText size={12} /> Sitemap
                               </a>
                               <button onClick={() => {
                                 navigator.clipboard.writeText(sitemapUrl);
