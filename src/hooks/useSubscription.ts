@@ -108,6 +108,7 @@ export const PACKAGE_CONFIG = {
     badgeColor: "bg-gradient-to-r from-sky-600 to-blue-700 text-white",
     benefits: [
       "Anúncios ilimitados",
+      "Loja estilo Netflix",
       "Selo Empresa Verificada",
       "Destaque na homepage",
       "Destaque no topo da listagem",
