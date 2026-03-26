@@ -39,6 +39,12 @@ export default function Header() {
               {link.label}
             </Link>
           ))}
+          {detectedCity && (
+            <span className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-muted-foreground">
+              <MapPin size={14} className="text-primary" />
+              {detectedCity}
+            </span>
+          )}
         </nav>
 
         <Link
