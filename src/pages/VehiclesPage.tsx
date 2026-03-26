@@ -141,17 +141,9 @@ export default function VehiclesPage() {
   }, [realItems]);
 
   const filteredProducts = useMemo(() => {
-    // Map category slugs to real DB categories
-    const categoryMap: Record<string, string[]> = {
-      carros: ["carro"],
-      motos: ["moto"],
-      caminhoes: ["caminhao"],
-      utilitarios: ["van", "utilitario"],
-    };
     let list = !activeCategory
       ? [...vehicleProducts]
       : vehicleProducts.filter((p) => {
-          // Match real items by their actual category
           const realCat = (p as any).realCategory;
           if (realCat) {
             const matchCats = categoryMap[activeCategory] || [];
