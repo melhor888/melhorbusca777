@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowLeft, ChevronLeft, ChevronRight, MessageCircle, Share2, Star, MapPin, Tag, Store, Image } from "lucide-react";
-import { getProductById, formatPrice, getProductsByCompany, getTagStyle } from "@/data/products";
+import { getProductById, formatPrice, getProductsByCompany, getTagStyle, getTagLabel } from "@/data/products";
 import { allCompanies } from "@/data/companies";
 import { supabase } from "@/integrations/supabase/client";
 import MapEmbed from "@/components/MapEmbed";

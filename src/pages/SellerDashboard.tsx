@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
 import { supabase } from "@/integrations/supabase/client";
 import { Package, Eye, Plus, Settings, Edit, Trash2, Copy, ToggleLeft, ToggleRight, Search, Building2, Car, Image, LogOut, BarChart3 } from "lucide-react";
+import { getTagStyle, getTagLabel } from "@/data/products";
 import { useToast } from "@/hooks/use-toast";
 import { motion } from "framer-motion";
 
@@ -242,8 +243,8 @@ export default function SellerDashboard() {
                   {item.tags && item.tags.length > 0 && (
                     <div className="absolute top-2 left-2 flex gap-1 flex-wrap">
                       {item.tags.slice(0, 2).map((tag) => (
-                        <span key={tag} className="px-2 py-0.5 rounded-full text-xs font-bold bg-accent text-accent-foreground">
-                          {tag}
+                        <span key={tag} className={`px-2 py-0.5 rounded-full text-xs font-bold ${getTagStyle(tag)}`}>
+                          {getTagLabel(tag)}
                         </span>
                       ))}
                     </div>
