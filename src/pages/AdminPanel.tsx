@@ -14,6 +14,7 @@ interface SellerWithSub {
   full_name: string;
   company_name: string | null;
   email: string;
+  phone: string | null;
   seller_type: string;
   city: string | null;
   subscription?: {
@@ -98,6 +99,7 @@ export default function AdminPanel() {
       full_name: p.full_name,
       company_name: p.company_name,
       email: p.email,
+      phone: p.phone,
       seller_type: p.seller_type,
       city: p.city,
       subscription: subsMap.get(p.user_id)
@@ -549,6 +551,14 @@ export default function AdminPanel() {
                             {ad.status}
                           </span>
                         </div>
+                        <p className="text-xs text-muted-foreground">
+                          {seller?.email || "—"} • {seller?.city || "—"} • {seller?.seller_type || "—"}
+                        </p>
+                        {seller?.phone && (
+                          <p className="text-xs text-muted-foreground">
+                            📞 {seller.phone}
+                          </p>
+                        )}
                         <p className="text-xs text-muted-foreground">
                           Plataforma: <strong className="text-foreground">{ad.platform === "google" ? "Google Ads" : "Facebook Ads"}</strong>
                         </p>
