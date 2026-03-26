@@ -158,6 +158,10 @@ export default function SellerDashboard() {
 
   const submitAdRequest = async () => {
     if (!user || !profile || adSubtotal <= 0) return;
+    if (adBudget < 40) {
+      toast({ title: "Valor mínimo é R$ 40,00/dia", variant: "destructive" });
+      return;
+    }
     setAdSubmitting(true);
     const { error } = await supabase.from("ad_requests").insert({
       seller_id: profile.id,
