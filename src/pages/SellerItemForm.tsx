@@ -183,6 +183,27 @@ export default function SellerItemForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!user || !profile || !form.category) return;
+
+    // Check item limit
+    if (!isEdit && activeItemCount >= pkgConfig.maxItems) {
+      toast({
+        title: "Limite de anúncios atingido!",
+        description: `Seu plano ${pkgConfig.name} permite até ${pkgConfig.maxItems} anúncios ativos. Faça upgrade para adicionar mais.`,
+        variant: "destructive",
+      });
+      return;
+    }
+
+    // Check if subscription is expired
+    if (isExpired && subscription) {
+      toast({
+        title: "Assinatura expirada!",
+        description: "Renove seu plano para continuar publicando anúncios.",
+        variant: "destructive",
+      });
+      return;
+    }
+
     setSaving(true);
 
     const payload = {
