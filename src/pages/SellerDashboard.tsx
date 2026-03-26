@@ -118,6 +118,14 @@ export default function SellerDashboard() {
               </div>
             </div>
             <div className="flex items-center gap-2">
+              {profile?.id && (
+                <Link
+                  to={`/${profile.seller_type === "automoveis" ? "veiculos" : "imoveis"}/empresa/${profile.id}`}
+                  className="flex items-center gap-1.5 px-3 py-2.5 rounded-xl bg-white/20 text-white hover:bg-white/30 transition-colors text-sm font-medium"
+                >
+                  <Eye size={16} /> <span className="hidden sm:inline">Ver Loja</span>
+                </Link>
+              )}
               <Link
                 to="/painel/perfil"
                 className="p-2.5 rounded-xl bg-white/20 text-white hover:bg-white/30 transition-colors"
