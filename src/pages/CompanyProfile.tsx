@@ -168,6 +168,23 @@ export default function CompanyProfile() {
     return () => clearInterval(timer);
   }, [galleryPaused, galleryLightbox]);
 
+  // Fullscreen + landscape lock for cinema mode
+  useEffect(() => {
+    if (galleryLightbox !== null) {
+      const el = document.documentElement;
+      if (el.requestFullscreen) {
+        el.requestFullscreen().then(() => {
+          try { (screen.orientation as any).lock?.("landscape"); } catch {}
+        }).catch(() => {});
+      }
+    } else {
+      if (document.fullscreenElement) {
+        document.exitFullscreen().catch(() => {});
+      }
+      try { (screen.orientation as any).unlock?.(); } catch {}
+    }
+  }, [galleryLightbox]);
+
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-background">
