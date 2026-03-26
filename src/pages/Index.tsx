@@ -33,12 +33,12 @@ function getQuickActions(prefix: string) {
   const i = prefix ? `/${prefix}/imoveis` : "/imoveis";
   const v = prefix ? `/${prefix}/veiculos` : "/veiculos";
   return [
-    { icon: Home, label: "Casas", desc: "Encontre a casa ideal", link: i, color: "text-primary" },
-    { icon: Building2, label: "Apartamentos", desc: "Aptos disponíveis", link: i, color: "text-primary" },
-    { icon: Car, label: "Carros", desc: "Seminovos e novos", link: v, color: "text-accent-foreground" },
-    { icon: Bike, label: "Motos", desc: "Diversas marcas", link: v, color: "text-accent-foreground" },
-    { icon: Key, label: "Aluguel", desc: "Imóveis para alugar", link: i, color: "text-primary" },
-    { icon: Truck, label: "Caminhões", desc: "Leves e pesados", link: v, color: "text-accent-foreground" },
+    { icon: Home, label: "Casas", desc: "Encontre a casa ideal", link: `${i}?categoria=casas`, color: "text-primary" },
+    { icon: Building2, label: "Apartamentos", desc: "Aptos disponíveis", link: `${i}?categoria=apartamentos`, color: "text-primary" },
+    { icon: Car, label: "Carros", desc: "Seminovos e novos", link: `${v}?categoria=carros`, color: "text-accent-foreground" },
+    { icon: Bike, label: "Motos", desc: "Diversas marcas", link: `${v}?categoria=motos`, color: "text-accent-foreground" },
+    { icon: Key, label: "Aluguel", desc: "Imóveis para alugar", link: `${i}?categoria=alugueis`, color: "text-primary" },
+    { icon: Truck, label: "Caminhões", desc: "Leves e pesados", link: `${v}?categoria=caminhoes`, color: "text-accent-foreground" },
   ];
 }
 
@@ -46,14 +46,14 @@ function getCategories(prefix: string) {
   const i = prefix ? `/${prefix}/imoveis` : "/imoveis";
   const v = prefix ? `/${prefix}/veiculos` : "/veiculos";
   return [
-    { name: "Casas", img: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=400&h=400&fit=crop", link: i },
-    { name: "Apartamentos", img: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=400&h=400&fit=crop", link: i },
-    { name: "Terrenos", img: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=400&h=400&fit=crop", link: i },
-    { name: "Carros", img: "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=400&h=400&fit=crop", link: v },
-    { name: "Motos", img: "https://images.unsplash.com/photo-1558981806-ec527fa84c39?w=400&h=400&fit=crop", link: v },
-    { name: "Aluguel", img: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=400&h=400&fit=crop", link: i },
-    { name: "Comercial", img: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&h=400&fit=crop", link: i },
-    { name: "Utilitários", img: "https://images.unsplash.com/photo-1619767886558-efdc259cde1a?w=400&h=400&fit=crop", link: v },
+    { name: "Casas", img: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=400&h=400&fit=crop", link: `${i}?categoria=casas` },
+    { name: "Apartamentos", img: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=400&h=400&fit=crop", link: `${i}?categoria=apartamentos` },
+    { name: "Terrenos", img: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=400&h=400&fit=crop", link: `${i}?categoria=terrenos` },
+    { name: "Carros", img: "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=400&h=400&fit=crop", link: `${v}?categoria=carros` },
+    { name: "Motos", img: "https://images.unsplash.com/photo-1558981806-ec527fa84c39?w=400&h=400&fit=crop", link: `${v}?categoria=motos` },
+    { name: "Aluguel", img: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=400&h=400&fit=crop", link: `${i}?categoria=alugueis` },
+    { name: "Comercial", img: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&h=400&fit=crop", link: `${i}?categoria=comerciais` },
+    { name: "Utilitários", img: "https://images.unsplash.com/photo-1619767886558-efdc259cde1a?w=400&h=400&fit=crop", link: `${v}?categoria=utilitarios` },
   ];
 }
 

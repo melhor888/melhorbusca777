@@ -1,5 +1,5 @@
 import { useState, useMemo, useRef, useEffect } from "react";
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { Link, useParams, useNavigate, useSearchParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Building2, Home, Landmark, Store, Key, ArrowLeft, ArrowRight, Search } from "lucide-react";
 import { propertyCompanies, propertyCategories, type Company } from "@/data/companies";
@@ -14,9 +14,11 @@ const iconMap: Record<string, React.ElementType> = { Key, Home, Building2, Landm
 export default function PropertiesPage() {
   const { cidade } = useParams();
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const categoriaParam = searchParams.get("categoria");
   const { detectedCity } = useCityDetection();
   const initialCity = cidade ? cidade.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()) : (detectedCity || "");
-  const [activeCategory, setActiveCategory] = useState<string | null>(null);
+  const [activeCategory, setActiveCategory] = useState<string | null>(categoriaParam);
   const [filterCity, setFilterCity] = useState(initialCity);
   const [filterType, setFilterType] = useState("");
   const itemsSectionRef = useRef<HTMLDivElement>(null);
