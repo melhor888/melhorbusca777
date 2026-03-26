@@ -157,6 +157,13 @@ export default function CompanyProfile() {
     return () => clearInterval(timer);
   }, [heroImages.length]);
 
+  // Auto-slide gallery
+  useEffect(() => {
+    if (galleryPaused || galleryLightbox !== null) return;
+    const timer = setInterval(() => setGallerySlide((p) => p + 1), 6000);
+    return () => clearInterval(timer);
+  }, [galleryPaused, galleryLightbox]);
+
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-background">
