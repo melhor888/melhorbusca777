@@ -1,52 +1,74 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { Building2, Car, ArrowRight, Search, Home, Key, Bike, Truck, MapPin, Shield, Zap, Star, ChevronRight, Plus } from "lucide-react";
+import NotFoundPage from "@/pages/NotFound";
 import { motion } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
+import { Helmet } from "react-helmet-async";
 import heroImoveis from "@/assets/hero-imoveis.jpg";
 import heroVeiculos from "@/assets/hero-veiculos.jpg";
+import { slugToCity, cityToSlug } from "@/lib/citySlug";
 
-const heroBanners = [
-  {
-    image: heroImoveis,
-    title: "Imóveis em Colatina",
-    subtitle: "Encontre casas, apartamentos e terrenos com os melhores preços",
-    link: "/imoveis",
-    accent: "from-primary to-[hsl(212,100%,21%)]",
-  },
-  {
-    image: heroVeiculos,
-    title: "Veículos em Colatina",
-    subtitle: "Carros, motos e utilitários com contato direto via WhatsApp",
-    link: "/veiculos",
-    accent: "from-accent to-[hsl(49,100%,42%)]",
-  },
-];
+function getHeroBanners(city: string, prefix: string) {
+  const imoveisLink = prefix ? `/${prefix}/imoveis` : "/imoveis";
+  const veiculosLink = prefix ? `/${prefix}/veiculos` : "/veiculos";
+  return [
+    {
+      image: heroImoveis,
+      title: `Imóveis em ${city}`,
+      subtitle: "Encontre casas, apartamentos e terrenos com os melhores preços",
+      link: imoveisLink,
+      accent: "from-primary to-[hsl(212,100%,21%)]",
+    },
+    {
+      image: heroVeiculos,
+      title: `Veículos em ${city}`,
+      subtitle: "Carros, motos e utilitários com contato direto via WhatsApp",
+      link: veiculosLink,
+      accent: "from-accent to-[hsl(49,100%,42%)]",
+    },
+  ];
+}
 
-const quickActions = [
-  { icon: Home, label: "Casas", desc: "Encontre a casa ideal", link: "/imoveis", color: "text-primary" },
-  { icon: Building2, label: "Apartamentos", desc: "Aptos disponíveis", link: "/imoveis", color: "text-primary" },
-  { icon: Car, label: "Carros", desc: "Seminovos e novos", link: "/veiculos", color: "text-accent-foreground" },
-  { icon: Bike, label: "Motos", desc: "Diversas marcas", link: "/veiculos", color: "text-accent-foreground" },
-  { icon: Key, label: "Aluguel", desc: "Imóveis para alugar", link: "/imoveis", color: "text-primary" },
-  { icon: Truck, label: "Caminhões", desc: "Leves e pesados", link: "/veiculos", color: "text-accent-foreground" },
-];
+function getQuickActions(prefix: string) {
+  const i = prefix ? `/${prefix}/imoveis` : "/imoveis";
+  const v = prefix ? `/${prefix}/veiculos` : "/veiculos";
+  return [
+    { icon: Home, label: "Casas", desc: "Encontre a casa ideal", link: i, color: "text-primary" },
+    { icon: Building2, label: "Apartamentos", desc: "Aptos disponíveis", link: i, color: "text-primary" },
+    { icon: Car, label: "Carros", desc: "Seminovos e novos", link: v, color: "text-accent-foreground" },
+    { icon: Bike, label: "Motos", desc: "Diversas marcas", link: v, color: "text-accent-foreground" },
+    { icon: Key, label: "Aluguel", desc: "Imóveis para alugar", link: i, color: "text-primary" },
+    { icon: Truck, label: "Caminhões", desc: "Leves e pesados", link: v, color: "text-accent-foreground" },
+  ];
+}
 
-const categories = [
-  { name: "Casas", img: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=400&h=400&fit=crop", link: "/imoveis" },
-  { name: "Apartamentos", img: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=400&h=400&fit=crop", link: "/imoveis" },
-  { name: "Terrenos", img: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=400&h=400&fit=crop", link: "/imoveis" },
-  { name: "Carros", img: "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=400&h=400&fit=crop", link: "/veiculos" },
-  { name: "Motos", img: "https://images.unsplash.com/photo-1558981806-ec527fa84c39?w=400&h=400&fit=crop", link: "/veiculos" },
-  { name: "Aluguel", img: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=400&h=400&fit=crop", link: "/imoveis" },
-  { name: "Comercial", img: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&h=400&fit=crop", link: "/imoveis" },
-  { name: "Utilitários", img: "https://images.unsplash.com/photo-1619767886558-efdc259cde1a?w=400&h=400&fit=crop", link: "/veiculos" },
-];
+function getCategories(prefix: string) {
+  const i = prefix ? `/${prefix}/imoveis` : "/imoveis";
+  const v = prefix ? `/${prefix}/veiculos` : "/veiculos";
+  return [
+    { name: "Casas", img: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=400&h=400&fit=crop", link: i },
+    { name: "Apartamentos", img: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=400&h=400&fit=crop", link: i },
+    { name: "Terrenos", img: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=400&h=400&fit=crop", link: i },
+    { name: "Carros", img: "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=400&h=400&fit=crop", link: v },
+    { name: "Motos", img: "https://images.unsplash.com/photo-1558981806-ec527fa84c39?w=400&h=400&fit=crop", link: v },
+    { name: "Aluguel", img: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=400&h=400&fit=crop", link: i },
+    { name: "Comercial", img: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&h=400&fit=crop", link: i },
+    { name: "Utilitários", img: "https://images.unsplash.com/photo-1619767886558-efdc259cde1a?w=400&h=400&fit=crop", link: v },
+  ];
+}
 
 export default function Index() {
+  const { cidade } = useParams<{ cidade?: string }>();
   const navigate = useNavigate();
+  const cityName = cidade ? slugToCity(cidade) : null;
+  const displayCity = cityName || "Colatina";
+  const citySlug = cityName ? cityToSlug(cityName) : "";
   const [currentSlide, setCurrentSlide] = useState(0);
   const [searchQuery, setSearchQuery] = useState("");
   const intervalRef = useRef<ReturnType<typeof setInterval>>(null);
+  const heroBanners = getHeroBanners(displayCity, citySlug);
+  const quickActions = getQuickActions(citySlug);
+  const categories = getCategories(citySlug);
 
   useEffect(() => {
     intervalRef.current = setInterval(() => {
@@ -55,6 +77,10 @@ export default function Index() {
     return () => { if (intervalRef.current) clearInterval(intervalRef.current); };
   }, []);
 
+  if (cidade && !cityName) {
+    return <NotFoundPage />;
+  }
+
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (searchQuery.trim()) navigate(`/buscar?q=${encodeURIComponent(searchQuery.trim())}`);
@@ -62,6 +88,10 @@ export default function Index() {
 
   return (
     <div className="min-h-screen bg-secondary/50">
+      <Helmet>
+        <title>{`Imóveis e Veículos em ${displayCity} - AutoImóvel`}</title>
+        <meta name="description" content={`Marketplace de imóveis e veículos em ${displayCity}, ES. Casas, apartamentos, carros, motos e mais.`} />
+      </Helmet>
       {/* Hero Banner Carousel — full width like ML */}
       <section className="relative w-full h-[280px] md:h-[400px] overflow-hidden">
         {heroBanners.map((banner, i) => (
@@ -143,7 +173,7 @@ export default function Index() {
       <section className="px-4 md:px-8 mt-6">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4">
           {/* Imóveis Banner */}
-          <Link to="/imoveis" className="group relative overflow-hidden rounded-2xl h-[180px] md:h-[200px]">
+          <Link to={citySlug ? `/${citySlug}/imoveis` : "/imoveis"} className="group relative overflow-hidden rounded-2xl h-[180px] md:h-[200px]">
             <img src={heroImoveis} alt="Imóveis" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" width={700} height={200} />
             <div className="absolute inset-0 bg-gradient-to-r from-[hsl(var(--primary)/0.9)] to-transparent" />
             <div className="absolute inset-0 flex flex-col justify-center px-6 md:px-8">
@@ -157,7 +187,7 @@ export default function Index() {
           </Link>
 
           {/* Veículos Banner */}
-          <Link to="/veiculos" className="group relative overflow-hidden rounded-2xl h-[180px] md:h-[200px]">
+          <Link to={citySlug ? `/${citySlug}/veiculos` : "/veiculos"} className="group relative overflow-hidden rounded-2xl h-[180px] md:h-[200px]">
             <img src={heroVeiculos} alt="Veículos" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" width={700} height={200} />
             <div className="absolute inset-0 bg-gradient-to-r from-[hsl(var(--foreground)/0.85)] to-transparent" />
             <div className="absolute inset-0 flex flex-col justify-center px-6 md:px-8">
@@ -205,7 +235,7 @@ export default function Index() {
         <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-3">
           {[
             { icon: Shield, title: "Contato Direto", desc: "Fale via WhatsApp" },
-            { icon: MapPin, title: "Colatina e Região", desc: "Foco na sua cidade" },
+            { icon: MapPin, title: `${displayCity} e Região`, desc: "Foco na sua cidade" },
             { icon: Star, title: "Vendedores Verificados", desc: "Lojas confiáveis" },
             { icon: Zap, title: "Anuncie Grátis", desc: "Cadastre seus itens" },
           ].map((item, i) => (
