@@ -10,6 +10,7 @@ export interface RealSeller {
   phone: string;
   segment: "imoveis" | "automoveis";
   show_location: boolean;
+  tier: string;
 }
 
 export interface RealItem {
@@ -78,6 +79,14 @@ export function useRealListings(segment: "imoveis" | "automoveis") {
 
       const sellerIds = [...new Set((rawItems || []).map((i: any) => i.seller_id))];
 
+      // Fetch subscriptions for tier info
+      const { data: subs } = await supabase
+        .from("seller_subscriptions")
+        .select("seller_id, tier")
+        .eq("is_active", true);
+      const tierMap = new Map<string, string>();
+      (subs || []).forEach((s: any) => tierMap.set(s.seller_id, s.tier));
+
       // Fetch profiles for these sellers
       let mappedSellers: RealSeller[] = [];
       if (sellerIds.length > 0) {
@@ -95,17 +104,10 @@ export function useRealListings(segment: "imoveis" | "automoveis") {
           phone: p.phone || "",
           segment: p.seller_type,
           show_location: p.show_location ?? true,
+          tier: tierMap.get(p.id) || "basico",
         }));
       }
       setSellers(mappedSellers);
-
-      // Fetch subscriptions for tier info
-      const { data: subs } = await supabase
-        .from("seller_subscriptions")
-        .select("seller_id, tier")
-        .eq("is_active", true);
-      const tierMap = new Map<string, string>();
-      (subs || []).forEach((s: any) => tierMap.set(s.seller_id, s.tier));
 
       const mapped = (rawItems || []).map((item: any) => ({
         ...mapItem(item),
