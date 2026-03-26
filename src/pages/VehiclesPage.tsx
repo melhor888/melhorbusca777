@@ -1,5 +1,5 @@
-import { useState, useMemo, useRef } from "react";
-import { Link } from "react-router-dom";
+import { useState, useMemo, useRef, useEffect } from "react";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Car, Bike, Truck, Cog, ArrowLeft, ArrowRight, Search } from "lucide-react";
 import { vehicleCompanies, vehicleCategories, type Company } from "@/data/companies";
@@ -10,8 +10,10 @@ import PackageBadge from "@/components/PackageBadge";
 const iconMap: Record<string, React.ElementType> = { Car, Bike, Truck, Cog };
 
 export default function VehiclesPage() {
+  const { cidade } = useParams();
+  const navigate = useNavigate();
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
-  const [filterCity, setFilterCity] = useState("");
+  const [filterCity, setFilterCity] = useState(cidade ? cidade.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()) : "");
   const [filterBrand, setFilterBrand] = useState("");
   const [filterModel, setFilterModel] = useState("");
   const itemsSectionRef = useRef<HTMLDivElement>(null);
