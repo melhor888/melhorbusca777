@@ -5,6 +5,7 @@ import { ArrowLeft, ChevronLeft, ChevronRight, MessageCircle, Share2, Star, MapP
 import { getProductById, formatPrice, getProductsByCompany, getTagStyle, getTagLabel } from "@/data/products";
 import { allCompanies } from "@/data/companies";
 import { supabase } from "@/integrations/supabase/client";
+import { trackSellerEvent } from "@/hooks/useSellerAnalytics";
 import MapEmbed from "@/components/MapEmbed";
 
 function isUUID(str: string) {
@@ -49,6 +50,8 @@ export default function ProductDetail() {
         .eq("id", item.seller_id)
         .maybeSingle();
       setDbSeller(seller);
+      // Track view
+      trackSellerEvent(item.seller_id, "view", item.id);
     }
     setLoading(false);
   };
@@ -105,6 +108,9 @@ export default function ProductDetail() {
     : formatPrice(price);
 
   const whatsappUrl = `https://wa.me/${company.whatsapp}?text=${encodeURIComponent(`Olá ${company.name}! Tenho interesse: ${title} - ${formattedPrice}`)}`;
+  const handleWhatsAppClick = () => {
+    if (isDb && dbItem) trackSellerEvent(dbItem.seller_id, "whatsapp_click", dbItem.id);
+  };
 
   const mapAddress = isDb
     ? [product.address, product.neighborhood, product.city, product.state].filter(Boolean).join(", ") || company.address
