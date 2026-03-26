@@ -85,6 +85,16 @@ export default function AdminPanel() {
     }
   };
 
+  const deleteAdRequest = async (id: string) => {
+    const { error } = await supabase.from("ad_requests").delete().eq("id", id);
+    if (error) {
+      toast({ title: "Erro ao apagar", variant: "destructive" });
+    } else {
+      toast({ title: "Solicitação apagada" });
+      fetchAdRequests();
+    }
+  };
+
   const fetchSellers = async () => {
     setLoading(true);
     const { data: profiles } = await supabase.from("profiles").select("*");
@@ -605,18 +615,24 @@ export default function AdminPanel() {
                           {new Date(ad.created_at).toLocaleDateString("pt-BR")} às {new Date(ad.created_at).toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" })}
                         </p>
                       </div>
-                      {ad.status === "pendente" && (
-                        <div className="flex gap-1.5">
-                          <button onClick={() => updateAdStatus(ad.id, "aprovado")}
-                            className="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-green-500/10 text-green-600 text-xs font-semibold hover:bg-green-500/20">
-                            <Check size={12} /> Aprovar
-                          </button>
-                          <button onClick={() => updateAdStatus(ad.id, "rejeitado")}
-                            className="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-destructive/10 text-destructive text-xs font-semibold hover:bg-destructive/20">
-                            <X size={12} /> Rejeitar
-                          </button>
-                        </div>
-                      )}
+                      <div className="flex gap-1.5 flex-wrap">
+                        {ad.status === "pendente" && (
+                          <>
+                            <button onClick={() => updateAdStatus(ad.id, "aprovado")}
+                              className="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-green-500/10 text-green-600 text-xs font-semibold hover:bg-green-500/20">
+                              <Check size={12} /> Aprovar
+                            </button>
+                            <button onClick={() => updateAdStatus(ad.id, "rejeitado")}
+                              className="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-destructive/10 text-destructive text-xs font-semibold hover:bg-destructive/20">
+                              <X size={12} /> Rejeitar
+                            </button>
+                          </>
+                        )}
+                        <button onClick={() => deleteAdRequest(ad.id)}
+                          className="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-destructive/10 text-destructive text-xs font-semibold hover:bg-destructive/20">
+                          <Trash2 size={12} /> Apagar
+                        </button>
+                      </div>
                     </div>
                   </div>
                 );
