@@ -911,7 +911,7 @@ export default function SellerDashboard() {
       {/* Mobile Bottom Nav */}
       <nav className="lg:hidden fixed bottom-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-xl border-t border-border safe-area-bottom">
         <div className="flex items-center justify-around h-16">
-          {sidebarNav.slice(0, 4).map((nav) => (
+          {sidebarNav.slice(0, 3).map((nav) => (
             <button
               key={nav.id}
               onClick={() => { handleTabClick(nav.id); setMobileMenuOpen(false); }}
@@ -932,7 +932,7 @@ export default function SellerDashboard() {
             className={`flex flex-col items-center justify-center gap-0.5 px-2 py-1 rounded-lg transition-colors ${mobileMenuOpen ? "text-primary" : "text-muted-foreground"}`}
           >
             {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
-            <span className="text-[10px] font-medium">Menu</span>
+            <span className="text-[10px] font-medium">Mais</span>
           </button>
         </div>
       </nav>
