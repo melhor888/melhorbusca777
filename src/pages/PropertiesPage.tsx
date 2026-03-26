@@ -212,7 +212,7 @@ export default function PropertiesPage() {
 
       {/* Categories - Carousel */}
       <section className="px-4 md:px-8 lg:px-12 mt-6 relative z-10">
-        <div className="flex gap-3 overflow-x-auto scrollbar-hide pb-2 pl-1 pr-8 snap-x snap-mandatory md:grid md:grid-cols-5 md:overflow-visible md:pl-0 md:pr-0">
+        <div className="flex gap-3 overflow-x-auto scrollbar-hide pb-3 pl-1 pr-8 snap-x snap-mandatory md:grid md:grid-cols-5 md:overflow-visible md:pl-0 md:pr-0">
           {propertyCategories.map((cat, i) => {
             const Icon = iconMap[cat.icon] || Building2;
             const isActive = activeCategory === cat.slug;
@@ -226,7 +226,7 @@ export default function PropertiesPage() {
               >
                 <button
                   onClick={() => { setActiveCategory(isActive ? null : cat.slug); if (!isActive) scrollToItems(); }}
-                  className={`w-full group ${isActive ? "ring-4 ring-white/60 rounded-2xl" : ""}`}
+                  className={`w-full group rounded-2xl transition-all ${isActive ? "scale-95 brightness-110" : ""}`}
                 >
                   <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg">
                     <img
