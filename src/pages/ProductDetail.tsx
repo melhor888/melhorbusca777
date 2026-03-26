@@ -6,6 +6,7 @@ import { getProductById, formatPrice, getProductsByCompany, getTagStyle, getTagL
 import { allCompanies } from "@/data/companies";
 import { supabase } from "@/integrations/supabase/client";
 import { trackSellerEvent } from "@/hooks/useSellerAnalytics";
+import { useToast } from "@/hooks/use-toast";
 import MapEmbed from "@/components/MapEmbed";
 
 function isUUID(str: string) {
