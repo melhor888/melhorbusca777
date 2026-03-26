@@ -357,7 +357,7 @@ export default function SellerDashboard() {
 
         {/* Main Content */}
         <main className="flex-1 min-w-0">
-          <div className="max-w-5xl mx-auto px-3 md:px-4 py-4 md:py-6">
+          <div className="max-w-5xl mx-auto px-3 md:px-4 py-4 md:py-6 pb-20 lg:pb-6">
             {/* Overview Tab */}
             {activeTab === "overview" && (
               <div className="space-y-6">
