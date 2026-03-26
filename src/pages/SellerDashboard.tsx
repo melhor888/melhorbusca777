@@ -46,6 +46,7 @@ export default function SellerDashboard() {
   const [adDetails, setAdDetails] = useState("");
   const [adSubmitting, setAdSubmitting] = useState(false);
   const [adHistory, setAdHistory] = useState<any[]>([]);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     if (!authLoading && !user) navigate("/entrar");
