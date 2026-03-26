@@ -99,7 +99,7 @@ export default function HeroBannerCarousel({
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.8 }}
-          src={currentItem?.images?.[0] || fallbackImage}
+          src={currentItem?.images?.[0] || currentItem?.image || fallbackImage}
           alt={currentItem?.title || ""}
           className="w-full h-full object-cover absolute inset-0"
         />
