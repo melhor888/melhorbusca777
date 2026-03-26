@@ -148,10 +148,7 @@ export default function PropertiesPage() {
       list = list.filter((product) => cityIds.has(product.companyId) || normalizeCityValue((product as any).location) === selectedCity);
     }
 
-    for (let i = list.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [list[i], list[j]] = [list[j], list[i]];
-    }
+    list.sort((a, b) => a.id.localeCompare(b.id));
     return list;
   }, [activeCategory, propertyProducts, filterCity, filterType, realSellers]);
 
