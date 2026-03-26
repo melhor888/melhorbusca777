@@ -122,11 +122,8 @@ export default function VehiclesPage() {
       list = list.filter((p) => p.title.toLowerCase().includes(q) || (p.specs["Modelo"] || "").toLowerCase().includes(q));
     }
 
-    // Shuffle
-    for (let i = list.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [list[i], list[j]] = [list[j], list[i]];
-    }
+    // Stable shuffle using item id as seed (no random re-renders)
+    list.sort((a, b) => a.id.localeCompare(b.id));
     return list;
   }, [activeCategory, vehicleProducts, filterCity, filterBrand, filterModel]);
 
