@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Shield, Users, Package, DollarSign, Search, Check, X, RefreshCw, ArrowLeft, Crown, Star, Zap, Globe, Plus, Trash2, ExternalLink, Copy, Megaphone } from "lucide-react";
+import { Shield, Users, Package, DollarSign, Search, Check, X, RefreshCw, ArrowLeft, Crown, Star, Zap, Globe, Plus, Trash2, ExternalLink, Copy, Megaphone, LayoutDashboard } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
 import { useIsAdmin, PACKAGE_CONFIG } from "@/hooks/useSubscription";
@@ -230,11 +230,21 @@ export default function AdminPanel() {
     );
   }
 
+  const pendingAdsCount = adRequests.filter(a => a.status === "pendente").length;
+
+  const sidebarItems = [
+    { key: "sellers" as const, label: "Vendedores", icon: Users },
+    { key: "billing" as const, label: "Faturamento", icon: DollarSign },
+    { key: "domains" as const, label: "Domínios", icon: Globe },
+    { key: "ads" as const, label: "Solicitações ADS", icon: Megaphone, badge: pendingAdsCount },
+  ];
+
   return (
-    <div className="min-h-screen bg-background">
-      <div className="gradient-hero py-8">
-        <div className="container max-w-6xl mx-auto px-4">
-          <Link to="/painel" className="inline-flex items-center gap-2 text-white/70 text-sm mb-3 hover:text-white">
+    <div className="min-h-screen bg-background flex flex-col">
+      {/* Header */}
+      <div className="gradient-hero py-5 shrink-0">
+        <div className="container max-w-7xl mx-auto px-4">
+          <Link to="/painel" className="inline-flex items-center gap-2 text-white/70 text-sm mb-2 hover:text-white">
             <ArrowLeft size={16} /> Voltar
           </Link>
           <div className="flex items-center gap-3">
@@ -244,50 +254,72 @@ export default function AdminPanel() {
         </div>
       </div>
 
-      <div className="container max-w-6xl mx-auto px-4 -mt-6 relative z-10 pb-16">
-        {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
-          {[
-            { label: "Total Vendedores", value: sellers.length, icon: Users, color: "text-primary" },
-            { label: "Básico", value: totalByTier.basico, icon: Zap, color: "text-slate-500" },
-            { label: "Premium", value: totalByTier.premium, icon: Star, color: "text-amber-500" },
-            { label: "VIP", value: totalByTier.vip, icon: Crown, color: "text-purple-500" },
-          ].map((s, i) => (
-            <motion.div key={s.label} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }}
-              className="bg-card border border-border rounded-2xl p-4">
-              <div className="flex items-center gap-2 mb-1">
-                <s.icon size={16} className={s.color} />
-                <span className="text-xs text-muted-foreground">{s.label}</span>
+      <div className="flex-1 flex">
+        {/* Sidebar - Desktop */}
+        <aside className="hidden md:flex flex-col w-64 shrink-0 border-r border-border bg-card p-4 gap-1">
+          {/* Stats mini */}
+          <div className="grid grid-cols-2 gap-2 mb-4">
+            {[
+              { label: "Total", value: sellers.length, icon: Users, color: "text-primary" },
+              { label: "Básico", value: totalByTier.basico, icon: Zap, color: "text-muted-foreground" },
+              { label: "Premium", value: totalByTier.premium, icon: Star, color: "text-amber-500" },
+              { label: "VIP", value: totalByTier.vip, icon: Crown, color: "text-purple-500" },
+            ].map((s) => (
+              <div key={s.label} className="bg-secondary rounded-xl p-2.5 text-center">
+                <s.icon size={14} className={`${s.color} mx-auto mb-0.5`} />
+                <p className="font-bold text-lg text-foreground leading-none">{s.value}</p>
+                <p className="text-[10px] text-muted-foreground">{s.label}</p>
               </div>
-              <p className="font-display font-bold text-2xl text-foreground">{s.value}</p>
-            </motion.div>
+            ))}
+          </div>
+
+          {/* Nav items */}
+          <nav className="space-y-1">
+            {sidebarItems.map((item) => (
+              <button
+                key={item.key}
+                onClick={() => setTab(item.key)}
+                className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all ${
+                  tab === item.key
+                    ? "bg-primary text-primary-foreground shadow-sm"
+                    : "text-muted-foreground hover:bg-secondary hover:text-foreground"
+                }`}
+              >
+                <item.icon size={18} />
+                <span className="flex-1 text-left">{item.label}</span>
+                {item.badge && item.badge > 0 && (
+                  <span className="bg-destructive text-destructive-foreground text-[10px] px-1.5 py-0.5 rounded-full font-bold">
+                    {item.badge}
+                  </span>
+                )}
+              </button>
+            ))}
+          </nav>
+        </aside>
+
+        {/* Mobile tabs */}
+        <div className="md:hidden flex gap-2 p-3 overflow-x-auto border-b border-border bg-card shrink-0">
+          {sidebarItems.map((item) => (
+            <button
+              key={item.key}
+              onClick={() => setTab(item.key)}
+              className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all ${
+                tab === item.key ? "bg-primary text-primary-foreground" : "bg-secondary text-secondary-foreground"
+              }`}
+            >
+              <item.icon size={14} />
+              {item.label}
+              {item.badge && item.badge > 0 && (
+                <span className="bg-destructive text-destructive-foreground text-[10px] px-1.5 py-0.5 rounded-full font-bold">
+                  {item.badge}
+                </span>
+              )}
+            </button>
           ))}
         </div>
 
-        {/* Tabs */}
-        <div className="flex gap-2 mb-4">
-          <button onClick={() => setTab("sellers")}
-            className={`px-4 py-2 rounded-xl text-sm font-semibold transition-all ${tab === "sellers" ? "bg-primary text-primary-foreground" : "bg-secondary text-secondary-foreground"}`}>
-            <Users size={14} className="inline mr-1" /> Vendedores
-          </button>
-          <button onClick={() => setTab("billing")}
-            className={`px-4 py-2 rounded-xl text-sm font-semibold transition-all ${tab === "billing" ? "bg-primary text-primary-foreground" : "bg-secondary text-secondary-foreground"}`}>
-            <DollarSign size={14} className="inline mr-1" /> Faturamento
-          </button>
-           <button onClick={() => setTab("domains")}
-            className={`px-4 py-2 rounded-xl text-sm font-semibold transition-all ${tab === "domains" ? "bg-primary text-primary-foreground" : "bg-secondary text-secondary-foreground"}`}>
-            <Globe size={14} className="inline mr-1" /> Domínios
-          </button>
-          <button onClick={() => setTab("ads")}
-            className={`px-4 py-2 rounded-xl text-sm font-semibold transition-all ${tab === "ads" ? "bg-primary text-primary-foreground" : "bg-secondary text-secondary-foreground"}`}>
-            <Megaphone size={14} className="inline mr-1" /> Solicitações ADS
-            {adRequests.filter(a => a.status === "pendente").length > 0 && (
-              <span className="ml-1.5 bg-destructive text-destructive-foreground text-[10px] px-1.5 py-0.5 rounded-full font-bold">
-                {adRequests.filter(a => a.status === "pendente").length}
-              </span>
-            )}
-          </button>
-        </div>
+        {/* Main content */}
+        <main className="flex-1 overflow-y-auto p-4 md:p-6 max-w-5xl">
 
         {/* Search */}
         {tab !== "domains" && (
@@ -566,6 +598,7 @@ export default function AdminPanel() {
             )}
           </div>
         )}
+        </main>
       </div>
     </div>
   );
