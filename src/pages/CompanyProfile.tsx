@@ -1,12 +1,14 @@
 import { useState, useMemo, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowLeft, Star, MapPin, MessageCircle, Share2, Key, Home, Building2, Landmark, Store, Warehouse, Car, Bike, Truck, Cog, MoreHorizontal, Image, Eye, Instagram } from "lucide-react";
+import { ArrowLeft, Star, MapPin, MessageCircle, Share2, Key, Home, Building2, Landmark, Store, Warehouse, Car, Bike, Truck, Cog, MoreHorizontal, Image, Eye, Instagram, Phone, ExternalLink } from "lucide-react";
 import { allCompanies } from "@/data/companies";
 import { getProductsByCompany, formatPrice, getTagStyle, getTagLabel } from "@/data/products";
 import { supabase } from "@/integrations/supabase/client";
 import { trackSellerEvent } from "@/hooks/useSellerAnalytics";
+import { useSellerSubscription } from "@/hooks/useSubscription";
 import MapEmbed from "@/components/MapEmbed";
+import PackageBadge from "@/components/PackageBadge";
 
 const propertySubcategories = [
   { slug: "todos", name: "Todos", icon: Store, img: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=300&h=200&fit=crop" },
@@ -28,7 +30,6 @@ const vehicleSubcategories = [
   { slug: "outros", name: "Outros", icon: MoreHorizontal, img: "https://images.unsplash.com/photo-1549317661-bd32c8ce0afa?w=300&h=200&fit=crop" },
 ];
 
-// Check if id is a UUID (database profile) vs static company id
 function isUUID(str: string) {
   return /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(str);
 }
@@ -41,9 +42,10 @@ export default function CompanyProfile() {
   const [loading, setLoading] = useState(true);
   const [isDbProfile, setIsDbProfile] = useState(false);
 
-  // Static company fallback
   const staticCompany = allCompanies.find((c) => c.id === id);
   const staticProducts = staticCompany ? getProductsByCompany(staticCompany.id) : [];
+
+  const sellerTier = useSellerSubscription(isDbProfile ? id : undefined);
 
   useEffect(() => {
     if (id && isUUID(id)) {
@@ -74,13 +76,11 @@ export default function CompanyProfile() {
     }
     setLoading(false);
 
-    // Track profile view
     if (profile) {
       trackSellerEvent(profileId, "view");
     }
   };
 
-  // Normalize data for rendering
   const company = isDbProfile
     ? dbProfile
       ? {
@@ -101,7 +101,6 @@ export default function CompanyProfile() {
   const isProperty = company?.segment === "imoveis";
   const subcategories = isProperty ? propertySubcategories : vehicleSubcategories;
 
-  // Map db items to display format
   const dbDisplayItems = dbItems.map((item) => ({
     id: item.id,
     title: item.title,
@@ -121,10 +120,19 @@ export default function CompanyProfile() {
     if (activeCategory === "todos") return products;
     return products.filter((p: any) => {
       if (isDbProfile) return p.category === activeCategory;
-      // static fallback uses classifyProduct logic — show all for simplicity
       return true;
     });
   }, [products, activeCategory, isDbProfile]);
+
+  // Count items per category
+  const categoryCounts = useMemo(() => {
+    const counts: Record<string, number> = { todos: products.length };
+    products.forEach((p: any) => {
+      const cat = isDbProfile ? p.category : "todos";
+      counts[cat] = (counts[cat] || 0) + 1;
+    });
+    return counts;
+  }, [products, isDbProfile]);
 
   if (loading) {
     return (
@@ -147,9 +155,13 @@ export default function CompanyProfile() {
   const heroProduct = featuredItemId
     ? products.find((p: any) => p.id === featuredItemId) || products[0]
     : products[0];
-  const whatsappUrl = (title: string) => {
+
+  const handleWhatsApp = (title: string) => {
     if (isDbProfile && id) trackSellerEvent(id, "whatsapp_click");
-    return `https://wa.me/${company.whatsapp}?text=${encodeURIComponent(`Olá ${company.name}! Tenho interesse: ${title}`)}`;
+    window.open(
+      `https://wa.me/${company.whatsapp}?text=${encodeURIComponent(`Olá ${company.name}! Tenho interesse: ${title}`)}`,
+      "_blank"
+    );
   };
 
   const gradientClass = isProperty
@@ -159,7 +171,7 @@ export default function CompanyProfile() {
   return (
     <div className="min-h-screen bg-background">
       {/* Netflix Hero Banner */}
-      <section className="relative h-[50vh] md:h-[65vh] overflow-hidden">
+      <section className="relative h-[45vh] md:h-[55vh] overflow-hidden">
         {heroProduct && heroProduct.image ? (
           <img src={heroProduct.image} alt={heroProduct.title} className="absolute inset-0 w-full h-full object-cover" />
         ) : (
@@ -174,8 +186,15 @@ export default function CompanyProfile() {
           </Link>
         </div>
 
+        {/* Tier Badge on hero */}
+        {sellerTier !== "basico" && (
+          <div className="absolute top-4 right-4 z-20">
+            <PackageBadge tier={sellerTier} size="lg" />
+          </div>
+        )}
+
         <div className="absolute bottom-0 left-0 right-0 p-6 md:p-12 z-10">
-          <div className="container max-w-6xl mx-auto">
+          <div className="container max-w-7xl mx-auto">
             <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="max-w-2xl">
               <div className="flex items-center gap-4 mb-4">
                 {company.logo ? (
@@ -186,7 +205,10 @@ export default function CompanyProfile() {
                   </div>
                 )}
                 <div>
-                  <h1 className="font-display font-bold text-2xl md:text-4xl text-white leading-tight">{company.name}</h1>
+                  <div className="flex items-center gap-3">
+                    <h1 className="font-display font-bold text-2xl md:text-4xl text-white leading-tight">{company.name}</h1>
+                    {sellerTier !== "basico" && <PackageBadge tier={sellerTier} size="md" />}
+                  </div>
                   <div className="flex items-center gap-3 mt-1">
                     {company.address && (
                       <div className="flex items-center gap-1 text-white/70 text-xs">
@@ -219,9 +241,9 @@ export default function CompanyProfile() {
                   </Link>
                 )}
                 {company.whatsapp && (
-                  <a href={whatsappUrl(heroProduct?.title || company.name)} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-[#25d366] to-[#128c7e] text-white font-bold text-sm hover:opacity-90 transition-opacity shadow-lg">
+                  <button onClick={() => handleWhatsApp(heroProduct?.title || company.name)} className="flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-[#25d366] to-[#128c7e] text-white font-bold text-sm hover:opacity-90 transition-opacity shadow-lg">
                     <MessageCircle size={18} /> WhatsApp
-                  </a>
+                  </button>
                 )}
                 {(company as any).instagram && (
                   <a
@@ -242,99 +264,205 @@ export default function CompanyProfile() {
         </div>
       </section>
 
-      {/* Category Carousel */}
-      <section className="container max-w-6xl mx-auto px-4 py-6">
-        <div className="flex gap-3 overflow-x-auto scrollbar-hide pb-2 snap-x snap-mandatory">
-          {subcategories.map((cat) => {
-            const Icon = cat.icon;
-            const isActive = activeCategory === cat.slug;
-            return (
-              <button
-                key={cat.slug}
-                onClick={() => setActiveCategory(cat.slug)}
-                className="flex-shrink-0 w-[120px] md:w-[150px] snap-start group"
-              >
-                <div className={`relative aspect-[3/2] rounded-2xl overflow-hidden transition-all duration-300 ${
-                  isActive
-                    ? "ring-2 ring-primary ring-offset-2 ring-offset-background shadow-xl"
-                    : "shadow-md hover:shadow-lg"
-                }`}>
-                  <img src={cat.img} alt={cat.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
-                  <div className={`absolute inset-0 transition-colors duration-300 ${
-                    isActive
-                      ? "bg-gradient-to-t from-primary/90 via-primary/40 to-transparent"
-                      : "bg-gradient-to-t from-black/70 via-black/20 to-transparent"
-                  }`} />
-                  <div className="absolute bottom-0 left-0 right-0 p-2.5 flex items-center gap-1.5">
-                    <Icon size={14} className="text-white" />
-                    <span className="text-white text-xs font-bold truncate">{cat.name}</span>
+      {/* Desktop: Sidebar + Content | Mobile: Normal flow */}
+      <div className="container max-w-7xl mx-auto px-4 py-6">
+        <div className="flex gap-6">
+          {/* Desktop Sidebar */}
+          <aside className="hidden lg:block w-[260px] flex-shrink-0">
+            <div className="sticky top-20 space-y-4">
+              {/* Company Card */}
+              <div className="bg-card border border-border rounded-2xl p-5">
+                <div className="flex items-center gap-3 mb-4">
+                  {company.logo ? (
+                    <img src={company.logo} alt={company.name} className="w-12 h-12 rounded-xl object-cover border border-border" />
+                  ) : (
+                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center border border-border">
+                      <span className="font-bold text-primary text-lg">{company.name?.charAt(0)}</span>
+                    </div>
+                  )}
+                  <div className="min-w-0">
+                    <p className="font-display font-bold text-foreground text-sm truncate">{company.name}</p>
+                    <p className="text-xs text-muted-foreground">{isProperty ? "Imobiliária" : "Revenda"}</p>
                   </div>
                 </div>
-              </button>
-            );
-          })}
-        </div>
-      </section>
 
-      {/* Products Grid */}
-      <section className="container max-w-6xl mx-auto px-4 pb-8">
-        <h2 className="font-display font-bold text-xl md:text-2xl text-foreground mb-6">
-          {activeCategory === "todos" ? `Todos os Anúncios (${filteredProducts.length})` : `${subcategories.find(c => c.slug === activeCategory)?.name} (${filteredProducts.length})`}
-        </h2>
+                {sellerTier !== "basico" && (
+                  <div className="mb-4">
+                    <PackageBadge tier={sellerTier} size="md" />
+                  </div>
+                )}
 
-        {filteredProducts.length > 0 ? (
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-            {filteredProducts.map((product: any, i: number) => {
-              const productLink = isDbProfile
-                ? `/${isProperty ? "imoveis" : "veiculos"}/produto/${product.id}`
-                : `/${isProperty ? "imoveis" : "veiculos"}/produto/${product.id}`;
+                {company.address && (
+                  <div className="flex items-start gap-2 text-xs text-muted-foreground mb-3">
+                    <MapPin size={13} className="mt-0.5 flex-shrink-0" />
+                    <span>{company.address}</span>
+                  </div>
+                )}
 
-              return (
-                <Link key={product.id} to={productLink}>
-                  <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.05 + i * 0.04 }} className="card-epic bg-card border border-border group rounded-2xl overflow-hidden">
-                    <div className="relative aspect-[4/3] overflow-hidden bg-muted">
-                      {product.image ? (
-                        <img src={product.image} alt={product.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
-                      ) : (
-                        <div className="w-full h-full flex items-center justify-center">
-                          <Image size={32} className="text-muted-foreground" />
+                <div className="space-y-2">
+                  {company.whatsapp && (
+                    <button
+                      onClick={() => handleWhatsApp(company.name)}
+                      className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-gradient-to-r from-[#25d366] to-[#128c7e] text-white font-bold text-xs hover:opacity-90 transition-opacity shadow-md"
+                    >
+                      <MessageCircle size={14} /> WhatsApp
+                    </button>
+                  )}
+                  {(company as any).instagram && (
+                    <a
+                      href={`https://instagram.com/${(company as any).instagram.replace(/^@/, "")}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-gradient-to-r from-[#833AB4] via-[#E1306C] to-[#F77737] text-white font-bold text-xs hover:opacity-90 transition-opacity shadow-md"
+                    >
+                      <Instagram size={14} /> Instagram
+                    </a>
+                  )}
+                </div>
+              </div>
+
+              {/* Category Navigation */}
+              <div className="bg-card border border-border rounded-2xl p-4">
+                <h3 className="font-display font-bold text-sm text-foreground mb-3">Categorias</h3>
+                <nav className="space-y-1">
+                  {subcategories.map((cat) => {
+                    const Icon = cat.icon;
+                    const isActive = activeCategory === cat.slug;
+                    const count = categoryCounts[cat.slug] || 0;
+                    return (
+                      <button
+                        key={cat.slug}
+                        onClick={() => setActiveCategory(cat.slug)}
+                        className={`w-full flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-xs font-medium transition-all ${
+                          isActive
+                            ? "bg-primary text-primary-foreground shadow-md"
+                            : "text-muted-foreground hover:text-foreground hover:bg-secondary"
+                        }`}
+                      >
+                        <Icon size={14} />
+                        <span className="flex-1 text-left">{cat.name}</span>
+                        {cat.slug === "todos" ? (
+                          <span className={`text-[10px] px-1.5 py-0.5 rounded-full ${isActive ? "bg-white/20" : "bg-muted"}`}>{products.length}</span>
+                        ) : count > 0 ? (
+                          <span className={`text-[10px] px-1.5 py-0.5 rounded-full ${isActive ? "bg-white/20" : "bg-muted"}`}>{count}</span>
+                        ) : null}
+                      </button>
+                    );
+                  })}
+                </nav>
+              </div>
+
+              {/* Stats */}
+              <div className="bg-card border border-border rounded-2xl p-4">
+                <h3 className="font-display font-bold text-sm text-foreground mb-2">Sobre</h3>
+                <div className="space-y-2 text-xs text-muted-foreground">
+                  <div className="flex justify-between">
+                    <span>Anúncios ativos</span>
+                    <span className="font-bold text-foreground">{products.length}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Segmento</span>
+                    <span className="font-bold text-foreground">{isProperty ? "Imóveis" : "Veículos"}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </aside>
+
+          {/* Main Content */}
+          <div className="flex-1 min-w-0">
+            {/* Mobile Category Carousel */}
+            <div className="lg:hidden mb-6">
+              <div className="flex gap-3 overflow-x-auto scrollbar-hide pb-2 snap-x snap-mandatory">
+                {subcategories.map((cat) => {
+                  const Icon = cat.icon;
+                  const isActive = activeCategory === cat.slug;
+                  return (
+                    <button
+                      key={cat.slug}
+                      onClick={() => setActiveCategory(cat.slug)}
+                      className="flex-shrink-0 w-[120px] snap-start group"
+                    >
+                      <div className={`relative aspect-[3/2] rounded-2xl overflow-hidden transition-all duration-300 ${
+                        isActive
+                          ? "ring-2 ring-primary ring-offset-2 ring-offset-background shadow-xl"
+                          : "shadow-md hover:shadow-lg"
+                      }`}>
+                        <img src={cat.img} alt={cat.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
+                        <div className={`absolute inset-0 transition-colors duration-300 ${
+                          isActive
+                            ? "bg-gradient-to-t from-primary/90 via-primary/40 to-transparent"
+                            : "bg-gradient-to-t from-black/70 via-black/20 to-transparent"
+                        }`} />
+                        <div className="absolute bottom-0 left-0 right-0 p-2.5 flex items-center gap-1.5">
+                          <Icon size={14} className="text-white" />
+                          <span className="text-white text-xs font-bold truncate">{cat.name}</span>
                         </div>
-                      )}
-                      {product.tag && (
-                        <span className={`absolute top-2 left-2 px-2 py-0.5 rounded-md text-[10px] font-bold shadow ${getTagStyle(product.tag)}`}>{getTagLabel(product.tag)}</span>
-                      )}
-                    </div>
-                    <div className="p-3">
-                      <h3 className="font-display font-semibold text-foreground text-sm leading-tight line-clamp-2">{product.title}</h3>
-                      {product.price > 0 && (
-                        <p className="font-display font-bold text-primary text-base mt-1.5">
-                          {isDbProfile
-                            ? `R$ ${product.price.toLocaleString("pt-BR")}`
-                            : formatPrice(product.price)}
-                        </p>
-                      )}
-                      {product.city && (
-                        <p className="text-xs text-muted-foreground mt-1 flex items-center gap-1">
-                          <MapPin size={10} /> {product.city}
-                        </p>
-                      )}
-                    </div>
-                  </motion.div>
-                </Link>
-              );
-            })}
+                      </div>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Products Header */}
+            <h2 className="font-display font-bold text-xl md:text-2xl text-foreground mb-6">
+              {activeCategory === "todos" ? `Todos os Anúncios (${filteredProducts.length})` : `${subcategories.find(c => c.slug === activeCategory)?.name} (${filteredProducts.length})`}
+            </h2>
+
+            {/* Products Grid */}
+            {filteredProducts.length > 0 ? (
+              <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {filteredProducts.map((product: any, i: number) => {
+                  const productLink = `/${isProperty ? "imoveis" : "veiculos"}/produto/${product.id}`;
+                  return (
+                    <Link key={product.id} to={productLink}>
+                      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.05 + i * 0.04 }} className="card-epic bg-card border border-border group rounded-2xl overflow-hidden">
+                        <div className="relative aspect-[4/3] overflow-hidden bg-muted">
+                          {product.image ? (
+                            <img src={product.image} alt={product.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
+                          ) : (
+                            <div className="w-full h-full flex items-center justify-center">
+                              <Image size={32} className="text-muted-foreground" />
+                            </div>
+                          )}
+                          {product.tag && (
+                            <span className={`absolute top-2 left-2 px-2 py-0.5 rounded-md text-[10px] font-bold shadow ${getTagStyle(product.tag)}`}>{getTagLabel(product.tag)}</span>
+                          )}
+                        </div>
+                        <div className="p-3">
+                          <h3 className="font-display font-semibold text-foreground text-sm leading-tight line-clamp-2">{product.title}</h3>
+                          {product.price > 0 && (
+                            <p className="font-display font-bold text-primary text-base mt-1.5">
+                              {isDbProfile
+                                ? `R$ ${product.price.toLocaleString("pt-BR")}`
+                                : formatPrice(product.price)}
+                            </p>
+                          )}
+                          {product.city && (
+                            <p className="text-xs text-muted-foreground mt-1 flex items-center gap-1">
+                              <MapPin size={10} /> {product.city}
+                            </p>
+                          )}
+                        </div>
+                      </motion.div>
+                    </Link>
+                  );
+                })}
+              </div>
+            ) : (
+              <div className="text-center py-20">
+                <p className="text-muted-foreground text-lg">Nenhum anúncio nesta categoria</p>
+                <button onClick={() => setActiveCategory("todos")} className="text-primary text-sm mt-2 hover:underline">Ver todos</button>
+              </div>
+            )}
           </div>
-        ) : (
-          <div className="text-center py-20">
-            <p className="text-muted-foreground text-lg">Nenhum anúncio nesta categoria</p>
-            <button onClick={() => setActiveCategory("todos")} className="text-primary text-sm mt-2 hover:underline">Ver todos</button>
-          </div>
-        )}
-      </section>
+        </div>
+      </div>
 
       {/* Company Location */}
       {company.address && (!isDbProfile || (company as any).show_location) && (
-        <section className="container max-w-6xl mx-auto px-4 pb-10">
+        <section className="container max-w-7xl mx-auto px-4 pb-10">
           <div className="rounded-2xl overflow-hidden border border-border bg-card">
             <div className="px-5 py-4 border-b border-border flex items-center gap-3">
               <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
