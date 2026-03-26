@@ -61,7 +61,7 @@ export default function SellerItemForm() {
   const { subscription, currentTier, config: pkgConfig, isExpired } = useSubscription(user?.id);
 
   const [sellerType, setSellerType] = useState<SellerType>("imoveis");
-  const [formState, setFormState] = useState("ES");
+  const { cities: stateCities, loading: citiesLoading } = useCitiesByState(form?.state || "ES");
   const [form, setForm] = useState({
     title: "",
     description: "",
