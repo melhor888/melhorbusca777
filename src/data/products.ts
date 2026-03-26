@@ -140,7 +140,7 @@ const vehicleProducts: Product[] = [
     image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600&h=400&fit=crop",
     images: ["https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800&h=500&fit=crop","https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=800&h=500&fit=crop"],
     description: "BMW 320i Sport GP com pacote M Sport, interior caramelo, teto solar panorâmico. Garantia de fábrica até 2025.",
-    specs: { "Marca": "BMW", "Modelo": "320i Sport GP", "Ano": "2022", "Km": "32.000 km", "Combustível": "Gasolina", "Câmbio": "Automático 8 marchas", "Motor": "2.0 Turbo", "Potência": "184 cv", "Tração": "Traseira", "Cidade": "São Paulo, SP" } },
+    specs: { "Marca": "BMW", "Modelo": "320i Sport GP", "Ano": "2022", "Km": "32.000 km", "Combustível": "Gasolina", "Câmbio": "Automático 8 marchas", "Cor": "Branco", "Motor": "2.0 Turbo", "Potência": "184 cv", "Tração": "Traseira", "Cidade": "São Paulo, SP" } },
   { id: "v-4", companyId: "emp-20", type: "veiculo", title: "VW T-Cross Highline 2024", price: 148000, tag: "Oferta",
     image: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=600&h=400&fit=crop",
     images: ["https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=800&h=500&fit=crop"],
