@@ -229,8 +229,8 @@ export default function CompanyProfile() {
               >
                 <div className={`relative aspect-[3/2] rounded-2xl overflow-hidden transition-all duration-300 ${
                   isActive
-                    ? "ring-2 ring-primary ring-offset-2 ring-offset-background shadow-xl scale-105"
-                    : "shadow-md hover:shadow-lg hover:scale-[1.03]"
+                    ? "ring-2 ring-primary ring-offset-2 ring-offset-background shadow-xl"
+                    : "shadow-md hover:shadow-lg"
                 }`}>
                   <img src={cat.img} alt={cat.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
                   <div className={`absolute inset-0 transition-colors duration-300 ${
