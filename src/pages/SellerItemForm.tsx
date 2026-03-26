@@ -68,6 +68,7 @@ export default function SellerItemForm() {
     state: "ES",
     neighborhood: "",
     address: "",
+    addressNumber: "",
     tags: [] as ItemTag[],
     photos: [] as string[],
     brand: "",
@@ -110,7 +111,8 @@ export default function SellerItemForm() {
               city: data.city || "",
               state: data.state || "ES",
               neighborhood: data.neighborhood || "",
-              address: data.address || "",
+              address: data.address?.replace(/,\s*\d+$/, '') || "",
+              addressNumber: data.address?.match(/,\s*(\d+)$/)?.[1] || "",
               tags: (data.tags as ItemTag[]) || [],
               photos: data.photos || [],
               brand: data.brand || "",
@@ -217,7 +219,7 @@ export default function SellerItemForm() {
       city: form.city || null,
       state: form.state || null,
       neighborhood: form.neighborhood || null,
-      address: form.address || null,
+      address: [form.address, form.addressNumber].filter(Boolean).join(", ") || null,
       tags: form.tags,
       photos: form.photos,
       brand: form.brand || null,
@@ -394,12 +396,20 @@ export default function SellerItemForm() {
             className="w-full px-4 py-3 rounded-xl border border-input bg-background text-foreground text-sm focus:ring-2 focus:ring-ring focus:outline-none"
             placeholder="Bairro"
           />
-          <input
-            value={form.address}
-            onChange={(e) => setForm((f) => ({ ...f, address: e.target.value }))}
-            className="w-full px-4 py-3 rounded-xl border border-input bg-background text-foreground text-sm focus:ring-2 focus:ring-ring focus:outline-none"
-            placeholder="Endereço completo"
-          />
+          <div className="grid grid-cols-3 gap-3">
+            <input
+              value={form.address}
+              onChange={(e) => setForm((f) => ({ ...f, address: e.target.value }))}
+              className="col-span-2 px-4 py-3 rounded-xl border border-input bg-background text-foreground text-sm focus:ring-2 focus:ring-ring focus:outline-none"
+              placeholder="Endereço (Rua, Av...)"
+            />
+            <input
+              value={form.addressNumber}
+              onChange={(e) => setForm((f) => ({ ...f, addressNumber: e.target.value }))}
+              className="px-4 py-3 rounded-xl border border-input bg-background text-foreground text-sm focus:ring-2 focus:ring-ring focus:outline-none"
+              placeholder="Número"
+            />
+          </div>
         </div>
 
         {/* Specific Fields */}
