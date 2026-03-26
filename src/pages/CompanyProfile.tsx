@@ -770,13 +770,13 @@ export default function CompanyProfile() {
                     <AnimatePresence mode="wait">
                       <motion.img
                         key={lbProduct.id}
-                        initial={{ opacity: 0, scale: 1.15, filter: "blur(8px) brightness(0.6)" }}
-                        animate={{ opacity: 1, scale: 1.04, filter: "blur(0px) brightness(1)" }}
-                        exit={{ opacity: 0, scale: 0.98, filter: "blur(4px) brightness(0.5)" }}
+                        initial={{ opacity: 0, filter: "blur(8px) brightness(0.6)" }}
+                        animate={{ opacity: 1, filter: "blur(0px) brightness(1)" }}
+                        exit={{ opacity: 0, filter: "blur(4px) brightness(0.5)" }}
                         transition={{ duration: 1.4, ease: [0.25, 0.46, 0.45, 0.94] }}
                         src={lbImg}
                         alt={lbProduct.title}
-                        className="absolute inset-0 w-full h-full object-cover animate-[kenburns_8s_ease-in-out_infinite_alternate]"
+                        className="absolute inset-[-20%] w-[140%] h-[140%] object-cover animate-[cinemapan_8s_ease-in-out_infinite_alternate]"
                       />
                     </AnimatePresence>
 
