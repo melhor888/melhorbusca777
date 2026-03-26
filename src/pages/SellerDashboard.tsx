@@ -252,9 +252,9 @@ export default function SellerDashboard() {
           {/* Mobile Tabs */}
           <div className="flex gap-2 mt-4">
             {sidebarNav.map((nav) => (
-              <button key={nav.id} onClick={() => setActiveTab(nav.id)}
-                className={`flex-1 flex items-center justify-center gap-1.5 py-2 rounded-xl text-xs font-semibold transition-all ${activeTab === nav.id ? "bg-white/25 text-white" : "text-white/60 hover:text-white/80"}`}>
-                <nav.icon size={14} /> {nav.label}
+              <button key={nav.id} onClick={() => handleTabClick(nav.id)}
+                className={`flex-1 flex items-center justify-center gap-1.5 py-2 rounded-xl text-xs font-semibold transition-all ${nav.locked ? "text-white/40" : activeTab === nav.id ? "bg-white/25 text-white" : "text-white/60 hover:text-white/80"}`}>
+                {nav.locked ? <Lock size={12} /> : <nav.icon size={14} />} {nav.label}
               </button>
             ))}
           </div>
@@ -287,9 +287,10 @@ export default function SellerDashboard() {
           {/* Nav */}
           <nav className="flex-1 p-3 space-y-1">
             {sidebarNav.map((nav) => (
-              <button key={nav.id} onClick={() => setActiveTab(nav.id)}
-                className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all ${activeTab === nav.id ? "bg-primary text-primary-foreground shadow-sm" : "text-muted-foreground hover:text-foreground hover:bg-secondary"}`}>
+              <button key={nav.id} onClick={() => handleTabClick(nav.id)}
+                className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all ${nav.locked ? "text-muted-foreground/50 cursor-not-allowed" : activeTab === nav.id ? "bg-primary text-primary-foreground shadow-sm" : "text-muted-foreground hover:text-foreground hover:bg-secondary"}`}>
                 <nav.icon size={18} /> {nav.label}
+                {nav.locked && <Lock size={14} className="ml-auto text-muted-foreground/50" />}
               </button>
             ))}
 
