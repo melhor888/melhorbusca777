@@ -145,9 +145,7 @@
   100% { transform: scale(1.08) translate(-1%, -1%); }
 }
 
-@keyframes cinemapan {
-  0% { transform: translate(0%, 0%) scale(1); }
-  30% { transform: translate(-8%, -2%) scale(1.02); }
-  60% { transform: translate(-15%, 1%) scale(1.04); }
-  100% { transform: translate(-20%, -1%) scale(1.06); }
+@keyframes zoomout {
+  0% { transform: scale(1.15); }
+  100% { transform: scale(1); }
 }
