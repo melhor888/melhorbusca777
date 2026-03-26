@@ -306,7 +306,7 @@ export default function CompanyProfile() {
       </section>
 
       {/* Company Location */}
-      {company.address && (
+      {company.address && (isDbProfile ? company.show_location : true) && (
         <section className="container max-w-6xl mx-auto px-4 pb-10">
           <div className="rounded-2xl overflow-hidden border border-border bg-card">
             <div className="px-5 py-4 border-b border-border flex items-center gap-3">
