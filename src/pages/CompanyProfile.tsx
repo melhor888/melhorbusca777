@@ -607,7 +607,120 @@ export default function CompanyProfile() {
         </div>
       </div>
 
-      {/* ═══════════ MOBILE: SOBRE A EMPRESA ═══════════ */}
+      {/* ═══════════ CINEMATIC GALLERY ═══════════ */}
+      {(() => {
+        const allPhotos = products
+          .flatMap((p: any) => (p.images?.length ? p.images : p.image ? [p.image] : []))
+          .filter(Boolean);
+        const uniquePhotos = [...new Set(allPhotos)].slice(0, 12);
+        if (uniquePhotos.length < 3) return null;
+
+        // Masonry-style heights
+        const heights = ["aspect-[4/5]", "aspect-square", "aspect-[3/4]", "aspect-[5/4]", "aspect-[4/3]", "aspect-[3/5]"];
+
+        return (
+          <section className="container max-w-7xl mx-auto px-4 py-8">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                <Image size={20} className="text-primary" />
+              </div>
+              <div>
+                <h2 className="font-display font-bold text-lg text-foreground">Galeria</h2>
+                <p className="text-xs text-muted-foreground">{uniquePhotos.length} fotos</p>
+              </div>
+            </div>
+
+            {/* Masonry Grid */}
+            <div className="columns-2 md:columns-3 lg:columns-4 gap-3 space-y-3">
+              {uniquePhotos.map((photo: string, i: number) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.6, delay: i * 0.08, ease: [0.25, 0.46, 0.45, 0.94] }}
+                  className="break-inside-avoid group cursor-pointer relative overflow-hidden rounded-2xl"
+                  onClick={() => setGalleryLightbox(i)}
+                >
+                  <div className={heights[i % heights.length]}>
+                    <img
+                      src={photo}
+                      alt={`Foto ${i + 1}`}
+                      className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-110"
+                      loading="lazy"
+                    />
+                  </div>
+                  {/* Cinematic overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out">
+                    <div className="flex items-center gap-2">
+                      <Eye size={14} className="text-white/80" />
+                      <span className="text-white/90 text-xs font-medium">Ver foto</span>
+                    </div>
+                  </div>
+                  {/* Top shine effect */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Lightbox */}
+            <AnimatePresence>
+              {galleryLightbox !== null && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  className="fixed inset-0 z-50 bg-black/95 backdrop-blur-xl flex items-center justify-center p-4"
+                  onClick={() => setGalleryLightbox(null)}
+                >
+                  {/* Close */}
+                  <button
+                    onClick={() => setGalleryLightbox(null)}
+                    className="absolute top-4 right-4 z-50 w-10 h-10 rounded-full bg-white/10 backdrop-blur flex items-center justify-center text-white hover:bg-white/20 transition-colors"
+                  >
+                    ✕
+                  </button>
+
+                  {/* Prev */}
+                  <button
+                    onClick={(e) => { e.stopPropagation(); setGalleryLightbox((prev) => (prev! - 1 + uniquePhotos.length) % uniquePhotos.length); }}
+                    className="absolute left-4 top-1/2 -translate-y-1/2 z-50 w-12 h-12 rounded-full bg-white/10 backdrop-blur flex items-center justify-center text-white hover:bg-white/20 transition-colors"
+                  >
+                    <ChevronLeft size={24} />
+                  </button>
+
+                  {/* Image */}
+                  <motion.img
+                    key={galleryLightbox}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.9 }}
+                    transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
+                    src={uniquePhotos[galleryLightbox]}
+                    alt=""
+                    className="max-w-[90vw] max-h-[85vh] object-contain rounded-lg shadow-2xl"
+                    onClick={(e) => e.stopPropagation()}
+                  />
+
+                  {/* Next */}
+                  <button
+                    onClick={(e) => { e.stopPropagation(); setGalleryLightbox((prev) => (prev! + 1) % uniquePhotos.length); }}
+                    className="absolute right-4 top-1/2 -translate-y-1/2 z-50 w-12 h-12 rounded-full bg-white/10 backdrop-blur flex items-center justify-center text-white hover:bg-white/20 transition-colors"
+                  >
+                    <ChevronRight size={24} />
+                  </button>
+
+                  {/* Counter */}
+                  <div className="absolute bottom-6 left-1/2 -translate-x-1/2 px-4 py-2 rounded-full bg-white/10 backdrop-blur text-white text-sm font-medium">
+                    {galleryLightbox + 1} / {uniquePhotos.length}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </section>
+        );
+      })()}
       <section className="lg:hidden px-4 mt-6 mb-6">
         <div className="container max-w-7xl mx-auto">
           <div className="bg-card border border-border rounded-2xl p-5">
