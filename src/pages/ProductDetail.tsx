@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowLeft, ChevronLeft, ChevronRight, MessageCircle, Share2, Star, MapPin, Tag, Store, Image } from "lucide-react";
-import { getProductById, formatPrice, getProductsByCompany, getTagStyle } from "@/data/products";
+import { getProductById, formatPrice, getProductsByCompany, getTagStyle, getTagLabel } from "@/data/products";
 import { allCompanies } from "@/data/companies";
 import { supabase } from "@/integrations/supabase/client";
 import MapEmbed from "@/components/MapEmbed";
@@ -161,7 +161,7 @@ export default function ProductDetail() {
         {tag && (
           <div className="absolute top-4 right-4 z-20">
             <span className={`px-3 py-1.5 rounded-lg text-xs font-bold shadow-lg ${getTagStyle(tag)}`}>
-              <Tag size={12} className="inline mr-1 mb-0.5" />{tag}
+              <Tag size={12} className="inline mr-1 mb-0.5" />{getTagLabel(tag)}
             </span>
           </div>
         )}

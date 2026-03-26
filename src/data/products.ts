@@ -250,6 +250,26 @@ export function formatPrice(price: number): string {
   return price.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
 }
 
+export function getTagLabel(tag: string): string {
+  const labels: Record<string, string> = {
+    premium: "Premium",
+    luxo: "Luxo",
+    prime: "Prime",
+    novo: "Novo",
+    em_destaque: "Em Destaque",
+    oferta: "Oferta",
+    exclusivo: "Exclusivo",
+    top: "Top",
+    limited: "Limited",
+    lancamento: "Lançamento",
+    pronto_para_morar: "Pronto p/ Morar",
+    cobertura: "Cobertura",
+    vista_panoramica: "Vista Panorâmica",
+    aluguel_flex: "Aluguel Flex",
+  };
+  return labels[tag] || tag;
+}
+
 export function getTagStyle(tag: string): string {
   const styles: Record<string, string> = {
     // Display labels

@@ -3,7 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowLeft, Star, MapPin, MessageCircle, Share2, Key, Home, Building2, Landmark, Store, Warehouse, Car, Bike, Truck, Cog, MoreHorizontal, Image } from "lucide-react";
 import { allCompanies } from "@/data/companies";
-import { getProductsByCompany, formatPrice, getTagStyle } from "@/data/products";
+import { getProductsByCompany, formatPrice, getTagStyle, getTagLabel } from "@/data/products";
 import { supabase } from "@/integrations/supabase/client";
 import MapEmbed from "@/components/MapEmbed";
 
@@ -274,7 +274,7 @@ export default function CompanyProfile() {
                         </div>
                       )}
                       {product.tag && (
-                        <span className={`absolute top-2 left-2 px-2 py-0.5 rounded-md text-[10px] font-bold shadow ${getTagStyle(product.tag)}`}>{product.tag}</span>
+                        <span className={`absolute top-2 left-2 px-2 py-0.5 rounded-md text-[10px] font-bold shadow ${getTagStyle(product.tag)}`}>{getTagLabel(product.tag)}</span>
                       )}
                     </div>
                     <div className="p-3">
