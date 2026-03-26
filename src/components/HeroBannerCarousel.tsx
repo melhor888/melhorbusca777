@@ -5,8 +5,22 @@ import { ArrowLeft, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { formatPrice } from "@/data/products";
 import type { RealItem, RealSeller } from "@/hooks/useRealListings";
 
+interface HeroItem {
+  id: string;
+  sellerTier?: string;
+  sellerId?: string;
+  companyId?: string;
+  city?: string;
+  location?: string;
+  title?: string;
+  description?: string;
+  price?: number;
+  image?: string;
+  images?: string[];
+}
+
 interface HeroBannerCarouselProps {
-  items: (RealItem & { sellerTier?: string })[];
+  items: HeroItem[];
   sellers: Record<string, { id: string; name: string; logo: string }>;
   type: "imoveis" | "veiculos";
   filterCity?: string;
@@ -38,13 +52,13 @@ export default function HeroBannerCarousel({
     if (filterCity) {
       const cityLower = filterCity.toLowerCase();
       filtered = filtered.filter(
-        (item) => item.city?.toLowerCase() === cityLower
+        (item) => (item.city || (item as any).location || "").toLowerCase() === cityLower
       );
     }
 
     // Shuffle
     const shuffled = [...filtered].sort(() => Math.random() - 0.5);
-    return shuffled.slice(0, 20); // max 20 for performance
+    return shuffled.slice(0, 20);
   }, [items, filterCity]);
 
   // Auto-rotate
@@ -62,7 +76,7 @@ export default function HeroBannerCarousel({
   }, [heroItems.length]);
 
   const currentItem = heroItems[activeIndex];
-  const currentSeller = currentItem ? sellers[currentItem.sellerId] : undefined;
+  const currentSeller = currentItem ? sellers[currentItem.sellerId || currentItem.companyId || ""] : undefined;
 
   const goNext = () => setActiveIndex((prev) => (prev + 1) % heroItems.length);
   const goPrev = () => setActiveIndex((prev) => (prev - 1 + heroItems.length) % heroItems.length);
@@ -85,7 +99,7 @@ export default function HeroBannerCarousel({
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.8 }}
-          src={currentItem?.images?.[0] || fallbackImage}
+          src={currentItem?.images?.[0] || currentItem?.image || fallbackImage}
           alt={currentItem?.title || ""}
           className="w-full h-full object-cover absolute inset-0"
         />
